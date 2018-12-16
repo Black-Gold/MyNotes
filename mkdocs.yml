@@ -1,15 +1,15 @@
 # Project information
 site_name: 'Material Design for MyNotes'
-site_description: 'A Material Design theme for MkDocs'
-site_author: 'Martin Donath'
-site_url: 'https://squidfunk.github.io/mkdocs-material/'
+site_description: 'A Material Design theme for MyNotes'
+site_author: 'Anonymous'
+site_url: 'https://19950128.com'
 
 # Repository
-repo_name: 'squidfunk/mkdocs-material'
-repo_url: 'https://github.com/squidfunk/mkdocs-material'
+repo_name: 'Black-Gold/MyNotes'
+repo_url: 'https://github.com/Black-Gold/MyNotes'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2017 Martin Donath'
+copyright: 'Copyright &copy; 2019- 2099 Martin Donath'
 
 # Configuration
 theme:
@@ -21,6 +21,8 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
+  logo:
+    icon:"logo.svg"
 
 # Customization
 
@@ -32,15 +34,13 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/Black-Gold'
-    - type: 'twitter'
-      link: ''
-    - type: 'linkedin'
-      link: ''
+    - type: 'Instagram'
+      link: 'https://www.instagram.com/black0gold/'
 
 # Google Analytics
-#google_analytics:
-#  - 'UA-XXXXXXXX-X'
-#  - 'auto'
+google_analytics:
+  - 'UA-131093963-1'
+  - 'auto'
 
 # Extensions
 markdown_extensions:
@@ -65,3 +65,45 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+pages:
+- Home: 'index.md'
+- LinuxCommandAll:
+#  - '#':'#'
+- AboutLinux:'docs/docs/AboutLinux.md'
+- Git:'docs/Git.md'
+- Vim:'docs/Vim.md'
+- BREs:'docs/BREs.md'
+- ShellNotes:'docs/ShellNotes.md'
+- Python3:'docs/python3.md'
+- Debian:'docs/Debian.md'
+- Iproute:'docs/iproute.md'
+- Docker:'docs/docker.md'
+- Ansible:'docs/ansible.md'
+- Nginx:'docs/Nginx.md'
+- Tomcat:'docs/Tomcat.md'
+- MySQL:'docs/MySQL.md'
+- Oracle:'docs/Oracle.md'
+- Redis:'docs/redis.md'
+- Memcached:'docs/memcached.md'
+- Vsftp:'docs/Vsftp.md'
+- DNS:'docs/DNS.md'
+- VPN:'docs/VPN.md'
+- Mail:'docs/Mail.md'
+- Samba:'docs/Samba.md'
+- PHP:'docs/PHP.md'
+- Shadowsocks:'docs/shadowsocks.md'
+- AD&FileSystem:'docs/docs/AD&FileSystem.md'
+- Raspberrypi:'docs/Raspberrypi.md'
+- GoogleTricks:'docs/GoogleTricks.md'
+- freeswitch:'docs/freeswitch.md'
+- Sipcode:'docs/sipcode.md'
+
+#- git:
+#    - 'git简介': 'versions/git_intro.md'
+#    - 'git操作': 'versions/git_oper.md'
+#    - 'git分支管理': 'versions/git_branch.md'
+#    - 'git工具': 'versions/git_tools.md'
+#    - 'git问题记录': 'versions/git_error.md'
+#    - 'git应用场景': 'versions/git_remark.md'
+#    - 'github': 'versions/github.md'
