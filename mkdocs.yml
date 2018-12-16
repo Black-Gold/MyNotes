@@ -1,0 +1,67 @@
+# Project information
+site_name: 'Material Design for MyNotes'
+site_description: 'A Material Design theme for MkDocs'
+site_author: 'Martin Donath'
+site_url: 'https://squidfunk.github.io/mkdocs-material/'
+
+# Repository
+repo_name: 'squidfunk/mkdocs-material'
+repo_url: 'https://github.com/squidfunk/mkdocs-material'
+
+# Copyright
+copyright: 'Copyright &copy; 2016 - 2017 Martin Donath'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'zh'
+  palette:
+    primary: 'green'
+    accent: 'light green'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+# Customization
+
+repo_name:'MyNotes'
+repo_url:'https://github.com/Black-Gold/MyNotes'
+
+extra:
+  manifest: 'manifest.webmanifest'
+  social:
+    - type: 'github'
+      link: 'https://github.com/Black-Gold'
+    - type: 'twitter'
+      link: ''
+    - type: 'linkedin'
+      link: ''
+
+# Google Analytics
+#google_analytics:
+#  - 'UA-XXXXXXXX-X'
+#  - 'auto'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
