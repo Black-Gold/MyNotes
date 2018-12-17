@@ -1,0 +1,1550 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A Material Design theme for MyNotes">
+      
+      
+      
+        <meta name="author" content="Anonymous">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>MySQL - Material Design for MyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../manifest.webmanifest">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#mysql" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Material Design for MyNotes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Material Design for MyNotes
+              </span>
+              <span class="md-header-nav__topic">
+                MySQL
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Black-Gold/black-gold.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Black-Gold/black-gold.github.io
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Material Design for MyNotes" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Material Design for MyNotes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Black-Gold/black-gold.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Black-Gold/black-gold.github.io
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Version Control
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Version Control
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Git/" title="Git" class="md-nav__link">
+      Git
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Vim/" title="Vim" class="md-nav__link">
+      Vim
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../BREs/" title="BREs" class="md-nav__link">
+      BREs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ShellNotes/" title="ShellNotes" class="md-nav__link">
+      ShellNotes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../python3/" title="Python3" class="md-nav__link">
+      Python3
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      AboutLinux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        AboutLinux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AboutLinux/" title="AboutLinux" class="md-nav__link">
+      AboutLinux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Debian/" title="Debian" class="md-nav__link">
+      Debian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iproute/" title="Iproute" class="md-nav__link">
+      Iproute
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      HTTP Server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        HTTP Server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nginx/" title="Nginx" class="md-nav__link">
+      Nginx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Apache.md" title="Apache" class="md-nav__link">
+      Apache
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ActiveMQ.md" title="ActiveMQ" class="md-nav__link">
+      ActiveMQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      HAProxy&Cache
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        HAProxy&Cache
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Haproxy.md" title="HAProxy" class="md-nav__link">
+      HAProxy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ansible/" title="Ansible" class="md-nav__link">
+      Ansible
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      CI&DC
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        CI&DC
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Jenkins.md" title="Jenkins" class="md-nav__link">
+      Jenkins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      FileSystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        FileSystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Ceph.md" title="Ceph" class="md-nav__link">
+      Ceph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vsftp/" title="Vsftp" class="md-nav__link">
+      Vsftp
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      Container
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        Container
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kubernetes.md" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OKD.md" title="Paas" class="md-nav__link">
+      Paas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Croreos.md" title="Container OS" class="md-nav__link">
+      Container OS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tomcat/" title="Tomcat" class="md-nav__link">
+      Tomcat
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" checked>
+    
+    <label class="md-nav__link" for="nav-15">
+      Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        MySQL
+      </label>
+    
+    <a href="./" title="MySQL" class="md-nav__link md-nav__link--active">
+      MySQL
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mysql_1" title="MySQL配置文件" class="md-nav__link">
+    MySQL配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql_2" title="MySQL慢日志" class="md-nav__link">
+    MySQL慢日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Oracle/" title="Oracle" class="md-nav__link">
+      Oracle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../redis/" title="Redis" class="md-nav__link">
+      Redis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../memcached/" title="Memcached" class="md-nav__link">
+      Memcached
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+    
+    <label class="md-nav__link" for="nav-16">
+      Monitor
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-16">
+        Monitor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Zabbix.md" title="Zabbix" class="md-nav__link">
+      Zabbix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios.md" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios.md" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prometheus.md" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Grafana.md" title="Grafana" class="md-nav__link">
+      Grafana
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Monitors.md" title="SomelseMonitors" class="md-nav__link">
+      SomelseMonitors
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      CrossGFW
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        CrossGFW
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../VPN/" title="VPN" class="md-nav__link">
+      VPN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../shadowsocks/" title="Shadowsocks" class="md-nav__link">
+      Shadowsocks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+    
+    <label class="md-nav__link" for="nav-18">
+      Others
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-18">
+        Others
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DNS/" title="DNS" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mail/" title="Mail" class="md-nav__link">
+      Mail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Samba/" title="Samba" class="md-nav__link">
+      Samba
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AD&FileSystem/" title="AD&FileSystem" class="md-nav__link">
+      AD&FileSystem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PHP/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
+      Raspberrypi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GoogleTricks/" title="GoogleTricks" class="md-nav__link">
+      GoogleTricks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../freeswitch/" title="freeswitch" class="md-nav__link">
+      freeswitch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sipcode/" title="Sipcode" class="md-nav__link">
+      Sipcode
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+    
+    <label class="md-nav__link" for="nav-19">
+      LinuxCommandAll
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-19">
+        LinuxCommandAll
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ab.md" title="ab" class="md-nav__link">
+      ab
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mysql_1" title="MySQL配置文件" class="md-nav__link">
+    MySQL配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mysql_2" title="MySQL慢日志" class="md-nav__link">
+    MySQL慢日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Black-Gold/black-gold.github.io/edit/master/docs/MySQL.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="mysql">MySQL安装<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span>
+</pre></div>
+
+<h2 id="mysql_1">MySQL配置文件<a class="headerlink" href="#mysql_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>[client]
+#password   = your_password
+port        = 3306
+socket        = /tmp/mysql.sock
+
+[mysqld]
+port        = 3306
+socket        = /tmp/mysql.sock
+datadir = /www/server/data
+default_storage_engine = MyISAM
+#skip-external-locking
+#loose-skip-innodb
+key_buffer_size = 8M
+max_allowed_packet = 100G
+table_open_cache = 32
+sort_buffer_size = 256K
+net_buffer_length = 4K
+read_buffer_size = 128K
+read_rnd_buffer_size = 256K
+myisam_sort_buffer_size = 4M
+thread_cache_size = 4
+query_cache_size = 4M
+tmp_table_size = 8M
+
+#skip-networking
+#skip-name-resolve
+max_connections = 500
+max_connect_errors = 100
+open_files_limit = 65535
+
+log-bin=mysql-bin
+binlog_format=mixed
+server-id   = 1
+expire_logs_days = 10
+
+default_storage_engine = InnoDB
+innodb_data_home_dir = /www/server/data
+innodb_data_file_path = ibdata1:10M:autoextend
+innodb_log_group_home_dir = /www/server/data
+innodb_buffer_pool_size = 16M
+innodb_additional_mem_pool_size = 2M
+innodb_log_file_size = 5M
+innodb_log_buffer_size = 8M
+innodb_flush_log_at_trx_commit = 1
+innodb_lock_wait_timeout = 50
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+
+[mysql]
+no-auto-rehash
+
+[myisamchk]
+key_buffer_size = 20M
+sort_buffer_size = 20M
+read_buffer = 2M
+write_buffer = 2M
+
+[mysqlhotcopy]
+interactive-timeout
+</pre></div>
+
+<h3 id="mysql_2">MySQL慢日志<a class="headerlink" href="#mysql_2" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="err">慢日志开启方式和存储格式：</span>
+<span class="err">前期准备</span><span class="o">-</span><span class="err">查询未使用索引的查询：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;%log_queri%&#39;</span><span class="p">;</span>
+<span class="err">记录未使用索引的查询：</span><span class="k">set</span> <span class="k">global</span> <span class="n">log_queries_not_using_indexes</span><span class="o">=</span><span class="k">on</span><span class="p">;</span>
+<span class="err">查询慢日志开启状态：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;slow_query_log&#39;</span><span class="p">;</span>
+<span class="err">开启慢日志：</span><span class="k">set</span> <span class="k">global</span> <span class="n">slow_query_log</span><span class="o">=</span><span class="k">on</span><span class="p">;</span>
+<span class="err">把大于</span><span class="mi">10</span><span class="err">毫秒的查询记录到日志里：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;long_query_time&#39;</span><span class="p">;</span>
+<span class="err">查看慢日志位置：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;slow_query_log_file%&#39;</span><span class="p">;</span>
+<span class="err">查看</span><span class="n">mysql</span><span class="err">各内存的分配情况：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;innodb_%_size&#39;</span><span class="p">;</span>
+<span class="err">查看</span><span class="n">innodb_buffer_pool</span><span class="err">的运行状态：</span><span class="k">show</span> <span class="n">engine</span> <span class="n">innodb</span> <span class="n">status</span><span class="p">;</span>
+<span class="err">通过语句查看</span><span class="n">MySQL</span><span class="err">数据储存位置：</span><span class="k">show</span> <span class="k">global</span> <span class="n">variables</span> <span class="k">like</span> <span class="ss">&quot;%datadir%&quot;</span><span class="p">;</span>
+<span class="err">为了防止查询缓存经常被掏空</span><span class="p">(</span><span class="n">Potentially</span> <span class="n">Undersized</span><span class="p">)</span><span class="err">，最好是修改系统变量，改变变量之前，先查看变量声</span>
+<span class="err">明的当前值：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;query_cache%&#39;</span><span class="p">;</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="err">授权用户从远程登录</span><span class="p">:</span>
+<span class="mi">1</span><span class="err">、改表法。可能是你的帐号不允许从远程登陆，只能在</span><span class="n">localhost</span><span class="err">。这个时候只要在</span><span class="n">localhost</span><span class="err">的那台电脑，登</span>
+<span class="err">入</span><span class="n">mysql</span><span class="err">后，更改</span> <span class="ss">&quot;mysql&quot;</span> <span class="err">数据库里的</span> <span class="ss">&quot;user&quot;</span> <span class="err">表里的</span> <span class="ss">&quot;host&quot;</span> <span class="err">项，从</span><span class="ss">&quot;localhost&quot;</span><span class="err">改称</span><span class="ss">&quot;%&quot;</span>
+<span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">pvmware</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">mysql</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="k">update</span> <span class="k">user</span> <span class="k">set</span> <span class="k">host</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span> <span class="k">where</span> <span class="k">user</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="k">select</span> <span class="k">host</span><span class="p">,</span> <span class="k">user</span> <span class="k">from</span> <span class="k">user</span><span class="p">;</span>
+<span class="mi">2</span><span class="err">、授权法。例如，你想</span><span class="n">myuser</span><span class="err">使用</span><span class="n">mypassword</span><span class="err">从任何主机连接到</span><span class="n">mysql</span><span class="err">服务器的话。</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;myuser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;mypassword&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
+<span class="err">如果你想允许用户</span><span class="n">myuser</span><span class="err">从</span><span class="n">ip</span><span class="err">为</span><span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">3</span><span class="err">的主机连接到</span><span class="n">mysql</span><span class="err">服务器，并使用</span><span class="n">mypassword</span><span class="err">作为密码</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;myuser&#39;</span><span class="o">@</span><span class="s1">&#39;192.168.1.3&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;mypassword&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span>
+<span class="k">OPTION</span><span class="p">;</span>
+<span class="err">【下面这一句一定要执行，否则还是无法登陆】</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="n">flush</span> <span class="k">privileges</span> <span class="p">;</span>
+<span class="err">如果</span><span class="n">root</span><span class="err">用户无法从本地登陆，这个时候就执行如下</span>
+<span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;root&#39;</span><span class="o">@</span><span class="s1">&#39;localhost.localdomain&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;密码&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span>
+<span class="k">OPTION</span><span class="p">;</span>
+<span class="err">查看查询缓存系统属性：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;%_cache_%&#39;</span><span class="p">;</span>
+<span class="err">设置查询缓存类型：</span><span class="n">query_cache_type</span>
+<span class="mi">0</span><span class="err">或</span><span class="k">OFF</span><span class="err">：不启动缓存查询结果。</span>
+<span class="mi">1</span><span class="err">或</span><span class="k">ON</span><span class="err">：缓存除了以</span><span class="k">SELECT</span> <span class="n">SQL_NO_CACHE</span><span class="err">开头的所有查询结果。</span>
+<span class="mi">2</span><span class="err">或</span><span class="n">DEMAND</span><span class="err">：只缓存以</span><span class="k">SELECT</span> <span class="n">SQL_NO_CACHE</span><span class="err">开头的查询结果。</span>
+<span class="err">不缓存大于该值的结果。默认值是</span><span class="mi">1048576</span><span class="p">(</span><span class="mi">1</span><span class="n">MB</span><span class="p">)</span><span class="err">。：</span><span class="n">query_cache_limit</span>
+<span class="err">缓存查询结果分配的内存的数量。默认值是</span><span class="mi">0</span><span class="err">，即禁用查询缓存。：</span><span class="n">query_cache_size</span>
+<span class="err">查询缓存分配的最小块的大小</span><span class="p">(</span><span class="err">字节</span><span class="p">)</span><span class="err">。</span> <span class="err">默认值是</span><span class="mi">4096</span><span class="p">(</span><span class="mi">4</span><span class="n">KB</span><span class="p">)</span><span class="err">。：</span><span class="n">query_cache_min_res_unit</span>
+<span class="n">query_cache_wlock_invalidate</span>
+<span class="mi">0</span><span class="err">或</span><span class="k">OFF</span><span class="err">：当查询结果位于查询缓存中，客户端对</span><span class="n">MyISAM</span><span class="err">（默认存储引擎）表进行</span><span class="k">WRITE</span><span class="err">锁定时，其他客</span>
+<span class="err">户端可以对该表查询。</span>
+<span class="mi">1</span><span class="err">或</span><span class="k">ON</span><span class="err">：锁定生效时，查询缓存内所有对该表进行的查询变得非法，强制访问该表的其他客户端进行等</span>
+<span class="err">待。</span>
+<span class="err">查看最大连接数：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;%CONNECTION%&#39;</span><span class="p">;</span>
+<span class="n">MySQL</span><span class="err">建表语句大全</span>
+<span class="mi">1</span><span class="p">.</span> <span class="err">创建表（含有约束）</span>
+<span class="cm">/**创建组表**/</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">t_group</span><span class="p">(</span>
+<span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">auto_increment</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+<span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="n">value</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span><span class="n">engine</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">default</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+<span class="cm">/**创建用户表**/</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">t_user</span><span class="p">(</span>
+<span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">auto_increment</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>
+<span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">unique</span><span class="p">,</span>
+<span class="n">value</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">default</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+<span class="n">email</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+<span class="n">sex</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">check</span><span class="p">(</span><span class="n">user_sex</span><span class="o">=</span><span class="mi">1</span> <span class="k">or</span> <span class="n">user_sex</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+<span class="n">group_id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+<span class="n">create_time</span> <span class="k">timestamp</span><span class="p">,</span>
+<span class="k">constraint</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span> <span class="k">references</span> <span class="n">t_group</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">on</span> <span class="k">delete</span> <span class="k">cascade</span>
+<span class="p">)</span><span class="n">engine</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">default</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+<span class="cm">/**查看表信息**/</span>
+<span class="k">desc</span> <span class="n">t_group</span><span class="p">;</span>
+<span class="k">show</span> <span class="k">create</span> <span class="k">table</span> <span class="n">t_group</span><span class="p">;</span>
+<span class="k">desc</span> <span class="n">t_user</span><span class="p">;</span>
+<span class="k">show</span> <span class="k">create</span> <span class="k">table</span> <span class="n">t_user</span><span class="p">;</span>
+<span class="err">自动增长：</span><span class="n">auto_increment</span> <span class="err">创建主键：</span><span class="k">primary</span> <span class="k">key</span> <span class="err">唯一约束</span><span class="p">:</span> <span class="k">unique</span> <span class="err">非空约束：</span><span class="k">not</span> <span class="k">null</span>
+<span class="err">检查约束</span><span class="p">:</span> <span class="k">check</span><span class="p">(</span><span class="n">user_sex</span><span class="o">=</span><span class="mi">1</span> <span class="k">or</span> <span class="n">user_sex</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="err">创建外键：</span><span class="k">constraint</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span> <span class="k">references</span> <span class="n">t_group</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">on</span> <span class="k">delete</span> <span class="k">cascade</span>
+<span class="mi">2</span><span class="err">、创建表（不含约束）</span>
+<span class="cm">/**创建组表**/</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">t_group</span><span class="p">(</span>
+<span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+<span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="n">value</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">)</span><span class="n">engine</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">default</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+<span class="cm">/**创建用户表**/</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">t_user</span><span class="p">(</span>
+<span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+<span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="n">value</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">default</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+<span class="n">email</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">sex</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="n">group_id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+<span class="n">create_time</span> <span class="k">timestamp</span>
+<span class="p">)</span><span class="n">engine</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">default</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+<span class="cm">/**查看表信息**/</span>
+<span class="k">desc</span> <span class="n">t_group</span><span class="p">;</span>
+<span class="k">show</span> <span class="k">create</span> <span class="k">table</span> <span class="n">t_group</span><span class="p">;</span>
+<span class="k">desc</span> <span class="n">t_user</span><span class="p">;</span>
+<span class="k">show</span> <span class="k">create</span> <span class="k">table</span> <span class="n">t_user</span><span class="p">;</span>
+<span class="mi">3</span><span class="p">.</span> <span class="err">创建约束</span>
+<span class="cm">/**创建主键约束**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_group</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">group_id_pk</span> <span class="k">primary</span> <span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">user_id_pk</span> <span class="k">primary</span> <span class="k">key</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="cm">/**自动增长**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_group</span> <span class="k">modify</span> <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">auto_increment</span><span class="p">;</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">modify</span> <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">auto_increment</span><span class="p">;</span>
+<span class="cm">/**创建外键约束**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">user_group_id_fk</span> <span class="k">foreign</span> <span class="k">key</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span> <span class="k">references</span> <span class="n">t_group</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="cm">/**创建唯一约束**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_group</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">group_name_uk</span> <span class="k">unique</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">user_name_uk</span> <span class="k">unique</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="cm">/**创建非空约束**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">user_email_nk</span> <span class="k">check</span><span class="p">(</span><span class="n">email</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span><span class="p">);</span>
+<span class="cm">/**创建检查约束**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">user_gender_ck</span> <span class="k">check</span><span class="p">(</span><span class="n">user_sex</span><span class="o">=</span><span class="mi">1</span> <span class="k">or</span> <span class="n">user_sex</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<span class="mi">4</span><span class="p">.</span> <span class="err">删除约束</span>
+<span class="cm">/**删除唯一约束**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">drop</span> <span class="k">unique</span> <span class="k">key</span> <span class="n">user_name_uk</span><span class="p">;</span>
+<span class="cm">/**删除外键约束**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">drop</span> <span class="k">foreign</span> <span class="k">key</span> <span class="n">user_group_id_fk</span><span class="p">;</span>
+<span class="mi">5</span><span class="p">.</span> <span class="err">修改表字段</span>
+<span class="cm">/**增加字段**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_group</span> <span class="k">add</span> <span class="n">description</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">add</span> <span class="n">description</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>
+<span class="cm">/**修改字段**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_group</span> <span class="k">modify</span> <span class="n">description</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">modify</span> <span class="n">description</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="cm">/**删除字段**/</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_group</span> <span class="k">drop</span> <span class="n">description</span><span class="p">;</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">t_user</span> <span class="k">drop</span> <span class="n">description</span><span class="p">;</span>
+<span class="mi">6</span><span class="p">.</span><span class="err">删除表</span>
+<span class="k">drop</span> <span class="k">table</span> <span class="n">t_user</span><span class="p">;</span>
+<span class="k">drop</span> <span class="k">table</span> <span class="n">t_group</span><span class="p">;</span>
+
+
+
+<span class="o">```</span><span class="k">sql</span>
+
+<span class="n">MySQL</span><span class="err">数据库备份和还原的常用命令</span>
+
+<span class="err">备份</span><span class="n">MySQL</span><span class="err">数据库的命令</span>
+
+<span class="n">mysqldump</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">&gt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span>
+
+<span class="err">备份</span><span class="n">MySQL</span><span class="err">数据库为带删除表的格式</span>
+<span class="err">备份</span><span class="n">MySQL</span><span class="err">数据库为带删除表的格式，能够让该备份覆盖已有数据库而不需要手动删除原有数据库。</span>
+
+<span class="n">mysqldump</span> <span class="o">-</span><span class="err">–</span><span class="k">add</span><span class="o">-</span><span class="k">drop</span><span class="o">-</span><span class="k">table</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">&gt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span>
+
+<span class="err">直接将</span><span class="n">MySQL</span><span class="err">数据库压缩备份</span>
+
+<span class="n">mysqldump</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">|</span> <span class="n">gzip</span> <span class="o">&gt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="n">gz</span>
+
+<span class="err">备份</span><span class="n">MySQL</span><span class="err">数据库某个</span><span class="p">(</span><span class="err">些</span><span class="p">)</span><span class="err">表</span>
+
+<span class="n">mysqldump</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="n">specific_table1</span> <span class="n">specific_table2</span> <span class="o">&gt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span>
+
+<span class="err">同时备份多个</span><span class="n">MySQL</span><span class="err">数据库</span>
+
+<span class="n">mysqldump</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="err">–</span><span class="n">databases</span> <span class="n">databasename1</span> <span class="n">databasename2</span> <span class="n">databasename3</span> <span class="o">&gt;</span> <span class="n">multibackupfile</span><span class="p">.</span><span class="k">sql</span>
+
+<span class="err">仅仅备份数据库结构</span>
+
+<span class="n">mysqldump</span> <span class="err">–</span><span class="k">no</span><span class="o">-</span><span class="k">data</span> <span class="err">–</span><span class="n">databases</span> <span class="n">databasename1</span> <span class="n">databasename2</span> <span class="n">databasename3</span> <span class="o">&gt;</span> <span class="n">structurebackupfile</span><span class="p">.</span><span class="k">sql</span>
+
+<span class="err">备份服务器上所有数据库</span>
+
+<span class="n">mysqldump</span> <span class="err">–</span><span class="k">all</span><span class="o">-</span><span class="n">databases</span> <span class="o">&gt;</span> <span class="n">allbackupfile</span><span class="p">.</span><span class="k">sql</span>
+
+<span class="err">还原</span><span class="n">MySQL</span><span class="err">数据库的命令</span>
+
+<span class="n">mysql</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">&lt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span>
+
+<span class="err">还原压缩的</span><span class="n">MySQL</span><span class="err">数据库</span>
+
+<span class="n">gunzip</span> <span class="o">&lt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="n">gz</span> <span class="o">|</span> <span class="n">mysql</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span>
+
+<span class="err">将数据库转移到新服务器</span>
+
+<span class="n">mysqldump</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">|</span> <span class="n">mysql</span> <span class="err">–</span><span class="k">host</span><span class="o">=*</span><span class="p">.</span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="o">-</span><span class="k">C</span> <span class="n">databasename</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Tomcat/" title="Tomcat" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Tomcat
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Oracle/" title="Oracle" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Oracle
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Black-Gold" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://www.instagram.com/black0gold/" class="md-footer-social__link fa fa-Instagram"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

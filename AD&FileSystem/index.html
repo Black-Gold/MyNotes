@@ -1,0 +1,1798 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A Material Design theme for MyNotes">
+      
+      
+      
+        <meta name="author" content="Anonymous">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>AD&FileSystem - Material Design for MyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../manifest.webmanifest">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#smbconf" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Material Design for MyNotes" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Material Design for MyNotes
+              </span>
+              <span class="md-header-nav__topic">
+                AD&FileSystem
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Black-Gold/black-gold.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Black-Gold/black-gold.github.io
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Material Design for MyNotes" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Material Design for MyNotes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Black-Gold/black-gold.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Black-Gold/black-gold.github.io
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Version Control
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Version Control
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Git/" title="Git" class="md-nav__link">
+      Git
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Vim/" title="Vim" class="md-nav__link">
+      Vim
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../BREs/" title="BREs" class="md-nav__link">
+      BREs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ShellNotes/" title="ShellNotes" class="md-nav__link">
+      ShellNotes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../python3/" title="Python3" class="md-nav__link">
+      Python3
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      AboutLinux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        AboutLinux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AboutLinux/" title="AboutLinux" class="md-nav__link">
+      AboutLinux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Debian/" title="Debian" class="md-nav__link">
+      Debian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../iproute/" title="Iproute" class="md-nav__link">
+      Iproute
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      HTTP Server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        HTTP Server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nginx/" title="Nginx" class="md-nav__link">
+      Nginx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Apache.md" title="Apache" class="md-nav__link">
+      Apache
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ActiveMQ.md" title="ActiveMQ" class="md-nav__link">
+      ActiveMQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      HAProxy&Cache
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        HAProxy&Cache
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Haproxy.md" title="HAProxy" class="md-nav__link">
+      HAProxy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../ansible/" title="Ansible" class="md-nav__link">
+      Ansible
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      CI&DC
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        CI&DC
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Jenkins.md" title="Jenkins" class="md-nav__link">
+      Jenkins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      FileSystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        FileSystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Ceph.md" title="Ceph" class="md-nav__link">
+      Ceph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vsftp/" title="Vsftp" class="md-nav__link">
+      Vsftp
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      Container
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        Container
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kubernetes.md" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OKD.md" title="Paas" class="md-nav__link">
+      Paas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Croreos.md" title="Container OS" class="md-nav__link">
+      Container OS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tomcat/" title="Tomcat" class="md-nav__link">
+      Tomcat
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MySQL/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Oracle/" title="Oracle" class="md-nav__link">
+      Oracle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../redis/" title="Redis" class="md-nav__link">
+      Redis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../memcached/" title="Memcached" class="md-nav__link">
+      Memcached
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+    
+    <label class="md-nav__link" for="nav-16">
+      Monitor
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-16">
+        Monitor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Zabbix.md" title="Zabbix" class="md-nav__link">
+      Zabbix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios.md" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios.md" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prometheus.md" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Grafana.md" title="Grafana" class="md-nav__link">
+      Grafana
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Monitors.md" title="SomelseMonitors" class="md-nav__link">
+      SomelseMonitors
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      CrossGFW
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        CrossGFW
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../VPN/" title="VPN" class="md-nav__link">
+      VPN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../shadowsocks/" title="Shadowsocks" class="md-nav__link">
+      Shadowsocks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18" checked>
+    
+    <label class="md-nav__link" for="nav-18">
+      Others
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-18">
+        Others
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DNS/" title="DNS" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mail/" title="Mail" class="md-nav__link">
+      Mail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Samba/" title="Samba" class="md-nav__link">
+      Samba
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        AD&FileSystem
+      </label>
+    
+    <a href="./" title="AD&FileSystem" class="md-nav__link md-nav__link--active">
+      AD&FileSystem
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="基本概念" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PHP/" title="PHP" class="md-nav__link">
+      PHP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
+      Raspberrypi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GoogleTricks/" title="GoogleTricks" class="md-nav__link">
+      GoogleTricks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../freeswitch/" title="freeswitch" class="md-nav__link">
+      freeswitch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sipcode/" title="Sipcode" class="md-nav__link">
+      Sipcode
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+    
+    <label class="md-nav__link" for="nav-19">
+      LinuxCommandAll
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-19">
+        LinuxCommandAll
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ab.md" title="ab" class="md-nav__link">
+      ab
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="基本概念" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Black-Gold/black-gold.github.io/edit/master/docs/AD&FileSystem.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 style="text-align:center">SAMBA域控加WINDOWS管理</h1>
+
+<!--CreateTime：2018-2-6-->
+
+<!--UpdateTime：2018-2-6-->
+
+<blockquote>
+<p>平台</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>主机：Sony CPCSA26GG，I7-2620M,内存8G，128G SSD。BIOS开启CPU硬件虚拟化支持。
+主机系统：WIN7 X64 旗舰版+Oracle Virtualbox 4.3.12，VB host-only 网卡IP设置192.168.6.1。
+客户机：CentOS7 x86_64 7.0 最小化安装，不带桌面环境，IP设置192.168.6.3。
+</pre></div>
+
+<blockquote>
+<p>安装</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>先配置用光盘做源来安装development tools，也可以虚机设置两块网卡，一块桥接笔记本网卡连互联网直接yum。 注意，用双网卡的话，SAMBA产生的DNS文件会使用连互联网的网卡，要自己修改。
+cd /etc/yum.repos.d/
+mv CentOS-Base.repo base.repo.bak
+mv CentOS-Sources.repo source.repo.bak
+vi media.repo
+[DVD]
+name=CentOS Media
+baseurl=file:///media/cdrom
+gpgcheck=0
+enabled=1
+</pre></div>
+
+
+<p>:wq保存退出。然后建立光盘挂载目录：</p>
+<div class="codehilite"><pre><span></span>mkdir /media/cdrom
+mount /dev/cdrom /media/cdrom
+mount: /dev/sr0 写保护，将以只读方式挂载
+</pre></div>
+
+
+<p>安装development tools：</p>
+<div class="codehilite"><pre><span></span>yum -y groupinstall &quot;development tools&quot;
+</pre></div>
+
+
+<p>安装一下samba需要的组件，libacl-devel最重要，BIND9也一起用光盘里的RPM包安装。</p>
+<div class="codehilite"><pre><span></span>yum -y install libacl-devel libblkid-devel gnutls-devel readline-devel python-devel bind autoconf gdb rsyslog-gssapi cyrus-sasl-gssapi
+</pre></div>
+
+
+<p>把SAMBA源码包下载，然后通过SecureFX或者winscp上传到/tmp目录下，编译之前需要先从光盘安装python-devel.否则configure报错。 注意不能用光盘自带的RPM包安装samba，虽然有samba-dc的包，安装后测试没有samba-tools来配置域控</p>
+<p>rpm -ivh /media/cdrom/Packages/python-devel-2.7.5-16.el7.x86_64.rpm</p>
+<div class="codehilite"><pre><span></span>tar -zxvf samba-latest.tar.gz
+
+解压之后先要运行autogen-waf.sh，否则./configure提示没有./buildtools/bin/waf文件或者目录:
+./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install
+</pre></div>
+
+
+<blockquote>
+<p>配置</p>
+</blockquote>
+<p>修改主机名为DC1，把FQDN完全域名写上，好处是等下提升为域控免输域名了。</p>
+<div class="codehilite"><pre><span></span>vi /etc/hostname
+DC1.contoso.com
+</pre></div>
+
+
+<p>关机给虚拟机做快照，配置出错随时回滚，节约编译安装时间</p>
+<p>重新开机登录系统，配置域控</p>
+<div class="codehilite"><pre><span></span>cd /usr/local/samba/bin
+[root@DC1 bin]# ./samba-tool domain provision
+Realm [CONTOSO.COM]: 
+ Domain [CONTOSO]: 
+ Server Role (dc, member, standalone) [dc]: 
+ DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) [SAMBA_INTERNAL]: BIND9_FLATFILE  #这里选的BIND9，也可以默认用自带的DNS
+Administrator password: 输入域控管理员密码，密码一定要复杂，大小写字母+数字，如Ab123456&amp;
+Retype password: 再输入一遍Ab123456&amp;
+Looking up IPv4 addresses
+More than one IPv4 address found. Using 192.168.6.3
+Looki 6 address will be assigned
+Setting up secrets.ldb
+Setting up the registry
+Setting up the privileges database
+Setting up idmap db
+Setting up sam.ldb partitions and settings
+Setting up sam.ldb rootDSE
+Pre-loading the Samba 4 and AD schema
+Adding DomainDN: DC=contoso,DC=com
+Adding configuration container
+Setting up sam.ldb schema
+Setting up sam.ldb configuration data
+Setting up display specifiers
+Modifying display specifiers
+Adding users container
+Modifying users container
+Adding computers container
+Modifying computers container
+Setting up sam.ldb data
+Setting up well known security principals
+Setting up sam.ldb users and groups
+Setting up self join
+Adding DNS accounts
+Creating CN=MicrosoftDNS,CN=System,DC=contoso,DC=com
+rndc: neither /etc/rndc.conf nor /etc/rndc.key was found
+rndc: neither /etc/rndc.conf nor /etc/rndc.key was found
+See /usr/local/samba/private/named.conf for an example configuration include file for BIND
+and /usr/local/samba/private/named.txt for further documentation required for secure DNS updates
+Setting up sam.ldb rootDSE marking as synchronized
+Fixing provision GUIDs
+A Kerberos configuration suitable for Samba 4 has been generated at /usr/local/samba/private/krb5.conf
+O nce the above files are installed, your Samba4 server will be ready to use
+Server Role:           active directory domain controller
+Hostname:              DC1
+NetBIOS Domain:        CONTOSO
+DNS Domain:            contoso.com
+DOMAIN SID:            S-1-5-21-3366851103-1622988557-2824442447
+</pre></div>
+
+<p>见到DOMAIN SID才算配置成功，启动samba</p>
+<p>/usr/local/samba/sbin/samba</p>
+<blockquote>
+<p>测试</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="o">/</span><span class="nt">usr</span><span class="o">/</span><span class="nt">local</span><span class="o">/</span><span class="nt">samba</span><span class="o">/</span><span class="nt">bin</span><span class="o">/</span><span class="nt">smbclient</span> <span class="nt">-L</span> <span class="nt">localhost</span> <span class="nt">-U</span><span class="o">%</span>
+
+<span class="o">/</span><span class="nt">usr</span><span class="o">/</span><span class="nt">local</span><span class="o">/</span><span class="nt">samba</span><span class="o">/</span><span class="nt">bin</span><span class="o">/</span><span class="nt">smbclient</span> <span class="o">//</span><span class="nt">localhost</span><span class="o">/</span><span class="nt">netlogon</span> <span class="nt">-Uadministrator</span>
+<span class="nt">Enter</span> <span class="nt">administrator</span><span class="err">&#39;</span><span class="nt">s</span> <span class="nt">password</span><span class="o">:</span> 
+<span class="nt">Domain</span><span class="o">=</span><span class="cp">[</span><span class="nx">CONTOSO</span><span class="cp">]</span> <span class="nt">OS</span><span class="o">=</span><span class="cp">[</span><span class="nx">Unix</span><span class="cp">]</span> <span class="nt">Server</span><span class="o">=</span><span class="cp">[</span><span class="nx">Samba</span> <span class="mf">4.1.13</span><span class="cp">]</span>
+<span class="nt">smb</span><span class="o">:</span> <span class="err">\</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">q</span>
+</pre></div>
+
+
+<blockquote>
+<p>DNS</p>
+</blockquote>
+<p>检查bind</p>
+<p>rpm -qa|grep bind</p>
+<p>在/etc/named.conf文件中可以看到bind9的目录是/var/named，进入该目录：</p>
+<p>复制一份named.localhost作为contoso.com.zone，然后修改，作为contoso.com的正向解析文件。</p>
+<p>cp named.localhost contoso.com.zone
+vim contoso.com.zone
+$TTL 1D
+@       IN SOA  @ contoso.com. (
+                                      0       ; serial
+                                      1D      ; refresh
+                                      1H      ; retry
+                                      1W      ; expire
+                                      3H )    ; minimum
+        IN NS   DC1.contoso.com.
+@       IN A    192.168.6.3
+DC1     IN A    192.168.6.3</p>
+<p>以上就是修改后的，双网卡的虚机，IP可能是另外一个的，要修改。
+再把samba产生的DNS文件的后面部分复制到/usr/local/samba/private/dns。但是不要复制gc._msdcs这一条，我测试报错，删除了能启动bind</p>
+<p>复制下面部分</p>
+<div class="codehilite"><pre><span></span>79aef472-c658-49c0-a2b4-3988bc00338a._msdcs     IN CNAME        DC1
+;
+; global catalog servers
+_gc._tcp                IN SRV 0 100 3268       DC1
+_gc._tcp.Default-First-Site-Name._sites IN SRV 0 100 3268       DC1
+_ldap._tcp.gc._msdcs    IN SRV 0 100 3268       DC1
+_ldap._tcp.Default-First-Site-Name._sites.gc._msdcs     IN SRV 0 100 3268 DC1
+;
+; ldap servers
+_ldap._tcp              IN SRV 0 100 389        DC1
+_ldap._tcp.dc._msdcs    IN SRV 0 100 389        DC1
+_ldap._tcp.pdc._msdcs   IN SRV 0 100 389        DC1
+_ldap._tcp.8b2afba7-4d3a-4b88-8b45-381cf145c623.domains._msdcs          IN SRV 0 100 389 DC1
+_ldap._tcp.Default-First-Site-Name._sites               IN SRV 0 100 389 DC1
+_ldap._tcp.Default-First-Site-Name._sites.dc._msdcs     IN SRV 0 100 389 DC1
+;
+; krb5 servers
+_kerberos._tcp          IN SRV 0 100 88         DC1
+_kerberos._tcp.dc._msdcs        IN SRV 0 100 88 DC1
+_kerberos._tcp.Default-First-Site-Name._sites   IN SRV 0 100 88 DC1
+_kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs IN SRV 0 100 88 DC1
+_kerberos._udp          IN SRV 0 100 88         DC1
+; MIT kpasswd likes to lookup this name on password change
+_kerberos-master._tcp           IN SRV 0 100 88         DC1
+_kerberos-master._udp           IN SRV 0 100 88         DC1
+;
+; kpasswd
+_kpasswd._tcp           IN SRV 0 100 464        DC1
+_kpasswd._udp           IN SRV 0 100 464        DC1
+;
+; heimdal &#39;find realm for host&#39; hack
+_kerberos               IN TXT  CONTOSO.COM
+</pre></div>
+
+<p>然后粘贴到/var/named/contoso.com.zone修改过的后面。具体操作中，可以在SecureCRT里克隆会话，进到目录，打开文件，拖选要复制的，然后切换到原来的会话点右键就粘贴上了，然后按ESC，：wq保存退出。</p>
+<p>打开/etc/named.rfc1912.zones， 后面添加如下字段，增加正向解析区域</p>
+<p>vim /etc/named.rfc1912.zones</p>
+<div class="codehilite"><pre><span></span>zone &quot;contoso.com&quot; IN {
+    type master;
+    file &quot;contoso.com.zone&quot;;
+    allow-update { none; };
+};
+</pre></div>
+
+
+<p>启动BIND服务，如果报错，需要检查etc/named.rfc1912.zones和contoso.com.zone文件配置</p>
+<p>systemctl start named.service</p>
+<p>systemctl status named.service</p>
+<p>测试解析，需要host命令。默认未安装。</p>
+<p>host -t SRV _ldap._tcp.contoso.com.</p>
+<p>注意：提示没有此命令时，重新挂载安装host</p>
+<p>mount /dev/cdrom /media/cdrom</p>
+<p>yum -y install bind-utils</p>
+<p>然后测试
+<div class="codehilite"><pre><span></span>host -t SRV _ldap._tcp.contoso.com
+
+_ldap._tcp.contoso.com has SRV record 0 100 389 DC1.contoso.com.
+
+host -t SRV _kerberos._udp.contoso.com
+
+_kerberos._udp.contoso.com has SRV record 0 100 88 DC1.contoso.com.
+
+host -t A dc1.contoso.com
+
+dc1.contoso.com has address 192.168.6.3
+</pre></div>
+然后再开WIN7虚拟机，配置同网段IP如192.168.6.5， DNS配置192.168.6.3。 先用PING测试能ping通域名，如果不通尝试检查或清除IPTABLES防火墙规则：</p>
+<p>然后WIN7测试加域，加入域以后在WIN7里可以下载安装远程管理工具包来管理域控了。</p>
+<h1 style="text-align:center">samba ubuntu域控服务器架设</h1>
+
+<p>wget <a href="http://www.samba.org/samba/ftp/stable/samba-4.1.4.tar.gz">http://www.samba.org/samba/ftp/stable/samba-4.1.4.tar.gz</a></p>
+<p>apt-get install build-essential libacl1-dev libattr1-dev libblkid-dev libgnutls-dev libreadline-dev python-dev python-dnspython gdb pkg-config libpopt-dev libldap2-dev</p>
+<div class="codehilite"><pre><span></span>tar -zxvf samba-4.1.4.tar.gz
+cd samba-4.1.1/
+./configure –enable-debug
+make &amp;amp;&amp;amp; make install
+</pre></div>
+
+
+<p>设置一个新的domain</p>
+<p>/usr/local/samba/bin/samba-tool domain provision</p>
+<p>cd /etc/init.d/</p>
+<p>创建一个脚本文件</p>
+<div class="codehilite"><pre><span></span>vim /etc/init.d/samba4
+chmod 755 /etc/init.d/samba4
+update-rc.d samba4 defaults
+shutdown -r now
+</pre></div>
+
+
+<p>测试SMB域的功能，看看是否所有需要的功能分区活动所需的份额正在工作</p>
+<p>/usr/local/samba/bin/smbclient -L localhost -U%</p>
+<p>验证主DNS服务器是您的本地接口的IP地址，更改IP并添加您的DNS名称服务器</p>
+<div class="codehilite"><pre><span></span>vim /etc/resolv.conf
+vim /etc/network/interfaces
+ping johny.local
+netstat -ln
+host -t SRV _kerberos._tcp.johny.local.
+host -t SRV _kerberos._udp.johny.local.
+host -t A lab1.johny.local
+</pre></div>
+
+
+<p>创建你的符号链接到适当的库</p>
+<div class="codehilite"><pre><span></span>ln -s /usr/local/samba/lib/libnss_winbind.so.2 /lib/libnss_winbind.so
+ln -s /lib/libnss_winbind.so /lib/libnss_winbind.so.2
+ln -s /usr/local/samba/lib/libnss_winbind.so.2 /lib64/libnss_winbind.so
+ln -s /lib64/libnss_winbind.so /lib64/libnss_winbind.so.2
+</pre></div>
+
+
+<p>首先从/etc/passwd和/etc/group/然后从Windows NT服务器解析用户和组信息。要为用户和组查找设置winbindd，再加上域控制器的身份验证，在nsswitch中使用如下设置。配置文件⇒passwd文件winbind⇒组:文件winbind指示系统使用nss winbind图书馆当搜索用户或组(允许用户和组条目从winbindd可见守护进程)</p>
+<p>vim /etc/nsswitch.conf</p>
+<p>winbindd守护进程所需的库将会在下一次系统重新启动时自动进入ldconfig缓存，但是如果您手动执行，它会更快(而且您不需要重新启动)。这使libnss_winbind可以访问winbindd，并报告动态链接加载器所使用的当前搜索路径。使用grep过滤ldconfig命令的输出，这样我们就可以看到这个库确实被动态链接加载器识别了。确认库已加载。</p>
+<p>ldconfig -v | grep winbind</p>
+<p>/usr/local/samba/bin/wbinfo -p # 测试如果winbind可以ping通</p>
+<p>/usr/local/samba/bin/wbinfo -u # 测试Winbind的能够提供用户列表</p>
+<p>getent passwd # 返回密码文件</p>
+<p>id Administrator # 标识反馈相关的用户信息</p>
+<p>apt-get install acl # 安装acl包</p>
+<p>vim /etc/fstab  # 将acl设置为所需的分区以启用ACL</p>
+<p>mount # 查看挂载的分区</p>
+<p>mv /usr/local/samba/etc/smb.conf smb.conf.bak # 备份默认配置文件</p>
+<p>mkdir /home/it /home/hr /home/commercial # 为smb.conf创建共享文件夹</p>
+<p>chmod 770 it/ hr/ commercial/ # 操作完执行下面有误，重新系统再尝试</p>
+<p>getfacl</p>
+<p>setfacl -m g:it:rwx /home/it # 设置文件夹acl，修改组“it”对文件夹/ home / it具有完全权限</p>
+<div class="codehilite"><pre><span></span>mkdir /home/recycle
+chmod 777 /home/recycle/
+smbstatus # 随时检查哪些用户和哪台机器正在访问服务器上的共享
+setfacl -m u:pauly:r-x /home/hr/ # 设置用户johny只读取特定文件夹的权限
+getfacl /home/hr
+</pre></div>
+
+
+<h2 id="smbconf">smb.conf<a class="headerlink" href="#smbconf" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="err">#</span> <span class="nt">Global</span> <span class="nt">parameters</span> <span class="nt">the</span> <span class="nt">file</span> <span class="nt">is</span> <span class="nt">divided</span> <span class="nt">into</span> <span class="nt">sections</span>       
+<span class="cp">[</span><span class="kd">global</span><span class="cp">]</span>    <span class="nt">the</span> <span class="nt">first</span> <span class="nt">is</span> <span class="nt">always</span> <span class="nt">the</span> <span class="err">”</span><span class="cp">[</span><span class="kd">global</span><span class="cp">]</span><span class="err">”</span> <span class="nt">section</span><span class="o">,</span> <span class="nt">which</span> <span class="nt">contains</span> <span class="nt">the</span> <span class="nt">general</span> <span class="nt">server</span> <span class="nt">options</span>       
+<span class="nt">workgroup</span> <span class="o">=</span> <span class="nt">JOHNY</span>   <span class="nt">the</span> <span class="nt">name</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">workgroup</span>       
+<span class="nt">realm</span> <span class="o">=</span> <span class="nt">JOHNY</span><span class="p">.</span><span class="nc">LOCAL</span>         
+<span class="nt">netbios</span> <span class="nt">name</span> <span class="o">=</span> <span class="nt">LAB5</span> <span class="nt">server</span> <span class="nt">name</span>     
+<span class="nt">server</span> <span class="nt">role</span> <span class="o">=</span> <span class="nt">active</span> <span class="nt">directory</span> <span class="nt">domain</span> <span class="nt">controller</span>    <span class="nt">the</span> <span class="nt">server</span> <span class="nt">was</span> <span class="nt">configured</span> <span class="nt">as</span> <span class="nt">a</span> <span class="nt">AD</span> <span class="nt">and</span> <span class="nt">DC</span>        
+<span class="nt">dns</span> <span class="nt">forwarder</span> <span class="o">=</span> <span class="nt">8</span><span class="p">.</span><span class="nc">8</span><span class="p">.</span><span class="nc">8</span><span class="p">.</span><span class="nc">8</span>         
+<span class="nt">vfs</span> <span class="nt">objects</span> <span class="o">=</span> <span class="nt">recycle</span><span class="o">,</span> <span class="nt">full_audit</span>   <span class="nt">VFS</span> <span class="nt">module</span> <span class="nt">records</span> <span class="nt">selected</span> <span class="nt">client</span> <span class="nt">operations</span> <span class="nt">to</span> <span class="nt">the</span> <span class="nt">system</span> <span class="nt">log</span>     
+<span class="nt">recycle</span><span class="p">:</span><span class="nd">keeptree</span> <span class="o">=</span> <span class="nt">yes</span>  <span class="nt">Specifies</span> <span class="nt">whether</span> <span class="nt">the</span> <span class="nt">directory</span> <span class="nt">structure</span> <span class="nt">should</span> <span class="nt">be</span> <span class="nt">preserved</span> <span class="nt">or</span> <span class="nt">whether</span> <span class="nt">the</span> <span class="nt">files</span> <span class="nt">in</span> <span class="nt">a</span> <span class="nt">directory</span> <span class="nt">that</span> <span class="nt">is</span> <span class="nt">being</span> <span class="nt">deleted</span> <span class="nt">should</span> <span class="nt">be</span> <span class="nt">kept</span> <span class="nt">separately</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">repository</span>     
+<span class="nt">recycle</span><span class="p">:</span><span class="nd">versions</span> <span class="o">=</span> <span class="nt">yes</span>  <span class="nt">If</span> <span class="nt">this</span> <span class="nt">option</span> <span class="nt">is</span> <span class="nt">True</span><span class="o">,</span> <span class="nt">two</span> <span class="nt">files</span> <span class="nt">with</span> <span class="nt">the</span> <span class="nt">same</span> <span class="nt">name</span> <span class="nt">that</span> <span class="nt">are</span> <span class="nt">deleted</span> <span class="nt">will</span> <span class="nt">both</span> <span class="nt">be</span> <span class="nt">kept</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">repository</span><span class="o">.</span> <span class="nt">Newer</span> <span class="nt">deleted</span> <span class="nt">versions</span> <span class="nt">of</span> <span class="nt">a</span> <span class="nt">file</span> <span class="nt">will</span> <span class="nt">be</span> <span class="nt">called</span> <span class="err">“</span><span class="nt">Copy</span> <span class="p">#</span><span class="nn">x</span> <span class="nt">of</span> <span class="nt">filename</span><span class="err">”</span><span class="o">.</span>       
+<span class="nt">recycle</span><span class="p">:</span><span class="nd">repository</span> <span class="o">=</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">recycle</span>  <span class="nt">Path</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">directory</span> <span class="nt">where</span> <span class="nt">deleted</span> <span class="nt">files</span> <span class="nt">should</span> <span class="nt">be</span> <span class="nt">moved</span>       
+<span class="nt">recycle</span><span class="p">:</span><span class="nd">exclude</span> <span class="o">=</span> <span class="o">*</span><span class="p">.</span><span class="nc">tmp</span><span class="o">,</span> <span class="o">*</span><span class="p">.</span><span class="nc">log</span><span class="o">,</span> <span class="o">~*.*,</span> <span class="o">*</span><span class="p">.</span><span class="nc">bak</span><span class="o">,</span> <span class="o">*</span><span class="p">.</span><span class="nc">iso</span>  <span class="nt">List</span> <span class="nt">of</span> <span class="nt">files</span> <span class="nt">that</span> <span class="nt">should</span> <span class="nt">not</span> <span class="nt">be</span> <span class="nt">put</span> <span class="nt">into</span> <span class="nt">the</span> <span class="nt">repository</span> <span class="nt">when</span> <span class="nt">deleted</span><span class="o">,</span> <span class="nt">but</span> <span class="nt">deleted</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">normal</span> <span class="nt">way</span><span class="o">.</span> <span class="nt">Wildcards</span> <span class="nt">such</span> <span class="nt">as</span> <span class="o">*</span> <span class="nt">and</span> <span class="o">?</span> <span class="nt">are</span> <span class="nt">supported</span><span class="o">.</span>      
+<span class="nt">recycle</span><span class="p">::</span><span class="nd">exclude_dir</span> <span class="o">=</span> <span class="nt">tmp</span><span class="o">,</span> <span class="nt">cache</span>   <span class="nt">List</span> <span class="nt">of</span> <span class="nt">directories</span> <span class="nt">whose</span> <span class="nt">files</span> <span class="nt">should</span> <span class="nt">not</span> <span class="nt">be</span> <span class="nt">put</span> <span class="nt">into</span> <span class="nt">the</span> <span class="nt">repository</span> <span class="nt">when</span> <span class="nt">deleted</span><span class="o">,</span> <span class="nt">but</span> <span class="nt">deleted</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">normal</span> <span class="nt">way</span><span class="o">.</span> <span class="nt">Wildcards</span> <span class="nt">such</span> <span class="nt">as</span> <span class="o">*</span> <span class="nt">and</span> <span class="o">?</span> <span class="nt">are</span> <span class="nt">supported</span>      
+<span class="nt">full_audit</span><span class="p">:</span><span class="nd">facility</span> <span class="o">=</span> <span class="nt">local5</span>    <span class="nt">all</span> <span class="nt">this</span> <span class="nt">audit</span> <span class="nt">logs</span> <span class="nt">are</span> <span class="nt">going</span> <span class="nt">to</span> <span class="nt">system</span> <span class="nt">log</span><span class="o">(/</span><span class="nt">var</span><span class="o">/</span><span class="nt">log</span><span class="o">/</span><span class="nt">syslog</span><span class="o">)</span>        
+<span class="nt">full_audit</span><span class="p">:</span><span class="nd">priority</span> <span class="o">=</span> <span class="nt">notice</span>            
+<span class="nt">full_audit</span><span class="p">:</span><span class="nd">prefix</span> <span class="o">=</span> <span class="o">%</span><span class="nt">u</span>  <span class="o">%</span><span class="nt">I</span>  <span class="o">%</span><span class="nt">s</span>  <span class="nt">adds</span> <span class="nt">additional</span> <span class="nt">useful</span> <span class="nt">information</span> <span class="nt">to</span> <span class="nt">audit</span> <span class="nt">log</span> <span class="nt">file</span><span class="o">.%</span><span class="nt">u</span> <span class="err">–</span> <span class="nt">User</span><span class="o">;</span> <span class="o">%</span><span class="nt">I</span> <span class="err">–</span> <span class="nt">User</span> <span class="nt">IP</span> <span class="nt">address</span><span class="o">;</span> <span class="o">%</span><span class="nt">S</span> <span class="err">–</span> <span class="nt">Server</span> <span class="nt">share</span> <span class="nt">name</span>
+<span class="nt">full_audit</span><span class="p">:</span><span class="nd">sucess</span> <span class="o">=</span> <span class="nt">open</span><span class="o">,</span> <span class="nt">write</span><span class="o">,</span> <span class="nt">rename</span><span class="o">,</span> <span class="nt">rmdir</span><span class="o">,</span> <span class="nt">mkdir</span><span class="o">,</span> <span class="nt">chmod</span><span class="o">,</span> <span class="nt">chown</span>         
+<span class="nt">full_audit</span><span class="p">:</span><span class="nd">failure</span> <span class="o">=</span> <span class="nt">none</span>   <span class="nt">do</span> <span class="nt">not</span> <span class="nt">give</span> <span class="nt">a</span> <span class="nt">list</span> <span class="nt">of</span> <span class="nt">VFS</span> <span class="nt">operations</span> <span class="nt">that</span> <span class="nt">should</span> <span class="nt">be</span> <span class="nt">recorded</span> <span class="nt">if</span> <span class="nt">they</span> <span class="nt">failed</span>     
+<span class="nt">log</span> <span class="nt">level</span> <span class="o">=</span> <span class="nt">5</span>           
+
+<span class="cp">[</span><span class="nx">netlogon</span><span class="cp">]</span>  <span class="nt">indicates</span> <span class="nt">the</span> <span class="nt">name</span> <span class="nt">of</span> <span class="nt">sharing</span><span class="o">,</span><span class="nt">describes</span> <span class="nt">a</span> <span class="nt">shared</span> <span class="nt">resource</span> <span class="o">(</span><span class="nt">known</span> <span class="nt">as</span> <span class="nt">a</span> <span class="err">“</span><span class="nt">share</span><span class="err">”</span><span class="o">).</span>     
+<span class="nt">path</span> <span class="o">=</span> <span class="o">/</span><span class="nt">usr</span><span class="o">/</span><span class="nt">local</span><span class="o">/</span><span class="nt">samba</span><span class="o">/</span><span class="nt">var</span><span class="o">/</span><span class="nt">locks</span><span class="o">/</span><span class="nt">sysvol</span><span class="o">/</span><span class="nt">johny</span><span class="p">.</span><span class="nc">local</span><span class="o">/</span><span class="nt">scripts</span>    <span class="nt">share</span> <span class="nt">folder</span> <span class="nt">path</span>       
+<span class="nt">read</span> <span class="nt">only</span> <span class="o">=</span> <span class="nt">No</span>          
+
+<span class="cp">[</span><span class="nx">sysvol</span><span class="cp">]</span>            
+<span class="nt">path</span> <span class="o">=</span> <span class="o">/</span><span class="nt">usr</span><span class="o">/</span><span class="nt">local</span><span class="o">/</span><span class="nt">samba</span><span class="o">/</span><span class="nt">var</span><span class="o">/</span><span class="nt">locks</span><span class="o">/</span><span class="nt">sysvol</span>            
+<span class="nt">read</span> <span class="nt">only</span> <span class="o">=</span> <span class="nt">No</span>          
+<span class="cp">[</span><span class="k">public</span><span class="cp">]</span>    <span class="nt">name</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">share</span> <span class="nt">folder</span>        
+<span class="nt">path</span> <span class="o">=</span> <span class="o">/</span><span class="nt">home</span><span class="o">/</span><span class="nt">public</span> <span class="nt">path</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">share</span> <span class="nt">folder</span>        
+<span class="nt">comment</span> <span class="o">=</span> <span class="nt">Pasta</span> <span class="nt">Publicco</span>    <span class="nt">description</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">share</span> <span class="nt">folder</span>     
+<span class="nt">browseable</span> <span class="o">=</span> <span class="nt">yes</span>    <span class="nt">This</span> <span class="nt">controls</span> <span class="nt">whether</span> <span class="nt">this</span> <span class="nt">share</span> <span class="nt">is</span> <span class="nt">seen</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">list</span> <span class="nt">of</span> <span class="nt">available</span> <span class="nt">shares</span> <span class="nt">in</span> <span class="nt">a</span> <span class="nt">net</span> <span class="nt">view</span> <span class="nt">and</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">browse</span> <span class="nt">list</span><span class="o">.</span>      
+<span class="nt">create</span> <span class="nt">mask</span> <span class="o">=</span> <span class="nt">0777</span>  <span class="nt">This</span> <span class="nt">setting</span> <span class="nt">tells</span> <span class="nt">samba</span> <span class="nt">what</span> <span class="nt">permissions</span> <span class="nt">to</span> <span class="nt">mask</span> <span class="nt">against</span> <span class="nt">the</span> <span class="nt">DOS</span><span class="o">/</span><span class="nt">Windows</span> <span class="nt">assigned</span> <span class="nt">permissions</span> <span class="nt">for</span> <span class="nt">a</span> <span class="nt">new</span> <span class="nt">file</span> <span class="nt">when</span> <span class="nt">it</span> <span class="nt">is</span> <span class="nt">created</span> <span class="nt">from</span> <span class="nt">a</span> <span class="nt">Windows</span><span class="o">/</span><span class="nt">DOS</span> <span class="nt">client</span>      
+<span class="nt">writeable</span> <span class="o">=</span> <span class="nt">yes</span>     
+</pre></div>
+
+<p>[it]</p>
+<div class="codehilite"><pre><span></span>path = /home/it
+comment = Pasta IT
+browseable = yes
+create mask = 0770
+writeable = yes
+directory mask = 0770
+force directory mode = 0770
+map acl inherit = yes
+</pre></div>
+
+
+<p>[hr]</p>
+<div class="codehilite"><pre><span></span>path = /home/hr
+comment = Pasta HR
+browseable = yes
+create mask = 0770
+writeable = yes
+directory mask = 0770
+force directory mode = 0770
+map acl inherit = yes
+</pre></div>
+
+
+<p>[commercial]</p>
+<div class="codehilite"><pre><span></span>path = /home/commercial
+comment = Pasta Commercial
+browseable = yes
+create mask = 0770
+writeable = yes
+directory mask = 0770
+force directory mode = 0770
+map acl inherit = yes
+</pre></div>
+
+
+<h3 id="_1">基本概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">名字</th>
+<th align="center">功能</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">winbindd</td>
+<td align="center">winbindd提供的服务称为“winbind”，可以用于从Windows NT服务器解析用户和组信息。该服务还可以通过一个相关的PAM模块提供身份验证服务。名称服务开关守护进程，用于解析NT服务器的名称。</td>
+<td align="center">名称服务开关允许从不同的数据库服务(如NIS或DNS)获得用户和系统信息。确切的行为可以通过/etc/nsswitch.conf进行配置。conf文件。用户和组被分配，因为它们被解析为Samba系统管理员指定的一系列用户和组id。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>重要的配置文件路径和服务命令</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">Description</th>
+<th align="center">configuring file path</th>
+<th align="center">Start up Script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Network</td>
+<td align="center">/etc/hosts; /etc/resolv.conf; /etc/network/interfaces</td>
+<td align="center">/etc/init.d/networking restart</td>
+</tr>
+<tr>
+<td align="center">Samba</td>
+<td align="center">/usr/local/samba/etc/smb.conf;/etc/inite.d/samba4</td>
+<td align="center">/etc/init.d/samba4 restart</td>
+</tr>
+<tr>
+<td align="center">Winbind</td>
+<td align="center">/etc/nsswitch.conf</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>用户管理命令</p>
+</blockquote>
+<p>User and Group manager  command
+Add a user test /usr/local/samba/bin/samba-tools user add test
+Add group level1    /usr/local/samba/bin/samba-tool group add level1
+Add user1 to group level1   /usr/local/samba/bin/samba-tool group addmembers “level1” user1
+Remove user1 from group level1  /usr/local/samba/bin/samba-tool group removemembers “level1” user1
+List the current group  /usr/local/samba/bin/samba-tool group list
+List the current user   /usr/local/samba/bin/samba-tool user list
+Add a user test /usr/local/samba/bin/samba-tool user create test
+Delete a user test  /usr/local/samba/bin/samba-tool user delete test
+Delete a group test /usr/local/samba/bin/samba-tool group delete test
+Add a user test to ou yanling   /usr/local/samba/bin/samba-tools user add test –userou=OU=yanling
+Add a user group to ou yanling  /usr/local/samba/bin/samba-tools group add grouptest –groupou=OU=yanling</p>
+<p>ACL permission  command
+Set user “pauly” have read-only permission to the other department's share folder   setfacl -R -m u:pauly:r-x /home/hr/
+Set group “pauly” have read-only permission to the other department's share folder  setfacl -m g:pauly:r-x /home/hr/
+Removed user “pauly” access permission share folder setfacl -x u:pauly /home/hr/
+Removed group “pauly” access permission share folder    setfacl -x g:pauly /home/hr/
+Set user “pauly” be default user of share folder    setfacl -d –set u:pauly:rx /home/hr/
+Set group “pauly” be default group of share folder  setfacl -d –set g:pauly:rx /home/hr/
+Removed all group and user access permission of share folder    setfacl -b /home/hr/
+Add “Domain Users” to ACL   setfacl -m g:Domain Users:rwx /home/public/</p>
+<blockquote>
+<p>create the samba4 start script</p>
+</blockquote>
+<p>```</p>
+<p>vim /etc/init.d/samba4</p>
+<h1 id="binsh">! /bin/sh<a class="headerlink" href="#binsh" title="Permanent link">&para;</a></h1>
+<p>### BEGIN INIT INFO
+  # Provides: samba
+  # Required-Start: $network $local_fs $remote_fs
+  # Required-Stop: $network $local_fs <span><span class="MathJax_Preview">remote_fs
+  # Default-Start: 2 3 4 5
+  # Default-Stop: 0 1 6
+  # Short-Description: start Samba daemons
+  ### END INIT INFO
+  #
+  # Start/stops the Samba daemon (samba).
+  # Adapted from the Samba 3 packages.
+  #
+  SAMBAPID=/var/run/samba/samba.pid
+  # clear conflicting settings from the environment
+  unset TMPDIR
+  # See if the daemon and the config file are there
+  test -x /usr/local/samba/sbin -a -r /usr/local/samba/etc/ || exit 0
+  . /lib/lsb/init-functions
+  case "</span><script type="math/tex">remote_fs
+  # Default-Start: 2 3 4 5
+  # Default-Stop: 0 1 6
+  # Short-Description: start Samba daemons
+  ### END INIT INFO
+  #
+  # Start/stops the Samba daemon (samba).
+  # Adapted from the Samba 3 packages.
+  #
+  SAMBAPID=/var/run/samba/samba.pid
+  # clear conflicting settings from the environment
+  unset TMPDIR
+  # See if the daemon and the config file are there
+  test -x /usr/local/samba/sbin -a -r /usr/local/samba/etc/ || exit 0
+  . /lib/lsb/init-functions
+  case "</script></span>1" in
+  start)
+  log_daemon_msg "Starting Samba 4 daemon" "samba"
+  if ! start-stop-daemon --start --quiet --oknodo --exec /usr/local/samba/sbin/samba -- -D; then
+  log_end_msg 1
+  exit 1
+  fi
+  log_end_msg 0
+  ;;
+  stop)
+  log_daemon_msg "Stopping Samba 4 daemon" "samba"
+  start-stop-daemon --stop --quiet --name samba $SAMBAPID
+  # Wait a little and remove stale PID file
+  sleep 1
+  if [ -f $SAMBAPID ] &amp;&amp; ! ps h <code class="codehilite">cat $SAMBAPID</code> &gt; /dev/null
+  then
+  # Stale PID file (samba was succesfully stopped),
+  # remove it (should be removed by samba itself IMHO.)
+  rm -f $SAMBAPID
+  fi
+  log_end_msg 0
+  ;;
+  restart|force-reload)
+  $0 stop
+  sleep 1
+  $0 start
+  ;;
+  *)
+  echo "Usage: /etc/init.d/samba {start|stop|restart|force-reload}"
+  exit 1
+  ;;
+  esac
+  exit 0</p>
+<p>```</p>
+<p>chmod 755 /etc/init.d/samba4</p>
+<p>update-rc.d samba4 defaults</p>
+<p>下载远程管理工具：</p>
+<p><a href="http://www.microsoft.com/zh-cn/download/details.aspx?id=7887">http://www.microsoft.com/zh-cn/download/details.aspx?id=7887</a></p>
+<hr />
+<hr />
+<hr />
+<h1 style="text-align:center">SAMBA网页管理界面安装</h1>
+
+<p>安装</p>
+<p>Yum –y install samba*
+Yum –y install xinetd*</p>
+<p><a href="http://mirror.centos.org/centos/7/os/x86_64/Packages/xinetd-2.3.15-13.el7.x86_64.rpm">http://mirror.centos.org/centos/7/os/x86_64/Packages/xinetd-2.3.15-13.el7.x86_64.rpm</a></p>
+<p>配置目录</p>
+<p>vi /etc/xinetd.d/swat</p>
+<p>测试</p>
+<p>http://sambaserver:901</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Samba/" title="Samba" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Samba
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../PHP/" title="PHP" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                PHP
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Black-Gold" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://www.instagram.com/black0gold/" class="md-footer-social__link fa fa-Instagram"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>
