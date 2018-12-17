@@ -3,10 +3,10 @@ site_description: 'A Material Design theme for MyNotes'
 site_author: 'Anonymous'
 
 # Repository
-remote_branch: master
+remote_branch: gh-pages
 remote_name: origin
-repo_name: 'Black-Gold/black-gold.github.io'
-repo_url: 'https://github.com/Black-Gold/black-gold.github.io'
+repo_name: 'Black-Gold/MyNotes'
+repo_url: 'https://github.com/Black-Gold/MyNotes'
 
 nav:
   - Home: 'index.md'
