@@ -3,8 +3,8 @@ site_description: 'A Material Design theme for MyNotes'
 site_author: 'Anonymous'
 
 # Repository
-repo_name: 'Black-Gold/MyNotes'
-repo_url: 'https://github.com/Black-Gold/MyNotes'
+repo_name: 'Black-Gold/black-gold.github.io'
+repo_url: 'https://github.com/Black-Gold/black-gold.github.io'
 
 nav:
   - Home: 'index.md'
