@@ -88,7 +88,7 @@ extra:
     - type: 'Instagram'
       link: 'https://www.instagram.com/black0gold/'
 
-google_analytics: ['UA-131093963-1', 'auto']
+google_analytics: ['UA-131093963-1', '19950128.com']
 
 # Extensions
 markdown_extensions:
