@@ -1,4 +1,4 @@
-PPTPDVPN服务器架设
+# PPTPD VPN服务器架设
 
 平台
 一、pptpd安装 

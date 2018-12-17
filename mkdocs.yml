@@ -1,17 +1,71 @@
-# Project information
-site_name: 'Material Design for MyNotes'
+site_name: Material Design for MyNotes
 site_description: 'A Material Design theme for MyNotes'
 site_author: 'Anonymous'
-site_url: 'https://19950128.com'
+site_url: 'http://19950128.com'
 
 # Repository
 repo_name: 'Black-Gold/MyNotes'
 repo_url: 'https://github.com/Black-Gold/MyNotes'
 
-# Copyright
-copyright: 'Copyright &copy; 2019- 2099 Martin Donath'
+nav:
+  - Home: 'index.md'
+  - Version Control: 
+    - 'Git': 'Git.md'
+  - Vim: 'Vim.md'
+  - Shell: 
+    - 'BREs': 'BREs.md'
+    - 'ShellNotes': 'ShellNotes.md'
+  - Python3: 'python3.md'
+  - AboutLinux: 
+    - 'AboutLinux': 'AboutLinux.md'
+    - 'Debian': 'Debian.md'
+    - 'Iproute': 'iproute.md'
+  - HTTP Server: 
+    - 'Nginx': 'Nginx.md'
+    - 'Apache': 'Apache.md'
+  - 'ActiveMQ': 'ActiveMQ.md'
+  - HAProxy&Cache: 
+    - 'HAProxy': 'Haproxy.md'
+  - Ansible: 'ansible.md'
+  - CI&DC: 
+    - 'Jenkins': 'Jenkins.md'
+  - FileSystem: 
+    - 'Ceph': 'Ceph.md'
+    - 'Vsftp': 'Vsftp.md'
+  - Container: 
+    - 'Docker': 'docker.md'
+    - 'Kubernetes': 'Kubernetes.md'
+    - 'Paas': 'OKD.md'
+    - 'Container OS': 'Croreos.md'
+  - Tomcat: 'Tomcat.md'
+  - Data: 
+    - 'MySQL': 'MySQL.md'
+    - 'Oracle': 'Oracle.md'
+    - 'Redis': 'redis.md'
+    - 'Memcached': 'memcached.md'
+  - Monitor: 
+    - 'Zabbix': 'Zabbix.md'
+    - 'Nagios': 'Nagios.md'
+    - 'Nagios': 'Nagios.md'
+    - 'Prometheus': 'Prometheus.md'
+    - 'Grafana': 'Grafana.md'
+    - 'SomelseMonitors': 'Monitors.md'
+  - CrossGFW: 
+    - 'VPN': 'VPN.md'
+    - 'Shadowsocks': 'shadowsocks.md'
+  - Others:
+    - DNS: 'DNS.md'
+    - Mail: 'Mail.md'
+    - Samba: 'Samba.md'
+    - AD&FileSystem: 'AD&FileSystem.md'
+    - PHP: 'PHP.md'
+    - Raspberrypi: 'Raspberrypi.md'
+    - GoogleTricks: 'GoogleTricks.md'
+    - freeswitch: 'freeswitch.md'
+    - Sipcode: 'sipcode.md'
+  - LinuxCommandAll: 
+    - 'ab': 'ab.md'
 
-# Configuration
 theme:
   name: 'material'
   language: 'zh'
@@ -21,15 +75,11 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  logo:
-    icon:"logo.svg"
-
-# Customization
-
-repo_name:'MyNotes'
-repo_url:'https://github.com/Black-Gold/MyNotes'
+  favicon: 'images/favicon.ico'
 
 extra:
+  search:
+    language:'zh,en,de,ru,jp'
   manifest: 'manifest.webmanifest'
   social:
     - type: 'github'
@@ -37,7 +87,6 @@ extra:
     - type: 'Instagram'
       link: 'https://www.instagram.com/black0gold/'
 
-# Google Analytics
 google_analytics:
   - 'UA-131093963-1'
   - 'auto'
@@ -46,7 +95,7 @@ google_analytics:
 markdown_extensions:
   - admonition
   - codehilite:
-      guess_lang: false
+      guess_lang: true
   - toc:
       permalink: true
   - pymdownx.arithmatex
@@ -55,8 +104,6 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
@@ -66,44 +113,8 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-pages:
-- Home: 'index.md'
-- LinuxCommandAll:
-#  - '#':'#'
-- AboutLinux:'docs/docs/AboutLinux.md'
-- Git:'docs/Git.md'
-- Vim:'docs/Vim.md'
-- BREs:'docs/BREs.md'
-- ShellNotes:'docs/ShellNotes.md'
-- Python3:'docs/python3.md'
-- Debian:'docs/Debian.md'
-- Iproute:'docs/iproute.md'
-- Docker:'docs/docker.md'
-- Ansible:'docs/ansible.md'
-- Nginx:'docs/Nginx.md'
-- Tomcat:'docs/Tomcat.md'
-- MySQL:'docs/MySQL.md'
-- Oracle:'docs/Oracle.md'
-- Redis:'docs/redis.md'
-- Memcached:'docs/memcached.md'
-- Vsftp:'docs/Vsftp.md'
-- DNS:'docs/DNS.md'
-- VPN:'docs/VPN.md'
-- Mail:'docs/Mail.md'
-- Samba:'docs/Samba.md'
-- PHP:'docs/PHP.md'
-- Shadowsocks:'docs/shadowsocks.md'
-- AD&FileSystem:'docs/docs/AD&FileSystem.md'
-- Raspberrypi:'docs/Raspberrypi.md'
-- GoogleTricks:'docs/GoogleTricks.md'
-- freeswitch:'docs/freeswitch.md'
-- Sipcode:'docs/sipcode.md'
+#extra_css:
+#  - 'stylesheets/extra.css'
 
-#- git:
-#    - 'git简介': 'versions/git_intro.md'
-#    - 'git操作': 'versions/git_oper.md'
-#    - 'git分支管理': 'versions/git_branch.md'
-#    - 'git工具': 'versions/git_tools.md'
-#    - 'git问题记录': 'versions/git_error.md'
-#    - 'git应用场景': 'versions/git_remark.md'
-#    - 'github': 'versions/github.md'
+#extra_javascript:
+#  - 'javascripts/extra.js'
