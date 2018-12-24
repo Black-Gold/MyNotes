@@ -11,7 +11,7 @@ repo_url: 'https://github.com/Black-Gold/MyNotes'
 nav:
   - Home: 'index.md'
   - Version Control: 
-    - 'Git': 'Git.md'
+    - 'Git': 'Version Control/Git.md'
   - Vim: 'Vim.md'
   - Shell: 
     - 'BREs': 'BREs.md'
