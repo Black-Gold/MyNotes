@@ -15,9 +15,9 @@
 通过录制，您可以重复许多不同的操作，而不仅仅是插入文本。当你知道你要重复某些事情时，请记住这一点。
 ```
 
-```sh
+```vim
 
-1.查看文件编码格式
+"查看文件编码格式
 :echo &fileencoding
 
 vim 有四个跟字符编码方式有关的选项，encoding、fileencoding、fileencodings、termencoding (这些选项可能的取值请参考 vim 在线帮助 :help encoding-names)，它们的意义如下:
@@ -42,20 +42,20 @@ termencoding: vim 所工作的终端 (或者 windows 的 console 窗口) 的字�
 
 windows系统也可以在vim菜单项中：编辑>启动设定，直接打开_vimrc文件
 
-2.设置文件的代码形式
+"设置文件的代码形式
 
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,cp936
 
-3.vim的菜单乱码解决：
+"vim的菜单乱码解决：
 
-"同样在 _vimrc文件里以上的中文设置后加上下列命令，
+同样在 _vimrc文件里以上的中文设置后加上下列命令
 source $vimruntime/delmenu.vim
 source $vimruntime/menu.vim
 
-4.vim提示信息乱码的解决
+"vim提示信息乱码的解决
 
 language messages zh_cn.utf-8
 
@@ -74,32 +74,172 @@ language messages zh_cn.utf-8
 | :------: | :------: |
 | 普通模式命令 | :help x |
 |  |  |
+" 全局
+:help keyword     关键字帮助
 
-移动命令：
-h 左
-l 右
-j 下
-k 上
+" 打开/保存/退出/改变文件(缓存区)
+:e <path/to/file>   打开文件
+:w                  保存
+:saveas <path/to/file> 保存到
+:x,ZZ或:wq          保存并退出(:x只保存不退出)
+:w !sudo tee %      使用sudo保存
+:[range]w           只保存[range]内的
+:q!                 不保存退出(:qa!,即使有修改过的隐藏缓冲区也不保存退出)
+:bn,:bp             显示下一个、上一个文件buffer
 
-插入命令
-a 在光标后插入文本；
-A 在本行行末插入文本；
-i 在光标前插入文本；
-I 在光标本行开始插入文本；
-o 在光标下插入新行；
-O 在光标上插入新行；
+" 基本移动命令
+h、j、k、l  ← ↓ ↑ →
+b   到上个单词词尾
+B   到上个单词词尾(单词含标点)
+0   到第一列
+^   到该行第一个非空白字符
+$   到行尾
+g_  到该行最后一个非空白字符
+gg  到第一行
+G   到最后一行
+nG  到第几行
+:n  到第几行
+H   到屏幕上端high
+M   到屏幕中央midden
+L   到屏幕下端low
+Ctrl + e    向下滚动一行
+Ctrl + y    向上滚动一行
+Ctrl + b    向后滚动一屏
+Ctrl + f    向前滚动一屏
+Ctrl + d    向前滚动半屏
+Ctrl + u    向后滚动半屏  
 
-H移至屏幕上端； high
-M移至屏幕中央   midden
-L移至屏幕下端； low
+" insert命令
+a 光标后插入
+A 本行行末插入文本；
+i 光标前插入文本；
+I 光标本行开始插入文本；
+o 光标下插入新行；
+O 光标上插入新行；
+
+" 复制和剪切命令：
+P,p     粘贴在光标所在行的后面、前面
+yy,Y    复制当前行
+nyy,nY  复制当前行以下n行
+dd      剪切当前行
+ndd     剪切当前行以下n行
+u       撤销
+<C-r>   恢复
+
+" 其他
+r     替换当前字符
+J     将下一行合并到当前行
+gJ    将下一行合并到当前行(去除空格)
+cc    清空当前行并进入insert mode
+C     替换到行尾
+s     删除当前字符并进入insert mode
+xp    当前字符后移
+:%s/old/new/g     全部替换
+:%s/old/new/gc    逐个替换
+`.    转到上次编辑的行
+==    修复行缩进
+
+" 可视化模式命令
+aw    选择当前单词
+ab    选择被()包裹的区域(含括号)
+aB    选择{}包裹的区域(含括号)
+ib    选择()包裹的区域(不含括号)
+iB    选择{}包裹的区域(不含括号)
+<>    向左 向右缩进
+~     大小写切换
+
+" 寄存器
+:reg  显示寄存器内容
+"xy   复制到寄存器x
+"xp   粘贴寄存器x中内容
+" 寄存器存储在~/.viminfo中,下次重启vim仍会加载
+" 寄存器0存储上一次复制的值
+
+" 标签
+:tabnew file      在新标签打开文件
+gt    切换到下个标签
+gT    切换到上个标签
+ngt   切换到第n个标签
+:tabc 关闭当前标签
+:tabo 关闭其他标签
+
+
+
+
+
+
+```
+
+```vim
+.   重复上一个操作
+N<command>  重复<command>N次
+NG  跳转到N行
+gg  跳转到文件开始
+G   跳转到行末
+w   跳转到下一个单词
+W   到下个单词(含标点)
+e   跳转到当前单词词尾
+E   到下个单词结尾(含标点)
+
+" 理解ew和EW移动区别
+
+  光标位置 ew         E W
+      |   ||         | |
+x = (name_1,vision_3); # this is a comment
+
+%    跳转到对应的( { [ 符号
+* #  跳转到下一个、上一个光标下所在的单词
+
+" 大多数命令支持以下格式：
+<开始位置><命令><结束位置>
+0y$ 复制整行
+ye  复制到词尾
+gU  大写    gu  小写......
+dt" 移除所有直到"符号
+
+[move](http://yannesposito.com/Scratch/img/blog/Learn-Vim-Progressively/line_moves.jpg)
+
+" 区域选择   <action>a<object>或<action>i<object>
+" 在visual mode下操作
+action可以是任何操作，如d(delete)、y(yank)等等
+object可以是：w、W、s(sentence句子)、p(paragraph段落)也可以是符号，如：" ' )等
+
+" 例子详解：(假设光标在第一个o上)
+(map (+) ("foo"))
+
+vi" 选择foo
+va" 选择"foo"
+vi) 选择("foo")
+v2i 选择map (+) ("foo")
+v2a (map (+) ("foo"))
+
+" 选择长方形块进行注释例子
+
+^ → 跳转到行首非空白符
+<C-v> → 可视块
+<C-d> → move down (could also be jjj or %, etc…)
+I-- [ESC] → 用#注释每一行
+" 注：Windows平台下，若剪切板非空，<C-q>取代<C-v>
+
+" 自动完成
+按<C-n>和<C-p>,输入单词开头，按键后进行选择要输入的单词
+
+" 宏
+qa录制行为到注册表a中，然后当你键入@a的时候，@a将会重放你保存在注册表a中的宏。@@是重放最后一个执行过宏的快捷键
+
+" 可视化选择:v,V,<C-v>
+< >   向左、向右缩进
+=     自动缩进
+
+" 例如：行尾添加符号;
+<C-v> G $ A ; <ESC>
+
+
+
 
 :set nu    ---设置行号
 :set nonu  ----取消行号
-gg  到第一行
-G   到最后一行
-nG到第几行
-:n到第几行
-备注：在命令模式下使用冒号设置行号后，会自动跳回到命令模式；
+
 
 删除命令：
 x  删除光标所在处的字符；
@@ -110,12 +250,6 @@ ndd删除N行；
 D 删除光标所在行到行尾；
 ：n1,n2d 删除指定的范围；
 
-复制和剪切命令：
-yy,Y 复制当前行
-nyy,nY 复制当前行以下n行
-dd 剪切当前行
-ndd 剪切当前行以下n行
-p,P 粘贴在当前光标所在行的下面或者上面；
 
 替换和取消命令：
 r 取代光标所在处字符；
