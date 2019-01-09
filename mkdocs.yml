@@ -10,62 +10,93 @@ repo_url: 'https://github.com/Black-Gold/MyNotes'
 
 nav:
   - Home: 'index.md'
-  - Version Control: 
-    - 'Git': 'Git.md'
   - Vim: 'Vim.md'
-  - Shell: 
+  - VersionControl: 
+    - 'Git': 'Git.md'
+  - ProgramLanguages: 
     - 'BREs': 'BREs.md'
-    - 'ShellNotes': 'ShellNotes.md'
-  - Python3: 'python3.md'
+    - 'Shell': 'Shell.md'
+    - 'Python3': 'Python3.md'
+    - 'Lua': 'Lua.md'
+    - 'Go': 'Go.md'
   - AboutLinux: 
-    - 'AboutLinux': 'AboutLinux.md'
+    - 'Linux': 'Linux.md'
     - 'Debian': 'Debian.md'
-    - 'Iproute': 'iproute.md'
-  - HTTP Server: 
+    - 'Iproute': 'Iproute.md'
+    - 'Firewalld': 'Firewalld.md'
+  - WebServer: 
     - 'Nginx': 'Nginx.md'
     - 'Apache': 'Apache.md'
-  - 'ActiveMQ': 'ActiveMQ.md'
-  - HAProxy&Cache: 
-    - 'HAProxy': 'Haproxy.md'
-  - Ansible: 'ansible.md'
+    - 'Tomcat': 'Tomcat.md'
+    - 'WildFly': 'WildFly.md'
+    - 'Caddy': 'Caddy.md'
   - CI&DC: 
     - 'Jenkins': 'Jenkins.md'
+  - Monitor: 
+    - 'Zabbix': 'Zabbix.md'
+    - 'Prometheus': 'Prometheus.md'
+    - 'Grafana': 'Grafana.md'
+    - 'Nagios': 'Nagios.md'
+    - 'TICKStack': 'TICK.md'
+    - 'OpenTSDB': 'OpenTSDB.md'
+    - 'SomelseMonitors': 'Monitors.md'
+  - ConfigManagement: 
+    - 'Apollo': 'Apollo.md'
+  - OptimisingWebDelivery: 
+    - 'Squid': 'Squid.md'
+    - 'Varnish': 'Varnish.md'
+    - 'Stunnel': 'Stunnel.md'
+    - 'ApacheTrafficServer': 'TrafficServer.md'
+    - 'Memcached': 'Memcached.md'
+  - LB&HA: 
+    - 'LVS': 'LVS.md'
+    - 'Keepalived': 'Keepalived.md'
+    - 'HAProxy': 'Haproxy.md'
+    - 'Traefik': 'Traefik.md'
+    - 'Envoy': 'Envoy.md'
+  - ContainerEcosystem: 
+    - 'Docker': 'Docker.md'
+    - 'Kubernetes': 'Kubernetes.md'
+    - 'Paas': 'OKD.md'
+    - 'ContainerOS': 'Croreos.md'
+  - Database: 
+    - 'MySQL': 'MySQL.md'
+    - 'MariaDB': 'MariaDB.md'
+    - 'Oracle': 'Oracle.md'
+    - 'Redis': 'Redis.md'
+    - 'Cassandra': 'Cassandra.md'
+    - 'MongoDB': 'MongoDB.md'
+    - 'PostgreSQL': 'PostgreSQL.md'
+  - OpsTools: 
+    - 'Ansible(ITAutomationTool)': 'Ansible.md'
+    - 'ELKStack': 'Elk.md'
+  - MessageQueue: 
+    - 'ActiveMQ': 'ActiveMQ.md'
+    - 'ActiveMQ Apollo': 'ActiveMQApollo.md'
+    - 'RabbitMQ': 'RabbitMQ.md'
+    - 'Kafka': 'Kafka.md'
   - FileSystem: 
     - 'Ceph': 'Ceph.md'
     - 'Vsftp': 'Vsftp.md'
-  - Container: 
-    - 'Docker': 'docker.md'
-    - 'Kubernetes': 'Kubernetes.md'
-    - 'Paas': 'OKD.md'
-    - 'Container OS': 'Croreos.md'
-  - Tomcat: 'Tomcat.md'
-  - Data: 
-    - 'MySQL': 'MySQL.md'
-    - 'Oracle': 'Oracle.md'
-    - 'Redis': 'redis.md'
-    - 'Memcached': 'memcached.md'
-  - Monitor: 
-    - 'Zabbix': 'Zabbix.md'
-    - 'Nagios': 'Nagios.md'
-    - 'Nagios': 'Nagios.md'
-    - 'Prometheus': 'Prometheus.md'
-    - 'Grafana': 'Grafana.md'
-    - 'SomelseMonitors': 'Monitors.md'
+  - Security: 
+    - 'Snort': 'Snort.md'
+  - Network: 
+    - 'DNS': 'DNS.md'
+    - 'Cisco': 'Cisco.md'
+    - 'Huawei': 'Huawei.md'
   - CrossGFW: 
     - 'VPN': 'VPN.md'
-    - 'Shadowsocks': 'shadowsocks.md'
-  - Others:
-    - DNS: 'DNS.md'
-    - Mail: 'Mail.md'
-    - Samba: 'Samba.md'
-    - AD&FileSystem: 'AD&FileSystem.md'
-    - PHP: 'PHP.md'
-    - Raspberrypi: 'Raspberrypi.md'
-    - GoogleTricks: 'GoogleTricks.md'
-    - freeswitch: 'freeswitch.md'
-    - Sipcode: 'sipcode.md'
-  - LinuxCommandAll: 
-    - 'ab': 'ab.md'
+    - 'Shadowsocks': 'Shadowsocks.md'
+  - TreasureTheLeisure:
+    - 'Mail': 'Mail.md'
+    - 'Samba': 'Samba.md'
+    - 'AD': 'AD.md'
+    - 'Raspberrypi': 'Raspberrypi.md'
+    - 'GoogleTricks': 'GoogleTricks.md'
+    - 'Freeswitch': 'Freeswitch.md'
+    - 'Asterisk': 'Asterisk.md'
+    - 'Sipcode': 'Sipcode.md'
+    - 'PHP': 'PHP.md'
 
 theme:
   name: 'material'
@@ -85,7 +116,7 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/Black-Gold'
-    - type: 'Instagram'
+    - type: 'instagram'
       link: 'https://www.instagram.com/black0gold/'
 
 google_analytics: 
