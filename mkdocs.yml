@@ -90,7 +90,7 @@ nav:
   - TreasureTheLeisure:
     - 'Mail': 'Mail.md'
     - 'Samba': 'Samba.md'
-    - 'AD': 'AD.md'
+    - 'Windows': 'Windows.md'
     - 'Raspberrypi': 'Raspberrypi.md'
     - 'GoogleTricks': 'GoogleTricks.md'
     - 'Freeswitch': 'Freeswitch.md'

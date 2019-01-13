@@ -1,12 +1,10 @@
-<h1 style="text-align:center">SAMBA域控加WINDOWS管理</h1>
-<!--CreateTime：2018-2-6-->
-<!--UpdateTime：2018-2-6-->
+# SAMBA域控加WINDOWS管理
+
 > 平台
 
-```
-主机：Sony CPCSA26GG，I7-2620M,内存8G，128G SSD。BIOS开启CPU硬件虚拟化支持。
-主机系统：WIN7 X64 旗舰版+Oracle Virtualbox 4.3.12，VB host-only 网卡IP设置192.168.6.1。
-客户机：CentOS7 x86_64 7.0 最小化安装，不带桌面环境，IP设置192.168.6.3。
+```txt
+主机系统：网卡IP设置192.168.6.1。
+客户机：IP设置192.168.6.3。
 ```
 
 > 安装
@@ -56,12 +54,12 @@ rpm -ivh /media/cdrom/Packages/python-devel-2.7.5-16.el7.x86_64.rpm
 
 重新开机登录系统，配置域控
 
-```
+```conf
 cd /usr/local/samba/bin
 [root@DC1 bin]# ./samba-tool domain provision
-Realm [CONTOSO.COM]: 
- Domain [CONTOSO]: 
- Server Role (dc, member, standalone) [dc]: 
+Realm [CONTOSO.COM]:
+ Domain [CONTOSO]:
+ Server Role (dc, member, standalone) [dc]:
  DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) [SAMBA_INTERNAL]: BIND9_FLATFILE  #这里选的BIND9，也可以默认用自带的DNS
 Administrator password: 输入域控管理员密码，密码一定要复杂，大小写字母+数字，如Ab123456&
 Retype password: 再输入一遍Ab123456&
@@ -115,7 +113,7 @@ DOMAIN SID:            S-1-5-21-3366851103-1622988557-2824442447
     /usr/local/samba/bin/smbclient -L localhost -U%
 
     /usr/local/samba/bin/smbclient //localhost/netlogon -Uadministrator
-    Enter administrator's password: 
+    Enter administrator's password:
     Domain=[CONTOSO] OS=[Unix] Server=[Samba 4.1.13]
     smb: \> q
 
@@ -147,7 +145,7 @@ DC1     IN A    192.168.6.3
 
 复制下面部分
 
-```
+```conf
 
 79aef472-c658-49c0-a2b4-3988bc00338a._msdcs     IN CNAME        DC1
 ;
@@ -212,8 +210,9 @@ mount /dev/cdrom /media/cdrom
 
 yum -y install bind-utils
 
-然后测试
-```
+测试
+
+```sh
 
 host -t SRV _ldap._tcp.contoso.com
 
@@ -227,12 +226,11 @@ host -t A dc1.contoso.com
 
 dc1.contoso.com has address 192.168.6.3
 
-```
 然后再开WIN7虚拟机，配置同网段IP如192.168.6.5， DNS配置192.168.6.3。 先用PING测试能ping通域名，如果不通尝试检查或清除IPTABLES防火墙规则：
 
 然后WIN7测试加域，加入域以后在WIN7里可以下载安装远程管理工具包来管理域控了。
 
-<h1 style="text-align:center">samba ubuntu域控服务器架设</h1>
+samba ubuntu域控服务器架设
 
 wget http://www.samba.org/samba/ftp/stable/samba-4.1.4.tar.gz
 
@@ -320,11 +318,12 @@ setfacl -m g:it:rwx /home/it # 设置文件夹acl，修改组“it”对文件�
 
 ```
 
-# Global parameters	the file is divided into sections		
-[global]	the first is always the ”[global]” section, which contains the general server options		
-workgroup = JOHNY	the name of the workgroup		
-realm = JOHNY.LOCAL			
-netbios name = LAB5	server name		
+```conf
+# Global parameters the file is divided into sections
+[global] the first is always the ”[global]” section, which contains the general server options		
+workgroup = JOHNY the name of the workgroup
+realm = JOHNY.LOCAL
+netbios name = LAB5 server name
 server role = active directory domain controller	the server was configured as a AD and DC		
 dns forwarder = 8.8.8.8			
 vfs objects = recycle, full_audit	VFS module records selected client operations to the system log		
@@ -389,7 +388,7 @@ writeable = yes
     force directory mode = 0770
     map acl inherit = yes
 
-### 基本概念
+## 基本概念
 
 | 名字 | 功能 | 描述 |
 | :------: | :------: | :------: |
