@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
       
@@ -68,6 +68,34 @@
     
       <link rel="manifest" href="../manifest.webmanifest">
     
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-131093963-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -105,7 +133,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#vim" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -126,22 +154,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                Material Design for MyNotes
-              </span>
-              <span class="md-header-nav__topic">
-                Vim
-              </span>
-            
+            <span class="md-header-nav__topic">
+              Material Design for MyNotes
+            </span>
+            <span class="md-header-nav__topic">
+              Vim
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -164,7 +189,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -175,20 +199,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
           </div>
         </div>
       
@@ -224,20 +246,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -287,7 +307,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vim" title="VIM主帮助文档" class="md-nav__link">
+  <a href="#vim_1" title="VIM主帮助文档" class="md-nav__link">
     VIM主帮助文档
   </a>
   
@@ -461,8 +481,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Debian/" title="Debian" class="md-nav__link">
-      Debian
+    <a href="../Utilities/" title="Iproute2&Net-tools" class="md-nav__link">
+      Iproute2&Net-tools
     </a>
   </li>
 
@@ -473,8 +493,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Iproute/" title="Iproute" class="md-nav__link">
-      Iproute
+    <a href="../Iptables/" title="Iptables" class="md-nav__link">
+      Iptables
     </a>
   </li>
 
@@ -557,6 +577,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../PHP/" title="PHP-FPM" class="md-nav__link">
+      PHP-FPM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../WildFly.md" title="WildFly" class="md-nav__link">
       WildFly
     </a>
@@ -590,190 +622,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
-      CI&DC
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        CI&DC
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
-      Jenkins
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Monitor
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Monitor
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
-      Zabbix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
-      Prometheus
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Grafana/" title="Grafana" class="md-nav__link">
-      Grafana
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Nagios/" title="Nagios" class="md-nav__link">
-      Nagios
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
-      SomelseMonitors
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      ConfigManagement
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        ConfigManagement
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Apollo/" title="Apollo" class="md-nav__link">
-      Apollo
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
       OptimisingWebDelivery
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
+      <label class="md-nav__title" for="nav-7">
         OptimisingWebDelivery
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -851,14 +703,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-11">
-      LB&HA
+    <label class="md-nav__link" for="nav-8">
+      CI&DC
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        LB&HA
+      <label class="md-nav__title" for="nav-8">
+        CI&DC
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -869,56 +721,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVS/" title="LVS" class="md-nav__link">
-      LVS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Keepalived/" title="Keepalived" class="md-nav__link">
-      Keepalived
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
-      HAProxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Traefik/" title="Traefik" class="md-nav__link">
-      Traefik
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Envoy/" title="Envoy" class="md-nav__link">
-      Envoy
+    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
+      Jenkins
     </a>
   </li>
 
@@ -935,14 +739,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-12">
-      ContainerEcosystem
+    <label class="md-nav__link" for="nav-9">
+      ConfigManagement
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
-        ContainerEcosystem
+      <label class="md-nav__title" for="nav-9">
+        ConfigManagement
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -953,8 +757,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker/" title="Docker" class="md-nav__link">
-      Docker
+    <a href="../Apollo/" title="Apollo" class="md-nav__link">
+      Apollo
     </a>
   </li>
 
@@ -965,32 +769,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OKD/" title="Paas" class="md-nav__link">
-      Paas
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Croreos/" title="ContainerOS" class="md-nav__link">
-      ContainerOS
+    <a href="../Ansible/" title="Ansible" class="md-nav__link">
+      Ansible
     </a>
   </li>
 
@@ -1007,13 +787,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-10">
       Database
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-10">
         Database
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1115,14 +895,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-14">
-      OpsTools
+    <label class="md-nav__link" for="nav-11">
+      Monitor
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
-        OpsTools
+      <label class="md-nav__title" for="nav-11">
+        Monitor
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1133,8 +913,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ansible/" title="Ansible(ITAutomationTool)" class="md-nav__link">
-      Ansible(ITAutomationTool)
+    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
+      Zabbix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Grafana/" title="Grafana" class="md-nav__link">
+      Grafana
     </a>
   </li>
 
@@ -1151,6 +955,54 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios/" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TICK/" title="TICKStack" class="md-nav__link">
+      TICKStack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
+      OpenTSDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
+      SomelseMonitors
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1163,13 +1015,157 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-12">
+      LB&HA
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        LB&HA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
+      LVSKeepalived
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
+      HAProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Envoy/" title="Envoy" class="md-nav__link">
+      Envoy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      ContainerEcosystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        ContainerEcosystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OKD/" title="OKD" class="md-nav__link">
+      OKD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Coreos/" title="ContainerOS" class="md-nav__link">
+      ContainerOS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
       MessageQueue
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-14">
         MessageQueue
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1235,13 +1231,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-15">
       FileSystem
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         FileSystem
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1255,6 +1251,18 @@
   <li class="md-nav__item">
     <a href="../Ceph/" title="Ceph" class="md-nav__link">
       Ceph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlusterFS/" title="GlusterFS" class="md-nav__link">
+      GlusterFS
     </a>
   </li>
 
@@ -1283,13 +1291,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       Security
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         Security
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1319,29 +1327,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-17">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-17">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DNS/" title="DNS" class="md-nav__link">
-      DNS
-    </a>
-  </li>
-
         
           
           
@@ -1367,6 +1363,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DNS/" title="DNS" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mail/" title="Mail" class="md-nav__link">
+      Mail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Samba/" title="Samba" class="md-nav__link">
+      Samba
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1379,13 +1411,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-18">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-18">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1427,65 +1459,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-19">
       TreasureTheLeisure
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-19">
         TreasureTheLeisure
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Mail/" title="Mail" class="md-nav__link">
-      Mail
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Samba/" title="Samba" class="md-nav__link">
-      Samba
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../AD/" title="AD" class="md-nav__link">
-      AD
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
-      Raspberrypi
-    </a>
-  </li>
-
         
           
           
@@ -1541,8 +1525,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP/" title="PHP" class="md-nav__link">
-      PHP
+    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
+      Raspberrypi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Windows/" title="Windows" class="md-nav__link">
+      Windows
     </a>
   </li>
 
@@ -1573,7 +1569,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vim" title="VIM主帮助文档" class="md-nav__link">
+  <a href="#vim_1" title="VIM主帮助文档" class="md-nav__link">
     VIM主帮助文档
   </a>
   
@@ -1598,22 +1594,8 @@
                   <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/Vim.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">有效文本编辑的七个习惯：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>快速移动
-
-* 快速匹配光标下单词并搜索下一个单词
-
-% 从一个大括号跳转到其匹配的大括号，或者从<span class="k">if</span>匹配<span class="k">endif</span>。对于检查<span class="p">()</span>、{}是否正确平衡很有用，使用[{跳转到{在当前代码块的开始，用于<span class="nb">gd</span>从使用变量跳转到其本地声明。
-<span class="p">:</span>s 替代命令，如果只有几个地方需要更改，使用*查找下一个单词并用<span class="k">cw</span>更改单词，然后键入<span class="k">n</span>查找下一个单词和.重复<span class="k">cw</span>命令。
-
-某些函数和变量名称可能难以输入。你能否快速地输入“XpmCreatePixmapFromData”而没有拼写错误，也不用查看它？Vim有一个完成机制，这使得这一切变得更加简单。它在您正在编辑的文件中查找单词，并在#<span class="nb">include</span>的文件中查找。你可以输入“XpmCr”，然后点击CTRL<span class="p">-</span>N，Vim会将它扩展为“XpmCreatePixmapFromData”。这不仅可以节省很多打字时间，而且还可以避免出现拼写错误，并且稍后在编译器给出错误消息时需要修复它。
-
-当您多次输入短语或句子时，还有更快的方法。Vim有一个记录宏的机制。您键入<span class="k">qa</span>以开始录制到注册<span class="s1">&#39;a&#39;</span>。然后像往常一样输入命令，最后<span class="k">q</span>再次点击停止录制。当您想要重复录制的录制命令时@<span class="k">a</span>。有<span class="m">26</span>个寄存器可用于此。
-
-通过录制，您可以重复许多不同的操作，而不仅仅是插入文本。当你知道你要重复某些事情时，请记住这一点。
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="c">&quot;查看文件编码格式</span>
+                <h1 id="vim">Vim<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="c">&quot; 查看文件编码格式</span>
 <span class="p">:</span>echo &amp;<span class="nb">fileencoding</span>
 
 <span class="k">vim</span> 有四个跟字符编码方式有关的选项，<span class="nb">encoding</span>、<span class="nb">fileencoding</span>、<span class="nb">fileencodings</span>、<span class="nb">termencoding</span> <span class="p">(</span>这些选项可能的取值请参考 <span class="k">vim</span> 在线帮助 :help <span class="nb">encoding</span><span class="p">-</span>names<span class="p">)</span>，它们的意义如下:
@@ -1626,37 +1608,37 @@
 
 <span class="nb">termencoding</span>: <span class="k">vim</span> 所工作的终端 <span class="p">(</span>或者 windows 的 console 窗口<span class="p">)</span> 的字符编码方式。这个选项在 windows 下对我们常用的 <span class="k">gui</span> 模式的 <span class="k">gvim</span> 无效，而对 console 模式的 <span class="k">vim</span> 而言就是 windows 控制台的代码页，并且通常我们不需要改变它。
 
-用英文菜单和提示最好，可以免去下面对菜单和提示信息（<span class="k">b</span>，<span class="k">c</span>部分）的设置
+用英文菜单和提示最好，可以免去下面对菜单和提示信息（<span class="k">b</span>，c部分）的设置
 
-如果用英文菜单和提示在安装<span class="k">gvim</span>的时候，将支持本地语言的选项去掉。
+如果用英文菜单和提示在安装gvim的时候，将支持本地语言的选项去掉。
 
-解决<span class="k">vim</span>文件乱码，打开文件乱码，菜单，提示信息乱码：
+解决vim文件乱码，打开文件乱码，菜单，提示信息乱码：
 
 有四个跟字符编码方式有关的选项，<span class="nb">encoding</span>、<span class="nb">fileencoding</span>、<span class="nb">fileencodings</span>、<span class="nb">termencoding</span>
 
-在linux中修改.vimrc（在<span class="k">win</span>中是_vimrc）
+在linux中修改.vimrc（在win中是_vimrc）
 
-windows系统也可以在<span class="k">vim</span>菜单项中：编辑<span class="p">&gt;</span>启动设定，直接打开_vimrc文件
+windows系统也可以在vim菜单项中：编辑<span class="p">&gt;</span>启动设定，直接打开_vimrc文件
 
-<span class="c">&quot;设置文件的代码形式</span>
+<span class="c">&quot; 设置文件的代码形式</span>
 
 <span class="k">set</span> <span class="nb">encoding</span><span class="p">=</span>utf<span class="m">-8</span>
 <span class="k">set</span> <span class="nb">termencoding</span><span class="p">=</span>utf<span class="m">-8</span>
 <span class="k">set</span> <span class="nb">fileencoding</span><span class="p">=</span>utf<span class="m">-8</span>
 <span class="k">set</span> <span class="nb">fileencodings</span><span class="p">=</span>ucs<span class="p">-</span>bom<span class="p">,</span>utf<span class="m">-8</span><span class="p">,</span>chinese<span class="p">,</span>cp936
 
-<span class="c">&quot;vim的菜单乱码解决：</span>
+<span class="c">&quot; vim的菜单乱码解决：</span>
 
 同样在 _vimrc文件里以上的中文设置后加上下列命令
 source $vimruntime/delmenu.<span class="k">vim</span>
 source $vimruntime/menu.<span class="k">vim</span>
 
-<span class="c">&quot;vim提示信息乱码的解决</span>
+<span class="c">&quot; vim提示信息乱码的解决</span>
 
 <span class="k">language</span> <span class="k">messages</span> zh_cn.utf<span class="m">-8</span>
 </pre></div>
 
-<h2 id="vim">VIM主帮助文档<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h2>
+<h2 id="vim_1">VIM主帮助文档<a class="headerlink" href="#vim_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>工作模式：命令模式（默认界面），插入模式，可视化模式
 
 命令模式环境中的操作：
@@ -1674,7 +1656,7 @@ source $vimruntime/menu.<span class="k">vim</span>
 <span class="p">:</span><span class="k">e</span> <span class="p">&lt;</span><span class="nb">path</span><span class="sr">/to/</span><span class="k">file</span><span class="p">&gt;</span>   打开文件
 <span class="p">:</span><span class="k">w</span>                  保存
 <span class="p">:</span><span class="k">saveas</span> <span class="p">&lt;</span><span class="nb">path</span><span class="sr">/to/</span><span class="k">file</span><span class="p">&gt;</span> 保存到
-<span class="p">:</span><span class="k">x</span><span class="p">,</span>ZZ或:<span class="k">wq</span>          保存并退出<span class="p">(</span>:<span class="k">x</span>只保存不退出<span class="p">)</span>
+<span class="p">:</span><span class="k">x</span><span class="p">,</span>ZZ或:<span class="k">wq</span>          保存并退出<span class="p">(</span>:x只保存不退出<span class="p">)</span>
 <span class="p">:</span><span class="k">w</span> <span class="p">!</span>sudo tee %      使用sudo保存
 <span class="p">:</span>[range]<span class="k">w</span>           只保存[range]内的
 <span class="p">:</span><span class="k">q</span><span class="p">!</span>                 不保存退出<span class="p">(</span>:<span class="k">qa</span><span class="p">!,</span>即使有修改过的隐藏缓冲区也不保存退出<span class="p">)</span>
@@ -1713,9 +1695,9 @@ O 光标上插入新行；
 <span class="c">&quot; 复制和剪切命令：</span>
 P<span class="p">,</span><span class="k">p</span>     粘贴在光标所在行的后面、前面
 yy<span class="p">,</span>Y    复制当前行
-nyy<span class="p">,</span>nY  复制当前行以下<span class="k">n</span>行
+nyy<span class="p">,</span>nY  复制当前行以下n行
 dd      剪切当前行
-ndd     剪切当前行以下<span class="k">n</span>行
+ndd     剪切当前行以下n行
 <span class="k">u</span>       撤销
 <span class="p">&lt;</span>C<span class="p">-</span><span class="k">r</span><span class="p">&gt;</span>   恢复
 
@@ -1752,7 +1734,7 @@ iB    选择{}包裹的区域<span class="p">(</span>不含括号<span class="p"
 <span class="p">:</span><span class="k">tabnew</span> <span class="k">file</span>      在新标签打开文件
 gt    切换到下个标签
 gT    切换到上个标签
-ngt   切换到第<span class="k">n</span>个标签
+ngt   切换到第n个标签
 <span class="p">:</span><span class="k">tabc</span> 关闭当前标签
 <span class="p">:</span><span class="k">tabo</span> 关闭其他标签
 </pre></div>
@@ -1907,7 +1889,6 @@ x 删除字符</p>
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
@@ -1917,14 +1898,13 @@ x 删除字符</p>
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../assets/javascripts/application.b806dc00.js"></script>
       
         
         
@@ -1944,11 +1924,6 @@ x 删除字符</p>
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>

@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
@@ -36,17 +36,17 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
     
     
       
-        <title>LVS - Material Design for MyNotes</title>
+        <title>Iptables - Material Design for MyNotes</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
       
@@ -68,6 +68,34 @@
     
       <link rel="manifest" href="../manifest.webmanifest">
     
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-131093963-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -105,7 +133,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#linux-virtual-server" tabindex="1" class="md-skip">
+      <a href="#iptables" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -126,22 +154,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                Material Design for MyNotes
-              </span>
-              <span class="md-header-nav__topic">
-                LVS
-              </span>
-            
+            <span class="md-header-nav__topic">
+              Material Design for MyNotes
+            </span>
+            <span class="md-header-nav__topic">
+              Iptables
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -164,7 +189,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -175,20 +199,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
           </div>
         </div>
       
@@ -224,20 +246,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -390,10 +410,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       AboutLinux
@@ -423,8 +445,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Debian/" title="Debian" class="md-nav__link">
-      Debian
+    <a href="../Utilities/" title="Iproute2&Net-tools" class="md-nav__link">
+      Iproute2&Net-tools
     </a>
   </li>
 
@@ -433,11 +455,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../Iproute/" title="Iproute" class="md-nav__link">
-      Iproute
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Iptables" class="md-nav__link md-nav__link--active">
+      Iptables
     </a>
+    
   </li>
 
         
@@ -519,6 +550,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../PHP/" title="PHP-FPM" class="md-nav__link">
+      PHP-FPM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../WildFly.md" title="WildFly" class="md-nav__link">
       WildFly
     </a>
@@ -552,190 +595,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
-      CI&DC
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        CI&DC
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
-      Jenkins
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Monitor
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Monitor
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
-      Zabbix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
-      Prometheus
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Grafana/" title="Grafana" class="md-nav__link">
-      Grafana
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Nagios/" title="Nagios" class="md-nav__link">
-      Nagios
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
-      SomelseMonitors
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      ConfigManagement
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        ConfigManagement
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Apollo/" title="Apollo" class="md-nav__link">
-      Apollo
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
       OptimisingWebDelivery
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
+      <label class="md-nav__title" for="nav-7">
         OptimisingWebDelivery
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -810,19 +673,17 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-11">
-      LB&HA
+    <label class="md-nav__link" for="nav-8">
+      CI&DC
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        LB&HA
+      <label class="md-nav__title" for="nav-8">
+        CI&DC
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -831,67 +692,10 @@
           
           
 
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="LVS" class="md-nav__link md-nav__link--active">
-      LVS
-    </a>
-    
-  </li>
-
-        
-          
-          
-          
-
 
   <li class="md-nav__item">
-    <a href="../Keepalived/" title="Keepalived" class="md-nav__link">
-      Keepalived
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
-      HAProxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Traefik/" title="Traefik" class="md-nav__link">
-      Traefik
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Envoy/" title="Envoy" class="md-nav__link">
-      Envoy
+    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
+      Jenkins
     </a>
   </li>
 
@@ -908,14 +712,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-12">
-      ContainerEcosystem
+    <label class="md-nav__link" for="nav-9">
+      ConfigManagement
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
-        ContainerEcosystem
+      <label class="md-nav__title" for="nav-9">
+        ConfigManagement
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -926,8 +730,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker/" title="Docker" class="md-nav__link">
-      Docker
+    <a href="../Apollo/" title="Apollo" class="md-nav__link">
+      Apollo
     </a>
   </li>
 
@@ -938,32 +742,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OKD/" title="Paas" class="md-nav__link">
-      Paas
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Croreos/" title="ContainerOS" class="md-nav__link">
-      ContainerOS
+    <a href="../Ansible/" title="Ansible" class="md-nav__link">
+      Ansible
     </a>
   </li>
 
@@ -980,13 +760,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-10">
       Database
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-10">
         Database
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1088,14 +868,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-14">
-      OpsTools
+    <label class="md-nav__link" for="nav-11">
+      Monitor
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
-        OpsTools
+      <label class="md-nav__title" for="nav-11">
+        Monitor
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1106,8 +886,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ansible/" title="Ansible(ITAutomationTool)" class="md-nav__link">
-      Ansible(ITAutomationTool)
+    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
+      Zabbix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Grafana/" title="Grafana" class="md-nav__link">
+      Grafana
     </a>
   </li>
 
@@ -1124,6 +928,54 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios/" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TICK/" title="TICKStack" class="md-nav__link">
+      TICKStack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
+      OpenTSDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
+      SomelseMonitors
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1136,13 +988,157 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-12">
+      LB&HA
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        LB&HA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
+      LVSKeepalived
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
+      HAProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Envoy/" title="Envoy" class="md-nav__link">
+      Envoy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      ContainerEcosystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        ContainerEcosystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OKD/" title="OKD" class="md-nav__link">
+      OKD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Coreos/" title="ContainerOS" class="md-nav__link">
+      ContainerOS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
       MessageQueue
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-14">
         MessageQueue
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1208,13 +1204,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-15">
       FileSystem
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         FileSystem
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1228,6 +1224,18 @@
   <li class="md-nav__item">
     <a href="../Ceph/" title="Ceph" class="md-nav__link">
       Ceph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlusterFS/" title="GlusterFS" class="md-nav__link">
+      GlusterFS
     </a>
   </li>
 
@@ -1256,13 +1264,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       Security
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         Security
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1292,29 +1300,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-17">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-17">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DNS/" title="DNS" class="md-nav__link">
-      DNS
-    </a>
-  </li>
-
         
           
           
@@ -1340,6 +1336,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DNS/" title="DNS" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mail/" title="Mail" class="md-nav__link">
+      Mail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Samba/" title="Samba" class="md-nav__link">
+      Samba
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1352,13 +1384,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-18">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-18">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1400,65 +1432,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-19">
       TreasureTheLeisure
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-19">
         TreasureTheLeisure
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Mail/" title="Mail" class="md-nav__link">
-      Mail
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Samba/" title="Samba" class="md-nav__link">
-      Samba
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../AD/" title="AD" class="md-nav__link">
-      AD
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
-      Raspberrypi
-    </a>
-  </li>
-
         
           
           
@@ -1514,8 +1498,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP/" title="PHP" class="md-nav__link">
-      PHP
+    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
+      Raspberrypi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Windows/" title="Windows" class="md-nav__link">
+      Windows
     </a>
   </li>
 
@@ -1552,35 +1548,52 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/LVS.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/Iptables.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="linux-virtual-server">Linux Virtual Server<a class="headerlink" href="#linux-virtual-server" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span>Linux虚拟服务器是一个高度可扩展且高度可用的服务器，构建在真实服务器集群上。服务器群集的体系结构对最终用户完全透明，用户与群集系统进行交互，就好像它只是一个高性能的虚拟服务器一样。
+                <h1 id="iptables">iptables<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h1>
+<p>iptables一共有四张表和五条链,其中表是按照对数据包的操作区分的，链是按照不同的Hook点来区分的</p>
+<ul>
+<li>表：</li>
+<li>Raw 负责连接跟踪</li>
+<li>Mangle 负责包处理</li>
+<li>Nat nat功能(端口映射，地址映射等）</li>
+<li>
+<p>Filter 负责包过滤</p>
+</li>
+<li>
+<p>链名规则：</p>
+</li>
+<li>PREROUTING 数据包作路由表之前</li>
+<li>INPUT 接收数据包</li>
+<li>FORWARD 在内核空间中，从一个网络接口进入，到另一个网络接口去。转发过滤</li>
+<li>OUTPUT 输出数据包</li>
+<li>
+<p>POSTROUTING 数据包作路由选择之后</p>
+</li>
+<li>
+<p>动作：</p>
+</li>
+<li>accept：接收数据包。</li>
+<li>DROP：丢弃数据包。</li>
+<li>REDIRECT：重定向、映射、透明代理。</li>
+<li>SNAT：源地址转换。</li>
+<li>DNAT：目标地址转换。</li>
+<li>MASQUERADE：IP伪装（NAT），用于ADSL。</li>
+<li>LOG：日志记录。</li>
+</ul>
+<div class="codehilite"><pre><span></span>iptables -I INPUT -s ip -j DROP   <span class="c1">#屏蔽指定 ip 访问</span>
+iptables -A INPUT -p tcp --dport <span class="m">2222</span> -j ACCEPT    <span class="c1">#允许 2222 端口访问</span>
+iptables -A INPUT -p icmp --icmp-type <span class="m">8</span> -s <span class="m">0</span>/0 -j DROP <span class="c1">#屏蔽 icmp 协议，即关闭 ping 服务</span>
+iptables -L -n --line-numbers <span class="c1">#查看已添加的规则并以序号显示</span>
+iptables -D INPUT <span class="m">8</span> <span class="c1">#删除序号为 8 的规则</span>
 </pre></div>
 
-<p><img alt="figure" src="http://www.linuxvirtualserver.org/VirtualServer.png" /></p>
-<div class="codehilite"><pre><span></span>真实服务器和负载平衡器可以通过高速LAN或地理上分散的WAN互连。负载均衡器可以将请求分派给不同的服务器，并使群集的并行服务在单个IP地址上显示为虚拟服务，请求分派可以使用IP负载平衡技术或应用级负载均衡技术。通过透明地添加或删除集群中的节点来实现系统的可伸缩性。通过检测节点或守护程序故障并适当地重新配置系统来提供高可用性。
+<p>补充：<code class="codehilite">-A</code> 代表追加，<code class="codehilite">-I</code> 代表插入，<code class="codehilite">-D</code> 代表删掉，<code class="codehilite">-R</code> 代表替换，<code class="codehilite">-L</code> 代表列表，<code class="codehilite">-p</code> 代表协议，<code class="codehilite">-s</code> 代表源地址，必须是 IP ，<code class="codehilite">-j</code> 代表动作，<code class="codehilite">-d</code> 代表目标地址，<code class="codehilite">-i</code> 网卡进入是数据，<code class="codehilite">-o</code> 代表网卡输出的数据。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># ip_conntrack: table full, dropping packet问题处理</span>
+iptables -t raw -A PREROUTING -d <span class="m">1</span>.2.3.4 -p tcp --dport <span class="m">80</span> -j NOTRACK
+iptables -A FORWARD -m state --state UNTRACKED -j ACCEPT
 </pre></div>
-
-<div class="codehilite"><pre><span></span>构建服务器集群方法：
-DNS负载平衡：
-简单，利用域名系统将域名解析到服务器不同的IP来分发请求，DNS服务器根据调度策略(如循环方式)发出服务器IP地址，然后使用相同的本地缓存域名服务器在指定的域名解析生存时间(TTL)中发送到同一个服务器。
-但是，由于客户端和分层DNS系统的缓存特性，很容易导致服务器之间的动态负载不平衡，因此服务器不容易处理其峰值负载。在DNS服务器上无法很好地选择名称映射的TTL值，小值DNS流量很高且DNS服务器将成为瓶颈，并且具有高值，动态负载不平衡将变得更糟。即使TTL值设置为零，调度粒度是每个主机，不同用户的访问模式可能会导致动态负载不平衡，因为有些人可能从网站上抽取大量页面，而其他人可能只是浏览几页然后去远。此外，它不太可靠，当服务器节点发生故障时，将名称映射到IP地址的客户端将发现服务器已关闭
-
-基于调度程序的负载平衡群集：
-可用于在群集中的服务器之间分配负载，以便服务器的并行服务可以在单个IP地址上显示为虚拟服务，并且最终用户可以像单个服务器一样进行交互不知道集群中的所有服务器。与基于DNS的负载平衡相比，调度程序可以以精细的粒度（例如每个连接）调度请求，以便在服务器之间实现更好的负载平衡。当一台或多台服务器发生故障时，可以屏蔽故障。服务器管理变得越来越容易，管理员可以随时使用服务器或更多服务器，这不会中断最终用户的服务。
-
-负载均衡可以在两个级别完成，即应用级和IP级。将HTTP请求转发到集群中的不同Web服务器，获取结果，然后将其返回给客户端。由于在应用程序级别处理HTTP请求和回复的开销很高，当服务器节点数量增加到5或更多时，应用程序级负载均衡器将成为新的瓶颈，这取决于每个服务器节点的吞吐量服务器
-</pre></div>
-
-<div class="codehilite"><pre><span></span>LinuxVirtualServer以三种IP负载均衡技术(数据包转发方法)实现。
-1. NAT方式
-2. IP隧道
-3. 直接路由
-</pre></div>
-
-<p>VS/NAT，VS/TUN和VS/DR的比较：</p>
                 
                   
                 
@@ -1601,7 +1614,7 @@ DNS负载平衡：
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Memcached/" title="Memcached" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Utilities/" title="Iproute2&Net-tools" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1610,19 +1623,19 @@ DNS负载平衡：
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Memcached
+                Iproute2&Net-tools
               </span>
             </div>
           </a>
         
         
-          <a href="../Keepalived/" title="Keepalived" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Firewalld/" title="Firewalld" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Keepalived
+                Firewalld
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1644,7 +1657,6 @@ DNS负载平衡：
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
@@ -1654,14 +1666,13 @@ DNS负载平衡：
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../assets/javascripts/application.b806dc00.js"></script>
       
         
         
@@ -1681,11 +1692,6 @@ DNS负载平衡：
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>

@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
       
@@ -68,6 +68,34 @@
     
       <link rel="manifest" href="../manifest.webmanifest">
     
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-131093963-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -126,22 +154,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                Material Design for MyNotes
-              </span>
-              <span class="md-header-nav__topic">
-                Shell
-              </span>
-            
+            <span class="md-header-nav__topic">
+              Material Design for MyNotes
+            </span>
+            <span class="md-header-nav__topic">
+              Shell
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -164,7 +189,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -175,20 +199,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
           </div>
         </div>
       
@@ -224,20 +246,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -868,8 +888,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Debian/" title="Debian" class="md-nav__link">
-      Debian
+    <a href="../Utilities/" title="Iproute2&Net-tools" class="md-nav__link">
+      Iproute2&Net-tools
     </a>
   </li>
 
@@ -880,8 +900,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Iproute/" title="Iproute" class="md-nav__link">
-      Iproute
+    <a href="../Iptables/" title="Iptables" class="md-nav__link">
+      Iptables
     </a>
   </li>
 
@@ -964,6 +984,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../PHP/" title="PHP-FPM" class="md-nav__link">
+      PHP-FPM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../WildFly.md" title="WildFly" class="md-nav__link">
       WildFly
     </a>
@@ -997,190 +1029,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
-      CI&DC
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        CI&DC
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
-      Jenkins
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Monitor
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Monitor
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
-      Zabbix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
-      Prometheus
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Grafana/" title="Grafana" class="md-nav__link">
-      Grafana
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Nagios/" title="Nagios" class="md-nav__link">
-      Nagios
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
-      SomelseMonitors
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      ConfigManagement
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        ConfigManagement
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Apollo/" title="Apollo" class="md-nav__link">
-      Apollo
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
       OptimisingWebDelivery
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
+      <label class="md-nav__title" for="nav-7">
         OptimisingWebDelivery
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1258,14 +1110,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-11">
-      LB&HA
+    <label class="md-nav__link" for="nav-8">
+      CI&DC
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        LB&HA
+      <label class="md-nav__title" for="nav-8">
+        CI&DC
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1276,56 +1128,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVS/" title="LVS" class="md-nav__link">
-      LVS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Keepalived/" title="Keepalived" class="md-nav__link">
-      Keepalived
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
-      HAProxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Traefik/" title="Traefik" class="md-nav__link">
-      Traefik
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Envoy/" title="Envoy" class="md-nav__link">
-      Envoy
+    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
+      Jenkins
     </a>
   </li>
 
@@ -1342,14 +1146,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-12">
-      ContainerEcosystem
+    <label class="md-nav__link" for="nav-9">
+      ConfigManagement
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
-        ContainerEcosystem
+      <label class="md-nav__title" for="nav-9">
+        ConfigManagement
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1360,8 +1164,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker/" title="Docker" class="md-nav__link">
-      Docker
+    <a href="../Apollo/" title="Apollo" class="md-nav__link">
+      Apollo
     </a>
   </li>
 
@@ -1372,32 +1176,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OKD/" title="Paas" class="md-nav__link">
-      Paas
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Croreos/" title="ContainerOS" class="md-nav__link">
-      ContainerOS
+    <a href="../Ansible/" title="Ansible" class="md-nav__link">
+      Ansible
     </a>
   </li>
 
@@ -1414,13 +1194,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-10">
       Database
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-10">
         Database
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1522,14 +1302,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-14">
-      OpsTools
+    <label class="md-nav__link" for="nav-11">
+      Monitor
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
-        OpsTools
+      <label class="md-nav__title" for="nav-11">
+        Monitor
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1540,8 +1320,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ansible/" title="Ansible(ITAutomationTool)" class="md-nav__link">
-      Ansible(ITAutomationTool)
+    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
+      Zabbix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Grafana/" title="Grafana" class="md-nav__link">
+      Grafana
     </a>
   </li>
 
@@ -1558,6 +1362,54 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios/" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TICK/" title="TICKStack" class="md-nav__link">
+      TICKStack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
+      OpenTSDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
+      SomelseMonitors
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1570,13 +1422,157 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-12">
+      LB&HA
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        LB&HA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
+      LVSKeepalived
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
+      HAProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Envoy/" title="Envoy" class="md-nav__link">
+      Envoy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      ContainerEcosystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        ContainerEcosystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OKD/" title="OKD" class="md-nav__link">
+      OKD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Coreos/" title="ContainerOS" class="md-nav__link">
+      ContainerOS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
       MessageQueue
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-14">
         MessageQueue
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1642,13 +1638,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-15">
       FileSystem
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         FileSystem
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1662,6 +1658,18 @@
   <li class="md-nav__item">
     <a href="../Ceph/" title="Ceph" class="md-nav__link">
       Ceph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlusterFS/" title="GlusterFS" class="md-nav__link">
+      GlusterFS
     </a>
   </li>
 
@@ -1690,13 +1698,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       Security
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         Security
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1726,29 +1734,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-17">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-17">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DNS/" title="DNS" class="md-nav__link">
-      DNS
-    </a>
-  </li>
-
         
           
           
@@ -1774,6 +1770,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DNS/" title="DNS" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mail/" title="Mail" class="md-nav__link">
+      Mail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Samba/" title="Samba" class="md-nav__link">
+      Samba
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1786,13 +1818,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-18">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-18">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1834,65 +1866,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-19">
       TreasureTheLeisure
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-19">
         TreasureTheLeisure
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Mail/" title="Mail" class="md-nav__link">
-      Mail
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Samba/" title="Samba" class="md-nav__link">
-      Samba
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../AD/" title="AD" class="md-nav__link">
-      AD
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
-      Raspberrypi
-    </a>
-  </li>
-
         
           
           
@@ -1948,8 +1932,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP/" title="PHP" class="md-nav__link">
-      PHP
+    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
+      Raspberrypi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Windows/" title="Windows" class="md-nav__link">
+      Windows
     </a>
   </li>
 
@@ -2508,7 +2504,7 @@
 <span class="c1"># type rmrm is aliased to `rm -i&#39;# \\rm ./*.log</span>
 上例，我在 rm 指令前加上 escape 字元，作用是暂时取消别名的功能，将 rm 指令还原。
 <span class="c1"># bkdir=/home# echo \&quot;Backup dir, \\$bkdir = $bkdir\&quot;Backup dir,$bkdir = /home</span>
-上例 <span class="nb">echo</span> 内的 <span class="se">\\</span><span class="nv">$bkdir</span>，escape 将 $ 变数的功能取消了，因此，会输出 <span class="nv">$bkdir</span>，而第二个 <span class="nv">$bkdir</span>则会输出变数的内容 /home。
+上例 <span class="nb">echo</span> 内的 <span class="se">\\</span><span class="nv">$bkdir</span>，escape 将 $ 变数的功能取消了，因此，会输出 <span class="nv">$bkdir</span>，而第二个 <span class="nv">$bkdir则会输出变数的内容</span> /home。
 </pre></div>
 
 <h3 id="pipeline">| 管道 (pipeline)<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h3>
@@ -2533,7 +2529,7 @@ ls a<span class="o">[</span>!0-9<span class="o">]</span>
 上面这一行，相当于 cat /dev/null &gt;f.<span class="nv">$$</span>。不仅写法简短了，而且执行效率也好上许多。
 有时，也会出现以下这类的用法
 : <span class="si">${</span><span class="nv">HOSTNAME</span><span class="p">?</span><span class="si">}</span> <span class="si">${</span><span class="nv">USER</span><span class="p">?</span><span class="si">}</span> <span class="si">${</span><span class="nv">MAIL</span><span class="p">?</span><span class="si">}</span>
-这行的作用是，检查这些环境变数是否已设置，没有设置的将会以标准错误显示错误讯息。像这种检查如果使用类似 <span class="nb">test</span> 或 <span class="k">if</span>这类的做法，基本上也可以处理，但都比不上上例的简洁与效率。
+这行的作用是，检查这些环境变数是否已设置，没有设置的将会以标准错误显示错误讯息。像这种检查如果使用类似 <span class="nb">test</span> 或 if这类的做法，基本上也可以处理，但都比不上上例的简洁与效率。
 </pre></div>
 
 <h3 id="wild-card">? 问号 (wild card)<a class="headerlink" href="#wild-card" title="Permanent link">&para;</a></h3>
@@ -2734,8 +2730,8 @@ cmd m&lt;<span class="p">&amp;</span>n m来自文件描述各个n
 cmd &lt;<span class="p">&amp;</span>- 关闭标准输入
 cmd &lt;<span class="p">&amp;</span>n- 移动输入文件描述符n而非复制它。（需要解释）
 cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制它。（需要解释）
-注意： &gt;<span class="p">&amp;</span>实际上复制了文件描述符，这使得cmd &gt; file <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>与cmd <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> &gt;file的效果不一样。
-<span class="p">&amp;</span>&gt; file和 &gt; file <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>相同
+注意： &gt;<span class="p">&amp;</span>实际上复制了文件描述符，这使得cmd &gt; file <span class="m">2</span>&gt;<span class="p">&amp;</span>1与cmd <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> &gt;file的效果不一样。
+<span class="p">&amp;</span>&gt; file和 &gt; file <span class="m">2</span>&gt;<span class="p">&amp;</span>1相同
 </pre></div>
 
 <h3 id="-">-<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
@@ -2908,9 +2904,9 @@ Ctl-Z
 
 <h3 id="shell_3">shell多行注释实现方式<a class="headerlink" href="#shell_3" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>方法一：
-: &lt;&lt; 字符
-语句
-字符
+: <span class="s">&lt;&lt; 字符</span>
+<span class="s">语句</span>
+<span class="s">字符</span>
 
 方法二：
 : <span class="s1">&#39;</span>
@@ -3480,7 +3476,7 @@ linkchk <span class="o">()</span> <span class="o">{</span>
 
 <div class="codehilite"><pre><span></span>一个if/then结构测试一列命令的退出状态是否为0（因为依照惯例，0意味着命令执行成功），如果是0则会执行一个或多个命令。
 
-有一个命令 <span class="o">[</span> <span class="o">(</span>左方括是特殊字符<span class="o">)</span>. 它和test是同义词,因为效率的原因，它被内建在shell里。这个命令的参数是比较表达式或者文件测试，它会返回一个退出状态指示比较的结果<span class="o">(</span><span class="m">0</span>表示真，1表示假<span class="o">)</span>。
+有一个命令 <span class="o">[</span> <span class="o">(</span>左方括是特殊字符<span class="o">)</span>. 它和test是同义词,因为效率的原因，它被内建在shell里。这个命令的参数是比较表达式或者文件测试，它会返回一个退出状态指示比较的结果<span class="o">(</span>0表示真，1表示假<span class="o">)</span>。
 
 <span class="c1">#一个if/then结构能包含嵌套的比较和测试。</span>
 <span class="k">if</span> <span class="nb">echo</span> <span class="s2">&quot;Next *if* is part of the comparison for the first *if*.&quot;</span>
@@ -3677,7 +3673,7 @@ linkchk <span class="o">()</span> <span class="o">{</span>
 
 <span class="o">((</span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> &gt;<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="o">))</span>
 
-字符串比较
+<span class="nv">字符串比较</span>
 
 <span class="o">=</span>
 
@@ -3690,7 +3686,7 @@ linkchk <span class="o">()</span> <span class="o">{</span>
 
 <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
 
-它和<span class="o">=</span>是同义词。
+<span class="nv">它和</span><span class="o">=</span>是同义词。
 
 <span class="o">==</span>比较操作符在一个双方括号测试和一个单方括号号里意思不同。
 <span class="o">[[</span> <span class="nv">$a</span> <span class="o">==</span> z* <span class="o">]]</span>    <span class="c1"># 如果变量$a以字符&quot;z&quot;开始(模式匹配)则为真.</span>
@@ -3733,7 +3729,7 @@ linkchk <span class="o">()</span> <span class="o">{</span>
 字符串不为<span class="s2">&quot;null&quot;</span>，即长度不为零.
 
 在测试方括号里进行-n测试时一定要把字符串用引号起来。用没有引号引起的! -z或者在方括号里只有未引号引起的字符串 <span class="o">(</span>参考例子 <span class="m">7</span>-6<span class="o">)</span>来进行测试一般都能工作，然而，这其实是不安全的测试。应该总是用引号把测试字符串引起来。<span class="o">[</span><span class="m">1</span><span class="o">]</span>
-<span class="o">[</span><span class="m">1</span><span class="o">]</span> 就像S.C.指出的那样，在一个混合测试中，把一个字符串变量引号引起来可能还不够。如果<span class="nv">$string</span>变量是空的话，表达式<span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$string</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>在一些Bash版本中可能会引起错误。安全的办法是附加一个外部的字符串给可能有空字符串变量比较的所有变量，<span class="o">[</span> <span class="s2">&quot;x</span><span class="nv">$string</span><span class="s2">&quot;</span> !<span class="o">=</span> x -o <span class="s2">&quot;x</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;x</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">](</span>x字符可以互相抵消<span class="o">)</span>。
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> 就像S.C.指出的那样，在一个混合测试中，把一个字符串变量引号引起来可能还不够。如果<span class="nv">$string变量是空的话</span>，表达式<span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$string</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>在一些Bash版本中可能会引起错误。安全的办法是附加一个外部的字符串给可能有空字符串变量比较的所有变量，<span class="o">[</span> <span class="s2">&quot;x</span><span class="nv">$string</span><span class="s2">&quot;</span> !<span class="o">=</span> x -o <span class="s2">&quot;x</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;x</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">](</span>x字符可以互相抵消<span class="o">)</span>。
 
 <span class="c1">#算术和字符串比较</span>
 <span class="c1">#!/bin/bash</span>
@@ -3939,14 +3935,14 @@ zcat <span class="nv">$1</span> <span class="p">|</span> more
 <div class="codehilite"><pre><span></span>赋值
 
 变量赋值
-初始化或改变一个变量的值
+<span class="nv">初始化或改变一个变量的值</span>
 
 <span class="o">=</span>
 通用的变量赋值操作符，可以用于数值和字符串的赋值
 <span class="nv">var</span><span class="o">=</span><span class="m">27</span>
 <span class="nv">category</span><span class="o">=</span>minerals  <span class="c1"># &quot;=&quot;字符后面不能加空白字符.</span>
 
-不要把<span class="s2">&quot;=&quot;</span>赋值操作符和<span class="o">=</span>测试操作符搞混了。
+不要把<span class="s2">&quot;=&quot;</span><span class="nv">赋值操作符和</span><span class="o">=</span>测试操作符搞混了。
 <span class="c1">#    = 用于测试操作符</span>
 
 <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$string1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$string2</span><span class="s2">&quot;</span> <span class="o">]</span>
@@ -4109,7 +4105,7 @@ echo<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot
 
 <span class="nb">exit</span> <span class="m">0</span>
 
-Bash中的整数变量实际上是有符号的长整数<span class="o">(</span><span class="m">32</span>位<span class="o">)</span>，它的范围在-2147483648至2147483647之间。如果有在此范围限制之外的操作将会得到一个错误的结果。
+Bash中的整数变量实际上是有符号的长整数<span class="o">(</span>32位<span class="o">)</span>，它的范围在-2147483648至2147483647之间。如果有在此范围限制之外的操作将会得到一个错误的结果。
 <span class="nv">a</span><span class="o">=</span><span class="m">2147483646</span>
 <span class="nb">echo</span> <span class="s2">&quot;a = </span><span class="nv">$a</span><span class="s2">&quot;</span>      <span class="c1"># a = 2147483646</span>
 <span class="nb">let</span> <span class="s2">&quot;a+=1&quot;</span>         <span class="c1"># 把变量&quot;a&quot;的值自增一.</span>
@@ -4132,87 +4128,87 @@ Bash不能处理浮点计算。它会把含有小数点的数当成字符串。
 
 位操作符
 
-&lt;&lt;
-位左移（每移一位相当乘以2）
+<span class="s">&lt;&lt;</span>
+<span class="s">位左移（每移一位相当乘以2）</span>
 
-: <span class="s">&lt;&lt;comment</span>
+<span class="s">: &lt;&lt;comment</span>
 
 <span class="s">&lt;&lt;=</span>
-<span class="s">&quot;位左移赋值&quot;</span>
+<span class="s">&quot;位左移</span>赋值<span class="s2">&quot;</span>
 
-<span class="s">comment</span>
+<span class="s2">comment</span>
 
-<span class="nb">let</span> <span class="s2">&quot;var &lt;&lt;= 2&quot;</span> 结果使var的二进制值左移了二位（相当于乘以4）
+<span class="s2">let &quot;</span>var &lt;&lt;<span class="o">=</span> <span class="m">2</span><span class="s2">&quot; 结果使var的二进制值左移了二位（相当于乘以4）</span>
 
-&gt;&gt;
-位右移（每移一位相当除以2）
+<span class="s2">&gt;&gt;</span>
+<span class="s2">位右移（每移一位相当除以2）</span>
 
-: <span class="s">&lt;&lt;comment</span>
+<span class="s2">: &lt;&lt;comment</span>
 
-<span class="s">&gt;&gt;=</span>
-<span class="s">&quot;位右移赋值&quot;（和&lt;&lt;=相反）</span>
+<span class="s2">&gt;&gt;=</span>
+<span class="s2">&quot;</span>位右移赋值<span class="s2">&quot;（和&lt;&lt;=相反）</span>
 
-<span class="s">comment</span>
+<span class="s2">comment</span>
 
-<span class="p">&amp;</span>
-位与
+<span class="s2">&amp;</span>
+<span class="s2">位与</span>
 
-<span class="p">&amp;</span><span class="o">=</span>
-<span class="s2">&quot;位于赋值&quot;</span>
+<span class="s2">&amp;=</span>
+<span class="s2">&quot;</span>位于赋值<span class="s2">&quot;</span>
 
-<span class="p">|</span>
-位或
+<span class="s2">|</span>
+<span class="s2">位或</span>
 
-<span class="p">|</span><span class="o">=</span>
-<span class="s2">&quot;位或赋值&quot;</span>
+<span class="s2">|=</span>
+<span class="s2">&quot;</span>位或赋值<span class="s2">&quot;</span>
 
-~
-位反
+<span class="s2">~</span>
+<span class="s2">位反</span>
 
-!
-位非
+<span class="s2">!</span>
+<span class="s2">位非</span>
 
-^
-位或
+<span class="s2">^</span>
+<span class="s2">位或</span>
 
-^<span class="o">=</span>
-<span class="s2">&quot;位或赋值&quot;</span>
+<span class="s2">^=</span>
+<span class="s2">&quot;</span>位或赋值<span class="s2">&quot;</span>
 
-逻辑操作符
+<span class="s2">逻辑操作符</span>
 
-<span class="o">&amp;&amp;</span>
-逻辑与
+<span class="s2">&amp;&amp;</span>
+<span class="s2">逻辑与</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$condition1</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$condition2</span> <span class="o">]</span>
-<span class="c1"># 等同于:  if [ $condition1 -a $condition2 ]</span>
-<span class="c1"># 如果condition1和condition2都为真则返回真...</span>
+<span class="s2">if [ </span><span class="nv">$condition1</span><span class="s2"> ] &amp;&amp; [ </span><span class="nv">$condition2</span><span class="s2"> ]</span>
+<span class="s2"># 等同于:  if [ </span><span class="nv">$condition1</span><span class="s2"> -a </span><span class="nv">$condition2</span><span class="s2"> ]</span>
+<span class="s2"># 如果condition1和condition2都为真则返回真...</span>
 
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$condition1</span> <span class="o">&amp;&amp;</span> <span class="nv">$condition2</span> <span class="o">]]</span>    <span class="c1"># Also works.</span>
-<span class="c1"># 注意&amp;&amp;操作不能在[ ... ]结构中使用.</span>
+<span class="s2">if [[ </span><span class="nv">$condition1</span><span class="s2"> &amp;&amp; </span><span class="nv">$condition2</span><span class="s2"> ]]    # Also works.</span>
+<span class="s2"># 注意&amp;&amp;操作不能在[ ... ]结构中使用.</span>
 
-依据上下文，<span class="o">&amp;&amp;</span>也可以在与列表<span class="o">(</span>and list<span class="o">)</span>连接命令中。
+<span class="s2">依据上下文，&amp;&amp;也可以在与列表(and list)连接命令中。</span>
 
-<span class="o">||</span>
-逻辑或
+<span class="s2">||</span>
+<span class="s2">逻辑或</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$condition1</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$condition2</span> <span class="o">]</span>
-<span class="c1"># 等同于:  if [ $condition1 -o $condition2 ]</span>
-<span class="c1"># 如果condition1和condition2有一个为真则返回真...</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$condition1</span> <span class="o">||</span> <span class="nv">$condition2</span> <span class="o">]]</span>    <span class="c1"># Also works.</span>
-<span class="c1"># 注意||操作不能在[ ... ]结构中使用.</span>
+<span class="s2">if [ </span><span class="nv">$condition1</span><span class="s2"> ] || [ </span><span class="nv">$condition2</span><span class="s2"> ]</span>
+<span class="s2"># 等同于:  if [ </span><span class="nv">$condition1</span><span class="s2"> -o </span><span class="nv">$condition2</span><span class="s2"> ]</span>
+<span class="s2"># 如果condition1和condition2有一个为真则返回真...</span>
+<span class="s2">if [[ </span><span class="nv">$condition1</span><span class="s2"> || </span><span class="nv">$condition2</span><span class="s2"> ]]    # Also works.</span>
+<span class="s2"># 注意||操作不能在[ ... ]结构中使用.</span>
 
-Bash测试由逻辑操作符连接起来的每一个表达式的退出状态。
+<span class="s2">Bash测试由逻辑操作符连接起来的每一个表达式的退出状态。</span>
 
 
-<span class="c1">#使用&amp;&amp;和||进行混合条件测试</span>
-<span class="c1">#!/bin/bash</span>
+<span class="s2">#使用&amp;&amp;和||进行混合条件测试</span>
+<span class="s2">#!/bin/bash</span>
 
-<span class="nv">a</span><span class="o">=</span><span class="m">24</span>
-<span class="nv">b</span><span class="o">=</span><span class="m">47</span>
+<span class="s2">a=24</span>
+<span class="s2">b=47</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -eq <span class="m">24</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> -eq <span class="m">47</span> <span class="o">]</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;Test #1 succeeds.&quot;</span>
+<span class="s2">if [ &quot;</span><span class="nv">$a</span><span class="s2">&quot; -eq 24 ] &amp;&amp; [ &quot;</span><span class="nv">$b</span><span class="s2">&quot; -eq 47 ]</span>
+<span class="s2">then</span>
+<span class="s2">  echo &quot;</span>Test <span class="c1">#1 succeeds.&quot;</span>
 <span class="k">else</span>
   <span class="nb">echo</span> <span class="s2">&quot;Test #1 fails.&quot;</span>
 <span class="k">fi</span>
@@ -4420,7 +4416,6 @@ Bash测试由逻辑操作符连接起来的每一个表达式的退出状态。
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
@@ -4430,14 +4425,13 @@ Bash测试由逻辑操作符连接起来的每一个表达式的退出状态。
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../assets/javascripts/application.b806dc00.js"></script>
       
         
         
@@ -4457,11 +4451,6 @@ Bash测试由逻辑操作符连接起来的每一个表达式的退出状态。
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>

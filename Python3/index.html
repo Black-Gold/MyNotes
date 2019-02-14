@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
       
@@ -68,6 +68,34 @@
     
       <link rel="manifest" href="../manifest.webmanifest">
     
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-131093963-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -126,22 +154,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                Material Design for MyNotes
-              </span>
-              <span class="md-header-nav__topic">
-                Python3
-              </span>
-            
+            <span class="md-header-nav__topic">
+              Material Design for MyNotes
+            </span>
+            <span class="md-header-nav__topic">
+              Python3
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -164,7 +189,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -175,20 +199,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
           </div>
         </div>
       
@@ -224,20 +246,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -581,20 +601,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" title="数据结构" class="md-nav__link">
-    数据结构
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" title="集合" class="md-nav__link">
-    集合
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#python3_1" title="python3模块" class="md-nav__link">
     python3模块
   </a>
@@ -692,8 +698,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Debian/" title="Debian" class="md-nav__link">
-      Debian
+    <a href="../Utilities/" title="Iproute2&Net-tools" class="md-nav__link">
+      Iproute2&Net-tools
     </a>
   </li>
 
@@ -704,8 +710,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Iproute/" title="Iproute" class="md-nav__link">
-      Iproute
+    <a href="../Iptables/" title="Iptables" class="md-nav__link">
+      Iptables
     </a>
   </li>
 
@@ -788,6 +794,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../PHP/" title="PHP-FPM" class="md-nav__link">
+      PHP-FPM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../WildFly.md" title="WildFly" class="md-nav__link">
       WildFly
     </a>
@@ -821,190 +839,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
-      CI&DC
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        CI&DC
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
-      Jenkins
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Monitor
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Monitor
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
-      Zabbix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
-      Prometheus
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Grafana/" title="Grafana" class="md-nav__link">
-      Grafana
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Nagios/" title="Nagios" class="md-nav__link">
-      Nagios
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
-      SomelseMonitors
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      ConfigManagement
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        ConfigManagement
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Apollo/" title="Apollo" class="md-nav__link">
-      Apollo
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
       OptimisingWebDelivery
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
+      <label class="md-nav__title" for="nav-7">
         OptimisingWebDelivery
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1082,14 +920,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-11">
-      LB&HA
+    <label class="md-nav__link" for="nav-8">
+      CI&DC
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        LB&HA
+      <label class="md-nav__title" for="nav-8">
+        CI&DC
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1100,56 +938,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVS/" title="LVS" class="md-nav__link">
-      LVS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Keepalived/" title="Keepalived" class="md-nav__link">
-      Keepalived
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
-      HAProxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Traefik/" title="Traefik" class="md-nav__link">
-      Traefik
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Envoy/" title="Envoy" class="md-nav__link">
-      Envoy
+    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
+      Jenkins
     </a>
   </li>
 
@@ -1166,14 +956,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-12">
-      ContainerEcosystem
+    <label class="md-nav__link" for="nav-9">
+      ConfigManagement
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
-        ContainerEcosystem
+      <label class="md-nav__title" for="nav-9">
+        ConfigManagement
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1184,8 +974,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker/" title="Docker" class="md-nav__link">
-      Docker
+    <a href="../Apollo/" title="Apollo" class="md-nav__link">
+      Apollo
     </a>
   </li>
 
@@ -1196,32 +986,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OKD/" title="Paas" class="md-nav__link">
-      Paas
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Croreos/" title="ContainerOS" class="md-nav__link">
-      ContainerOS
+    <a href="../Ansible/" title="Ansible" class="md-nav__link">
+      Ansible
     </a>
   </li>
 
@@ -1238,13 +1004,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-10">
       Database
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-10">
         Database
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1346,14 +1112,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-14">
-      OpsTools
+    <label class="md-nav__link" for="nav-11">
+      Monitor
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
-        OpsTools
+      <label class="md-nav__title" for="nav-11">
+        Monitor
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1364,8 +1130,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ansible/" title="Ansible(ITAutomationTool)" class="md-nav__link">
-      Ansible(ITAutomationTool)
+    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
+      Zabbix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Grafana/" title="Grafana" class="md-nav__link">
+      Grafana
     </a>
   </li>
 
@@ -1382,6 +1172,54 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios/" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TICK/" title="TICKStack" class="md-nav__link">
+      TICKStack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
+      OpenTSDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
+      SomelseMonitors
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1394,13 +1232,157 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-12">
+      LB&HA
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        LB&HA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
+      LVSKeepalived
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
+      HAProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Envoy/" title="Envoy" class="md-nav__link">
+      Envoy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      ContainerEcosystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        ContainerEcosystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OKD/" title="OKD" class="md-nav__link">
+      OKD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Coreos/" title="ContainerOS" class="md-nav__link">
+      ContainerOS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
       MessageQueue
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-14">
         MessageQueue
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1466,13 +1448,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-15">
       FileSystem
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         FileSystem
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1486,6 +1468,18 @@
   <li class="md-nav__item">
     <a href="../Ceph/" title="Ceph" class="md-nav__link">
       Ceph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlusterFS/" title="GlusterFS" class="md-nav__link">
+      GlusterFS
     </a>
   </li>
 
@@ -1514,13 +1508,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       Security
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         Security
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1550,29 +1544,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-17">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-17">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DNS/" title="DNS" class="md-nav__link">
-      DNS
-    </a>
-  </li>
-
         
           
           
@@ -1598,6 +1580,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DNS/" title="DNS" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mail/" title="Mail" class="md-nav__link">
+      Mail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Samba/" title="Samba" class="md-nav__link">
+      Samba
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1610,13 +1628,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-18">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-18">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1658,65 +1676,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-19">
       TreasureTheLeisure
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-19">
         TreasureTheLeisure
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Mail/" title="Mail" class="md-nav__link">
-      Mail
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Samba/" title="Samba" class="md-nav__link">
-      Samba
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../AD/" title="AD" class="md-nav__link">
-      AD
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
-      Raspberrypi
-    </a>
-  </li>
-
         
           
           
@@ -1772,8 +1742,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP/" title="PHP" class="md-nav__link">
-      PHP
+    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
+      Raspberrypi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Windows/" title="Windows" class="md-nav__link">
+      Windows
     </a>
   </li>
 
@@ -2005,20 +1987,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" title="数据结构" class="md-nav__link">
-    数据结构
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" title="集合" class="md-nav__link">
-    集合
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#python3_1" title="python3模块" class="md-nav__link">
     python3模块
   </a>
@@ -2058,38 +2026,16 @@
                   <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/Python3.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="python3">python3实例手册<a class="headerlink" href="#python3" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
+                <h1 id="python3">python3手册<a class="headerlink" href="#python3" title="Permanent link">&para;</a></h1>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/python3</span>
 <span class="c1"># -*- coding: UTF-8 -*-</span>
 
-<span class="n">Python</span><span class="err">中单行注释以</span><span class="c1">#开头，多行注释用三个单引号（```）或者三个双引号（&quot;&quot;&quot;）将注释括起来。</span>
+<span class="n">Python中单行注释以</span><span class="c1">#开头，多行注释用三个单引号（```）或者三个双引号（&quot;&quot;&quot;）将注释括起来。</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="n">python</span><span class="err">中数的数据类型有四种：整数、长整数、浮点数、复数</span>
-<span class="n">python</span><span class="err">中变量无需声明，每个变量在使用前必须赋值，变量赋值后该变量才会被创建。变量没有类型，而通常所说的“类型”指内存中对象的类型。</span>
-<span class="n">python3</span><span class="err">中有六个标准的数据类型：</span>
+<div class="codehilite"><pre><span></span><span class="n">python中数的数据类型有四种</span><span class="err">：整数、长整数、浮点数、复数</span>
+<span class="n">python中变量无需声明</span><span class="err">，每个变量在使用前必须赋值，变量赋值后该变量才会被创建。变量没有类型，而通常所说的“类型”指内存中对象的类型。</span>
+<span class="n">python3中有六个标准的数据类型</span><span class="err">：</span>
 <span class="n">Numbers</span><span class="err">（数字）</span>
 <span class="n">String</span><span class="err">（字符串）</span>
 <span class="n">List</span><span class="err">（列表）</span>
@@ -2099,29 +2045,29 @@
 </pre></div>
 
 <h2 id="numbers">Numbers(数字)<a class="headerlink" href="#numbers" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">python3</span><span class="err">支持</span><span class="nb">int</span><span class="p">(</span><span class="err">整数</span><span class="p">)</span><span class="err">、</span><span class="nb">float</span><span class="p">(</span><span class="err">浮点</span><span class="p">)</span><span class="err">、</span><span class="nb">bool</span><span class="p">(</span><span class="err">布尔</span><span class="p">)</span><span class="err">、</span><span class="nb">complex</span><span class="p">(</span><span class="err">复数</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">python3支持int</span><span class="p">(</span><span class="err">整数</span><span class="p">)</span><span class="err">、</span><span class="nb">float</span><span class="p">(</span><span class="err">浮点</span><span class="p">)</span><span class="err">、</span><span class="nb">bool</span><span class="p">(</span><span class="err">布尔</span><span class="p">)</span><span class="err">、</span><span class="nb">complex</span><span class="p">(</span><span class="err">复数</span><span class="p">)</span>
 
 <span class="err">注意：</span>
-<span class="n">python</span><span class="err">可以同时为多个变量赋值，如：</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
+<span class="n">python可以同时为多个变量赋值</span><span class="err">，如：</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
 <span class="err">一个变量可以通过赋值指向不同类型的对象</span>
 <span class="err">数值的除法总是会返回一个浮点数，要获取整数使用</span><span class="o">//</span><span class="err">操作符</span>
-<span class="err">在混合计算时，</span><span class="n">Python</span><span class="err">会把整数类型转换为浮点数</span>
+<span class="err">在混合计算时，</span><span class="n">Python会把整数类型转换为浮点数</span>
 </pre></div>
 
 <h2 id="string">String(字符串)<a class="headerlink" href="#string" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">python</span><span class="err">中字符串</span><span class="nb">str</span><span class="err">用单引号或双引号栝起来，同时使用反斜杠</span>\<span class="err">转义特殊字符</span>
+<div class="codehilite"><pre><span></span><span class="n">python中字符串str用单引号或双引号栝起来</span><span class="err">，同时使用反斜杠</span>\<span class="err">转义特殊字符</span>
 <span class="err">若不想让反斜杠产生转义效果，在字符串前添加一个</span><span class="n">r</span><span class="err">，表示原始字符串</span>
-<span class="n">python</span><span class="err">中的字符串有两种索引方式，第一种是从左往右依次从</span><span class="mi">0</span><span class="err">开始递增，第二种是从右往左依次从</span><span class="o">-</span><span class="mi">1</span><span class="err">开始递减</span>
+<span class="n">python中的字符串有两种索引方式</span><span class="err">，第一种是从左往右依次从</span><span class="mi">0</span><span class="err">开始递增，第二种是从右往左依次从</span><span class="o">-</span><span class="mi">1</span><span class="err">开始递减</span>
 <span class="err">注意：没有单独的字符类型，一个字符就是长度为</span><span class="mi">1</span><span class="err">的字符串</span>
 <span class="err">还可以对字符串进行切片，获取一段字符串，形式为变量</span><span class="p">[</span><span class="err">头下标</span><span class="p">:</span><span class="err">尾下标</span><span class="p">]</span>
 <span class="err">截取范围是前闭后开</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="err">，并且两个索引都可以省略</span>
-<span class="n">python</span><span class="err">字符串不能被改变，如向一个索引位置赋值，</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="err">会导致错误</span>
+<span class="n">python字符串不能被改变</span><span class="err">，如向一个索引位置赋值，</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="err">会导致错误</span>
 
 <span class="err">注意：</span>
-<span class="mi">1</span><span class="err">、反斜杠可以用来转义，使用</span><span class="n">r</span><span class="err">可以让反斜杠不发生转义。</span>
+<span class="mi">1</span><span class="err">、反斜杠可以用来转义，使用</span><span class="n">r可以让反斜杠不发生转义</span><span class="err">。</span>
 <span class="mi">2</span><span class="err">、字符串可以用</span><span class="o">+</span><span class="err">运算符连接在一起，用</span><span class="o">*</span><span class="err">运算符重复。</span>
-<span class="mi">3</span><span class="err">、</span><span class="n">Python</span><span class="err">中的字符串有两种索引方式，从左往右以</span><span class="mi">0</span><span class="err">开始，从右往左以</span><span class="o">-</span><span class="mi">1</span><span class="err">开始。</span>
-<span class="mi">4</span><span class="err">、</span><span class="n">Python</span><span class="err">中的字符串不能改变。</span>
+<span class="mi">3</span><span class="err">、</span><span class="n">Python中的字符串有两种索引方式</span><span class="err">，从左往右以</span><span class="mi">0</span><span class="err">开始，从右往左以</span><span class="o">-</span><span class="mi">1</span><span class="err">开始。</span>
+<span class="mi">4</span><span class="err">、</span><span class="n">Python中的字符串不能改变</span><span class="err">。</span>
 </pre></div>
 
 <h2 id="list">List(列表)<a class="headerlink" href="#list" title="Permanent link">&para;</a></h2>
@@ -2139,10 +2085,10 @@
 <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 
 <span class="c1"># 注意：</span>
-<span class="mi">1</span><span class="err">、</span><span class="n">List</span><span class="err">写在方括号之间，元素用逗号隔开。</span>
-<span class="mi">2</span><span class="err">、和字符串一样，</span><span class="nb">list</span><span class="err">可以被索引和切片。</span>
-<span class="mi">3</span><span class="err">、</span><span class="n">List</span><span class="err">可以使用</span><span class="o">+</span><span class="err">操作符进行拼接。</span>
-<span class="mi">4</span><span class="err">、</span><span class="n">List</span><span class="err">中的元素是可以改变的。</span>
+<span class="mi">1</span><span class="err">、</span><span class="n">List写在方括号之间</span><span class="err">，元素用逗号隔开。</span>
+<span class="mi">2</span><span class="err">、和字符串一样，</span><span class="n">list可以被索引和切片</span><span class="err">。</span>
+<span class="mi">3</span><span class="err">、</span><span class="n">List可以使用</span><span class="o">+</span><span class="err">操作符进行拼接。</span>
+<span class="mi">4</span><span class="err">、</span><span class="n">List中的元素是可以改变的</span><span class="err">。</span>
 </pre></div>
 
 <h3 id="_1">示例列表的大部分方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
@@ -2209,7 +2155,7 @@
 每个列表推导式都在 for 之后跟一个表达式，然后有零到多个 for 或 if 子句。返回结果是一个根据表达从其后的 for 和 if 上下文环境中生成出来的列表。如果希望表达式推导出一个元组，就必须使用括号。
 这里我们将列表中每个数值乘三，获得一个新的列表：</p>
 <h3 id="_5">嵌套列表解析<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><strong>del语句</strong>：使用del语句可以从一个列表中依索引而不是值来删除一个元素。这与使用 pop() 返回一个值不同。可以用 del 语句从列表中删除一个切割，或清空整个列表（我们以前介绍的方法是给该切割赋一个空列表）</p>
+<p><em>del语句</em>：使用del语句可以从一个列表中依索引而不是值来删除一个元素。这与使用 pop() 返回一个值不同。可以用 del 语句从列表中删除一个切割，或清空整个列表（我们以前介绍的方法是给该切割赋一个空列表）</p>
 <h2 id="tuple">Tuple（元组）<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="c1"># 元组（tuple）与列表类似，不同之处在于元组的元素不能修改。元组写在小括号里，元素之间用逗号隔开。元组中的元素类型也可以不相同：</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1991</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="s1">&#39;physics&#39;</span><span class="p">,</span> <span class="s1">&#39;math&#39;</span><span class="p">)</span>
@@ -2263,13 +2209,9 @@
 </tbody>
 </table>
 <h2 id="sets">Sets（集合）<a class="headerlink" href="#sets" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="err">集合（</span><span class="nb">set</span><span class="err">）是一个无序不重复元素的集。</span>
-
-<span class="err">基本功能是进行成员关系测试和消除重复元素。</span>
-
-<span class="err">可以使用大括号</span> <span class="err">或者</span> <span class="nb">set</span><span class="p">()</span><span class="err">函数创建</span><span class="nb">set</span><span class="err">集合，注意：创建一个空集合必须用</span> <span class="nb">set</span><span class="p">()</span> <span class="err">而不是</span> <span class="p">{</span> <span class="p">}</span><span class="err">，因为</span><span class="p">{</span> <span class="p">}</span><span class="err">是用来创建一个空字典。</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jim&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Rose&#39;</span><span class="p">}</span>
+<p>集合是一个无序不重复元素的集。基本功能包括成员关系测试和消除重复元素。集合对象还支持数学运算，如并集，交集，差异和对称差异
+可以用大括号({})创建集合。注意：如果要创建一个空集合，你必须用 set() 而不是 {} ；后者创建一个空的字典，集合也支持推导式</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jim&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Rose&#39;</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>   <span class="c1"># 重复的元素被自动去掉</span>
 <span class="p">{</span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Rose&#39;</span><span class="p">}</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Rose&#39;</span> <span class="ow">in</span> <span class="n">student</span>  <span class="c1"># membership testing（成员测试）</span>
@@ -2323,7 +2265,7 @@
 <span class="bp">True</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Mary&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tel</span>  <span class="c1"># 成员测试</span>
 <span class="bp">False</span>
-<span class="err">构造函数</span> <span class="nb">dict</span><span class="p">()</span> <span class="err">直接从键值对</span><span class="n">sequence</span><span class="err">中构建字典，当然也可以进行推导，如下：</span>
+<span class="err">构造函数</span> <span class="nb">dict</span><span class="p">()</span> <span class="err">直接从键值对</span><span class="n">sequence中构建字典</span><span class="err">，当然也可以进行推导，如下：</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;sape&#39;</span><span class="p">,</span> <span class="mi">4139</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;guido&#39;</span><span class="p">,</span> <span class="mi">4127</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;jack&#39;</span><span class="p">,</span> <span class="mi">4098</span><span class="p">)])</span>
 <span class="p">{</span><span class="s1">&#39;jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s1">&#39;sape&#39;</span><span class="p">:</span> <span class="mi">4139</span><span class="p">,</span> <span class="s1">&#39;guido&#39;</span><span class="p">:</span> <span class="mi">4127</span><span class="p">}</span>
@@ -2633,7 +2575,7 @@
 </pre></div>
 
 <h2 id="python_9">Python条件判断语句<a class="headerlink" href="#python_9" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="k">if</span><span class="err">语句</span>
+<div class="codehilite"><pre><span></span><span class="n">if语句</span>
 <span class="k">if</span> <span class="n">condition_1</span><span class="p">:</span>
     <span class="n">statement_block_1</span>
 <span class="k">elif</span> <span class="n">condition_2</span><span class="p">:</span>
@@ -2644,7 +2586,7 @@
 <span class="err">注意</span>
 <span class="mi">1</span><span class="err">、每个条件后面要使用冒号（</span><span class="p">:</span><span class="err">），表示接下来是满足条件后要执行的语句块。</span>
 <span class="mi">2</span><span class="err">、使用缩进来划分语句块，相同缩进数的语句在一起组成一个语句块。</span>
-<span class="mi">3</span><span class="err">、在</span><span class="n">Python</span><span class="err">中没有</span><span class="n">switch</span> <span class="err">–</span> <span class="n">case</span><span class="err">语句。</span>
+<span class="mi">3</span><span class="err">、在</span><span class="n">Python中没有switch</span> <span class="err">–</span> <span class="n">case语句</span><span class="err">。</span>
 </pre></div>
 
 <p>实例演示狗的年龄计算判断</p>
@@ -2691,7 +2633,7 @@
 </pre></div>
 
 <h2 id="_7">循环<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">python</span><span class="err">循环语句有</span><span class="k">for</span><span class="err">和</span><span class="k">while</span>
+<div class="codehilite"><pre><span></span><span class="n">python循环语句有for和while</span>
 <span class="c1"># 使用while循环计算1~100和</span>
 
 <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
@@ -2823,7 +2765,7 @@
 <span class="k">print</span><span class="p">(</span><span class="n">arithmetic_mean</span><span class="p">(</span><span class="mi">45</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">arithmetic_mean</span><span class="p">())</span>
 
-<span class="err">关键字参数有什么用？它可以扩展函数的功能。比如，在</span><span class="n">person</span><span class="err">函数里，我们保证能接收到</span><span class="n">name</span><span class="err">和</span><span class="n">age</span><span class="err">这两个参数，但是，如果调用者愿意提供更多的参数，我们也能收到。试想你正在做一个用户注册的功能，除了用户名和年龄是必填项外，其他都是可选项，利用关键字参数来定义这个函数就能满足注册的需求</span>
+<span class="err">关键字参数有什么用？它可以扩展函数的功能。比如，在</span><span class="n">person函数里</span><span class="err">，我们保证能接收到</span><span class="n">name和age这两个参数</span><span class="err">，但是，如果调用者愿意提供更多的参数，我们也能收到。试想你正在做一个用户注册的功能，除了用户名和年龄是必填项外，其他都是可选项，利用关键字参数来定义这个函数就能满足注册的需求</span>
 
 <span class="c1">## 命名关键字参数</span>
 <span class="c1"># 对于关键字参数，函数的调用者可以传入任意不受限制的关键字参数。至于到底传入了哪些，就需要在函数内部通过kw检查。</span>
@@ -2911,7 +2853,7 @@
 <span class="k">print</span><span class="p">([</span><span class="nb">dir</span> <span class="k">for</span> <span class="nb">dir</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)])</span> <span class="c1"># 列出当前目录下文件和目录名(包含隐藏文件或目录)</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="err">使用了</span><span class="k">yield</span><span class="err">的函数称为生成器</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span><span class="err">，生成器是一个返回迭代器的函数，简单的理解就是生成器就是一个迭代器。在调用生成器运行的过程中，每次遇到</span><span class="k">yield</span><span class="err">函数会暂停并保存当前所有的运行信息，返回</span><span class="k">yield</span><span class="err">的值，并在下一次</span><span class="nb">next</span><span class="p">()</span><span class="err">方法从当前位置继续运行。</span>
+<div class="codehilite"><pre><span></span><span class="err">使用了</span><span class="n">yield的函数称为生成器</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span><span class="err">，生成器是一个返回迭代器的函数，简单的理解就是生成器就是一个迭代器。在调用生成器运行的过程中，每次遇到</span><span class="n">yield函数会暂停并保存当前所有的运行信息</span><span class="err">，返回</span><span class="n">yield的值</span><span class="err">，并在下一次</span><span class="nb">next</span><span class="p">()</span><span class="err">方法从当前位置继续运行。</span>
 <span class="c1"># 使用生成器生成斐波那契数列,斐波那契数列：即两个元素的和确定下一个数</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -2965,10 +2907,6 @@
         <span class="k">break</span>
 </pre></div>
 
-<h2 id="_10">数据结构<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<h2 id="_11">集合<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<p>集合是一个无序不重复元素的集。基本功能包括关系测试和消除重复元素。
-可以用大括号({})创建集合。注意：如果要创建一个空集合，你必须用 set() 而不是 {} ；后者创建一个空的字典，集合也支持推导式</p>
 <h2 id="python3_1">python3模块<a class="headerlink" href="#python3_1" title="Permanent link">&para;</a></h2>
 <p>通俗的讲，将自行定义或已经存在的方法和变量存放在一个文件中，为一些脚步或交互式解释器实例使用，这个文件被称之为模块
 模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用python标准库的方法。下面是一个使用python标准库中模块的例子</p>
@@ -2980,24 +2918,24 @@
 
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Python3的路径为：&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="n">import</span><span class="err">语句</span>
+<span class="n">import语句</span>
 <span class="err">一个模块只会被导入一次，不管你执行了多少次</span><span class="n">import</span><span class="err">。这样可以防止导入模块被一遍又一遍地执行。</span>
-<span class="err">当我们使用</span><span class="n">import</span><span class="err">语句的时候，</span><span class="n">Python</span><span class="err">解释器是怎样找到对应的文件的呢？</span>
-<span class="err">这就涉及到</span><span class="n">Python</span><span class="err">的搜索路径，搜索路径是由一系列目录名组成的，</span><span class="n">Python</span><span class="err">解释器就依次从这些目录中去寻找所引入的模块。</span>
+<span class="err">当我们使用</span><span class="n">import语句的时候</span><span class="err">，</span><span class="n">Python解释器是怎样找到对应的文件的呢</span><span class="err">？</span>
+<span class="err">这就涉及到</span><span class="n">Python的搜索路径</span><span class="err">，搜索路径是由一系列目录名组成的，</span><span class="n">Python解释器就依次从这些目录中去寻找所引入的模块</span><span class="err">。</span>
 <span class="err">这看起来很像环境变量，事实上，也可以通过定义环境变量的方式来确定搜索路径。</span>
-<span class="err">搜索路径是在</span><span class="n">Python</span><span class="err">编译或安装的时候确定的，安装新的库应该也会修改。搜索路径被存储在</span><span class="n">sys</span><span class="err">模块中的</span><span class="n">path</span><span class="err">变量</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="err">输出是一个列表，其中第一项是空串</span><span class="s1">&#39;&#39;</span><span class="err">，代表当前目录（若是从一个脚本中打印出来的话，可以更清楚地看出是哪个目录），亦即我们执行</span><span class="n">python</span><span class="err">解释器的目录（对于脚本的话就是运行的脚本所在的目录）。</span>
+<span class="err">搜索路径是在</span><span class="n">Python编译或安装的时候确定的</span><span class="err">，安装新的库应该也会修改。搜索路径被存储在</span><span class="n">sys模块中的path变量</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path输出是一个列表</span><span class="err">，其中第一项是空串</span><span class="s1">&#39;&#39;</span><span class="err">，代表当前目录（若是从一个脚本中打印出来的话，可以更清楚地看出是哪个目录），亦即我们执行</span><span class="n">python解释器的目录</span><span class="err">（对于脚本的话就是运行的脚本所在的目录）。</span>
 <span class="err">因此若像我一样在当前目录下存在与要引入模块同名的文件，就会把要引入的模块屏蔽掉。</span>
-<span class="err">了解了搜索路径的概念，就可以在脚本中修改</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="err">来引入一些不在搜索路径中的模块</span>
+<span class="err">了解了搜索路径的概念，就可以在脚本中修改</span><span class="n">sys</span><span class="o">.</span><span class="n">path来引入一些不在搜索路径中的模块</span>
 
-<span class="vm">__name__</span><span class="err">属性</span>
-<span class="err">一个模块被另一个程序第一次引入时，其主程序将运行。如果我们想在模块被引入时，模块中的某一程序块不执行，我们可以用</span><span class="vm">__name__</span><span class="err">属性来使该程序块仅在该模块自身运行时执行</span>
+<span class="n">__name__属性</span>
+<span class="err">一个模块被另一个程序第一次引入时，其主程序将运行。如果我们想在模块被引入时，模块中的某一程序块不执行，我们可以用</span><span class="n">__name__属性来使该程序块仅在该模块自身运行时执行</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
  <span class="k">print</span><span class="p">(</span><span class="s1">&#39;程序自身在运行&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
  <span class="k">print</span><span class="p">(</span><span class="s1">&#39;我来自另一模块&#39;</span><span class="p">)</span>
 
-<span class="err">每个模块都有一个</span><span class="vm">__name__</span><span class="err">属性，当其值是</span><span class="s1">&#39;__main__&#39;</span><span class="err">时，表明该模块自身在运行，否则是被引入</span>
+<span class="err">每个模块都有一个</span><span class="n">__name__属性</span><span class="err">，当其值是</span><span class="s1">&#39;__main__&#39;</span><span class="err">时，表明该模块自身在运行，否则是被引入</span>
 
 <span class="nb">dir</span><span class="p">()</span> <span class="err">函数</span>
 <span class="err">内置的函数</span> <span class="nb">dir</span><span class="p">()</span> <span class="err">可以找到模块内定义的所有名称。以一个字符串列表的形式返回</span>
@@ -3010,7 +2948,7 @@
 
 <span class="err">包</span>
 <span class="err">包是一种管理</span> <span class="n">Python</span> <span class="err">模块命名空间的形式，采用</span><span class="s2">&quot;点模块名称&quot;</span><span class="err">。</span>
-<span class="err">比如一个模块的名称是</span> <span class="n">A</span><span class="o">.</span><span class="n">B</span><span class="err">，</span> <span class="err">那么他表示一个包</span> <span class="n">A</span><span class="err">中的子模块</span> <span class="n">B</span> <span class="err">。</span>
+<span class="err">比如一个模块的名称是</span> <span class="n">A</span><span class="o">.</span><span class="n">B</span><span class="err">，</span> <span class="err">那么他表示一个包</span> <span class="n">A中的子模块</span> <span class="n">B</span> <span class="err">。</span>
 <span class="err">就好像使用模块的时候，你不用担心不同模块之间的全局变量相互影响一样，采用点模块名称这种形式也不用担心不同库之间的模块重名的情况。</span>
 <span class="err">这样不同的作者都可以提供</span> <span class="n">NumPy</span> <span class="err">模块，或者是</span> <span class="n">Python</span> <span class="err">图形库。</span>
 <span class="err">不妨假设你想设计一套统一处理声音文件和数据的模块（或者称之为一个</span><span class="s2">&quot;包&quot;</span><span class="err">）。</span>
@@ -3044,7 +2982,7 @@
 
 <span class="err">目录只有包含一个叫做</span> <span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="err">的文件才会被认作是一个包，主要是为了避免一些滥俗的名字（比如叫做</span> <span class="n">string</span><span class="err">）不小心的影响搜索路径中的有效模块。</span>
 
-<span class="err">最简单的情况，放一个空的</span> <span class="p">:</span><span class="nb">file</span><span class="p">:</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="err">就可以了。当然这个文件中也可以包含一些初始化代码或者为（将在后面介绍的）</span> <span class="n">__all__</span><span class="err">变量赋值。</span>
+<span class="err">最简单的情况，放一个空的</span> <span class="p">:</span><span class="nb">file</span><span class="p">:</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py就可以了</span><span class="err">。当然这个文件中也可以包含一些初始化代码或者为（将在后面介绍的）</span> <span class="n">__all__变量赋值</span><span class="err">。</span>
 
 <span class="err">用户可以每次只导入一个包里面的特定模块，比如</span><span class="p">:</span>
 
@@ -3065,16 +3003,16 @@
 
 <span class="n">echofilter</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="err">注意当使用</span><span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">item</span><span class="err">这种形式的时候，对应的</span><span class="n">item</span><span class="err">既可以是包里面的子模块（子包），或者包里面定义的其他名称，比如函数，类或者变量。</span>
+<span class="err">注意当使用</span><span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="n">item这种形式的时候</span><span class="err">，对应的</span><span class="n">item既可以是包里面的子模块</span><span class="err">（子包），或者包里面定义的其他名称，比如函数，类或者变量。</span>
 
-<span class="n">import</span><span class="err">语法会首先把</span><span class="n">item</span><span class="err">当作一个包定义的名称，如果没找到，再试图按照一个模块去导入。如果还没找到，恭喜，一个</span><span class="p">:</span><span class="n">exc</span><span class="p">:</span><span class="ne">ImportError</span> <span class="err">异常被抛出了。</span>
+<span class="n">import语法会首先把item当作一个包定义的名称</span><span class="err">，如果没找到，再试图按照一个模块去导入。如果还没找到，恭喜，一个</span><span class="p">:</span><span class="n">exc</span><span class="p">:</span><span class="ne">ImportError</span> <span class="err">异常被抛出了。</span>
 
-<span class="err">反之，如果使用形如</span><span class="kn">import</span> <span class="nn">item.subitem.subsubitem</span><span class="err">这种导入形式，除了最后一项，都必须是包，而最后一项则可以是模块或者是包，但是不可以是类，函数或者变量的名字。</span>
+<span class="err">反之，如果使用形如</span><span class="kn">import</span> <span class="nn">item.subitem.subsubitem这种导入形式</span><span class="err">，除了最后一项，都必须是包，而最后一项则可以是模块或者是包，但是不可以是类，函数或者变量的名字。</span>
 </pre></div>
 
 <p>python3输入和输出</p>
 <div class="codehilite"><pre><span></span><span class="err">输出格式化</span>
-<span class="n">Python</span><span class="err">两种输出值的方式</span><span class="p">:</span> <span class="err">表达式语句和</span> <span class="k">print</span><span class="p">()</span> <span class="err">函数。</span>
+<span class="n">Python两种输出值的方式</span><span class="p">:</span> <span class="err">表达式语句和</span> <span class="k">print</span><span class="p">()</span> <span class="err">函数。</span>
 <span class="err">第三种方式是使用文件对象的</span> <span class="n">write</span><span class="p">()</span> <span class="err">方法，标准输出文件可以用</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="err">引用。</span>
 <span class="err">如果你希望输出的形式更加多样，可以使用</span> <span class="nb">str</span><span class="o">.</span><span class="n">format</span><span class="p">()</span> <span class="err">函数来格式化输出值。</span>
 <span class="err">如果你希望将输出的值转成字符串，可以使用</span> <span class="nb">repr</span><span class="p">()</span> <span class="err">或</span> <span class="nb">str</span><span class="p">()</span> <span class="err">函数来实现。</span>
@@ -3082,7 +3020,7 @@
 <span class="nb">repr</span><span class="p">()</span><span class="err">：</span> <span class="err">产生一个解释器易读的表达形式。</span>
 
 <span class="err">读取键盘输入</span>
-<span class="n">python</span><span class="err">提供了</span><span class="nb">input</span><span class="p">()</span><span class="err">内置函数从标准输入读取一行文本，默认标准输入是键盘</span>
+<span class="n">python提供了input</span><span class="p">()</span><span class="err">内置函数从标准输入读取一行文本，默认标准输入是键盘</span>
 <span class="nb">str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;输入：&quot;</span><span class="p">):</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
@@ -3093,7 +3031,7 @@
 <span class="n">filename</span><span class="err">：包含了你要访问的文件名称的字符串值。</span>
 <span class="n">mode</span><span class="err">：决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-<span class="n">Python</span> <span class="nb">open</span><span class="p">()</span> <span class="err">方法用于打开一个文件，并返回</span><span class="nb">file</span><span class="err">对象，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出</span> <span class="ne">OSError</span><span class="err">。</span>
+<span class="n">Python</span> <span class="nb">open</span><span class="p">()</span> <span class="err">方法用于打开一个文件，并返回</span><span class="n">file对象</span><span class="err">，在对文件进行处理过程都需要使用到这个函数，如果该文件无法被打开，会抛出</span> <span class="ne">OSError</span><span class="err">。</span>
 <span class="err">注意：使用</span> <span class="nb">open</span><span class="p">()</span> <span class="err">方法一定要保证关闭文件对象，即调用</span> <span class="n">close</span><span class="p">()</span> <span class="err">方法。</span>
 <span class="nb">open</span><span class="p">()</span> <span class="err">函数常用形式是接收两个参数：文件名</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span><span class="err">和模式</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span><span class="err">。</span>
 
@@ -3109,8 +3047,8 @@
 <span class="n">encoding</span><span class="p">:</span> <span class="err">一般使用</span><span class="n">utf8</span>
 <span class="n">errors</span><span class="p">:</span> <span class="err">报错级别</span>
 <span class="n">newline</span><span class="p">:</span> <span class="err">区分换行符</span>
-<span class="n">closefd</span><span class="p">:</span> <span class="err">传入的</span><span class="nb">file</span><span class="err">参数类型</span>
-<span class="n">opener</span><span class="p">:</span><span class="err">可以通过传递可调用的</span><span class="o">*</span> <span class="n">opener</span> <span class="o">*</span><span class="err">来使用自定义</span><span class="n">opener</span><span class="err">。</span> <span class="err">然后通过使用</span><span class="o">*</span><span class="err">（</span><span class="o">*</span> <span class="nb">file</span> <span class="o">*</span><span class="err">，</span><span class="o">*</span> <span class="n">flags</span> <span class="o">*</span><span class="err">）调用</span><span class="o">*</span> <span class="n">opener</span> <span class="o">*</span><span class="err">获得文件对象的基础文件描述符。</span> <span class="o">*</span> <span class="n">opener</span> <span class="o">*</span><span class="err">必须返回一个打开的文件描述符（将</span><span class="n">os</span><span class="o">.</span><span class="n">open</span><span class="err">作为</span><span class="o">*</span> <span class="n">opener</span> <span class="o">*</span><span class="err">传递给类似于传递</span><span class="bp">None</span><span class="err">的功能）。</span>
+<span class="n">closefd</span><span class="p">:</span> <span class="err">传入的</span><span class="n">file参数类型</span>
+<span class="n">opener</span><span class="p">:</span><span class="err">可以通过传递可调用的</span><span class="o">*</span> <span class="n">opener</span> <span class="o">*</span><span class="err">来使用自定义</span><span class="n">opener</span><span class="err">。</span> <span class="err">然后通过使用</span><span class="o">*</span><span class="err">（</span><span class="o">*</span> <span class="nb">file</span> <span class="o">*</span><span class="err">，</span><span class="o">*</span> <span class="n">flags</span> <span class="o">*</span><span class="err">）调用</span><span class="o">*</span> <span class="n">opener</span> <span class="o">*</span><span class="err">获得文件对象的基础文件描述符。</span> <span class="o">*</span> <span class="n">opener</span> <span class="o">*</span><span class="err">必须返回一个打开的文件描述符（将</span><span class="n">os</span><span class="o">.</span><span class="n">open作为</span><span class="o">*</span> <span class="n">opener</span> <span class="o">*</span><span class="err">传递给类似于传递</span><span class="n">None的功能</span><span class="err">）。</span>
 </pre></div>
 
 <p>mode 参数有：
@@ -3438,7 +3376,7 @@
 <span class="err">数据成员：类变量或者实例变量用于处理类及其实例对象的相关的数据。</span>
 <span class="err">方法重写：如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（</span><span class="n">override</span><span class="err">），也称为方法的重写。</span>
 <span class="err">实例变量：定义在方法中的变量，只作用于当前实例的类。</span>
-<span class="err">继承：即一个派生类（</span><span class="n">derived</span> <span class="n">class</span><span class="err">）继承基类（</span><span class="n">base</span> <span class="n">class</span><span class="err">）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个</span><span class="n">Dog</span><span class="err">类型的对象派生自</span><span class="n">Animal</span><span class="err">类，这是模拟</span><span class="s2">&quot;是一个（is-a）&quot;</span><span class="err">关系（例图，</span><span class="n">Dog</span><span class="err">是一个</span><span class="n">Animal</span><span class="err">）。</span>
+<span class="err">继承：即一个派生类（</span><span class="n">derived</span> <span class="n">class</span><span class="err">）继承基类（</span><span class="n">base</span> <span class="n">class</span><span class="err">）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个</span><span class="n">Dog类型的对象派生自Animal类</span><span class="err">，这是模拟</span><span class="s2">&quot;是一个（is-a）&quot;</span><span class="err">关系（例图，</span><span class="n">Dog是一个Animal</span><span class="err">）。</span>
 <span class="err">实例化：创建一个类的实例，类的具体对象。</span>
 <span class="err">对象：通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。</span>
 
@@ -3460,9 +3398,9 @@
 </pre></div>
 
 <p>```py</p>
-<h1 id="_12"><a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
+<h1 id="_10"><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
 <h1 id="1"># 1. 基本数据类型和运算<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
-<h1 id="_13"><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h1>
+<h1 id="_11"><a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
 <h1 id="you-have-numbers">You have numbers<a class="headerlink" href="#you-have-numbers" title="Permanent link">&para;</a></h1>
 <p>3  # =&gt; 3</p>
 <h1 id="math-is-what-you-would-expect">Math is what you would expect<a class="headerlink" href="#math-is-what-you-would-expect" title="Permanent link">&para;</a></h1>
@@ -3561,9 +3499,9 @@ bool("")  # =&gt; False
 bool([])  # =&gt; False
 bool({})  # =&gt; False
 bool(())  # =&gt; False</p>
-<h6 id="_14"><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h6>
+<h6 id="_12"><a class="headerlink" href="#_12" title="Permanent link">&para;</a></h6>
 <h2 id="2-variables-and-collections">2. Variables and Collections<a class="headerlink" href="#2-variables-and-collections" title="Permanent link">&para;</a></h2>
-<h6 id="_15"><a class="headerlink" href="#_15" title="Permanent link">&para;</a></h6>
+<h6 id="_13"><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h6>
 <h1 id="python-has-a-print-function">Python has a print function<a class="headerlink" href="#python-has-a-print-function" title="Permanent link">&para;</a></h1>
 <p>print("I'm Python. Nice to meet you!")  # =&gt; I'm Python. Nice to meet you!</p>
 <h1 id="by-default-the-print-function-also-prints-out-a-newline-at-the-end">By default the print function also prints out a newline at the end.<a class="headerlink" href="#by-default-the-print-function-also-prints-out-a-newline-at-the-end" title="Permanent link">&para;</a></h1>
@@ -3725,9 +3663,9 @@ filled_set &amp; other_set  # =&gt; {3, 4, 5}</p>
 <h1 id="check-for-existence-in-a-set-with-in">Check for existence in a set with in<a class="headerlink" href="#check-for-existence-in-a-set-with-in" title="Permanent link">&para;</a></h1>
 <p>2 in filled_set   # =&gt; True
 10 in filled_set  # =&gt; False</p>
-<h6 id="_16"><a class="headerlink" href="#_16" title="Permanent link">&para;</a></h6>
+<h6 id="_14"><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h6>
 <h2 id="3-control-flow-and-iterables">3. Control Flow and Iterables<a class="headerlink" href="#3-control-flow-and-iterables" title="Permanent link">&para;</a></h2>
-<h6 id="_17"><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h6>
+<h6 id="_15"><a class="headerlink" href="#_15" title="Permanent link">&para;</a></h6>
 <h1 id="lets-just-make-a-variable">Let's just make a variable<a class="headerlink" href="#lets-just-make-a-variable" title="Permanent link">&para;</a></h1>
 <p>some_var = 5</p>
 <h1 id="here-is-an-if-statement-indentation-is-significant-in-python">Here is an if statement. Indentation is significant in Python!<a class="headerlink" href="#here-is-an-if-statement-indentation-is-significant-in-python" title="Permanent link">&para;</a></h1>
@@ -3832,9 +3770,9 @@ next(our_iterator)  # =&gt; "three"</p>
 <p>next(our_iterator)  # Raises StopIteration</p>
 <h1 id="you-can-grab-all-the-elements-of-an-iterator-by-calling-list-on-it">You can grab all the elements of an iterator by calling list() on it.<a class="headerlink" href="#you-can-grab-all-the-elements-of-an-iterator-by-calling-list-on-it" title="Permanent link">&para;</a></h1>
 <p>list(filled_dict.keys())  # =&gt; Returns ["one", "two", "three"]</p>
-<h6 id="_18"><a class="headerlink" href="#_18" title="Permanent link">&para;</a></h6>
+<h6 id="_16"><a class="headerlink" href="#_16" title="Permanent link">&para;</a></h6>
 <h2 id="4-functions">4. Functions<a class="headerlink" href="#4-functions" title="Permanent link">&para;</a></h2>
-<h6 id="_19"><a class="headerlink" href="#_19" title="Permanent link">&para;</a></h6>
+<h6 id="_17"><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h6>
 <h1 id="use-def-to-create-new-functions">Use "def" to create new functions<a class="headerlink" href="#use-def-to-create-new-functions" title="Permanent link">&para;</a></h1>
 <p>def add(x, y):
     print("x is {} and y is {}".format(x, y))
@@ -3912,9 +3850,9 @@ list(map(max, [1, 2, 3], [4, 2, 1]))  # =&gt; [4, 2, 3]</p>
 <h1 id="you-can-construct-set-and-dict-comprehensions-as-well">You can construct set and dict comprehensions as well.<a class="headerlink" href="#you-can-construct-set-and-dict-comprehensions-as-well" title="Permanent link">&para;</a></h1>
 <p>{x for x in 'abcddeef' if x not in 'abc'}  # =&gt; {'d', 'e', 'f'}
 {x: x**2 for x in range(5)}  # =&gt; {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</p>
-<h6 id="_20"><a class="headerlink" href="#_20" title="Permanent link">&para;</a></h6>
+<h6 id="_18"><a class="headerlink" href="#_18" title="Permanent link">&para;</a></h6>
 <h2 id="5-modules">5. Modules<a class="headerlink" href="#5-modules" title="Permanent link">&para;</a></h2>
-<h6 id="_21"><a class="headerlink" href="#_21" title="Permanent link">&para;</a></h6>
+<h6 id="_19"><a class="headerlink" href="#_19" title="Permanent link">&para;</a></h6>
 <h1 id="you-can-import-modules">You can import modules<a class="headerlink" href="#you-can-import-modules" title="Permanent link">&para;</a></h1>
 <p>import math
 print(math.sqrt(16))  # =&gt; 4.0</p>
@@ -3940,9 +3878,9 @@ dir(math)</p>
 <h1 id="be-loaded-instead-of-the-built-in-python-module">be loaded instead of the built-in Python module.<a class="headerlink" href="#be-loaded-instead-of-the-built-in-python-module" title="Permanent link">&para;</a></h1>
 <h1 id="this-happens-because-the-local-folder-has-priority">This happens because the local folder has priority<a class="headerlink" href="#this-happens-because-the-local-folder-has-priority" title="Permanent link">&para;</a></h1>
 <h1 id="over-pythons-built-in-libraries">over Python's built-in libraries.<a class="headerlink" href="#over-pythons-built-in-libraries" title="Permanent link">&para;</a></h1>
-<h6 id="_22"><a class="headerlink" href="#_22" title="Permanent link">&para;</a></h6>
+<h6 id="_20"><a class="headerlink" href="#_20" title="Permanent link">&para;</a></h6>
 <h2 id="6-classes">6. Classes<a class="headerlink" href="#6-classes" title="Permanent link">&para;</a></h2>
-<h6 id="_23"><a class="headerlink" href="#_23" title="Permanent link">&para;</a></h6>
+<h6 id="_21"><a class="headerlink" href="#_21" title="Permanent link">&para;</a></h6>
 <h1 id="we-use-the-class-statement-to-create-a-class">We use the "class" statement to create a class<a class="headerlink" href="#we-use-the-class-statement-to-create-a-class" title="Permanent link">&para;</a></h1>
 <p>class Human:</p>
 <div class="codehilite"><pre><span></span><span class="c1"># A class attribute. It is shared by all instances of this class</span>
@@ -4034,9 +3972,9 @@ del i.age
 </pre></div>
 
 
-<h6 id="_24"><a class="headerlink" href="#_24" title="Permanent link">&para;</a></h6>
+<h6 id="_22"><a class="headerlink" href="#_22" title="Permanent link">&para;</a></h6>
 <h2 id="61-inheritance">6.1 Inheritance<a class="headerlink" href="#61-inheritance" title="Permanent link">&para;</a></h2>
-<h6 id="_25"><a class="headerlink" href="#_25" title="Permanent link">&para;</a></h6>
+<h6 id="_23"><a class="headerlink" href="#_23" title="Permanent link">&para;</a></h6>
 <h1 id="inheritance-allows-new-child-classes-to-be-defined-that-inherit-methods-and">Inheritance allows new child classes to be defined that inherit methods and<a class="headerlink" href="#inheritance-allows-new-child-classes-to-be-defined-that-inherit-methods-and" title="Permanent link">&para;</a></h1>
 <h1 id="variables-from-their-parent-class">variables from their parent class.<a class="headerlink" href="#variables-from-their-parent-class" title="Permanent link">&para;</a></h1>
 <h1 id="using-the-human-class-defined-above-as-the-base-or-parent-class-we-can">Using the Human class defined above as the base or parent class, we can<a class="headerlink" href="#using-the-human-class-defined-above-as-the-base-or-parent-class-we-can" title="Permanent link">&para;</a></h1>
@@ -4122,9 +4060,9 @@ print(&#39;Am I Oscar eligible? &#39; + str(sup.movie))
 </pre></div>
 
 
-<h6 id="_26"><a class="headerlink" href="#_26" title="Permanent link">&para;</a></h6>
+<h6 id="_24"><a class="headerlink" href="#_24" title="Permanent link">&para;</a></h6>
 <h2 id="62-multiple-inheritance">6.2 Multiple Inheritance<a class="headerlink" href="#62-multiple-inheritance" title="Permanent link">&para;</a></h2>
-<h6 id="_27"><a class="headerlink" href="#_27" title="Permanent link">&para;</a></h6>
+<h6 id="_25"><a class="headerlink" href="#_25" title="Permanent link">&para;</a></h6>
 <h1 id="another-class-definition">Another class definition<a class="headerlink" href="#another-class-definition" title="Permanent link">&para;</a></h1>
 <h1 id="batpy">bat.py<a class="headerlink" href="#batpy" title="Permanent link">&para;</a></h1>
 <p>class Bat:</p>
@@ -4203,9 +4141,9 @@ print(&#39;Can I fly? &#39; + str(sup.fly)) # =&amp;gt; Can I fly? False
 </pre></div>
 
 
-<h6 id="_28"><a class="headerlink" href="#_28" title="Permanent link">&para;</a></h6>
+<h6 id="_26"><a class="headerlink" href="#_26" title="Permanent link">&para;</a></h6>
 <h2 id="7-advanced">7. Advanced<a class="headerlink" href="#7-advanced" title="Permanent link">&para;</a></h2>
-<h6 id="_29"><a class="headerlink" href="#_29" title="Permanent link">&para;</a></h6>
+<h6 id="_27"><a class="headerlink" href="#_27" title="Permanent link">&para;</a></h6>
 <h1 id="generators-help-you-make-lazy-code">Generators help you make lazy code.<a class="headerlink" href="#generators-help-you-make-lazy-code" title="Permanent link">&para;</a></h1>
 <p>def double_numbers(iterable):
     for i in iterable:
@@ -4311,7 +4249,6 @@ print(say(say_please=True))  # Can you buy me a beer? Please! I am poor :(</p>
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
@@ -4321,14 +4258,13 @@ print(say(say_please=True))  # Can you buy me a beer? Please! I am poor :(</p>
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../assets/javascripts/application.b806dc00.js"></script>
       
         
         
@@ -4348,11 +4284,6 @@ print(say(say_please=True))  # Can you buy me a beer? Please! I am poor :(</p>
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>
