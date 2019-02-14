@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
       
@@ -68,6 +68,34 @@
     
       <link rel="manifest" href="../manifest.webmanifest">
     
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-131093963-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -126,22 +154,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                Material Design for MyNotes
-              </span>
-              <span class="md-header-nav__topic">
-                MySQL
-              </span>
-            
+            <span class="md-header-nav__topic">
+              Material Design for MyNotes
+            </span>
+            <span class="md-header-nav__topic">
+              MySQL
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -164,7 +189,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -175,20 +199,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
           </div>
         </div>
       
@@ -224,20 +246,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -423,8 +443,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Debian/" title="Debian" class="md-nav__link">
-      Debian
+    <a href="../Utilities/" title="Iproute2&Net-tools" class="md-nav__link">
+      Iproute2&Net-tools
     </a>
   </li>
 
@@ -435,8 +455,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Iproute/" title="Iproute" class="md-nav__link">
-      Iproute
+    <a href="../Iptables/" title="Iptables" class="md-nav__link">
+      Iptables
     </a>
   </li>
 
@@ -519,6 +539,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../PHP/" title="PHP-FPM" class="md-nav__link">
+      PHP-FPM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../WildFly.md" title="WildFly" class="md-nav__link">
       WildFly
     </a>
@@ -552,190 +584,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
-      CI&DC
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        CI&DC
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
-      Jenkins
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Monitor
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Monitor
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
-      Zabbix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
-      Prometheus
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Grafana/" title="Grafana" class="md-nav__link">
-      Grafana
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Nagios/" title="Nagios" class="md-nav__link">
-      Nagios
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
-      SomelseMonitors
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      ConfigManagement
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        ConfigManagement
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Apollo/" title="Apollo" class="md-nav__link">
-      Apollo
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
       OptimisingWebDelivery
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
+      <label class="md-nav__title" for="nav-7">
         OptimisingWebDelivery
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -813,14 +665,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-11">
-      LB&HA
+    <label class="md-nav__link" for="nav-8">
+      CI&DC
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        LB&HA
+      <label class="md-nav__title" for="nav-8">
+        CI&DC
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -831,56 +683,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVS/" title="LVS" class="md-nav__link">
-      LVS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Keepalived/" title="Keepalived" class="md-nav__link">
-      Keepalived
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
-      HAProxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Traefik/" title="Traefik" class="md-nav__link">
-      Traefik
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Envoy/" title="Envoy" class="md-nav__link">
-      Envoy
+    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
+      Jenkins
     </a>
   </li>
 
@@ -897,14 +701,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-12">
-      ContainerEcosystem
+    <label class="md-nav__link" for="nav-9">
+      ConfigManagement
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
-        ContainerEcosystem
+      <label class="md-nav__title" for="nav-9">
+        ConfigManagement
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -915,8 +719,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker/" title="Docker" class="md-nav__link">
-      Docker
+    <a href="../Apollo/" title="Apollo" class="md-nav__link">
+      Apollo
     </a>
   </li>
 
@@ -927,32 +731,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OKD/" title="Paas" class="md-nav__link">
-      Paas
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Croreos/" title="ContainerOS" class="md-nav__link">
-      ContainerOS
+    <a href="../Ansible/" title="Ansible" class="md-nav__link">
+      Ansible
     </a>
   </li>
 
@@ -971,13 +751,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-10">
       Database
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-10">
         Database
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1130,14 +910,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-14">
-      OpsTools
+    <label class="md-nav__link" for="nav-11">
+      Monitor
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
-        OpsTools
+      <label class="md-nav__title" for="nav-11">
+        Monitor
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1148,8 +928,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ansible/" title="Ansible(ITAutomationTool)" class="md-nav__link">
-      Ansible(ITAutomationTool)
+    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
+      Zabbix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Grafana/" title="Grafana" class="md-nav__link">
+      Grafana
     </a>
   </li>
 
@@ -1166,6 +970,54 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios/" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TICK/" title="TICKStack" class="md-nav__link">
+      TICKStack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
+      OpenTSDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
+      SomelseMonitors
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1178,13 +1030,157 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-12">
+      LB&HA
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        LB&HA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
+      LVSKeepalived
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
+      HAProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Envoy/" title="Envoy" class="md-nav__link">
+      Envoy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      ContainerEcosystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        ContainerEcosystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OKD/" title="OKD" class="md-nav__link">
+      OKD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Coreos/" title="ContainerOS" class="md-nav__link">
+      ContainerOS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
       MessageQueue
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-14">
         MessageQueue
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1250,13 +1246,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-15">
       FileSystem
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         FileSystem
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1270,6 +1266,18 @@
   <li class="md-nav__item">
     <a href="../Ceph/" title="Ceph" class="md-nav__link">
       Ceph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlusterFS/" title="GlusterFS" class="md-nav__link">
+      GlusterFS
     </a>
   </li>
 
@@ -1298,13 +1306,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       Security
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         Security
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1334,29 +1342,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-17">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-17">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DNS/" title="DNS" class="md-nav__link">
-      DNS
-    </a>
-  </li>
-
         
           
           
@@ -1382,6 +1378,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DNS/" title="DNS" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mail/" title="Mail" class="md-nav__link">
+      Mail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Samba/" title="Samba" class="md-nav__link">
+      Samba
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1394,13 +1426,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-18">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-18">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1442,65 +1474,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-19">
       TreasureTheLeisure
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-19">
         TreasureTheLeisure
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Mail/" title="Mail" class="md-nav__link">
-      Mail
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Samba/" title="Samba" class="md-nav__link">
-      Samba
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../AD/" title="AD" class="md-nav__link">
-      AD
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
-      Raspberrypi
-    </a>
-  </li>
-
         
           
           
@@ -1556,8 +1540,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP/" title="PHP" class="md-nav__link">
-      PHP
+    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
+      Raspberrypi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Windows/" title="Windows" class="md-nav__link">
+      Windows
     </a>
   </li>
 
@@ -1702,45 +1698,45 @@ interactive-timeout
 <span class="err">开启慢日志：</span><span class="k">set</span> <span class="k">global</span> <span class="n">slow_query_log</span><span class="o">=</span><span class="k">on</span><span class="p">;</span>
 <span class="err">把大于</span><span class="mi">10</span><span class="err">毫秒的查询记录到日志里：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;long_query_time&#39;</span><span class="p">;</span>
 <span class="err">查看慢日志位置：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;slow_query_log_file%&#39;</span><span class="p">;</span>
-<span class="err">查看</span><span class="n">mysql</span><span class="err">各内存的分配情况：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;innodb_%_size&#39;</span><span class="p">;</span>
-<span class="err">查看</span><span class="n">innodb_buffer_pool</span><span class="err">的运行状态：</span><span class="k">show</span> <span class="n">engine</span> <span class="n">innodb</span> <span class="n">status</span><span class="p">;</span>
-<span class="err">通过语句查看</span><span class="n">MySQL</span><span class="err">数据储存位置：</span><span class="k">show</span> <span class="k">global</span> <span class="n">variables</span> <span class="k">like</span> <span class="ss">&quot;%datadir%&quot;</span><span class="p">;</span>
+<span class="err">查看</span><span class="n">mysql各内存的分配情况</span><span class="err">：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;innodb_%_size&#39;</span><span class="p">;</span>
+<span class="err">查看</span><span class="n">innodb_buffer_pool的运行状态</span><span class="err">：</span><span class="k">show</span> <span class="n">engine</span> <span class="n">innodb</span> <span class="n">status</span><span class="p">;</span>
+<span class="err">通过语句查看</span><span class="n">MySQL数据储存位置</span><span class="err">：</span><span class="k">show</span> <span class="k">global</span> <span class="n">variables</span> <span class="k">like</span> <span class="ss">&quot;%datadir%&quot;</span><span class="p">;</span>
 <span class="err">为了防止查询缓存经常被掏空</span><span class="p">(</span><span class="n">Potentially</span> <span class="n">Undersized</span><span class="p">)</span><span class="err">，最好是修改系统变量，改变变量之前，先查看变量声</span>
 <span class="err">明的当前值：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;query_cache%&#39;</span><span class="p">;</span>
 </pre></div>
 
 <div class="codehilite"><pre><span></span><span class="err">授权用户从远程登录</span><span class="p">:</span>
-<span class="mi">1</span><span class="err">、改表法。可能是你的帐号不允许从远程登陆，只能在</span><span class="n">localhost</span><span class="err">。这个时候只要在</span><span class="n">localhost</span><span class="err">的那台电脑，登</span>
-<span class="err">入</span><span class="n">mysql</span><span class="err">后，更改</span> <span class="ss">&quot;mysql&quot;</span> <span class="err">数据库里的</span> <span class="ss">&quot;user&quot;</span> <span class="err">表里的</span> <span class="ss">&quot;host&quot;</span> <span class="err">项，从</span><span class="ss">&quot;localhost&quot;</span><span class="err">改称</span><span class="ss">&quot;%&quot;</span>
+<span class="mi">1</span><span class="err">、改表法。可能是你的帐号不允许从远程登陆，只能在</span><span class="n">localhost</span><span class="err">。这个时候只要在</span><span class="n">localhost的那台电脑</span><span class="err">，登</span>
+<span class="err">入</span><span class="n">mysql后</span><span class="err">，更改</span> <span class="ss">&quot;mysql&quot;</span> <span class="err">数据库里的</span> <span class="ss">&quot;user&quot;</span> <span class="err">表里的</span> <span class="ss">&quot;host&quot;</span> <span class="err">项，从</span><span class="ss">&quot;localhost&quot;</span><span class="err">改称</span><span class="ss">&quot;%&quot;</span>
 <span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">pvmware</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="n">use</span> <span class="n">mysql</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="k">update</span> <span class="k">user</span> <span class="k">set</span> <span class="k">host</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span> <span class="k">where</span> <span class="k">user</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="k">select</span> <span class="k">host</span><span class="p">,</span> <span class="k">user</span> <span class="k">from</span> <span class="k">user</span><span class="p">;</span>
-<span class="mi">2</span><span class="err">、授权法。例如，你想</span><span class="n">myuser</span><span class="err">使用</span><span class="n">mypassword</span><span class="err">从任何主机连接到</span><span class="n">mysql</span><span class="err">服务器的话。</span>
+<span class="mi">2</span><span class="err">、授权法。例如，你想</span><span class="n">myuser使用mypassword从任何主机连接到mysql服务器的话</span><span class="err">。</span>
 <span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;myuser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;mypassword&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span> <span class="k">OPTION</span><span class="p">;</span>
-<span class="err">如果你想允许用户</span><span class="n">myuser</span><span class="err">从</span><span class="n">ip</span><span class="err">为</span><span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">3</span><span class="err">的主机连接到</span><span class="n">mysql</span><span class="err">服务器，并使用</span><span class="n">mypassword</span><span class="err">作为密码</span>
+<span class="err">如果你想允许用户</span><span class="n">myuser从ip为192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">3</span><span class="err">的主机连接到</span><span class="n">mysql服务器</span><span class="err">，并使用</span><span class="n">mypassword作为密码</span>
 <span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;myuser&#39;</span><span class="o">@</span><span class="s1">&#39;192.168.1.3&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;mypassword&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span>
 <span class="k">OPTION</span><span class="p">;</span>
 <span class="err">【下面这一句一定要执行，否则还是无法登陆】</span>
 <span class="n">mysql</span><span class="o">&gt;</span><span class="n">flush</span> <span class="k">privileges</span> <span class="p">;</span>
-<span class="err">如果</span><span class="n">root</span><span class="err">用户无法从本地登陆，这个时候就执行如下</span>
+<span class="err">如果</span><span class="n">root用户无法从本地登陆</span><span class="err">，这个时候就执行如下</span>
 <span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">PRIVILEGES</span> <span class="k">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;root&#39;</span><span class="o">@</span><span class="s1">&#39;localhost.localdomain&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;密码&#39;</span> <span class="k">WITH</span> <span class="k">GRANT</span>
 <span class="k">OPTION</span><span class="p">;</span>
 <span class="err">查看查询缓存系统属性：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;%_cache_%&#39;</span><span class="p">;</span>
 <span class="err">设置查询缓存类型：</span><span class="n">query_cache_type</span>
 <span class="mi">0</span><span class="err">或</span><span class="k">OFF</span><span class="err">：不启动缓存查询结果。</span>
-<span class="mi">1</span><span class="err">或</span><span class="k">ON</span><span class="err">：缓存除了以</span><span class="k">SELECT</span> <span class="n">SQL_NO_CACHE</span><span class="err">开头的所有查询结果。</span>
-<span class="mi">2</span><span class="err">或</span><span class="n">DEMAND</span><span class="err">：只缓存以</span><span class="k">SELECT</span> <span class="n">SQL_NO_CACHE</span><span class="err">开头的查询结果。</span>
+<span class="mi">1</span><span class="err">或</span><span class="k">ON</span><span class="err">：缓存除了以</span><span class="k">SELECT</span> <span class="n">SQL_NO_CACHE开头的所有查询结果</span><span class="err">。</span>
+<span class="mi">2</span><span class="err">或</span><span class="n">DEMAND</span><span class="err">：只缓存以</span><span class="k">SELECT</span> <span class="n">SQL_NO_CACHE开头的查询结果</span><span class="err">。</span>
 <span class="err">不缓存大于该值的结果。默认值是</span><span class="mi">1048576</span><span class="p">(</span><span class="mi">1</span><span class="n">MB</span><span class="p">)</span><span class="err">。：</span><span class="n">query_cache_limit</span>
 <span class="err">缓存查询结果分配的内存的数量。默认值是</span><span class="mi">0</span><span class="err">，即禁用查询缓存。：</span><span class="n">query_cache_size</span>
 <span class="err">查询缓存分配的最小块的大小</span><span class="p">(</span><span class="err">字节</span><span class="p">)</span><span class="err">。</span> <span class="err">默认值是</span><span class="mi">4096</span><span class="p">(</span><span class="mi">4</span><span class="n">KB</span><span class="p">)</span><span class="err">。：</span><span class="n">query_cache_min_res_unit</span>
 <span class="n">query_cache_wlock_invalidate</span>
-<span class="mi">0</span><span class="err">或</span><span class="k">OFF</span><span class="err">：当查询结果位于查询缓存中，客户端对</span><span class="n">MyISAM</span><span class="err">（默认存储引擎）表进行</span><span class="k">WRITE</span><span class="err">锁定时，其他客</span>
+<span class="mi">0</span><span class="err">或</span><span class="k">OFF</span><span class="err">：当查询结果位于查询缓存中，客户端对</span><span class="n">MyISAM</span><span class="err">（默认存储引擎）表进行</span><span class="n">WRITE锁定时</span><span class="err">，其他客</span>
 <span class="err">户端可以对该表查询。</span>
 <span class="mi">1</span><span class="err">或</span><span class="k">ON</span><span class="err">：锁定生效时，查询缓存内所有对该表进行的查询变得非法，强制访问该表的其他客户端进行等</span>
 <span class="err">待。</span>
 <span class="err">查看最大连接数：</span><span class="k">show</span> <span class="n">variables</span> <span class="k">like</span> <span class="s1">&#39;%CONNECTION%&#39;</span><span class="p">;</span>
-<span class="n">MySQL</span><span class="err">建表语句大全</span>
+<span class="n">MySQL建表语句大全</span>
 <span class="mi">1</span><span class="p">.</span> <span class="err">创建表（含有约束）</span>
 <span class="cm">/**创建组表**/</span>
 <span class="k">create</span> <span class="k">table</span> <span class="n">t_group</span><span class="p">(</span>
@@ -1828,26 +1824,26 @@ interactive-timeout
 
 <span class="o">```</span><span class="k">sql</span>
 
-<span class="n">MySQL</span><span class="err">数据库备份和还原的常用命令</span>
+<span class="n">MySQL数据库备份和还原的常用命令</span>
 
-<span class="err">备份</span><span class="n">MySQL</span><span class="err">数据库的命令</span>
+<span class="err">备份</span><span class="n">MySQL数据库的命令</span>
 
 <span class="n">mysqldump</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">&gt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span>
 
-<span class="err">备份</span><span class="n">MySQL</span><span class="err">数据库为带删除表的格式</span>
-<span class="err">备份</span><span class="n">MySQL</span><span class="err">数据库为带删除表的格式，能够让该备份覆盖已有数据库而不需要手动删除原有数据库。</span>
+<span class="err">备份</span><span class="n">MySQL数据库为带删除表的格式</span>
+<span class="err">备份</span><span class="n">MySQL数据库为带删除表的格式</span><span class="err">，能够让该备份覆盖已有数据库而不需要手动删除原有数据库。</span>
 
 <span class="n">mysqldump</span> <span class="o">-</span><span class="err">–</span><span class="k">add</span><span class="o">-</span><span class="k">drop</span><span class="o">-</span><span class="k">table</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">&gt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span>
 
-<span class="err">直接将</span><span class="n">MySQL</span><span class="err">数据库压缩备份</span>
+<span class="err">直接将</span><span class="n">MySQL数据库压缩备份</span>
 
 <span class="n">mysqldump</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">|</span> <span class="n">gzip</span> <span class="o">&gt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="n">gz</span>
 
-<span class="err">备份</span><span class="n">MySQL</span><span class="err">数据库某个</span><span class="p">(</span><span class="err">些</span><span class="p">)</span><span class="err">表</span>
+<span class="err">备份</span><span class="n">MySQL数据库某个</span><span class="p">(</span><span class="err">些</span><span class="p">)</span><span class="err">表</span>
 
 <span class="n">mysqldump</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="n">specific_table1</span> <span class="n">specific_table2</span> <span class="o">&gt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span>
 
-<span class="err">同时备份多个</span><span class="n">MySQL</span><span class="err">数据库</span>
+<span class="err">同时备份多个</span><span class="n">MySQL数据库</span>
 
 <span class="n">mysqldump</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="err">–</span><span class="n">databases</span> <span class="n">databasename1</span> <span class="n">databasename2</span> <span class="n">databasename3</span> <span class="o">&gt;</span> <span class="n">multibackupfile</span><span class="p">.</span><span class="k">sql</span>
 
@@ -1859,11 +1855,11 @@ interactive-timeout
 
 <span class="n">mysqldump</span> <span class="err">–</span><span class="k">all</span><span class="o">-</span><span class="n">databases</span> <span class="o">&gt;</span> <span class="n">allbackupfile</span><span class="p">.</span><span class="k">sql</span>
 
-<span class="err">还原</span><span class="n">MySQL</span><span class="err">数据库的命令</span>
+<span class="err">还原</span><span class="n">MySQL数据库的命令</span>
 
 <span class="n">mysql</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span> <span class="o">&lt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span>
 
-<span class="err">还原压缩的</span><span class="n">MySQL</span><span class="err">数据库</span>
+<span class="err">还原压缩的</span><span class="n">MySQL数据库</span>
 
 <span class="n">gunzip</span> <span class="o">&lt;</span> <span class="n">backupfile</span><span class="p">.</span><span class="k">sql</span><span class="p">.</span><span class="n">gz</span> <span class="o">|</span> <span class="n">mysql</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">ppassword</span> <span class="n">databasename</span>
 
@@ -1891,7 +1887,7 @@ interactive-timeout
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Croreos/" title="ContainerOS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Ansible/" title="Ansible" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1900,7 +1896,7 @@ interactive-timeout
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                ContainerOS
+                Ansible
               </span>
             </div>
           </a>
@@ -1934,7 +1930,6 @@ interactive-timeout
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
@@ -1944,14 +1939,13 @@ interactive-timeout
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../assets/javascripts/application.b806dc00.js"></script>
       
         
         
@@ -1971,11 +1965,6 @@ interactive-timeout
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>

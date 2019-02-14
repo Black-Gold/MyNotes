@@ -28,36 +28,20 @@ nav:
     - 'Nginx': 'Nginx.md'
     - 'Apache': 'Apache.md'
     - 'Tomcat': 'Tomcat.md'
+    - 'PHP-FPM': 'PHP.md'
     - 'WildFly': 'WildFly.md'
     - 'Caddy': 'Caddy.md'
-  - CI&DC: 
-    - 'Jenkins': 'Jenkins.md'
-  - Monitor: 
-    - 'Zabbix': 'Zabbix.md'
-    - 'Prometheus': 'Prometheus.md'
-    - 'Grafana': 'Grafana.md'
-    - 'Nagios': 'Nagios.md'
-    - 'TICKStack': 'TICK.md'
-    - 'OpenTSDB': 'OpenTSDB.md'
-    - 'SomelseMonitors': 'Monitors.md'
-  - ConfigManagement: 
-    - 'Apollo': 'Apollo.md'
   - OptimisingWebDelivery: 
     - 'Squid': 'Squid.md'
     - 'Varnish': 'Varnish.md'
     - 'Stunnel': 'Stunnel.md'
     - 'ApacheTrafficServer': 'TrafficServer.md'
     - 'Memcached': 'Memcached.md'
-  - LB&HA: 
-    - 'LVSKeepalived': 'LVSKeepalived.md'
-    - 'HAProxy': 'Haproxy.md'
-    - 'Traefik': 'Traefik.md'
-    - 'Envoy': 'Envoy.md'
-  - ContainerEcosystem: 
-    - 'Docker': 'Docker.md'
-    - 'Kubernetes': 'Kubernetes.md'
-    - 'Paas': 'OKD.md'
-    - 'ContainerOS': 'Croreos.md'
+  - CI&DC: 
+    - 'Jenkins': 'Jenkins.md'
+  - ConfigManagement: 
+    - 'Apollo': 'Apollo.md'
+    - 'Ansible': 'Ansible.md'
   - Database: 
     - 'MySQL': 'MySQL.md'
     - 'MariaDB': 'MariaDB.md'
@@ -66,9 +50,25 @@ nav:
     - 'Cassandra': 'Cassandra.md'
     - 'MongoDB': 'MongoDB.md'
     - 'PostgreSQL': 'PostgreSQL.md'
-  - OpsTools: 
-    - 'Ansible(ITAutomationTool)': 'Ansible.md'
+  - Monitor: 
+    - 'Zabbix': 'Zabbix.md'
+    - 'Prometheus': 'Prometheus.md'
+    - 'Grafana': 'Grafana.md'
     - 'ELKStack': 'Elk.md'
+    - 'Nagios': 'Nagios.md'
+    - 'TICKStack': 'TICK.md'
+    - 'OpenTSDB': 'OpenTSDB.md'
+    - 'SomelseMonitors': 'Monitors.md'
+  - LB&HA: 
+    - 'LVSKeepalived': 'LVSKeepalived.md'
+    - 'HAProxy': 'Haproxy.md'
+    - 'Traefik': 'Traefik.md'
+    - 'Envoy': 'Envoy.md'
+  - ContainerEcosystem: 
+    - 'Docker': 'Docker.md'
+    - 'Kubernetes': 'Kubernetes.md'
+    - 'OKD': 'OKD.md'
+    - 'ContainerOS': 'Coreos.md'
   - MessageQueue: 
     - 'ActiveMQ': 'ActiveMQ.md'
     - 'ActiveMQ Apollo': 'ActiveMQApollo.md'
@@ -76,26 +76,26 @@ nav:
     - 'Kafka': 'Kafka.md'
   - FileSystem: 
     - 'Ceph': 'Ceph.md'
+    - 'GlusterFS': 'GlusterFS.md'
     - 'Vsftp': 'Vsftp.md'
   - Security: 
     - 'Snort': 'Snort.md'
   - Network: 
-    - 'DNS': 'DNS.md'
     - 'Cisco': 'Cisco.md'
     - 'Huawei': 'Huawei.md'
+    - 'DNS': 'DNS.md'
+    - 'Mail': 'Mail.md'
+    - 'Samba': 'Samba.md'
   - CrossGFW: 
     - 'VPN': 'VPN.md'
     - 'Shadowsocks': 'Shadowsocks.md'
   - TreasureTheLeisure:
-    - 'Mail': 'Mail.md'
-    - 'Samba': 'Samba.md'
-    - 'Windows': 'Windows.md'
-    - 'Raspberrypi': 'Raspberrypi.md'
     - 'GoogleTricks': 'GoogleTricks.md'
     - 'Freeswitch': 'Freeswitch.md'
     - 'Asterisk': 'Asterisk.md'
     - 'Sipcode': 'Sipcode.md'
-    - 'PHP': 'PHP.md'
+    - 'Raspberrypi': 'Raspberrypi.md'
+    - 'Windows': 'Windows.md'
 
 theme:
   name: 'material'

@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
       
@@ -68,6 +68,34 @@
     
       <link rel="manifest" href="../manifest.webmanifest">
     
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-131093963-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -126,22 +154,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                Material Design for MyNotes
-              </span>
-              <span class="md-header-nav__topic">
-                Linux
-              </span>
-            
+            <span class="md-header-nav__topic">
+              Material Design for MyNotes
+            </span>
+            <span class="md-header-nav__topic">
+              Linux
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -164,7 +189,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -175,20 +199,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
           </div>
         </div>
       
@@ -224,20 +246,18 @@
 
   
 
-
-  <a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      Black-Gold/MyNotes
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -440,8 +460,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ubuntu-linux" title="Ubuntu Linux" class="md-nav__link">
-    Ubuntu Linux
+  <a href="#ubuntu-debian" title="Ubuntu--Debian" class="md-nav__link">
+    Ubuntu--Debian
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debian" title="Debian常见命令" class="md-nav__link">
+    Debian常见命令
   </a>
   
 </li>
@@ -511,8 +538,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" title="未采用双机热备防止服务中断" class="md-nav__link">
-    未采用双机热备防止服务中断
+  <a href="#-float-ip" title="未采用双机热备防止服务中断--float IP" class="md-nav__link">
+    未采用双机热备防止服务中断--float IP
   </a>
   
 </li>
@@ -539,15 +566,63 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sshd_configetcsshsshd_config" title="sshd_config配置详解（/etc/ssh/sshd_config）" class="md-nav__link">
+    sshd_config配置详解（/etc/ssh/sshd_config）
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sshd_configetcsshsshd_config" title="sshd_config配置详解（/etc/ssh/sshd_config）" class="md-nav__link">
-    sshd_config配置详解（/etc/ssh/sshd_config）
+  <a href="#ssh_3" title="SSH端口转发" class="md-nav__link">
+    SSH端口转发
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="本地转发实例" class="md-nav__link">
+    本地转发实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="远程转发实例" class="md-nav__link">
+    远程转发实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="多主机转发应用实例" class="md-nav__link">
+    多主机转发应用实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="动态转发实例" class="md-nav__link">
+    动态转发实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x" title="X协议转发实例" class="md-nav__link">
+    X协议转发实例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -566,7 +641,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" title="添加硬盘或分区流程" class="md-nav__link">
+  <a href="#_7" title="添加硬盘或分区流程" class="md-nav__link">
     添加硬盘或分区流程
   </a>
   
@@ -609,7 +684,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="二、用户和用户组" class="md-nav__link">
+  <a href="#_8" title="二、用户和用户组" class="md-nav__link">
     二、用户和用户组
   </a>
   
@@ -628,14 +703,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" title="三、管理命令" class="md-nav__link">
+  <a href="#_9" title="三、管理命令" class="md-nav__link">
     三、管理命令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" title="四、特殊权限" class="md-nav__link">
+  <a href="#_10" title="四、特殊权限" class="md-nav__link">
     四、特殊权限
   </a>
   
@@ -669,14 +744,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" title="杀死进程命令例子" class="md-nav__link">
+  <a href="#_11" title="杀死进程命令例子" class="md-nav__link">
     杀死进程命令例子
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" title="统计并杀死僵尸进程例子" class="md-nav__link">
+  <a href="#_12" title="统计并杀死僵尸进程例子" class="md-nav__link">
     统计并杀死僵尸进程例子
   </a>
   
@@ -697,7 +772,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" title="按进程消耗内存多少排序" class="md-nav__link">
+  <a href="#_13" title="按进程消耗内存多少排序" class="md-nav__link">
     按进程消耗内存多少排序
   </a>
   
@@ -774,14 +849,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" title="定义一个颜色输出字符串函数" class="md-nav__link">
+  <a href="#_14" title="定义一个颜色输出字符串函数" class="md-nav__link">
     定义一个颜色输出字符串函数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" title="批量创建用户" class="md-nav__link">
+  <a href="#_15" title="批量创建用户" class="md-nav__link">
     批量创建用户
   </a>
   
@@ -824,21 +899,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" title="内存采集" class="md-nav__link">
+  <a href="#_16" title="内存采集" class="md-nav__link">
     内存采集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" title="磁盘信息采集" class="md-nav__link">
+  <a href="#_17" title="磁盘信息采集" class="md-nav__link">
     磁盘信息采集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" title="网络信息采集" class="md-nav__link">
+  <a href="#_18" title="网络信息采集" class="md-nav__link">
     网络信息采集
   </a>
   
@@ -878,8 +953,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Debian/" title="Debian" class="md-nav__link">
-      Debian
+    <a href="../Utilities/" title="Iproute2&Net-tools" class="md-nav__link">
+      Iproute2&Net-tools
     </a>
   </li>
 
@@ -890,8 +965,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Iproute/" title="Iproute" class="md-nav__link">
-      Iproute
+    <a href="../Iptables/" title="Iptables" class="md-nav__link">
+      Iptables
     </a>
   </li>
 
@@ -974,6 +1049,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../PHP/" title="PHP-FPM" class="md-nav__link">
+      PHP-FPM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../WildFly.md" title="WildFly" class="md-nav__link">
       WildFly
     </a>
@@ -1007,190 +1094,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
-      CI&DC
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        CI&DC
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
-      Jenkins
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Monitor
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Monitor
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
-      Zabbix
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
-      Prometheus
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Grafana/" title="Grafana" class="md-nav__link">
-      Grafana
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Nagios/" title="Nagios" class="md-nav__link">
-      Nagios
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
-      SomelseMonitors
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      ConfigManagement
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        ConfigManagement
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Apollo/" title="Apollo" class="md-nav__link">
-      Apollo
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
-    
-    <label class="md-nav__link" for="nav-10">
       OptimisingWebDelivery
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
+      <label class="md-nav__title" for="nav-7">
         OptimisingWebDelivery
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1268,14 +1175,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-11">
-      LB&HA
+    <label class="md-nav__link" for="nav-8">
+      CI&DC
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-11">
-        LB&HA
+      <label class="md-nav__title" for="nav-8">
+        CI&DC
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1286,56 +1193,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVS/" title="LVS" class="md-nav__link">
-      LVS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Keepalived/" title="Keepalived" class="md-nav__link">
-      Keepalived
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
-      HAProxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Traefik/" title="Traefik" class="md-nav__link">
-      Traefik
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Envoy/" title="Envoy" class="md-nav__link">
-      Envoy
+    <a href="../Jenkins/" title="Jenkins" class="md-nav__link">
+      Jenkins
     </a>
   </li>
 
@@ -1352,14 +1211,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-12">
-      ContainerEcosystem
+    <label class="md-nav__link" for="nav-9">
+      ConfigManagement
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
-        ContainerEcosystem
+      <label class="md-nav__title" for="nav-9">
+        ConfigManagement
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1370,8 +1229,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Docker/" title="Docker" class="md-nav__link">
-      Docker
+    <a href="../Apollo/" title="Apollo" class="md-nav__link">
+      Apollo
     </a>
   </li>
 
@@ -1382,32 +1241,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../OKD/" title="Paas" class="md-nav__link">
-      Paas
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Croreos/" title="ContainerOS" class="md-nav__link">
-      ContainerOS
+    <a href="../Ansible/" title="Ansible" class="md-nav__link">
+      Ansible
     </a>
   </li>
 
@@ -1424,13 +1259,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-10">
       Database
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-10">
         Database
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1532,14 +1367,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-14">
-      OpsTools
+    <label class="md-nav__link" for="nav-11">
+      Monitor
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
-        OpsTools
+      <label class="md-nav__title" for="nav-11">
+        Monitor
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1550,8 +1385,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ansible/" title="Ansible(ITAutomationTool)" class="md-nav__link">
-      Ansible(ITAutomationTool)
+    <a href="../Zabbix/" title="Zabbix" class="md-nav__link">
+      Zabbix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Prometheus/" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Grafana/" title="Grafana" class="md-nav__link">
+      Grafana
     </a>
   </li>
 
@@ -1568,6 +1427,54 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Nagios/" title="Nagios" class="md-nav__link">
+      Nagios
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TICK/" title="TICKStack" class="md-nav__link">
+      TICKStack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
+      OpenTSDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
+      SomelseMonitors
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1580,13 +1487,157 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-12">
+      LB&HA
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        LB&HA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
+      LVSKeepalived
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Haproxy/" title="HAProxy" class="md-nav__link">
+      HAProxy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Traefik/" title="Traefik" class="md-nav__link">
+      Traefik
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Envoy/" title="Envoy" class="md-nav__link">
+      Envoy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      ContainerEcosystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        ContainerEcosystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OKD/" title="OKD" class="md-nav__link">
+      OKD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Coreos/" title="ContainerOS" class="md-nav__link">
+      ContainerOS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
       MessageQueue
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-14">
         MessageQueue
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1652,13 +1703,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-15">
       FileSystem
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         FileSystem
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1672,6 +1723,18 @@
   <li class="md-nav__item">
     <a href="../Ceph/" title="Ceph" class="md-nav__link">
       Ceph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlusterFS/" title="GlusterFS" class="md-nav__link">
+      GlusterFS
     </a>
   </li>
 
@@ -1700,13 +1763,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       Security
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         Security
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1736,29 +1799,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-17">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-17">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DNS/" title="DNS" class="md-nav__link">
-      DNS
-    </a>
-  </li>
-
         
           
           
@@ -1784,6 +1835,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DNS/" title="DNS" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Mail/" title="Mail" class="md-nav__link">
+      Mail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Samba/" title="Samba" class="md-nav__link">
+      Samba
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1796,13 +1883,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-18">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-18">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1844,65 +1931,17 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-19">
       TreasureTheLeisure
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-19">
         TreasureTheLeisure
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Mail/" title="Mail" class="md-nav__link">
-      Mail
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Samba/" title="Samba" class="md-nav__link">
-      Samba
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../AD/" title="AD" class="md-nav__link">
-      AD
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
-      Raspberrypi
-    </a>
-  </li>
-
         
           
           
@@ -1958,8 +1997,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../PHP/" title="PHP" class="md-nav__link">
-      PHP
+    <a href="../Raspberrypi/" title="Raspberrypi" class="md-nav__link">
+      Raspberrypi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Windows/" title="Windows" class="md-nav__link">
+      Windows
     </a>
   </li>
 
@@ -1990,8 +2041,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ubuntu-linux" title="Ubuntu Linux" class="md-nav__link">
-    Ubuntu Linux
+  <a href="#ubuntu-debian" title="Ubuntu--Debian" class="md-nav__link">
+    Ubuntu--Debian
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debian" title="Debian常见命令" class="md-nav__link">
+    Debian常见命令
   </a>
   
 </li>
@@ -2061,8 +2119,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" title="未采用双机热备防止服务中断" class="md-nav__link">
-    未采用双机热备防止服务中断
+  <a href="#-float-ip" title="未采用双机热备防止服务中断--float IP" class="md-nav__link">
+    未采用双机热备防止服务中断--float IP
   </a>
   
 </li>
@@ -2089,15 +2147,63 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sshd_configetcsshsshd_config" title="sshd_config配置详解（/etc/ssh/sshd_config）" class="md-nav__link">
+    sshd_config配置详解（/etc/ssh/sshd_config）
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sshd_configetcsshsshd_config" title="sshd_config配置详解（/etc/ssh/sshd_config）" class="md-nav__link">
-    sshd_config配置详解（/etc/ssh/sshd_config）
+  <a href="#ssh_3" title="SSH端口转发" class="md-nav__link">
+    SSH端口转发
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="本地转发实例" class="md-nav__link">
+    本地转发实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="远程转发实例" class="md-nav__link">
+    远程转发实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="多主机转发应用实例" class="md-nav__link">
+    多主机转发应用实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="动态转发实例" class="md-nav__link">
+    动态转发实例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x" title="X协议转发实例" class="md-nav__link">
+    X协议转发实例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2116,7 +2222,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" title="添加硬盘或分区流程" class="md-nav__link">
+  <a href="#_7" title="添加硬盘或分区流程" class="md-nav__link">
     添加硬盘或分区流程
   </a>
   
@@ -2159,7 +2265,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="二、用户和用户组" class="md-nav__link">
+  <a href="#_8" title="二、用户和用户组" class="md-nav__link">
     二、用户和用户组
   </a>
   
@@ -2178,14 +2284,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" title="三、管理命令" class="md-nav__link">
+  <a href="#_9" title="三、管理命令" class="md-nav__link">
     三、管理命令
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" title="四、特殊权限" class="md-nav__link">
+  <a href="#_10" title="四、特殊权限" class="md-nav__link">
     四、特殊权限
   </a>
   
@@ -2219,14 +2325,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" title="杀死进程命令例子" class="md-nav__link">
+  <a href="#_11" title="杀死进程命令例子" class="md-nav__link">
     杀死进程命令例子
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" title="统计并杀死僵尸进程例子" class="md-nav__link">
+  <a href="#_12" title="统计并杀死僵尸进程例子" class="md-nav__link">
     统计并杀死僵尸进程例子
   </a>
   
@@ -2247,7 +2353,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" title="按进程消耗内存多少排序" class="md-nav__link">
+  <a href="#_13" title="按进程消耗内存多少排序" class="md-nav__link">
     按进程消耗内存多少排序
   </a>
   
@@ -2324,14 +2430,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" title="定义一个颜色输出字符串函数" class="md-nav__link">
+  <a href="#_14" title="定义一个颜色输出字符串函数" class="md-nav__link">
     定义一个颜色输出字符串函数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" title="批量创建用户" class="md-nav__link">
+  <a href="#_15" title="批量创建用户" class="md-nav__link">
     批量创建用户
   </a>
   
@@ -2374,21 +2480,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" title="内存采集" class="md-nav__link">
+  <a href="#_16" title="内存采集" class="md-nav__link">
     内存采集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" title="磁盘信息采集" class="md-nav__link">
+  <a href="#_17" title="磁盘信息采集" class="md-nav__link">
     磁盘信息采集
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" title="网络信息采集" class="md-nav__link">
+  <a href="#_18" title="网络信息采集" class="md-nav__link">
     网络信息采集
   </a>
   
@@ -2494,7 +2600,11 @@ Ctrl – c ：终止命令
 Ctrl – z ：挂起命令
 重复执行操作动作
 M – 操作次数 操作动作 ： 指定操作次数，重复执行指定的操作。</p>
-<h2 id="ubuntu-linux">Ubuntu Linux<a class="headerlink" href="#ubuntu-linux" title="Permanent link">&para;</a></h2>
+<p>lshw -C network</p>
+<p>I. stunnel -&gt; vanish -&gt; HAProxy -&gt; nginx -&gt; nodeJS -&gt; memcached(redis) (for session storage[Session 对象存储])</p>
+<p>II. nginx (for HTTP compression) –&gt; Varnish cache (for caching) –&gt; HTTP level load balancer (HAProxy, or nginx, or the Varnish built-in) –&gt; webservers.</p>
+<p>III. Apache Traffic Server/Squid/Vanish + HAProxy + Nginx + memcached(Redis) (for session storage[Session 对象存储])</p>
+<h2 id="ubuntu-debian">Ubuntu--Debian<a class="headerlink" href="#ubuntu-debian" title="Permanent link">&para;</a></h2>
 <p><a href="http://kernel.ubuntu.com/~kernel-ppa/mainline/">Ubuntu内核网站</a></p>
 <p>系统相关配置</p>
 <p>挂起后进入系统输入：xdotool mouseup 1
@@ -2541,6 +2651,22 @@ systemctl enable tmp.mount
 systemctl reload tmp.mount # 不生效可重启计算机。systemctl status tmp.mount检查状态
 取消tmpfs,删除后重启生效
 rm -v /etc/systemd/system/tmp.mount</p>
+<p>减少文件写入(当用于非服务器时)在/etc/fstab写入以下内容：</p>
+<div class="codehilite"><pre><span></span>tmpfs    /tmp        tmpfs    defaults    0  0
+tmpfs    /var/tmp    tmpfs    defaults    0  0
+tmpfs    /var/log    tmpfs    defaults    0  0
+</pre></div>
+
+<p>创建脚本确保各种程序正常运行：</p>
+<div class="codehilite"><pre><span></span><span class="k">for</span> dir in apparmor apt ConsoleKit cups dist-upgrade fsck gdm installer news ntpstats samba unattended-upgrades <span class="p">;</span> <span class="k">do</span>
+<span class="k">if</span> <span class="o">[</span> ! -e /var/log/<span class="nv">$dir</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+mkdir /var/log/<span class="nv">$dir</span>
+<span class="k">fi</span>
+<span class="k">done</span>
+
+<span class="c1"># 要确保每次启动计算机时脚本都会运行，您需要将其添加到/etc/rc.local文件中，位于底部，位于exit 0行上方</span>
+</pre></div>
+
 <p>系统～/.bashrc和~/.profile文件可通过/etc/skel/目录(系统存储的备份文件)恢复</p>
 <p>find: ‘/run/user/1000/gvfs’解决办法</p>
 <div class="codehilite"><pre><span></span>sudo umount /run/user/1000/gvfs
@@ -2602,10 +2728,1261 @@ PATH="&lt;......&gt;:your path1:your path2 …"
 光标移到export PATH** 行，连续按 d两次删除该行；
 输入:wq保存退出；
 然后键入/sbin/reboot重启系统（可能会提示need to boot，此时直接power off）</p>
-<p>lshw -C network</p>
-<p>I. stunnel -&gt; vanish -&gt; HAProxy -&gt; nginx -&gt; nodeJS -&gt; memcached(redis) (for session storage[Session 对象存储])</p>
-<p>II. nginx (for HTTP compression) –&gt; Varnish cache (for caching) –&gt; HTTP level load balancer (HAProxy, or nginx, or the Varnish built-in) –&gt; webservers.</p>
-<p>III. Apache Traffic Server/Squid/Vanish + HAProxy + Nginx + memcached(Redis) (for session storage[Session 对象存储])</p>
+<h2 id="debian">Debian常见命令<a class="headerlink" href="#debian" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">分类</td>
+<td align="center">重要性</td>
+<td align="center">命令</td>
+<td align="center">描述</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">apropos whatis</td>
+<td align="center">显示和word相关的命令。 参见线程安全</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">man -t man</td>
+<td align="center">ps2pdf - &gt; man.pdf</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">which command</td>
+<td align="center">显示命令的完整路径名</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">time command</td>
+<td align="center">计算命令运行的时间</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">time cat</td>
+<td align="center">开始计时. Ctrl-d停止。参见sw</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">nice info</td>
+<td align="center">运行一个低优先级命令（这里是info）</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">renice 19 -p $$</td>
+<td align="center">使脚本运行于低优先级。用于非交互任务。</td>
+</tr>
+<tr>
+<td align="center">目录操作</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">cd -</td>
+<td align="center">回到前一目录</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">cd</td>
+<td align="center">回到用户目录</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">cd dir &amp;&amp; command</td>
+<td align="center">进入目录dir，执行命令command然后回到当前目录</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">pushd .</td>
+<td align="center">将当前目录压入栈，以后你可以使用popd回到此目录</td>
+</tr>
+<tr>
+<td align="center">文件搜索</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">alias l='ls -l --color=auto'</td>
+<td align="center">单字符文件列表命令</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ls -lrt</td>
+<td align="center">按日期显示文件. 参见newest</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ls /usr/bin</td>
+<td align="center">pr -T9 -W$COLUMNS</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">find -name '*.[ch]'</td>
+<td align="center">xargs grep -E 'expr'</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">find -type f -print0</td>
+<td align="center">xargs -r0 grep -F 'example'</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">find -maxdepth 1 -type f</td>
+<td align="center">xargs grep -F 'example'</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">find -maxdepth 1 -type d</td>
+<td align="center">while read dir; do echo $dir; echo cmd2; done</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">find -type f ! -perm -444</td>
+<td align="center">寻找所有不可读的文件对网站有用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">find -type d ! -perm -111</td>
+<td align="center">寻找不可访问的目录对网站有用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">locate -r 'file[^/]*.txt'</td>
+<td align="center">使用locate 查找所有符合*file*.txt的文件</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">look reference</td>
+<td align="center">在（有序）字典中快速查找</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">grep --color reference /usr/share/dict/words</td>
+<td align="center">使字典中匹配的正则表达式高亮</td>
+</tr>
+<tr>
+<td align="center">归档 and compression</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">gpg -c file</td>
+<td align="center">文件加密</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">gpg file.gpg</td>
+<td align="center">文件解密</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">tar -c dir/</td>
+<td align="center">bzip2 &gt; dir.tar.bz2</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">bzip2 -dc dir.tar.bz2</td>
+<td align="center">tar -x</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">tar -c dir/</td>
+<td align="center">gzip</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">find dir/ -name '*.txt'</td>
+<td align="center">tar -c --files-from=-</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">find dir/ -name '*.txt'</td>
+<td align="center">xargs cp -a --target-directory=dir_txt/ --parents</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">tar -c /dir/to/copy</td>
+<td align="center">cd /where/to/ &amp;&amp; tar -x -p</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">cd /dir/to/copy &amp;&amp; tar -c .</td>
+<td align="center">cd /where/to/ &amp;&amp; tar -x -p</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">tar -c /dir/to/copy</td>
+<td align="center">ssh -C user@remote 'cd /where/to/ &amp;&amp; tar -x -p'</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">dd bs=1M if=/dev/sda</td>
+<td align="center">gzip</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">rsync 使用 --dry-run选项进行测试</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">rsync -P rsync://rsync.server.com/path/to/file file</td>
+<td align="center">只获取diffs.当下载有问题时可以作多次</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">rsync --bwlimit=1000 fromfile tofile</td>
+<td align="center">有速度限制的本地拷贝，对I/O有利</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">rsync -az -e ssh --delete ~/public_html/ remote.com:'~/public_html'</td>
+<td align="center">镜像网站使用压缩和加密</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">rsync -auz -e ssh remote:/dir/ . &amp;&amp; rsync -auz -e ssh . remote:/dir/</td>
+<td align="center">同步当前目录和远程目录</td>
+</tr>
+<tr>
+<td align="center">ssh 安全 Shell</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ssh <span><span class="MathJax_Preview">USER@</span><script type="math/tex">USER@</script></span>HOST command</td>
+<td align="center">在<span><span class="MathJax_Preview">Host主机上以</span><script type="math/tex">Host主机上以</script></span>User用户运行命令默认命令为Shell</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ssh -f -Y <span><span class="MathJax_Preview">USER@</span><script type="math/tex">USER@</script></span>HOSTNAME xeyes</td>
+<td align="center">在名为<span><span class="MathJax_Preview">HOSTNAME的主机上以</span><script type="math/tex">HOSTNAME的主机上以</script></span>USER用户运行GUI命令</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">scp -p -r <span><span class="MathJax_Preview">USER@</span><script type="math/tex">USER@</script></span>HOST: file dir/</td>
+<td align="center">拷贝到<span><span class="MathJax_Preview">HOST主机</span><script type="math/tex">HOST主机</script></span>USER'用户的目录下</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ssh -g -L 8080:localhost:80 root@$HOST</td>
+<td align="center">由本地主机的8080端口转发到$HOST主机的80端口</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ssh -R 1434:imap:143 root@$HOST</td>
+<td align="center">由主机的1434端口转发到imap的143端口</td>
+</tr>
+<tr>
+<td align="center">wget 多用途下载工具</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">cd cmdline &amp;&amp; wget -nd -pHEKk <a href="http://www.pixelbeat.org/cmdline.html">http://www.pixelbeat.org/cmdline.html</a></td>
+<td align="center">在当前目录中下载指定网页及其相关的文件使其可完全浏览</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">wget -c &lt;<a href="http://www.example.com/large.file">http://www.example.com/large.file</a></td>
+<td align="center">继续上次未完的下载</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">wget -r -nd -np -l1 -A '*.jpg' <a href="http://www.example.com/">http://www.example.com/</a></td>
+<td align="center">批量下载文件到当前目录中</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">wget ftp://remote/file[1-9].iso/</td>
+<td align="center">下载FTP站上的整个目录</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">wget -q -O- <a href="http://www.pixelbeat.org/timeline.html">http://www.pixelbeat.org/timeline.html</a></td>
+<td align="center">grep 'a href'</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">echo 'wget url'</td>
+<td align="center">at 01:00</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">wget --limit-rate=20k url</td>
+<td align="center">限制下载速度这里限制到20KB/s</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">wget -nv --spider --force-html -i bookmarks.html</td>
+<td align="center">检查文件中的链接是否存在</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">wget --mirror <a href="http://www.example.com/">http://www.example.com/</a></td>
+<td align="center">更新网站的本地拷贝可以方便地用于cron</td>
+</tr>
+<tr>
+<td align="center">网络ifconfig, route, mii-tool, nslookup 命令皆已过时</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ethtool eth0</td>
+<td align="center">显示网卡eth0的状态</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ethtool --change eth0 autoneg off speed 100 duplex full</td>
+<td align="center">手动设制网卡速度</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">iwconfig eth1</td>
+<td align="center">显示无线网卡eth1的状态</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">iwconfig eth1 rate 1Mb/s fixed</td>
+<td align="center">手动设制无线网卡速度</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">iwlist scan</td>
+<td align="center">显示无线网络列表</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ip link show</td>
+<td align="center">显示interface列表</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ip link set dev eth0 name wan</td>
+<td align="center">重命名eth0为wan</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ip link set dev eth0 up</td>
+<td align="center">启动interface eth0或关闭</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ip addr show</td>
+<td align="center">显示网卡的IP地址</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ip addr add 1.2.3.4/24 brd + dev eth0</td>
+<td align="center">添加ip和掩码255.255.255.0</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ip route show</td>
+<td align="center">显示路由列表</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">ip route add default via 1.2.3.254</td>
+<td align="center">设置默认网关1.2.3.254</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">tc qdisc add dev lo root handle 1:0 netem delay 20msec</td>
+<td align="center">增加20ms传输时间到loopback设备调试用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">tc qdisc del dev lo root</td>
+<td align="center">移除上面添加的传输时间</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">host pixelbeat.org</td>
+<td align="center">查寻主机的DNS IP地址</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">hostname -i</td>
+<td align="center">查寻本地主机的IP地址同等于host <code class="codehilite">hostname</code></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">whois pixelbeat.org</td>
+<td align="center">查寻某主机或莫IP地址的whois信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">netstat -tupl</td>
+<td align="center">列出系统中的internet服务</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">netstat -tup</td>
+<td align="center">列出活跃的连接</td>
+</tr>
+<tr>
+<td align="center">windows networking samba提供所有windows相关的网络支持</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">smbtree</td>
+<td align="center">寻找一个windows主机. 参见findsmb</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">nmblookup -A 1.2.3.4</td>
+<td align="center">寻找一个指定ip的windows netbios名</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">smbclient -L windows_box</td>
+<td align="center">显示在windows主机或samba服务器上的所有共享</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">mount -t smbfs -o fmask=666,guest //windows_box/share /mnt/share</td>
+<td align="center">挂载一个windows共享</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">echo 'message'</td>
+<td align="center">smbclient -M windows_box</td>
+</tr>
+<tr>
+<td align="center">文本操作 sed使用标准输入和标准输出，如果想要编辑文件，则需添加\<oldfile>newfile</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed 's/string1/string2/g'</td>
+<td align="center">使用string2替换string1</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed 's/.*\1/\12/g'</td>
+<td align="center">将任何以1结尾的字符串替换为以2结尾的字符串</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed '/^ *#/d; /^ *$/d'</td>
+<td align="center">删除注释和空白行</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed ':a; /\$/N; s/\\n//; ta'</td>
+<td align="center">连接结尾有\的行和其下一行</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed 's/[ \t]*$//'</td>
+<td align="center">删除每行后的空白</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed 's/[\`\"$\\]\/\\1/g'</td>
+<td align="center">将所有转义字符之前加上\</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">seq 10</td>
+<td align="center">sed "s/^/      /; s/ *.{7,}\/\1/"</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed -n '1000p;1000q'</td>
+<td align="center">输出第一千行</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed -n '10,20p;20q'</td>
+<td align="center">输出第10-20行</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sed -n 's/.<em><title\>\.*\<\/title>.</em>/\1/ip;T;q'</td>
+<td align="center">输出HTML文件的<title></title>字段中的 内容</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sort -t. -k1,1n -k2,2n -k3,3n -k4,4n</td>
+<td align="center">排序IPV4地址</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo 'Test'</td>
+<td align="center">tr '[:lower:]' '[:upper:]'</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">tr -dc '[:print:]' &lt; /dev/urandom</td>
+<td align="center">过滤掉不能打印的字符</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">history</td>
+<td align="center">wc -l</td>
+</tr>
+<tr>
+<td align="center">集合操作 如果是英文文本的话export LANG=C可以提高速度</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sort -u file1 file2</td>
+<td align="center">两个未排序文件的并集</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sort file1 file2</td>
+<td align="center">uniq -d</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sort file1 file1 file2</td>
+<td align="center">uniq -u</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">sort file1 file2</td>
+<td align="center">uniq -u</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">join -t'\0' -a1 -a2 file1 file2</td>
+<td align="center">两个有序文件的并集</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">join -t'\0' file1 file2</td>
+<td align="center">两个有序文件的交集</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">join -t'\0' -v2 file1 file2</td>
+<td align="center">两个有序文件的差集</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">join -t'\0' -v1 -v2 file1 file2</td>
+<td align="center">两个有序文件的对称差集</td>
+</tr>
+<tr>
+<td align="center">数学</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo '1 + sqrt5/2'</td>
+<td align="center">bc -l</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo 'pad=20; min=64; 100*10^6/pad+min*8'</td>
+<td align="center">bc</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo 'pad=20; min=64; print 100E6/pad+min*8'</td>
+<td align="center">python</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo 'pad=20; plot [64:1518] 100*10**6/pad+x*8'</td>
+<td align="center">gnuplot -persist</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo 'obase=16; ibase=10; 64206'</td>
+<td align="center">bc</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo $0x2dec</td>
+<td align="center">进制转换十六进制到十进制shell数学扩展</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">units -t '100m/9.58s' 'miles/hour'</td>
+<td align="center">单位转换公尺到英尺</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">units -t '500GB' 'GiB'</td>
+<td align="center">单位转换SI 到IEC 前缀. 参见 numfmt</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">units -t '1 googol'</td>
+<td align="center">定义查找</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">seq 100</td>
+<td align="center">tr '\n' +; echo 0</td>
+</tr>
+<tr>
+<td align="center">日历</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">cal -3</td>
+<td align="center">显示一日历</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">cal 9 1752</td>
+<td align="center">显示指定月，年的日历</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">date -d fri</td>
+<td align="center">这个星期五是几号. 参见day</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">date --date='25 Dec' +%A</td>
+<td align="center">今年的圣诞节是星期几</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">date --date '1970-01-01 UTC 2147483647 seconds'</td>
+<td align="center">将一相对于1970-01-01 00：00的秒数转换成时间</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">TZ=':America/Los_Angeles' date</td>
+<td align="center">显示当前的美国西岸时间使用tzselect寻找时区</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">echo "mail -s 'get the train' <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#80;&#64;&#100;&#114;&#97;&#105;&#103;&#66;&#114;&#97;&#100;&#121;&#46;&#99;&#111;&#109;">&#80;&#64;&#100;&#114;&#97;&#105;&#103;&#66;&#114;&#97;&#100;&#121;&#46;&#99;&#111;&#109;</a> &lt; /dev/null"</td>
+<td align="center">at 17:45</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo "DISPLAY=$DISPLAY xmessage cooker"</td>
+<td align="center">at "NOW + 30 minutes"</td>
+</tr>
+<tr>
+<td align="center">locales</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">printf "%'d\n" 1234</td>
+<td align="center">根据locale输出正确的数字分隔</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">BLOCK_SIZE=\'1 ls -l</td>
+<td align="center">用ls命令作类适于locale文件分组</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo "I live in <code class="codehilite">locale territory</code>"</td>
+<td align="center">从locale数据库中展开信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">LANG=en_IE.utf8 locale int_prefix</td>
+<td align="center">查找指定地区的locale信息。参见ccodes</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">locale</td>
+<td align="center">cut -d= -f1</td>
+</tr>
+<tr>
+<td align="center">recode iconv, dos2unix, unix2dos 已经过时了</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">recode -l</td>
+<td align="center">less</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">recode windows-1252.. file_to_change.txt</td>
+<td align="center">转换Windows下的ansi文件到当前的字符集自动进行回车换行符的转换</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">recode utf-8/CRLF.. file_to_change.txt</td>
+<td align="center">转换Windows下的ansi文件到当前的字符集</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">recode iso-8859-15..utf8 file_to_change.txt</td>
+<td align="center">转换Latin9（西欧）字符集文件到utf8</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">recode ../b64 &lt; file.txt &gt; file.b64</td>
+<td align="center">Base64编码</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">recode /qp.. &lt; file.txt &gt; file.qp</td>
+<td align="center">Quoted-printable格式解码</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">recode ..HTML &lt; file.txt &gt; file.html</td>
+<td align="center">将文本文件转换成HTML</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">recode -lf windows-1252</td>
+<td align="center">grep euro</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo -n 0x80</td>
+<td align="center">recode latin-9/x1..dump</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo -n 0x20AC</td>
+<td align="center">recode ucs-2/x2..latin-9/x</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">echo -n 0x20AC</td>
+<td align="center">recode ucs-2/x2..utf-8/x</td>
+</tr>
+<tr>
+<td align="center">光盘</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">gzip &lt; /dev/cdrom &gt; cdrom.iso.gz</td>
+<td align="center">保存光盘拷贝</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">mkisofs -V LABEL -r dir</td>
+<td align="center">gzip &gt; cdrom.iso.gz</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">mount -o loop cdrom.iso /mnt/dir</td>
+<td align="center">将光盘镜像挂载到 /mnt/dir 只读</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">cdrecord -v dev=/dev/cdrom blank=fast</td>
+<td align="center">清空一张CDRW</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">gzip -dc cdrom.iso.gz</td>
+<td align="center">cdrecord -v dev=/dev/cdrom -</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">cdparanoia -B</td>
+<td align="center">在当前目录下将光盘音轨转录成wav文件</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">cdrecord -v dev=/dev/cdrom -audio *.wav</td>
+<td align="center">将当前目录下的wav文件烧成音乐光盘 参见cdrdao</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">oggenc --tracknum='track' track.cdda.wav -o 'track.ogg'</td>
+<td align="center">将wav文件转换成ogg格式</td>
+</tr>
+<tr>
+<td align="center">磁盘空间 参见FSlint</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ls -lSr</td>
+<td align="center">按文件大小降序显示文件</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">du -s *</td>
+<td align="center">sort -k1,1rn</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">df -h</td>
+<td align="center">显示空余的磁盘空间</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">df -i</td>
+<td align="center">显示空余的inode</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">fdisk -l</td>
+<td align="center">显示磁盘分区大小和类型（在root下执行）</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">rpm -q -a --qf '%10{SIZE}\t%{NAME}\n'</td>
+<td align="center">sort -k1,1n</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">dpkg-query -W -f='<span><span class="MathJax_Preview">{Installed-Size;10}\t</span><script type="math/tex">{Installed-Size;10}\t</script></span>{Package}\n'</td>
+<td align="center">sort -k1,1n</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">dd bs=1 seek=2TB if=/dev/null of=ext3.test</td>
+<td align="center">建立一个大的测试文件（不占用空间）. 参见truncate</td>
+</tr>
+<tr>
+<td align="center">监视/调试</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">tail -f /var/log/messages</td>
+<td align="center">监视Messages日志文件</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">strace -c ls &gt;/dev/null</td>
+<td align="center">总结/剖析命令进行的系统调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">strace -f -e open ls &gt;/dev/null</td>
+<td align="center">显示命令进行的系统调用</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ltrace -f -e getenv ls &gt;/dev/null</td>
+<td align="center">显示命令调用的库函数</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">lsof -p $$</td>
+<td align="center">显示当前进程打开的文件</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">lsof ~</td>
+<td align="center">显示打开用户目录的进程</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">tcpdump not port 22</td>
+<td align="center">显示除了ssh外的网络交通. 参见tcpdump_not_me</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ps -e -o pid,args --forest</td>
+<td align="center">以树状结构显示进程</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu</td>
+<td align="center">sed '/^ 0.0 /d'</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ps -e -orss=,args=</td>
+<td align="center">sort -b -k1,1n</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ps -C firefox-bin -L -o pid,tid,pcpu,state</td>
+<td align="center">显示指定进程的所有线程信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">ps -p 1,2</td>
+<td align="center">显示指定进程ID的进程信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">last reboot</td>
+<td align="center">显示系统重启记录</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">free -m</td>
+<td align="center">显示剩余的内存总量-m以MB为单位显示</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">watch -n.1 'cat /proc/interrupts'</td>
+<td align="center">监测文件/proc/interrupts的变化</td>
+</tr>
+<tr>
+<td align="center">系统信息 参见sysinfo</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">uname -a</td>
+<td align="center">查看内核/操作系统/CPU信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">head -n1 /etc/issue</td>
+<td align="center">查看操作系统版本</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">cat /proc/partitions</td>
+<td align="center">显示所有在系统中注册的分区</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">grep MemTotal /proc/meminfo</td>
+<td align="center">显示系统可见的内存总量</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">grep "model name" /proc/cpuinfo</td>
+<td align="center">显示CPU信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">lspci -tv</td>
+<td align="center">显示PCI信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">lsusb -tv</td>
+<td align="center">显示USB信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">mount</td>
+<td align="center">column -t</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">#</td>
+<td align="center">dmidecode -q</td>
+<td align="center">less</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">#</td>
+<td align="center">smartctl -A /dev/sda</td>
+<td align="center">grep Power_On_Hours</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">#</td>
+<td align="center">hdparm -i /dev/sda</td>
+<td align="center">显示关于磁盘sda的信息</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">#</td>
+<td align="center">hdparm -tT /dev/sda</td>
+<td align="center">检测磁盘sda的读取速度</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">#</td>
+<td align="center">badblocks -s /dev/sda</td>
+<td align="center">检测磁盘sda上所有的坏扇区</td>
+</tr>
+<tr>
+<td align="center">交互 参见linux keyboard shortcut database</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">readline</td>
+<td align="center">Line editor used by bash, python, bc, gnuplot, ...</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">screen</td>
+<td align="center">多窗口的虚拟终端, ...</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">mc</td>
+<td align="center">强大的文件管理器，可以浏览rpm, tar, ftp, ssh, ...</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">gnuplot</td>
+<td align="center">交互式并可进行脚本编程的画图工具</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">links</td>
+<td align="center">网页浏览器</td>
+</tr>
+<tr>
+<td align="center">miscellaneous</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">alias hd='od -Ax -tx1z -v'</td>
+<td align="center">方便的十六进制输出。 用法举例: • hd /proc/self/cmdline</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">alias realpath='readlink -f'</td>
+<td align="center">显示符号链接指向的真实路径用法举例: • realpath ~/../$USER</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">set</td>
+<td align="center">grep $USER</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">touch -c -t 0304050607 file</td>
+<td align="center">改变文件的时间标签 YYMMDDhhmm</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">•</td>
+<td align="center">python -m SimpleHTTPServer</td>
+<td align="center">Serve current directory tree at http://$HOSTNAME:8000/</td>
+</tr>
+</tbody>
+</table>
 <h2 id="centos">Centos<a class="headerlink" href="#centos" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span> 更改yum源为阿里云
 
@@ -2653,13 +4030,13 @@ PATH="&lt;......&gt;:your path1:your path2 …"
         mkdir /usr/java
         wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/...tar.gz
         tar -zxvf jdk...
-    <span class="m">4</span>、编辑/etc/profile文件，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL下面添加如下代码：
+    <span class="m">4</span>、编辑.bashrc文件，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL下面添加如下代码：
         <span class="c1">#jdk</span>
         <span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/java/jdk-<span class="nv">$version</span>
         <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
         <span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="nv">$JAVA_HOME</span>/lib/dt.jar:<span class="nv">$JAVA_HOME</span>/lib/tools.jar
     <span class="m">5</span>、配置生效并验证
-        <span class="nb">source</span> /etc/profile
+        <span class="nb">source</span> .bashrc
         java -version
 </pre></div>
 
@@ -2755,24 +4132,24 @@ PATH="&lt;......&gt;:your path1:your path2 …"
 <span class="n">rpm</span> <span class="o">-</span><span class="n">qa</span><span class="o">|</span><span class="n">grep</span> <span class="n">yum</span><span class="o">|</span> <span class="n">xargs</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">ev</span> <span class="o">--</span><span class="n">allmatches</span> <span class="o">--</span><span class="n">nodeps</span>
 <span class="n">whereis</span> <span class="n">yum</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">rm</span> <span class="o">-</span><span class="n">frv</span>
 <span class="mi">3</span><span class="err">、从</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">mirrors</span><span class="o">.</span><span class="n">aliyun</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">os</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">Packages</span><span class="o">/</span><span class="err">下载相应的包</span>
-<span class="err">由于源中版本会更新，具体请查看</span><span class="n">URL</span><span class="err">中的版本再下载下来！</span>
+<span class="err">由于源中版本会更新，具体请查看</span><span class="n">URL中的版本再下载下来</span><span class="err">！</span>
 <span class="n">rpm</span> <span class="o">-</span><span class="n">Uvh</span> <span class="o">--</span><span class="n">replacepkgs</span> <span class="o">*.</span><span class="n">rpm</span>
-<span class="err">可能之间还需要</span><span class="n">zlib</span><span class="err">和</span><span class="n">zlib</span><span class="o">-</span><span class="n">devel</span><span class="err">包，根据情况下载并安装！</span>
-<span class="mi">3</span><span class="err">、运行</span><span class="n">python</span><span class="err">进行测试</span>
+<span class="err">可能之间还需要</span><span class="n">zlib和zlib</span><span class="o">-</span><span class="n">devel包</span><span class="err">，根据情况下载并安装！</span>
+<span class="mi">3</span><span class="err">、运行</span><span class="n">python进行测试</span>
 <span class="p">[</span><span class="n">root</span><span class="nd">@localhost</span> <span class="o">~</span><span class="p">]</span><span class="c1"># python</span>
 <span class="n">Python</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">5</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Aug</span>  <span class="mi">4</span> <span class="mi">2017</span><span class="p">,</span> <span class="mo">00</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
 <span class="p">[</span><span class="n">GCC</span> <span class="mf">4.8</span><span class="o">.</span><span class="mi">5</span> <span class="mi">20150623</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">4.8</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="mi">16</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux2</span>
 <span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">yum</span>
 <span class="o">&gt;&gt;&gt;</span>
-<span class="err">如上，要是什么都没报，则说明</span><span class="n">OK</span><span class="err">啦</span><span class="o">~</span>
+<span class="err">如上，要是什么都没报，则说明</span><span class="n">OK啦</span><span class="o">~</span>
 <span class="err">源码编译安装</span><span class="n">yum</span>
 <span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">yum</span><span class="o">.</span><span class="n">baseurl</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="mf">3.4</span><span class="o">/</span><span class="n">yum</span><span class="o">-</span><span class="mf">3.4</span><span class="o">.</span><span class="mf">3.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
 <span class="n">tar</span> <span class="n">xvf</span> <span class="n">yum</span><span class="o">-</span><span class="mf">3.4</span><span class="o">.</span><span class="mf">3.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
 <span class="n">cd</span> <span class="n">yum</span><span class="o">-</span><span class="mf">3.4</span><span class="o">.</span><span class="mi">3</span>
 <span class="n">yummain</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="n">yum</span>
 <span class="err">结果提示错误：</span> <span class="n">CRITICAL</span><span class="p">:</span><span class="n">yum</span><span class="o">.</span><span class="n">cli</span><span class="p">:</span><span class="n">Config</span> <span class="n">Error</span><span class="p">:</span> <span class="n">Error</span> <span class="n">accessing</span> <span class="nb">file</span> <span class="k">for</span> <span class="n">config</span> <span class="nb">file</span><span class="p">:</span><span class="o">///</span><span class="n">etc</span><span class="o">/</span>
-<span class="err">缺少配置文件。在</span><span class="n">etc</span><span class="err">目录下面新建</span><span class="n">yum</span><span class="o">.</span><span class="n">conf</span><span class="err">文件，然后再次运行</span> <span class="n">yummain</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="n">yum</span><span class="err">，顺利完成安装。</span>
+<span class="err">缺少配置文件。在</span><span class="n">etc目录下面新建yum</span><span class="o">.</span><span class="n">conf文件</span><span class="err">，然后再次运行</span> <span class="n">yummain</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="n">yum</span><span class="err">，顺利完成安装。</span>
 </pre></div>
 
 <h3 id="ssh">更改默认ssh连接端口<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h3>
@@ -2788,7 +4165,7 @@ sed -i <span class="s2">&quot;/A INPUT -m state --state NEW -m tcp -p tcp --dpor
 
 service iptables restart
 
-<span class="m">2</span>、修改sshd_config文件，将#Port <span class="m">22</span>直接替换成Port <span class="m">2121</span>
+<span class="m">2</span>、修改sshd_config文件，将#Port 22直接替换成Port <span class="m">2121</span>
 
 sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_config
 
@@ -2816,13 +4193,10 @@ net.ipv4.tcp_keepalive_intvl <span class="o">=</span><span class="m">15</span>
 
 net.ipv4.tcp_retries2 <span class="o">=</span> <span class="m">5</span>
 
-net.ipv4.tcp_fin_timeout <span class="o">=</span> <span class="m">2</span>
-
+<span class="c1"># 增加tcp-time-wait存储桶大小以防止简单的DOS攻击</span>
 net.ipv4.tcp_max_tw_buckets <span class="o">=</span> <span class="m">36000</span>
-
-net.ipv4.tcp_tw_recycle <span class="o">=</span> <span class="m">1</span>
-
-net.ipv4.tcp_tw_reuse <span class="o">=</span> <span class="m">1</span>
+net.ipv4.tcp_tw_recycle <span class="o">=</span> <span class="m">1</span> <span class="c1"># 默认为0</span>
+net.ipv4.tcp_tw_reuse <span class="o">=</span> <span class="m">1</span> <span class="c1"># 默认为0</span>
 
 net.ipv4.tcp_max_orphans <span class="o">=</span> <span class="m">32768</span>
 
@@ -2831,6 +4205,7 @@ net.ipv4.tcp_syncookies <span class="o">=</span> <span class="m">1</span>
 net.ipv4.tcp_max_syn_backlog <span class="o">=</span> <span class="m">16384</span>
 
 net.ipv4.tcp_wmem <span class="o">=</span> <span class="m">8192</span> <span class="m">131072</span> <span class="m">16777216</span>
+net.ipv4.udp_wmem_min <span class="o">=</span> <span class="m">16384</span>   <span class="c1"># 增加可分配的写缓冲区空间</span>
 
 net.ipv4.tcp_rmem <span class="o">=</span> <span class="m">32768</span> <span class="m">131072</span> <span class="m">16777216</span>
 
@@ -2847,6 +4222,8 @@ net.ipv4.netfilter.ip_conntrack_tcp_timeout_established<span class="o">=</span><
 net.core.somaxconn <span class="o">=</span> <span class="m">16384</span>
 
 net.core.netdev_max_backlog <span class="o">=</span> <span class="m">16384</span>
+net.core.optmem_max <span class="o">=</span> <span class="m">25165824</span>  <span class="c1"># 增加内存缓冲区的最大数量</span>
+net.core.busy_poll <span class="o">=</span> <span class="m">50</span> <span class="c1"># 轮询有助于减少网络接收路径中的延迟 允许套接字层代码轮询网络设备的接收队列， 并禁用网络中断。</span>
 </pre></div>
 
 <div class="codehilite"><pre><span></span><span class="c1">#优化TCP</span>
@@ -2901,6 +4278,10 @@ net.ipv4.tcp_max_syn_backlog <span class="o">=</span> <span class="m">262144</sp
 net.ipv4.tcp_timestamps <span class="o">=</span> <span class="m">0</span>
 <span class="c1">#为了打开对端的连接，内核需要发送一个SYN并附带一个回应前面一个SYN的ACK。也就是所谓三次握手中的第二次握手。这个设置决定了内核放弃连接之前发送SYN+ACK包的数量</span>
 net.ipv4.tcp_synack_retries <span class="o">=</span> <span class="m">1</span>
+<span class="c1"># 使用cookie来处理SYN队列溢出</span>
+net.ipv4.tcp_syncookies <span class="o">=</span> <span class="m">1</span> <span class="o">(</span><span class="m">0</span> by default<span class="o">)</span>
+<span class="c1"># 路由刷新频率</span>
+net.ipv4.route.gc_timeout <span class="o">=</span> <span class="m">100</span>
 <span class="c1">#在内核放弃建立连接之前发送SYN包的数量</span>
 net.ipv4.tcp_syn_retries <span class="o">=</span> <span class="m">1</span>
 <span class="c1">#开启TCP连接中time_wait sockets的快速回收</span>
@@ -2908,13 +4289,20 @@ net.ipv4.tcp_tw_recycle <span class="o">=</span> <span class="m">1</span>
 <span class="c1">#开启TCP连接复用功能，允许将time_wait sockets重新用于新的TCP连接（主要针对time_wait连接）</span>
 net.ipv4.tcp_tw_reuse <span class="o">=</span> <span class="m">1</span>
 <span class="c1">#1st低于此值,TCP没有内存压力,2nd进入内存压力阶段,3rdTCP拒绝分配socket(单位：内存页)</span>
-net.ipv4.tcp_mem <span class="o">=</span> <span class="m">94500000</span> <span class="m">915000000</span> <span class="m">927000000</span>
+net.ipv4.udp_mem <span class="o">=</span> <span class="m">65536</span> <span class="m">131072</span> <span class="m">262144</span>  <span class="c1"># 增加可分配的最大总缓冲区空间,此为以page为单位（4096字节）测量</span>
+net.ipv4.tcp_mem <span class="o">=</span> <span class="m">65536</span> <span class="m">131072</span> <span class="m">262144</span>
 <span class="c1">#如果套接字由本端要求关闭，这个参数决定了它保持在FIN-WAIT-2状态的时间。对端可以出错并永远不关闭连接，甚至意外当机。缺省值是60 秒。2.2 内核的通常值是180秒，你可以按这个设置，但要记住的是，即使你的机器是一个轻载的WEB服务器，也有因为大量的死套接字而内存溢出的风险，FIN- WAIT-2的危险性比FIN-WAIT-1要小，因为它最多只能吃掉1.5K内存，但是它们的生存期长些。</span>
-net.ipv4.tcp_fin_timeout <span class="o">=</span> <span class="m">15</span>
+net.ipv4.tcp_fin_timeout <span class="o">=</span> <span class="m">15</span>   <span class="c1"># (默认60s，建议15-30s)</span>
 <span class="c1">#表示当keepalive起用的时候，TCP发送keepalive消息的频度（单位：秒）</span>
-net.ipv4.tcp_keepalive_time <span class="o">=</span> <span class="m">30</span>
-<span class="c1">#对外连接端口范围</span>
+net.ipv4.tcp_keepalive_time <span class="o">=</span> <span class="m">300</span>
+<span class="c1"># 确定了isAlive间隔探测之间的等待时间   (默认75s,建议15-30s)</span>
+net.ipv4.tcp_keepalive_intvl <span class="o">=</span> <span class="m">15</span>
+<span class="c1"># 超时之前的探测次数    # 默认值：9，推荐5</span>
+net.ipv4.tcp_keepalive_probes <span class="o">=</span> <span class="m">5</span>
+<span class="c1">#对外连接端口范围，RHEL 7 default: 32768 61000</span>
 net.ipv4.ip_local_port_range <span class="o">=</span> <span class="m">2048</span> <span class="m">65000</span>
+<span class="c1"># 防止TCP时间等待</span>
+net.ipv4.tcp_rfc1337 <span class="o">=</span> <span class="m">1</span>
 <span class="c1">#表示文件句柄的最大数量</span>
 fs.file-max <span class="o">=</span> <span class="m">102400</span>
 
@@ -2922,9 +4310,9 @@ fs.file-max <span class="o">=</span> <span class="m">102400</span>
 <span class="nb">echo</span> -e <span class="s2">&quot;net.nf_conntrack_max = 25000000&quot;</span> &gt;&gt; /etc/sysctl.conf
 <span class="nb">echo</span> -e <span class="s2">&quot;net.netfilter.nf_conntrack_max = 25000000&quot;</span> &gt;&gt; /etc/sysctl.conf
 <span class="nb">echo</span> -e <span class="s2">&quot;net.netfilter.nf_conntrack_tcp_timeout_established = 180&quot;</span> &gt;&gt; /etc/sysctl.conf
-<span class="nb">echo</span> -e <span class="s2">&quot;net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120&quot;</span> &gt;&gt; /etc/sysctl.conf
+<span class="nb">echo</span> -e <span class="s2">&quot;net.netfilter.nf_conntrack_tcp_timeout_time_wait = 30&quot;</span> &gt;&gt; /etc/sysctl.conf
 <span class="nb">echo</span> -e <span class="s2">&quot;net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60&quot;</span> &gt;&gt; /etc/sysctl.conf
-<span class="nb">echo</span> -e <span class="s2">&quot;net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 120&quot;</span> &gt;&gt; /etc/sysctl.confo
+<span class="nb">echo</span> -e <span class="s2">&quot;net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 30&quot;</span> &gt;&gt; /etc/sysctl.conf
 </pre></div>
 
 <p>优化参数详解：颜色表示常用优化参数
@@ -3036,7 +4424,7 @@ ssh <span class="m">192</span>.168.1.1 cat ~/.ssh/id_rsa.pub &gt;&gt; authorized
 ssh <span class="m">192</span>.168.1.2 ifconfig
 </pre></div>
 
-<h3 id="_3">未采用双机热备防止服务中断<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="-float-ip">未采用双机热备防止服务中断--float IP<a class="headerlink" href="#-float-ip" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>有两台Linux服务器，其中一台主机（IP：139.24.214.22）对外提供了一定的网络服务，另一台从机（IP：139.24.214.24）能提供相同的服务，但IP地址没有对外部公开。
 客户端连接的都是139.24.214.22这个IP地址，如果主机故障，则会使网络服务暂时中断，时间越长造成损失越大，
 由于没有采用双机热备份技术,考虑自己用Linux脚本来实现简单的浮动IP技术，当主机故障时从机获得139.24.214.22这个IP，暂时替代主机提供服务，当主机恢复时，从机自动释放这个IP。
@@ -3092,7 +4480,7 @@ ssh <span class="m">192</span>.168.1.2 ifconfig
 <h3 id="centosip">升级centos内核&amp;更改为静态ip、网卡名称<a class="headerlink" href="#centosip" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="m">1</span>、导入key（内核3.0以上需要导入key）
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-当然，如果已经修改了repo的gpgcheck<span class="o">=</span><span class="m">0</span>也可以不导入key
+当然，如果已经修改了repo的gpgcheck<span class="o">=</span>0也可以不导入key
 <span class="m">2</span>、安装elrepo的yum源
 To install ELRepo <span class="k">for</span> RHEL-7, SL-7 or CentOS-7:
 rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm <span class="o">(</span>external link<span class="o">)</span>
@@ -3164,7 +4552,7 @@ Last login: Tue May <span class="m">21</span> <span class="m">08</span>:02:43 <s
 不用输入远程主机用户的密码
 </pre></div>
 
-<h3 id="sshd_configetcsshsshd_config">sshd_config配置详解（/etc/ssh/sshd_config）<a class="headerlink" href="#sshd_configetcsshsshd_config" title="Permanent link">&para;</a></h3>
+<h4 id="sshd_configetcsshsshd_config">sshd_config配置详解（/etc/ssh/sshd_config）<a class="headerlink" href="#sshd_configetcsshsshd_config" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="c1"># The strategy used for options in the default sshd_config shipped with</span>
 <span class="c1"># OpenSSH is to specify options with their default value where</span>
 <span class="c1"># possible, but leave them commented.  Uncommented options override the</span>
@@ -3528,6 +4916,53 @@ PermitRootLogin yes
 Port <span class="m">22</span>
 </pre></div>
 
+<h3 id="ssh_3">SSH端口转发<a class="headerlink" href="#ssh_3" title="Permanent link">&para;</a></h3>
+<p>SSH端口转发将其他TCP端口的网络数据通过SSH链路转发，并自动加密和解密。</p>
+<h4 id="_3">本地转发实例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1"># 一台LDAP server，但限制远程机器连接，此时利用ssh端口转发达到从远程机器测试server的目的</span>
+<span class="c1"># 命令格式：</span>
+ssh -L &lt;<span class="nb">local</span> port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt;
+<span class="c1"># 在LDAP client执行以下命令即可建立ssh的本地端口转发</span>
+ssh -L <span class="m">7001</span>:localhost:389 LDAPServer
+!<span class="o">[</span>fagure<span class="o">](</span>http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image002.jpg<span class="o">)</span>
+<span class="c1"># 在选择端口号时要注意非管理员帐号是无权绑定 1-1023 端口的，所以一般是选用一个 1024-65535 之间的并且尚未使用的端口号即可</span>
+<span class="c1"># 然后我们可以将远程机器（LdapClientHost）上的应用直接配置到本机的 7001 端口上（而不是 LDAP 服务器的 389 端口上）</span>
+<span class="c1"># SSH 同时提供了 GatewayPorts 关键字，我们可以通过指定它与其他机器共享这个本地端口转发。</span>
+ssh -g -L &lt;<span class="nb">local</span> port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt;
+</pre></div>
+
+<h4 id="_4">远程转发实例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1"># 假设由于网络或防火墙的原因我们不能用 SSH 直接从 LdapClientHost 连接到 LDAP 服务器（LdapServertHost），但是反向连接却是被允许的。那此时我们的选择自然就是远程端口转发了。</span>
+<span class="c1"># 命令格式：</span>
+ssh -R &lt;<span class="nb">local</span> port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt;
+<span class="c1"># 在LDAP服务器（LdapServertHost）端执行如下命令：</span>
+ssh -R <span class="m">7001</span>:localhost:389 LdapClientHost
+!<span class="o">[</span>figure<span class="o">](</span>http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image003.jpg<span class="o">)</span>
+</pre></div>
+
+<h4 id="_5">多主机转发应用实例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1"># 本地转发命令中的&lt;remote host&gt;和&lt;SSH hostname&gt;可以是不同的机器</span>
+ssh -L &lt;<span class="nb">local</span> port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt;
+<span class="c1"># 看一个涉及到四台机器 (A,B,C,D) 的例子</span>
+!<span class="o">[</span>figure<span class="o">](</span>http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image004.jpg<span class="o">)</span>
+<span class="c1"># 在 SSH Client(C) 执行下列命令来建立 SSH 连接以及端口转发：</span>
+ssh -g -L <span class="m">7001</span>:&lt;B&gt;:389 &lt;D&gt;
+<span class="c1"># 然后在我们的应用客户端（A）上配置连接机器（C ）的 7001 端口即可,在上述连接中，（A）&lt;-&gt; (C) 以及 (B)&lt;-&gt;(D) 之间的连接并不是安全连接，它们之间没有经过 SSH 的加密及解密。</span>
+</pre></div>
+
+<h4 id="_6">动态转发实例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1"># 当我们在一个不安全的 WiFi 环境下上网，用 SSH 动态转发来保护我们的网页浏览及 MSN 信息无疑是十分必要的。实际是创建了一个socks代理服务</span>
+<span class="c1"># 命令格式：</span>
+ssh -D &lt;<span class="nb">local</span> port&gt; &lt;SSH Server&gt;
+!<span class="o">[</span>figure<span class="o">](</span>http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image005.jpg<span class="o">)</span>
+<span class="c1"># 此时 SSH 所包护的范围只包括从浏览器端（SSH Client 端）到 SSH Server 端的连接，并不包含从 SSH Server 端 到目标网站的连接。如果后半截连接的安全不能得到充分的保证的话，这种方式仍不是合适的解决方案。</span>
+</pre></div>
+
+<h4 id="x">X协议转发实例<a class="headerlink" href="#x" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="c1"># 可用作远程桌面连接，被远程端是Windows可安装xming作为xserver。ssh client可以选择putty配置ssh访问并建立x-forward（转发）</span>
+ssh -X &lt;SSH Server&gt;
+</pre></div>
+
 <h3 id="linux_1">linux磁盘详解<a class="headerlink" href="#linux_1" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>磁盘分区有主分区、扩展分区、逻辑分区，一块硬盘最多可以有四个主分区，其中一个主分区的位置可以用一个扩展分区替换，且一块硬盘只能有一个扩展分区，在这个扩展分区内可以划分多个逻辑分区。
 预计超过四个分区，至少一个扩展分区：
@@ -3847,7 +5282,7 @@ bin代表binnary ；sbin 代表super binnary；
 备份分为了系统备份和用户备份两种；
 </pre></div>
 
-<h3 id="_4">添加硬盘或分区流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_7">添加硬盘或分区流程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>分区指令fdisk--创建文件系统mkfs--挂载mount--写入配置文件/etc/fstab<span class="p">;</span>
 检测硬盘是否被识别的命令：dmesg <span class="p">|</span> grep sdb
 
@@ -3908,7 +5343,7 @@ mount /dev/sdb7 /test/cisco
 
 备注：linux中的运行级别类似于windows 平台中的F8功能；
 单用户模式（级别1）类似windos平台中F8的安全模式，区别是没有图形界面，只有命令输入；
-运行级别2 和 <span class="m">3</span>的区别就是2级别没有NFS功能，同时都是多用户模式；
+运行级别2 和 3的区别就是2级别没有NFS功能，同时都是多用户模式；
 查看当前的运行级别：runlevel
 运行级别的切换：init <span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>  S 或者 telinit0 <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
 
@@ -3990,7 +5425,7 @@ chkconfig --list sshd
 chkconfig --levels <span class="m">2345</span> sshd on
 
 实例：
-ntsysv --level <span class="m">3</span>图形界面来选择自动启动的服务级别；
+ntsysv --level 3图形界面来选择自动启动的服务级别；
 扩展：
 dmesg <span class="p">|</span> grep eth0 内核驱动硬件的过程中是否识别网卡信息；主要反馈的信息是在kernel中的驱动硬件过程中；在linux操作系统当中所有的日志文件都存放在/var/log目录中；
 
@@ -4181,7 +5616,7 @@ rw-r-----: <span class="m">640</span>
 rwxrwxr-x:775
 </pre></div>
 
-<h4 id="_5">二、用户和用户组<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<h4 id="_8">二、用户和用户组<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="m">1</span>.用户和组的文件路径：
 用户：UID, /etc/passwd
 组：GID, /etc/group
@@ -4220,8 +5655,8 @@ rwxrwxr-x:775
 单向加密，散列加密：提取数据特征码，常用于数据完整性校验
 <span class="m">1</span>、雪崩效应
 <span class="m">2</span>、定长输出
-MD5：Message Digest, <span class="m">128</span>位定长输出
-SHA1：Secure Hash Algorithm, <span class="m">160</span>位定长输出
+MD5：Message Digest, 128位定长输出
+SHA1：Secure Hash Algorithm, 160位定长输出
 </pre></div>
 
 <h4 id="linux_5">Linux用户管理<a class="headerlink" href="#linux_5" title="Permanent link">&para;</a></h4>
@@ -4406,7 +5841,7 @@ issue 内的各代码意义表示如下所示：（管理人员可以自行添�
 /v 操作系统的版本.
 </pre></div>
 
-<h3 id="_6">三、管理命令<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_9">三、管理命令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="m">1</span>.用户管理命令：useradd, userdel, usermod, passwd, chsh, chfn, finger, id, chage
 <span class="m">1</span><span class="o">)</span>.useradd  <span class="o">[</span>options<span class="o">]</span>  USERNAME
 -u UID
@@ -4479,12 +5914,12 @@ chown USERNAME.GRPNAME file,...
 -R:递归更改
 --reference<span class="o">=</span>/path/to/somefile file,...改正和somefile文件一样的权限
 <span class="m">4</span><span class="o">)</span>.修改某类用户或某些类用户权限：u,g,o,a
-格式：chmod 用户类别<span class="o">=</span>MODE file,...
+格式：chmod <span class="nv">用户类别</span><span class="o">=</span>MODE file,...
 <span class="m">5</span><span class="o">)</span>.修改某类用户的某位或某些位权限：u,g,o,a
 格式：chmod 用户类别+<span class="p">|</span>-MODE file,...
 </pre></div>
 
-<h3 id="_7">四、特殊权限<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_10">四、特殊权限<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>特殊权限也是一个三位的：s,s,t
 <span class="m">1</span>.SUID: 运行某程序时，相应进程的属主是程序文件自身的属主，而不是动者；
 格式：chmod u+s FILE  ，chmod u-s FILE
@@ -4846,14 +6281,14 @@ mv /apps/bin /apps/dev/bin  <span class="o">&amp;&amp;</span> rm -r /apps/bin
 sort quarter_end.txt &gt;  quarter.sorted <span class="o">&amp;&amp;</span> lp quarter.sorted
 </pre></div>
 
-<h3 id="_8">杀死进程命令例子<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_11">杀死进程命令例子<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>pgrep firefox <span class="p">|</span> xargs <span class="nb">kill</span> -s <span class="m">9</span>
 <span class="nb">kill</span> -s <span class="m">9</span> <span class="sb">`</span>pgrep firefox<span class="sb">`</span>
 pkill -9 firefox
 killall -9 firefox（完整进程名称）
 </pre></div>
 
-<h3 id="_9">统计并杀死僵尸进程例子<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_12">统计并杀死僵尸进程例子<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>统计僵尸进程数目
 ps -ef <span class="p">|</span> grep defunct <span class="p">|</span> grep -v grep <span class="p">|</span> wc -l
 或
@@ -4877,7 +6312,7 @@ ps -A -ostat,ppid <span class="p">|</span> awk <span class="s1">&#39;/[zZ]/{prin
 <div class="codehilite"><pre><span></span>ps p <span class="m">26653</span> -L -o pcpu,tid <span class="p">|</span>sort -k1 -r -n<span class="p">|</span>less
 </pre></div>
 
-<h3 id="_10">按进程消耗内存多少排序<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_13">按进程消耗内存多少排序<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>ps -eo rss,pmem,pcpu,vsize,args <span class="p">|</span> sort -k <span class="m">1</span> -r -n <span class="p">|</span> less
 
 命令解释：
@@ -4989,7 +6424,7 @@ tar zxvf vmware-linux-tools.tar.gz
 解压默认到vmware-tools-distrib目录下：此时你可以使用ls -ll 查看文件夹下的文件
 <span class="m">7</span>. 进入vmware-tools-distrib，安装vmware tools.
 ./vmware-install.pl  执行安装，
-<span class="m">8</span>. 大约5分钟左右安装完成。 执行init <span class="m">6</span>重启ok。
+<span class="m">8</span>. 大约5分钟左右安装完成。 执行init 6重启ok。
 利用xshell的MODEM传输文件需安装lrzsz
 </pre></div>
 
@@ -5082,7 +6517,7 @@ vim /etc/fstab
 <span class="c1">#按照创建逻辑卷的反顺序可以顺利删除LVM；</span>
 
 LVＭ查看命令：
-１.查看物理卷信息：
+<span class="m">１</span>.查看物理卷信息：
 pvdisplay
 pvs
 <span class="m">2</span>.查看卷组的信息：
@@ -5246,7 +6681,7 @@ dd <span class="k">if</span><span class="o">=</span>/vat/test <span class="nv">o
 cksum:打印CRC校检和统计字节
 </pre></div>
 
-<h3 id="_11">定义一个颜色输出字符串函数<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_14">定义一个颜色输出字符串函数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>方法一：
 <span class="k">function</span> echo_color<span class="o">(){</span>
  <span class="k">if</span> <span class="o">[</span><span class="nv">$1</span> <span class="o">==</span> <span class="s2">&quot;green&quot;</span><span class="o">]</span><span class="p">;</span><span class="k">then</span>
@@ -5269,10 +6704,10 @@ cksum:打印CRC校检和统计字节
    <span class="nb">echo</span> <span class="s2">&quot;Example:echo_color red string&quot;</span>
   <span class="k">esac</span>
 <span class="o">}</span>
-<span class="k">function</span>关键字定义一个函数，可加或不加。
+function关键字定义一个函数，可加或不加。
 </pre></div>
 
-<h3 id="_12">批量创建用户<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="_15">批量创建用户<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nv">DATE</span><span class="o">=</span><span class="k">$(</span>date+%F_%T<span class="k">)</span>
 <span class="nv">USER_FILE</span><span class="o">=</span>user.txt
@@ -5307,15 +6742,15 @@ echo_color<span class="o">(){</span>
 </pre></div>
 
 <h3 id="shell_1">shell变量的子串的删除/替换<a class="headerlink" href="#shell_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="si">${#</span><span class="nv">string</span><span class="si">}</span>返回<span class="nv">$string</span>的长度
-<span class="si">${</span><span class="nv">string</span><span class="p">:</span><span class="nv">position</span><span class="si">}</span>在<span class="nv">$string</span>中，从<span class="nv">$position</span>位置之后开始提取子串
-<span class="si">${</span><span class="nv">string</span><span class="p">:</span><span class="nv">position</span><span class="p">:</span><span class="nv">length</span><span class="si">}</span>在<span class="nv">$string</span>中，从<span class="nv">$position</span>位置之后开始提取<span class="nv">$length</span>长度的子串
-<span class="si">${</span><span class="nv">string</span><span class="p">#substring</span><span class="si">}</span>从变量<span class="nv">$string</span>开头开始删除最短匹配<span class="nv">$substring</span>子串
-<span class="si">${</span><span class="nv">string</span><span class="p">##substring</span><span class="si">}</span>从变量<span class="nv">$string</span>开头开始删除最长匹配<span class="nv">$sunstring</span>子串
-<span class="si">${</span><span class="nv">string</span><span class="p">%substring</span><span class="si">}</span>从变量<span class="nv">$string</span>结尾开始删除最短匹配<span class="nv">$substring</span>子串
-<span class="si">${</span><span class="nv">string</span><span class="p">%%substring</span><span class="si">}</span> 从变量<span class="nv">$string</span>结尾开始删除最长匹配<span class="nv">$substring</span>子串
-注意：在进行#或##匹配时，<span class="nv">$string</span>的首字符必须是被删除子串<span class="nv">$substring</span>的第一个字符，不然无法匹配删除；
-在进行%或者%%匹配时，<span class="nv">$string</span>的最后一个字符必须是被删除子串<span class="nv">$substring</span>的最后一个字符，不然无法进行删除操作；
+<div class="codehilite"><pre><span></span><span class="si">${#</span><span class="nv">string</span><span class="si">}</span>返回<span class="nv">$string的长度</span>
+<span class="si">${</span><span class="nv">string</span><span class="p">:</span><span class="nv">position</span><span class="si">}</span>在<span class="nv">$string中</span>，从<span class="nv">$position位置之后开始提取子串</span>
+<span class="si">${</span><span class="nv">string</span><span class="p">:</span><span class="nv">position</span><span class="p">:</span><span class="nv">length</span><span class="si">}</span>在<span class="nv">$string中</span>，从<span class="nv">$position位置之后开始提取$length长度的子串</span>
+<span class="si">${</span><span class="nv">string</span><span class="p">#substring</span><span class="si">}</span>从变量<span class="nv">$string开头开始删除最短匹配$substring子串</span>
+<span class="si">${</span><span class="nv">string</span><span class="p">##substring</span><span class="si">}</span>从变量<span class="nv">$string开头开始删除最长匹配$sunstring子串</span>
+<span class="si">${</span><span class="nv">string</span><span class="p">%substring</span><span class="si">}</span>从变量<span class="nv">$string结尾开始删除最短匹配$substring子串</span>
+<span class="si">${</span><span class="nv">string</span><span class="p">%%substring</span><span class="si">}</span> 从变量<span class="nv">$string结尾开始删除最长匹配$substring子串</span>
+注意：在进行#或##匹配时，<span class="nv">$string的首字符必须是被删除子串$substring的第一个字符</span>，不然无法匹配删除；
+在进行%或者%%匹配时，<span class="nv">$string的最后一个字符必须是被删除子串$substring的最后一个字符</span>，不然无法进行删除操作；
 <span class="si">${</span><span class="nv">parameter</span><span class="p">/parttern/string</span><span class="si">}</span> 用string来替换第一个匹配的pattern
 <span class="si">${</span><span class="nv">parameter</span><span class="p">/#parttern/string</span><span class="si">}</span> 从开头匹配parameter变量中的pattern，匹配上后就用string来替换匹配的pattern
 <span class="si">${</span><span class="nv">parameter</span><span class="p">/%pattern/string</span><span class="si">}</span> 从结尾开始匹配parameter变量中的pattern，匹配上后就用string替换匹配的pattern
@@ -5335,12 +6770,12 @@ find /usr/local/tomcat/logs -name <span class="s1">&#39;localhost_access_log.*.t
 <span class="m">1</span>. cat /proc/stat <span class="p">|</span> grep ‘cpu0’得到cpu0的信息
 <span class="m">2</span>. <span class="nv">cpuTotal1</span><span class="o">=</span>user+nice+system+idle+iowait+irq+softirq
 <span class="m">3</span>. <span class="nv">cpuUsed1</span><span class="o">=</span>user+nice+system+irq+softirq
-<span class="m">4</span>. sleep <span class="m">30</span>秒
+<span class="m">4</span>. sleep 30秒
 <span class="m">5</span>. 再次cat /proc/stat <span class="p">|</span> grep ‘cpu0’ 得到cpu的信息
 <span class="m">6</span>. <span class="nv">cpuTotal2</span><span class="o">=</span>user+nice+system+idle+iowait+irq+softirq
 <span class="m">7</span>. <span class="nv">cpuUsed2</span><span class="o">=</span>user+nice+system+irq+softirq
 <span class="m">8</span>. 得到cpu0 在30秒内的单核利用率：<span class="o">(</span>cpuUsed2 – cpuUsed1<span class="o">)</span> * <span class="m">100</span> / <span class="o">(</span>cpuTotal2 – cpuTotal1<span class="o">)</span>
-相当于使用top –d <span class="m">30</span>命令，把user、nice、system、irq、softirq五项的使用率相加。
+相当于使用top –d 30命令，把user、nice、system、irq、softirq五项的使用率相加。
 
 shell代码：
 
@@ -5361,7 +6796,7 @@ shell代码：
 <span class="nv">load15</span><span class="o">=</span><span class="si">${</span><span class="nv">cpuload</span><span class="p">[2]</span><span class="si">}</span>
 </pre></div>
 
-<h4 id="_13">内存采集<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<h4 id="_16">内存采集<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span>应用程序使用内存采集算法：
 读取/proc/meminfo文件，<span class="o">(</span>MemTotal – MemFree – Buffers – Cached<span class="o">)</span>/1024得到应用程序使用内存数。
 
@@ -5384,13 +6819,13 @@ shell代码：
 awk <span class="s1">&#39;/SwapTotal/{total=$2}/SwapFree/{free=$2}END{print (total-free)/1024}&#39;</span>  /proc/meminfo
 </pre></div>
 
-<h4 id="_14">磁盘信息采集<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<h4 id="_17">磁盘信息采集<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span>disk io
 
 <span class="m">1</span>、IN：平均每秒把数据从硬盘读到物理内存的数据量
 采集算法：
 读取/proc/vmstat文件得出最近240秒内pgpgin的增量，把pgpgin的增量再除以240得到每秒的平均增量。
-相当于vmstat <span class="m">240</span>命令bi一列的输出。
+相当于vmstat 240命令bi一列的输出。
 
 shell代码：
 
@@ -5402,7 +6837,7 @@ sleep <span class="m">240</span>
 <span class="m">2</span>、OUT：平均每秒把数据从物理内存写到硬盘的数据量
 采集算法：
 读取/proc/vmstat文件得出最近240秒内pgpgout的增量，把pgpgout的增量再除以240得到每秒的平均增量。
-相当于vmstat <span class="m">240</span>命令bo一列的输出。
+相当于vmstat 240命令bo一列的输出。
 
 shell代码：
 
@@ -5412,7 +6847,7 @@ sleep <span class="m">240</span>
 <span class="nv">ioout</span><span class="o">=</span><span class="k">$((</span><span class="o">(</span>b-a<span class="o">)/</span><span class="m">240</span><span class="k">))</span>
 </pre></div>
 
-<h4 id="_15">网络信息采集<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<h4 id="_18">网络信息采集<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span>流量
 
 以https://www.centos.bz/为例，eth0是内网，eth1外网，获取60秒的流量。
@@ -5557,13 +6992,13 @@ top -d <span class="m">1</span> -n <span class="m">1</span> -b <span class="p">|
           </a>
         
         
-          <a href="../Debian/" title="Debian" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Utilities/" title="Iproute2&Net-tools" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Debian
+                Iproute2&Net-tools
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -5585,7 +7020,6 @@ top -d <span class="m">1</span> -n <span class="m">1</span> -b <span class="p">|
           Material for MkDocs</a>
       </div>
       
-        
   <div class="md-footer-social">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
@@ -5595,14 +7029,13 @@ top -d <span class="m">1</span> -n <span class="m">1</span> -b <span class="p">|
     
   </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../assets/javascripts/application.b806dc00.js"></script>
       
         
         
@@ -5622,11 +7055,6 @@ top -d <span class="m">1</span> -n <span class="m">1</span> -b <span class="p">|
         
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>
