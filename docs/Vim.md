@@ -1,8 +1,7 @@
 # Vim
 
 ```vim
-
-"查看文件编码格式
+" 查看文件编码格式
 :echo &fileencoding
 
 vim 有四个跟字符编码方式有关的选项，encoding、fileencoding、fileencodings、termencoding (这些选项可能的取值请参考 vim 在线帮助 :help encoding-names)，它们的意义如下:
@@ -27,20 +26,20 @@ termencoding: vim 所工作的终端 (或者 windows 的 console 窗口) 的字�
 
 windows系统也可以在vim菜单项中：编辑>启动设定，直接打开_vimrc文件
 
-"设置文件的代码形式
+" 设置文件的代码形式
 
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,cp936
 
-"vim的菜单乱码解决：
+" vim的菜单乱码解决：
 
 同样在 _vimrc文件里以上的中文设置后加上下列命令
 source $vimruntime/delmenu.vim
 source $vimruntime/menu.vim
 
-"vim提示信息乱码的解决
+" vim提示信息乱码的解决
 
 language messages zh_cn.utf-8
 

@@ -65,7 +65,15 @@ Ctrl – z ：挂起命令
 重复执行操作动作
 M – 操作次数 操作动作 ： 指定操作次数，重复执行指定的操作。
 
-## Ubuntu Linux
+lshw -C network
+
+I. stunnel -> vanish -> HAProxy -> nginx -> nodeJS -> memcached(redis) (for session storage[Session 对象存储])
+
+II. nginx (for HTTP compression) –> Varnish cache (for caching) –> HTTP level load balancer (HAProxy, or nginx, or the Varnish built-in) –> webservers.
+
+III. Apache Traffic Server/Squid/Vanish + HAProxy + Nginx + memcached(Redis) (for session storage[Session 对象存储])
+
+## Ubuntu--Debian
 
 [Ubuntu内核网站](http://kernel.ubuntu.com/~kernel-ppa/mainline/)
 
@@ -124,6 +132,26 @@ systemctl enable tmp.mount
 systemctl reload tmp.mount # 不生效可重启计算机。systemctl status tmp.mount检查状态
 取消tmpfs,删除后重启生效
 rm -v /etc/systemd/system/tmp.mount
+
+减少文件写入(当用于非服务器时)在/etc/fstab写入以下内容：
+
+```fstab
+tmpfs    /tmp        tmpfs    defaults    0  0
+tmpfs    /var/tmp    tmpfs    defaults    0  0
+tmpfs    /var/log    tmpfs    defaults    0  0
+```
+
+创建脚本确保各种程序正常运行：
+
+```sh
+for dir in apparmor apt ConsoleKit cups dist-upgrade fsck gdm installer news ntpstats samba unattended-upgrades ; do
+if [ ! -e /var/log/$dir ] ; then
+mkdir /var/log/$dir
+fi
+done
+
+# 要确保每次启动计算机时脚本都会运行，您需要将其添加到/etc/rc.local文件中，位于底部，位于exit 0行上方
+```
 
 系统～/.bashrc和~/.profile文件可通过/etc/skel/目录(系统存储的备份文件)恢复
 
@@ -210,13 +238,217 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 输入:wq保存退出；
 然后键入/sbin/reboot重启系统（可能会提示need to boot，此时直接power off）
 
-lshw -C network
+## Debian常见命令
 
-I. stunnel -> vanish -> HAProxy -> nginx -> nodeJS -> memcached(redis) (for session storage[Session 对象存储])
-
-II. nginx (for HTTP compression) –> Varnish cache (for caching) –> HTTP level load balancer (HAProxy, or nginx, or the Varnish built-in) –> webservers.
-
-III. Apache Traffic Server/Squid/Vanish + HAProxy + Nginx + memcached(Redis) (for session storage[Session 对象存储])
+|  |  |  |  |
+| :------: | :------: | :------: | :------: |
+| 分类 | 重要性 | 命令 | 描述 |
+|  | • | apropos whatis | 显示和word相关的命令。 参见线程安全 |
+|  | • | man -t man | ps2pdf - > man.pdf | 生成一个PDF格式的帮助文件 |
+|  |   | which command | 显示命令的完整路径名 |
+|  |   | time command | 计算命令运行的时间 |
+|  | • | time cat | 开始计时. Ctrl-d停止。参见sw |
+|  | • | nice info | 运行一个低优先级命令（这里是info） |
+|  | • | renice 19 -p $$ | 使脚本运行于低优先级。用于非交互任务。 |
+| 目录操作 |  |  |  |
+|  | • | cd - | 回到前一目录 |
+|  | • | cd | 回到用户目录 |
+|  |   | cd dir && command | 进入目录dir，执行命令command然后回到当前目录 |
+|  | • | pushd . | 将当前目录压入栈，以后你可以使用popd回到此目录 |
+| 文件搜索 |  |  |  |
+|  | • | alias l='ls -l --color=auto' | 单字符文件列表命令 |
+|  | • | ls -lrt | 按日期显示文件. 参见newest |
+|  | • | ls /usr/bin | pr -T9 -W$COLUMNS | 在当前终端宽度上打印9列输出 |
+|  |   | find -name '*.[ch]' | xargs grep -E 'expr' | 在当前目录及其子目录下所有.c和.h文件中寻找'expr'. 参见findrepo |
+|  |   | find -type f -print0 | xargs -r0 grep -F 'example' | 在当前目录及其子目录中的常规文件中查找字符串'example' |
+|  |   | find -maxdepth 1 -type f | xargs grep -F 'example' | 在当前目录下查找字符串'example' |
+|  |   | find -maxdepth 1 -type d | while read dir; do echo $dir; echo cmd2; done | 对每一个找到的文件执行多个命令使用while循环 |
+|  | • | find -type f ! -perm -444 | 寻找所有不可读的文件对网站有用 |
+|  | • | find -type d ! -perm -111 | 寻找不可访问的目录对网站有用 |
+|  | • | locate -r 'file[^/]*\.txt' | 使用locate 查找所有符合*file*.txt的文件 |
+|  | • | look reference | 在（有序）字典中快速查找 |
+|  | • | grep --color reference /usr/share/dict/words | 使字典中匹配的正则表达式高亮 |
+| 归档 and compression |  |  |  |
+|  |   | gpg -c file | 文件加密 |
+|  |   | gpg file.gpg | 文件解密 |
+|  |   | tar -c dir/ | bzip2 > dir.tar.bz2 | 将目录dir/压缩打包 |
+|  |   | bzip2 -dc dir.tar.bz2 | tar -x | 展开压缩包 对tar.gz文件使用gzip而不是bzip2 |
+|  |   | tar -c dir/ | gzip | gpg -c | ssh user@remote 'dd of=dir.tar.gz.gpg' | 目录dir/压缩打包并放到远程机器上 |
+|  |   | find dir/ -name '*.txt' | tar -c --files-from=- | bzip2 > dir_txt.tar.bz2 | 将目录dir/及其子目录下所有.txt文件打包 |
+|  |   | find dir/ -name '*.txt' | xargs cp -a --target-directory=dir_txt/ --parents | 将目录dir/及其子目录下所有.txt按照目录结构拷贝到dir_txt/ |
+|  |   |  tar -c /dir/to/copy  |  cd /where/to/ && tar -x -p  | 拷贝目录copy/到目录/where/to/并保持文件属性 |
+|  |   |  cd /dir/to/copy && tar -c .  |  cd /where/to/ && tar -x -p  | 拷贝目录copy/下的所有文件到目录/where/to/并保持文件属性 |
+|  |   |  tar -c /dir/to/copy  | ssh -C user@remote 'cd /where/to/ && tar -x -p' | 拷贝目录copy/到远程目录/where/to/并保持文件属性 |
+|  |   | dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz' | 将整个硬盘备份到远程机器上 |
+|  |  | rsync 使用 --dry-run选项进行测试 |  |
+|  |   | rsync -P rsync://rsync.server.com/path/to/file file | 只获取diffs.当下载有问题时可以作多次 |
+|  |   | rsync --bwlimit=1000 fromfile tofile | 有速度限制的本地拷贝，对I/O有利 |
+|  |   | rsync -az -e ssh --delete ~/public_html/ remote.com:'~/public_html' | 镜像网站使用压缩和加密 |
+|  |   | rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/ | 同步当前目录和远程目录 |
+| ssh 安全 Shell |  |  |  |
+|  |   | ssh $USER@$HOST command | 在$Host主机上以$User用户运行命令默认命令为Shell |
+|  | • | ssh -f -Y $USER@$HOSTNAME xeyes | 在名为$HOSTNAME的主机上以$USER用户运行GUI命令 |
+|  |   | scp -p -r $USER@$HOST: file dir/ | 拷贝到$HOST主机$USER'用户的目录下 |
+|  |   | ssh -g -L 8080:localhost:80 root@$HOST | 由本地主机的8080端口转发到$HOST主机的80端口 |
+|  |   | ssh -R 1434:imap:143 root@$HOST | 由主机的1434端口转发到imap的143端口 |
+| wget 多用途下载工具 |  |  |  |
+|  | • | cd cmdline && wget -nd -pHEKk <http://www.pixelbeat.org/cmdline.html> | 在当前目录中下载指定网页及其相关的文件使其可完全浏览 |
+|  |   | wget -c <http://www.example.com/large.file | 继续上次未完的下载 |
+|  |   | wget -r -nd -np -l1 -A '*.jpg' http://www.example.com/ | 批量下载文件到当前目录中 |
+|  |   | wget ftp://remote/file[1-9].iso/ | 下载FTP站上的整个目录 |
+|  | • | wget -q -O- http://www.pixelbeat.org/timeline.html | grep 'a href' | head | 直接处理输出 |
+|  |   | echo 'wget url' | at 01:00 | 在下午一点钟下载指定文件到当前目录 |
+|  |   | wget --limit-rate=20k url | 限制下载速度这里限制到20KB/s |
+|  |   | wget -nv --spider --force-html -i bookmarks.html | 检查文件中的链接是否存在 |
+|  |   | wget --mirror http://www.example.com/ | 更新网站的本地拷贝可以方便地用于cron |
+| 网络ifconfig, route, mii-tool, nslookup 命令皆已过时 |  |  |  |
+|  |   | ethtool eth0 | 显示网卡eth0的状态 |
+|  |   | ethtool --change eth0 autoneg off speed 100 duplex full | 手动设制网卡速度 |
+|  |   | iwconfig eth1 | 显示无线网卡eth1的状态 |
+|  |   | iwconfig eth1 rate 1Mb/s fixed | 手动设制无线网卡速度 |
+|  | • | iwlist scan | 显示无线网络列表 |
+|  | • | ip link show | 显示interface列表 |
+|  |   | ip link set dev eth0 name wan | 重命名eth0为wan |
+|  |   | ip link set dev eth0 up | 启动interface eth0或关闭 |
+|  | • | ip addr show | 显示网卡的IP地址 |
+|  |   | ip addr add 1.2.3.4/24 brd + dev eth0 | 添加ip和掩码255.255.255.0 |
+|  | • | ip route show | 显示路由列表 |
+|  |   | ip route add default via 1.2.3.254 | 设置默认网关1.2.3.254 |
+|  | • | tc qdisc add dev lo root handle 1:0 netem delay 20msec | 增加20ms传输时间到loopback设备调试用 |
+|  | • | tc qdisc del dev lo root | 移除上面添加的传输时间 |
+|  | • | host pixelbeat.org | 查寻主机的DNS IP地址 |
+|  | • | hostname -i | 查寻本地主机的IP地址同等于host `hostname` |
+|  | • | whois pixelbeat.org | 查寻某主机或莫IP地址的whois信息 |
+|  | • | netstat -tupl | 列出系统中的internet服务 |
+|  | • | netstat -tup | 列出活跃的连接 |
+| windows networking samba提供所有windows相关的网络支持 |  |  |  |
+|  | • | smbtree | 寻找一个windows主机. 参见findsmb |
+|  |   | nmblookup -A 1.2.3.4 | 寻找一个指定ip的windows netbios名 |
+|  |   | smbclient -L windows_box | 显示在windows主机或samba服务器上的所有共享 |
+|  |   | mount -t smbfs -o fmask=666,guest //windows_box/share /mnt/share | 挂载一个windows共享 |
+|  |   | echo 'message' | smbclient -M windows_box | 发送一个弹出信息到windows主机XP sp2默认关闭此功能 |
+| 文本操作 sed使用标准输入和标准输出，如果想要编辑文件，则需添加\<oldfile>newfile |  |  |  |
+|  |   | sed 's/string1/string2/g' | 使用string2替换string1 |
+|  |   | sed 's/\.*\1/\12/g' | 将任何以1结尾的字符串替换为以2结尾的字符串 |
+|  |   | sed '/^ *#/d; /^ *$/d' | 删除注释和空白行 |
+|  |   | sed ':a; /\\$/N; s/\\\n//; ta' | 连接结尾有\的行和其下一行 |
+|  |   | sed 's/[ \t]*$//' | 删除每行后的空白 |
+|  |   | sed 's/\[\\`\\"$\\\\]\/\\\1/g' | 将所有转义字符之前加上\ |
+|  | • | seq 10 | sed "s/^/      /; s/ *\.\{7,\}\/\1/" | 向右排N任意数列 |
+|  |   | sed -n '1000p;1000q' | 输出第一千行 |
+|  |   | sed -n '10,20p;20q' | 输出第10-20行 |
+|  |   | sed -n 's/.*<title\>\.*\<\/title>.*/\1/ip;T;q' | 输出HTML文件的<title></title>字段中的 内容 |
+|  |   | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | 排序IPV4地址 |
+|  | • | echo 'Test' | tr '[:lower:]' '[:upper:]' | 转换成大写 |
+|  | • | tr -dc '[:print:]' < /dev/urandom | 过滤掉不能打印的字符 |
+|  | • | history | wc -l | 计算指定单词出现的次数 |
+| 集合操作 如果是英文文本的话export LANG=C可以提高速度 |  |  |  |
+|  |   | sort -u file1 file2 | 两个未排序文件的并集 |
+|  |   | sort file1 file2 | uniq -d | 两个未排序文件的交集 |
+|  |   | sort file1 file1 file2 | uniq -u | 两个未排序文件的差 集 |
+|  |   | sort file1 file2 | uniq -u | 两个未排序文件的对称差集 |
+|  |   | join -t'\0' -a1 -a2 file1 file2 | 两个有序文件的并集 |
+|  |   | join -t'\0' file1 file2 | 两个有序文件的交集 |
+|  |   | join -t'\0' -v2 file1 file2 | 两个有序文件的差集 |
+|  |   | join -t'\0' -v1 -v2 file1 file2 | 两个有序文件的对称差集 |
+| 数学 |  |  |  |
+|  | • | echo '1 + sqrt5/2' | bc -l | 方便的计算器计算 φ |
+|  | • | echo 'pad=20; min=64; 100*10^6/pad+min*8' | bc | 更复杂地计算，这里计算了最大的FastE包率 |
+|  | • | echo 'pad=20; min=64; print 100E6/pad+min*8' | python | Python处理数值的科学表示法 |
+|  | • | echo 'pad=20; plot [64:1518] 100*10**6/pad+x*8' | gnuplot -persist | 显示FastE包率相对于包大小的图形 |
+|  | • | echo 'obase=16; ibase=10; 64206' | bc | 进制转换十进制到十六进制 |
+|  | • | echo $0x2dec | 进制转换十六进制到十进制shell数学扩展 |
+|  | • | units -t '100m/9.58s' 'miles/hour' | 单位转换公尺到英尺 |
+|  | • | units -t '500GB' 'GiB' | 单位转换SI 到IEC 前缀. 参见 numfmt |
+|  | • | units -t '1 googol' | 定义查找 |
+|  | • | seq 100 | tr '\n' +; echo 0 | bc | 加N任意数列. 参见 add and funcpy |
+| 日历 |  |  |  |
+|  | • | cal -3 | 显示一日历 |
+|  | • | cal 9 1752 | 显示指定月，年的日历 |
+|  | • | date -d fri | 这个星期五是几号. 参见day |
+|  | • | date --date='25 Dec' +%A | 今年的圣诞节是星期几 |
+|  | • | date --date '1970-01-01 UTC 2147483647 seconds' | 将一相对于1970-01-01 00：00的秒数转换成时间 |
+|  | • | TZ=':America/Los_Angeles' date | 显示当前的美国西岸时间使用tzselect寻找时区 |
+|  |   | echo "mail -s 'get the train' P@draigBrady.com < /dev/null" | at 17:45 | 在指定的时间发送邮件 |
+|  | • | echo "DISPLAY=$DISPLAY xmessage cooker" | at "NOW + 30 minutes" | 在给定的时间弹出对话框 |
+| locales |  |  |  |
+|  | • | printf "%'d\n" 1234 | 根据locale输出正确的数字分隔 |
+|  | • | BLOCK_SIZE=\'1 ls -l | 用ls命令作类适于locale文件分组 |
+|  | • | echo "I live in `locale territory`" | 从locale数据库中展开信息 |
+|  | • | LANG=en_IE.utf8 locale int_prefix | 查找指定地区的locale信息。参见ccodes |
+|  | • | locale | cut -d= -f1 | xargs locale -kc | less | 显示在locale数据库中的所有字段 |
+| recode iconv, dos2unix, unix2dos 已经过时了 |  |  |  |
+|  | • | recode -l | less | 显示所有有效的字符集及其别名 |
+|  |   | recode windows-1252.. file_to_change.txt | 转换Windows下的ansi文件到当前的字符集自动进行回车换行符的转换 |
+|  |   | recode utf-8/CRLF.. file_to_change.txt | 转换Windows下的ansi文件到当前的字符集 |
+|  |   | recode iso-8859-15..utf8 file_to_change.txt | 转换Latin9（西欧）字符集文件到utf8 |
+|  |   | recode ../b64 < file.txt > file.b64 | Base64编码 |
+|  |   | recode /qp.. < file.txt > file.qp | Quoted-printable格式解码 |
+|  |   | recode ..HTML < file.txt > file.html | 将文本文件转换成HTML |
+|  | • | recode -lf windows-1252 | grep euro | 在字符表中查找欧元符号 |
+|  | • | echo -n 0x80 | recode latin-9/x1..dump | 显示字符在latin-9中的字符映射 |
+|  | • | echo -n 0x20AC | recode ucs-2/x2..latin-9/x | 显示latin-9编码 |
+|  | • | echo -n 0x20AC | recode ucs-2/x2..utf-8/x | 显示utf-8编码 |
+| 光盘 |  |  |  |
+|  |   | gzip < /dev/cdrom > cdrom.iso.gz | 保存光盘拷贝 |
+|  |   | mkisofs -V LABEL -r dir | gzip > cdrom.iso.gz | 建立目录dir的光盘镜像 |
+|  |   | mount -o loop cdrom.iso /mnt/dir | 将光盘镜像挂载到 /mnt/dir 只读 |
+|  |   | cdrecord -v dev=/dev/cdrom blank=fast | 清空一张CDRW |
+|  |   | gzip -dc cdrom.iso.gz | cdrecord -v dev=/dev/cdrom - | 烧录光盘镜像 使用 dev=ATAPI -scanbus 来确认该使用的 dev |
+|  |   | cdparanoia -B | 在当前目录下将光盘音轨转录成wav文件 |
+|  |   | cdrecord -v dev=/dev/cdrom -audio *.wav | 将当前目录下的wav文件烧成音乐光盘 参见cdrdao |
+|  |   | oggenc --tracknum='track' track.cdda.wav -o 'track.ogg' | 将wav文件转换成ogg格式 |
+| 磁盘空间 参见FSlint |  |  |  |
+|  | • | ls -lSr | 按文件大小降序显示文件 |
+|  | • | du -s * | sort -k1,1rn | head | 显示当前目录下占用空间最大的一批文件. 参见dutop |
+|  | • | df -h | 显示空余的磁盘空间 |
+|  | • | df -i | 显示空余的inode |
+|  | • | fdisk -l | 显示磁盘分区大小和类型（在root下执行） |
+|  | • | rpm -q -a --qf '%10{SIZE}\t%{NAME}\n' | sort -k1,1n | 显示所有在rpm发布版上安装的包，并以包字节大小为序 |
+|  | • | dpkg-query -W -f='${Installed-Size;10}\t${Package}\n' | sort -k1,1n | 显示所有在deb发布版上安装的包，并以KB包大小为序 |
+|  | • | dd bs=1 seek=2TB if=/dev/null of=ext3.test | 建立一个大的测试文件（不占用空间）. 参见truncate |
+| 监视/调试 |  |  |  |
+|  | • | tail -f /var/log/messages | 监视Messages日志文件 |
+|  | • | strace -c ls >/dev/null | 总结/剖析命令进行的系统调用 |
+|  | • | strace -f -e open ls >/dev/null | 显示命令进行的系统调用 |
+|  | • | ltrace -f -e getenv ls >/dev/null | 显示命令调用的库函数 |
+|  | • | lsof -p $$ | 显示当前进程打开的文件 |
+|  | • | lsof ~ | 显示打开用户目录的进程 |
+|  | • | tcpdump not port 22 | 显示除了ssh外的网络交通. 参见tcpdump_not_me |
+|  | • | ps -e -o pid,args --forest | 以树状结构显示进程 |
+|  | • | ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d' | 以CPU占用率为序显示进程 |
+|  | • | ps -e -orss=,args= | sort -b -k1,1n | pr -TW$COLUMNS | 以内存使用量为序显示进程. 参见ps_mem.py |
+|  | • | ps -C firefox-bin -L -o pid,tid,pcpu,state | 显示指定进程的所有线程信息 |
+|  | • | ps -p 1,2 | 显示指定进程ID的进程信息 |
+|  | • | last reboot | 显示系统重启记录 |
+|  | • | free -m | 显示剩余的内存总量-m以MB为单位显示 |
+|  | • | watch -n.1 'cat /proc/interrupts' | 监测文件/proc/interrupts的变化 |
+| 系统信息 参见sysinfo |  |  |  |
+|  | • | uname -a | 查看内核/操作系统/CPU信息 |
+|  | • | head -n1 /etc/issue | 查看操作系统版本 |
+|  | • | cat /proc/partitions | 显示所有在系统中注册的分区 |
+|  | • | grep MemTotal /proc/meminfo | 显示系统可见的内存总量 |
+|  | • | grep "model name" /proc/cpuinfo | 显示CPU信息 |
+|  | • | lspci -tv | 显示PCI信息 |
+|  | • | lsusb -tv | 显示USB信息 |
+|  | • | mount | column -t | 显示所有挂载的文件系统并对齐输出 |
+|  | # | dmidecode -q | less | 显示SMBIOS/DMI 信息 |
+|  | # | smartctl -A /dev/sda | grep Power_On_Hours | 系统开机的总体时间 |
+|  | # | hdparm -i /dev/sda | 显示关于磁盘sda的信息 |
+|  | # | hdparm -tT /dev/sda | 检测磁盘sda的读取速度 |
+|  | # | badblocks -s /dev/sda | 检测磁盘sda上所有的坏扇区 |
+| 交互 参见linux keyboard shortcut database |  |  |  |
+|  | • | readline | Line editor used by bash, python, bc, gnuplot, ... |
+|  | • | screen | 多窗口的虚拟终端, ... |
+|  | • | mc | 强大的文件管理器，可以浏览rpm, tar, ftp, ssh, ... |
+|  | • | gnuplot | 交互式并可进行脚本编程的画图工具 |
+|  | • | links | 网页浏览器 |
+| miscellaneous |  |  |  |
+|  | • | alias hd='od -Ax -tx1z -v' | 方便的十六进制输出。 用法举例: • hd /proc/self/cmdline | less |
+|  | • | alias realpath='readlink -f' | 显示符号链接指向的真实路径用法举例: • realpath ~/../$USER |
+|  | • | set | grep $USER | 在当前环境中查找 |
+|  |   | touch -c -t 0304050607 file | 改变文件的时间标签 YYMMDDhhmm |
+|  | • | python -m SimpleHTTPServer | Serve current directory tree at http://$HOSTNAME:8000/ |
 
 ## Centos
 
@@ -269,13 +501,13 @@ III. Apache Traffic Server/Squid/Vanish + HAProxy + Nginx + memcached(Redis) (fo
         mkdir /usr/java
         wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/...tar.gz
         tar -zxvf jdk...
-    4、编辑/etc/profile文件，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL下面添加如下代码：
+    4、编辑.bashrc文件，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL下面添加如下代码：
         #jdk
         export JAVA_HOME=/usr/java/jdk-$version
         export PATH=$JAVA_HOME/bin:$PATH
         export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
     5、配置生效并验证
-        source /etc/profile
+        source .bashrc
         java -version
 ```
 
@@ -388,13 +620,10 @@ net.ipv4.tcp_keepalive_intvl =15
 
 net.ipv4.tcp_retries2 = 5
 
-net.ipv4.tcp_fin_timeout = 2
-
+# 增加tcp-time-wait存储桶大小以防止简单的DOS攻击
 net.ipv4.tcp_max_tw_buckets = 36000
-
-net.ipv4.tcp_tw_recycle = 1
-
-net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_tw_recycle = 1 # 默认为0
+net.ipv4.tcp_tw_reuse = 1 # 默认为0
 
 net.ipv4.tcp_max_orphans = 32768
 
@@ -403,6 +632,7 @@ net.ipv4.tcp_syncookies = 1
 net.ipv4.tcp_max_syn_backlog = 16384
 
 net.ipv4.tcp_wmem = 8192 131072 16777216
+net.ipv4.udp_wmem_min = 16384   # 增加可分配的写缓冲区空间
 
 net.ipv4.tcp_rmem = 32768 131072 16777216
 
@@ -419,7 +649,8 @@ net.ipv4.netfilter.ip_conntrack_tcp_timeout_established=180
 net.core.somaxconn = 16384
 
 net.core.netdev_max_backlog = 16384
-
+net.core.optmem_max = 25165824  # 增加内存缓冲区的最大数量
+net.core.busy_poll = 50 # 轮询有助于减少网络接收路径中的延迟 允许套接字层代码轮询网络设备的接收队列， 并禁用网络中断。
 ```
 
 ```sh
@@ -475,6 +706,10 @@ net.ipv4.tcp_max_syn_backlog = 262144
 net.ipv4.tcp_timestamps = 0
 #为了打开对端的连接，内核需要发送一个SYN并附带一个回应前面一个SYN的ACK。也就是所谓三次握手中的第二次握手。这个设置决定了内核放弃连接之前发送SYN+ACK包的数量
 net.ipv4.tcp_synack_retries = 1
+# 使用cookie来处理SYN队列溢出
+net.ipv4.tcp_syncookies = 1 (0 by default)
+# 路由刷新频率
+net.ipv4.route.gc_timeout = 100
 #在内核放弃建立连接之前发送SYN包的数量
 net.ipv4.tcp_syn_retries = 1
 #开启TCP连接中time_wait sockets的快速回收
@@ -482,13 +717,20 @@ net.ipv4.tcp_tw_recycle = 1
 #开启TCP连接复用功能，允许将time_wait sockets重新用于新的TCP连接（主要针对time_wait连接）
 net.ipv4.tcp_tw_reuse = 1
 #1st低于此值,TCP没有内存压力,2nd进入内存压力阶段,3rdTCP拒绝分配socket(单位：内存页)
-net.ipv4.tcp_mem = 94500000 915000000 927000000
+net.ipv4.udp_mem = 65536 131072 262144  # 增加可分配的最大总缓冲区空间,此为以page为单位（4096字节）测量
+net.ipv4.tcp_mem = 65536 131072 262144
 #如果套接字由本端要求关闭，这个参数决定了它保持在FIN-WAIT-2状态的时间。对端可以出错并永远不关闭连接，甚至意外当机。缺省值是60 秒。2.2 内核的通常值是180秒，你可以按这个设置，但要记住的是，即使你的机器是一个轻载的WEB服务器，也有因为大量的死套接字而内存溢出的风险，FIN- WAIT-2的危险性比FIN-WAIT-1要小，因为它最多只能吃掉1.5K内存，但是它们的生存期长些。
-net.ipv4.tcp_fin_timeout = 15
+net.ipv4.tcp_fin_timeout = 15   # (默认60s，建议15-30s)
 #表示当keepalive起用的时候，TCP发送keepalive消息的频度（单位：秒）
-net.ipv4.tcp_keepalive_time = 30
-#对外连接端口范围
+net.ipv4.tcp_keepalive_time = 300
+# 确定了isAlive间隔探测之间的等待时间   (默认75s,建议15-30s)
+net.ipv4.tcp_keepalive_intvl = 15
+# 超时之前的探测次数    # 默认值：9，推荐5
+net.ipv4.tcp_keepalive_probes = 5
+#对外连接端口范围，RHEL 7 default: 32768 61000
 net.ipv4.ip_local_port_range = 2048 65000
+# 防止TCP时间等待
+net.ipv4.tcp_rfc1337 = 1
 #表示文件句柄的最大数量
 fs.file-max = 102400
 
@@ -496,9 +738,9 @@ fs.file-max = 102400
 echo -e "net.nf_conntrack_max = 25000000" >> /etc/sysctl.conf
 echo -e "net.netfilter.nf_conntrack_max = 25000000" >> /etc/sysctl.conf
 echo -e "net.netfilter.nf_conntrack_tcp_timeout_established = 180" >> /etc/sysctl.conf
-echo -e "net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120" >> /etc/sysctl.conf
+echo -e "net.netfilter.nf_conntrack_tcp_timeout_time_wait = 30" >> /etc/sysctl.conf
 echo -e "net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60" >> /etc/sysctl.conf
-echo -e "net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 120" >> /etc/sysctl.confo
+echo -e "net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 30" >> /etc/sysctl.conf
 
 ```
 
@@ -623,7 +865,7 @@ ssh 192.168.1.1 cat ~/.ssh/id_rsa.pub >> authorized_keys
 ssh 192.168.1.2 ifconfig
 ```
 
-### 未采用双机热备防止服务中断
+### 未采用双机热备防止服务中断--float IP
 
 ```sh
 有两台Linux服务器，其中一台主机（IP：139.24.214.22）对外提供了一定的网络服务，另一台从机（IP：139.24.214.24）能提供相同的服务，但IP地址没有对外部公开。
@@ -758,7 +1000,7 @@ Last login: Tue May 21 08:02:43 2013 from 192.168.1.101
 不用输入远程主机用户的密码
 ```
 
-### sshd_config配置详解（/etc/ssh/sshd_config）
+#### sshd_config配置详解（/etc/ssh/sshd_config）
 
 ```sh
 # The strategy used for options in the default sshd_config shipped with
@@ -1123,6 +1365,65 @@ PermitRootLogin yes
 # 默认将在本机的所有网络接口上监听，但是可以通过 ListenAddress 指定只在某个特定的接口上监听。
 Port 22
 
+```
+
+### SSH端口转发
+
+SSH端口转发将其他TCP端口的网络数据通过SSH链路转发，并自动加密和解密。
+
+#### 本地转发实例
+
+```sh
+# 一台LDAP server，但限制远程机器连接，此时利用ssh端口转发达到从远程机器测试server的目的
+# 命令格式：
+ssh -L <local port>:<remote host>:<remote port> <SSH hostname>
+# 在LDAP client执行以下命令即可建立ssh的本地端口转发
+ssh -L 7001:localhost:389 LDAPServer
+![fagure](http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image002.jpg)
+# 在选择端口号时要注意非管理员帐号是无权绑定 1-1023 端口的，所以一般是选用一个 1024-65535 之间的并且尚未使用的端口号即可
+# 然后我们可以将远程机器（LdapClientHost）上的应用直接配置到本机的 7001 端口上（而不是 LDAP 服务器的 389 端口上）
+# SSH 同时提供了 GatewayPorts 关键字，我们可以通过指定它与其他机器共享这个本地端口转发。
+ssh -g -L <local port>:<remote host>:<remote port> <SSH hostname>
+```
+
+#### 远程转发实例
+
+```sh
+# 假设由于网络或防火墙的原因我们不能用 SSH 直接从 LdapClientHost 连接到 LDAP 服务器（LdapServertHost），但是反向连接却是被允许的。那此时我们的选择自然就是远程端口转发了。
+# 命令格式：
+ssh -R <local port>:<remote host>:<remote port> <SSH hostname>
+# 在LDAP服务器（LdapServertHost）端执行如下命令：
+ssh -R 7001:localhost:389 LdapClientHost
+![figure](http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image003.jpg)
+```
+
+#### 多主机转发应用实例
+
+```sh
+# 本地转发命令中的<remote host>和<SSH hostname>可以是不同的机器
+ssh -L <local port>:<remote host>:<remote port> <SSH hostname>
+# 看一个涉及到四台机器 (A,B,C,D) 的例子
+![figure](http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image004.jpg)
+# 在 SSH Client(C) 执行下列命令来建立 SSH 连接以及端口转发：
+ssh -g -L 7001:<B>:389 <D>
+# 然后在我们的应用客户端（A）上配置连接机器（C ）的 7001 端口即可,在上述连接中，（A）<-> (C) 以及 (B)<->(D) 之间的连接并不是安全连接，它们之间没有经过 SSH 的加密及解密。
+```
+
+#### 动态转发实例
+
+```sh
+# 当我们在一个不安全的 WiFi 环境下上网，用 SSH 动态转发来保护我们的网页浏览及 MSN 信息无疑是十分必要的。实际是创建了一个socks代理服务
+# 命令格式：
+ssh -D <local port> <SSH Server>
+![figure](http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image005.jpg)
+# 此时 SSH 所包护的范围只包括从浏览器端（SSH Client 端）到 SSH Server 端的连接，并不包含从 SSH Server 端 到目标网站的连接。如果后半截连接的安全不能得到充分的保证的话，这种方式仍不是合适的解决方案。
+```
+
+#### X协议转发实例
+
+```sh
+# 可用作远程桌面连接，被远程端是Windows可安装xming作为xserver。ssh client可以选择putty配置ssh访问并建立x-forward（转发）
+ssh -X <SSH Server>
 ```
 
 ### linux磁盘详解

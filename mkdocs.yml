@@ -21,8 +21,8 @@ nav:
     - 'Go': 'Go.md'
   - AboutLinux: 
     - 'Linux': 'Linux.md'
-    - 'Debian': 'Debian.md'
-    - 'Iproute': 'Iproute.md'
+    - 'Iproute2&Net-tools': 'Utilities.md'
+    - 'Iptables': 'Iptables.md'
     - 'Firewalld': 'Firewalld.md'
   - WebServer: 
     - 'Nginx': 'Nginx.md'
@@ -49,8 +49,7 @@ nav:
     - 'ApacheTrafficServer': 'TrafficServer.md'
     - 'Memcached': 'Memcached.md'
   - LB&HA: 
-    - 'LVS': 'LVS.md'
-    - 'Keepalived': 'Keepalived.md'
+    - 'LVSKeepalived': 'LVSKeepalived.md'
     - 'HAProxy': 'Haproxy.md'
     - 'Traefik': 'Traefik.md'
     - 'Envoy': 'Envoy.md'
