@@ -24,7 +24,7 @@ git status
 git commit --vervose
 
 # 以空消息commit，即不写commit message
-git commit -a --allow-empty-message -m ''
+git commit -a --allow-empty-message -m ' '
 
 # 设置记住密码（默认15分钟）：
 git config --global credential.helper cache
