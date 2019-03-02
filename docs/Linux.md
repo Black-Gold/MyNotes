@@ -1,6 +1,7 @@
-# Linux 系统命令行快捷键
+# Linux
 
-常用
+系统命令行快捷键
+
 Ctrl+左右键:在单词之间跳转
 Ctrl+a:跳到本行的行首
 Ctrl+e:跳到页尾
@@ -491,27 +492,23 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 ## Linux安装java
 
 ```sh
-1. 在CentOS7安装Oracle Java JDK8
-
-    1、查找已安装的jdk组件
-        rpm -qa | grep -E '^open[jre|jdk]|j[re|dk]'
-    2、卸载之前已安装的jdk
-        yum remove java-$version
-    3、在/usr目录创建java文件夹，下载jdk包http://www.oracle.com/technetwork/java/javase/downloads/index.html
-        mkdir /usr/java
-        wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/...tar.gz
-        tar -zxvf jdk...
-    4、编辑.bashrc文件，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL下面添加如下代码：
-        #jdk
-        export JAVA_HOME=/usr/java/jdk-$version
-        export PATH=$JAVA_HOME/bin:$PATH
-        export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-    5、配置生效并验证
-        source .bashrc
-        java -version
+在CentOS7安装Oracle Java JDK8
+     rpm -qa | grep -E '^open[jre|jdk]|j[re|dk]'    # 查找已安装的jdk组件
+     yum remove java-$Version   # 卸载之前已安装的jdk
+    在/usr目录创建java文件夹，下载jdk包http://www.oracle.com/technetwork/java/javase/downloads/index.html
+     mkdir /usr/java
+     wget http://download.oracle.com/otn-pub/java/jdk/8u161-b12/...tar.gz
+     tar -zxvf jdk...
+    编辑.bashrc文件，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL下面添加如下代码：
+     export JAVA_HOME=/usr/java/jdk-$version
+     export PATH=$JAVA_HOME/bin:$PATH
+     export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+    配置生效并验证
+     source .bashrc
+     java --version
 ```
 
-### 分区方案参考
+## 分区方案参考
 
 ```sh
 
@@ -519,29 +516,7 @@ http://blog.51cto.com/oldboy/634725
 
 ```
 
-### NET-TOOLS VS IPROUTE对照
-
-| NET-TOOLS COMMANDS | IPROUTE COMMANDS |
-| :------: | :------: |
-| arp -a | ip neigh |
-| arp -v | ip -s neigh |
-| arp -s 192.168.1.1 1:2:3:4:5:6 | ip neigh add 192.168.1.1 lladdr 1:2:3:4:5:6 dev eth1 |
-| arp -i eth1 -d 192.168.1.1 | ip neigh del 192.168.1.1 dev eth1 |
-| ifconfig -a | ip addr |
-| ifconfig eth0 down | ip link set eth0 down |
-| ifconfig eth0 up | ip link set eth0 up |
-| ifconfig eth0 192.168.1.1 | ip addr add 192.168.1.1/24 dev eth0 |
-| ifconfig eth0 netmask 255.255.255.0 | ip addr add 192.168.1.1/24 dev eth0 |
-| ifconfig eth0 mtu 9000 | ip link set eth0 mtu 9000 |
-| ifconfig eth0:0 192.168.1.2 | ip addr add 192.168.1.2/24 dev eth0 |
-| netstat | ss |
-| netstat -neopa | ss -neopa |
-| netstat -g | ip maddr |
-| route | ip route |
-| route add -net 192.168.1.0 netmask 255.255.255.0 dev eth0 | ip route add 192.168.1.0/24 dev eth0 |
-| route add default gw 192.168.1.1 | ip route add default via 192.168.1.1 |
-
-### centos完全重装python和yum
+## centos完全重装python和yum
 
 ```py
 1、删除现有Python
@@ -598,7 +573,7 @@ service sshd restart
 这个时候就无法使用22端口进行ssh远程连接，必须使用2121端口
 ```
 
-### 优化内核参数 [根据实际情况调整]
+## 优化内核参数 [根据实际情况调整]
 
 两种修改内核参数方法:
 1、使用echo value方式直接追加到文件里如echo "1" >/proc/sys/net/ipv4/tcp_syn_retries，但这种方法设备重启后又会恢复为默认值
@@ -641,7 +616,7 @@ net.ipv4.tcp_mem = 786432 1048576 1572864
 net.ipv4.ip_local_port_range = 1024 65000
 
 net.ipv4.ip_conntrack_max = 65536
-
+-
 net.ipv4.netfilter.ip_conntrack_max=65536
 
 net.ipv4.netfilter.ip_conntrack_tcp_timeout_established=180
@@ -822,7 +797,7 @@ echo -e "net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 30" >> /etc/sysctl.co
 | `rmem_max` | 129024 | 873200 | 最大的TCP数据接收缓冲 |
 | wmem_max | 129024 | 873200 | 最大的TCP数据发送缓冲 |
 
-### 赋予root权限
+## 赋予root权限
 
 ```sh
 方法一： 修改 /etc/sudoers 文件，找到%wheel一行，把前面的注释（#）去掉
@@ -844,7 +819,7 @@ tommy:x:0:500:tommy:/home/tommy:/bin/bash
 建议使用方法二，不要轻易使用方法三。
 ```
 
-### CentOS6服务器配置双机信任
+## 服务器配置双机信任
 
 ```sh
 服务器1的IP：192.168.1.1
@@ -865,7 +840,7 @@ ssh 192.168.1.1 cat ~/.ssh/id_rsa.pub >> authorized_keys
 ssh 192.168.1.2 ifconfig
 ```
 
-### 未采用双机热备防止服务中断--float IP
+## 未采用双机热备防止服务中断--float IP
 
 ```sh
 有两台Linux服务器，其中一台主机（IP：139.24.214.22）对外提供了一定的网络服务，另一台从机（IP：139.24.214.24）能提供相同的服务，但IP地址没有对外部公开。
@@ -920,7 +895,7 @@ fi
 * * * * * /root/autoFloatIP.sh > /dev/null 2>&1
 ```
 
-### 升级centos内核&更改为静态ip、网卡名称
+## 升级centos内核&更改为静态ip、网卡名称
 
 ```sh
 1、导入key（内核3.0以上需要导入key）
@@ -962,9 +937,9 @@ DEVICE=eth0
 注意：ifcfg-ens33 文件最好删除掉，否则重启 network 服务时候会报错}
 ```
 
-### SSH相关命令和配置
+## SSH相关命令和配置
 
-#### SSH协议无密码登陆设定：
+### SSH协议无密码登陆设定：
 
 ```sh
 在本机上生成RSA密码对：公钥和私钥；将公钥复制到要ssh的远程主机的用户的家目录（以root用户为例）；
@@ -1000,7 +975,7 @@ Last login: Tue May 21 08:02:43 2013 from 192.168.1.101
 不用输入远程主机用户的密码
 ```
 
-#### sshd_config配置详解（/etc/ssh/sshd_config）
+### sshd_config配置详解（/etc/ssh/sshd_config）
 
 ```sh
 # The strategy used for options in the default sshd_config shipped with
@@ -1371,7 +1346,7 @@ Port 22
 
 SSH端口转发将其他TCP端口的网络数据通过SSH链路转发，并自动加密和解密。
 
-#### 本地转发实例
+### 本地转发实例
 
 ```sh
 # 一台LDAP server，但限制远程机器连接，此时利用ssh端口转发达到从远程机器测试server的目的
@@ -1386,7 +1361,7 @@ ssh -L 7001:localhost:389 LDAPServer
 ssh -g -L <local port>:<remote host>:<remote port> <SSH hostname>
 ```
 
-#### 远程转发实例
+### 远程转发实例
 
 ```sh
 # 假设由于网络或防火墙的原因我们不能用 SSH 直接从 LdapClientHost 连接到 LDAP 服务器（LdapServertHost），但是反向连接却是被允许的。那此时我们的选择自然就是远程端口转发了。
@@ -1397,7 +1372,7 @@ ssh -R 7001:localhost:389 LdapClientHost
 ![figure](http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image003.jpg)
 ```
 
-#### 多主机转发应用实例
+### 多主机转发应用实例
 
 ```sh
 # 本地转发命令中的<remote host>和<SSH hostname>可以是不同的机器
@@ -1409,7 +1384,7 @@ ssh -g -L 7001:<B>:389 <D>
 # 然后在我们的应用客户端（A）上配置连接机器（C ）的 7001 端口即可,在上述连接中，（A）<-> (C) 以及 (B)<->(D) 之间的连接并不是安全连接，它们之间没有经过 SSH 的加密及解密。
 ```
 
-#### 动态转发实例
+### 动态转发实例
 
 ```sh
 # 当我们在一个不安全的 WiFi 环境下上网，用 SSH 动态转发来保护我们的网页浏览及 MSN 信息无疑是十分必要的。实际是创建了一个socks代理服务
@@ -1419,14 +1394,14 @@ ssh -D <local port> <SSH Server>
 # 此时 SSH 所包护的范围只包括从浏览器端（SSH Client 端）到 SSH Server 端的连接，并不包含从 SSH Server 端 到目标网站的连接。如果后半截连接的安全不能得到充分的保证的话，这种方式仍不是合适的解决方案。
 ```
 
-#### X协议转发实例
+### X协议转发实例
 
 ```sh
 # 可用作远程桌面连接，被远程端是Windows可安装xming作为xserver。ssh client可以选择putty配置ssh访问并建立x-forward（转发）
 ssh -X <SSH Server>
 ```
 
-### linux磁盘详解
+## linux磁盘详解
 
 ```sh
 磁盘分区有主分区、扩展分区、逻辑分区，一块硬盘最多可以有四个主分区，其中一个主分区的位置可以用一个扩展分区替换，且一块硬盘只能有一个扩展分区，在这个扩展分区内可以划分多个逻辑分区。
@@ -1451,12 +1426,73 @@ ssh -X <SSH Server>
 分区数字编号1-4留给主分区或者扩展分区使用，逻辑分区是在扩展分区的基础上编号从5开始
 SCSI/SAS/SATA/USB接口的硬盘的设备名均以/dev/sd开头，不同硬盘编号依次是/dev/sda、/dev/sdb
 SAS/SATA是主流硬盘接口，SSD固态硬盘，速度性能SSD>SAS>SATA
-
-
-
-
-
 ```
+
+## Raid0 1 5 10详解
+
+RAID(Redundant Array of Independent Disk 独立冗余磁盘阵列)
+
+A, B, C, D, E and F     代表blocks(块)
+p1, p2, and p3          代表parity(奇偶校验)
+
+RAID 0 （又称为Stripe或Striping－－分条）
+即Data Stripping数据分条技术。RAID 0可以把多块硬盘连成一个容量更大的硬盘群，可以提高磁 盘的性能和吞吐量。RAID 0没有冗余或错误修复能力，成本低，要求至少两个磁盘，一般只是在那些对数 据安全性要求不高的情况下才被使用,并行操作使同一时间内磁盘读写速度提升
+
+最少需要两块磁盘
+数据条带式分布
+没有冗余，性能最佳(不存储镜像、校验信息)
+不能应用于对数据安全性要求高的场合
+![raid 0](http://static.thegeekstuff.com/wp-content/uploads/2010/07/raid-0.png)
+
+|  |  |
+| :------: | :------: |
+| 容错性 | 没有 |
+| 热备盘选项 | 没有 |
+| 随机写性能 | 高 |
+| 需要的磁盘数 | 只需2个或2*N个（这里应该是多于两个硬盘都可以） |
+| 典型应用 | 无故障的迅速读写，要求安全性不高，如图形工作站等 |
+
+RAID 1 （又称为Mirror或Mirroring－－镜像）
+RAID 1称为磁盘镜像：把一个磁盘的数据镜像到另一个磁盘上，在不影响性能情况下最大限度的保证系统的可靠性和可修复性上，具有很高的数据冗余能力，但磁盘利用 率为50%，故成本最高，多用在保存关键性的重要数据的场合。RAID 1的操作方式是把用户写入硬盘的数据百分之百地自动复制到另外一个硬盘上
+
+最少需要2块磁盘
+提供数据块冗余
+性能好
+![raid 1](http://static.thegeekstuff.com/wp-content/uploads/2010/07/raid-1.png)
+
+RAID 5 （可以理解为是RAID 0和RAID 1的折衷方案，但没有完全使用RAID 1镜像理念，而是使用了“奇偶校验信息”来作为数据恢复的方式，与下面的RAID10不同,RAID 5 是一种存储性能、数据安全和存储成本兼顾的存储解决方案
+
+最少3块磁盘
+数据条带形式分布
+以奇偶校验作冗余
+适合多读少写的情景，是性能与数据冗余最佳的折中方案
+![raid 5](http://static.thegeekstuff.com/wp-content/uploads/2010/07/raid-5.png)
+
+|  |  |
+| :------: | :------: |
+| 容错性 | 有 |
+| 热备盘选项 | 有 |
+| 随机写性能 | 低 |
+| 需要的磁盘数 | 三个或更多 |
+| 可用容量 | （n-1）/n的总磁盘容量（n为磁盘数） |
+| 典型应用 | 随机数据传输要求安全性高，如金融、数据库、存储等 |
+
+RAID10也被称为镜象阵列条带。象RAID0一样，数据跨磁盘抽取；象RAID1一样，每个磁盘都有一个镜象磁盘, 所以RAID 10的另一种会说法是 RAID 0+1。RAID10提供100%的数据冗余，支持更大的卷尺寸
+
+最少需要4块磁盘
+先按RAID 0分成两组，再分别对两组按RAID 1方式镜像
+兼顾冗余(提供镜像存储)和性能(数据条带形分布)
+在实际应用中较为常用(尤其是数据库中)
+![raid 10](http://static.thegeekstuff.com/wp-content/uploads/2010/08/raid10.png)
+
+RAID总结
+
+| 安全性 | 磁盘利用率 | 成本 | 应用方面 |
+| :------: | :------: | :------: | :------: |
+| 最差（完全无安全保障） | 最高（100％） | 最低 | 个人用户 |
+| 最高（提供数据的百分之百备份） | 差（50％） | 最高 | 适用于存放重要数据，如服务器和数据库存储等领域。 |
+| RAID 5<RAID 1 | RAID 5>RAID 1 | RAID 5<RAID 1 | 是一种存储性能、数据安全和存储成本兼顾的存储解决方案。 |
+| RAID10＝RAID1 | RAID10＝RAID1（50％） | RAID10＝RAID1 | 集合了RAID0，RAID1的优点，但是空间上由于使用镜像，而不是类似RAID5的“奇偶校验信息”，磁盘利用率一样是50％ |
 
 ### Linux文件系统目录介绍
 
@@ -2981,138 +3017,7 @@ mkswap /opt/swap    # 将创建的文件用作交换分区
 swapon /opt/swap    # 开启swap
 ```
 
-### LVM(逻辑卷管理)
 
-```sh
-概念介绍：
-LVM （logical volume Manager）逻辑卷管理通过将底层物理硬盘抽象封装起来，以逻辑卷的形式表现给上层系统，逻辑卷的大小可以动态调整的而且不会丢失数据。新加入的硬盘也不会改变现有上层的逻辑卷；
-
-LVM特点：
-1.作为一个动态磁盘管理机制，逻辑卷技术大大提高了磁盘管理的灵活性；
-2.LVM屏蔽了底层磁盘布局，便于动态的调整磁盘空间大小；
-
-相关概念：
-PE（物理拓展单元)      #逻辑卷空间管理的基本单位，默认是4M的大小；
-PV 物理卷
-VG 卷组
-LV 逻辑卷
-
-LVM原理解析：
-1，物理磁盘被格式化为PV，空间被分为一个个的PE
-2, 不同的PV加入同一个VG，不同的PV的PE全部进入VG的PE池；
-3，LV基于PE创建，大小为PE的整数倍，组成LV的PE可能来自不同物理磁盘；
-4，LV格式化完成后挂载就可以使用了
-5，LV的扩充缩减实际上就是增加了或者减少了组成该LV的PE的数量。其过程不会丢失数据信息；
-
-如何创建LVM？
-
-1，将物理磁盘设备初始化为物理卷;
-pvcreate /dev/sdb /dev/sdc
-#pvceate 物理分区1 物理分区2 .....
-
-2,创建卷组，并将PV加入卷组中；
-vgcreate vg01 /dev/sdb /dev/sdc
-#vgcreate 卷组名  物理卷 1 物理卷2 .....
-
-3,基于卷组创建逻辑卷；
-lvcreate -L 5G -n lv01 vg01;
-#lvcreate -L 大小 -n 逻辑卷  卷组名；
-
-4,对逻辑卷创建文件系统；
-mkfs.ext4 /dev/vg01/lv01
-
-5,逻辑卷挂载使用；
-mount /dev/vg01/lv01 /mnt/lv
-
-6,系统启动自动挂载；
-vim /etc/fstab
-/dev/vg01/lv01   /mnt   ext4 default 1 2
-#第五个字段和第六个字段分别表示文件系统是否需要Dump工具进行备份以及系统启动时是否进行磁盘检测；0不检测；1优先；2其次检测；
-
-如何删除删除LVM？
-
-1,删除LV   lvremove /dev/vg01/lv01
-2,删除VG   vgremove vg01
-3, 删除PV   pvremove /dev/sdX
-
-注意:一定要严格按照数字的顺序进行操作，而且需要使用命令umount /mnt；
-#按照创建逻辑卷的反顺序可以顺利删除LVM；
-
-LVＭ查看命令：
-１.查看物理卷信息：
-pvdisplay
-pvs
-2.查看卷组的信息：
-vgdisplay
-vgs
-3.查看逻辑卷信息：
-lvdisplay
-lvscan
-lvs
-
-FAQ: （Frequently Asked Question）
-1.LV的大小应该由PE大小和PE数量决定;默认PE为4M大小的情况下一个逻辑卷最大可以支持256G;
-2.逻辑卷可以动态扩充的大小取决于卷组的大小；
-3.PE的大小最终影响 逻辑卷的最大大小；
-4，逻辑卷的大小一定是PE的整数倍；
-5,一个逻辑卷只能属于一个卷组；
-
-如何实现 LVM拉伸和缩小？备注：逻辑卷的拉伸可以在线执行，不需要卸载逻辑卷；
-1，保证VG中有足够的空闲空间，通过以下指令查询即可
-#vgdisplay
-#vgs
-
-2,扩充逻辑卷；
-#lvextend -L +5G /dev/vg01/lv01
-#增大5G的大小
-
-3,更新文件系统(检测磁盘的大小)
-#resize2fs /dev/vg01/lv01
-
-4,查看更新后文件系统
-#df -h
-
-备注：在没有使用命令resize2fs命令之前，使用df -hT 命令看到逻辑卷的大小并没有变化，为什么？
-#逻辑卷是底层的东西，操作系统要使用底层的空间需要创建文件系统，创建文件系统（格式化操作）的时候大小就固定下来，因此逻辑卷的大小也是固定的。在拉伸逻辑卷空间时，并没有更新文件系统，所以要要执行更新文件系统的操作，要操作系统识别固定的大小；
-
-如何实现LVM缩小？（在实际运作当中很少使用且这种操作及其危险）
-备注:逻辑卷的缩小必须是离线操作，要卸载逻辑卷；
-
-1，卸载已经挂载的逻辑卷
-umount /dev/vg01/lv01
-
-2，强制检测文件系统信息；
-e2fsck -f /dev/vg01/lv01
-
-3,缩小文件系统（一般都有提示信息）
-resize2fs /dev/vg01/lv01 10G # 指定逻辑卷大小为10G大小；
-
-4,缩小LV
-lvreduce -L 10G /dev/vg01/lv01
-
-5,查看缩小后的LV
-lvdisplay； lvs ; lvscan
-
-6,挂载
-mount /dev/vg01/lv01 /mnt
-
-切记：严格按照顺序执行命令。先缩小文件系统，后缩小底层空间；
-
-如何实现拉伸一个卷组？
-1，pvcreate /dev/sdd
-#创建新的物理卷
-2, vgextend vg01 /dev/sdd
-#向vg01卷组中添加物理卷/dev/sdd
-3,vgs, vgdisplay;
-#查看卷组信息；
-
-如何实现缩小一个卷组？
-
-1，将一个PV从指定卷组中移除
-#vgreduce vg01 /dev/sdd
-2,查看缩小后的卷组大小
-vgdisplay
-```
 
 ### Linux备份
 
@@ -3305,7 +3210,7 @@ find /usr/local/tomcat/logs -name 'localhost_access_log.*.txt' -mtime +5 -print0
 
 ### shell采集系统cpu 内存 磁盘 网络信息
 
-#### cpu信息采集
+### cpu信息采集
 
 ```sh
 cpu使用率采集算法
@@ -3340,7 +3245,7 @@ load15=${cpuload[2]}
 
 ```
 
-#### 内存采集
+### 内存采集
 
 ```sh
 应用程序使用内存采集算法：
@@ -3366,7 +3271,7 @@ awk '/SwapTotal/{total=$2}/SwapFree/{free=$2}END{print (total-free)/1024}'  /pro
 
 ```
 
-#### 磁盘信息采集
+### 磁盘信息采集
 
 ```sh
 
@@ -3398,7 +3303,7 @@ ioout=$(((b-a)/240))
 
 ```
 
-#### 网络信息采集
+### 网络信息采集
 
 ```sh
 流量

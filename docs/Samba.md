@@ -32,8 +32,6 @@ sudo smbpasswd -a youyou
 如果要删除某个samba用户可以使用：
 sudo smbpasswd -x youyou
 
-
-
 现在可以通过账户名：youyou 密码：自己刚才设置的进行访问了
 附上smb.conf 文件的全部内容
 
@@ -308,5 +306,38 @@ writable = yes
 read only = no
 guest ok = no
 create mask = 0700
+
+[it]
+
+    path = /home/it
+    comment = Pasta IT
+    browseable = yes
+    create mask = 0770
+    writeable = yes
+    directory mask = 0770
+    force directory mode = 0770
+    map acl inherit = yes
+
+[hr]
+
+    path = /home/hr
+    comment = Pasta HR
+    browseable = yes
+    create mask = 0770
+    writeable = yes
+    directory mask = 0770
+    force directory mode = 0770
+    map acl inherit = yes
+
+[commercial]
+
+    path = /home/commercial
+    comment = Pasta Commercial
+    browseable = yes
+    create mask = 0770
+    writeable = yes
+    directory mask = 0770
+    force directory mode = 0770
+    map acl inherit = yes
 
 ```

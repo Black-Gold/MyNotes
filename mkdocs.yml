@@ -10,9 +10,7 @@ repo_url: 'https://github.com/Black-Gold/MyNotes'
 
 nav:
   - Home: 'index.md'
-  - Vim: 'Vim.md'
-  - VersionControl: 
-    - 'Git': 'Git.md'
+  - Vim: 'Vim.md' 
   - ProgramLanguages: 
     - 'BREs': 'BREs.md'
     - 'Shell': 'Shell.md'
@@ -24,11 +22,13 @@ nav:
     - 'Iproute2&Net-tools': 'Utilities.md'
     - 'Iptables': 'Iptables.md'
     - 'Firewalld': 'Firewalld.md'
+  - DevOps: 
+    - 'Ansible': 'Ansible.md'
+    - 'Apollo': 'Apollo.md'
   - WebServer: 
     - 'Nginx': 'Nginx.md'
-    - 'Apache': 'Apache.md'
+    - 'Apache&PHP-FPM': 'Apache.md'
     - 'Tomcat': 'Tomcat.md'
-    - 'PHP-FPM': 'PHP.md'
     - 'WildFly': 'WildFly.md'
     - 'Caddy': 'Caddy.md'
   - OptimisingWebDelivery: 
@@ -36,20 +36,18 @@ nav:
     - 'Varnish': 'Varnish.md'
     - 'Stunnel': 'Stunnel.md'
     - 'ApacheTrafficServer': 'TrafficServer.md'
-    - 'Memcached': 'Memcached.md'
   - CI&DC: 
+    - 'Git&GitLab': 'Git.md'
     - 'Jenkins': 'Jenkins.md'
-  - ConfigManagement: 
-    - 'Apollo': 'Apollo.md'
-    - 'Ansible': 'Ansible.md'
   - Database: 
     - 'MySQL': 'MySQL.md'
     - 'MariaDB': 'MariaDB.md'
     - 'Oracle': 'Oracle.md'
     - 'Redis': 'Redis.md'
-    - 'Cassandra': 'Cassandra.md'
+    - 'Memcached': 'Memcached.md'
     - 'MongoDB': 'MongoDB.md'
     - 'PostgreSQL': 'PostgreSQL.md'
+    - 'Cassandra': 'Cassandra.md'
   - Monitor: 
     - 'Zabbix': 'Zabbix.md'
     - 'Prometheus': 'Prometheus.md'
@@ -72,8 +70,8 @@ nav:
   - MessageQueue: 
     - 'ActiveMQ': 'ActiveMQ.md'
     - 'ActiveMQ Apollo': 'ActiveMQApollo.md'
-    - 'RabbitMQ': 'RabbitMQ.md'
     - 'Kafka': 'Kafka.md'
+    - 'RabbitMQ': 'RabbitMQ.md'
   - FileSystem: 
     - 'Ceph': 'Ceph.md'
     - 'GlusterFS': 'GlusterFS.md'

@@ -1,32 +1,75 @@
 # Iproute2&Net-tools
 
+NET-TOOLS VS IPROUTE对照
+
+| NET-TOOLS COMMANDS | IPROUTE COMMANDS |
+| :------: | :------: |
+| arp -a | ip neigh |
+| arp -v | ip -s neigh |
+| arp -s 192.168.1.1 1:2:3:4:5:6 | ip neigh add 192.168.1.1 lladdr 1:2:3:4:5:6 dev eth1 |
+| arp -i eth1 -d 192.168.1.1 | ip neigh del 192.168.1.1 dev eth1 |
+| ifconfig -a | ip addr |
+| ifconfig eth0 down | ip link set eth0 down |
+| ifconfig eth0 up | ip link set eth0 up |
+| ifconfig eth0 192.168.1.1 | ip addr add 192.168.1.1/24 dev eth0 |
+| ifconfig eth0 netmask 255.255.255.0 | ip addr add 192.168.1.1/24 dev eth0 |
+| ifconfig eth0 mtu 9000 | ip link set eth0 mtu 9000 |
+| ifconfig eth0:0 192.168.1.2 | ip addr add 192.168.1.2/24 dev eth0 |
+| netstat | ss |
+| netstat -neopa | ss -neopa |
+| netstat -g | ip maddr |
+| route | ip route |
+| route add -net 192.168.1.0 netmask 255.255.255.0 dev eth0 | ip route add 192.168.1.0/24 dev eth0 |
+| route add default gw 192.168.1.1 | ip route add default via 192.168.1.1 |
+
 ## Iproute2
 
+## 选型
+
+```info
+ip [ OPTIONS ] OBJECT { COMMAND | help }
+ip [ -force ] -batch filename
+where  OBJECT := { link | address | addrlabel | route | rule | neigh | ntable |
+                   tunnel | tuntap | maddress | mroute | mrule | monitor | xfrm |
+                   netns | l2tp | fou | macsec | tcp_metrics | token | netconf | ila }
+       OPTIONS := { -V[ersion] | -s[tatistics] | -d[etails] | -r[esolve] |
+                    -h[uman-readable] | -iec |
+                    -f[amily] { inet | inet6 | ipx | dnet | mpls | bridge | link } |
+                    -4 | -6 | -I | -D | -B | -0 |
+                    -l[oops] { maximum-addr-flush-attempts } | -br[ief] |
+                    -o[neline] | -t[imestamp] | -ts[hort] | -b[atch] [filename] |
+                    -rc[vbuf] [size] | -n[etns] name | -a[ll] |?-c[olor]}
+-s：输出更详细的信息
+-f：强制使用指定的协议族
+-4：指定使用的网络层协议是IPv4协议
+-6：指定使用的网络层协议是IPv6协议
+-0：输出信息每条记录输出一行，即使内容较多也不换行显示
+-r：显示主机时，不使用IP地址，而使用主机的域名
+
+```
+
 ```sh
-OBJECT
-	link 指网络设备，通过此对象命令，我们可以查看及更改网络设备的属性。
-	addr 地址管理
-	neigh arp表管理
-	route 路由管理
-	rule 路由策略
-	maddr 多址广播地址
-	mroute 多播路由缓存管理
-	tunnel 通道管理
-	# ip -V      #打印iproute信息
-	ip utility, iproute2-ss091226
-显示链路信息
-	# ip link
-	# ip link show dev eth0
-显示IP地址
-	# ip addr
-显示路由ip route [类似route -n]
-	# ip route | column -t
-	# ip route del 192.168.0.0/24 dev eth1
-	# ip route add 192.168.0.0/24 dev eth1
-	# ip route del via 10.2.255.254  //删除默认路由
-	# ip route add via 10.2.255.254  //增加默认路由
-	# ip route add 192.168.1.0/24 via 192.168.0.1  //增加静态路由，192.168.0.1为下一跳地址
-	# ip route del 192.168.1.0/24 via 192.168.0.1  //删除静态路由
+OBJECT # 网络对象
+link # 指网络设备，通过此对象命令，我们可以查看及更改网络设备的属性。
+addr # 地址管理
+neigh # arp表管理
+route # 路由管理
+rule # 路由策略
+maddr # 多址广播地址
+mroute # 多播路由缓存管理
+tunnel # 通道管理
+
+ip link # 显示链路信息
+ip link show dev eth0 # 显示eth0接口链路信息
+
+# 显示路由ip route [类似route -n]
+ip route | column -t
+ip route del 192.168.0.0/24 dev eth1
+ip route add 192.168.0.0/24 dev eth1
+ip route del via 10.2.255.254  # 删除默认路由
+ip route add via 10.2.255.254  # 增加默认路由
+ip route add 192.168.1.0/24 via 192.168.0.1  # 增加静态路由，192.168.0.1为下一跳地址
+ip route del 192.168.1.0/24 via 192.168.0.1  # 删除静态路由
 
 显示arp信息ip neigh [可以取代arp -n]
 删除则是ip neigh del IP地址 dev 设备名

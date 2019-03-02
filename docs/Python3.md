@@ -1,9 +1,32 @@
 # python3手册
 
 ```py
+# Python开发环境最佳实践
+python -m pip install -U pip setuptools
+
+# python -m site --user-base 找到 用户基础目录,将基础目录添加到PATH
+# 在 Windows 上，您通过运行 py -m site --user-site 找到用户基础目录，将 site-packages 替换为 Scripts
+pip install --user pipenv
+
+# 在Windows安装virtualenv和virtualenvwrapper-win用于创建多个Python版本开发环境，Linux中最好使用pyenv代替
+# 安装pipenv和autoenv，自动激活环境
+在Linux上:
+$ git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
+$ echo 'source ~/.autoenv/activate.sh' >> ~/.bashrc
+
+# 设置pip配置文件
+Linux：$HOME/.config/pip/pip.conf
+Windows：%APPDATA%\pip\pip.ini
+virtualenv：%VIRTUAL_ENV%\pip.ini
+全局生效设置如下：(不支持Windows Vista)
+Linux：/etc/pip.conf
+Windows XP：C:\Documents and Settings\All Users\Application Data\pip\pip.ini
+Windows7或之后版本：C:\ProgramData\pip\pip.ini
+```
+
+```py
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
-
 Python中单行注释以#开头，多行注释用三个单引号（```）或者三个双引号（"""）将注释括起来。
 ```
 
