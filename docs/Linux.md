@@ -1,114 +1,91 @@
 # Linux
 
-系统命令行快捷键
-
-Ctrl+左右键:在单词之间跳转
-Ctrl+a:跳到本行的行首
-Ctrl+e:跳到页尾
-Ctrl+u：删除当前光标前面的文字 （还有剪切功能）
-Ctrl+k：删除当前光标后面的文字(还有剪切功能)
-Ctrl+L：进行清屏操作
-Ctrl+y:粘贴Ctrl+u或ctrl+k剪切的内容
-Ctrl+w:删除光标前面的单词的字符
-Alt – d ：由光标位置开始，往右删除单词。往行尾删
-说明
-Ctrl – k: 先按住 Ctrl 键，然后再按 k 键；
-Alt – k: 先按住 Alt 键，然后再按 k 键；
-M – k：先单击 Esc 键，然后再按 k 键。
-移动光标
-Ctrl – a ：移到行首
-Ctrl – e ：移到行尾
-Ctrl – b ：往回(左)移动一个字符
-Ctrl – f ：往后(右)移动一个字符
-Alt – b ：往回(左)移动一个单词
-Alt – f ：往后(右)移动一个单词
-Ctrl – xx ：在命令行尾和光标之间移动
-M-b ：往回(左)移动一个单词
-M-f ：往后(右)移动一个单词
-编辑命令
-Ctrl – h ：删除光标左方位置的字符
-Ctrl – d ：删除光标右方位置的字符（注意：当前命令行没有任何字符时，会注销系统或结束终端）
-Ctrl – w ：由光标位置开始，往左删除单词。往行首删
-Alt – d ：由光标位置开始，往右删除单词。往行尾删
-M – d ：由光标位置开始，删除单词，直到该单词结束。
-Ctrl – k ：由光标所在位置开始，删除右方所有的字符，直到该行结束。
-Ctrl – u ：由光标所在位置开始，删除左方所有的字符，直到该行开始。
-Ctrl – y ：粘贴之前删除的内容到光标后。
-ctrl – t ：交换光标处和之前两个字符的位置。
-Alt + . ：使用上一条命令的最后一个参数。
-Ctrl – _ ：回复之前的状态。撤销操作。
-Ctrl -a + Ctrl -k 或 Ctrl -e + Ctrl -u 或 Ctrl -k + Ctrl -u 组合可删除整行。
-
-Bang(!)命令
-!! ：执行上一条命令。
-^foo^bar ：把上一条命令里的foo替换为bar，并执行。
-!wget ：执行最近的以wget开头的命令。
-!wget:p ：仅打印最近的以wget开头的命令，不执行。
-!$ ：上一条命令的最后一个参数， 与 Alt - . 和 $_ 相同。
-!* ：上一条命令的所有参数
-!*:p ：打印上一条命令是所有参数，也即 !*的内容。
-^abc ：删除上一条命令中的abc。
-^foo^bar ：将上一条命令中的 foo 替换为 bar
-^foo^bar^ ：将上一条命令中的 foo 替换为 bar
-!-n ：执行前n条命令，执行上一条命令： !-1， 执行前5条命令的格式是： !-5
-查找历史命令
-Ctrl – p ：显示当前命令的上一条历史命令
-Ctrl – n ：显示当前命令的下一条历史命令
-Ctrl – r ：搜索历史命令，随着输入会显示历史命令中的一条匹配命令，Enter键执行匹配命令；ESC键在命令行显示而不执行匹配命令。
-Ctrl – g ：从历史搜索模式（Ctrl – r）退出。
-控制命令
-Ctrl – l ：清除屏幕，然后，在最上面重新显示目前光标所在的这一行的内容。
-Ctrl – o ：执行当前命令，并选择上一条命令。
-Ctrl – s ：阻止屏幕输出
-Ctrl – q ：允许屏幕输出
-Ctrl – c ：终止命令
-Ctrl – z ：挂起命令
-重复执行操作动作
-M – 操作次数 操作动作 ： 指定操作次数，重复执行指定的操作。
-
-lshw -C network
+```sh
+## 系统命令行快捷键
+# 说明
+Ctrl – k      # 先按住 Ctrl 键，然后再按 k 键；
+Alt – k       # 先按住 Alt 键，然后再按 k 键；
+M – k         # 先单击 Esc 键，然后再按 k 键。
+# 移动光标
+Ctrl - 左右键  # 在单词之间跳转
+Ctrl – a      # 移到行首
+Ctrl – e      # 移到行尾
+Ctrl – b      # 往回(左)移动一个字符
+Ctrl – f      # 往后(右)移动一个字符
+Alt – b       # 往回(左)移动一个单词
+Alt – f       # 往后(右)移动一个单词
+Ctrl – xx     # 在命令行尾和光标之间移动
+M-b           # 往回(左)移动一个单词
+M-f           # 往后(右)移动一个单词
+# 编辑命令
+Ctrl – h      # 删除光标左方位置的字符
+Ctrl – d      # 删除光标右方位置的字符（注意当前命令行没有任何字符时，会注销系统或结束终端）
+Ctrl – w      # 由光标位置开始，往左删除单词。往行首删
+Alt – d       # 由光标位置开始，往右删除单词。往行尾删
+M – d         # 由光标位置开始，删除单词，直到该单词结束。
+Ctrl – k      # 由光标所在位置开始，删除右方所有的字符，直到该行结束。
+Ctrl – u      # 由光标所在位置开始，删除左方所有的字符，直到该行开始。
+Ctrl – y      # 粘贴Ctrl+u或ctrl+k剪切的内容
+ctrl – t      # 交换光标处和之前两个字符的位置。
+Alt + .       # 使用上一条命令的最后一个参数。
+Ctrl – _      # 回复之前的状态。撤销操作。
+Ctrl -a + Ctrl -k 或 Ctrl -e + Ctrl -u 或 Ctrl -k + Ctrl -u # 组合可删除整行
+# 控制命令
+Ctrl – l      # 清除屏幕，然后，在最上面重新显示目前光标所在的这一行的内容。
+Ctrl – o      # 执行当前命令，并选择上一条命令。
+Ctrl – s      # 阻止屏幕输出
+Ctrl – q      # 允许屏幕输出
+Ctrl – c      # 终止命令
+Ctrl – z      # 挂起命令
+# Bang(!)命令
+!!            # 执行上一条命令。
+^foo^bar      # 把上一条命令里的foo替换为bar，并执行。
+!wget         # 执行最近的以wget开头的命令。
+!wget p       # 仅打印最近的以wget开头的命令，不执行。
+!$            # 上一条命令的最后一个参数， 与 Alt - . 和 $_ 相同。
+!*            # 上一条命令的所有参数
+!* p          # 打印上一条命令是所有参数，也即 !*的内容。
+^abc          # 删除上一条命令中的abc。
+^foo^bar      # 将上一条命令中的 foo 替换为 bar
+^foo^bar^     # 将上一条命令中的 foo 替换为 bar
+!-n           # 执行前n条命令，执行上一条命令      !-1， 执行前5条命令的格式是      !-5
+# 查找历史命令
+Ctrl – p      # 显示当前命令的上一条历史命令
+Ctrl – n      # 显示当前命令的下一条历史命令
+Ctrl – r      # 搜索历史命令，随着输入会显示历史命令中的一条匹配命令，Enter键执行匹配命令；ESC键在命令行显示而不执行匹配命令
+Ctrl – g      # 从历史搜索模式（Ctrl – r）退出。
+# 重复执行操作动作
+M – 操作次数 操作动作   # 指定操作次数，重复执行指定的操作
+```
 
 I. stunnel -> vanish -> HAProxy -> nginx -> nodeJS -> memcached(redis) (for session storage[Session 对象存储])
 
-II. nginx (for HTTP compression) –> Varnish cache (for caching) –> HTTP level load balancer (HAProxy, or nginx, or the Varnish built-in) –> webservers.
+II. Apache Traffic Server/Squid/Vanish + HAProxy + Nginx + memcached(Redis) (for session storage[Session 对象存储])
 
-III. Apache Traffic Server/Squid/Vanish + HAProxy + Nginx + memcached(Redis) (for session storage[Session 对象存储])
+III. nginx (for HTTP compression) –> Varnish cache (for caching) –> HTTP level load balancer (HAProxy, or nginx, or the Varnish built-in) –> webservers.
 
 ## Ubuntu--Debian
 
 [Ubuntu内核网站](http://kernel.ubuntu.com/~kernel-ppa/mainline/)
 
-系统相关配置
+```sh
+# 系统相关配置
+xdotool mouseup 1 # 挂起后进入系统输入,然后注销重新登录
+gsettings set com.canonical.Unity.Launcher launcher-position Bottom # 将Ubuntu启动栏移动到最下方
+gsettings get com.canonical.Unity.Launcher launcher-position    # 得到启动栏位置
 
-挂起后进入系统输入：xdotool mouseup 1
-然后注销重新登录
-
-将Ubuntu启动栏移动到最下方
-gsettings set com.canonical.Unity.Launcher launcher-position Bottom
-
-得到启动栏位置
-gsettings get com.canonical.Unity.Launcher launcher-position
-
-卸载软件包，清除残余的配置文件
+# 卸载软件包，清除残余的配置文件
 apt-get remove --purge -y
 apt-get autoremove --purge -y
 sudo apt-get clean
 apt-get autoclean
 dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 
-要删除作为依赖项安装但不再具有父应用程序的软件包，请运行以下命令
-apt-get autoremove
+apt-get autoremove  # 要删除作为依赖项安装但不再具有父应用程序的软件包
+dpkg --purge --force-remove-essential kernel-image-NNN  # 删除旧内核
+dpkg --get-selections | grep PACKAGE_NAME | awk '{ print $1}'| xargs apt-get -y --purge autoremove  # 删除专用软件包
 
-删除旧内核
-dpkg --purge --force-remove-essential kernel-image-NNN
-
-删除专用软件包
-dpkg --get-selections | grep PACKAGE_NAME | awk '{ print $1}'| xargs apt-get -y --purge autoremove
-
-禁用挂起suspend
-创建文件：/etc/polkit-1/localauthority/90-mandatory.d/disable-suspend.pkla
-
-```pkla
+# 禁用挂起suspend，创建文件：/etc/polkit-1/localauthority/90-mandatory.d/disable-suspend.pkla
 [Disable suspend (upower)]
 Identity=unix-user:*
 Action=org.freedesktop.upower.suspend
@@ -125,26 +102,20 @@ ResultActive=no
 Identity=unix-user:*
 Action=org.freedesktop.login1.suspend-multiple-sessions
 ResultActive=no
-```
 
-设置临时文件不再放置在硬盘加快速度，而放在虚拟RAM磁盘上。总内存必须大于4G
+# 设置临时文件不再放置在硬盘加快速度，而放在虚拟RAM磁盘上。总内存必须大于4G
 cp -v /usr/share/systemd/tmp.mount /etc/systemd/system/
 systemctl enable tmp.mount
 systemctl reload tmp.mount # 不生效可重启计算机。systemctl status tmp.mount检查状态
-取消tmpfs,删除后重启生效
+# 取消tmpfs,删除后重启生效
 rm -v /etc/systemd/system/tmp.mount
 
-减少文件写入(当用于非服务器时)在/etc/fstab写入以下内容：
-
-```fstab
+# 减少文件写入(当用于非服务器时)在/etc/fstab写入以下内容：
 tmpfs    /tmp        tmpfs    defaults    0  0
 tmpfs    /var/tmp    tmpfs    defaults    0  0
 tmpfs    /var/log    tmpfs    defaults    0  0
-```
 
-创建脚本确保各种程序正常运行：
-
-```sh
+# 创建脚本确保各种程序正常运行
 for dir in apparmor apt ConsoleKit cups dist-upgrade fsck gdm installer news ntpstats samba unattended-upgrades ; do
 if [ ! -e /var/log/$dir ] ; then
 mkdir /var/log/$dir
@@ -152,48 +123,32 @@ fi
 done
 
 # 要确保每次启动计算机时脚本都会运行，您需要将其添加到/etc/rc.local文件中，位于底部，位于exit 0行上方
-```
+# 系统～/.bashrc和~/.profile文件可通过/etc/skel/目录(系统存储的备份文件)恢复
 
-系统～/.bashrc和~/.profile文件可通过/etc/skel/目录(系统存储的备份文件)恢复
-
-find: ‘/run/user/1000/gvfs’解决办法
-
-```sh
-sudo umount /run/user/1000/gvfs
-sudo rm -rf /run/user/1000/gvfs
-```
-
-```sh
-pip3 install --no-cache-dir --prefix="/home/ww/公共的/pip3/" -U -i https://mirrors.huaweicloud.com/repository/pypi/simple some-package-name
-```
-
-系统调用 尝试“strace -ff -t -s 1000 -p {process id}
-
-sudo apt-get install --only-upgrade packagename
-
-自定义terminal位置和大小
+# 自定义terminal位置和大小
 cp /usr/share/applications/gnome-terminal.desktop ~/.local/share/applications
 sed -i 's/^Exec=gnome-terminal$/& --geometry=80x24+100+100/' ~/.local/share/applications/gnome-terminal.desktop
 gsettings set org.gnome.desktop.default-applications.terminal exec 'gnome-terminal --geometry=80x24+100+100'
-删除自定义
+# 删除自定义
 rm ~/.local/share/applications/gnome-terminal.desktop
 gsettings set org.gnome.desktop.default-applications.terminal exec 'gnome-terminal'
 
-Ubuntu Linux系统环境变量配置文件：
+# Ubuntu Linux系统环境变量配置文件：
 /etc/profile : 在登录时,操作系统定制用户环境时使用的第一个文件 ,此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行。
 
-/etc /environment : 在登录时操作系统使用的第二个文件, 系统在读取你自己的profile前,设置环境文件的环境变量。
+/etc/environment : 在登录时操作系统使用的第二个文件, 系统在读取你自己的profile前,设置环境文件的环境变量。
 
 ~/.profile :  在登录时用到的第三个文件 是.profile文件,每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件。
 
 /etc/bashrc : 为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取.
 
-~/.bashrc : 该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取。
+~/.bashrc : 该文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取
+```
 
-PASH环境变量的设置方法：
+## BASH环境变量的设置方法：
 
+```sh
 方法一：用户主目录下的.profile或.bashrc文件（推荐）
-
 登录到你的用户（非root），在终端输入：
 $ sudo gedit ~/.profile(or .bashrc)
 可以在此文件末尾加入PATH的设置如下：
@@ -202,7 +157,6 @@ export PATH=”$PATH:your path1:your path2 ...”
 该方式添加的变量只对当前用户有效。
 
 方法二：系统目录下的profile文件（谨慎）
-
 在系统的etc目录下，有一个profile文件，编辑该文件：
 $ sudo gedit /etc/profile
 在最后加入PATH的设置如下：
@@ -211,7 +165,6 @@ export PATH=”$PATH:your path1:your path2 ...”
 该方式添加的变量对所有的用户都有效。
 
 方法三：系统目录下的 environment 文件（谨慎）
-
 在系统的etc目录下，有一个environment文件，编辑该文件：
 $ sudo gedit /etc/environment
 找到以下的 PATH 变量：
@@ -222,7 +175,6 @@ PATH="<......>:your path1:your path2 …"
 注意这里不是添加export PATH=… 。
 
 方法四：直接在终端下输入
-
 $ sudo export PATH="$PATH:your path1:your path2 …"
 这种方式变量立即生效，但用户注销或系统重启后设置变成无效，适合临时变量的设置。
 
@@ -238,48 +190,16 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 光标移到export PATH** 行，连续按 d两次删除该行；
 输入:wq保存退出；
 然后键入/sbin/reboot重启系统（可能会提示need to boot，此时直接power off）
+```
 
 ## Debian常见命令
 
 |  |  |  |  |
 | :------: | :------: | :------: | :------: |
 | 分类 | 重要性 | 命令 | 描述 |
-|  | • | apropos whatis | 显示和word相关的命令。 参见线程安全 |
-|  | • | man -t man | ps2pdf - > man.pdf | 生成一个PDF格式的帮助文件 |
-|  |   | which command | 显示命令的完整路径名 |
-|  |   | time command | 计算命令运行的时间 |
-|  | • | time cat | 开始计时. Ctrl-d停止。参见sw |
-|  | • | nice info | 运行一个低优先级命令（这里是info） |
-|  | • | renice 19 -p $$ | 使脚本运行于低优先级。用于非交互任务。 |
-| 目录操作 |  |  |  |
-|  | • | cd - | 回到前一目录 |
-|  | • | cd | 回到用户目录 |
-|  |   | cd dir && command | 进入目录dir，执行命令command然后回到当前目录 |
-|  | • | pushd . | 将当前目录压入栈，以后你可以使用popd回到此目录 |
-| 文件搜索 |  |  |  |
-|  | • | alias l='ls -l --color=auto' | 单字符文件列表命令 |
-|  | • | ls -lrt | 按日期显示文件. 参见newest |
-|  | • | ls /usr/bin | pr -T9 -W$COLUMNS | 在当前终端宽度上打印9列输出 |
-|  |   | find -name '*.[ch]' | xargs grep -E 'expr' | 在当前目录及其子目录下所有.c和.h文件中寻找'expr'. 参见findrepo |
-|  |   | find -type f -print0 | xargs -r0 grep -F 'example' | 在当前目录及其子目录中的常规文件中查找字符串'example' |
-|  |   | find -maxdepth 1 -type f | xargs grep -F 'example' | 在当前目录下查找字符串'example' |
-|  |   | find -maxdepth 1 -type d | while read dir; do echo $dir; echo cmd2; done | 对每一个找到的文件执行多个命令使用while循环 |
-|  | • | find -type f ! -perm -444 | 寻找所有不可读的文件对网站有用 |
-|  | • | find -type d ! -perm -111 | 寻找不可访问的目录对网站有用 |
-|  | • | locate -r 'file[^/]*\.txt' | 使用locate 查找所有符合*file*.txt的文件 |
-|  | • | look reference | 在（有序）字典中快速查找 |
-|  | • | grep --color reference /usr/share/dict/words | 使字典中匹配的正则表达式高亮 |
-| 归档 and compression |  |  |  |
-|  |   | gpg -c file | 文件加密 |
-|  |   | gpg file.gpg | 文件解密 |
-|  |   | tar -c dir/ | bzip2 > dir.tar.bz2 | 将目录dir/压缩打包 |
-|  |   | bzip2 -dc dir.tar.bz2 | tar -x | 展开压缩包 对tar.gz文件使用gzip而不是bzip2 |
-|  |   | tar -c dir/ | gzip | gpg -c | ssh user@remote 'dd of=dir.tar.gz.gpg' | 目录dir/压缩打包并放到远程机器上 |
 |  |   | find dir/ -name '*.txt' | tar -c --files-from=- | bzip2 > dir_txt.tar.bz2 | 将目录dir/及其子目录下所有.txt文件打包 |
 |  |   | find dir/ -name '*.txt' | xargs cp -a --target-directory=dir_txt/ --parents | 将目录dir/及其子目录下所有.txt按照目录结构拷贝到dir_txt/ |
-|  |   |  tar -c /dir/to/copy  |  cd /where/to/ && tar -x -p  | 拷贝目录copy/到目录/where/to/并保持文件属性 |
 |  |   |  cd /dir/to/copy && tar -c .  |  cd /where/to/ && tar -x -p  | 拷贝目录copy/下的所有文件到目录/where/to/并保持文件属性 |
-|  |   |  tar -c /dir/to/copy  | ssh -C user@remote 'cd /where/to/ && tar -x -p' | 拷贝目录copy/到远程目录/where/to/并保持文件属性 |
 |  |   | dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz' | 将整个硬盘备份到远程机器上 |
 |  |  | rsync 使用 --dry-run选项进行测试 |  |
 |  |   | rsync -P rsync://rsync.server.com/path/to/file file | 只获取diffs.当下载有问题时可以作多次 |
@@ -292,16 +212,6 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 |  |   | scp -p -r $USER@$HOST: file dir/ | 拷贝到$HOST主机$USER'用户的目录下 |
 |  |   | ssh -g -L 8080:localhost:80 root@$HOST | 由本地主机的8080端口转发到$HOST主机的80端口 |
 |  |   | ssh -R 1434:imap:143 root@$HOST | 由主机的1434端口转发到imap的143端口 |
-| wget 多用途下载工具 |  |  |  |
-|  | • | cd cmdline && wget -nd -pHEKk <http://www.pixelbeat.org/cmdline.html> | 在当前目录中下载指定网页及其相关的文件使其可完全浏览 |
-|  |   | wget -c <http://www.example.com/large.file | 继续上次未完的下载 |
-|  |   | wget -r -nd -np -l1 -A '*.jpg' http://www.example.com/ | 批量下载文件到当前目录中 |
-|  |   | wget ftp://remote/file[1-9].iso/ | 下载FTP站上的整个目录 |
-|  | • | wget -q -O- http://www.pixelbeat.org/timeline.html | grep 'a href' | head | 直接处理输出 |
-|  |   | echo 'wget url' | at 01:00 | 在下午一点钟下载指定文件到当前目录 |
-|  |   | wget --limit-rate=20k url | 限制下载速度这里限制到20KB/s |
-|  |   | wget -nv --spider --force-html -i bookmarks.html | 检查文件中的链接是否存在 |
-|  |   | wget --mirror http://www.example.com/ | 更新网站的本地拷贝可以方便地用于cron |
 | 网络ifconfig, route, mii-tool, nslookup 命令皆已过时 |  |  |  |
 |  |   | ethtool eth0 | 显示网卡eth0的状态 |
 |  |   | ethtool --change eth0 autoneg off speed 100 duplex full | 手动设制网卡速度 |
@@ -338,7 +248,6 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 |  | • | seq 10 | sed "s/^/      /; s/ *\.\{7,\}\/\1/" | 向右排N任意数列 |
 |  |   | sed -n '1000p;1000q' | 输出第一千行 |
 |  |   | sed -n '10,20p;20q' | 输出第10-20行 |
-|  |   | sed -n 's/.*<title\>\.*\<\/title>.*/\1/ip;T;q' | 输出HTML文件的<title></title>字段中的 内容 |
 |  |   | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | 排序IPV4地址 |
 |  | • | echo 'Test' | tr '[:lower:]' '[:upper:]' | 转换成大写 |
 |  | • | tr -dc '[:print:]' < /dev/urandom | 过滤掉不能打印的字符 |
@@ -375,7 +284,6 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 | locales |  |  |  |
 |  | • | printf "%'d\n" 1234 | 根据locale输出正确的数字分隔 |
 |  | • | BLOCK_SIZE=\'1 ls -l | 用ls命令作类适于locale文件分组 |
-|  | • | echo "I live in `locale territory`" | 从locale数据库中展开信息 |
 |  | • | LANG=en_IE.utf8 locale int_prefix | 查找指定地区的locale信息。参见ccodes |
 |  | • | locale | cut -d= -f1 | xargs locale -kc | less | 显示在locale数据库中的所有字段 |
 | recode iconv, dos2unix, unix2dos 已经过时了 |  |  |  |
@@ -449,7 +357,6 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 |  | • | alias realpath='readlink -f' | 显示符号链接指向的真实路径用法举例: • realpath ~/../$USER |
 |  | • | set | grep $USER | 在当前环境中查找 |
 |  |   | touch -c -t 0304050607 file | 改变文件的时间标签 YYMMDDhhmm |
-|  | • | python -m SimpleHTTPServer | Serve current directory tree at http://$HOSTNAME:8000/ |
 
 ## Centos
 
@@ -2586,6 +2493,1559 @@ crontab -l -r -e
 5. T 停止 traced or stopped#停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行)
 ```
 
+## Vsftp
+
+```conf
+v3.0.3
+VSFTP配置vsftpd.conf文件详解
+
+vsftpd.conf的格式非常简单。每一行都是注释或指令。注释行以＃开头并被忽略。指令行的格式为：选项=值
+重要的是要注意在选项，=和值之间放置任何空格是错误的。每个设置都有一个默认编译，可以在配置文件中修改。
+/etc/rc.d/init.d/vsftpd
+启动脚本
+/etc/pam.d/vsftpd
+PAM认证文件
+/etc/vsftpd.ftpusers
+禁止使用Vsftpd的用户列表文件
+/etc/vsftpd.user_list
+禁止或允许使用Vsftpd的用户列表文件
+/var/ftp
+匿名用户主目录
+
+布尔选项列表，布尔选项可以设置为yes或no
+
+allow_anon_ssl
+仅在ssl_enable 处于活动状态时适用 。如果设置为YES，则允许匿名用户使用安全SSL连接。
+默认值：NO
+
+anon_mkdir_write_enable
+如果设置为YES，则允许匿名用户在特定条件下创建新目录。为此， 必须激活选项 write_enable，并且匿名ftp用户必须具有父目录的写权限。
+默认值：NO
+
+anon_other_write_enable
+如果设置为YES，则允许匿名用户执行除上载和创建目录之外的写入操作，例如删除和重命名。通常不建议这样做，但为了完整性而包括在内。
+默认值：NO
+
+anon_upload_enable
+如果设置为YES，则允许匿名用户在特定条件下上载文件。为此， 必须激活选项 write_enable，并且匿名ftp用户必须具有所需上载位置的写入权限。虚拟用户上传也需要此设置,默认情况下，虚拟用户使用匿名（即最大限制）权限进行处理。
+默认值：NO
+
+anon_world_readable_only
+启用后，将只允许匿名用户下载世界可读的文件。这是认识到ftp用户可能拥有文件，尤其是在上传的情况下。
+默认值：是
+
+anonymous_enable
+控制是否允许匿名登录。如果启用，则用户名 ftp 和 anonymous 都将被识别为匿名登录。
+默认值：YES
+
+ascii_download_enable
+启用后，ASCII模式数据传输将在下载时受到尊重。
+默认值：NO
+
+ascii_upload_enable
+启用后，上传时将遵循ASCII模式数据传输。
+默认值：NO
+
+async_abor_enable
+启用后，将启用称为“异步ABOR”的特殊FTP命令。只有不明智的FTP客户端才会使用此功能。此外，此功能难以处理，因此默认情况下禁用。遗憾的是，除非此功能可用，否则某些FTP客户端将在取消传输时挂起，因此您可能希望启用它。
+默认值：NO
+
+background
+启用后，vsftpd以“listen”模式启动，vsftpd将为侦听器进程提供背景。即控件将立即返回到启动vsftpd的shell。
+默认值：NO
+
+check_shell
+注意！此选项仅对vsftpd的非PAM构建有效。如果禁用，vsftpd将不会检查/ etc / shells是否有用于本地登录的用户shell。
+默认值：是
+
+chmod_enable
+启用后，允许使用SITE CHMOD命令。注意！这仅适用于本地用户。匿名用户永远不会使用SITE CHMOD。
+默认值：是
+
+chown_uploads
+如果启用，则所有匿名上载的文件都将更改为设置chown_username中指定的用户 。从管理（可能是安全性）的角度来看，这很有用。
+默认值：NO
+
+chroot_list_enable
+如果激活，您可以在登录时提供放置在其主目录中的chroot（）jail中的本地用户列表。如果chroot_local_user设置为YES，则含义略有不同。在这种情况下，列表将成为不被放置在chroot（）jail中的用户列表。默认情况下，包含此列表的文件是/etc/vsftpd.chroot_list，但您可以使用chroot_list_file 设置覆盖它 。
+默认值：NO
+
+chroot_local_user
+如果设置为YES，则登录后本地用户（默认情况下）将放置在其主目录中的chroot（）jail中。 警告： 此选项具有安全隐患，尤其是在用户具有上载权限或shell访问权限的情况下。只有在您知道自己在做什么时才启用。请注意，这些安全隐患不是vsftpd特定的。它们适用于所有提供将本地用户放入chroot（）jail的FTP守护进程。
+默认值：NO
+
+connect_from_port_20
+这可以控制PORT样式数据连接是否在服务器计算机上使用端口20（ftp-data）。出于安全原因，一些客户可能会坚持认为是这种情况。相反，禁用此选项可使vsftpd以较低的权限运行。
+默认值：NO（但是示例配置文件启用它）
+
+debug_ssl
+如果为true，则将OpenSSL连接诊断转储到vsftpd日志文件。（在v2.0.6中添加）。
+默认值：NO
+
+delete_failed_uploads
+如果为true，则删除任何失败的上载文件。（在v2.0.7中添加）。
+默认值：NO
+
+deny_email_enable
+如果激活，您可以提供匿名密码电子邮件响应列表，这会导致登录被拒绝。默认情况下，包含此列表中的文件是/etc/vsftpd.banned_emails，但你可以与覆盖这个 banned_email_file 设置。
+默认值：NO
+
+dirlist_enable
+如果设置为NO，则所有目录列表命令都将拒绝权限。
+默认值：是
+
+dirmessage_enable
+如果启用，FTP服务器的用户首次进入新目录时可以显示消息。默认情况下，会扫描目录以查找文件.message，但可以使用配置设置message_file覆盖该目录 。
+默认值：NO（但是示例配置文件启用它）
+
+download_enable
+如果设置为NO，则所有下载请求都将拒绝权限。
+默认值：是
+
+dual_log_enable
+如果启用，则会并行生成两个日志文件，默认情况下为 / var / log / xferlog 和 /var/log/vsftpd.log。前者是一个wu-ftpd样式的传输日志，可以通过标准工具解析。后者是vsftpd自己的样式日志。
+默认值：NO
+
+force_dot_files
+如果激活，则以。开头的文件和目录。即使客户端未使用“a”标志，也将显示在目录列表中。此覆盖不包括“。” 和“..”条目。
+默认值：NO
+
+force_anon_data_ssl
+仅 在激活ssl_enable时适用 。如果激活，则强制所有匿名登录使用安全SSL连接，以便在数据连接上发送和接收数据。
+默认值：NO
+
+force_anon_logins_ssl
+仅 在激活ssl_enable时适用 。如果激活，则强制所有匿名登录使用安全SSL连接以发送密码。
+默认值：NO
+
+force_local_data_ssl
+仅 在激活ssl_enable时适用 。如果激活，则强制所有非匿名登录使用安全SSL连接，以便在数据连接上发送和接收数据。
+默认值：是
+
+force_local_logins_ssl
+仅 在激活ssl_enable时适用 。如果激活，则强制所有非匿名登录使用安全SSL连接以发送密码。
+默认值：是
+
+guest_enable
+如果启用，则所有非匿名登录都被归类为“访客”登录。guest 虚拟机登录将重新映射到guest_username 设置中指定的用户 。
+默认值：NO
+
+hide_ids
+如果启用，目录列表中的所有用户和组信息将显示为“ftp”。
+默认值：NO
+
+implicit_ssl
+如果启用，则SSL握手是所有连接（FTPS协议）上的第一件事。要支持显式SSL和/或纯文本，还应运行单独的vsftpd侦听器进程。
+默认值：NO
+
+听
+如果启用，vsftpd将以独立模式运行。这意味着vsftpd不能从某种类型的inetd运行。相反，vsftpd可执行文件直接运行一次。然后，vsftpd将负责监听和处理传入的连接。
+默认值：是
+
+listen_ipv6
+与listen参数一样，除了vsftpd将侦听IPv6套接字而不是IPv4套接字。此参数和listen参数是互斥的。
+默认值：NO
+
+local_enable
+控制是否允许本地登录。如果启用，则可以使用/ etc / passwd中的普通用户帐户（或PAM配置引用的任何位置）登录。必须启用此功能才能使任何非匿名登录工作，包括虚拟用户。
+默认值：NO
+
+lock_upload_files
+启用后，所有上载都会继续对上载文件进行写锁定。所有下载都继续下载文件上的共享读锁定。警告！在启用此功能之前，请注意恶意阅读器可能会使想要添加文件的作者感到饥饿。
+默认值：是
+
+log_ftp_protocol
+启用后，将记录所有FTP请求和响应，前提是未启用xferlog_std_format选项。用于调试。
+默认值：NO
+
+ls_recurse_enable
+启用后，此设置将允许使用“ls -R”。这是一个较小的安全风险，因为大型站点顶层的ls -R可能会消耗大量资源。
+默认值：NO
+
+mdtm_write
+启用后，此设置将允许MDTM设置文件修改时间（根据通常的访问检查）。
+默认值：是
+
+no_anon_password
+启用后，这会阻止vsftpd请求匿名密码 - 匿名用户将直接登录。
+默认值：NO
+
+no_log_lock
+启用后，这会阻止vsftpd在写入日志文件时进行文件锁定。通常不应启用此选项。它存在以解决操作系统错误，例如Solaris / Veritas文件系统组合，已经观察到有时会出现试图锁定日志文件的挂起。
+默认值：NO
+
+one_process_model
+如果您有Linux 2.4内核，则可以使用不同的安全模型，每个连接只使用一个进程。它是一种不太纯粹的安全模型，但会提高您的性能。除非您知道自己在做什么，并且您的站点支持大量同时连接的用户，否则您真的不想启用它。
+默认值：NO
+
+passwd_chroot_enable
+如果启用，则与 chroot_local_user一起 ，然后可以基于每个用户指定chroot（）jail位置。每个用户的jail都是从/ etc / passwd中的主目录字符串派生的。主目录字符串中出现/./表示jail位于路径中的特定位置。
+默认值：NO
+
+pasv_addr_resolve
+如果要在pasv_address 选项中使用主机名（而不是IP地址），请设置为YES 。
+默认值：NO
+
+pasv_enable
+如果要禁用PASV获取数据连接的方法，请设置为NO。
+默认值：是
+
+pasv_promiscuous
+如果要禁用PASV安全检查，则设置为YES，以确保数据连接源自与控制连接相同的IP地址。只有在你知道自己在做什么的情况下才能启用 对此的唯一合法用途是采用某种形式的安全隧道方案，或者可能是为了促进FXP支持。
+默认值：NO
+
+port_enable
+如果要禁止PORT方法获取数据连接，请设置为NO。
+默认值：是
+
+port_promiscuous
+如果要禁用PORT安全检查，则设置为YES，以确保传出数据连接只能连接到客户端。只有在你知道自己在做什么的情况下才能启用
+默认值：NO
+
+require_cert
+如果设置为yes，则需要所有SSL客户端连接来提供客户端证书。应用于此证书的验证程度由validate_cert控制 （在v2.0.6中添加）。
+默认值：NO
+
+require_ssl_reuse
+如果设置为yes，则需要所有SSL数据连接以展示SSL会话重用（这证明它们知道与控制通道相同的主密钥）。虽然这是一个安全的默认设置，但它可能会破坏许多FTP客户端，因此您可能希望禁用它。有关后果的讨论，请参阅 http://scarybeastsecurity.blogspot.com/2009/02/vsftpd-210-released.html （在v2.1.0中添加）。
+默认值：是
+
+run_as_launching_user
+如果您希望vsftpd以启动vsftpd的用户身份运行，请设置为YES。在根访问不可用的情况下，这很有用。大规模警告！除非您完全知道自己在做什么，否则不要启用此选项，因为天真地使用此选项会产生大量安全问题。具体来说，当设置此选项时，vsftpd不会/不能使用chroot技术来限制文件访问（即使由root启动）。一个糟糕的替代品可能是使用 deny_file 设置如{/*,*..*}，但这种可靠性无法与chroot相比，并且不应该依赖。如果使用此选项，则适用对其他选项的许多限制。例如，需要权限的选项（例如非匿名登录，上载所有权更改，从端口20连接和小于1024的侦听端口）预计不起作用。其他选项可能会受到影响。
+默认值：NO
+
+secure_email_list_enable
+如果您只想接受匿名登录的指定电子邮件密码列表，请设置为YES。这非常有用，可以在不需要虚拟用户的情况下限制对低安全性内容的访问。启用后，除非提供的密码列在email_password_file 设置指定的文件中，否则将阻止匿名登录 。文件格式是每行一个密码，没有额外的空格。默认文件名是/etc/vsftpd.email_passwords。
+默认值：NO
+
+session_support
+这可以控制vsftpd是否尝试维护登录会话。如果vsftpd维护会话，它将尝试更新utmp和wtmp。如果使用PAM进行身份验证，它也会打开一个pam_session，并且只有在注销时关闭它。如果您不需要会话日志记录，您可能希望禁用此功能，并且您希望为vsftpd提供更多机会以更少的进程和/或更少的权限运行。注 - utmp和wtmp支持仅在PAM启​​用的版本中提供。
+默认值：NO
+
+setproctitle_enable
+如果启用，vsftpd将尝试在系统进程列表中显示会话状态信息。换句话说，报告的进程名称将更改以反映vsftpd会话正在执行的操作（空闲，下载等）。出于安全考虑，您可能希望将其关闭。
+默认值：NO
+
+ssl_enable
+如果启用，并且vsftpd是针对OpenSSL编译的，则vsftpd将通过SSL支持安全连接。这适用于控制连接（包括登录）以及数据连接。您也需要一个支持SSL的客户端。注意！！请注意启用此选项。只有在需要时才启用它。vsftpd无法保证OpenSSL库的安全性。通过启用此选项，您声明您信任已安装的OpenSSL库的安全性。
+默认值：NO
+
+ssl_request_cert
+如果启用，vsftpd会要求（但不一定需要,见 require_cert）一个证书上的传入 SSL 连接。通常这 不应该造成任何麻烦，但IBM zOS似乎有问题。（v2.0.7中的新功能）。
+默认值：是
+
+ssl_sslv2
+仅 在激活ssl_enable时适用 。如果启用，此选项将允许SSL v2协议连接。TLS v1连接是首选。
+默认值：NO
+
+ssl_sslv3
+仅 在激活ssl_enable时适用 。如果启用，此选项将允许SSL v3协议连接。TLS v1连接是首选。
+默认值：NO
+
+ssl_tlsv1
+仅 在激活ssl_enable时适用 。如果启用，此选项将允许TLS v1协议连接。TLS v1连接是首选。
+默认值：是
+
+strict_ssl_read_eof
+如果启用，则需要通过SSL终止SSL数据上载，而不是套接字上的EOF。需要此选项以确保攻击者未使用伪造的TCP FIN过早终止上载。不幸的是，默认情况下它没有启用，因为很少有客户端能够正确使用它。（v2.0.7中的新功能）。
+默认值：NO
+
+strict_ssl_write_shutdown
+如果启用，则需要通过SSL终止SSL数据下载，而不是套接字上的EOF。默认情况下这是关闭的，因为我无法找到执行此操作的单个FTP客户端。这是次要的。它影响的是我们判断客户是否确认完全收到该文件的能力。即使没有此选项，客户端也能够检查下载的完整性。（v2.0.7中的新功能）。
+默认值：NO
+
+syslog_enable
+如果启用，则任何已转至/var/log/vsftpd.log的日志输出将转到系统日志。记录在FTPD工具下完成。
+默认值：NO
+
+tcp_wrappers的
+如果启用，并且vsftpd是使用tcp_wrappers支持编译的，则传入连接将通过tcp_wrappers访问控制提供。此外，还有一种基于每个IP的配置机制。如果tcp_wrappers设置VSFTPD_LOAD_CONF环境变量，则vsftpd会话将尝试加载此变量中指定的vsftpd配置文件。
+默认值：NO
+
+text_userdb_names
+默认情况下，数字ID显示在目录列表的用户和组字段中。您可以通过启用此参数来获取文本名称。出于性能原因，它默认是关闭的。
+默认值：NO
+
+tilde_user_enable
+如果启用，vsftpd将尝试解析路径名，例如~chris / pics，即代字号后跟用户名。请注意，vsftpd将始终解析路径名〜和〜/ something（在这种情况下，〜解析为初始登录目录）。请注意，只有 在_current_ chroot（）jail中找到文件/ etc / passwd时，〜用户路径才会解析 。
+默认值：NO
+
+use_localtime
+如果启用，vsftpd将显示当前时区中包含时间的目录列表。默认为显示GMT。MDTM FTP命令返回的时间也受此选项的影响。
+默认值：NO
+
+use_sendfile
+用于测试在平台上使用sendfile（）系统调用的相对好处的内部设置。
+默认值：是
+
+userlist_deny
+如果 激活userlist_enable，则检查此选项 。如果将此设置设置为NO，则将拒绝用户登录，除非它们明确列在userlist_file指定的文件中 。拒绝登录时，将在要求用户输入密码之前发出拒绝。
+默认值：是
+
+userlist_enable
+如果启用，vsftpd将从userlist_file给出的文件名加载用户名列表 。如果用户尝试使用此文件中的名称登录，则在要求输入密码之前，他们将被拒绝。这可能有助于防止传输明文密码。另请参见 userlist_deny。
+默认值：NO
+
+validate_cert
+如果设置为yes，则收到的所有SSL客户端证书都必须验证OK。自签名证书不构成OK验证。（v2.0.6中的新功能）。
+默认值：NO
+
+virtual_use_local_privs
+如果启用，虚拟用户将使用与本地用户相同的权限。默认情况下，虚拟用户将使用与匿名用户相同的权限，这往往更具限制性（特别是在写访问方面）。
+默认值：NO
+
+WRITE_ENABLE
+这可以控制是否允许任何更改文件系统的FTP命令。用户对ftp服务器的写权限。这些命令是：STOR，DELE，RNFR，RNTO，MKD，RMD，APPE和SITE。
+默认值：NO
+
+xferlog_enable
+如果启用，将保留日志文件，详细说明上载和下载。默认情况下，此文件将放在/var/log/vsftpd.log中，但可以使用配置设置vsftpd_log_file覆盖此位置 。
+默认值：NO（但是示例配置文件启用它）
+
+xferlog_std_format
+如果启用，传输日志文件将以标准xferlog格式写入，如wu-ftpd所使用。这很有用，因为您可以重用现有的传输统计信息生成器 但是，默认格式更具可读性。此样式的日志文件的缺省位置是/ var / log / xferlog，但您可以使用xferlog_file设置进行 更改。
+默认值：NO
+
+数字选项
+以下是数字选项列表。必须将数字选项设置为非负整数。支持八进制数，以方便umask选项。要指定八进制数，请使用0作为数字的第一个数字。
+accept_timeout
+远程客户端与PASV样式数据连接建立连接的超时（以秒为单位）。
+默认值：60
+
+anon_max_rate
+匿名客户端允许的最大数据传输速率（以字节/秒为单位）。
+默认值：0（无限制）
+
+anon_umask
+为匿名用户设置用于文件创建的umask的值。注意！如果要指定八进制值，请记住“0”前缀，否则该值将被视为基数为10的整数！
+默认值：077
+
+chown_upload_mode
+要强制进行chown（）ed匿名上传的文件模式。（在v2.0.6中添加）。
+默认值：0600
+
+connect_timeout
+远程客户端响应我们的PORT样式数据连接的超时（以秒为单位）。
+默认值：60
+
+data_connection_timeout
+超时（以秒为单位），大致是允许数据传输停止而没有进度的最长时间。如果超时触发，则启动远程客户端。
+默认值：300
+
+delay_failed_login
+报告登录失败之前暂停的秒数。
+默认值：1
+
+delay_successful_login
+允许成功登录之前暂停的秒数。
+默认值：0
+
+file_open_mode
+用于创建上载文件的权限。Umasks应用于此值之上。如果您希望上传的文件可执行，您可能希望更改为0777。
+默认值：0666
+
+ftp_data_port
+PORT样式连接源自的端口（只要 启用名称不佳的 connect_from_port_20）。
+默认值：20
+
+idle_session_timeout
+超时（以秒为单位），即远程客户端在FTP命令之间可能花费的最长时间。如果超时触发，则启动远程客户端。
+默认值：300
+
+listen_port
+如果vsftpd处于独立模式，则它将侦听传入FTP连接的端口。
+默认值：21
+
+local_max_rate
+本地身份验证用户允许的最大数据传输速率（以字节/秒为单位）。
+默认值：0（无限制）
+
+local_umask
+为本地用户设置用于文件创建的umask的值。注意！如果要指定八进制值，请记住“0”前缀，否则该值将被视为基数为10的整数！
+默认值：077
+
+max_clients
+如果vsftpd处于独立模式，则这是可以连接的最大客户端数。连接的任何其他客户端都将收到错误消息。
+默认值：0（无限制）
+
+max_login_fails
+在这么多登录失败之后，会话被终止。
+默认值：3
+
+max_per_ip
+如果vsftpd处于独立模式，则这是可以从同一源Internet地址连接的最大客户端数。如果客户端超过此限制，将收到错误消息。
+默认值：0（无限制）
+
+pasv_max_port
+为PASV样式数据连接分配的最大端口。可用于指定窄端口范围以协助防火墙。
+默认值：0（使用任何端口）
+
+pasv_min_port
+为PASV样式数据连接分配的最小端口。可用于指定窄端口范围以协助防火墙。
+默认值：0（使用任何端口）
+
+trans_chunk_size
+您可能不想更改此设置，但尝试将其设置为类似8192的设备，以获得更平滑的带宽限制器。
+默认值：0（让vsftpd选择合理的设置）
+
+STRING OPTIONS
+以下是字符串选项列表。
+anon_root
+此选项表示vsftpd在匿名登录后尝试更改的目录。失败被默默地忽略了。
+默认值:(无）
+
+banned_email_file
+此选项是包含不允许的匿名电子邮件密码列表的文件的名称。如果 启用了选项deny_email_enable，则会查询此文件 。
+默认值：/etc/vsftpd.banned_emails
+
+banner_file
+此选项是包含要在有人连接到服务器时显示的文本的文件的名称。如果设置，它将覆盖ftpd_banner 选项提供的标题字符串 。
+默认值:(无）
+
+ca_certs_file
+此选项是用于加载证书颁发机构证书的文件的名称，用于验证客户端证书。遗憾的是，由于vsftpd使用受限制的文件系统空间（chroot），因此未使用默认的SSL CA证书路径。（在v2.0.6中添加）。
+默认值:(无）
+
+chown_username
+这是获得匿名上传文件所有权的用户的名称。仅当设置了另一个选项chown_uploads时，此选项才有意义 。
+默认值：root
+
+chroot_list_file
+该选项是包含本地用户列表的文件的名称，该列表将放置在其主目录中的chroot（）jail中。仅当 启用了选项chroot_list_enable时，此选项才有意义 。如果 启用了选项 chroot_local_user，则列表文件将成为未放置在chroot（）jail中的用户列表。
+默认值：/etc/vsftpd.chroot_list
+chroot_list文件，"/etc/vsftpd.chroot_list"文件中包含的用户，在登录后将不能切换到自己目录以外的其他目录，由FTP服务器自动
+地"chrooted"到用户自己的home目录下。这将使得chroot_list文件中的用户不能随意转到其他用户的FTP home目录下，从而有利于FTP服
+务器的安全管理和隐私保护。
+
+cmds_allowed
+此选项指定允许的FTP命令的逗号分隔列表（登录后.USER，PASS和QUIT以及其他始终允许登录前）。其他命令被拒绝。这是一种真正锁定FTP服务器的强大方法。示例：cmds_allowed = PASV，RETR，QUIT
+默认值:(无）
+
+cmds_denied
+此选项指定以逗号分隔的拒绝FTP命令列表（登录后。始终允许登录前使用USER，PASS，QUIT等）。如果此命令和cmds_allowed上都出现命令， 则拒绝优先。（在v2.1.0中添加）。
+默认值:(无）
+
+deny_file
+此选项可用于设置文件名（和目录名等）的模式，这些模式不应以任何方式访问。受影响的项目不会被隐藏，但任何对它们做任何事情的尝试（下载，更改到目录，影响目录中的内容等）都将被拒绝。此选项非常简单，不应用于严格的访问控制 - 应优先使用文件系统的权限。但是，此选项在某些虚拟用户设置中可能很有用。特别要注意的是，如果文件名可以通过各种名称访问（可能是由于符号链接或硬链接），那么必须注意拒绝访问所有名称。如果项目的名称包含hide_file给出的字符串，或者它们与hide_file指定的正则表达式匹配，则将拒绝访问项目。注意vsftpd正则表达式匹配代码是一个简单的实现，它是完整正则表达式功能的子集。因此，您需要仔细而详尽地测试此选项的任何应用程序。并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符。仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private} 并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符。仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private} 并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符。仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private}
+默认值:(无）
+
+dsa_cert_file
+此选项指定用于SSL加密连接的DSA证书的位置。
+默认值:(无 - RSA证书就足够了）
+
+dsa_private_key_file
+此选项指定用于SSL加密连接的DSA私钥的位置。如果未设置此选项，则预期私钥与证书位于同一文件中。
+默认值:(无）
+
+email_password_file
+此选项可用于提供secure_email_list_enable 设置使用的备用文件 。
+默认值：/etc/vsftpd.email_passwords
+
+ftp_username
+这是我们用于处理匿名FTP的用户的名称。该用户的主目录是匿名FTP区域的根目录。
+默认值：ftp
+
+ftpd_banner
+此字符串选项允许您在首次进入连接时覆盖vsftpd显示的问候语横幅。
+默认值:(无 - 显示默认的vsftpd横幅）
+
+guest_username
+有关 访客登录的描述，请参阅布尔值设置 guest_enable。此设置是访客用户映射到的真实用户名。
+默认值：ftp
+
+hide_file
+此选项可用于设置文件名（和目录名称等）的模式，这些模式应该从目录列表中隐藏。尽管被隐藏，但是知道实际使用的名称的客户可以完全访问文件/目录等。如果项目的名称包含hide_file给出的字符串，或者它们与hide_file指定的正则表达式匹配，则将隐藏这些项目。请注意，vsftpd的正则表达式匹配代码是一个简单的实现，它是完整正则表达式功能的子集。有关 具体支持的正则表达式语法的详细信息，请参阅 deny_file。示例：hide_file = {*。mp3，.hidden，hide *，h？}
+默认值:(无）
+
+listen_address
+如果vsftpd处于独立模式，则此设置可能会覆盖（所有本地接口的）默认侦听地址。提供数字IP地址。
+默认值:(无）
+
+listen_address6
+与listen_address类似，但指定IPv6侦听器的默认侦听地址（如果设置了listen_ipv6，则使用该地址）。格式是标准IPv6地址格式。
+默认值:(无）
+
+local_root
+此选项表示vsftpd在本地（即非匿名）登录后尝试更改的目录。失败被默默地忽略了。
+默认值:(无）
+
+message_file
+此选项是输入新目录时我们查找的文件的名称。内容显示给远程用户。仅当 启用了选项dirmessage_enable时，此选项才有意义 。
+默认值：.message
+
+nopriv_user
+这是vsftpd在完全没有特权的情况下使用的用户名。请注意，这应该是专用用户，而不是任何人。在大多数机器上，用户没有倾向于使用很多重要的东西。
+默认值：没人
+
+pam_service_name
+此字符串是vsftpd将使用的PAM服务的名称。
+默认值：ftp
+
+pasv_address设置
+使用此选项可覆盖vsftpd将响应PASV命令而通告的IP地址。提供数字IP地址，除非 启用了pasv_addr_resolve，在这种情况下，您可以提供在启动时为您解析DNS的主机名。
+默认值:(无 - 地址取自传入的连接套接字）
+
+rsa_cert_file
+此选项指定用于SSL加密连接的RSA证书的位置。
+默认值：/usr/share/ssl/certs/vsftpd.pem
+
+rsa_private_key_file
+此选项指定用于SSL加密连接的RSA私钥的位置。如果未设置此选项，则预期私钥与证书位于同一文件中。
+默认值:(无）
+
+secure_chroot_dir
+此选项应该是空目录的名称。此外，ftp用户不应该写入该目录。此目录有时用作安全chroot（）jail，vsftpd不需要文件系统访问。
+默认值：/ usr / share / empty
+
+的ssl_ciphers
+此选项可用于选择vsftpd允许加密SSL连接的SSL密码。有关 更多详细信息，请参见 密码手册页。请注意，限制密码可能是一种有用的安全预防措施，因为它可以防止恶意远程方强制使用已发现问题的密码。
+默认值：DES-CBC3-SHA
+
+user_config_dir
+这个功能强大的选项允许基于每个用户覆盖手册页中指定的任何配置选项。用法很简单，最好用一个例子来说明。如果将 user_config_dir 设置为 / etc / vsftpd_user_conf 然后以用户“chris”身份登录，则vsftpd将 在会话期间应用文件 / etc / vsftpd_user_conf / chris中的设置。此文件的格式详见本手册页！请注意，并非所有设置都对每个用户有效。例如，许多设置仅在用户会话启动之前。不会影响每个用户的任何行为的设置示例包括listen_address，banner_file，max_per_ip，max_clients，xferlog_file等。
+默认值:(无）
+
+user_sub_token
+此选项与虚拟用户结合使用非常有用。它用于根据模板为每个虚拟用户自动生成主目录。例如，如果通过guest_username指定的真实用户的主目录 是 / home / virtual / $ USER，并且 user_sub_token 设置为 $ USER，那么当虚拟用户fred登录时，他将结束通常是在目录 / home / virtual / fred中。如果local_root 包含 user_sub_token，则此选项也会 生效。
+默认值:(无）
+
+userlist_file
+此选项是userlist_enable 选项处于活动状态时加载的文件的名称 。
+默认值：/etc/vsftpd.user_list
+
+vsftpd_log_file
+此选项是我们编写vsftpd样式日志文件的文件的名称。仅当 设置了选项xferlog_enable并且未设置xferlog_std_format时， 才会写入此日志 。或者，如果已设置选项dual_log_enable，则会写入 。另一个复杂因素 - 如果您设置了 syslog_enable，则不会写入此文件，而是将输出发送到系统日志。
+默认值：/var/log/vsftpd.log
+
+xferlog_file
+此选项是我们编写wu-ftpd样式传输日志的文件的名称。仅当 设置了 xferlog_enable选项以及xferlog_std_format时才会写入传输日志 。或者，如果已设置选项dual_log_enable，则会写入 。
+默认值：/var/log/xferlog
+```
+
+## Bind-DNS
+
+```sh
+# DNS-bind安装和配置
+https://ftp.isc.org/
+http://www.isc.org/downloads/
+wget https://www.isc.org/downloads/file/bind-9-10-6-p1/?version=tar-gz
+https://www.isc.org/downloads/file/bind-9-10-6-p1/?version=win-32-bit
+https://www.isc.org/downloads/file/bind-9-10-6-p1/?version=win-64-bit
+tar -zxvf
+./configure --with-openssl --enable-threads --with-libxml2
+make && make install
+touch /etc/named.conf
+named -V
+named -g
+
+解决bind9 dumping master file tmp-xxxx open permission denied问题，解决方法如下：
+对于Redhat Linux，只要在slave那台的dns主机上修改/etc/sysconfig/named加上ENABLE_ZONE_WRITE=yes，重启named即可
+对于Ubuntu系统，修改/etc/apparmor.d/usr.sbin.named，查找/etc/bind/** r，修改成/etc/bind/** rw，然后重启apparmor：/etc/init.d/apparmor rstart或者reload配置：cat /etc/apparmor.d/usr.sbin.named | sudo apparmor_parser -r
+```
+
+## Email
+
+```sh
+# PostFix Dovecot邮件服务器和后台管理
+# 官方postfix安装和配置
+PGP key下载地址：https://repo.dovecot.org/DOVECOT-REPO-GPG
+
+## debian安装和配置
+# Jessie (8.0)安装
+# 创建/etc/apt/trusted.gpg.d/dovecot.gpg
+curl https://repo.dovecot.org/DOVECOT-REPO-GPG | gpg --import
+gpg --export ED409DA1 > /etc/apt/trusted.gpg.d/dovecot.gpg
+# 创建/etc/apt/sources.list.d/dovecot.list 想要使用https，确保安装apt-transport-https
+deb https://repo.dovecot.org/ce-2.3-latest/debian/jessie jessie main
+
+# Stretch (9.0)安装
+# 创建/etc/apt/trusted.gpg.d/dovecot.gpg
+curl https://repo.dovecot.org/DOVECOT-REPO-GPG | gpg --import
+gpg --export ED409DA1 > /etc/apt/trusted.gpg.d/dovecot.gpg
+# 创建/etc/apt/sources.list.d/dovecot.list 想要使用https，确保安装apt-transport-https
+deb https://repo.dovecot.org/ce-2.3-latest/debian/stretch stretch main
+
+# 安装需要的包名
+dovecot-core dovecot-dbg dovecot-dev dovecot-gssapi dovecot-imapd dovecot-imaptest dovecot-ldap dovecot-lmtpd dovecot-lua dovecot-lucene dovecot-managesieved dovecot-mysql dovecot-pgsql dovecot-pigeonhole-dbg \
+dovecot-pop3d dovecot-sieve-dev dovecot-sieve dovecot-solr dovecot-sqlite dovecot-submissiond
+
+##  CentOS 6&7安装和配置
+# 创建/etc/yum.repos.d/dovecot.repo
+[dovecot-2.3-latest]
+name=Dovecot 2.3 CentOS $releasever - $basearch
+baseurl=http://repo.dovecot.org/ce-2.3-latest/centos/$releasever/RPMS/$basearch
+gpgkey=https://repo.dovecot.org/DOVECOT-REPO-GPG
+gpgcheck=1
+enabled=1
+
+# 新安装需要的包名
+dovecot dovecot-debuginfo dovecot-devel dovecot-imaptest dovecot-imaptest-debuginfo dovecot-lua dovecot-mysql dovecot-pgsql dovecot-pigeonhole dovecot-pigeonhole-debuginfo dovecot-pigeonhole-devel
+
+##  Ubuntu安装和配置
+#  Trusty (14.04 LTS)安装
+# 创建/etc/apt/trusted.gpg.d/dovecot.gpg
+curl https://repo.dovecot.org/DOVECOT-REPO-GPG | gpg --import
+gpg --export ED409DA1 > /etc/apt/trusted.gpg.d/dovecot.gpg
+# 创建/etc/apt/sources.list.d/dovecot.list 想要使用https，确保安装apt-transport-https
+deb https://repo.dovecot.org/ce-2.3-latest/ubuntu/trusty trusty main
+
+# Xenial (16.04 LTS)安装
+Create /etc/apt/trusted.gpg.d/dovecot.gpg
+curl https://repo.dovecot.org/DOVECOT-REPO-GPG | gpg --import
+gpg --export ED409DA1 > /etc/apt/trusted.gpg.d/dovecot.gpg
+Create /etc/apt/sources.list.d/dovecot.list. If you want to use
+https, make sure you have installed apt-transport-https.
+deb https://repo.dovecot.org/ce-2.3-latest/ubuntu/xenial xenial main
+
+# 新安装需要的包名
+dovecot-core dovecot-dbg dovecot-dev dovecot-gssapi dovecot-imapd dovecot-imaptest dovecot-ldap dovecot-lmtpd dovecot-lua dovecot-lucene dovecot-managesieved dovecot-mysql dovecot-pgsql dovecot-pigeonhole-dbg \
+dovecot-pop3d dovecot-sieve-dev dovecot-sieve dovecot-solr dovecot-sqlite dovecot-submissiond
+
+##  source tarballs文件编译安装
+# 下载地址：https://dovecot.org/download.html
+https://dovecot.org/releases/2.3/dovecot-2.3.0.tar.gz
+tar -zxvf dovecot-2.3.0
+./configure
+make && make install
+# 自定义安装位置和库的路径
+CPPFLAGS="-I/opt/openssl/include" LDFLAGS="-L/opt/openssl/lib" ./configure
+
+# 从git克隆编译安装
+git clone https://github.com/dovecot/core.git dovecot
+# 接着进入目录运行./autogen.sh生成配置脚本和其他需要的文件
+# 需要提前安装的包
+autoconf automake libtool pkg-config gettext
+pandoc (不是必须安装，除非要使用: PANDOC=false ./configure)
+GNU make
+
+# 建议添加--enable-maintainer-mode参数到configure脚本
+./autogen.sh
+./configure --enable-maintainer-mode
+make && make install
+
+## 其他`
+非官方补丁地址：https://dovecot.org/patches/
+额外工具地址：https://dovecot.org/tools/
+GitHub仓库地址：https://github.com/dovecot/
+```
+
+## Optional Configure Options
+
+```conf
+--help=short
+just lists the options added by the particular package (= Dovecot)
+Options are usually listed as --with-something or --enable-something. If you want to disable them, do it as --without-something or --disable-something. There are many default options that come from autoconf, automake or libtool. They are explained elsewhere.
+
+Here is a list of options that Dovecot adds. You should not usually have to change these, but they are described here just for completeness:
+
+--enable-devel-checks
+Enables some extra sanity checks. This is mainly useful for developers. It does quite a lot of unnecessary work but should catch some programming mistakes more quickly.
+--enable-asserts
+Enable assertion checks, enabled by default. Disabling them may slightly save some CPU, but if there are bugs they can cause more problems since they are not detected as early.
+--without-shared-libs
+Link Dovecot binaries with static libraries instead of dynamic libraries.
+--disable-largefile
+Specifies if we use 32bit or 64bit file offsets in 32bit CPUs. 64bit is the default if the system supports it (Linux and Solaris do). Dropping this to 32bit may save some memory, but it prevents accessing any file larger than 2 GB.
+--with-mem-align=BYTES
+Specifies memory alignment used for memory allocations. It is needed with many non-x86 systems and it should speed up x86 systems too. Default is 8, to make sure 64bit memory accessing works.
+--with-ioloop=IOLOOP
+Specifies what I/O loop method to use. Possibilities are select, poll, epoll and kqueue. The default is to use the best method available on your system.
+
+--with-notify=NOTIFY
+Specifies what file system notification method to use. Possibilities are dnotify, inotify (both on Linux), kqueue (FreeBSD) and none. The default is to use the best method available on your system. See Notify method above for more information.
+
+--with-storages=FORMATS
+Specifies what mailbox formats to support. Note: Independent of this option, the formats raw and shared will be always built.
+
+--with-solr
+Build with Solr full text search support
+--with-zlib
+Build with zlib compression support (default if detected)
+--with-bzlib
+Build with bzip2 compression support (default if detected)
+SQL Driver Options
+SQL drivers are typically used only for authentication, but they may be used as a lib-dict backend too, which can be used by plugins for different purposes.
+
+--with-sql-drivers
+Build with specified SQL drivers. Defaults to all that were found with autodetection.
+--with-pgsql
+Build with PostgreSQL support (requires pgsql-devel, libpq-dev or similar package)
+--with-mysql
+Build with MySQL support (requires mysql-devel, libmysqlclient15-dev or similar package)
+--with-sqlite
+Build with SQLite3 driver support (requires sqlite-devel, libsqlite3-dev or similar package)
+Authentication Backend Options
+The basic backends are built if the system is detected to support them:
+
+--with-shadow
+Build with shadow password support
+
+--with-pam
+Build with PAM support
+
+--with-nss
+Build with NSS support
+
+--with-sia
+Build with Tru64 SIA support
+--with-bsdauth
+Build with BSD authentication support (if supported by your OS)
+
+Some backends require extra libraries and are not necessarily wanted, so they are built only if specifically enabled:
+
+--with-sql
+Build with generic SQL support (drivers are enabled separately)
+--with-ldap
+Build with LDAP support (requires openldap-devel, libldap2-dev or similar package)
+--with-gssapi
+Build with GSSAPI authentication support (requires krb5-devel, libkrb5-dev or similar package)
+--with-vpopmail
+Build with vpopmail support (requires vpopmail sources or a devel package)
+It is also possible to build these as plugins by giving e.g. --with-sql=plugin.
+
+Dynamic IMAP and POP3 Modules
+The mail_plugins setting lists all plugins that Dovecot is supposed to load from the mail_plugin_dir directory at program start. These plugins can do anything they want. They are only expected to contain the <plugin name>_init and <plugin name>_deinit functions which are called at startup and at exit.
+
+* The plugin filename is prefixed with a number which specifies the order in which the plugins are loaded. This is important if one plugin depends on another.
+```
+
+## email安装过程相关问题和配置
+
+```sh
+# 出现Maildir权限问题解决方法
+# 检查selinux状态并关闭
+# 方法一：/usr/sbin/sestatus -v
+# 方法二：
+getenforce 0 #  设置selinux为permissive模式()临时关闭，不用重启，重启后失效
+# 永久生效方法：
+vi /etc/selinux/config
+SELINUX=enforcing更改为SELINUX=disabled
+
+# 建立防火墙规则
+vi /usr/local/sbin/startmailf
+#!/bin/bash
+#create:
+#Creater:
+iptables -I INPUT -p tcp --dport 110 -j ACCEPT     #允许邮件收信110端口，POP3的IP入口
+iptables -I INPUT -p udp --dport 110 -j ACCEPT     #允许邮件收信110端口，POP3的带数据包入口
+iptables -I INPUT -p tcp --dport 25 -j ACCEPT      #允许邮件发信25端口，IP入口
+iptables -I INPUT -p udp --dport 25 -j ACCEPT      #允许邮件发信25端口，带数据包入口
+iptables -I INPUT -p udp --dport 143 -j ACCEPT     #允许邮件收信143端口，IMAP的IP入口
+iptables -I INPUT -p tcp --dport 143 -j ACCEPT     #允许邮件收信143端口，IMAP的带数据包入口
+iptables -I INPUT -p udp --dport 22 -j ACCEPT      #开放PUTTY和WINSCP 22号端口，方便管理员进入
+iptables -I INPUT -p tcp --dport 22 -j ACCEPT      #开放PUTTY和WINSCP 22号端口，方便管理员进入
+iptables -I INPUT -p tcp --dport 53 -j ACCEPT      #开放DNS查询端口，这样能解析到邮件服务器
+iptables -I INPUT -p udp --dport 53 -j ACCEPT      #开放DNS查询端口，这样能解析到邮件服务器
+service network restart                            #重启网络
+service postfix restart                            #重启postfix
+service dovecot restart                            #重启dovecot
+service saslauthd restart                          #重启ASAL授权
+#也可以再加456，1925，587等邮件SSL/TLS端口，80网页管理端口，根据你的邮件服务器而定。
+
+# 将防火墙规则开机自启动
+vi /etc/rc.local
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff.
+touch /var/lock/subsys/local
+sh /usr/local/sbin/startmailf  #把创建的防火墙规则加在这一行
+
+# CentOS系统一般都自带sendmail的，如果不需要，可以使用以下命令删除
+rpm -e sendmail
+
+# 检查默认邮件传输代理(MTA)
+* alternatives --display mta
+# 默认是sendmail，更改MTA为postfix
+/usr/sbin/alternatives --set mta /usr/sbin/sendmail.postfix
+# 配置Postfix
+* Postfix配置文件主要是两个master.cf和main.cf，这里我们只需要配置main.cf，即/etc/postfix/main.cf
+# 更改以下内容
+myhostname = mail.1a-centosserver.com
+mydomain = 1a-centosserver.com
+myorigin = $mydomain
+inet_interfaces = all
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+mynetworks = 192.168.13.0/24, 127.0.0.0/8
+relay_domains =
+home_mailbox = Maildir/
+
+# 配置文件解释：
+mydomain:
+mydomain参数是指email服务器的域名，请确保为正式域名（如centos.bz）
+myhostname:
+myhostname参数是指系统的主机名称（如我的服务器主机名称是mail.centos.bz）
+myorigin:
+myorigin参数指定本地发送邮件中来源和传递显示的域名。在我们的例子中，mydomain是centos.bz，也是我的域名。
+对于下面的一行，我们的邮件地址是user@centos.bz而不是user@mail.centos.bz。
+myorigin = $mydomain
+mynetworks:
+mynetworks参数指定受信任SMTP的列表，具体的说，受信任的SMTP客户端允许通过Postfix传递邮件。
+mydestination:
+mydestination参数指定哪些邮件地址允许在本地发送邮件。这是一组被信任的允许通过服务器发送或传递邮件的IP地址。用户试图通过发送从此处未列出的IP地址的原始服务器的邮件将被拒绝。
+inet_interfaces:
+inet_interfaces参数设置网络接口以便Postfix能接收到邮件。
+relay_domains:
+该参数是系统传递邮件的目的域名列表。如果留空，我们保证了我们的邮件服务器不对不信任的网络开放。
+home_mailbox:
+该参数设置邮箱路径与用户目录有关，也可以指定要使用的邮箱风格
+
+# 测试Postfix SMTP连接
+service postfix status
+检测默认smtp端口25是否已经监听
+netstat -an | grep 25
+设置postfix开机启动
+chkconfig postfix on
+开始测试postfix是否工作正常
+telnet localhost 25
+所有邮件发送到/home/user/Maildir/new
+
+# 邮件别名设置
+配置文件位置：/etc/alises里，格式：
+[Format]
+Receiving Account or other aliaes:recipient A,recipient B,.....
+例一:root:root,james # 表示root用户的邮件对于用户james和root都可以接收到
+例二：class2017:james,anna,mark #设置群邮件，表示设置了群邮件名class2017，当发送一封邮件到class2017@qq.com时，用户james、anna、mark都可以收到邮件
+使用“newaliases”命令激活邮件别名功能
+当编辑/etc/aliases文件后，必须执行newaliases命令更新别名数据库
+POP/IMAP设置
+为了使用户可以在本地机器下载邮件，必须在邮件服务器安装并设置POP或IMAP，docecot是适用在Linux邮件系统POP/IMAP邮件服务器之一，支持maildir和mbox格式
+```
+
+## 安装和配置dovecot
+
+```sh
+* 首先检测dovecot软件包是否已经安装
+rpm -qa dovecot
+用yum命令安装：yum -y install dovecot
+Dovecot配置文件在/etc/dovecot.conf，需要改动的地方如下
+
+vim /etc/dovecot.conf
+# Protocols we want to be serving: imap imaps pop3 pop3s
+# If you only want to use dovecot-auth, you can set this to "none".
+protocols = imap imaps pop3 pop3s
+删除protocols行前面的“#”来激活imap imaps pop3和pop3s服务
+
+启动dovecot:
+service dovecot start #centos6.x
+systemctl start dovecot #centos7.x
+chkconfig dovecot on #centos6.x
+systemctl enable dovecot  #centos7.x
+使用telnet命令检测110（pop3）和143（imap）端口
+telnet 127.0.0.1 110
+telnet 127.0.0.1 143
+ps -ef | grep dovecot # 显示dovecot守护进程
+
+# 配置使用Dovecot SASL进行SMTP验证
+
+# 1、编辑 /etc/dovecot.conf，确保auth default区域有如下设置值：
+auth default {
+  socket listen {
+    client {
+  path = /var/spool/postfix/private/auth
+  mode = 0660
+  user = postfix
+  group = postfix
+    }
+  }
+  mechanisms = plain login
+}
+
+# 2、编辑/etc/postfix/main.cf，增加如下代码启用sasl认证。
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+smtpd_recipient_restrictions =  permit_mynetworks,
+    permit_sasl_authenticated, reject_unauth_destination
+broken_sasl_auth_clients = yes
+
+# 3、重启服务
+service postfix restart
+service dovecot restart
+# 现在你可以使用邮件客户端代理软件和系统用户及密码来连接我们的Dovecot服务器了。
+
+# **详细配置文档说明**
+
+* /etc/postfix/目录有两个主配置文件main.cf和master.cf，我们主要设置main.cf，master.cf基本保持默认就行。
+postfix有100多个参数，但我们可以根据自己的要求去改少量的参数，其它保持默认就可。
+
+修改任何文件之前必须把原文件备份。
+cp /etc/postfix/main.cf /etc/postfix/main.cf.bak
+
+vi /etc/postfix/main.cf
+alias_database = hash:/etc/aliases       #用户别名数据文件，默认，可根据自己的要求可改成SQL,LDAP,VIRTUAL
+alias_maps = hash:/etc/aliases           #用户别名配置文件，默认，可根据自己的要求可改成SQL,LDAP,VIRTUAL
+broken_sasl_auth_clients = yes           #设定 SASL 支持非标准 E-mail Client 的认证动作，自己添加
+command_directory = /usr/sbin            #命令目录      默认
+config_directory = /etc/postfix          #配置文件目录 默认
+daemon_directory = /usr/libexec/postfix  #守护进程目录 默认
+data_directory = /var/lib/postfix        #数据目录  默认
+debug_peer_level = 2                     #排错管理级别 默认
+home_mailbox = Maildir/                  #主目录存储格式，你也可以设成另外的格式mbox，
+html_directory = no                      #是否支持网页格式管理
+inet_interfaces = all                    #参数指定postfix系统监听的网络接口
+inet_protocols = all                     #只支持IPv4协议，还是IPv4 IPv6都支持,还是主机，ip
+mail_owner = postfix                     #邮件及邮件队列的所有者
+#mail_spool_directory = /vbox            #指定UNIX风格的邮箱保存的目录。默认设置取决于系统类型。
+mailq_path = /usr/bin/mailq.postfix      #指定查看邮件队列命令MAILQ的路径
+manpage_directory = /usr/share/man       #Postfix的在线手册页的位置
+mydestination = $myhostname,... #参数指定postfix接收邮件时收件人的域名，即您的postfix系统要接收到哪个域名的邮件
+mydomain = davistest.com         #参数指定您的域名，默认情况下，postfix将myhostname的第一部分删除而作为mydomain的值
+myhostname = mail.davistest.com  #参数指定运行postfix邮件系统的主机的主机名，默认情况下，其值被设定为本地机器名
+mynetworks = 192.168.1.0/24 #参数指定你所在的网络的网络地址，postfix系统根据其值来区别用户是远程的还是本地的
+myorigin = $mydomain                     #参数用来指明发件人所在的域名
+newaliases_path = /usr/bin/newaliases.postfix #刷新别名命令newaliases路径
+queue_directory = /var/spool/postfix      #指定队列的位置
+readme_directory = /usr/share/doc/postfix-2.6.6/README_FILES #帮助文档位置
+sample_directory = /usr/share/doc/postfix-2.6.6/samples   #模板文件位置
+sendmail_path = /usr/sbin/sendmail.postfix #发送邮件命令的位置
+setgid_group = postdrop  #这个组是提交邮件和对列管理命令
+message_size_limit = 10240000  #限制发送人单个邮件的大小，单位是Byte
+smtpd_recipient_restrictions = permit_mynetworks,
+permit_sasl_authenticated,reject_unauth_destination  #信件收件的限制
+smtpd_sasl_security_options = noanonymous  #拒绝匿名登入
+smtpd_sasl_auth_enable = yes    #Postfix SMTP server支援SASL验证
+smtpd_sasl_path = private/auth  #postfix与dovecot通讯程序文件路径
+smtpd_sasl_type = dovecot       #指定sasl验证程序
+unknown_local_recipient_reject_code = 550
+#拒绝不存在的本地帐户／「不明使用者」(unknown user)
+#如果收信地址的人名部份，在任何对照表、别名表、系统帐户都查不出来，
+#这个人会被视为「不明使用者」(unknown user)，系统会拒收。
+#如果希望蒐集这类信件，使用下列设定，并指定集中收集的信箱
+#以上的mydestination一定要有本机主机名，要不然会收不到信
+
+# postfix也自带很多反垃圾设置，可根据实际情况以及自己的需要进行调整。
+smtpd_helo_required = yes #握手要求
+smtpd_delay_reject = yes  #中继要求
+smtpd_client_restrictions =
+check_client_access hash:/etc/postfix/client_access #客户端访问控制列表
+smtpd_helo_restrictions=
+reject_invalid_hostname,check_helo_access hash:/usr/local/etc/postfix/helo_access#主机和握手控制列表
+smtpd_sender_restrictions =                 #客户端发送人控制列表
+ reject_non_fqdn_sender,                    #拒收没有注册域名的发送者
+ reject_unknown_sender_domain,              #拒收不知发件人域的发送者
+ check_sender_access hash:/usr/local/etc/postfix/sender_access  #发件人控制列表
+smtpd_recipient_restrictions=               #收件控制
+ permit_mynetworks,                         #允许我的网络定义的客户端收信
+ permit_sasl_authenticated,                 #允许simple authenticated security layer 授权的客户端。
+ reject_non_fqdn_hostname,                  #拒收没有注册的主机
+ reject_non_fqdn_sender,                    #拒收没有注册的发送人
+ reject_non_fqdn_recipient,                 #拒收没注册的接收者
+ reject_unauth_destination,                 #拒收没授权的目的主机
+ reject_invalid_hostname,                   #拒收不可用的主机
+ #还有很多
+ smtpd_data_restrictions = reject_unauth_pipelining         #拒绝没有授权的通道
+    header_checks = regexp:/postfix/head_checks      #绝对路径邮件头（主题，附件名等）控制列表
+    body_checks = regexp:/etc/postfix/body_checks    ##绝对路径邮件内容控制列表
+创建刚才指定的文件就不一一写出来了，照这个方法就行了
+ touch /usr/local/etc/postfix/head_checks
+ touch /usr/local/etc/postfix/body_checks
+ postmap /usr/local/etc/postfix/head_checks
+ postmap /usr/local/etc/postfix/body_checks
+
+还是例举一下吧，要不然想了解的都不知文档怎么写。
+假如/etc/postfix/mail.cf 下有如下反垃圾设置：
+smtpd_client_restrictions = check_client_access hash:/etc/postfix/access_client
+smtpd_helo_restrictions = check_client_access hash:/etc/postfix/helo_client
+smtpd_sender_restrictions = check_client_access hash:/etc/postfix/sender_client
+smtpd_recipient_restrictions = check_client_access hash:/etc/postfix/recipient_client
+header_checks = regexp:/etc/postfix/header_check
+body_checks = regexp:/etc/postfix/body_check
+
+那么我们在access_client/helo_client/sender_client/recipient_client 文件的语法如下：
+列表分三项，第一项是规则内容，第二项是对满足规则时所采取的行动，第三项是返回给客户端的信息
+客户端域名/ip   550/REJECT/OK.. 你不可以通过我们的服务器发邮件！access_client
+客户端域名/ip   550/REJECT/OK.. 禁止davis通过本服务器发送邮件  sender_client
+客户端域名/ip   550/REJECT/OK.. 服务器拒收来自davis的邮件.     recipient_client
+客户端IP/域名   550/REJECT/OK.. 服务器拒绝你的连接.             helo_client
+不详说了，知道它是怎么工作的就行了，现在有很多软件,比如Mailscanner..功能强大，易管理。
+ 配完之后，你可以用postconf -n main.cf去查看没有注释的内容。
+ 我们用pam去调用连接系统用户为邮件用户验证saslauthd,当然也可以用LDAP,MYSQL等，或SYRUS的shadow.后面我们会讲到。
+# Directory in which to place saslauthd's listening socket, pid file, and so
+# on.  This directory must already exist.
+SOCKETDIR=/var/run/saslauthd
+# Mechanism to use when checking passwords.  Run "saslauthd -v" to get a list
+# of which mechanism your installation was compiled with the ablity to use.
+MECH=pam                                                                         #这行MECH设成pam
+# Options sent to the saslauthd. If the MECH is other than "pam" uncomment the next line.
+# DAEMONOPTS=--user saslauth
+# Additional flags to pass to saslauthd on the command line.  See saslauthd(8)
+# for the list of accepted flags.
+FLAGS=
+我们用的是dovecot给客户端验证收信，所以我们先确定pam下的dovecot授权如下。
+Vi /etc/pam.d/dovecot
+#%PAM-1.0
+auth       required     pam_nologin.so
+auth       include      password-auth
+account    include      password-auth
+session    include      password-auth
+接着配置dovecot的收信
+
+protocols = imap pop3 lmtp               #开放IMAP POP3 等协议 路径/etc/dovecot/dovecot.conf
+auth_mechanisms = plain login            #授权机制，如果我们用POSTADMIN网页管理，也可用什么MD5等等
+                                             #路径/etc/dovecot/conf.d/10-auth.conf
+disable_plaintext_auth = no              #允许用明文认证登陆，路径/etc/dovecot/conf.d/10-auth.conf
+listen = *                               #我们只监听IPV4端口。路径/etc/dovecot/dovecot.conf
+mail_location = maildir:/vbox/%u/Maildir #邮件目录，%u表示用户名。路径/etc/dovecot/conf.d/10-mail.conf
+mbox_write_locks = fcntl                 #邮箱锁的方法。路径/etc/dovecot/conf.d/10-mail.conf
+passdb {                                 #帐户授权
+args = dovecot                           #就是/etc/pam.d/下的dovecot文件
+driver = pam                             #帐户授权数据提供商
+}                                        # 路径/etc/dovecot/conf.d/auth-system.conf.ext
+service auth {                           #服务授权
+unix_listener /var/spool/postfix/private/auth {  #UNIX监听的授权文件
+  group = postfix                        #指定监听授权文件的属组为POSTFIX
+  mode = 0666                            #指定监听授权文件组权限为666
+  user = postfix                         #指定监听授权文件的属主为postfix
+  }                                      #路径 /etc/dovecot/conf.d/auth-system.conf.ext
+}
+userdb {                                 #用户数据
+driver = passwd                          #共用系统密码驱动
+}
+
+# 建立邮件存放目录邮件备份目录
+mkdir /vbox                              #建立邮件MAILDIR目录
+chmod 755 /vbox                          #给权限
+mkdir /backup                            #删除用户的备份目录
+chmod 755 /backup                        #备份目录权限
+mkdir /etc/postfix/Mail_Group            #邮件组软链目录，以后做管理面版脚本要用
+
+# 启动服务
+service postfix start
+service dovecot start
+service saslauthd start
+# 设置服务开机自动启动
+chkconfig postfix on
+chkconfig dovecot on
+chkconfig saslauthd on
+##  脚本编写
+# 管理员控制面版
+vi /usr/local/sbin/main
+#!/bin/bash
+#create: 15-Nov-2014
+#Creater: Davis Dai
+echo "1 新建邮件帐号"            #在屏幕上输出菜单
+echo "2 查看邮件帐号"
+echo "3 删除邮件帐号"
+echo "4 新建邮件组"
+echo "5 删除邮件组"
+echo "6 查看邮件组"
+echo "7 添加用户到组"
+echo "8 从组里删除用户"
+echo "0 退出邮件管理"
+order=""                          #设参数为你要先择的菜单
+echo "请选择任务代码："
+read order
+echo $order >/tmp/order.txt
+if [ "$order" == "1" ];then         #设条件根据你的选择跳到相应的管理模块
+    mailacounts;
+elif [ "$order" == "2" ];then
+    viewusers;
+elif [ "$order" == "3" ];then
+    dusers;
+elif [ "$order" == "4" ];then
+    groupacounts;
+elif [ "$order" == "5" ];then
+    dgroup;
+elif [ "$order" == "6" ];then
+  viewgroup;
+elif [ "$order" == "7" ];then
+    AMFG;
+elif [ "$order" == "8" ];then
+    RMFG;
+elif [ "$order" == "0" ];then
+   exit 0;
+else                                           #如果你的选择不是以上菜单，提示错误并返回控制面版。
+    echo "任务代码错误，请重新输入！"
+    main
+fi
+
+# 新建邮件模块
+vi /usr/local/sbin/mailacounts
+home="/vbox/"                                           #没置目录参数
+useraccount=""                                          #设置用户参数
+echo "请给新用户名字："
+read useraccount
+echo $useraccount > /tmp/user.txt                       #给用户参数赋值
+userpass=""                                             #设置密码参数
+echo "请输入用户密码："
+read userpass
+echo $userpass > /tmp/pass.txt                          #给密码参数赋值
+useradd -d $home/$useraccount $useraccount              #添加用户并指定邮件主目录
+echo $userpass |passwd --stdin $useraccount             #设置邮箱密码
+mkdir -p $home/$useraccount/Maildir/{cur,new,tmp}       #建邮件目录和文件
+mkdir -p $home/$useraccount/Maildir/.Drafts/{cur,new,tmp}
+mkdir -p $home/$useraccount/Maildir/.Sent/{cur,new,tmp}
+mkdir -p $home/$useraccount/Maildir/.Trash/{cur,new,tmp}
+chown -R $useraccount $home/$useraccount/*    #设置属主－R是做个递归，也就是说文件夹下所以有子文件夹和文件
+chmod 700 -R $home/$useraccount/*                       #设置属主有完全权限，其它人没任何权限。
+main                                                    #回到管理员控制面版
+
+# 新建邮件组模块
+vim /usr/local/sbin/groupacounts
+#/bin/bash
+#Create: 14-Nov-2014
+#Creater: Davis Dai
+ls /etc/postfix/Mail_Group/                          #显示现有组
+home="/vbox/"                                        #没置目录参数
+groupaccount=""                                      #设置邮件组参数
+echo "请输入新邮件组名："
+read groupaccount
+echo $groupaccount > /tmp/group.txt                  #给组邮箱参数赋值
+grouppass=""                                         #设置密码参数
+echo "请输入新邮件组密码："
+read grouppass
+echo $grouppass > /tmp/pass.txt                      #给密码参数赋值
+useradd -d $home/$groupaccount $groupaccount         #添加组邮箱并指定邮件主目录
+echo $grouppass |passwd --stdin $groupaccount        #设置组邮箱密码
+mkdir -p $home/$groupraccount/Maildir/{cur,new,tmp}  #建组邮件目录和文件
+mkdir -p $home/$groupaccount/Maildir/.Drafts/{cur,new,tmp}
+mkdir -p $home/$groupaccount/Maildir/.Sent/{cur,new,tmp}
+mkdir -p $home/$groupaccount/Maildir/.Trash/{cur,new,tmp}
+chown -R $groupaccount $home/$groupaccount/*    #设置属主权限－R是做个递归，也就是说文件夹下所以有子文件夹和文件
+chmod 700 -R $home/$groupaccount/*                   #设置属主有完全权限，其它人没任何权限。
+touch $home/$groupaccount/.forward                   #建组邮件名单表
+chown root $home/$groupaccount/.forward              #设置权限给名单表
+chmod 755 $home/$groupaccount/.forward
+ln -s $home/$groupaccount/.forward /etc/postfix/Mail_Group/$groupaccount #做一个软连结，便于查找
+main                                                 #回到管理员控制面版
+
+# 添加邮箱到指定邮箱组模块
+vim /usr/local/sbin/AMFG
+#!/bin/bash
+#Create Date: 15-Nov-2014
+#Creater: Davis Dai
+ls /etc/postfix/Mail_Group
+Groupname=""
+echo "请输入你要加入的组全称："
+read Groupname
+echo $Groupname >/tmp/Groupname.txt
+cat -n /vbox/$Groupname/.forward
+usermail=""
+echo "请输入你要加组的用户邮件地址："
+read usermail
+echo $usermail >/tmp/usermail.txt
+echo $usermail >> /vbox/$Groupname/.forward
+main
+
+# 删除邮箱帐号模块
+vim /usr/local/sbin/dusers
+#!/bin/bash
+#create: 15-Nov-2014
+#Creater: Davis Dai
+ls /vbox/
+deluser=""
+echo "请键入你要删除的用户："
+read deluser
+echo $deluser > /tmp/deluser.txt
+cp -R -u -i /vbox/$deluser /backup/
+userdel $deluser
+rm -rf /vbox/$deluser
+main
+删除邮箱组模块
+
+vim /usr/local/sbin/dgroup
+#!/bin/bash
+#create: 15-Nov-2014
+#Creater: Davis Dai
+ls /etc/postfix/Mail_Group/
+degroup=""
+echo "请键入你要删除的邮件组："
+read degroup
+echo $degroup > /tmp/degroup.txt
+cp -R -u -i /vbox/$degroup /backup/
+userdel $degroup
+rm -rf /vbox/$degroup
+main
+
+# 查找邮箱用户模块
+vim /usr/local/sbin/viewusers
+#!/bin/bash
+#create: 15-Nov-2014
+#Creater: Davis Dai
+ls /vbox/ >/tmp/userview.txt
+cat -n /tmp/userview.txt
+svuser=""
+echo "请输入你要查找的用户名："
+read svuser
+echo $svuser > /tmp/svuser.txt
+if grep -q $svuser /tmp/userview.txt; then
+    echo "用户$svuser已经存在!";
+else
+  echo "用户$svuser不存在!";
+fi
+grep -n $svuser /tmp/userview.txt
+main
+
+# 查找用户组模块
+vim /usr/local/sbin/viewgroup
+#!/bin/bash
+#create: 15-Nov-2014
+#Creater: Davis Dai
+ls /etc/postfix/Mail_Group/ >/tmp/groupview.txt
+cat -n /tmp/groupview.txt
+svgroup=""
+echo "请输入你要查找的邮件组："
+read svgroup
+echo $svuser > /tmp/svgroup.txt
+if grep -q $svgroup /tmp/groupview.txt; then
+     echo "邮件组$svgroup已经存在!";
+else
+    echo "邮件组$group不存在!";
+fi
+grep -n $svgroup /tmp/groupview.txt
+main
+
+# 从邮箱组里删除用户模块
+vi /usr/local/sbin/RMFG
+#!/bin/bash
+#create: 15-Nov-2014
+#Creater: Davis Dai
+ls /etc/postfix/Mail_Group >/tmp/groupview.txt
+cat -n /tmp/groupview.txt
+sgroup=""
+echo "请键入你要删除的用户属组名称："
+read sgroup
+echo $scgoup >/tmp/sgroup.txt
+cat -n /vbox/$sgroup/.forward
+rguser=""
+echo "请键入你要删除的用户编号："
+read rguser
+echo $rguser >/tmp/rguser.txt
+sed -i ''$rguser'd' /vbox/$sgroup/.forward #按编号删除
+#sed -i “/$rguser/d” /vbox/$sgroup/.forward #按地址删除
+main
+```
+
+## 管理员手册
+
+```sh
+# 进入服务器，输入邮件管理命令main,管理所有的任务
+[root@mail sbin]# main
+1 新建邮件帐号
+2 查看邮件帐号
+3 删除邮件帐号
+4 新建邮件组
+5 删除邮件组
+6 查看邮件组
+7 添加用户到组
+8 从组里删除用户
+0 退出邮件管理
+请选择任务代码：
+
+# 新建邮件帐号
+[root@mail ~]# main
+1 新建邮件帐号
+2 查看邮件帐号
+3 删除邮件帐号
+4 新建邮件组
+5 删除邮件组
+6 查看邮件组
+7 添加用户到组
+8 从组里删除用户
+0 退出邮件管理
+请选择任务代码：
+1
+请给新用户名字：
+john
+请输入用户密码：
+123456
+Changing password for user john.
+passwd: all authentication tokens updated successfully.
+
+# 客户端测试
+只测试收发信，其它组呀，安全等都可以自行设置
+```
+
+```conf
+# PostfixAdmin网页管理界面
+# 依赖包的安装
+yum install －y mysql-server php php-mysql php-imap php-mbstring
+
+# [PostfixAdmin软件源码包下载网址](https://sourceforge.net/projects/postfixadmin/files/postfixadmin/)
+# 下载解压后添加权限
+tar -xzvf postfixadmin-2.92.tar.gz
+chmod 777 /postfixadmin/ -R
+# 修改PostfixAdmin网页主配置文件
+ vim /postfixadmin/config.inc.php
+ $CONF['configured'] = true;
+ $CONF['postfix_admin_url'] = '/postfixadmin';
+ $CONF['database_type'] = 'mysqli';
+ $CONF['database_host'] = 'localhost';
+ $CONF['database_user'] = 'vmail';
+ $CONF['database_password'] = 'vmail';
+ $CONF['database_name'] = 'vmail';
+ $CONF['domain_path'] = 'YES';
+ $CONF['domain_in_mailbox'] = 'NO';
+ $CONF['encrypt'] = 'dovecot:CRAM-MD5';
+ $CONF['emailcheck_resolve_domain] = 'NO';
+ $CONF['dovecotpw'] = "/usr/bin/doveadm pw";
+```
+
+```sh
+# 新建PostfixAdmin数据库,启动MySql服务
+service mysqld start
+
+进入MySql命令工具，默认的MySql用户root的密码是空的
+mysql -u root -p
+
+mysql> CREATE DATABASE vmail;
+mysql> GRANT ALL PRIVILEGES ON vmail.* TO 'vmail'@'localhost' IDENTIFIED BY 'vmail';
+mysql> flush privileges;
+mysql> \q
+touch /postfixadmin/DATABASE_MYSQL.TXT
+mysql -uvmail -p vmail < /postfixadmin/DATABASE_MYSQL.TXT
+如果显示ACCESS DENIY, mysql -u vmail -p vmail
+mysql> set password = password ('newpassword')
+
+
+配置PostfixAdmin网页管理应用
+
+安装网页程序apache, 默认是已安装的，所以这你可以省了，你可以先查看一下，是否有安装，再决定。
+rpm -qa|grep httpd      #查看是否安装
+yum install httpd -y    #安装
+新建网页索引文件
+vim /etc/httpd/conf.d/postfixadmin.conf
+Alias /postfixadmin /postfixadmin
+启动Apache服务
+service httpd start
+POSTFIX的虚拟用户MYSQL设置和sasl设置
+
+建立邮件目录和管理用户
+
+useradd -u 1000 -d /vmail -s /sbin/nologin vmail
+mkdir /vmail
+chmod 770 /vmail/
+chown vmail:vmail /vmail/
+vim /etc/postfix/main.cf  加入如下设置。
+
+######################Virtual Settings##########################
+virtual_mailbox_domains = proxy:mysql:/etc/postfix/mysql_virtual_domains_maps.cf
+virtual_alias_maps = proxy:mysql:/etc/postfix/mysql_virtual_alias_maps.cf
+virtual_mailbox_maps = proxy:mysql:/etc/postfix/mysql_virtual_mailbox_maps.cf
+virtual_mailbox_base = /vmail
+virtual_minimum_uid = 1000
+virtual_uid_maps = static:1000
+virtual_gid_maps = static:1000
+virtual_transport = dovecot
+#####################SASL Settings###############################
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+broken_sasl_auth_clients = yes
+smtpd_recipient_restrictions = permit_mynetworks,
+                             permit_sasl_authenticated,
+                             reject_non_fqdn_hostname,
+                             reject_non_fqdn_sender,
+                             reject_non_fqdn_recipient,
+                             reject_unknown_sender_domain,
+                             reject_unknown_recipient_domain,
+                             reject_unauth_pipelining,
+                             reject_unauth_destination,
+                             reject_invalid_hostname
+###################Mail Quota Settings###############################
+message_size_limit = 204800000
+maximal_queue_lifetime = 1d
+bounce_queue_lifetime = 1d
+vim /etc/postfix/master.cf  最后行加入，flages 前一定要有两个空格哦
+dovecot unix -  n  n  -  -  pipe
+  flags=DRhu user=vmail:vmail argv=/usr/libexec/dovecot/deliver -d ${recipient}
+[root@mail ~]# vim /etc/postfix/mysql_virtual_domains_maps.cf
+user = vmail
+password = vmail
+hosts = localhost
+dbname =vmail
+table = domain
+select_field = domain
+where_field = domain
+additional_conditions = and backupmx = '0' and active = '1'
+[root@mail ~]# vim /etc/postfix/mysql_virtual_alias_maps.cf
+user = vmail
+password = vmail
+hosts = localhost
+dbname = vmail
+table = alias
+select_field = goto
+where_field = address
+additonal_conditions = and active = '1'
+[root@mail ~]# vim /etc/postfix/mysql_virtual_mailbox_maps.cf
+user = vmail
+password = vmail
+hosts =localhost
+dbname = vmail
+table = mailbox
+select_field = CONCAT(domain,'/',maildir)
+where_field =username
+additional_conditions = and active = '1'
+vim /etc/postfix/mysql_virtual_mailbox_limit_maps.cf
+user = vmail
+password vmail
+hosts = localhost
+dbname= vmail
+table = mailbox
+select_field = quota
+where_field = username
+additional_conditions = and active ='1'
+DOVECOT收信和SMTPD认证
+
+[root@mail ~]# vim /etc/dovecot/dovecot.conf 修改如下选项
+protocols = imap pop3 lmtp
+listen = *
+base_dir = /var/run/dovecot/
+#first_valid_uid = 89
+#last_valid_uid = 89
+#maildir_copy_with_hardlinks = yes
+[root@mail ~]# vim /etc/dovecot/conf.d/10-auth.conf  修改如下选项
+disable_plaintext_auth = no
+auth_mechanisms = plain login cram-md5
+!include auth-sql.conf.ext
+[root@mail ~]# vim /etc/dovecot/conf.d/10-master.conf   修改如下选项
+unix_listener /var/spool/postfix/private/auth {
+  mode = 0666
+  user = vmail
+  group = vmail
+}
+[root@mail ~]# vim /etc/dovecot/conf.d/10-mail.conf 修改如下选项
+mail_location = maildir:/vmail/%u/Maildir
+[root@mail ~]# vim /etc/dovecot/conf.d/15-lda.conf  修改如下选项
+protocol lda {
+  postmaster_address = postmaster@dggd.com
+  sendmail_path = /usr/lib/sendmail
+  auth_socket_path = /var/run/dovecot/auth-master
+}
+[root@mail ~]# vim /etc/dovecot/conf.d/20-pop3.conf  修改如下选项
+pop3_uidl_format = %08Xu%08Xv
+[root@mail ~]# vim /etc/dovecot/conf.d/auth-sql.conf.ext  修改如下选项
+passdb {
+  driver = sql
+  args = /etc/dovecot/dovecot-sql.conf.ext
+}
+userdb {
+  driver = sql
+  args = /etc/dovecot/dovecot-sql.conf.ext
+}
+[root@mail ~]# vim /etc/dovecot/dovecot-sql.conf.ext
+driver = mysql
+connect = host=localhost dbname=vmail user=vmail password=vmail
+default_pass_scheme = PLAIN-MD5
+password_query = SELECT username as user, password, '/vmail/%d/%n' as userdb_home, 'maildir:/vmail/%d/%n/Maildir' as userdb_mail, 1000 as userdb_uid, 1000 as userdb_gid FROM mailbox WHERE username = '%u' AND active = '1'
+user_query = SELECT '/vmail/%d/%n' as home, 'maildir:/vmail/%d/%n/Maildir' as mail, 1000 AS uid, 1000 AS gid, concat('dirsize:storage=', quota) AS quota FROM mailbox WHERE username = '%u' AND active = '1'
+改文件权限
+[root@mail ~]# chmod 600 /etc/dovecot/* -R
+[root@mail ~]# chown vmail /etc/dovecot/* -R
+[root@mail ~]# chomd 777 /var/run/dovecot/auth-master
+打开PostfixAdmin管理界面 http://localhost/postfixadmin/setup.php 填写安装密码
+复制产生出来的安装密码写入到主配置文件/postfixadmin/config.inc.php的$CONF['setup_password'] =''; 然后设置超级管理员和密码
+接着成功的登陆PostfixAdmin管理你的邮件帐户
+RoundCube网页访问客户端
+下载解压改名，放入网页引导路径。
+
+下载
+wget http://sourceforge.net/projects/roundcubemail/files/roundcubemail/1.0.3/roundcubemail-1.0.3.tar.gz/download
+解压
+tar -zxvf roundcubemail-1.0.3.tar.gz
+放入网页引导路径
+cp roundcubemail-1.0.3 /var/www/html/ -R
+改名
+mv /var/www/html/roundcubemail-1.0.3 /var/www/html/usermail
+Apache添加php模块
+
+vim /etc/httpd/conf/httpd.conf 添加下面两行
+  AddType application/x-httpd-php .php
+  PHPIniDir "/etc/php.ini"
+添加PHP模块时间区域
+
+vim /etc/php.ini 添加下面一行
+   date.timezone = Asia/Shanghai
+修改权限
+chmod 777 /var/www/html/usermail/temp
+chmod 777 /var/www/html/usermail/logs
+chmod 777 /var/www/html/usermail/config -R
+chmod 777 /var/lib/php/session -R
+配置CONFIG文件与postfixadmin连接同一个数据库。
+
+启用CONFIG文件
+cp /var/www/html/usermail/config/config.inc.php.sample  /var/www/html/usermail/config/config.inc.php
+改写MYSQL数据查询与POSTFIXADMIN一样
+vim /var/www/html/usermail/config/config.inc.php 修改下面一行。
+  $config['db_dsnw'] = 'mysql://vmail:vmail@localhost/vmail';
+  $config['enable_installer'] = true;
+安装PHP-DOM
+yum install php53-dom
+yum -y install php-dom
+网页配置
+ 1: http://域名或IP/usermail/installer 打开IE，点击NEXT(下一步).
+ 2: Create config，设置你的配置文件，显示/服务器名/网络/数据库连接(与postfixadmin相同数据)..等等。自己揣摸。
+ 3: TEST CONFIG
+  出现如下NOT OK.数据库没有初始化
+    Check DB config
+    DSN (write):  OK
+    DB Schema:  NOT OK(Database not initialized)
+ 点击 Initialize Database, 初始化数据，它会返回结果OK.
+    Check DB config
+    DSN (write):  OK
+    DB Schema:  OK
+    DB Write:  OK
+    DB Time:  OK
+  输入POSTFIXADMIN建的邮件地址测试SMTP和IMAP.会返回结果OK.
+
+  完成了，http://域名或IP/usermail
+
+***
+***
+***
+<h1 style="text-align:center">OPENWEBMAIL网页邮件架设</h1>
+
+# 安装前提：yum –y install perl-suidperl perl-Compress-Zlib perl-Text-Iconv或yum install -y perl*
+
+如果PERL-TEST-ICOV 安装失败，请参照如下去下载:
+wget http://openwebmail.org/openwebmail/download/redhat/rpm/packages/centos5/perl-Text-Iconv/i386/perl-Text-Iconv-1.7-2.el5.i386.rpm
+
+安装：rpm -ivh perl-Text-Iconv-1.7-2.el5.i386.rpm
+检查是否安装成功： rpm –qa |grep perl-
+
+安装APACHE: Yum –y install httpd
+进入YUM源目录：cd /etc/yum.repos.d
+下载Yum源：wpget http://openwebmail.org/openwebmail/download/redhat/rpm/release/openwebmail.repo
+在线安装：Yum –y install openwebmail
+离线安装：http://openwebmail.org/openwebmail/download/release/openwebmail-2.53.tar.gz
+
+# 修改配置文件：
+vim /var/www/cgi-bin/openwebmail/etc/default/dbm.conf
+vim /var/www/cgi-bin/openwebmail/etc/dbm.conf
+dbm_ext                 .pag
+dbmopen_ext             none
+dbmopen_haslock         yes
+smtpserver                  192.168.222.41
+cd /var/www/cgi-bin/openwebmail/
+./openwebmail-tool.pl –-init
+
+# 测试
+IE访问：http://mail.davis.dg/cgi-bin/openwebmail/openwebmail.pl
+
+# POSTFIX邮件恢复
+例如：恢复“DNS”邮件目录
+从邮件服务器backup目录/restore/davis_dai找到要恢复的
+cd /restore/davis_dai/Maildir
+
+drwx—— 5 davis_dai 2000 4.0K Nov 14 14:36 .Boss
+
+drwx—— 5 davis_dai 2000 4.0K Oct 8 2012 .Deleted Items
+
+drwx—— 5 davis_dai 2000 4.0K May 6 09:12 .Deleted Messages
+
+drwx—— 5 davis_dai users 4.0K Nov 14 14:36 .DNS
+
+cp -a .DNS /home/davis_dai/Maildir
+
+Fix the permission chown davis_dai /home/davis_dai/Maildir/.DNS -R
+
+sendmail安装
+ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
+```
+
 ## shell脚本笔记
 
 ```sh
@@ -3016,8 +4476,6 @@ dd if=/dev/zero of=/opt/swap bs=1k count=1024000
 mkswap /opt/swap    # 将创建的文件用作交换分区
 swapon /opt/swap    # 开启swap
 ```
-
-
 
 ### Linux备份
 

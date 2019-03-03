@@ -1,6 +1,8 @@
 # python3手册
 
 ```py
+python -m SimpleHTTPServer | Serve current directory tree at http://$HOSTNAME:8000/     # 利用python简单建立webserver
+
 # Python开发环境最佳实践
 python -m pip install -U pip setuptools
 
@@ -22,6 +24,22 @@ virtualenv：%VIRTUAL_ENV%\pip.ini
 Linux：/etc/pip.conf
 Windows XP：C:\Documents and Settings\All Users\Application Data\pip\pip.ini
 Windows7或之后版本：C:\ProgramData\pip\pip.ini
+
+# pip配置文件内容如下：
+[global]
+timeout = 120
+no-cache-dir = true
+index-url = https://mirrors.aliyun.com/pypi/simple/
+extra-index-url = https://mirrors.huaweicloud.com/repository/pypi/simple
+
+[freeze]
+timeout = 10
+
+[install]
+ignore-installed = true
+trusted-host =
+    mirrors.aliyun.com
+    mirrors.huaweicloud.com
 ```
 
 ```py
@@ -2031,4 +2049,3 @@ def say(say_please=False):
 
 print(say())                 # Can you buy me a beer?
 print(say(say_please=True))  # Can you buy me a beer? Please! I am poor :(
-

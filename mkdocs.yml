@@ -17,11 +17,12 @@ nav:
     - 'Python3': 'Python3.md'
     - 'Lua': 'Lua.md'
     - 'Go': 'Go.md'
-  - AboutLinux: 
+  - Linux&WinServer: 
     - 'Linux': 'Linux.md'
     - 'Iproute2&Net-tools': 'Utilities.md'
     - 'Iptables': 'Iptables.md'
     - 'Firewalld': 'Firewalld.md'
+    - 'WindowsServer': 'Windows.md'
   - DevOps: 
     - 'Ansible': 'Ansible.md'
     - 'Apollo': 'Apollo.md'
@@ -47,53 +48,45 @@ nav:
     - 'Memcached': 'Memcached.md'
     - 'MongoDB': 'MongoDB.md'
     - 'PostgreSQL': 'PostgreSQL.md'
-    - 'Cassandra': 'Cassandra.md'
-  - Monitor: 
-    - 'Zabbix': 'Zabbix.md'
-    - 'Prometheus': 'Prometheus.md'
-    - 'Grafana': 'Grafana.md'
-    - 'ELKStack': 'Elk.md'
-    - 'Nagios': 'Nagios.md'
-    - 'TICKStack': 'TICK.md'
-    - 'OpenTSDB': 'OpenTSDB.md'
-    - 'SomelseMonitors': 'Monitors.md'
+    - 'BigData': 'BigData.md'
   - LB&HA: 
     - 'LVSKeepalived': 'LVSKeepalived.md'
     - 'HAProxy': 'Haproxy.md'
     - 'Traefik': 'Traefik.md'
     - 'Envoy': 'Envoy.md'
+  - MessageQueue: 
+    - 'ActiveMQ': 'ActiveMQ.md'
+    - 'TheNextGeneration_ActimveMQ': 'ActiveMQApollo.md'
+    - 'Kafka': 'Kafka.md'
+    - 'RabbitMQ': 'RabbitMQ.md'
   - ContainerEcosystem: 
     - 'Docker': 'Docker.md'
     - 'Kubernetes': 'Kubernetes.md'
     - 'OKD': 'OKD.md'
     - 'ContainerOS': 'Coreos.md'
-  - MessageQueue: 
-    - 'ActiveMQ': 'ActiveMQ.md'
-    - 'ActiveMQ Apollo': 'ActiveMQApollo.md'
-    - 'Kafka': 'Kafka.md'
-    - 'RabbitMQ': 'RabbitMQ.md'
+  - Monitor: 
+    - 'Zabbix': 'Zabbix.md'
+    - 'ELKStack': 'Elk.md'
+    - 'Prometheus': 'Prometheus.md'
+    - 'Grafana': 'Grafana.md'
+    - 'Nagios': 'Nagios.md'
+    - 'OpenTSDB': 'OpenTSDB.md'
+    - 'TICKStack': 'TICK.md'
+    - 'SomelseMonitors': 'Monitors.md'
   - FileSystem: 
     - 'Ceph': 'Ceph.md'
     - 'GlusterFS': 'GlusterFS.md'
-    - 'Vsftp': 'Vsftp.md'
   - Security: 
     - 'Snort': 'Snort.md'
   - Network: 
     - 'Cisco': 'Cisco.md'
-    - 'Huawei': 'Huawei.md'
-    - 'DNS': 'DNS.md'
-    - 'Mail': 'Mail.md'
-    - 'Samba': 'Samba.md'
+    - 'Huawei&H3C': 'HW3C.md'
   - CrossGFW: 
     - 'VPN': 'VPN.md'
-    - 'Shadowsocks': 'Shadowsocks.md'
   - TreasureTheLeisure:
     - 'GoogleTricks': 'GoogleTricks.md'
-    - 'Freeswitch': 'Freeswitch.md'
-    - 'Asterisk': 'Asterisk.md'
-    - 'Sipcode': 'Sipcode.md'
+    - 'Voip': 'Voip.md'
     - 'Raspberrypi': 'Raspberrypi.md'
-    - 'Windows': 'Windows.md'
 
 theme:
   name: 'material'
