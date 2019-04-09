@@ -50,7 +50,7 @@ nav:
     - 'PostgreSQL': 'PostgreSQL.md'
     - 'BigData': 'BigData.md'
   - LB&HA: 
-    - 'LVSKeepalived': 'LVSKeepalived.md'
+    - 'LVS': 'LVS.md'
     - 'HAProxy': 'Haproxy.md'
     - 'Traefik': 'Traefik.md'
     - 'Envoy': 'Envoy.md'
@@ -76,13 +76,13 @@ nav:
   - FileSystem: 
     - 'Ceph': 'Ceph.md'
     - 'GlusterFS': 'GlusterFS.md'
-  - Security: 
-    - 'Snort': 'Snort.md'
   - Network: 
     - 'Cisco': 'Cisco.md'
     - 'Huawei&H3C': 'HW3C.md'
   - CrossGFW: 
     - 'VPN': 'VPN.md'
+  - Security: 
+    - 'Snort': 'Snort.md'
   - TreasureTheLeisure:
     - 'GoogleTricks': 'GoogleTricks.md'
     - 'Voip': 'Voip.md'

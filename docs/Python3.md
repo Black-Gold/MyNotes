@@ -4,6 +4,9 @@
 python -m SimpleHTTPServer | Serve current directory tree at http://$HOSTNAME:8000/     # 利用python简单建立webserver
 
 # Python开发环境最佳实践
+# yum -y install epel-release
+# yum -y install python2-pip
+# yum -y install python3-pip
 python -m pip install -U pip setuptools
 
 # python -m site --user-base 找到 用户基础目录,将基础目录添加到PATH

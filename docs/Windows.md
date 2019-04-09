@@ -74,6 +74,16 @@ netdom.exe join %computername% /domain:DomainName /UserD:DomainName\UserName /Pa
 netdom.exe remove %computername% /domain:Domainname /UserD:DomainName\UserName /PasswordD:Password
 ```
 
+java 环境
+
+变量名：Path
+变量值：%java_home%\bin;%java_home%\jre\bin;
+新建变量名：JAVA_HOME
+变量值：C:\Program Files\Java\jdk1.8.0_111; （这里是jdk的安装目录）
+新建变量名：ClassPath
+变量值：%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;.;
+
+```txt
 VMware Workstation 15.x
 FU512-2DG1H-M85QZ-U7Z5T-PY8ZD
 CU3MA-2LG1N-48EGQ-9GNGZ-QG0UD
@@ -88,4 +98,31 @@ FY780-64E90-0845Z-1DWQ9-XPRC0
 UF312-07W82-H89XZ-7FPGE-XUH80
 AA3DH-0PYD1-0803P-X4Z7V-PGHR4
 
+visio密钥
+W9WC2-JN9W2-H4CBV-24QR7-M4HB8
+
+```
+
+## windows更改远程桌面端口
+
+```bat
+regedit打开注册表，分别更改其下的PortNumber键值
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp
+
+bat脚本远程连接；脚本如下。使用示例：rdp.bat "my.host.name.de" "port" "username" "password"
+
+:: RDP connection without password prompt ------------
+:: %1 = hostname
+:: %2 = port
+:: %3 = username
+:: %4 = password
+:: ---------------------------------------------------
+cmdkey /add:"%~1" /user:"%~3" /pass:"%~4"
+start /wait mstsc /v:"%~1:%~2"
+cmdkey /delete:"%~1"
+
+```
+
+## Windows Commands详解大全
 
