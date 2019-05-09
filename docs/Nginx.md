@@ -1,50 +1,47 @@
-# Nginx安装
+# Nginx--Unit
 
 ## centos安装
 
 To set up the yum repository for RHEL/CentOS, create the file named /etc/yum.repos.d/nginx.repo with the following contents:
 
-```repo
-[nginx]
-name=nginx repo
+```sh
+# Replace “OS” with “rhel” or “centos”, depending on the distribution used, and “OSRELEASE” with “6” or “7”, for 6.x or 7.x versions, respectively.
+cat << EOF > /etc/yum.repos.d/nginx.repo
+[nginx-stable]
+name=nginx stable repo
 baseurl=http://nginx.org/packages/OS/OSRELEASE/$basearch/
-gpgcheck=0
+gpgcheck=1
 enabled=1
-Replace “OS” with “rhel” or “centos”, depending on the distribution used, and “OSRELEASE” with “6” or “7”, for 6.x or 7.x versions, respectively.
+gpgkey=https://nginx.org/keys/nginx_signing.key
+EOF
 
-对于Debian / Ubuntu，为了验证nginx存储库签名并在安装nginx软件包时消除有关丢失PGP密钥的警告，有必要将用于签署nginx软件包和存储库的密钥添加到apt程序密钥环中。请从我们的网站下载此密钥，并apt 使用以下命令将其添加到程序密钥环：
-http://nginx.org/keys/nginx_signing.key
 
+# 对于Debian / Ubuntu，为了验证nginx存储库签名并在安装nginx软件包时消除有关丢失PGP密钥的警告，有必要将用于签署nginx软件包和存储库的密钥添加到apt程序密钥环中。请从我们的网站下载此密钥，并apt 使用以下命令将其添加到程序密钥环：
+wget -c http://nginx.org/keys/nginx_signing.key
 sudo apt-key add nginx_signing.key
-对于Debian，用Debian分发 代号取代代号，并将以下内容附加到文件的末尾： /etc/apt/sources.list
 
+# 对于Debian，用Debian分发代号取代codename
+cat << EOF > /etc/apt/sources.list
 deb http://nginx.org/packages/debian/ codename nginx
 deb-src http://nginx.org/packages/debian/ codename nginx
-对于Ubuntu，用Ubuntu分发 代号取代代号，并将以下内容附加到文件的末尾： /etc/apt/sources.list
-
-deb http://nginx.org/packages/ubuntu/ codename nginx
-deb-src http://nginx.org/packages/ubuntu/ codename nginx
-对于Debian / Ubuntu，然后运行以下命令：
+EOF
 
 apt-get update
 apt-get install nginx
 
-Mainline版本的预构建包
-
+# Mainline版本的预构建包;利用rpm包安装
 rpm --import nginx_signing.key
-利用rpm包安装
 wget http://nginx.org/packages/mainline/centos/7/x86_64/RPMS/nginx-1.13.9-1.el7_4.ngx.x86_64.rpm
 rpm -ivh nginx-1.13.9-1.el7_4.ngx.x86_64.rpm
 systemctl enable nginx
 systemctl start nginx
-
 ```
 
 2.从源代码构建nginx
 
-```sh
-http://nginx.org/download/nginx-1.12.2.tar.gz
-构建使用configure命令进行配置。它定义了系统的各个方面，包括nginx允许用于连接处理的方法。最后它创建一个Makefile。该configure命令支持以下参数：
+```info
+wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
+# 构建使用configure命令进行配置。它定义了系统的各个方面，包括nginx允许用于连接处理的方法。最后它创建一个Makefile。该configure命令支持以下参数：
 
 --prefix=path - 定义一个将保留服务器文件的目录。这个相同的目录也将被用于所有相关的路径 configure（除了源资源的路径）和nginx.conf配置文件。它/usr/local/nginx默认设置为目录。
 
@@ -613,3 +610,143 @@ cat gelin_web_access.log | sed -n '/17\/Jul\/2017:12/,/17\/Jul\/2017:13/p' | mor
 
 
 ```
+
+## Unit1.8.0
+
+```sh
+# Control socket位置：/var/run/control.unit.sock
+cat << EOF > /etc/yum.repos.d/unit.repo
+[unit]
+name=unit repo
+baseurl=https://packages.nginx.org/unit/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+EOF
+
+# 设置一个application对象,利用json文件，将对象放入到config/applications下的blogs块中
+curl -X PUT --data-binary @config.json --unix-socket /var/run/control.unit.sock http://localhost/config/applications/blogs/
+# 从listeners对象引用application对象，其包括IP(或任何匹配IP的通配符)和端口号config/listeners
+curl -X PUT --data-binary @config.json --unix-socket /var/run/control.unit.sock http://localhost/config/listeners/127.0.0.1:8300
+# 检查目前的配置，也可以一次性上传上面的两步的全部配置
+curl --unix-socket /var/run/control.unit.sock http://localhost/config/
+
+# 创建对象
+curl -X PUT -d @/path/to/start.json --unix-socket /var/run/control.unit.sock http://localhost/config/
+# 修改application对象blogs,将其listeners更改为*:8400
+curl -X PUT -d '"blogs"' --unix-socket /var/run/control.unit.sock 'http://localhost/config/listeners/*:8400/application'
+# 将blogs的application对象中的root参数更改为/www/blogs-dev
+curl -X PUT -d '"/www/blogs-dev"'  --unix-socket /var/run/control.unit.sock http://localhost/config/applications/blogs/root
+# 删除对象，要删除对象，需要发出DELETE请求并将对象的路径附加到curl URL。如下：删除listener监听*:8400
+curl -X DELETE --unix-socket /var/run/control.unit.sock 'http://localhost/config/listeners/*:8400'
+
+# listeners
+| 选项 | 描述 |
+| :------: | :------: |
+| application(已废弃) | 应用名称,与pass互斥 |
+| pass(required) | 应用或路由名称："pass":"routers/route66","pass":"applications/smart" |
+| tls | SSL/TLS配置,添加certificate实现listener加密通信 |
+
+# Routers,利用routers对象实现listeners和apps内部路由，listeners将请求传递给pass或直接传递给应用程序
+```
+
+```json
+# routers对象包含一个或多个route参数.例如：
+{
+     "listeners": {
+         "*:8300": {
+             "pass": "routes"
+         }
+     },
+
+     "routes": [ "simply referred to as routes" ]
+}
+
+# 多个
+{
+     "listeners": {
+         "*:8300": {
+             "pass": "routes/main"
+         }
+     },
+
+     "routes": {
+         "main": [ "named route, qualified name: routes/main" ],
+         "route66": [ "named route, qualified name: routes/route66" ]
+     }
+}
+```
+
+route参数包含匿名对象或steps。请求通过route去遍历，steps有如下选项
+| 选项 | 描述 |
+| :------: | :------: |
+| match | 定义步骤条件的对象，如果请求和match条件匹配，pass步骤将生效，如果不匹配，将继续进行route的下一步，如果都不匹配，返回404错误 |
+| action/pass(required) | route的目的地，如果忽略了match，请求直接通过，避免出错，每个route使用一个这样的步骤并放在最后 |
+
+```json
+{
+    "routes": [
+        {
+            "match": {
+                "host": "example.com",
+                "uri": "/admin/*"
+            },
+
+            "action": {
+                "pass": "applications/php5_app"
+             }
+        },
+        {
+            "action": {
+                "pass": "applications/php7_app"
+             }
+        }
+     ]
+}
+
+# 更详细的的示例
+{
+    "routes": {
+        "main": [
+            {
+                "match": {
+                    "host": [ "www.example.com", "example.com" ]
+                },
+
+                "action": {
+                    "pass": "routes/site"
+                }
+            },
+            {
+                "match": {
+                    "host": "blog.example.com"
+                },
+
+                "action": {
+                    "pass": "applications/blog"
+                }
+            }
+        ],
+
+        "site": [ "..." ]
+    }
+}
+
+# 条件匹配；步骤中的匹配条件包括请求属性名称和相应的pattern
+{
+    "match": {
+        "request_property1": "pattern",
+        "request_property2": ["pattern", "pattern", "..." ]
+    },
+
+    "action": {
+        "pass": "..."
+     }
+}
+```
+
+| 选项 | 描述 |
+| :------: | :------: |
+| host | 请求主机从Host没有端口号的header字段，通过删除尾随句点（如果有的话）进行规范化;不区分大小写 |
+| method | 来自请求行的请求方法;不区分大小写 |
+| uri | 请求URI没有参数的路径，通过解码“%XX”序列，解析相对路径引用（“.”和“..”），并将相邻斜杠压缩为一个;区分大小写 |
+pattern必须完全匹配，支持*和!

@@ -32,7 +32,7 @@
 **iptables** 表是按照对数据包的操作区分的，链也被称为钩子函数(hook functions)是按照不同的Hook函数来区分的
 
 |  |  |
-| :------: | :------: |
+| :--: | :--: |
 | **表** |  |
 | filter | 负责包过滤，用于防火墙规则 |
 | nat | nat功能(端口映射，地址映射,网关路由等） |
@@ -56,6 +56,20 @@
 | MASQUERADE | IP伪装（NAT），用于ADSL |
 | LOG | 日志记录 |
 
+下表为：从左到右每个表(Table)可用的链(Chains),当从上到下显示在触发关联的netfilter挂钩时调用每个链的顺序
+
+| Tables↓/Chains→ | PREROUTING | INPUT | FORWARD | OUTPUT | POSTROUTING |
+| :--: | :--: | :--: | :--: | :--: | :--: |
+| (routing decision) |  |  |  | ✓ |  |
+| **raw** | ✓ |  |  | ✓ |  |
+| (connection tracking enabled) | ✓ |  |  | ✓ |  |
+| **mangle** | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **nat**(DNAT) | ✓ |  |  | ✓ |  |
+| (routing decision) | ✓ |  |  | ✓ |  |
+| **filter** |  | ✓ | ✓ | ✓ |  |
+| **security** |  | ✓ | ✓ | ✓ |  |
+| **nat**(SNAT) |  | ✓ |  |  | ✓ |
+
 ## iptables数据包流程
 
 ```sh
@@ -63,14 +77,36 @@
                                       ┏╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┓
                                       ┃    Network    ┃
                                       ┗━━━━━━━┳━━━━━━━┛
-      ┌──────────────────────┐                |
-      │ table: mangle,filter │                | 
-      │ chain: INPUT         │<─┐             |
-      └───────────┬──────────┘  │             ▼
-                  │             │   ┌───────────────────┐
-           ┌      ▼      ┐      │   │ table: mangle,nat │
-           │local process│      │   │ chain: PREROUTING │
-           └             ┘      │   └─────────┬─────────┘
+                                              |
+                                              |
+                                              ▼
+                                    ┌───────────────────┐
+                                    │ table: mangle     │
+                                    │ chain: PREROUTING │
+                                    └─────────┬─────────┘
+                                              |
+                                              ▼
+                                    ┌───────────────────┐
+                                    │ table: nat        │
+                                    │ chain: PREROUTING │
+                                    └─────────┬─────────┘
+
+
+
+
+
+
+
+      ┌──────────────────────┐
+      │ table: mangle,filter │
+      │ chain: INPUT         │<─┐
+      └───────────┬──────────┘  │
+                  │             │
+                  |             │
+                  ▼             │
+           ┌             ┐      │
+           │local process│      │
+           └             ┘      │
                   │             │             │
                   ▼             │             ▼              ┌─────────────────┐
          ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅    │     ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅      │table: mangle,nat|
@@ -88,7 +124,6 @@
           │ table: filter │    |              │
           │ chain: OUTPUT ├────┘              │
           └───────────────┘                   ▼
-                                     ┌───────────────────┐
                                    ┌────────────────────┐
                                    │ chain: POSTROUTING │
                                    └──────────┬─────────┘
@@ -547,9 +582,6 @@ iptables -t nat -A POST_ROUTING -d 10.10.188.232 -p tcp --dport 80 -j DNAT --to 
 iptables -I INPUT -p tcp --syn --dport 80 -m connlimit --connlimit-above 100 -j REJECT # 限制并发连接访问数
 iptables -I INPUT -m limit --limit 3/hour --limit-burst 10 -j ACCEPT # limit模块; --limit-burst 默认为5
 ```
-
-
-
 
 暂未整理
 

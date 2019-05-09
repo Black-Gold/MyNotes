@@ -269,4 +269,3 @@ vi
 
 : setshowmode 显示当前模式
 x 删除字符
-

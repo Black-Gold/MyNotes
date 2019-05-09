@@ -516,7 +516,7 @@ net.ipv4.tcp_max_syn_backlog = 16384
 net.ipv4.tcp_wmem = 8192 131072 16777216
 net.ipv4.udp_wmem_min = 16384   # 增加可分配的写缓冲区空间
 
-net.ipv4.tcp_rmem = 32768 131072 16777216
+net.ipv4.tcp_rmem = 32768 131072 16777216 # 默认4096 87380 3970528
 
 net.ipv4.tcp_mem = 786432 1048576 1572864
 
@@ -530,8 +530,8 @@ net.ipv4.netfilter.ip_conntrack_tcp_timeout_established=180
 
 net.core.somaxconn = 16384
 
-net.core.netdev_max_backlog = 16384
-net.core.optmem_max = 25165824  # 增加内存缓冲区的最大数量
+net.core.netdev_max_backlog = 16384 # 默认1000
+net.core.optmem_max = 25165824  # 默认20480 增加内存缓冲区的最大数量
 net.core.busy_poll = 50 # 轮询有助于减少网络接收路径中的延迟 允许套接字层代码轮询网络设备的接收队列， 并禁用网络中断。
 ```
 
@@ -540,8 +540,13 @@ net.core.busy_poll = 50 # 轮询有助于减少网络接收路径中的延迟 �
 vi /etc/sysctl.conf
 #禁用包过滤功能
 net.ipv4.ip_forward = 0
-#启用源路由核查功能
+
+#启用源路由核查功能，反向路径过滤
 net.ipv4.conf.default.rp_filter = 1
+0 ——未进行源验证。
+1 ——处于如 RFC3704 所定义的严格模式。
+2 ——处于如 RFC3704 所定义的松散模式
+
 #禁用所有IP源路由
 net.ipv4.conf.default.accept_source_route = 0
 #使用sysrq组合键是了解系统目前运行情况，为安全起见设为0关闭
@@ -569,17 +574,17 @@ net.ipv4.tcp_rmem = 4096 131072 1048576
 #TCP写buffer
 net.ipv4.tcp_wmem = 4096 131072 1048576
 #为TCP socket预留用于发送缓冲的内存默认值（单位：字节）
-net.core.wmem_default = 8388608
+net.core.wmem_default = 8388608 # 默认212992
 #为TCP socket预留用于发送缓冲的内存最大值（单位：字节）
-net.core.wmem_max = 16777216
+net.core.wmem_max = 16777216  # 默认212992
 #为TCP socket预留用于接收缓冲的内存默认值（单位：字节）
-net.core.rmem_default = 8388608
+net.core.rmem_default = 8388608 # 默认212992
 #为TCP socket预留用于接收缓冲的内存最大值（单位：字节）
-net.core.rmem_max = 16777216
+net.core.rmem_max = 16777216  # 默认212992
 #每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目
 net.core.netdev_max_backlog = 262144
 #web应用中listen函数的backlog默认会给我们内核参数的net.core.somaxconn限制到128，而nginx定义的NGX_LISTEN_BACKLOG默认为511，所以有必要调整这个值
-net.core.somaxconn = 262144
+net.core.somaxconn = 262144 # 默认128
 #系统中最多有多少个TCP套接字不被关联到任何一个用户文件句柄上。这个限制仅仅是为了防止简单的DoS攻击，不能过分依靠它或者人为地减小这个值，更应该增加这个值(如果增加了内存之后)
 net.ipv4.tcp_max_orphans = 3276800
 #记录的那些尚未收到客户端确认信息的连接请求的最大值。对于有128M内存的系统而言，缺省值是1024，小内存的系统则是128
@@ -600,7 +605,7 @@ net.ipv4.tcp_tw_recycle = 1
 net.ipv4.tcp_tw_reuse = 1
 #1st低于此值,TCP没有内存压力,2nd进入内存压力阶段,3rdTCP拒绝分配socket(单位：内存页)
 net.ipv4.udp_mem = 65536 131072 262144  # 增加可分配的最大总缓冲区空间,此为以page为单位（4096字节）测量
-net.ipv4.tcp_mem = 65536 131072 262144
+net.ipv4.tcp_mem = 65536 131072 262144  # 默认5814 7754 11628
 #如果套接字由本端要求关闭，这个参数决定了它保持在FIN-WAIT-2状态的时间。对端可以出错并永远不关闭连接，甚至意外当机。缺省值是60 秒。2.2 内核的通常值是180秒，你可以按这个设置，但要记住的是，即使你的机器是一个轻载的WEB服务器，也有因为大量的死套接字而内存溢出的风险，FIN- WAIT-2的危险性比FIN-WAIT-1要小，因为它最多只能吃掉1.5K内存，但是它们的生存期长些。
 net.ipv4.tcp_fin_timeout = 15   # (默认60s，建议15-30s)
 #表示当keepalive起用的时候，TCP发送keepalive消息的频度（单位：秒）
@@ -616,13 +621,27 @@ net.ipv4.tcp_rfc1337 = 1
 #表示文件句柄的最大数量
 fs.file-max = 102400
 
-#iptables 防火墙
-echo -e "net.nf_conntrack_max = 25000000" >> /etc/sysctl.conf
-echo -e "net.netfilter.nf_conntrack_max = 25000000" >> /etc/sysctl.conf
-echo -e "net.netfilter.nf_conntrack_tcp_timeout_established = 180" >> /etc/sysctl.conf
-echo -e "net.netfilter.nf_conntrack_tcp_timeout_time_wait = 30" >> /etc/sysctl.conf
-echo -e "net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60" >> /etc/sysctl.conf
-echo -e "net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 30" >> /etc/sysctl.conf
+# iptables 防火墙
+
+# nf_conntrack是Linux内核连接跟踪的模块：与nf_conntrack相关的内核参数有三个：
+# 1、nf_conntrack_max：连接跟踪表的大小，建议根据内存计算该值CONNTRACK_MAX = RAMSIZE (in bytes) / 16384 / (x / 32)，并满足nf_conntrack_max=4*nf_conntrack_buckets，默认262144
+# 2、nf_conntrack_buckets：哈希表的大小，(nf_conntrack_max/nf_conntrack_buckets就是每条哈希记录链表的长度)，默认65536
+# 3、nf_conntrack_tcp_timeout_established：tcp会话的超时时间，默认是432000 (5天)
+# 以下为64内存推荐配置
+net.nf_conntrack_max = 4194304
+net.netfilter.nf_conntrack_max = 4194304
+net.netfilter.nf_conntrack_tcp_timeout_established = 300
+net.netfilter.nf_conntrack_buckets=1048576
+net.netfilter.nf_conntrack_tcp_timeout_time_wait = 30
+net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60
+net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 30
+
+# bridge-nf使得netfilter可以对Linux网桥上的IPv4/ARP/IPv6包过滤，以下是常用配置，1代表启用，0代表不启用
+net.bridge.bridge-nf-call-arptables：是否在arptables的FORWARD中过滤网桥的ARP包
+net.bridge.bridge-nf-call-ip6tables：是否在ip6tables链中过滤IPv6包
+net.bridge.bridge-nf-call-iptables：是否在iptables链中过滤IPv4包
+net.bridge.bridge-nf-filter-vlan-tagged：是否在iptables/arptables中过滤打了vlan标签的包
+
 
 ```
 
@@ -4880,5 +4899,52 @@ Account  required  pam_access.so  (增加此认证)
 
 top -d 1 -n 1 -b |awk -F '[ ,.%k]+' '/^Cpu/{printf "UPU_USAGE %.f%%\t",100-$11}/^Mem/{printf "MEM_USAGE %.f%%\n",($4-$8)/$2*100}'
 top -d 1 -n 1 -b |awk -F '[ ,.%k]+' '/^Cpu/{printf "CPU_USAGE %.f%%\t",100-$11}/^Mem/{printf "MEM_USAGE %.f%%\t",($4-$8)/$2*100;now=strftime("%D %T");print now}'
+
+```
+
+## openssl
+
+```sh
+.key格式：私有的密钥
+
+.csr格式：证书签名请求（证书请求文件），含有公钥信息，certificate signing request的缩写
+
+.crt格式：证书文件，certificate的缩写
+
+.crl格式：证书吊销列表，Certificate Revocation List的缩写
+
+.pem格式：用于导出，导入证书时候的证书的格式，有证书开头，结尾的格式
+CA根证书的生成步骤:生成CA私钥（.key）-->生成CA证书请求（.csr）-->自签名得到根证书（.crt）（CA给自已颁发的证书）
+openssl genrsa -out ca.key 4096   # 生成ca私钥
+openssl req -new -key ca.key -out ca.csr # 生成csr
+openssl x509 -req -days 365 -in ca.csr -signkey ca.key -out ca.crt  # 生成ca根证书
+
+用户证书的生成步骤：生成私钥（.key）-->生成证书请求（.csr）-->用CA根证书签名得到证书（.crt）
+服务器端用户证书：
+# private key
+openssl genrsa -des3 -out server.key 1024
+# generate csr
+openssl req -new -key server.key -out server.csr
+# generate certificate
+openssl ca -in server.csr -out server.crt -cert ca.crt -keyfile ca.key
+
+客户端用户证书：
+openssl genrsa -des3 -out client.key 1024
+openssl req -new -key client.key -out client.csr
+openssl ca -in client.csr -out client.crt -cert ca.crt -keyfile ca.key
+
+生成pem格式证书
+有时需要用到pem格式的证书，可以用以下方式合并证书文件（crt）和私钥文件（key）来生成
+cat client.crt client.key> client.pem
+cat server.crt server.key > server.pem
+--------------------------------------------
+1:写下您的 SSL 证书的公共名称 (CN)。 该公共名称 (CN) 是使用该证书的系统的标准名称。 如果您使用的是动态 DNS，那么 CN 应该具有通配符，例如： *.api.com. 否则，使用网关集群中设置的主机名或 IP 地址
+2:生成您的专用密钥和公用证书。回答问题并在出现提示时输入公共名称
+openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out certificate.pem
+3:检查已创建的证书
+openssl x509 -text -noout -in certificate.pem
+
+
+
 
 ```

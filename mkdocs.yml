@@ -27,7 +27,7 @@ nav:
     - 'Ansible': 'Ansible.md'
     - 'Apollo': 'Apollo.md'
   - WebServer: 
-    - 'Nginx': 'Nginx.md'
+    - 'Nginx&Unit': 'Nginx.md'
     - 'Apache&PHP-FPM': 'Apache.md'
     - 'Tomcat': 'Tomcat.md'
     - 'WildFly': 'WildFly.md'
@@ -70,8 +70,6 @@ nav:
     - 'Prometheus': 'Prometheus.md'
     - 'Grafana': 'Grafana.md'
     - 'Nagios': 'Nagios.md'
-    - 'OpenTSDB': 'OpenTSDB.md'
-    - 'TICKStack': 'TICK.md'
     - 'SomelseMonitors': 'Monitors.md'
   - FileSystem: 
     - 'Ceph': 'Ceph.md'
