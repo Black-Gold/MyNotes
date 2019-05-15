@@ -124,5 +124,9 @@ cmdkey /delete:"%~1"
 
 ```
 
+windows服务绑定IP问题
+netsh-->>http-->>show iplisten
+delete iplisten ipaddress=x.x.x.x
+
 ## Windows Commands详解大全
 

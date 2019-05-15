@@ -503,20 +503,21 @@ net.ipv4.tcp_keepalive_intvl =15
 net.ipv4.tcp_retries2 = 5
 
 # 增加tcp-time-wait存储桶大小以防止简单的DOS攻击
-net.ipv4.tcp_max_tw_buckets = 36000
-net.ipv4.tcp_tw_recycle = 1 # 默认为0
+net.ipv4.tcp_max_tw_buckets = 36000 # 默认262144，当网络需求很高且环境较少受到外部威胁时，可以增加到450000
+net.ipv4.tcp_tw_recycle = 1 # 默认为0能够更快地回收TIME-WAIT套接字
 net.ipv4.tcp_tw_reuse = 1 # 默认为0
 
 net.ipv4.tcp_max_orphans = 32768
 
 net.ipv4.tcp_syncookies = 1
 
-net.ipv4.tcp_max_syn_backlog = 16384
-
-net.ipv4.tcp_wmem = 8192 131072 16777216
+net.ipv4.tcp_max_syn_backlog = 16384  # 默认128;对于还未获得对方确认的连接请求，可保存在队列中的最大数目。如果服务器经常出现过载，可以尝试增加这个数字
+net.ipv4.tcp_low_latency = 0 #  默认值为0;正常的TCP堆栈行为设置为有利于最大化网络吞吐量的决策，通常关闭此选项。对于延迟优先级较高的工作负载或环境，可以设置为1开启
+net.ipv4.tcp_congestion_control = reno # 大多数版本默认是reno算法，设置网络拥塞控制算法
+net.ipv4.tcp_wmem = 8192 131072 16777216 # 最小值，默认值和最大值；最小值表示新创建的套接字作为其创建的一部分有权获得的最小接收缓冲区大小；默认值表示TCP套接字接收缓冲区的初始大小；最大值表示TCP套接字的自动调整发送缓冲区的最大接收缓冲区大小
 net.ipv4.udp_wmem_min = 16384   # 增加可分配的写缓冲区空间
 
-net.ipv4.tcp_rmem = 32768 131072 16777216 # 默认4096 87380 3970528
+net.ipv4.tcp_rmem = 32768 131072 16777216 # 默认4096 87380 3970528 三个值表示TCP套接字接收缓冲区的最小，默认和最大大小
 
 net.ipv4.tcp_mem = 786432 1048576 1572864
 
@@ -601,13 +602,14 @@ net.ipv4.route.gc_timeout = 100
 net.ipv4.tcp_syn_retries = 1
 #开启TCP连接中time_wait sockets的快速回收
 net.ipv4.tcp_tw_recycle = 1
-#开启TCP连接复用功能，允许将time_wait sockets重新用于新的TCP连接（主要针对time_wait连接）
+#开启TCP连接复用功能，允许将time_wait sockets重新用于新的TCP连接（主要针对time_wait连接）启用后，此参数可以绕过通常与套接字创建相关的分配和初始化开销，从而节省CPU周期，系统负载和时间
 net.ipv4.tcp_tw_reuse = 1
 #1st低于此值,TCP没有内存压力,2nd进入内存压力阶段,3rdTCP拒绝分配socket(单位：内存页)
 net.ipv4.udp_mem = 65536 131072 262144  # 增加可分配的最大总缓冲区空间,此为以page为单位（4096字节）测量
 net.ipv4.tcp_mem = 65536 131072 262144  # 默认5814 7754 11628
 #如果套接字由本端要求关闭，这个参数决定了它保持在FIN-WAIT-2状态的时间。对端可以出错并永远不关闭连接，甚至意外当机。缺省值是60 秒。2.2 内核的通常值是180秒，你可以按这个设置，但要记住的是，即使你的机器是一个轻载的WEB服务器，也有因为大量的死套接字而内存溢出的风险，FIN- WAIT-2的危险性比FIN-WAIT-1要小，因为它最多只能吃掉1.5K内存，但是它们的生存期长些。
-net.ipv4.tcp_fin_timeout = 15   # (默认60s，建议15-30s)
+net.ipv4.tcp_fin_timeout = 15   # (默认60s，建议15-30s)对于生成或支持高级别网络流量的工作负载或系统，此值设置到10秒以下
+net.ipv4.tcp_limit_output_bytes = 131072 # 默认是262144字节；限制设备上的字节数，以减少较大队列大小导致的延迟效应；对于延迟优先级高于吞吐量的工作负载或环境，降低此值可以改善延迟，推荐131072字节
 #表示当keepalive起用的时候，TCP发送keepalive消息的频度（单位：秒）
 net.ipv4.tcp_keepalive_time = 300
 # 确定了isAlive间隔探测之间的等待时间   (默认75s,建议15-30s)
@@ -2524,9 +2526,9 @@ vsftpd.conf的格式非常简单。每一行都是注释或指令。注释行以
 启动脚本
 /etc/pam.d/vsftpd
 PAM认证文件
-/etc/vsftpd.ftpusers
+/etc/vsftpd/ftpusers
 禁止使用Vsftpd的用户列表文件
-/etc/vsftpd.user_list
+/etc/vsftpd/user_list
 禁止或允许使用Vsftpd的用户列表文件
 /var/ftp
 匿名用户主目录
