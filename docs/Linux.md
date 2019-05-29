@@ -337,7 +337,6 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 |  | • | head -n1 /etc/issue | 查看操作系统版本 |
 |  | • | cat /proc/partitions | 显示所有在系统中注册的分区 |
 |  | • | grep MemTotal /proc/meminfo | 显示系统可见的内存总量 |
-|  | • | grep "model name" /proc/cpuinfo | 显示CPU信息 |
 |  | • | lspci -tv | 显示PCI信息 |
 |  | • | lsusb -tv | 显示USB信息 |
 |  | • | mount | column -t | 显示所有挂载的文件系统并对齐输出 |

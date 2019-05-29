@@ -171,7 +171,7 @@ iptables -t 表名 <-A/I/D/R> 规则链名 [规则号] <-i/o 网卡名> -p 协�
 | --dport num | 匹配目标端口号 |
 | --sport num | 匹配来源端口号 |
 
-## 选项
+
 
 ```sh
 # 通用匹配：源地址目标地址的匹配
@@ -244,6 +244,8 @@ INVALID：不能被识别属于哪个连接或没有任何状态
 -m limit --limit 匹配速率[--burst 缓冲数量]   # 用一定速率去匹配数据包。limit 英语上看是限制的意思，但实际上只是按一定速率去匹配而已，要想限制的话后面要再跟一条DROP
 
 -m multiport <--sports|--dports|--ports> 端口1[,端口2,..,端口n]    # 一次性匹配多个端口，可以区分源端口，目的端口或不指定端口。必须与-p 参数一起使用
+
+man iptables-extensions中可以看到所有的支持的module;iptables-extensions由多个mach module和多个target module组成，每个module都有自己的参数
 ```
 
 ## 防火墙的策略
@@ -270,64 +272,46 @@ iptables还支持自己定义链。但是自己定义的链，必须是跟某种
 
 注意：规则的次序非常关键，`谁的规则越严格，应该放的越靠前`，而检查规则的时候，是按照从上往下的方式进行检查的
 
-### 实例
-
-#### 空当前的所有规则和计数
+## 实例
 
 ```bash
+# 保存规则到配置文件中,任何改动之前先备份，请保持这一优秀的习惯
+cp /etc/sysconfig/iptables /etc/sysconfig/iptables.bak
+iptables-save > /etc/sysconfig/iptables
+
+# 清空当前的所有规则和计数
 iptables -F  # 清空所有的防火墙规则
 iptables -X  # 删除用户自定义的空链
 iptables -Z  # 清空计数
-```
 
-#### 配置允许ssh端口连接
+iptables -A INPUT -s 192.168.1.0/24 -p tcp --dport 22 -j ACCEPT  # 配置允许ssh端口连接,22为你的ssh端口， -s 192.168.1.0/24表示允许这个网段的机器来连接，其它网段的ip地址是登陆不了你的机器的。 -j ACCEPT表示接受这样的请求
 
-```bash
-iptables -A INPUT -s 192.168.1.0/24 -p tcp --dport 22 -j ACCEPT
-# 22为你的ssh端口， -s 192.168.1.0/24表示允许这个网段的机器来连接，其它网段的ip地址是登陆不了你的机器的。 -j ACCEPT表示接受这样的请求
-```
-
-#### 允许本地回环地址可以正常使用
-
-```bash
+# 允许本地回环地址可以正常使用;本地回环地址就是那个127.0.0.1，是本机上使用的,它进与出都设置为允许
 iptables -A INPUT -i lo -j ACCEPT
-#本地圆环地址就是那个127.0.0.1，是本机上使用的,它进与出都设置为允许
 iptables -A OUTPUT -o lo -j ACCEPT
-```
 
-#### 设置默认的规则
+# 设置默认的规则
+iptables -P INPUT DROP # 配置默认不让进
+iptables -P FORWARD DROP # 默认不允许转发
+iptables -P OUTPUT ACCEPT # 默认可以出去
 
-```bash
-iptables -P INPUT DROP # 配置默认的不让进
-iptables -P FORWARD DROP # 默认的不允许转发
-iptables -P OUTPUT ACCEPT # 默认的可以出去
-```
-
-#### 配置白名单
-
-```bash
-iptables -A INPUT -p all -s 192.168.1.0/24 -j ACCEPT  # 允许机房内网机器可以访问
-iptables -A INPUT -p all -s 192.168.140.0/24 -j ACCEPT  # 允许机房内网机器可以访问
+# 配置白名单;黑名单就是后面换成DROP
+iptables -A INPUT -p all -s 192.168.1.0/24 -j ACCEPT  # 允许192.168.1.0网段互相可以访问
+iptables -A INPUT -m mac --mac-source 00:00:00:00:00:00 -j ACCEPT  # 允许mac地址为00:00:00:00:00:00访问
 iptables -A INPUT -p tcp -s 183.121.3.7 --dport 3380 -j ACCEPT # 允许183.121.3.7访问本机的3380端口
-```
-
-#### 开启相应的服务端口
-
-```bash
-iptables -A INPUT -p tcp --dport 80 -j ACCEPT # 开启80端口，因为web对外都是这个端口
+iptables -A INPUT  -p tcp -m multiport --dports 22,80,443 -j ACCEPT     # 开启22,80,443端口
 iptables -A INPUT -p icmp --icmp-type 8 -j ACCEPT # 允许被ping
-iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT # 已经建立的连接得让它进来
-```
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT    # 允许已建立的或相关连接的通行
 
-#### 保存规则到配置文件中
+# 禁止其他未允许的规则访问
+iptables -A INPUT -j REJECT
+iptables -A FORWARD -j REJECT
 
-```bash
-cp /etc/sysconfig/iptables /etc/sysconfig/iptables.bak # 任何改动之前先备份，请保持这一优秀的习惯
-iptables-save > /etc/sysconfig/iptables
-cat /etc/sysconfig/iptables
-```
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 25 -j REDIRECT --to-port 2525  # 本地25端口转发到2525
+iptables -A INPUT -p tcp --dport 80 -m limit --limit 100/minute --limit-burst 200 -j ACCEPT  # 限制连接速率，每分钟100个，上限200
+iptables -A INPUT -p tcp --syn --dport 22 -m connlimit --connlimit-above 3 -j REJECT    # 限制22端口并发连接
 
-#### 列出已设置的规则
+# 列出已设置的规则
 
 > iptables -L [-t 表名] [链名]
 
@@ -342,15 +326,6 @@ iptables -L -t nat  --line-numbers  # 规则带编号
 iptables -L INPUT
 
 iptables -L -nv  # 查看，这个列表看起来更详细
-```
-
-#### 清除已有规则
-
-```bash
-iptables -F INPUT  # 清空指定链 INPUT 上面的所有规则
-iptables -X INPUT  # 删除指定的链，这个链必须没有被其它任何规则引用，而且这条上必须没有任何规则。
-                   # 如果没有指定链名，则会删除该表中所有非内置的链。
-iptables -Z INPUT  # 把指定链，或者表中的所有链上的所有计数器清零。
 ```
 
 #### 删除已添加的规则
@@ -372,15 +347,7 @@ iptables -D INPUT 8
 #### 开放指定的端口
 
 ```sh
-iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT               #允许本地回环接口(即运行本机访问本机)
-iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT    #允许已建立的或相关连的通行
-iptables -A OUTPUT -j ACCEPT         #允许所有本机向外的访问
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT    #允许访问22端口
-iptables -A INPUT -p tcp --dport 80 -j ACCEPT    #允许访问80端口
-iptables -A INPUT -p tcp --dport 21 -j ACCEPT    #允许ftp服务的21端口
-iptables -A INPUT -p tcp --dport 20 -j ACCEPT    #允许FTP服务的20端口
-iptables -A INPUT -j reject       #禁止其他未允许的规则访问
-iptables -A FORWARD -j REJECT     #禁止其他未允许的规则访问
+
 ```
 
 #### 屏蔽IP
