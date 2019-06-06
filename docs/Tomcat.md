@@ -15,3 +15,7 @@ PATH：所有的系统环境变量都在这里
 CLASSPATH：作用是指定类搜索路径，要使用已经编写好的类，前提当然是能够找到它们了，JVM就是通过CLASSPTH来寻找类的。我们需要把jdk安装目录下的lib子目录中的dt.jar和tools.jar设置到CLASSPATH中，当然，当前目录“.”也必须加入到该变量中。
 TOMCAT_HOME：tomcat的安装目录
 6.通过bin目录下的startup或者shutdown完成
+
+## 其他相关收集
+
+WildFly

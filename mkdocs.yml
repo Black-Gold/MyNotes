@@ -11,80 +11,68 @@ repo_url: 'https://github.com/Black-Gold/MyNotes'
 nav:
   - Home: 'index.md'
   - Vim: 'Vim.md' 
-  - ProgramLanguages: 
-    - 'BREs': 'BREs.md'
+  - Languages: 
+    - 'Regex&Lua': 'Regex_Lua.md'
     - 'Shell': 'Shell.md'
     - 'Python3': 'Python3.md'
-    - 'Lua': 'Lua.md'
     - 'Go': 'Go.md'
-  - Linux&WinServer: 
+  - Servers: 
     - 'Linux': 'Linux.md'
     - 'Iproute2&Net-tools': 'Utilities.md'
     - 'Iptables': 'Iptables.md'
     - 'Firewalld': 'Firewalld.md'
     - 'WindowsServer': 'Windows.md'
-  - DevOps: 
     - 'Ansible': 'Ansible.md'
-    - 'Apollo': 'Apollo.md'
   - WebServer: 
     - 'Nginx&Unit': 'Nginx.md'
     - 'Apache&PHP-FPM': 'Apache.md'
     - 'Tomcat': 'Tomcat.md'
-    - 'WildFly': 'WildFly.md'
     - 'Caddy': 'Caddy.md'
-  - OptimisingWebDelivery: 
-    - 'Squid': 'Squid.md'
-    - 'Varnish': 'Varnish.md'
-    - 'Stunnel': 'Stunnel.md'
-    - 'ApacheTrafficServer': 'TrafficServer.md'
-  - CI&DC: 
-    - 'Git&GitLab': 'Git.md'
-    - 'Jenkins': 'Jenkins.md'
   - Database: 
-    - 'MySQL': 'MySQL.md'
-    - 'MariaDB': 'MariaDB.md'
+    - 'MySQL&MariaDB': 'MySQL.md'
     - 'Oracle': 'Oracle.md'
+    - 'PostgreSQL': 'PostgreSQL.md'
+    - 'MongoDB': 'MongoDB.md'
     - 'Redis': 'Redis.md'
     - 'Memcached': 'Memcached.md'
-    - 'MongoDB': 'MongoDB.md'
-    - 'PostgreSQL': 'PostgreSQL.md'
-    - 'BigData': 'BigData.md'
-  - LB&HA: 
-    - 'LVS': 'LVS.md'
-    - 'HAProxy': 'Haproxy.md'
-    - 'Traefik': 'Traefik.md'
-    - 'Envoy': 'Envoy.md'
-  - MessageQueue: 
-    - 'ActiveMQ': 'ActiveMQ.md'
-    - 'TheNextGeneration_ActimveMQ': 'ActiveMQApollo.md'
-    - 'Kafka': 'Kafka.md'
-    - 'RabbitMQ': 'RabbitMQ.md'
-  - ContainerEcosystem: 
-    - 'Docker': 'Docker.md'
-    - 'Kubernetes': 'Kubernetes.md'
-    - 'OKD': 'OKD.md'
-    - 'ContainerOS': 'Coreos.md'
   - Monitor: 
     - 'Zabbix': 'Zabbix.md'
     - 'ELKStack': 'Elk.md'
     - 'Prometheus': 'Prometheus.md'
     - 'Grafana': 'Grafana.md'
     - 'Nagios': 'Nagios.md'
-    - 'SomelseMonitors': 'Monitors.md'
+    - 'OtherMonitors': 'Monitors.md'
+  - ContainerEcosystem: 
+    - 'Docker': 'Docker.md'
+    - 'Kubernetes': 'Kubernetes.md'
+    - 'ContainerOS': 'Coreos.md'
+    - 'Landscape': 'Landscape.md'
+  - CI/CD: 
+    - 'Git&GitLab': 'Git.md'
+    - 'Jenkins': 'Jenkins.md'
+  - OptimisingWebDelivery: 
+    - 'Squid': 'Squid.md'
+    - 'Varnish': 'Varnish.md'
+    - 'Stunnel': 'Stunnel.md'
+    - 'ApacheTrafficServer': 'TrafficServer.md'
+  - LB&HA: 
+    - 'LVS': 'LVS.md'
+    - 'HAProxy': 'Haproxy.md'
+  - MessageQueue: 
+    - 'ActiveMQ': 'ActiveMQ.md'
+    - 'Kafka': 'Kafka.md'
+    - 'RabbitMQ': 'RabbitMQ.md'
   - FileSystem: 
     - 'Ceph': 'Ceph.md'
     - 'GlusterFS': 'GlusterFS.md'
-  - Network: 
+  - Security: 
     - 'Cisco': 'Cisco.md'
     - 'Huawei&H3C': 'HW3C.md'
-  - CrossGFW: 
-    - 'VPN': 'VPN.md'
-  - Security: 
-    - 'Snort': 'Snort.md'
+    - 'Security': 'Security.md'
   - TreasureTheLeisure:
+    - 'VPN': 'VPN.md'
     - 'GoogleTricks': 'GoogleTricks.md'
-    - 'Voip': 'Voip.md'
-    - 'Raspberrypi': 'Raspberrypi.md'
+    - 'Others': 'Others.md'
 
 theme:
   name: 'material'

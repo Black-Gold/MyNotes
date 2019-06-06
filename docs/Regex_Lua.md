@@ -234,3 +234,5 @@ echo
 # |cat  dog  |sky  |
 
 ```
+
+## Lua脚本语言
