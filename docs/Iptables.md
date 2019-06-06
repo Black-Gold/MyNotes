@@ -74,7 +74,7 @@
 
 [参考链接](http://gist.github.com/nerdalert/a1687ae4da1cc44a437d)
 
-```sh
+```md
 # 以下为简易流程；大多数使用情况下都不会用到raw，mangle和security表；注意：IPv6没有nat
                                       ┏╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┓
                                       ┃    Network    ┃

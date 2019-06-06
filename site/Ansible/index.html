@@ -21,7 +21,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="jp">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -567,8 +567,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nginx/" title="Nginx" class="md-nav__link">
-      Nginx
+    <a href="../Nginx/" title="Nginx&Unit" class="md-nav__link">
+      Nginx&Unit
     </a>
   </li>
 
@@ -891,8 +891,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
-      LVSKeepalived
+    <a href="../LVS/" title="LVS" class="md-nav__link">
+      LVS
     </a>
   </li>
 
@@ -1167,30 +1167,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
       SomelseMonitors
     </a>
@@ -1260,46 +1236,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
     <label class="md-nav__link" for="nav-15">
-      Security
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
-        Security
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Snort/" title="Snort" class="md-nav__link">
-      Snort
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
-    
-    <label class="md-nav__link" for="nav-16">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1341,13 +1281,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1361,6 +1301,42 @@
   <li class="md-nav__item">
     <a href="../VPN/" title="VPN" class="md-nav__link">
       VPN
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      Security
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Snort/" title="Snort" class="md-nav__link">
+      Snort
     </a>
   </li>
 
@@ -1529,260 +1505,260 @@
   --version             show program's version number and exit</p>
 <p>Connection Options:
     control as whom and how to connect to hosts</p>
-<div class="codehilite"><pre><span></span>-k, --ask-pass      ask for connection password
---private-key=PRIVATE_KEY_FILE, --key-file=PRIVATE_KEY_FILE
-                    use this file to authenticate the connection
--u REMOTE_USER, --user=REMOTE_USER
-                    connect as this user (default=None)
--c CONNECTION, --connection=CONNECTION
-                    connection type to use (default=smart)
--T TIMEOUT, --timeout=TIMEOUT
-                    override the connection timeout in seconds
-                    (default=10)
---ssh-common-args=SSH_COMMON_ARGS
-                    specify common arguments to pass to sftp/scp/ssh (e.g.
-                    ProxyCommand)
---sftp-extra-args=SFTP_EXTRA_ARGS
-                    specify extra arguments to pass to sftp only (e.g. -f,
-                    -l)
---scp-extra-args=SCP_EXTRA_ARGS
-                    specify extra arguments to pass to scp only (e.g. -l)
---ssh-extra-args=SSH_EXTRA_ARGS
-                    specify extra arguments to pass to ssh only (e.g. -R)
+<div class="codehilite"><pre><span></span><span class="o">-</span><span class="nv">k</span>, <span class="o">--</span><span class="nv">ask</span><span class="o">-</span><span class="nv">pass</span>      <span class="nv">ask</span> <span class="k">for</span> <span class="nv">connection</span> <span class="nv">password</span>
+<span class="o">--</span><span class="nv">private</span><span class="o">-</span><span class="nv">key</span><span class="o">=</span><span class="nv">PRIVATE_KEY_FILE</span>, <span class="o">--</span><span class="nv">key</span><span class="o">-</span><span class="nv">file</span><span class="o">=</span><span class="nv">PRIVATE_KEY_FILE</span>
+                    <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">to</span> <span class="nv">authenticate</span> <span class="nv">the</span> <span class="nv">connection</span>
+<span class="o">-</span><span class="nv">u</span> <span class="nv">REMOTE_USER</span>, <span class="o">--</span><span class="nv">user</span><span class="o">=</span><span class="nv">REMOTE_USER</span>
+                    <span class="k">connect</span> <span class="nv">as</span> <span class="nv">this</span> <span class="nv">user</span> <span class="ss">(</span><span class="nv">default</span><span class="o">=</span><span class="nv">None</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">c</span> <span class="nv">CONNECTION</span>, <span class="o">--</span><span class="nv">connection</span><span class="o">=</span><span class="nv">CONNECTION</span>
+                    <span class="nv">connection</span> <span class="nv">type</span> <span class="nv">to</span> <span class="nv">use</span> <span class="ss">(</span><span class="nv">default</span><span class="o">=</span><span class="nv">smart</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">T</span> <span class="nb">TIMEOUT</span>, <span class="o">--</span><span class="nb">timeout</span><span class="o">=</span><span class="nb">TIMEOUT</span>
+                    <span class="nv">override</span> <span class="nv">the</span> <span class="nv">connection</span> <span class="nb">timeout</span> <span class="nv">in</span> <span class="nv">seconds</span>
+                    <span class="ss">(</span><span class="nv">default</span><span class="o">=</span><span class="mi">10</span><span class="ss">)</span>
+<span class="o">--</span><span class="nv">ssh</span><span class="o">-</span><span class="nv">common</span><span class="o">-</span><span class="nv">args</span><span class="o">=</span><span class="nv">SSH_COMMON_ARGS</span>
+                    <span class="nv">specify</span> <span class="nv">common</span> <span class="nv">arguments</span> <span class="nv">to</span> <span class="nv">pass</span> <span class="nv">to</span> <span class="nv">sftp</span><span class="o">/</span><span class="nv">scp</span><span class="o">/</span><span class="nv">ssh</span> <span class="ss">(</span><span class="nv">e</span>.<span class="nv">g</span>.
+                    <span class="nv">ProxyCommand</span><span class="ss">)</span>
+<span class="o">--</span><span class="nv">sftp</span><span class="o">-</span><span class="nv">extra</span><span class="o">-</span><span class="nv">args</span><span class="o">=</span><span class="nv">SFTP_EXTRA_ARGS</span>
+                    <span class="nv">specify</span> <span class="nv">extra</span> <span class="nv">arguments</span> <span class="nv">to</span> <span class="nv">pass</span> <span class="nv">to</span> <span class="nv">sftp</span> <span class="nv">only</span> <span class="ss">(</span><span class="nv">e</span>.<span class="nv">g</span>. <span class="o">-</span><span class="nv">f</span>,
+                    <span class="o">-</span><span class="nv">l</span><span class="ss">)</span>
+<span class="o">--</span><span class="nv">scp</span><span class="o">-</span><span class="nv">extra</span><span class="o">-</span><span class="nv">args</span><span class="o">=</span><span class="nv">SCP_EXTRA_ARGS</span>
+                    <span class="nv">specify</span> <span class="nv">extra</span> <span class="nv">arguments</span> <span class="nv">to</span> <span class="nv">pass</span> <span class="nv">to</span> <span class="nv">scp</span> <span class="nv">only</span> <span class="ss">(</span><span class="nv">e</span>.<span class="nv">g</span>. <span class="o">-</span><span class="nv">l</span><span class="ss">)</span>
+<span class="o">--</span><span class="nv">ssh</span><span class="o">-</span><span class="nv">extra</span><span class="o">-</span><span class="nv">args</span><span class="o">=</span><span class="nv">SSH_EXTRA_ARGS</span>
+                    <span class="nv">specify</span> <span class="nv">extra</span> <span class="nv">arguments</span> <span class="nv">to</span> <span class="nv">pass</span> <span class="nv">to</span> <span class="nv">ssh</span> <span class="nv">only</span> <span class="ss">(</span><span class="nv">e</span>.<span class="nv">g</span>. <span class="o">-</span><span class="nv">R</span><span class="ss">)</span>
 </pre></div>
 
 
 <p>Privilege Escalation Options:
     control how and which user you become as on target hosts</p>
-<div class="codehilite"><pre><span></span>-s, --sudo          run operations with sudo (nopasswd) (deprecated, use
-                    become)
--U SUDO_USER, --sudo-user=SUDO_USER
-                    desired sudo user (default=root) (deprecated, use
-                    become)
--S, --su            run operations with su (deprecated, use become)
--R SU_USER, --su-user=SU_USER
-                    run operations with su as this user (default=None)
-                    (deprecated, use become)
--b, --become        run operations with become (does not imply password
-                    prompting)
---become-method=BECOME_METHOD
-                    privilege escalation method to use (default=sudo),
-                    valid choices: [ sudo | su | pbrun | pfexec | doas |
-                    dzdo | ksu | runas | pmrun | enable ]
---become-user=BECOME_USER
-                    run operations as this user (default=root)
---ask-sudo-pass     ask for sudo password (deprecated, use become)
---ask-su-pass       ask for su password (deprecated, use become)
--K, --ask-become-pass
-                    ask for privilege escalation password
+<div class="codehilite"><pre><span></span><span class="o">-</span><span class="nv">s</span>, <span class="o">--</span><span class="nv">sudo</span>          <span class="nv">run</span> <span class="nv">operations</span> <span class="nv">with</span> <span class="nv">sudo</span> <span class="ss">(</span><span class="nv">nopasswd</span><span class="ss">)</span> <span class="ss">(</span><span class="nv">deprecated</span>, <span class="nv">use</span>
+                    <span class="nv">become</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">U</span> <span class="nv">SUDO_USER</span>, <span class="o">--</span><span class="nv">sudo</span><span class="o">-</span><span class="nv">user</span><span class="o">=</span><span class="nv">SUDO_USER</span>
+                    <span class="nv">desired</span> <span class="nv">sudo</span> <span class="nv">user</span> <span class="ss">(</span><span class="nv">default</span><span class="o">=</span><span class="nv">root</span><span class="ss">)</span> <span class="ss">(</span><span class="nv">deprecated</span>, <span class="nv">use</span>
+                    <span class="nv">become</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">S</span>, <span class="o">--</span><span class="nv">su</span>            <span class="nv">run</span> <span class="nv">operations</span> <span class="nv">with</span> <span class="nv">su</span> <span class="ss">(</span><span class="nv">deprecated</span>, <span class="nv">use</span> <span class="nv">become</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">R</span> <span class="nv">SU_USER</span>, <span class="o">--</span><span class="nv">su</span><span class="o">-</span><span class="nv">user</span><span class="o">=</span><span class="nv">SU_USER</span>
+                    <span class="nv">run</span> <span class="nv">operations</span> <span class="nv">with</span> <span class="nv">su</span> <span class="nv">as</span> <span class="nv">this</span> <span class="nv">user</span> <span class="ss">(</span><span class="nv">default</span><span class="o">=</span><span class="nv">None</span><span class="ss">)</span>
+                    <span class="ss">(</span><span class="nv">deprecated</span>, <span class="nv">use</span> <span class="nv">become</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">b</span>, <span class="o">--</span><span class="nv">become</span>        <span class="nv">run</span> <span class="nv">operations</span> <span class="nv">with</span> <span class="nv">become</span> <span class="ss">(</span><span class="nv">does</span> <span class="nv">not</span> <span class="nv">imply</span> <span class="nv">password</span>
+                    <span class="nv">prompting</span><span class="ss">)</span>
+<span class="o">--</span><span class="nv">become</span><span class="o">-</span><span class="nv">method</span><span class="o">=</span><span class="nv">BECOME_METHOD</span>
+                    <span class="nv">privilege</span> <span class="nv">escalation</span> <span class="nv">method</span> <span class="nv">to</span> <span class="nv">use</span> <span class="ss">(</span><span class="nv">default</span><span class="o">=</span><span class="nv">sudo</span><span class="ss">)</span>,
+                    <span class="nv">valid</span> <span class="nv">choices</span>: [ <span class="nv">sudo</span> <span class="o">|</span> <span class="nv">su</span> <span class="o">|</span> <span class="nv">pbrun</span> <span class="o">|</span> <span class="nv">pfexec</span> <span class="o">|</span> <span class="nv">doas</span> <span class="o">|</span>
+                    <span class="nv">dzdo</span> <span class="o">|</span> <span class="nv">ksu</span> <span class="o">|</span> <span class="nv">runas</span> <span class="o">|</span> <span class="nv">pmrun</span> <span class="o">|</span> <span class="nv">enable</span> ]
+<span class="o">--</span><span class="nv">become</span><span class="o">-</span><span class="nv">user</span><span class="o">=</span><span class="nv">BECOME_USER</span>
+                    <span class="nv">run</span> <span class="nv">operations</span> <span class="nv">as</span> <span class="nv">this</span> <span class="nv">user</span> <span class="ss">(</span><span class="nv">default</span><span class="o">=</span><span class="nv">root</span><span class="ss">)</span>
+<span class="o">--</span><span class="nv">ask</span><span class="o">-</span><span class="nv">sudo</span><span class="o">-</span><span class="nv">pass</span>     <span class="nv">ask</span> <span class="k">for</span> <span class="nv">sudo</span> <span class="nv">password</span> <span class="ss">(</span><span class="nv">deprecated</span>, <span class="nv">use</span> <span class="nv">become</span><span class="ss">)</span>
+<span class="o">--</span><span class="nv">ask</span><span class="o">-</span><span class="nv">su</span><span class="o">-</span><span class="nv">pass</span>       <span class="nv">ask</span> <span class="k">for</span> <span class="nv">su</span> <span class="nv">password</span> <span class="ss">(</span><span class="nv">deprecated</span>, <span class="nv">use</span> <span class="nv">become</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">K</span>, <span class="o">--</span><span class="nv">ask</span><span class="o">-</span><span class="nv">become</span><span class="o">-</span><span class="nv">pass</span>
+                    <span class="nv">ask</span> <span class="k">for</span> <span class="nv">privilege</span> <span class="nv">escalation</span> <span class="nv">password</span>
 </pre></div>
 
 
 <h3 id="centos">Centos下安装部署<a class="headerlink" href="#centos" title="Permanent link">&para;</a></h3>
 <p>Ansible是一种批量部署工具，现在运维人员用的最多的三种开源集中化管理工具有：puppet,saltstack,ansible，各有各的优缺点，其中saltstack和ansible都是用python开发的。ansible其实准确的说只提供了一个框架，它要基于很多其他的python模块才能工作的，所以在安装ansible的时候你要再装很多其他的依赖包的。</p>
 <p>好处之一是使用者可以开发自己的模块，放在里面使用。第二个好处是无需在客户端安装agent，更新时，只需在操作机上进行一次更新即可。第三个好处是批量任务执行可以写成脚本，而且不用分发到远程就可以执行。</p>
-<div class="codehilite"><pre><span></span>(1)、python2.7安装,升级到2.7.9
+<div class="codehilite"><pre><span></span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>、<span class="nv">python2</span>.<span class="mi">7</span>安装,升级到<span class="mi">2</span>.<span class="mi">7</span>.<span class="mi">9</span>
 
-https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+<span class="nv">https</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">python</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">ftp</span><span class="o">/</span><span class="nv">python</span><span class="o">/</span><span class="mi">2</span>.<span class="mi">7</span>.<span class="mi">9</span><span class="o">/</span><span class="nv">Python</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">7</span>.<span class="mi">9</span>.<span class="nv">tgz</span>
 
-# tar xvzf Python-2.7.9.tgz
+# <span class="nv">tar</span> <span class="nv">xvzf</span> <span class="nv">Python</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">7</span>.<span class="mi">9</span>.<span class="nv">tgz</span>
 
-# cd Python-2.7.9
+# <span class="nv">cd</span> <span class="nv">Python</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">7</span>.<span class="mi">9</span>
 
-# ./configure --prefix=/usr/local
+# .<span class="o">/</span><span class="nv">configure</span> <span class="o">--</span><span class="nv">prefix</span><span class="o">=/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span>
 
-# make &amp;&amp; make install
-## 将python头文件拷贝到标准目录，以避免编译ansible时，找不到所需的头文件
+# <span class="nv">make</span> <span class="o">&amp;&amp;</span> <span class="nv">make</span> <span class="nv">install</span>
+## 将<span class="nv">python</span>头文件拷贝到标准目录，以避免编译<span class="nv">ansible</span>时，找不到所需的头文件
 
-# cd /usr/local/include/python2.7
+# <span class="nv">cd</span> <span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="k">include</span><span class="o">/</span><span class="nv">python2</span>.<span class="mi">7</span>
 
-# cp -a ./* /usr/local/include/
+# <span class="nv">cp</span> <span class="o">-</span><span class="nv">a</span> .<span class="cm">/* /usr/local/include/</span>
 
-## 备份旧版本的python，并符号链接新版本的python
+<span class="cm">## 备份旧版本的python，并符号链接新版本的python</span>
 
-# cd /usr/bin   #旧版本Python路径
+<span class="cm"># cd /usr/bin   #旧版本Python路径</span>
 
-# mv python python.old  #备份旧版本
+<span class="cm"># mv python python.old  #备份旧版本</span>
 
-# ln -s /usr/local/bin/python2 /usr/local/bin/python
+<span class="cm"># ln -s /usr/local/bin/python2 /usr/local/bin/python</span>
 
-# rm -f /usr/bin/python &amp;&amp; cp /usr/local/bin/python2 /usr/bin/python
+<span class="cm"># rm -f /usr/bin/python &amp;&amp; cp /usr/local/bin/python2 /usr/bin/python</span>
 
-## 修改yum脚本，使其指向旧版本的python，已避免其无法运行
+<span class="cm">## 修改yum脚本，使其指向旧版本的python，已避免其无法运行</span>
 
-# vim /usr/bin/yum
+<span class="cm"># vim /usr/bin/yum</span>
 
-#!/usr/bin/python  --&gt;  #!/usr/bin/python2.7
+<span class="cm">#!/usr/bin/python  --&gt;  #!/usr/bin/python2.7</span>
 
-No module named urlgrabber.grabber报错处理
+<span class="cm">No module named urlgrabber.grabber报错处理</span>
 
-vim /usr/libexec/urlgrabber-ext-down
+<span class="cm">vim /usr/libexec/urlgrabber-ext-down</span>
 
-#! /usr/bin/python  --&gt; #! /usr/bin/python2.7
+<span class="cm">#! /usr/bin/python  --&gt; #! /usr/bin/python2.7</span>
 
-python --version验证版本
-Tips :若python版本已经为2.6或以上，可以不需要再重装python，只是还需要安装python开发包：python-dev(有的操作系统下为python-devel)
+<span class="cm">python --version验证版本</span>
+<span class="cm">Tips :若python版本已经为2.6或以上，可以不需要再重装python，只是还需要安装python开发包：python-dev(有的操作系统下为python-devel)</span>
 
-(2)、setuptools pip wheel模块安装
-wget https://bootstrap.pypa.io/get-pip.py
+<span class="cm">(2)、setuptools pip wheel模块安装</span>
+<span class="cm">wget https://bootstrap.pypa.io/get-pip.py</span>
 
-python get-pip.py
+<span class="cm">python get-pip.py</span>
 
-python -m pip install --upgrade pip setuptools wheel    #升级pip setuptools wheel
+<span class="cm">python -m pip install --upgrade pip setuptools wheel    #升级pip setuptools wheel</span>
 
-安装好setuptools后就可以利用easy_install或pip这个工具安装下面的python模块了
+<span class="cm">安装好setuptools后就可以利用easy_install或pip这个工具安装下面的python模块了</span>
 
-easy_install pycrypto pyyaml jinja2 paramiko simplejson
+<span class="cm">easy_install pycrypto pyyaml jinja2 paramiko simplejson</span>
 
-pip install pycrypto pyyaml jinja2 paramiko simplejson
+<span class="cm">pip install pycrypto pyyaml jinja2 paramiko simplejson</span>
 
-(3)、ansible安装
+<span class="cm">(3)、ansible安装</span>
 
-https://github.com/ansible/ansible/archive/v1.7.2.tar.gz
+<span class="cm">https://github.com/ansible/ansible/archive/v1.7.2.tar.gz</span>
 
-# tar xvzf ansible-1.7.2.tar.gz
+<span class="cm"># tar xvzf ansible-1.7.2.tar.gz</span>
 
-# cd ansible-1.7.2
+<span class="cm"># cd ansible-1.7.2</span>
 
-# python setup.py install
-
-
-
-(4)、SSH免密钥登录设置
-
-## 生成公钥/私钥
-
-# ssh-keygen -t rsa -P &#39;&#39;
-
-## 写入信任文件（将/root/.ssh/id_rsa_storm1.pub分发到其他服务器，并在所有服务器上执行如下指令）：
-
-# cat /root/.ssh/id_rsa_storm1.pub &gt;&gt; /root/.ssh/authorized_keys
-
-# chmod 600 /root/.ssh/authorized_keys
+<span class="cm"># python setup.py install</span>
 
 
 
-(5)、拷贝，生成ansible配置文件
+<span class="cm">(4)、SSH免密钥登录设置</span>
 
-a 配置文件/etc/ansible/ansible.cfg
+<span class="cm">## 生成公钥/私钥</span>
 
-# mkdir -p /etc/ansible
+<span class="cm"># ssh-keygen -t rsa -P &#39;&#39;</span>
 
-#cp ansible-1.7.2/examples/ansible.cfg /etc/ansible/
+<span class="cm">## 写入信任文件（将/root/.ssh/id_rsa_storm1.pub分发到其他服务器，并在所有服务器上执行如下指令）：</span>
 
-b 配置文件/etc/ansible/hosts
+<span class="cm"># cat /root/.ssh/id_rsa_storm1.pub &gt;&gt; /root/.ssh/authorized_keys</span>
 
-# vim /etc/ansible/hosts
-
-[test]
-
-192.168.110.20
-
-192.168.110.30
+<span class="cm"># chmod 600 /root/.ssh/authorized_keys</span>
 
 
 
-测试
+<span class="cm">(5)、拷贝，生成ansible配置文件</span>
 
-# ansible test -m command -a &#39;uptime&#39;
+<span class="cm">a 配置文件/etc/ansible/ansible.cfg</span>
 
-## 用来测试远程主机的运行状态
+<span class="cm"># mkdir -p /etc/ansible</span>
 
-# ansible test -m ping
+<span class="cm">#cp ansible-1.7.2/examples/ansible.cfg /etc/ansible/</span>
 
-参看所有的参数
+<span class="cm">b 配置文件/etc/ansible/hosts</span>
 
-ansible-doc -l
+<span class="cm"># vim /etc/ansible/hosts</span>
+
+<span class="cm">[test]</span>
+
+<span class="cm">192.168.110.20</span>
+
+<span class="cm">192.168.110.30</span>
+
+
+
+<span class="cm">测试</span>
+
+<span class="cm"># ansible test -m command -a &#39;uptime&#39;</span>
+
+<span class="cm">## 用来测试远程主机的运行状态</span>
+
+<span class="cm"># ansible test -m ping</span>
+
+<span class="cm">参看所有的参数</span>
+
+<span class="cm">ansible-doc -l</span>
 </pre></div>
 
 <h1 id="ansible_1">ansible的离线安装<a class="headerlink" href="#ansible_1" title="Permanent link">&para;</a></h1>
 <p>需要提前准备的安装包脚本,install_ansible.sh</p>
-<div class="codehilite"><pre><span></span>#!/bin/sh  
-# 1.创建文件夹  
-mkdir /opt/ansible  
+<div class="codehilite"><pre><span></span>#<span class="o">!/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">sh</span>  
+# <span class="mi">1</span>.创建文件夹  
+<span class="nv">mkdir</span> <span class="o">/</span><span class="nv">opt</span><span class="o">/</span><span class="nv">ansible</span>  
 
-# 2. 移动资源到目标文件夹  
-cp -rf ./res/* /opt/ansible/  
+# <span class="mi">2</span>. 移动资源到目标文件夹  
+<span class="nv">cp</span> <span class="o">-</span><span class="nv">rf</span> .<span class="o">/</span><span class="nv">res</span><span class="cm">/* /opt/ansible/  </span>
 
-# 3. 安装python  
-cd /opt/ansible  
-tar xvzf Python-2.7.tgz  
-rm -f Python-2.7.tgz  
-cd Python-2.7  
-./configure --prefix=/usr/local  
-make  
-make install  
-cd /usr/local/include/python2.7  
-cp -a ./* /usr/local/include/  
-cd /usr/bin  
-mv python python.old  
-ln -s -f /usr/local/bin/python2.7 /usr/local/bin/python  
-rm -f /usr/bin/python &amp;&amp; cp /usr/local/bin/python2.7 /usr/bin/python  
+<span class="cm"># 3. 安装python  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf Python-2.7.tgz  </span>
+<span class="cm">rm -f Python-2.7.tgz  </span>
+<span class="cm">cd Python-2.7  </span>
+<span class="cm">./configure --prefix=/usr/local  </span>
+<span class="cm">make  </span>
+<span class="cm">make install  </span>
+<span class="cm">cd /usr/local/include/python2.7  </span>
+<span class="cm">cp -a ./* /usr/local/include/  </span>
+<span class="cm">cd /usr/bin  </span>
+<span class="cm">mv python python.old  </span>
+<span class="cm">ln -s -f /usr/local/bin/python2.7 /usr/local/bin/python  </span>
+<span class="cm">rm -f /usr/bin/python &amp;&amp; cp /usr/local/bin/python2.7 /usr/bin/python  </span>
 
-# 4. 安装setuptools  
-cd /opt/ansible  
-tar xvzf setuptools-7.0.tar.gz  
-rm -f setuptools-7.0.tar.gz  
-cd setuptools-7.0  
-python setup.py install  
+<span class="cm"># 4. 安装setuptools  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf setuptools-7.0.tar.gz  </span>
+<span class="cm">rm -f setuptools-7.0.tar.gz  </span>
+<span class="cm">cd setuptools-7.0  </span>
+<span class="cm">python setup.py install  </span>
 
-# 5. 安装pycrypto  
-cd /opt/ansible  
-tar xvzf pycrypto-2.6.tar.gz  
-rm -f pycrypto-2.6.tar.gz  
-cd pycrypto-2.6  
-python setup.py install  
+<span class="cm"># 5. 安装pycrypto  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf pycrypto-2.6.tar.gz  </span>
+<span class="cm">rm -f pycrypto-2.6.tar.gz  </span>
+<span class="cm">cd pycrypto-2.6  </span>
+<span class="cm">python setup.py install  </span>
 
-# 6. 安装PyYAML  
-cd /opt/ansible  
-tar xvzf yaml-0.1.5.tar.gz  
-rm -f yaml-0.1.5.tar.gz  
-cd yaml-0.1.5  
-./configure --prefix=/usr/local  
-make --jobs=`grep processor /proc/cpuinfo | wc -l`  
-make install  #出问题了  
+<span class="cm"># 6. 安装PyYAML  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf yaml-0.1.5.tar.gz  </span>
+<span class="cm">rm -f yaml-0.1.5.tar.gz  </span>
+<span class="cm">cd yaml-0.1.5  </span>
+<span class="cm">./configure --prefix=/usr/local  </span>
+<span class="cm">make --jobs=`grep processor /proc/cpuinfo | wc -l`  </span>
+<span class="cm">make install  #出问题了  </span>
 
-cd /opt/ansible  
-tar xvzf PyYAML-3.11.tar.gz  
-rm -f PyYAML-3.11.tar.gz  
-cd PyYAML-3.11  
-python setup.py install  
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf PyYAML-3.11.tar.gz  </span>
+<span class="cm">rm -f PyYAML-3.11.tar.gz  </span>
+<span class="cm">cd PyYAML-3.11  </span>
+<span class="cm">python setup.py install  </span>
 
-# 7. 安装MarkupSafe  
-cd /opt/ansible  
-tar xvzf MarkupSafe-0.9.3.tar.gz  
-rm -f MarkupSafe-0.9.3.tar.gz  
-cd MarkupSafe-0.9.3  
-python setup.py install  
-cd /opt/ansible  
-tar xvzf Jinja2-2.7.3.tar.gz  
-rm -f Jinja2-2.7.3.tar.gz  
-cd Jinja2-2.7.3  
-python setup.py install  
+<span class="cm"># 7. 安装MarkupSafe  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf MarkupSafe-0.9.3.tar.gz  </span>
+<span class="cm">rm -f MarkupSafe-0.9.3.tar.gz  </span>
+<span class="cm">cd MarkupSafe-0.9.3  </span>
+<span class="cm">python setup.py install  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf Jinja2-2.7.3.tar.gz  </span>
+<span class="cm">rm -f Jinja2-2.7.3.tar.gz  </span>
+<span class="cm">cd Jinja2-2.7.3  </span>
+<span class="cm">python setup.py install  </span>
 
-# 8. 安装ecdsa  
-cd /opt/ansible  
-tar xvzf ecdsa-0.13.tar.gz  
-rm -f ecdsa-0.13.tar.gz  
-cd ecdsa-0.13  
-python setup.py install  
-cd /opt/ansible  
-tar xvzf paramiko-1.15.1.tar.gz  
-rm -f paramiko-1.15.1.tar.gz  
-cd paramiko-1.15.1  
-python setup.py install  
+<span class="cm"># 8. 安装ecdsa  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf ecdsa-0.13.tar.gz  </span>
+<span class="cm">rm -f ecdsa-0.13.tar.gz  </span>
+<span class="cm">cd ecdsa-0.13  </span>
+<span class="cm">python setup.py install  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf paramiko-1.15.1.tar.gz  </span>
+<span class="cm">rm -f paramiko-1.15.1.tar.gz  </span>
+<span class="cm">cd paramiko-1.15.1  </span>
+<span class="cm">python setup.py install  </span>
 
-# 9. 安装simplejson  
-cd /opt/ansible  
-tar xvzf simplejson-3.8.2.tar.gz  
-rm -f simplejson-3.8.2.tar.gz  
-cd simplejson-3.8.2  
-python setup.py install  
-cd /opt/ansible  
-tar xvzf ansible-latest.tar.gz  
-rm -f ansible-latest.tar.gz  
-cd ansible-2.1.0.0  
-python setup.py install  
+<span class="cm"># 9. 安装simplejson  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf simplejson-3.8.2.tar.gz  </span>
+<span class="cm">rm -f simplejson-3.8.2.tar.gz  </span>
+<span class="cm">cd simplejson-3.8.2  </span>
+<span class="cm">python setup.py install  </span>
+<span class="cm">cd /opt/ansible  </span>
+<span class="cm">tar xvzf ansible-latest.tar.gz  </span>
+<span class="cm">rm -f ansible-latest.tar.gz  </span>
+<span class="cm">cd ansible-2.1.0.0  </span>
+<span class="cm">python setup.py install  </span>
 </pre></div>
                 
                   
@@ -1862,7 +1838,7 @@ python setup.py install
       
     </div>
     
-      <script src="../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
       
         
         
@@ -1874,7 +1850,7 @@ python setup.py install
                 <script src="../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

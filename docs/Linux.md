@@ -356,6 +356,14 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 |  | • | alias realpath='readlink -f' | 显示符号链接指向的真实路径用法举例: • realpath ~/../$USER |
 |  | • | set | grep $USER | 在当前环境中查找 |
 |  |   | touch -c -t 0304050607 file | 改变文件的时间标签 YYMMDDhhmm |
+listen 8083 ssl http2;
+加固建议
+使用非密码登陆方式如密钥对，请忽略此项。在 /etc/login.defs 中将 PASS_MAX_DAYS 参数设置为 60-180之间，如 PASS_MAX_DAYS 90。需同时执行命令设置root密码失效时间： chage --maxdays 90 root。
+
+在 /etc/login.defs 中将 PASS_MIN_DAYS 参数设置为7-14之间,建议为7： PASS_MIN_DAYS 7 需同时执行命令为root用户设置： chage --mindays 7 root
+
+编辑/etc/security/pwquality.conf，把minlen（密码最小长度）设置为9-32位，把minclass（至少包含小写字母、大写字母、数字、特殊字符等4类字符中等3类或4类）设置为3或4。如： minlen=10 minclass=3
+sysctl -w kernel.randomize_va_space=2
 
 ## Centos
 

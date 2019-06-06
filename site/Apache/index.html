@@ -21,7 +21,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="jp">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -529,8 +529,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nginx/" title="Nginx" class="md-nav__link">
-      Nginx
+    <a href="../Nginx/" title="Nginx&Unit" class="md-nav__link">
+      Nginx&Unit
     </a>
   </li>
 
@@ -891,8 +891,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
-      LVSKeepalived
+    <a href="../LVS/" title="LVS" class="md-nav__link">
+      LVS
     </a>
   </li>
 
@@ -1167,30 +1167,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
       SomelseMonitors
     </a>
@@ -1260,46 +1236,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
     <label class="md-nav__link" for="nav-15">
-      Security
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
-        Security
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Snort/" title="Snort" class="md-nav__link">
-      Snort
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
-    
-    <label class="md-nav__link" for="nav-16">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1341,13 +1281,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1361,6 +1301,42 @@
   <li class="md-nav__item">
     <a href="../VPN/" title="VPN" class="md-nav__link">
       VPN
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      Security
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Snort/" title="Snort" class="md-nav__link">
+      Snort
     </a>
   </li>
 
@@ -1523,6 +1499,64 @@ server <span class="o">{</span>
         <span class="k">return</span>    <span class="m">444</span><span class="p">;</span>
 <span class="o">}</span>
 </pre></div>
+
+<p>php-fpm.conf重要参数详解</p>
+<p>pid = run/php-fpm.pid</p>
+<h1 id="pidvarrunphp-fpmpid">pid设置，默认在安装目录中的var/run/php-fpm.pid，建议开启<a class="headerlink" href="#pidvarrunphp-fpmpid" title="Permanent link">&para;</a></h1>
+<p>error_log = log/php-fpm.log</p>
+<h1 id="varlogphp-fpmlog">错误日志，默认在安装目录中的var/log/php-fpm.log<a class="headerlink" href="#varlogphp-fpmlog" title="Permanent link">&para;</a></h1>
+<p>log_level = notice</p>
+<h1 id="alert-error-warning-notice-debug-notice">错误级别. 可用级别为: alert（必须立即处理）, error（错误情况）, warning（警告情况）, notice（一般重要信息）, debug（调试信息）. 默认: notice.<a class="headerlink" href="#alert-error-warning-notice-debug-notice" title="Permanent link">&para;</a></h1>
+<p>emergency_restart_threshold = 60
+emergency_restart_interval = 60s</p>
+<h1 id="emergency_restart_intervalsigsegvsigbusphp-cgi-emergency_restart_thresholdphp-fpm">表示在emergency_restart_interval所设值内出现SIGSEGV或者SIGBUS错误的php-cgi进程数如果超过 emergency_restart_threshold个，php-fpm就会优雅重启。这两个选项一般保持默认值。<a class="headerlink" href="#emergency_restart_intervalsigsegvsigbusphp-cgi-emergency_restart_thresholdphp-fpm" title="Permanent link">&para;</a></h1>
+<p>process_control_timeout = 0</p>
+<h1 id="s-m-h-d-s-0">设置子进程接受主进程复用信号的超时时间. 可用单位: s(秒), m(分), h(小时), 或者 d(天) 默认单位: s(秒). 默认值: 0.<a class="headerlink" href="#s-m-h-d-s-0" title="Permanent link">&para;</a></h1>
+<p>daemonize = yes</p>
+<h1 id="fpmyesnofpm">后台执行fpm,默认值为yes，如果为了调试可以改为no。在FPM中，可以使用不同的设置来运行多个进程池。 这些设置可以针对每个进程池单独设置。<a class="headerlink" href="#fpmyesnofpm" title="Permanent link">&para;</a></h1>
+<p>listen = 127.0.0.1:9000</p>
+<h1 id="fpmnginxphp-ipport-port-pathtounixsocket">fpm监听端口，即nginx中php处理的地址，一般默认值即可。可用格式为: 'ip:port', 'port', '/path/to/unix/socket'. 每个进程池都需要设置.<a class="headerlink" href="#fpmnginxphp-ipport-port-pathtounixsocket" title="Permanent link">&para;</a></h1>
+<p>listen.backlog = -1</p>
+<h1 id="backlog-1backloghttpwww3gyouccp41">backlog数，-1表示无限制，由操作系统决定，此行注释掉就行。backlog含义参考：<a href="http://www.3gyou.cc/?p=41">http://www.3gyou.cc/?p=41</a><a class="headerlink" href="#backlog-1backloghttpwww3gyouccp41" title="Permanent link">&para;</a></h1>
+<p>listen.allowed_clients = 127.0.0.1</p>
+<h1 id="fastcgiipanyipnginxfpmlistenipany">允许访问FastCGI进程的IP，设置any为不限制IP，如果要设置其他主机的nginx也能访问这台FPM进程，listen处要设置成本地可被访问的IP。默认值是any。每个地址是用逗号分隔. 如果没有设置或者为空，则允许任何服务器请求连接<a class="headerlink" href="#fastcgiipanyipnginxfpmlistenipany" title="Permanent link">&para;</a></h1>
+<p>listen.owner = www
+listen.group = www
+listen.mode = 0666</p>
+<h1 id="unix-sockettcp">unix socket设置选项，如果使用tcp方式访问，这里注释即可。<a class="headerlink" href="#unix-sockettcp" title="Permanent link">&para;</a></h1>
+<p>user = www
+group = www</p>
+<h1 id="_1">启动进程的帐户和组<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>pm = dynamic #对于专用服务器，pm可以设置为static。</p>
+<h1 id="staticdynamicstaticpmmax_childrendynamic">如何控制子进程，选项有static和dynamic。如果选择static，则由pm.max_children指定固定的子进程数。如果选择dynamic，则由下开参数决定：<a class="headerlink" href="#staticdynamicstaticpmmax_childrendynamic" title="Permanent link">&para;</a></h1>
+<p>pm.max_children #，子进程最大数
+pm.start_servers #，启动时的进程数
+pm.min_spare_servers #，保证空闲进程数最小值，如果空闲进程小于此值，则创建新的子进程
+pm.max_spare_servers #，保证空闲进程数最大值，如果空闲进程大于此值，此进行清理</p>
+<p>pm.max_requests = 1000</p>
+<h1 id="0-php_fcgi_max_requests-0">设置每个子进程重生之前服务的请求数. 对于可能存在内存泄漏的第三方模块来说是非常有用的. 如果设置为 '0' 则一直接受请求. 等同于 PHP_FCGI_MAX_REQUESTS 环境变量. 默认值: 0.<a class="headerlink" href="#0-php_fcgi_max_requests-0" title="Permanent link">&para;</a></h1>
+<p>pm.status_path = /status</p>
+<h1 id="fpm-none-munin">FPM状态页面的网址. 如果没有设置, 则无法访问状态页面. 默认值: none. munin监控会使用到<a class="headerlink" href="#fpm-none-munin" title="Permanent link">&para;</a></h1>
+<p>ping.path = /ping</p>
+<h1 id="fpmping-ping-fpm">FPM监控页面的ping网址. 如果没有设置, 则无法访问ping页面. 该页面用于外部检测FPM是否存活并且可以响应请求. 请注意必须以斜线开头 (/)。<a class="headerlink" href="#fpmping-ping-fpm" title="Permanent link">&para;</a></h1>
+<p>ping.response = pong</p>
+<h1 id="ping-http-200-textplain-pong">用于定义ping请求的返回相应. 返回为 HTTP 200 的 text/plain 格式文本. 默认值: pong.<a class="headerlink" href="#ping-http-200-textplain-pong" title="Permanent link">&para;</a></h1>
+<p>request_terminate_timeout = 0</p>
+<h1 id="phpinimax_execution_time-0-off502">设置单个请求的超时中止时间. 该选项可能会对php.ini设置中的'max_execution_time'因为某些特殊原因没有中止运行的脚本有用. 设置为 '0' 表示 'Off'.当经常出现502错误时可以尝试更改此选项。<a class="headerlink" href="#phpinimax_execution_time-0-off502" title="Permanent link">&para;</a></h1>
+<p>request_slowlog_timeout = 10s</p>
+<h1 id="php-0-off">当一个请求该设置的超时时间后，就会将对应的PHP调用堆栈信息完整写入到慢日志中. 设置为 '0' 表示 'Off'<a class="headerlink" href="#php-0-off" title="Permanent link">&para;</a></h1>
+<p>slowlog = log/$pool.log.slow</p>
+<h1 id="request_slowlog_timeout">慢请求的记录日志,配合request_slowlog_timeout使用<a class="headerlink" href="#request_slowlog_timeout" title="Permanent link">&para;</a></h1>
+<p>rlimit_files = 1024</p>
+<h1 id="rlimit-1024-ulimit-nulimit-n-2048">设置文件打开描述符的rlimit限制. 默认值: 系统定义值默认可打开句柄是1024，可使用 ulimit -n查看，ulimit -n 2048修改。<a class="headerlink" href="#rlimit-1024-ulimit-nulimit-n-2048" title="Permanent link">&para;</a></h1>
+<p>rlimit_core = 0</p>
+<h1 id="rlimit-unlimited-0">设置核心rlimit最大限制值. 可用值: 'unlimited' 、0或者正整数. 默认值: 系统定义值.<a class="headerlink" href="#rlimit-unlimited-0" title="Permanent link">&para;</a></h1>
+<p>chroot =</p>
+<h1 id="chroot-chroot">启动时的Chroot目录. 所定义的目录需要是绝对路径. 如果没有设置, 则chroot不被使用.<a class="headerlink" href="#chroot-chroot" title="Permanent link">&para;</a></h1>
+<p>chdir =</p>
+<h1 id="chdir-chroot">设置启动目录，启动时会自动Chdir到该目录. 所定义的目录需要是绝对路径. 默认值: 当前目录，或者/目录（chroot时）<a class="headerlink" href="#chdir-chroot" title="Permanent link">&para;</a></h1>
+<p>catch_workers_output = yes</p>
+<h1 id="stdoutstderr-stdout-stderr-fastcgi-devnull">重定向运行过程中的stdout和stderr到主要的错误日志文件中. 如果没有设置, stdout 和 stderr 将会根据FastCGI的规则被重定向到 /dev/null . 默认值: 空.<a class="headerlink" href="#stdoutstderr-stdout-stderr-fastcgi-devnull" title="Permanent link">&para;</a></h1>
                 
                   
                 
@@ -1543,7 +1577,7 @@ server <span class="o">{</span>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Nginx/" title="Nginx" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Nginx/" title="Nginx&Unit" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1552,7 +1586,7 @@ server <span class="o">{</span>
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Nginx
+                Nginx&Unit
               </span>
             </div>
           </a>
@@ -1601,7 +1635,7 @@ server <span class="o">{</span>
       
     </div>
     
-      <script src="../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
       
         
         
@@ -1613,7 +1647,7 @@ server <span class="o">{</span>
                 <script src="../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

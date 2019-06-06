@@ -21,7 +21,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="jp">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -527,8 +527,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nginx/" title="Nginx" class="md-nav__link">
-      Nginx
+    <a href="../Nginx/" title="Nginx&Unit" class="md-nav__link">
+      Nginx&Unit
     </a>
   </li>
 
@@ -851,8 +851,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
-      LVSKeepalived
+    <a href="../LVS/" title="LVS" class="md-nav__link">
+      LVS
     </a>
   </li>
 
@@ -1052,8 +1052,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker_2" title="更改docker镜像安装目录" class="md-nav__link">
-    更改docker镜像安装目录
+  <a href="#docker_2" title="更改docker镜像安装目录(新版本通过配置文件参数自定义指定)" class="md-nav__link">
+    更改docker镜像安装目录(新版本通过配置文件参数自定义指定)
   </a>
   
 </li>
@@ -1077,57 +1077,8 @@
     在Windows上官方示例的daemon.json文件配置
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#containerimage" title="清理冗余container和image，可采用以下方法：" class="md-nav__link">
-    清理冗余container和image，可采用以下方法：
-  </a>
-  
     <nav class="md-nav">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#containerimages" title="停止所有的container，这样才能够删除其中的images：" class="md-nav__link">
-    停止所有的container，这样才能够删除其中的images：
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#container" title="如果想要删除所有container的话再加一个指令：" class="md-nav__link">
-    如果想要删除所有container的话再加一个指令：
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containercontainercontainer" title="根据过滤条件删除container，例如：删除某container之前的container" class="md-nav__link">
-    根据过滤条件删除container，例如：删除某container之前的container
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#container_1" title="删除所有退出状态的container" class="md-nav__link">
-    删除所有退出状态的container
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#images" title="查看当前有些什么images" class="md-nav__link">
-    查看当前有些什么images
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#imagesimageid" title="删除images，通过image的id来指定删除谁" class="md-nav__link">
-    删除images，通过image的id来指定删除谁
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#untagged-imagesidnoneimage" title="想要删除untagged images，也就是那些id为None的image的话可以用" class="md-nav__link">
@@ -1144,7 +1095,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#containerimages_1" title="同时删除container和images" class="md-nav__link">
+  <a href="#containerimages" title="同时删除container和images" class="md-nav__link">
     同时删除container和images
   </a>
   
@@ -1326,30 +1277,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
       SomelseMonitors
     </a>
@@ -1419,46 +1346,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
     <label class="md-nav__link" for="nav-15">
-      Security
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
-        Security
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Snort/" title="Snort" class="md-nav__link">
-      Snort
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
-    
-    <label class="md-nav__link" for="nav-16">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1500,13 +1391,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1520,6 +1411,42 @@
   <li class="md-nav__item">
     <a href="../VPN/" title="VPN" class="md-nav__link">
       VPN
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      Security
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Snort/" title="Snort" class="md-nav__link">
+      Snort
     </a>
   </li>
 
@@ -1638,8 +1565,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker_2" title="更改docker镜像安装目录" class="md-nav__link">
-    更改docker镜像安装目录
+  <a href="#docker_2" title="更改docker镜像安装目录(新版本通过配置文件参数自定义指定)" class="md-nav__link">
+    更改docker镜像安装目录(新版本通过配置文件参数自定义指定)
   </a>
   
 </li>
@@ -1663,57 +1590,8 @@
     在Windows上官方示例的daemon.json文件配置
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#containerimage" title="清理冗余container和image，可采用以下方法：" class="md-nav__link">
-    清理冗余container和image，可采用以下方法：
-  </a>
-  
     <nav class="md-nav">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#containerimages" title="停止所有的container，这样才能够删除其中的images：" class="md-nav__link">
-    停止所有的container，这样才能够删除其中的images：
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#container" title="如果想要删除所有container的话再加一个指令：" class="md-nav__link">
-    如果想要删除所有container的话再加一个指令：
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containercontainercontainer" title="根据过滤条件删除container，例如：删除某container之前的container" class="md-nav__link">
-    根据过滤条件删除container，例如：删除某container之前的container
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#container_1" title="删除所有退出状态的container" class="md-nav__link">
-    删除所有退出状态的container
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#images" title="查看当前有些什么images" class="md-nav__link">
-    查看当前有些什么images
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#imagesimageid" title="删除images，通过image的id来指定删除谁" class="md-nav__link">
-    删除images，通过image的id来指定删除谁
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#untagged-imagesidnoneimage" title="想要删除untagged images，也就是那些id为None的image的话可以用" class="md-nav__link">
@@ -1730,7 +1608,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#containerimages_1" title="同时删除container和images" class="md-nav__link">
+  <a href="#containerimages" title="同时删除container和images" class="md-nav__link">
     同时删除container和images
   </a>
   
@@ -1806,7 +1684,7 @@
 <div class="codehilite"><pre><span></span>yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum list docker-ce --showduplicates <span class="p">|</span> sort -r
-yum install &lt;FULLY-QUALIFIED-PACKAGE-NAME&gt;#根据docker-ce-18.03.0.ce-1.el7.centos.x86_64
+yum install &lt;FULLY-QUALIFIED-PACKAGE-NAME&gt;  <span class="c1"># 根据docker-ce-18.09.5-3.el7.x86_64</span>
 systemctl start docker
 systemctl <span class="nb">enable</span> docker
 </pre></div>
@@ -1851,7 +1729,7 @@ yum install http://yum.dockerproject.org/repo/main/centos/6/Packages/docker-engi
 service docker status
 </pre></div>
 
-<h2 id="docker_2">更改docker镜像安装目录<a class="headerlink" href="#docker_2" title="Permanent link">&para;</a></h2>
+<h2 id="docker_2">更改docker镜像安装目录(新版本通过配置文件参数自定义指定)<a class="headerlink" href="#docker_2" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>方法一：
 停止docker进程
 Ubuntu/Debian：使用-g选项编辑/etc/default/docker文件：DOCKER_OPTS <span class="o">=</span>“ - dns <span class="m">8</span>.8.8.8 -dns <span class="m">8</span>.8.4.4 -g /mnt”
@@ -1978,7 +1856,7 @@ $ docker --registry-mirror<span class="o">=</span>https://registry.docker-cn.com
 </pre></div>
 
 <h2 id="windowsdaemonjson">在Windows上官方示例的daemon.json文件配置<a class="headerlink" href="#windowsdaemonjson" title="Permanent link">&para;</a></h2>
-<p><div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;authorization-plugins&quot;</span><span class="p">:</span> <span class="p">[],</span>
     <span class="nt">&quot;data-root&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="nt">&quot;dns&quot;</span><span class="p">:</span> <span class="p">[],</span>
@@ -2014,21 +1892,116 @@ $ docker --registry-mirror<span class="o">=</span>https://registry.docker-cn.com
     <span class="nt">&quot;registry-mirrors&quot;</span><span class="p">:</span> <span class="p">[],</span>
     <span class="nt">&quot;insecure-registries&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
+
+<span class="err">##</span> <span class="err">Docker命令</span>
+
+<span class="err">```info</span>
+<span class="err">用法:docker</span> <span class="p">[</span><span class="err">OPTIONS</span><span class="p">]</span> <span class="err">COMMAND</span>
+
+<span class="err">Options:</span>
+      <span class="err">--config</span> <span class="err">string</span>      <span class="err">Location</span> <span class="err">of</span> <span class="err">client</span> <span class="err">config</span> <span class="err">files</span> <span class="err">(default</span> <span class="s2">&quot;/root/.docker&quot;</span><span class="err">)</span>
+  <span class="err">-D,</span> <span class="err">--debug</span>              <span class="err">Enable</span> <span class="err">debug</span> <span class="err">mode</span>
+  <span class="err">-H,</span> <span class="err">--host</span> <span class="err">list</span>          <span class="err">Daemon</span> <span class="err">socket(s)</span> <span class="err">to</span> <span class="err">connect</span> <span class="err">to</span>
+  <span class="err">-l,</span> <span class="err">--log-level</span> <span class="err">string</span>   <span class="err">Set</span> <span class="err">the</span> <span class="err">logging</span> <span class="err">level</span> <span class="err">(</span><span class="s2">&quot;debug&quot;</span><span class="err">|</span><span class="s2">&quot;info&quot;</span><span class="err">|</span><span class="s2">&quot;warn&quot;</span><span class="err">|</span><span class="s2">&quot;error&quot;</span><span class="err">|</span><span class="s2">&quot;fatal&quot;</span><span class="err">)</span> <span class="err">(default</span> <span class="s2">&quot;info&quot;</span><span class="err">)</span>
+      <span class="err">--tls</span>                <span class="err">Use</span> <span class="err">TLS;</span> <span class="err">implied</span> <span class="err">by</span> <span class="err">--tlsverify</span>
+      <span class="err">--tlscacert</span> <span class="err">string</span>   <span class="err">Trust</span> <span class="err">certs</span> <span class="err">signed</span> <span class="err">only</span> <span class="err">by</span> <span class="err">this</span> <span class="err">CA</span> <span class="err">(default</span> <span class="s2">&quot;/root/.docker/ca.pem&quot;</span><span class="err">)</span>
+      <span class="err">--tlscert</span> <span class="err">string</span>     <span class="err">Path</span> <span class="err">to</span> <span class="err">TLS</span> <span class="err">certificate</span> <span class="err">file</span> <span class="err">(default</span> <span class="s2">&quot;/root/.docker/cert.pem&quot;</span><span class="err">)</span>
+      <span class="err">--tlskey</span> <span class="err">string</span>      <span class="err">Path</span> <span class="err">to</span> <span class="err">TLS</span> <span class="err">key</span> <span class="err">file</span> <span class="err">(default</span> <span class="s2">&quot;/root/.docker/key.pem&quot;</span><span class="err">)</span>
+      <span class="err">--tlsverify</span>          <span class="err">Use</span> <span class="err">TLS</span> <span class="err">and</span> <span class="err">verify</span> <span class="err">the</span> <span class="err">remote</span>
+  <span class="err">-v,</span> <span class="err">--version</span>            <span class="err">Print</span> <span class="err">version</span> <span class="err">information</span> <span class="err">and</span> <span class="err">quit</span>
+
+<span class="err">Management</span> <span class="err">Commands:</span>
+  <span class="err">builder</span>     <span class="err">Manage</span> <span class="err">builds</span>
+  <span class="err">config</span>      <span class="err">Manage</span> <span class="err">Docker</span> <span class="err">configs</span>
+  <span class="err">container</span>   <span class="err">Manage</span> <span class="err">containers</span>
+  <span class="err">engine</span>      <span class="err">Manage</span> <span class="err">the</span> <span class="err">docker</span> <span class="err">engine</span>
+  <span class="err">image</span>       <span class="err">Manage</span> <span class="err">images</span>
+  <span class="err">network</span>     <span class="err">Manage</span> <span class="err">networks</span>
+  <span class="err">node</span>        <span class="err">Manage</span> <span class="err">Swarm</span> <span class="err">nodes</span>
+  <span class="err">plugin</span>      <span class="err">Manage</span> <span class="err">plugins</span>
+  <span class="err">secret</span>      <span class="err">Manage</span> <span class="err">Docker</span> <span class="err">secrets</span>
+  <span class="err">service</span>     <span class="err">Manage</span> <span class="err">services</span>
+  <span class="err">stack</span>       <span class="err">Manage</span> <span class="err">Docker</span> <span class="err">stacks</span>
+  <span class="err">swarm</span>       <span class="err">Manage</span> <span class="err">Swarm</span>
+  <span class="err">system</span>      <span class="err">Manage</span> <span class="err">Docker</span>
+  <span class="err">trust</span>       <span class="err">Manage</span> <span class="err">trust</span> <span class="err">on</span> <span class="err">Docker</span> <span class="err">images</span>
+  <span class="err">volume</span>      <span class="err">Manage</span> <span class="err">volumes</span>
+
+<span class="err">Commands:</span>
+  <span class="err">attach</span>      <span class="err">Attach</span> <span class="err">local</span> <span class="err">standard</span> <span class="err">input,</span> <span class="err">output,</span> <span class="err">and</span> <span class="err">error</span> <span class="err">streams</span> <span class="err">to</span> <span class="err">a</span> <span class="err">running</span> <span class="err">container</span>
+  <span class="err">build</span>       <span class="err">Build</span> <span class="err">an</span> <span class="err">image</span> <span class="err">from</span> <span class="err">a</span> <span class="err">Dockerfile</span>
+  <span class="err">commit</span>      <span class="err">Create</span> <span class="err">a</span> <span class="err">new</span> <span class="err">image</span> <span class="err">from</span> <span class="err">a</span> <span class="err">container&#39;s</span> <span class="err">changes</span>
+  <span class="err">cp</span>          <span class="err">Copy</span> <span class="err">files/folders</span> <span class="err">between</span> <span class="err">a</span> <span class="err">container</span> <span class="err">and</span> <span class="err">the</span> <span class="err">local</span> <span class="err">filesystem</span>
+  <span class="err">create</span>      <span class="err">Create</span> <span class="err">a</span> <span class="err">new</span> <span class="err">container</span>
+  <span class="err">diff</span>        <span class="err">Inspect</span> <span class="err">changes</span> <span class="err">to</span> <span class="err">files</span> <span class="err">or</span> <span class="err">directories</span> <span class="err">on</span> <span class="err">a</span> <span class="err">container&#39;s</span> <span class="err">filesystem</span>
+  <span class="err">events</span>      <span class="err">Get</span> <span class="err">real</span> <span class="err">time</span> <span class="err">events</span> <span class="err">from</span> <span class="err">the</span> <span class="err">server</span>
+  <span class="err">exec</span>        <span class="err">Run</span> <span class="err">a</span> <span class="err">command</span> <span class="err">in</span> <span class="err">a</span> <span class="err">running</span> <span class="err">container</span>
+  <span class="err">export</span>      <span class="err">Export</span> <span class="err">a</span> <span class="err">container&#39;s</span> <span class="err">filesystem</span> <span class="err">as</span> <span class="err">a</span> <span class="err">tar</span> <span class="err">archive</span>
+  <span class="err">history</span>     <span class="err">Show</span> <span class="err">the</span> <span class="err">history</span> <span class="err">of</span> <span class="err">an</span> <span class="err">image</span>
+  <span class="err">images</span>      <span class="err">List</span> <span class="err">images</span>
+  <span class="err">import</span>      <span class="err">Import</span> <span class="err">the</span> <span class="err">contents</span> <span class="err">from</span> <span class="err">a</span> <span class="err">tarball</span> <span class="err">to</span> <span class="err">create</span> <span class="err">a</span> <span class="err">filesystem</span> <span class="err">image</span>
+  <span class="err">info</span>        <span class="err">Display</span> <span class="err">system-wide</span> <span class="err">information</span>
+  <span class="err">inspect</span>     <span class="err">Return</span> <span class="err">low-level</span> <span class="err">information</span> <span class="err">on</span> <span class="err">Docker</span> <span class="err">objects</span>
+  <span class="err">kill</span>        <span class="err">Kill</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">running</span> <span class="err">containers</span>
+  <span class="err">load</span>        <span class="err">Load</span> <span class="err">an</span> <span class="err">image</span> <span class="err">from</span> <span class="err">a</span> <span class="err">tar</span> <span class="err">archive</span> <span class="err">or</span> <span class="err">STDIN</span>
+  <span class="err">login</span>       <span class="err">Log</span> <span class="err">in</span> <span class="err">to</span> <span class="err">a</span> <span class="err">Docker</span> <span class="err">registry</span>
+  <span class="err">logout</span>      <span class="err">Log</span> <span class="err">out</span> <span class="err">from</span> <span class="err">a</span> <span class="err">Docker</span> <span class="err">registry</span>
+  <span class="err">logs</span>        <span class="err">Fetch</span> <span class="err">the</span> <span class="err">logs</span> <span class="err">of</span> <span class="err">a</span> <span class="err">container</span>
+  <span class="err">pause</span>       <span class="err">Pause</span> <span class="err">all</span> <span class="err">processes</span> <span class="err">within</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">containers</span>
+  <span class="err">port</span>        <span class="err">List</span> <span class="err">port</span> <span class="err">mappings</span> <span class="err">or</span> <span class="err">a</span> <span class="err">specific</span> <span class="err">mapping</span> <span class="err">for</span> <span class="err">the</span> <span class="err">container</span>
+  <span class="err">ps</span>          <span class="err">List</span> <span class="err">containers</span>
+  <span class="err">pull</span>        <span class="err">Pull</span> <span class="err">an</span> <span class="err">image</span> <span class="err">or</span> <span class="err">a</span> <span class="err">repository</span> <span class="err">from</span> <span class="err">a</span> <span class="err">registry</span>
+  <span class="err">push</span>        <span class="err">Push</span> <span class="err">an</span> <span class="err">image</span> <span class="err">or</span> <span class="err">a</span> <span class="err">repository</span> <span class="err">to</span> <span class="err">a</span> <span class="err">registry</span>
+  <span class="err">rename</span>      <span class="err">Rename</span> <span class="err">a</span> <span class="err">container</span>
+  <span class="err">restart</span>     <span class="err">Restart</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">containers</span>
+  <span class="err">rm</span>          <span class="err">Remove</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">containers</span>
+  <span class="err">rmi</span>         <span class="err">Remove</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">images</span>
+  <span class="err">run</span>         <span class="err">Run</span> <span class="err">a</span> <span class="err">command</span> <span class="err">in</span> <span class="err">a</span> <span class="err">new</span> <span class="err">container</span>
+  <span class="err">save</span>        <span class="err">Save</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">images</span> <span class="err">to</span> <span class="err">a</span> <span class="err">tar</span> <span class="err">archive</span> <span class="err">(streamed</span> <span class="err">to</span> <span class="err">STDOUT</span> <span class="err">by</span> <span class="err">default)</span>
+  <span class="err">search</span>      <span class="err">Search</span> <span class="err">the</span> <span class="err">Docker</span> <span class="err">Hub</span> <span class="err">for</span> <span class="err">images</span>
+  <span class="err">start</span>       <span class="err">Start</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">stopped</span> <span class="err">containers</span>
+  <span class="err">stats</span>       <span class="err">Display</span> <span class="err">a</span> <span class="err">live</span> <span class="err">stream</span> <span class="err">of</span> <span class="err">container(s)</span> <span class="err">resource</span> <span class="err">usage</span> <span class="err">statistics</span>
+  <span class="err">stop</span>        <span class="err">Stop</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">running</span> <span class="err">containers</span>
+  <span class="err">tag</span>         <span class="err">Create</span> <span class="err">a</span> <span class="err">tag</span> <span class="err">TARGET_IMAGE</span> <span class="err">that</span> <span class="err">refers</span> <span class="err">to</span> <span class="err">SOURCE_IMAGE</span>
+  <span class="err">top</span>         <span class="err">Display</span> <span class="err">the</span> <span class="err">running</span> <span class="err">processes</span> <span class="err">of</span> <span class="err">a</span> <span class="err">container</span>
+  <span class="err">unpause</span>     <span class="err">Unpause</span> <span class="err">all</span> <span class="err">processes</span> <span class="err">within</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">containers</span>
+  <span class="err">update</span>      <span class="err">Update</span> <span class="err">configuration</span> <span class="err">of</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">containers</span>
+  <span class="err">version</span>     <span class="err">Show</span> <span class="err">the</span> <span class="err">Docker</span> <span class="err">version</span> <span class="err">information</span>
+  <span class="err">wait</span>        <span class="err">Block</span> <span class="err">until</span> <span class="err">one</span> <span class="err">or</span> <span class="err">more</span> <span class="err">containers</span> <span class="err">stop,</span> <span class="err">then</span> <span class="err">print</span> <span class="err">their</span> <span class="err">exit</span> <span class="err">codes</span>
+
+<span class="err">Run</span> <span class="err">&#39;docker</span> <span class="err">COMMAND</span> <span class="err">--help&#39;</span> <span class="err">for</span> <span class="err">more</span> <span class="err">information</span> <span class="err">on</span> <span class="err">a</span> <span class="err">command.</span>
 </pre></div>
-docker run -dt -p 127.0.0.1:9980:9980 -e "domain=192.168.124.3" -e "username=admin" -e "password=admin" --restart always --cap-add MKNOD docker.io/thedarkknight/libreoffice-online-unlimited</p>
-<h2 id="containerimage">清理冗余container和image，可采用以下方法：<a class="headerlink" href="#containerimage" title="Permanent link">&para;</a></h2>
-<h3 id="containerimages">停止所有的container，这样才能够删除其中的images：<a class="headerlink" href="#containerimages" title="Permanent link">&para;</a></h3>
-<p>docker stop $(docker ps -a -q)</p>
-<h3 id="container">如果想要删除所有container的话再加一个指令：<a class="headerlink" href="#container" title="Permanent link">&para;</a></h3>
-<p>docker rm -f $(docker ps -a -q)</p>
-<h3 id="containercontainercontainer">根据过滤条件删除container，例如：删除某container之前的container<a class="headerlink" href="#containercontainercontainer" title="Permanent link">&para;</a></h3>
-<p>docker rm -f $(sudo docker ps --before="container_id_here" -q)</p>
-<h3 id="container_1">删除所有退出状态的container<a class="headerlink" href="#container_1" title="Permanent link">&para;</a></h3>
-<p>docker rm $(docker ps -q -f status=exited)</p>
-<h3 id="images">查看当前有些什么images<a class="headerlink" href="#images" title="Permanent link">&para;</a></h3>
-<p>docker images</p>
-<h3 id="imagesimageid">删除images，通过image的id来指定删除谁<a class="headerlink" href="#imagesimageid" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>docker rmi &lt;image id&gt;
+
+<div class="codehilite"><pre><span></span>docker run -dt -p <span class="m">127</span>.0.0.1:9980:9980 -e <span class="s2">&quot;domain=192\.168\.124\.3&quot;</span> -e <span class="s2">&quot;username=admin&quot;</span> -e <span class="s2">&quot;password=admin&quot;</span> --restart always --cap-add MKNOD docker.io/thedarkknight/libreoffice-online-unlimited
+
+
+
+<span class="c1">## 清理冗余container和image，可采用以下方法：</span>
+
+<span class="c1">### 停止所有的container，这样才能够删除其中的images：</span>
+
+docker stop <span class="k">$(</span>docker ps -a -q<span class="k">)</span>
+
+<span class="c1">### 如果想要删除所有container的话再加一个指令：</span>
+
+docker rm -f <span class="k">$(</span>docker ps -a -q<span class="k">)</span>
+
+<span class="c1">### 根据过滤条件删除container，例如：删除某container之前的container</span>
+
+docker rm -f <span class="k">$(</span>sudo docker ps --before<span class="o">=</span><span class="s2">&quot;container_id_here&quot;</span> -q<span class="k">)</span>
+
+<span class="c1">### 删除所有退出状态的container</span>
+
+docker rm <span class="k">$(</span>docker ps -q -f <span class="nv">status</span><span class="o">=</span>exited<span class="k">)</span>
+
+<span class="c1">### 查看当前有些什么images</span>
+
+docker images
+
+<span class="c1">### 删除images，通过image的id来指定删除谁</span>
+
+<span class="sb">```</span>sh
+docker rmi &lt;image id&gt;
 </pre></div>
 
 <h3 id="untagged-imagesidnoneimage">想要删除untagged images，也就是那些id为None的image的话可以用<a class="headerlink" href="#untagged-imagesidnoneimage" title="Permanent link">&para;</a></h3>
@@ -2037,7 +2010,7 @@ docker run -dt -p 127.0.0.1:9980:9980 -e "domain=192.168.124.3" -e "username=adm
 
 <h3 id="image">要删除全部image的话<a class="headerlink" href="#image" title="Permanent link">&para;</a></h3>
 <p>docker rmi $(docker images -q)</p>
-<h3 id="containerimages_1">同时删除container和images<a class="headerlink" href="#containerimages_1" title="Permanent link">&para;</a></h3>
+<h3 id="containerimages">同时删除container和images<a class="headerlink" href="#containerimages" title="Permanent link">&para;</a></h3>
 <p># stop and remove containers and associated images with common grep search term
 docker ps -a --no-trunc  | grep "search_term_here" | awk "{print $1}" | xargs -r --no-run-if-empty docker stop &amp;&amp; \
 docker ps -a --no-trunc  | grep "search_term_here" | awk "{print $1}" | xargs -r --no-run-if-empty docker rm &amp;&amp; \
@@ -2074,7 +2047,7 @@ docker run -i -t ubuntu /bin/bash # drops you into new container as root</p>
 <p>2.helps whit error:'unexpected end of JON input'</p>
 <p>docker rm -f $(docker ps -a -q)</p>
 <p>#go to container command line
-docker exec -it "container_name_here" /bin/bash</p>
+docker exec -it "container_name_here" bash</p>
                 
                   
                 
@@ -2153,7 +2126,7 @@ docker exec -it "container_name_here" /bin/bash</p>
       
     </div>
     
-      <script src="../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
       
         
         
@@ -2165,7 +2138,7 @@ docker exec -it "container_name_here" /bin/bash</p>
                 <script src="../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

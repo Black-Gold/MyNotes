@@ -2,23 +2,9 @@
 
 ## 基础
 
-```json
-假设collection文档内容{ item: "test", qty: 25, status: "A", person: { age: 14, sex: "male", name: "cm" }, tags: [ "blue", "red" ] }
+views是只读的且无法重新命名，对视图执行写操作会报错，视图支持的读操作有：
 
-db.collection.find({});   // 查询所有documents
-db.collection.find({person:{age:21,sex:"male"}});  //查询嵌入式文档
-db.collection.find({"person.sex":"male"});  //匹配嵌入式文档某个字段
-db.collection.find({tags:["blue", "red"]});   //匹配数组
-db.collection.find({tags:"red"});  //匹配数组中的一个元素
-
-views是只读的且无法重新命名，支持的操作有：
-db.createCollection()
-db.createView()
-
-db.getCollection()
-db.getCollectionInfos()
-db.getCollectionNames()
-
+```js
 db.collection.find()
 db.collection.findOne()
 db.collection.aggregate()
@@ -26,12 +12,27 @@ db.collection.countDocuments()
 db.collection.estimatedDocumentCount()
 db.collection.count()
 db.collection.distinct()
-
 ```
+
+视图使用基础集合的索引。由于索引位于基础集合上，因此无法直接在视图上创建，删除或重新构建索引，也无法在视图上获取索引列表。无法在视图使用$natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段$lookup和$graphlookup操作指定分片视图。
+创建视图是可以指定排序规则，默认规则是“简单”二进制比较排序规则，多个视图做聚合操作，排序规则必须相同
+
+find()对视图的操作不支持以下Projection操作符：
+
+* $
+* $elemMatch
+* $slice
+* $meta
 
 ### Capped Collections
 
-Capped Collections是固定大小的集合，支持基于插入顺序插入和检索文档的高吞吐量操作。以类似于循环缓冲区的方式工作：一旦集合填充其分配的空间，它通过覆盖集合中最旧的文档为新文档腾出空间
+Capped Collections是固定大小的集合，支持基于插入顺序插入和检索文档的高吞吐量操作。以类似于循环缓冲区的方式工作：一旦集合填充其分配的空间，它通过自动删除集合中最旧的文档为新文档腾出空间
+
+无法从capped集合删除文档，要从集合删除文档的方法，使用drop()方法删除集合并重新创建，capped集合无法分片。创建capped集合，必须以字节为单位指定集合的最大大小。如果size字段小于或等于4096，则集合的上限为4096字节。否则，MongoDB将提高提供的大小，使其成为256的整数倍；还可以使用该max字段为集合指定最大文档数。该size参数总是必需的，即使你指定max的文件数量。如果集合在达到最大文档计数之前达到最大大小限制，MongoDB将删除旧文档
+
+将集合转换为capped集合:db.runCommand({"convertToCapped": "collectionName", size: 10000});在操作期间保存数据库独占锁。锁定同一数据库的其他操作将被阻止，直到操作完成
+
+capped替代方案：使用TTL(生存时间)索引从集合删除过期数据；这些索引允许您根据日期类型字段的值和索引的TTL值使正常集合中的数据到期和删除。TTL索引与capped集合不兼容
 
 每种BSON类型都有整数和字符串标识符，如下表所示
 | Type | Number | Alias | Notes |
@@ -41,15 +42,15 @@ Capped Collections是固定大小的集合，支持基于插入顺序插入和�
 | Object | 3 | “object” |  |
 | Array | 4 | “array” |  |
 | Binary data | 5 | “binData” |  |
-| Undefined | 6 | “undefined” | Deprecated. |
+| Undefined | 6 | “undefined” | 已废弃 |
 | ObjectId | 7 | “objectId” |  |
 | Boolean | 8 | “bool” |  |
 | Date | 9 | “date” |  |
 | Null | 10 | “null” |  |
 | Regular Expression | 11 | “regex” |  |
-| DBPointer | 12 | “dbPointer” | Deprecated. |
+| DBPointer | 12 | “dbPointer” | 已废弃 |
 | JavaScript | 13 | “javascript” |  |
-| Symbol | 14 | “symbol” | Deprecated. |
+| Symbol | 14 | “symbol” | 已废弃 |
 | JavaScript (with scope) | 15 | “javascriptWithScope” |  |
 | 32-bit integer | 16 | “int” |  |
 | Timestamp | 17 | “timestamp” |  |
@@ -57,6 +58,41 @@ Capped Collections是固定大小的集合，支持基于插入顺序插入和�
 | Decimal128 | 19 | “decimal” | New in version 3.4. |
 | Min key | -1 | “minKey” |  |
 | Max key | 127 | “maxKey” |  |
+
+ObjectId值由12个字节组成：
+
+* 一个4字节的值，表示Unix纪元以来的秒数
+* 一个5字节的随机值
+* 一个3字节的计数器，以随机值开始
+
+比较会将不存在的字段视为空的BSON对象，比较不同类型的值时，MongoDB使用以下顺序；由低到高：
+
+1. MinKey (internal type)
+2. Null
+3. Numbers (ints, longs, doubles, decimals)
+4. Symbol, String
+5. Object
+6. Array
+7. BinData
+8. ObjectId
+9. Boolean
+10. Date
+11. Timestamp
+12. Regular Expression
+13. MaxKey (internal type)
+
+Object比较使用以下顺序：
+
+1. 按照它们在BSON对象中出现的顺序递归地比较键值对。
+2. 比较关键字段名称。
+3. 如果键字段名称相等，则比较字段值。
+4. 如果字段值相等，则比较下一个键/值对（返回步骤1）。没有进一步对的对象小于具有更多对的对象。
+
+BinData排序顺序为：
+
+1. 首先，数据的长度或大小。
+2. 然后，通过BSON一字节子类型。
+3. 最后，通过数据，执行逐字节比较。
 
 ```conf
   # 配置日志
@@ -360,9 +396,366 @@ Capped Collections是固定大小的集合，支持基于插入顺序插入和�
     #basisTech:
     #   rootDirectory:<string> #指定Basis Technology Rosette语言学平台安装根目录的路径，以支持用于文本搜索操作的其他语言。
 
+```
+
+## mongo shell
+
+常见的mongoshell帮助与JavaScript等效项表
+
+| Shell Helpers | JavaScript Equivalents |
+| :------: | :------: |
+| show dbs, show databases | db.adminCommand('listDatabases') |
+| use <[db]> | db = db.getSiblingDB('<[db]>') |
+| show collections | db.getCollectionNames() |
+| show users | db.getUsers() |
+| show roles | db.getRoles({showBuiltinRoles: true}) |
+| show log <[logname]> | db.adminCommand({ 'getLog' : '<[logname]>' }) |
+| show logs | db.adminCommand({ 'getLog' : '*' }) |
+| it | cursor = db.collection.find() if ( cursor.hasNext() ){ cursor.next(); } |
+
+## MongoDB CRUD 操作
+
+### 插入文件
+
+```js
+db.collection.insertOne()           // 插入一个文档
+db.collection.insertMany()          // 插入多个文档
+db.collection.insert()              // 插入一个或多个文档
+db.collection.update()              // when used with the **upsert: true** option
+db.collection.updateOne()           // when used with the **upsert: true** option
+db.collection.updateMany()          // when used with the **upsert: true** option
+db.collection.findAndModify()       // when used with the **upsert: true** option
+db.collection.findOneAndUpdate()    // when used with the **upsert: true** option
+db.collection.findOneAndReplace()   // when used with the **upsert: true** option
+db.collection.save()
+db.collection.bulkWrite()
+```
+
+### 查询文档
+
+```js
+db.collection.find({person:{age:21,sex:"male"}});  // 查询嵌入/嵌套式文档
+db.collection.find({"person.sex":"male"});  // 匹配嵌入式文档某个字段
+
+db.collection.find({tags:["blue", "red"]});   // 匹配数组
+db.collection.find({tags:"red", "blank"});  // 按顺序匹配数组中的两个元素
+db.collection.find({tags: {$all:["red","blank"]}})  // 不按顺序匹配数组中两个元素(查询只要包含这两个元素的所有结果)
+db.collection.find({age: {$gt: 1, $lt: 2}})   // 集合中age数组中一个元素满足大于1，另一个元素满足小于2，或者单个元素满足两个条件
+db.collection.find({age: {$elemMatch: {$gt: 1, $lt: 2}}})   // 使用$elemMatch运算符在数组的元素上指定多个条件，以便至少一个数组元素满足所有指定的条件。此查询条件表示age数组包含至少一个大于1且小于2的元素
+db.collection.find( { "tags": { $size: 3 } } )  // 查询条件为tags数组中元素长度为3
+db.collection.find( { "tags.2": { "$exists": 1} } ) // 查询条件为tags数组中元素数量大于2(实际利用数组索引来实现的)
+
+查询嵌套在数组中的文档示例：
+db.inventory.insertMany( [
+   { item: "journal", instock: [ { warehouse: "A", qty: 5 }, { warehouse: "C", qty: 15 } ] },
+   { item: "notebook", instock: [ { warehouse: "C", qty: 5 } ] },
+   { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 15 } ] },
+   { item: "planner", instock: [ { warehouse: "A", qty: 40 }, { warehouse: "B", qty: 5 } ] },
+   { item: "postcard", instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
+]);
+
+db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )  // 匹配在invertory集合中instock数组元素与指定文档匹配的文档，可以理解为一个文档作为数组的元素；注意：整个嵌入/嵌套文档上的等式匹配需要指定文档的完全匹配
+db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } )  // 查询嵌入文档数组instock，嵌入的到此数组的文档至少一个qty值为5，warehost值为A
+db.inventory.find( { "instock": { $elemMatch: { qty: { $gt: 10, $lte: 20 } } } } )  // 查询嵌入文档数组instock，嵌入的到此数组的文档qty值大于10且小于等于20
+db.inventory.find( { "instock.qty": { $gt: 10,  $lte: 20 } } )  // 查询嵌套在instock数组中的任何文档的qty字段大于10并且数组中的任何文档（但不一定是相同的嵌入文档）的qty字段小于或等于20
+db.inventory.find( { "instock.qty": 5, "instock.warehouse": "A" } ) // 查询嵌套在instock数组中的至少一个嵌套文档包含字段qty值为5，且至少一个嵌套文档warehouse字段值为A(但不一定是相同的嵌套文档)
+db.inventory.find({"instock.qty":{$lte:20}})  // 查询嵌入到instock数组的文档qty字段值小于20的文档
+db.inventory.find({"instock.0.qty":{$lte:20}})  // 查询嵌入到instock数组的文档，索引为0且qty字段值小于20的文档
+
+db.inventory.find( { status: "A" }, { item: 1, status: 1 } )  // 查询集合中status值为A，只返回item、status及_id字段
+db.inventory.find( { status: "A" }, { status: 0, instock: 0 } ) // 查询集合中status值为A，结果排除status和instock字段
+db.inventory.find( { status: "A" }, { item: 1, status: 1, "size.uom": 1 } ) // 查询集合中status值为A，结果只包括item、status字段及嵌入文档size的uom字段
+db.inventory.find( { status: "A" }, { item: 1, status: 1, instock: { $slice: -1 } } )   // 查询集合中status为A，结果只包含item、status字段instock，$slice运算符返回instock数组最后一个元素
+
+db.inventory.find({item: null})  // 查询item字段为null，或不包含item字段的文档
+db.inventory.find({item: {$type: 10}})  // 只查询item字段值类型是10(即null类型)的文档
+db.inventory.find({item: {$exists: false}}) // 只查询不包含item字段的文档
+```
+
+### 更新文档
+
+```js
+db.inventory.updateOne({ item: "paper" },{$set: { "size.uom": "cm", status: "P" },$currentDate: { lastModified: true }})  // 更新一个文档item字段值为paper，将size数组中uom更新为cm，status更新为P
+db.inventory.updateMany({ "qty": { $lt: 50 }},{$set: { "size.uom": "in", status: "Z" },$currentDate: { lastModified: true }})   // 更新qty字段值小于50，更新size数组uom字段值为in，status字段值为Z，用$currentDate操作更新lastModified字段为当前时间，没有此字段
+db.collection.update()  // 更新或替换与指定过滤器匹配的单个文档，或更新与指定过滤器匹配的所有文档
+以下几种方法也可以用来更新文档
+db.collection.findOneAndReplace()
+db.collection.findOneAndUpdate()
+db.collection.findAndModify()
+db.collection.save()
+db.collection.bulkWrite()
+```
+
+### 删除文档
+
+```js
+db.collection.deleteMany({})  // 删除集合所有文档
+db.collection.deleteOne( { status: "D" } )   // 删除status为D的第一个文档
+db.collection.remove()  // 删除单个文档或与指定过滤器匹配的所有文档
+删除操作不会删除索引，即使从集合中删除所有文档！MongoDB中的所有写入操作都是单个文档级别的原子操作
+以下方法也可以从集合中删除文档：
+db.collection.findOneAndDelete()  // findOneAndDelete()提供一个排序选项.该选项允许删除按指定顺序排序的第一个文档
+db.collection.findAndModify()   // findAndModify()提供一个排序选项.该选项允许删除按指定顺序排序的第一个文档
+db.collection.bulkWrite()
+```
+
+### 批量写入操作
+
+```js
+db.collection.bulkWrite() // 此方法可以批量插入、更新、删除操作。批量写操作可以有序也可无序。
+// 通过有序的操作列表，MongoDB以串行方式执行操作。如果在处理其中一个写操作期间发生错误，MongoDB将返回而不处理列表中的任何剩余写操作
+// 使用无序的操作列表，MongoDB可以并行执行操作，但不保证这种行为。如果在处理其中一个写操作期间发生错误，MongoDB将继续处理列表中的剩余写操作
+// 分片集合上，有序操作通常比无序要慢，bulk.Write()默认是有序操作
+bulkWrite()支持以下写操作：
+insertOne
+updateOne
+updateMany
+replaceOne
+deleteOne
+deleteMany
+
+批量插入到分片集合的策略：
+1. 预分割集合
+2. 无序写入mongos
+3. 避免单调节流--Avoid Monotonic Throttling(此处存疑)
+```
+
+### 可重试的写入
+
+```js
+可重试写入要具备以下条件：
+1. 需要副本集或分片集群
+2. 支持文档锁定的存储引擎，例如：WiredTiger或inmemory内存存储引擎
+3. MongoDB 3.6+ 版本驱动程序
+4. 集群中MongoDB版本大于等于3.6
+5. 写操作出错，Write Concern为0的不重试
+
+transaction commit和abort operations  如果提交操作或中止操作遇到错误，MongoDB驱动程序会重试该操作一次，无论是否retryWrites设置为true
+事务内的写操作是不能单独重试写入的，无论retryWrites是否设置为true；默认情况不启动重试写入
+
+
+以下为可重试写入操作(Write Concern不能是{w: 0})：
+
+// 插入操作
+db.collection.insertOne()
+db.collection.insert()
+db.collection.insertMany()
+
+// 单文档更新操作
+db.collection.updateOne()
+db.collection.replaceOne()
+db.collection.save()
+db.collection.update()这里multi是false
+
+// 单个文档删除操作
+db.collection.deleteOne()
+db.collection.remove()这里justOne是true
+
+// findAndModify操作。所有findAndModify操作都是单文档操作
+db.collection.findAndModify()
+db.collection.findOneAndDelete()
+db.collection.findOneAndReplace()
+db.collection.findOneAndUpdate()
+
+// 批量写入操作仅包含单文档写入操作。可重试的批量操作可以包括指定的写入操作的任何组合，但不能包括任何多文档写入操作，例如updateMany
+db.collection.bulkWrite() 使用以下写操作:
+insertOne
+updateOne
+replaceOne
+deleteOne
+
+// 仅包含单文档的批量写入操作，一个可重试批量写入操作可以包含任何指定写入操作组合，但不能包括任何多文档的写入操作，例如update指定multi选项为true
+Bulk 运作：批量写入操作仅包含单文档写入操作。可重试的批量操作可以包括指定的写入操作的任何组合，但不能包括任何多文档写入操作，例如为该选项update指定的操作。truemulti
+Bulk.find.removeOne()
+Bulk.find.replaceOne()
+Bulk.find.replaceOne()
+
+可重试写入有助于解决瞬时网络错误和副本集选举，并不能解决持久性网络错误，因为只进行一次重试尝试
+如果驱动程序在目标副本集或分片集群分片中找不到正常的主节点，则驱动程序会在serverSelectionTimeoutMS在重试之前等待以确定新的主节点，可重试写入不能解决故障转移期间，时间超过serverSelectionTimeoutMS的实例
+
+注意：如果客户端发出写入操作在超过serverSelectionTimeoutMS没有响应，有可能在客户端重新响应时(没有重新启动)，则可能会再重试写入操作。
+
+db.serverStatus()包含有关该transactions部分中可重试写入的统计信息
+```
+
+### 文本搜索
+
+示例文档如下所示：
+| _id | description | name |
+| :------: | :------: | :------: |
+| _id | description | name |
+| 1 | Coffee and cakes | Java Hut |
+| 2 | Gourmet hamburgers | Burger Buns |
+| 3 | Just coffee | Coffee Shop |
+| 4 | Discount clothing | Clothes Clothes Clothes |
+| 5 | Indonesian goods | Java Shopping |
+
+```js
+// 视图不支持文本搜索；文本索引以支持对字符串内容的文本搜索查询。text索引可以包括其值为字符串或字符串元素数组的任何字段
+// 要执行文本搜索查询，您必须text在集合上有索引。集合只能有一个文本搜索索引，但该索引可以涵盖多个字段
+// 使用$text查询运算符对具有文本索引的集合执行文本搜索。$text将使用空格和大多数标点符号作为分隔符来标记搜索字符串，并OR在搜索字符串中执行所有此类标记的逻辑
+db.stores.find( { $text: { $search: "java shop" } } )  //查找stores集合包含java shop的任何文档
+db.stores.find( { $text: { $search: "java -shop" } } )  //查找stores集合包含java排除shop的任何文档
+db.stores.find( { $text: { $search: "java coffee shop" } }, { score: { $meta: "textScore" } } ).sort( { score: { $meta: "textScore" } } )   // 要按相关性得分的顺序对结果进行排序
+
+aggregation pipeline也可以进行text搜索
+db.stores.createIndex( { name: "text", description: "text" } )  // 创建索引,允许在name和description字段上进行文本搜索
+在聚合管道中通过$text在$match阶段使用查询运算符进行文本搜索；聚合管道中的文本搜索具有以下限制：
+1. $match阶段包含的$text必须在流水线的第一阶段
+2. 一个text操作只能在流水阶段出现一次
+3. text操作不能出现在$or或$not表达式
+4. 默认情况下，文本搜索不会按匹配分数的顺序返回匹配的文档，在$sort阶段使用$meta聚合表达式
+```
+
+### 地理空间查询
+
+```js
+// 指定GeoJSON数据,使用嵌入式文档：
+1. 一个名为字段名为type，指定GeoJSON对象类型
+2. 一个名为字段coordinates，用于指定对象的坐标，指定经纬度坐标，有效经度-180至180(包括两者)，有效纬度-90到90(包括两者)
+location: {
+      type: "Point",
+      coordinates: [-73.856077, 40.848447]
+}
+
+MongoDB提供以下地理空间索引类型以支持地理空间查询：
+2dsphere索引支持在类似地球的球体上计算几何的查询
+db.collection.createIndex({location field: "2dsphere"}) // 创建2dsphere索引
+
+2d索引支持在二维平面上计算几何的查询,索引支持$nearSphere在球体上计算的查询，如果可能的话，还是使用2dsphere索引进行球形查询，2d对球形查询使用索引可能会导致错误的结果，如：使用2d包围极点的球形查询索引
+
+分片集合时，不能将地理空间索引作为分片键，但可以使用其他字段作为片键在分片集合上创建地址空间索引
+
+分片集合支持以下地理空间操作：
+1. $geoNear 聚合阶段
+2. $near和$nearSphere查询运算符
+3. geoNear命令
+
+在分片集群，可以使用$geoWithin和$geoIntersect来查询地理空间数据
+
+以下为地理空间查询运算符：
+$geoIntersects    // 选择和GeoJSON几何体相交的几何，该2dsphere索引支持$geoIntersects
+$geoWithin        // 选择边界GeoJSON几何体内的几何,该2dsphpere和2d索引支持$geoWithin
+$near             // 返回点附近的地理空间对象。需要地理空间索引。该2dsphere和2D索引支持 $near
+$nearSphere       // 返回球体上某点附近的地理空间对象。需要地理空间索引。该2dsphere和2D索引支持 $nearSphere
+
+地理空间命令：
+geoNear（在MongoDB 4.0中不推荐使用）  // 执行地理空间查询，返回最接近给定点的文档。不推荐使用的geoNear命令需要地理空间索引
+
+地理空间聚合阶段:
+$geoNear          // 基于与地理空间点的接近度返回有序的文档流。集成的功能 $match，$sort以及$limit地理空间数据。输出文档包括附加距离字段，并且可以包括位置标识符字段。$geoNear需要地理空间索引
+
+地理空间模型:
+MongoDB地理空间查询可以解释平面或球面上的几何体
+2dsphere 索引仅支持球形查询（即解释球面上几何的查询）
+2d索引支持平面查询（即解释平面上几何的查询）和一些球形查询。虽然2d 索引支持某些球形查询，但使用2d这些球形查询的索引可能会导致错误。如果可能，请使用 2dsphere索引进行球形查询
+
+下表列出了每个地理空间操作使用的地理空间查询运算符支持的查询：[http://docs.mongodb.com/manual/geospatial-queries/]
+| 操作 | 球形/平面查询 | 备注 |
+| :------: | :------: | :------: |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 
 
 ```
+
+```js
+// write-concern
+{ w: <value>, j: <boolean>, wtimeot: <number> }
+w选项：确认写入请求传递给mongod实例的数量，1表示传递写入操作给一个standalone或副本的一个主节点；0写入操作没有确认，w大于1是因为需要来自其他辅助数据节点的确认
+j选项：确认写操作已写入磁盘日志(on-disk journal)
+wtimeout:写入的时间限制(毫秒为单位)，wtimeout仅限于w大于1的情况
+
+```
+
+### MongoDBCRUD概念
+
+```js
+// 原子性和事务
+当单个写操作(如：db.collection.updateMany())修改多个文件时，每个文件的修改都是原子性的，但是整个操作不是！
+
+// 并发控制
+并发控制允许多个程序同时运行，而不会导致数据不一致或冲突
+一种方法是在字段上创建唯一索引，该索引只有唯一值。可以防止插入、更新创建重复数据。在多个字段创建唯一索引，以强制该字段组合的唯一性。
+另一种方法是在为写操作的查询谓词中指定字段预期的当前值
+
+// 读取隔离,一致性和Recency
+
+
+```
+
+### 分布式查询、查询优化、查询性能、优化查询
+
+```js
+oplog是对数据集操作的可重现序列,索引可以涵盖嵌入式文档中字段的查询；如果索引跟踪哪个或哪些字段导致索引为多建索引，则多建索引可以覆盖非数组字段上的查询。(多建索引不能覆盖数组字段上的查询)；地理空间索引无法覆盖索引。要确定一个查询是否为覆盖查询，使用db.collection.explain()或explain()
+
+使用Database Profiler评估对数据库的操作，
+
+// 优化查询
+1. 创建支持查询的索引
+2. 如经常对timestamp字段进行排序性查询，则可以通过在timestamp字段创建索引，查询时使用db.collection.find().sort({ timestamp: -1})更快得到结果，因为MongoDB可以按照升序或降序读取索引。
+3. 索引支持查询、更新操作和聚合管道的某些阶段；如符合以下条件，则BinData类型的索引建可以更有效的存储在索引中。
+  * 二进制子类型值得范围为0-7或128-135
+  * 字节数组的长度为：0,1,2,3,4,5,6,7,8,10,12,14,16,20,24或32
+4. 限制查询结果数，通过limit()方法减少查询对网络资源的消耗。通常和sort()结合使用
+5. 使用预测返回必要的数据；只需要文档的部分字段时，只返回所需的字段可以获取更好的性能。
+6. 使用$hint选择一个特定的指数，大多数情况下，查询优化器会为特定操作选择最佳的索引，但是也可以使用$hint()方法强制使用特定索引。hint()支持性能测试或在某些查询，在一些查询中，必须选择一个字段或字段必须包含在多个索引中。
+7. 使用增量运算符执行操作服务端，MongoDB的$inc运算符来增加或减少文档中的值，该操作增加服务端字段的值，作为选择文档的替代方法，在客户端进行简单修改，然后将整个文档写入服务器。$inc操作还可以帮助避免竞争条件，这将导致两个应用实例对同一个文件查询时，手动增加一个字段，并保存整个文件回到同一时间。
+
+// 写操作性能
+
+集合中每个索引都会增加性能的开销；因集合中每个insert和delete写入操作。MongoDB都会从目标集合的每个索引中插入或删除对应的文档键。update操作可能会导致更新在这个集合中索引的子集，取决于更新时这个键的影响。
+// 注意：如果写入操作中涉及的文档包含在索引中，MongoDB则仅更新sparse或partial索引(sparse和partial为MongoDB的索引类型)
+
+某些更新操作可能增加文档的大小。如:向文档增加字段。对于MMAPv1引擎，如果更新操作导致文档超过当前分配的记录大小。MongoDB会将文档重新定位到磁盘上。并留有足够的连续空间来保存文档。需要重定位的更新比没有重定位的更新花费的时间更长，特别是在集合具有索引的情况下。如果集合具有索引，MongoDB必须更新所有索引条目。因此，对于具有许多索引的集合，此移动将影响写入吞吐量
+
+// explain结果
+Stages描述了操作--如：
+COLLSCAN          用于集合扫描
+IXSCAN            用于扫描索引键
+FETCH             用于检索文档
+SHARD_MERGE       用于合并分片的结果
+SHARDING_FILTER   用于从分片中过滤掉孤立文档
+
+// queryPlanner
+explain.queryPlanner    // 包含查询优化器选择查询计划的信息
+explain.queryPlanner.namespace
+
+
+```
+
+## 聚合(Aggregation)
+
+## 数据模型
+
+## Transactions
+
+## 索引
+
+## 安全
+
+## Change Streams
+
+## 复制(Replication)
+
+## 分片(Sharding)
+
+## 管理(Administration)
+
+## 存储引擎(Storage)
 
 ## MongoDB-->kafka
 
