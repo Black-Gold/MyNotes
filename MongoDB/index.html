@@ -21,7 +21,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="jp">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -132,6 +132,10 @@
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#mongodb-4x" tabindex="1" class="md-skip">
+        跳转至
+      </a>
     
     
       <header class="md-header" data-md-component="header">
@@ -523,8 +527,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nginx/" title="Nginx" class="md-nav__link">
-      Nginx
+    <a href="../Nginx/" title="Nginx&Unit" class="md-nav__link">
+      Nginx&Unit
     </a>
   </li>
 
@@ -794,10 +798,249 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        MongoDB
+      </label>
     
     <a href="./" title="MongoDB" class="md-nav__link md-nav__link--active">
       MongoDB
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="基础" class="md-nav__link">
+    基础
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capped-collections" title="Capped Collections" class="md-nav__link">
+    Capped Collections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongo-shell" title="mongo shell" class="md-nav__link">
+    mongo shell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb-crud" title="MongoDB CRUD 操作" class="md-nav__link">
+    MongoDB CRUD 操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="插入文件" class="md-nav__link">
+    插入文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="查询文档" class="md-nav__link">
+    查询文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="更新文档" class="md-nav__link">
+    更新文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="删除文档" class="md-nav__link">
+    删除文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="批量写入操作" class="md-nav__link">
+    批量写入操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="可重试的写入" class="md-nav__link">
+    可重试的写入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="文本搜索" class="md-nav__link">
+    文本搜索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="地理空间查询" class="md-nav__link">
+    地理空间查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mongodbcrud" title="MongoDBCRUD概念" class="md-nav__link">
+    MongoDBCRUD概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="分布式查询、查询优化、查询性能、优化查询" class="md-nav__link">
+    分布式查询、查询优化、查询性能、优化查询
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregation" title="聚合(Aggregation)" class="md-nav__link">
+    聚合(Aggregation)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="数据模型" class="md-nav__link">
+    数据模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transactions" title="Transactions" class="md-nav__link">
+    Transactions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="索引" class="md-nav__link">
+    索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="安全" class="md-nav__link">
+    安全
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-streams" title="Change Streams" class="md-nav__link">
+    Change Streams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replication" title="复制(Replication)" class="md-nav__link">
+    复制(Replication)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sharding" title="分片(Sharding)" class="md-nav__link">
+    分片(Sharding)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administration" title="管理(Administration)" class="md-nav__link">
+    管理(Administration)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" title="存储引擎(Storage)" class="md-nav__link">
+    存储引擎(Storage)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb-kafka" title="MongoDB--&gt;kafka" class="md-nav__link">
+    MongoDB--&gt;kafka
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topics-name" title="topics name" class="md-nav__link">
+    topics name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partitions" title="Partitions" class="md-nav__link">
+    Partitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" title="Events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connector" title="Connector属性" class="md-nav__link">
+    Connector属性
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -856,8 +1099,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
-      LVSKeepalived
+    <a href="../LVS/" title="LVS" class="md-nav__link">
+      LVS
     </a>
   </li>
 
@@ -1132,30 +1375,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
       SomelseMonitors
     </a>
@@ -1225,46 +1444,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
     <label class="md-nav__link" for="nav-15">
-      Security
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
-        Security
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Snort/" title="Snort" class="md-nav__link">
-      Snort
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
-    
-    <label class="md-nav__link" for="nav-16">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1306,13 +1489,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1326,6 +1509,42 @@
   <li class="md-nav__item">
     <a href="../VPN/" title="VPN" class="md-nav__link">
       VPN
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      Security
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Snort/" title="Snort" class="md-nav__link">
+      Snort
     </a>
   </li>
 
@@ -1402,6 +1621,245 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="基础" class="md-nav__link">
+    基础
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capped-collections" title="Capped Collections" class="md-nav__link">
+    Capped Collections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongo-shell" title="mongo shell" class="md-nav__link">
+    mongo shell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb-crud" title="MongoDB CRUD 操作" class="md-nav__link">
+    MongoDB CRUD 操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="插入文件" class="md-nav__link">
+    插入文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="查询文档" class="md-nav__link">
+    查询文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="更新文档" class="md-nav__link">
+    更新文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="删除文档" class="md-nav__link">
+    删除文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="批量写入操作" class="md-nav__link">
+    批量写入操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="可重试的写入" class="md-nav__link">
+    可重试的写入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="文本搜索" class="md-nav__link">
+    文本搜索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="地理空间查询" class="md-nav__link">
+    地理空间查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mongodbcrud" title="MongoDBCRUD概念" class="md-nav__link">
+    MongoDBCRUD概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="分布式查询、查询优化、查询性能、优化查询" class="md-nav__link">
+    分布式查询、查询优化、查询性能、优化查询
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregation" title="聚合(Aggregation)" class="md-nav__link">
+    聚合(Aggregation)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="数据模型" class="md-nav__link">
+    数据模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transactions" title="Transactions" class="md-nav__link">
+    Transactions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="索引" class="md-nav__link">
+    索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="安全" class="md-nav__link">
+    安全
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-streams" title="Change Streams" class="md-nav__link">
+    Change Streams
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replication" title="复制(Replication)" class="md-nav__link">
+    复制(Replication)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sharding" title="分片(Sharding)" class="md-nav__link">
+    分片(Sharding)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administration" title="管理(Administration)" class="md-nav__link">
+    管理(Administration)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" title="存储引擎(Storage)" class="md-nav__link">
+    存储引擎(Storage)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb-kafka" title="MongoDB--&gt;kafka" class="md-nav__link">
+    MongoDB--&gt;kafka
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topics-name" title="topics name" class="md-nav__link">
+    topics name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partitions" title="Partitions" class="md-nav__link">
+    Partitions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" title="Events" class="md-nav__link">
+    Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connector" title="Connector属性" class="md-nav__link">
+    Connector属性
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -1410,9 +1868,957 @@
                   <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/MongoDB.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>MongoDB</h1>
-                
-                
+                <h1 id="mongodb-4x"><em>MongoDB-4.X</em><a class="headerlink" href="#mongodb-4x" title="Permanent link">&para;</a></h1>
+<h2 id="_1">基础<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>views是只读的且无法重新命名，对视图执行写操作会报错，视图支持的读操作有：</p>
+<div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOne</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">countDocuments</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">estimatedDocumentCount</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">count</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">distinct</span><span class="p">()</span>
+</pre></div>
+
+<p>视图使用基础集合的索引。由于索引位于基础集合上，因此无法直接在视图上创建，删除或重新构建索引，也无法在视图上获取索引列表。无法在视图使用<span><span class="MathJax_Preview">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</span><script type="math/tex">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</script></span>lookup和$graphlookup操作指定分片视图。
+创建视图是可以指定排序规则，默认规则是“简单”二进制比较排序规则，多个视图做聚合操作，排序规则必须相同</p>
+<p>find()对视图的操作不支持以下Projection操作符：</p>
+<ul>
+<li>$</li>
+<li>$elemMatch</li>
+<li>$slice</li>
+<li>$meta</li>
+</ul>
+<h3 id="capped-collections">Capped Collections<a class="headerlink" href="#capped-collections" title="Permanent link">&para;</a></h3>
+<p>Capped Collections是固定大小的集合，支持基于插入顺序插入和检索文档的高吞吐量操作。以类似于循环缓冲区的方式工作：一旦集合填充其分配的空间，它通过自动删除集合中最旧的文档为新文档腾出空间</p>
+<p>无法从capped集合删除文档，要从集合删除文档的方法，使用drop()方法删除集合并重新创建，capped集合无法分片。创建capped集合，必须以字节为单位指定集合的最大大小。如果size字段小于或等于4096，则集合的上限为4096字节。否则，MongoDB将提高提供的大小，使其成为256的整数倍；还可以使用该max字段为集合指定最大文档数。该size参数总是必需的，即使你指定max的文件数量。如果集合在达到最大文档计数之前达到最大大小限制，MongoDB将删除旧文档</p>
+<p>将集合转换为capped集合:db.runCommand({"convertToCapped": "collectionName", size: 10000});在操作期间保存数据库独占锁。锁定同一数据库的其他操作将被阻止，直到操作完成</p>
+<p>capped替代方案：使用TTL(生存时间)索引从集合删除过期数据；这些索引允许您根据日期类型字段的值和索引的TTL值使正常集合中的数据到期和删除。TTL索引与capped集合不兼容</p>
+<p>每种BSON类型都有整数和字符串标识符，如下表所示
+| Type | Number | Alias | Notes |
+| :------: | :------: | :------: | :------: |
+| Double | 1 | “double” |  |
+| String | 2 | “string” |  |
+| Object | 3 | “object” |  |
+| Array | 4 | “array” |  |
+| Binary data | 5 | “binData” |  |
+| Undefined | 6 | “undefined” | 已废弃 |
+| ObjectId | 7 | “objectId” |  |
+| Boolean | 8 | “bool” |  |
+| Date | 9 | “date” |  |
+| Null | 10 | “null” |  |
+| Regular Expression | 11 | “regex” |  |
+| DBPointer | 12 | “dbPointer” | 已废弃 |
+| JavaScript | 13 | “javascript” |  |
+| Symbol | 14 | “symbol” | 已废弃 |
+| JavaScript (with scope) | 15 | “javascriptWithScope” |  |
+| 32-bit integer | 16 | “int” |  |
+| Timestamp | 17 | “timestamp” |  |
+| 64-bit integer | 18 | “long” |  |
+| Decimal128 | 19 | “decimal” | New in version 3.4. |
+| Min key | -1 | “minKey” |  |
+| Max key | 127 | “maxKey” |  |</p>
+<p>ObjectId值由12个字节组成：</p>
+<ul>
+<li>一个4字节的值，表示Unix纪元以来的秒数</li>
+<li>一个5字节的随机值</li>
+<li>一个3字节的计数器，以随机值开始</li>
+</ul>
+<p>比较会将不存在的字段视为空的BSON对象，比较不同类型的值时，MongoDB使用以下顺序；由低到高：</p>
+<ol>
+<li>MinKey (internal type)</li>
+<li>Null</li>
+<li>Numbers (ints, longs, doubles, decimals)</li>
+<li>Symbol, String</li>
+<li>Object</li>
+<li>Array</li>
+<li>BinData</li>
+<li>ObjectId</li>
+<li>Boolean</li>
+<li>Date</li>
+<li>Timestamp</li>
+<li>Regular Expression</li>
+<li>MaxKey (internal type)</li>
+</ol>
+<p>Object比较使用以下顺序：</p>
+<ol>
+<li>按照它们在BSON对象中出现的顺序递归地比较键值对。</li>
+<li>比较关键字段名称。</li>
+<li>如果键字段名称相等，则比较字段值。</li>
+<li>如果字段值相等，则比较下一个键/值对（返回步骤1）。没有进一步对的对象小于具有更多对的对象。</li>
+</ol>
+<p>BinData排序顺序为：</p>
+<ol>
+<li>首先，数据的长度或大小。</li>
+<li>然后，通过BSON一字节子类型。</li>
+<li>最后，通过数据，执行逐字节比较。</li>
+</ol>
+<div class="codehilite"><pre><span></span>  <span class="cp"># 配置日志</span>
+    <span class="nl">systemLog</span><span class="p">:</span>
+      <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>  <span class="err">#日志级别</span><span class="o">:</span><span class="err">范围是</span><span class="mi">0</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="err">是</span><span class="n">MongoDB的默认日志级别</span><span class="err">，</span><span class="mi">5</span><span class="err">包含了</span><span class="n">debug信息</span>
+      <span class="nl">quiet</span><span class="p">:</span> <span class="nb">false</span>  <span class="err">#安静模式，是否输出日志</span>
+      <span class="nl">traceAllExceptions</span><span class="p">:</span> <span class="nb">true</span>  <span class="err">#是否打印详细的日志信息，开启</span>
+    <span class="cp">#  syslogFacility: &lt;string&gt; #将日志输出到系统日志中，如果使用该功能，则systemLog.destination=syslog.</span>
+    <span class="cp">#   path: &lt;string&gt;</span>
+    <span class="cp">#   logAppend: &lt;boolean&gt;</span>
+    <span class="cp">#   logRotate: &lt;string&gt;</span>
+    <span class="cp">#   destination: &lt;string&gt;</span>
+    <span class="cp">#   timeStampFormat: &lt;string&gt;</span>
+    <span class="cp">#   component:</span>
+    <span class="cp">#      accessControl:</span>
+    <span class="cp">#         verbosity: &lt;int&gt;</span>
+    <span class="cp">#      command:</span>
+    <span class="cp">#         verbosity: &lt;int&gt;</span>
+      <span class="nl">destination</span><span class="p">:</span> <span class="n">file</span> <span class="err">#</span><span class="nl">mogodb日志的产生方式</span><span class="p">:</span><span class="n">file</span><span class="o">=</span><span class="err">指定的文件</span><span class="p">,</span><span class="n">syslog系统日志</span><span class="err">，如果不指定，则指向标准输出流。</span>
+      <span class="nl">logAppend</span><span class="p">:</span> <span class="nb">true</span>   <span class="err">#在</span><span class="n">mongodb重启时</span><span class="p">,</span><span class="err">继续往已有的日志文件中追加内容，而不是新建一个文件</span><span class="p">.</span>
+      <span class="nl">path</span><span class="p">:</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">mongod</span><span class="p">.</span><span class="n">log</span>    <span class="err">#日志文件的输出路径，</span><span class="n">mongo将在指定的位置创建日志文件</span><span class="p">.</span>
+      <span class="nl">logRotate</span><span class="p">:</span> <span class="n">reopen</span>   <span class="err">#</span><span class="mf">3.0.0</span><span class="p">,</span><span class="err">两个值</span><span class="o">:</span><span class="n">rename</span><span class="o">=</span><span class="err">重命名日志文件，</span><span class="n">reopen</span><span class="o">=</span><span class="err">关闭并重新打开日志文件</span><span class="p">.</span><span class="err">如果使用</span><span class="n">reopen则要使systemLog</span><span class="p">.</span><span class="n">logAppend</span><span class="o">=</span><span class="nb">true</span><span class="p">.</span>
+      <span class="nl">timeStampFormat</span><span class="p">:</span> <span class="n">iso8601</span><span class="o">-</span><span class="n">utc</span> <span class="err">#日志中时间戳的格式</span><span class="o">:</span><span class="n">ctime</span><span class="o">=</span><span class="n">Wed</span> <span class="n">Dec</span> <span class="mi">31</span> <span class="mi">18</span><span class="o">:</span><span class="mi">17</span><span class="o">:</span><span class="mf">54.811</span><span class="p">,</span><span class="n">iso8601</span><span class="o">-</span><span class="n">utc</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span><span class="nl">T00</span><span class="p">:</span><span class="mo">00</span><span class="o">:</span><span class="mf">00.000</span><span class="n">Z</span><span class="p">,</span><span class="err">#</span><span class="n">iso8601</span><span class="o">-</span><span class="n">local</span><span class="o">=</span><span class="err">本地时间格式</span>
+    <span class="cp">#日志组件的具体选项</span>
+      <span class="nl">component</span><span class="p">:</span>
+       <span class="cp">#索引操作相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">index</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#查询操作相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">query</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#复制操作相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">replication</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+          <span class="cp">#心跳相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.6</span>
+          <span class="cp">#heartbeats:</span>
+            <span class="cp">#verbosity: 5</span>
+          <span class="cp">#回滚相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.6</span>
+          <span class="cp">#heartbeats:</span>
+            <span class="cp">#verbosity: 5</span>
+         <span class="cp">#写操作相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">write</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#访问控制相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">accessControl</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#命令相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">command</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#控制操作相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">control</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#诊断消息相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.2</span>
+        <span class="nl">ftdc</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#地理空间解析相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">geo</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#网络操作相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">network</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#分片相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">sharding</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+        <span class="cp">#存储相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+        <span class="nl">storage</span><span class="p">:</span>
+          <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+          <span class="cp">#日志组件相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
+          <span class="nl">journal</span><span class="p">:</span>
+            <span class="nl">verbosity</span><span class="p">:</span> <span class="mi">5</span>
+
+    <span class="cp"># 进程管理配置</span>
+    <span class="nl">processManagement</span><span class="p">:</span>
+      <span class="nl">fork</span><span class="p">:</span> <span class="nb">true</span>  <span class="err">#</span> <span class="err">以守护线程模式在后台运行</span>
+      <span class="nl">pidFilePath</span><span class="p">:</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">mongod</span><span class="p">.</span><span class="n">pid</span>  <span class="err">#</span> <span class="err">指定保存</span><span class="n">PID的文件</span><span class="err">。</span>
+      <span class="cp">#时区文件:https:</span><span class="c1">//downloads.mongodb.org/olson_tz_db/timezonedb-latest.zip</span>
+      <span class="cp">#timeZoneInfo:    #加载数据库时区的完整路径，如果不指定，则采用默认时区。</span>
+
+    <span class="cp"># 网络配置</span>
+    <span class="nl">net</span><span class="p">:</span>
+       <span class="nl">port</span><span class="p">:</span> <span class="mi">27017</span>   <span class="err">#</span><span class="n">mongodb监听的TCP端口</span>
+       <span class="nl">bindIp</span><span class="p">:</span> <span class="mf">0.0.0.0</span>  <span class="err">#允许访问的</span><span class="n">IP地址集合</span><span class="err">，不设置默认是</span><span class="mf">127.0.0.1</span><span class="err">，如果需要设置多个路径可以通过</span><span class="p">[,]</span><span class="err">分割，例如</span><span class="o">:</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span>
+       <span class="cp">#bindIpAll: true  #是否绑定所有的IP，允许访问. version:3.6</span>
+       <span class="nl">maxIncomingConnections</span><span class="p">:</span> <span class="mi">65536</span> <span class="err">#最大连接数，默认</span><span class="mi">65536</span>
+       <span class="nl">wireObjectCheck</span><span class="p">:</span> <span class="nb">true</span>    <span class="err">#验证客户端的所有请求，防止客户端插入恶意或者无效的</span><span class="n">BSON数据</span><span class="err">，对于高度嵌套的自问当对象，性能影响很小</span><span class="p">.</span>
+       <span class="nl">ipv6</span><span class="p">:</span> <span class="nb">false</span>   <span class="err">#启用或禁用</span><span class="n">ipv6支持</span><span class="p">.</span>
+       <span class="cp">#启用或者禁用在*UNIX套接字进行侦听.</span>
+       <span class="cp">#unixDomainSocket:</span>
+          <span class="cp">#enabled: true #启用或者禁用在*UNIX套接字进行侦听.</span>
+          <span class="cp">#pathPrefix: &lt;string&gt;  #套接字的路径</span>
+          <span class="cp">#filePermissions: &lt;int&gt;   #套接字文件权限</span>
+        <span class="cp">#3.6版本删除http选项，改为了ssl.</span>
+    <span class="cp">#   ssl:</span>
+          <span class="cp">#sslOnNormalPorts: &lt;boolean&gt;  # 被2.6版本启用，改用mode: requireSSL.</span>
+          <span class="cp">#启用TSL/SSL:</span>
+          <span class="cp">#     disabled=不启用TLS/SSL,</span>
+          <span class="cp">#     allowSSL=服务器之间不使用TLS/SSL,传入链接可以是TLS/SSL或者非TLS/SSl.</span>
+          <span class="cp">#     preferSSL=服务器之间不使用TLS/SSL,传入链接可以是TLS/SSL或者非TLS/SSl.</span>
+          <span class="cp">#     requireSSL=服务器仅使用并接受TLS/SSL加密链接.</span>
+          <span class="cp">#mode: disabled</span>
+          <span class="cp">#PEMKeyFile: &lt;string&gt; #.pem证书存放的绝对或相对路径.</span>
+          <span class="cp">#PEMKeyPassword: &lt;string&gt; #用于解密PEM的密钥文件.</span>
+          <span class="cp">#clusterFile: &lt;string&gt;    #集群或副本集内部身份验证的PEM文件.</span>
+          <span class="cp">#clusterPassword: &lt;string&gt; #集群或副本集用于解密内部验证PEM文件的密钥.</span>
+          <span class="cp">#CAFile: &lt;string&gt; #.pem包含证书颁发机构跟证书链的文件的相对或绝对路径.</span>
+          <span class="cp">#CRLFile: &lt;string&gt;    #.pem包含证书吊销列表的文件的相对或绝对路径.</span>
+          <span class="cp">#allowConnectionsWithoutCertificates: false   #弱证书验证</span>
+          <span class="cp">#allowInvalidCertificates: &lt;boolean&gt;  #允许使用无效证书，关闭证书检查</span>
+          <span class="cp">#allowInvalidHostnames: &lt;boolean&gt; #允许使用无效的主机名，禁用主机名校验</span>
+          <span class="cp">#disabledProtocols: &lt;string&gt;  #禁用指定协议</span>
+          <span class="cp">#FIPSMode: &lt;boolean&gt;  #启用或禁用使用安装OpenSSL库的的FIPS模式</span>
+       <span class="cp">#zlib压缩器的支持，add to Version:3.4,version:3.6,默认使用snappy.</span>
+       <span class="cp">#如果各方不共用至少一个通用压缩器，则双方之间的消息是未压缩的.</span>
+       <span class="cp">#compression:</span>
+          <span class="cp">#compressors: snappy</span>
+       <span class="cp">#指定传输层通知方式,默认asio，version:3.6</span>
+       <span class="cp">#transportLayer: asio</span>
+       <span class="cp">#指定线程对客户端请求的执行模型：synchronous=使用同步网络并在每个链接的基础上管理其网络线程池.adaptive:使用新的实验性的异步网络模式.</span>
+       <span class="cp">#其中当值为adaptive，要求#transportLayer的值为asio.</span>
+       <span class="cp">#serviceExecutor: &lt;string&gt;</span>
+    <span class="cp">#安全管理</span>
+    <span class="cp">#security:</span>
+       <span class="cp">#keyFile: &lt;string&gt;   #存储共享密钥的密钥文件的路径</span>
+       <span class="cp">#用于集群身份验证的身份验证模式</span>
+       <span class="cp">#  -  keyFile:使用密钥文件进行身份验证.</span>
+       <span class="cp">#  - sendKeyFile: 发送密钥文件用于身份验证，可以接受密钥文件和x.509证书.</span>
+       <span class="cp">#  - sendX509:发送x.509文件进行身份验证，可以接受密钥文件和x.509证书.</span>
+       <span class="cp">#  - x509:推荐使用，发送x.509证书进行身份验证，且只接受x.509证书.</span>
+       <span class="cp">#clusterAuthMode: &lt;string&gt;</span>
+       <span class="cp">#启用或禁用基于角色的控制访问(RBAC)来控制每个用户对数据库资源和操作的访问。</span>
+       <span class="cp">#  -  enabled:用户只能访问被授权的数据库资源和操作.</span>
+       <span class="cp">#  -  disabled:用户可以访问任何资源和进行任何操作.</span>
+       <span class="cp">#authorization: &lt;string&gt;</span>
+       <span class="cp">#transitionToAuth: &lt;boolean&gt; #用户可以在没有任何访问控制检查的情况下访问机器，并进行读写和管理操作. version:3.4</span>
+       <span class="cp">#javascriptEnabled:  &lt;boolean&gt;    #启用或禁用服务器端javascript的执行.</span>
+       <span class="cp">#redactClientLogData: &lt;boolean&gt;   #记录日志的时候，将数据也记录下来. version:3.4 AND ONLY MongoDB Enterprise</span>
+       <span class="cp">#配置SASL</span>
+       <span class="cp">#sasl:</span>
+          <span class="cp">#hostName: &lt;string&gt;   #用于配置SASL和Kerberos身份验证的完全限定服务器域名.</span>
+          <span class="cp">#serviceName: &lt;string&gt;    #使用SASL的服务的注册名称.</span>
+          <span class="cp">#saslauthdSocketPath: &lt;string&gt;    #UNIX域套接字文件的路径.</span>
+       <span class="cp">#enableEncryption: &lt;boolean&gt; #为WiredTiger存储引擎启用机密.</span>
+       <span class="cp">#encryptionCipherMode: &lt;string&gt;  #静态加密的密码模式:AES256-CBC=密码块链接模式下的256位高级加密标准,</span>
+       <span class="cp">#AES256-GCM=Galois / Counter模式下的256位高级加密标准</span>
+       <span class="cp">#encryptionKeyFile: &lt;string&gt; #通过KMIP 以外的进程管理密钥时，本地密钥文件的路径[MongoDB Enterprise]</span>
+       <span class="cp">#</span>
+       <span class="cp">#注意:security.kmip只能用于mongodb的企业版本,且版本需要高于3.2.</span>
+       <span class="cp">#</span>
+       <span class="cp">#kmip:</span>
+          <span class="cp">#keyIdentifier: &lt;string&gt;   #KMIP服务器中现有秘钥的唯一KNIP标识符.version:3.2</span>
+          <span class="cp">#rotateMasterKey: &lt;boolean&gt;   #旋转主秘钥并重新加密内部秘钥库.version:3.2[MongoDB Enterprise]</span>
+          <span class="cp">#serverName: &lt;string&gt; #运行KMIP服务器的密钥管理解决方案的主机名或IP地址.[MongoDB Enterprise]</span>
+          <span class="cp">#port: &lt;string&gt; #KMIP服务器正在监听的端口号。</span>
+          <span class="cp">#clientCertificateFile: &lt;string&gt;  #包含用于向KMIP服务器验证MongoDB的客户端证书路径的字符串。</span>
+          <span class="cp">#clientCertificatePassword: &lt;string&gt;  #用于解密客户端证书（即security.kmip.clientCertificateFile）的密码</span>
+          <span class="cp">#serverCAFile: &lt;string&gt; #CA文件的路径。用于验证与KMIP服务器的安全客户端连接。</span>
+          <span class="cp">#</span>
+          <span class="cp">#注意:security.ldap只能用于mongodb的企业版本,且版本需要高于3.4.</span>
+          <span class="cp">#</span>
+    <span class="cp">#   ldap:</span>
+    <span class="cp">#      servers: &lt;string&gt;  #通过LDAP确定执行操作的用户是否被授权，多个服务器之间可以通过[,]分割.</span>
+    <span class="cp">#      bind:</span>
+    <span class="cp">#         method: &lt;string&gt;  #该方法mongod或mongos用于向LDAP服务器进行身份验证。</span>
+    <span class="cp">#                                - simple- mongod或mongos使用简单的身份验证。</span>
+    <span class="cp">#                                - sasl- mongod或mongos使用SASL协议进行身份验证</span>
+    <span class="cp">#         saslMechanisms: &lt;string&gt;  #以逗号分隔的SASL机制列表.</span>
+    <span class="cp">#         queryUser: &lt;string&gt; #绑定LADP查询用户.</span>
+    <span class="cp">#         queryPassword: &lt;string&gt; #绑定LADP服务器的密码.</span>
+    <span class="cp">#         useOSDefaults: &lt;boolean&gt;  #连接到LDAP服务器时，允许mongod或mongos使用Windows登录凭据进行身份验证或绑定。</span>
+    <span class="cp">#      transportSecurity: &lt;string&gt;  #默认情况下，mongod或mongos创建一个到LDAP服务器的TLS / SSL安全连接.</span>
+    <span class="cp">#      timeoutMS: &lt;int&gt; #等待LDAP服务器响应请求时间(毫秒).</span>
+    <span class="cp">#      userToDNMapping: &lt;string&gt;  #用于验证的用户名映射到LDAP专有名称（DN）。</span>
+    <span class="cp">#                                  -  match=ECMAScript格式的正则表达式（正则表达式）与提供的用户名匹配。</span>
+    <span class="cp">#                                          每个括号包围的部分表示由substitutionor 使用的正则表达式捕获组ldapQuery。</span>
+    <span class="cp">#                                  - substitution=LDAP专有名称（DN）格式化模板。</span>
+    <span class="cp">#                                  - ldapQuery=LDAP查询格式化模板.</span>
+    <span class="cp">#      authz:</span>
+    <span class="cp">#         queryTemplate: &lt;string&gt;   #一个相对的LDAP查询URL.</span>
+    <span class="cp">#</span>
+    <span class="cp"># 属性设置选项</span>
+    <span class="cp">#</span>
+    <span class="cp">#setParameter:</span>
+    <span class="cp">#     ldapUserCacheInvalidationInterval: &lt;int&gt; #用于使用LDAP授权mongod或mongos使用LDAP授权的服务器(秒)。</span>
+    <span class="cp">#   &lt;parameter1&gt;: &lt;value1&gt;</span>
+    <span class="cp">#   &lt;parameter2&gt;: &lt;value2&gt;</span>
+
+    <span class="cp"># 存储设置</span>
+    <span class="nl">storage</span><span class="p">:</span>
+       <span class="nl">dbPath</span><span class="p">:</span>  <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span> <span class="err">#</span><span class="n">mongod实例存储数据的目录</span><span class="p">,</span><span class="err">默认值：</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">db</span><span class="p">.</span>
+       <span class="nl">indexBuildRetry</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#指定</span><span class="n">mongodb在下次启动时是否重建不完整的索引</span><span class="p">,</span><span class="err">默认</span><span class="o">:</span><span class="nb">true</span><span class="p">.</span>
+    <span class="cp">#   repairPath: &lt;string&gt;</span>
+    <span class="cp">#          MongoDB在--repair操作过程中将使用的工作目录 。</span>
+    <span class="cp">#          当--repair完成后,storage.repairPath目录是空的,并且 dbPath包含了修复的文件。</span>
+    <span class="cp">#          该storage.repairPath设置仅适用于mongod。</span>
+    <span class="cp">#          仅适用于mongod使用MMAPv1存储引擎的实例。</span>
+       <span class="nl">journal</span><span class="p">:</span>
+          <span class="nl">enabled</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#启用或禁用耐久性日志以确保数据文件保持有效并可恢复。</span><span class="mi">64</span><span class="n">bit默认开启</span><span class="p">,</span><span class="mi">32</span><span class="n">bit默认关闭</span><span class="p">.</span>
+    <span class="cp">#                     不适用于mongod使用内存存储引擎的实例 。</span>
+          <span class="nl">commitIntervalMs</span><span class="p">:</span> <span class="mi">100</span> <span class="err">#</span><span class="n">mongod日志操作之间进程允许的最大时间量</span><span class="p">(</span><span class="err">毫秒</span><span class="p">),</span><span class="err">范围是</span><span class="mi">1</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span><span class="err">默认值是</span><span class="mi">100</span><span class="err">，</span>
+    <span class="cp">#                                  该值太低会增加日志的持久性，但是会牺牲磁盘性能.</span>
+    <span class="cp">#                                  该storage.journal.commitIntervalMs设置仅适用于mongod。</span>
+    <span class="cp">#                                  不适用于mongod使用内存存储引擎的实例 。</span>
+    <span class="cp">#   directoryPerDB: &lt;boolean&gt;    #MongoDB使用单独的目录来存储每个数据库的数据。</span>
+    <span class="cp">#                                  目录位于storage.dbPath目录下，并且每个子目录名称都与数据库名称相对应。</span>
+    <span class="cp">#                                  3.0版本有变更.</span>
+    <span class="cp">#   syncPeriodSecs: &lt;int&gt;  #在MongoDB将数据通过sync操作刷新到数据文件之前可以传递的时间量,默认60s.</span>
+    <span class="cp">#                              不要在生产系统上设置此值。在几乎所有情况下，您都应该使用默认设置。</span>
+    <span class="cp">#   engine: &lt;string&gt;  #mongod数据库的存储引擎。</span>
+    <span class="cp">#                         仅在MongoDB Enterprise中可用，3.0版本中的新功能,从MongoDB 3.2开始，wiredTiger是默认值。</span>
+    <span class="cp">#                         mmapv1=指定MMAPv1存储引擎。</span>
+    <span class="cp">#                         wiredTiger=指定WiredTiger存储引擎。</span>
+    <span class="cp">#                         inMemory=指定内存中存储引擎。</span>
+       <span class="nl">mmapv1</span><span class="p">:</span>
+          <span class="nl">preallocDataFiles</span><span class="p">:</span> <span class="nb">true</span>  <span class="err">#启用或禁用数据文件的预分配。默认情况下，</span><span class="n">MongoDB不预先分配数据文件</span><span class="err">。</span>
+          <span class="nl">nsSize</span><span class="p">:</span> <span class="mi">16</span> <span class="err">#命名空间文件的默认大小，它是以文件结尾的文件</span><span class="p">.</span><span class="n">ns</span><span class="err">。每个集合和索引都被视为一个名称空间。</span>
+    <span class="cp">#                        使用此设置控制新创建的名称空间文件的大小。该选项对现有文件没有影响。</span>
+    <span class="cp">#                        命名空间文件的最大大小是2047兆字节。默认值16兆字节提供了大约24,000个名称空间。</span>
+          <span class="nl">quota</span><span class="p">:</span>
+             <span class="nl">enforced</span><span class="p">:</span> <span class="nb">false</span>  <span class="err">#启用或禁用强制每个数据库可能具有的数字数据文件的最大限制。</span>
+    <span class="cp">#                                 使用该storage.mmapv1.quota.enforced选项运行时，MongoDB每个数据库最多有8个数据文件。</span>
+    <span class="cp">#                                 通过调整storage.quota.maxFilesPerDB来调整这个限制。</span>
+             <span class="nl">maxFilesPerDB</span><span class="p">:</span> <span class="mi">8</span> <span class="err">#每个数据库的数据文件数量限制，默认是</span><span class="mf">8.</span><span class="err">该设置仅适用于设置仅适用于</span><span class="n">mongod</span><span class="p">.</span>
+          <span class="nl">smallFiles</span><span class="p">:</span> <span class="nb">false</span> <span class="err">#如果你有大量的数据库，每个保存少量数据。</span><span class="n">MongoDB使用较小的默认文件大小</span><span class="err">。</span>
+    <span class="cp">#                         该storage.mmapv1.smallFiles选项可减少数据文件的初始大小，并将最大大小限制为512兆字节。</span>
+    <span class="cp">#                         storage.mmapv1.smallFiles也可以将每个日志文件的大小从1千兆字节减少到128兆字节。</span>
+    <span class="cp">#      journal:</span>
+    <span class="cp">#         debugFlags: &lt;int&gt;   #提供测试功能。不用于一般用途，并且会在系统异常关闭的情况下影响数据文件的完整性。</span>
+    <span class="cp">#         commitIntervalMs: &lt;num&gt; #MongoDB 3.2弃用该 torage.mmapv1.journal.commitIntervalMs设置。</span>
+    <span class="cp">#                                    改为使用storage.journal.commitIntervalMs。</span>
+    <span class="cp">#   wiredTiger:</span>
+    <span class="cp">#      engineConfig:</span>
+    <span class="cp">#         cacheSizeGB: &lt;number&gt;    #WiredTiger将用于所有数据的内部缓存的最大大小,默认采用RAB-1GB的50%和256MB的最大值.</span>
+    <span class="cp">#                                      尽可能不要超过最大值.</span>
+    <span class="cp">#         journalCompressor: &lt;string&gt;  #用于压缩WiredTiger日志数据的压缩类型。none,snappy,zlib.version:3.0</span>
+    <span class="cp">#         directoryForIndexes: true #mongod将索引存储在名为的子目录中 index,</span>
+    <span class="cp">#                                        并将集合数据存储在名为的子目录中 collection。</span>
+    <span class="cp">#      collectionConfig:</span>
+    <span class="cp">#         blockCompressor: &lt;string&gt;  #用于压缩收集数据的默认压缩类型。none,snappy,zlib.version:3.0</span>
+          <span class="nl">indexConfig</span><span class="p">:</span>
+             <span class="nl">prefixCompression</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#启用或禁用索引数据的前缀压缩。</span>
+    <span class="cp">#   inMemory:    #仅在MongoDB Enterprise中可用。</span>
+    <span class="cp">#      engineConfig:</span>
+    <span class="cp">#         inMemorySizeGB: &lt;number&gt; #为内存存储引擎数据分配的最大内存量，</span>
+    <span class="cp">#                                      包括索引，oplog（如果 mongod是副本集，副本集或分片群集元数据的一部分）等。</span>
+    <span class="cp">#                                       默认情况下，内存存储引擎使用50％的物理RAM减1 GB。</span>
+    <span class="cp">#运行分析配置</span>
+    <span class="nl">operationProfiling</span><span class="p">:</span>
+       <span class="nl">mode</span><span class="p">:</span> <span class="n">slowOp</span>   <span class="err">#指定应该分析哪些操作，分析操作可能会影响性能</span><span class="p">.</span>
+    <span class="cp">#                        - off=分析器已关闭，并且不收集任何数据。这是默认的分析器级别。</span>
+    <span class="cp">#                        - slowOp=分析器收集比花费时间更长的操作的数据slowms。</span>
+    <span class="cp">#                        - all=分析器收集所有操作的数据。</span>
+       <span class="nl">slowOpThresholdMs</span><span class="p">:</span> <span class="mi">100</span> <span class="err">#慢操作时间阈值，默认</span><span class="mf">100.</span>
+    <span class="cp">#   slowOpSampleRate: &lt;double&gt; #慢操作采样率，0-1之间，包含0,1.</span>
+    <span class="cp">#</span>
+    <span class="cp">#复制设置</span>
+    <span class="cp">#</span>
+    <span class="cp">#replication:</span>
+    <span class="cp">#   oplogSizeMB: &lt;int&gt; #复制操作日志的最大大小（MB）</span>
+    <span class="cp">#   replSetName: &lt;string&gt;  #mongod一部分的副本集的名称。副本集中的所有主机必须具有相同的集名称。仅适用于mongod.</span>
+    <span class="cp">#   secondaryIndexPrefetch: &lt;string&gt;  #仅适用于mmapv1 存储引擎.</span>
+    <span class="cp">#                                        在应用oplog中的操作之前，副本集的次要成员加载到内存中的索引。</span>
+    <span class="cp">#                                       - none=辅助程序不会将索引加载到内存中。</span>
+    <span class="cp">#                                       - all=辅助程序加载与操作相关的所有索引。</span>
+    <span class="cp">#                                       - _id_only=Secondaries不会将额外的索引加载到已有_id索引之外的内存中。</span>
+    <span class="cp">#   enableMajorityReadConcern: &lt;boolean&gt;  ## Deprecated in 3.6</span>
+    <span class="cp">#                                            从MongoDB 3.6开始，&quot;majority&quot;始终启用读取关注，并且此设置不起作用。</span>
+    <span class="cp">#    localPingThresholdMs: &lt;int&gt;  #mongos用于确定哪些辅助副本集成员从客户端传递读取操作的ping时间（以毫秒为单位）。</span>
+    <span class="cp">#                                    默认值15对应于所有客户端驱动程序中的默认值。</span>
+    <span class="cp">#</span>
+    <span class="cp"># 分片设置</span>
+    <span class="cp">#</span>
+    <span class="cp">#sharding:</span>
+    <span class="cp">#   clusterRole: &lt;string&gt;    #mongod实例在分片群集中扮演的角色</span>
+    <span class="cp">#                           - configsvr=将此实例作为配置服务器启动。默认情况下，该实例在27019端口上启动。</span>
+    <span class="cp">#                           - shardsvr=启动此实例为碎片。默认情况下，该实例在27018端口上启动。</span>
+    <span class="cp">#                            设置sharding.clusterRole要求mongod 实例与复制一起运行。</span>
+    <span class="cp">#                            要将实例部署为副本集成员，请使用该replSetName 设置并指定副本集的名称。</span>
+    <span class="cp">#   archiveMovedChunks: false  #从3.2开始，MongoDB false用作默认值。在块迁移期间，分片不会保存从分片迁移的文档。</span>
+    <span class="cp">#   configDB: &lt;configReplSetName&gt;/cfg1.example.net:27017, cfg2.example.net:27017,...   #该配置服务器用于 分片群集。</span>
+    <span class="cp">#</span>
+    <span class="cp"># 审计日志设置,仅在MongoDB Enterprise中可用。</span>
+    <span class="cp">#</span>
+    <span class="cp">#auditLog:</span>
+    <span class="cp">#   destination: file  #设置后，auditLog.destination启用使用指定格式往指定目标发送所有审核事件。</span>
+    <span class="cp">##                             - syslog=以JSON格式输出审计事件到系统日志.</span>
+    <span class="cp">##                             - console=以stdoutJSON格式输出审计事件。</span>
+    <span class="cp">##                             - file=将审核事件输出到以中指定auditLog.path格式auditLog.format指定的文件 。</span>
+    <span class="cp">#   format: JSON   #用于审计的输出文件的格式,当auditLog.destination=file时,可以指定该值(JSON/BSON).</span>
+    <span class="cp">#   path: &lt;string&gt; #输出文件的绝对或相对路径,当auditLog.destination=file时,可以指定该值.</span>
+    <span class="cp">#   filter: &lt;string&gt; #过滤指定类型的操作的记录。</span>
+    <span class="cp">#</span>
+    <span class="cp"># 简单网络管理协议配置</span>
+    <span class="cp">#</span>
+    <span class="cp">#snmp:</span>
+    <span class="cp">#   subagent: &lt;boolean&gt;  #该snmp.subagent设置仅适用于mongod。</span>
+    <span class="cp">#                        如果snmp.subagent是true，SNMP运行的子代理。</span>
+    <span class="cp">#   master: &lt;boolean&gt;    #当snmp.master是true，SNMP运行作为一个主站。·</span>
+    <span class="cp">#</span>
+    <span class="cp"># 文本搜索选项 ,仅在MongoDB Enterprise中可用。</span>
+    <span class="cp">#</span>
+    <span class="cp">#basisTech:</span>
+    <span class="cp">#   rootDirectory:&lt;string&gt; #指定Basis Technology Rosette语言学平台安装根目录的路径，以支持用于文本搜索操作的其他语言。</span>
+</pre></div>
+
+<h2 id="mongo-shell">mongo shell<a class="headerlink" href="#mongo-shell" title="Permanent link">&para;</a></h2>
+<p>常见的mongoshell帮助与JavaScript等效项表</p>
+<table>
+<thead>
+<tr>
+<th align="center">Shell Helpers</th>
+<th align="center">JavaScript Equivalents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">show dbs, show databases</td>
+<td align="center">db.adminCommand('listDatabases')</td>
+</tr>
+<tr>
+<td align="center">use &lt;[db]&gt;</td>
+<td align="center">db = db.getSiblingDB('&lt;[db]&gt;')</td>
+</tr>
+<tr>
+<td align="center">show collections</td>
+<td align="center">db.getCollectionNames()</td>
+</tr>
+<tr>
+<td align="center">show users</td>
+<td align="center">db.getUsers()</td>
+</tr>
+<tr>
+<td align="center">show roles</td>
+<td align="center">db.getRoles({showBuiltinRoles: true})</td>
+</tr>
+<tr>
+<td align="center">show log &lt;[logname]&gt;</td>
+<td align="center">db.adminCommand({ 'getLog' : '&lt;[logname]&gt;' })</td>
+</tr>
+<tr>
+<td align="center">show logs</td>
+<td align="center">db.adminCommand({ 'getLog' : '*' })</td>
+</tr>
+<tr>
+<td align="center">it</td>
+<td align="center">cursor = db.collection.find() if ( cursor.hasNext() ){ cursor.next(); }</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mongodb-crud">MongoDB CRUD 操作<a class="headerlink" href="#mongodb-crud" title="Permanent link">&para;</a></h2>
+<h3 id="_2">插入文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">()</span>           <span class="c1">// 插入一个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">()</span>          <span class="c1">// 插入多个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">()</span>              <span class="c1">// 插入一个或多个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">update</span><span class="p">()</span>              <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">()</span>           <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">updateMany</span><span class="p">()</span>          <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findAndModify</span><span class="p">()</span>       <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndUpdate</span><span class="p">()</span>    <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndReplace</span><span class="p">()</span>   <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bulkWrite</span><span class="p">()</span>
+</pre></div>
+
+<h3 id="_3">查询文档<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">person</span><span class="o">:</span><span class="p">{</span><span class="nx">age</span><span class="o">:</span><span class="mi">21</span><span class="p">,</span><span class="nx">sex</span><span class="o">:</span><span class="s2">&quot;male&quot;</span><span class="p">}});</span>  <span class="c1">// 查询嵌入/嵌套式文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;person.sex&quot;</span><span class="o">:</span><span class="s2">&quot;male&quot;</span><span class="p">});</span>  <span class="c1">// 匹配嵌入式文档某个字段</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">tags</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">]});</span>   <span class="c1">// 匹配数组</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">tags</span><span class="o">:</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blank&quot;</span><span class="p">});</span>  <span class="c1">// 按顺序匹配数组中的两个元素</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">tags</span><span class="o">:</span> <span class="p">{</span><span class="nx">$all</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;blank&quot;</span><span class="p">]}})</span>  <span class="c1">// 不按顺序匹配数组中两个元素(查询只要包含这两个元素的所有结果)</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">age</span><span class="o">:</span> <span class="p">{</span><span class="nx">$gt</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">2</span><span class="p">}})</span>   <span class="c1">// 集合中age数组中一个元素满足大于1，另一个元素满足小于2，或者单个元素满足两个条件</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">age</span><span class="o">:</span> <span class="p">{</span><span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span><span class="nx">$gt</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">2</span><span class="p">}}})</span>   <span class="c1">// 使用$elemMatch运算符在数组的元素上指定多个条件，以便至少一个数组元素满足所有指定的条件。此查询条件表示age数组包含至少一个大于1且小于2的元素</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$size</span><span class="o">:</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询条件为tags数组中元素长度为3</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;tags.2&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;$exists&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">}</span> <span class="p">}</span> <span class="p">)</span> <span class="c1">// 查询条件为tags数组中元素数量大于2(实际利用数组索引来实现的)</span>
+
+<span class="nx">查询嵌套在数组中的文档示例</span><span class="err">：</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">(</span> <span class="p">[</span>
+   <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;journal&quot;</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">15</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+   <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+   <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">60</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">15</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+   <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;planner&quot;</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">40</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+   <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;postcard&quot;</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">15</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">35</span> <span class="p">}</span> <span class="p">]</span> <span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 匹配在invertory集合中instock数组元素与指定文档匹配的文档，可以理解为一个文档作为数组的元素；注意：整个嵌入/嵌套文档上的等式匹配需要指定文档的完全匹配</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询嵌入文档数组instock，嵌入的到此数组的文档至少一个qty值为5，warehost值为A</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span> <span class="nx">qty</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">$lte</span><span class="o">:</span> <span class="mi">20</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询嵌入文档数组instock，嵌入的到此数组的文档qty值大于10且小于等于20</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>  <span class="nx">$lte</span><span class="o">:</span> <span class="mi">20</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询嵌套在instock数组中的任何文档的qty字段大于10并且数组中的任何文档（但不一定是相同的嵌入文档）的qty字段小于或等于20</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;instock.warehouse&quot;</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">}</span> <span class="p">)</span> <span class="c1">// 查询嵌套在instock数组中的至少一个嵌套文档包含字段qty值为5，且至少一个嵌套文档warehouse字段值为A(但不一定是相同的嵌套文档)</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span><span class="p">{</span><span class="nx">$lte</span><span class="o">:</span><span class="mi">20</span><span class="p">}})</span>  <span class="c1">// 查询嵌入到instock数组的文档qty字段值小于20的文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;instock.0.qty&quot;</span><span class="o">:</span><span class="p">{</span><span class="nx">$lte</span><span class="o">:</span><span class="mi">20</span><span class="p">}})</span>  <span class="c1">// 查询嵌入到instock数组的文档，索引为0且qty字段值小于20的文档</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询集合中status值为A，只返回item、status及_id字段</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">)</span> <span class="c1">// 查询集合中status值为A，结果排除status和instock字段</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;size.uom&quot;</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">)</span> <span class="c1">// 查询集合中status值为A，结果只包括item、status字段及嵌入文档size的uom字段</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$slice</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>   <span class="c1">// 查询集合中status为A，结果只包含item、status字段instock，$slice运算符返回instock数组最后一个元素</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span> <span class="kc">null</span><span class="p">})</span>  <span class="c1">// 查询item字段为null，或不包含item字段的文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span> <span class="p">{</span><span class="nx">$type</span><span class="o">:</span> <span class="mi">10</span><span class="p">}})</span>  <span class="c1">// 只查询item字段值类型是10(即null类型)的文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span> <span class="p">{</span><span class="nx">$exists</span><span class="o">:</span> <span class="kc">false</span><span class="p">}})</span> <span class="c1">// 只查询不包含item字段的文档</span>
+</pre></div>
+
+<h3 id="_4">更新文档<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">({</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;paper&quot;</span> <span class="p">},{</span><span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;size.uom&quot;</span><span class="o">:</span> <span class="s2">&quot;cm&quot;</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;P&quot;</span> <span class="p">},</span><span class="nx">$currentDate</span><span class="o">:</span> <span class="p">{</span> <span class="nx">lastModified</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}})</span>  <span class="c1">// 更新一个文档item字段值为paper，将size数组中uom更新为cm，status更新为P</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">updateMany</span><span class="p">({</span> <span class="s2">&quot;qty&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">50</span> <span class="p">}},{</span><span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;size.uom&quot;</span><span class="o">:</span> <span class="s2">&quot;in&quot;</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;Z&quot;</span> <span class="p">},</span><span class="nx">$currentDate</span><span class="o">:</span> <span class="p">{</span> <span class="nx">lastModified</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}})</span>   <span class="c1">// 更新qty字段值小于50，更新size数组uom字段值为in，status字段值为Z，用$currentDate操作更新lastModified字段为当前时间，没有此字段</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">update</span><span class="p">()</span>  <span class="c1">// 更新或替换与指定过滤器匹配的单个文档，或更新与指定过滤器匹配的所有文档</span>
+<span class="nx">以下几种方法也可以用来更新文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndReplace</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndUpdate</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findAndModify</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bulkWrite</span><span class="p">()</span>
+</pre></div>
+
+<h3 id="_5">删除文档<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">deleteMany</span><span class="p">({})</span>  <span class="c1">// 删除集合所有文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">deleteOne</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;D&quot;</span> <span class="p">}</span> <span class="p">)</span>   <span class="c1">// 删除status为D的第一个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">remove</span><span class="p">()</span>  <span class="c1">// 删除单个文档或与指定过滤器匹配的所有文档</span>
+<span class="nx">删除操作不会删除索引</span><span class="err">，</span><span class="nx">即使从集合中删除所有文档</span><span class="err">！</span><span class="nx">MongoDB中的所有写入操作都是单个文档级别的原子操作</span>
+<span class="nx">以下方法也可以从集合中删除文档</span><span class="err">：</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndDelete</span><span class="p">()</span>  <span class="c1">// findOneAndDelete()提供一个排序选项.该选项允许删除按指定顺序排序的第一个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findAndModify</span><span class="p">()</span>   <span class="c1">// findAndModify()提供一个排序选项.该选项允许删除按指定顺序排序的第一个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bulkWrite</span><span class="p">()</span>
+</pre></div>
+
+<h3 id="_6">批量写入操作<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bulkWrite</span><span class="p">()</span> <span class="c1">// 此方法可以批量插入、更新、删除操作。批量写操作可以有序也可无序。</span>
+<span class="c1">// 通过有序的操作列表，MongoDB以串行方式执行操作。如果在处理其中一个写操作期间发生错误，MongoDB将返回而不处理列表中的任何剩余写操作</span>
+<span class="c1">// 使用无序的操作列表，MongoDB可以并行执行操作，但不保证这种行为。如果在处理其中一个写操作期间发生错误，MongoDB将继续处理列表中的剩余写操作</span>
+<span class="c1">// 分片集合上，有序操作通常比无序要慢，bulk.Write()默认是有序操作</span>
+<span class="nx">bulkWrite</span><span class="p">()</span><span class="nx">支持以下写操作</span><span class="err">：</span>
+<span class="nx">insertOne</span>
+<span class="nx">updateOne</span>
+<span class="nx">updateMany</span>
+<span class="nx">replaceOne</span>
+<span class="nx">deleteOne</span>
+<span class="nx">deleteMany</span>
+
+<span class="nx">批量插入到分片集合的策略</span><span class="err">：</span>
+<span class="mf">1.</span> <span class="nx">预分割集合</span>
+<span class="mf">2.</span> <span class="nx">无序写入mongos</span>
+<span class="mf">3.</span> <span class="nx">避免单调节流</span><span class="o">--</span><span class="nx">Avoid</span> <span class="nx">Monotonic</span> <span class="nx">Throttling</span><span class="p">(</span><span class="nx">此处存疑</span><span class="p">)</span>
+</pre></div>
+
+<h3 id="_7">可重试的写入<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nx">可重试写入要具备以下条件</span><span class="err">：</span>
+<span class="mf">1.</span> <span class="nx">需要副本集或分片集群</span>
+<span class="mf">2.</span> <span class="nx">支持文档锁定的存储引擎</span><span class="err">，</span><span class="nx">例如</span><span class="err">：</span><span class="nx">WiredTiger或inmemory内存存储引擎</span>
+<span class="mf">3.</span> <span class="nx">MongoDB</span> <span class="mf">3.6</span><span class="o">+</span> <span class="nx">版本驱动程序</span>
+<span class="mf">4.</span> <span class="nx">集群中MongoDB版本大于等于3</span><span class="mf">.6</span>
+<span class="mf">5.</span> <span class="nx">写操作出错</span><span class="err">，</span><span class="nx">Write</span> <span class="nx">Concern为0的不重试</span>
+
+<span class="nx">transaction</span> <span class="nx">commit和abort</span> <span class="nx">operations</span>  <span class="nx">如果提交操作或中止操作遇到错误</span><span class="err">，</span><span class="nx">MongoDB驱动程序会重试该操作一次</span><span class="err">，</span><span class="nx">无论是否retryWrites设置为true</span>
+<span class="nx">事务内的写操作是不能单独重试写入的</span><span class="err">，</span><span class="nx">无论retryWrites是否设置为true</span><span class="err">；</span><span class="nx">默认情况不启动重试写入</span>
+
+
+<span class="nx">以下为可重试写入操作</span><span class="p">(</span><span class="nx">Write</span> <span class="nx">Concern不能是</span><span class="p">{</span><span class="nx">w</span><span class="o">:</span> <span class="mi">0</span><span class="p">})</span><span class="err">：</span>
+
+<span class="c1">// 插入操作</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">()</span>
+
+<span class="c1">// 单文档更新操作</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">replaceOne</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">update</span><span class="p">()</span><span class="nx">这里multi是false</span>
+
+<span class="c1">// 单个文档删除操作</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">deleteOne</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">remove</span><span class="p">()</span><span class="nx">这里justOne是true</span>
+
+<span class="c1">// findAndModify操作。所有findAndModify操作都是单文档操作</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findAndModify</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndDelete</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndReplace</span><span class="p">()</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndUpdate</span><span class="p">()</span>
+
+<span class="c1">// 批量写入操作仅包含单文档写入操作。可重试的批量操作可以包括指定的写入操作的任何组合，但不能包括任何多文档写入操作，例如updateMany</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bulkWrite</span><span class="p">()</span> <span class="nx">使用以下写操作</span><span class="o">:</span>
+<span class="nx">insertOne</span>
+<span class="nx">updateOne</span>
+<span class="nx">replaceOne</span>
+<span class="nx">deleteOne</span>
+
+<span class="c1">// 仅包含单文档的批量写入操作，一个可重试批量写入操作可以包含任何指定写入操作组合，但不能包括任何多文档的写入操作，例如update指定multi选项为true</span>
+<span class="nx">Bulk</span> <span class="nx">运作</span><span class="err">：</span><span class="nx">批量写入操作仅包含单文档写入操作</span><span class="err">。</span><span class="nx">可重试的批量操作可以包括指定的写入操作的任何组合</span><span class="err">，</span><span class="nx">但不能包括任何多文档写入操作</span><span class="err">，</span><span class="nx">例如为该选项update指定的操作</span><span class="err">。</span><span class="nx">truemulti</span>
+<span class="nx">Bulk</span><span class="p">.</span><span class="nx">find</span><span class="p">.</span><span class="nx">removeOne</span><span class="p">()</span>
+<span class="nx">Bulk</span><span class="p">.</span><span class="nx">find</span><span class="p">.</span><span class="nx">replaceOne</span><span class="p">()</span>
+<span class="nx">Bulk</span><span class="p">.</span><span class="nx">find</span><span class="p">.</span><span class="nx">replaceOne</span><span class="p">()</span>
+
+<span class="nx">可重试写入有助于解决瞬时网络错误和副本集选举</span><span class="err">，</span><span class="nx">并不能解决持久性网络错误</span><span class="err">，</span><span class="nx">因为只进行一次重试尝试</span>
+<span class="nx">如果驱动程序在目标副本集或分片集群分片中找不到正常的主节点</span><span class="err">，</span><span class="nx">则驱动程序会在serverSelectionTimeoutMS在重试之前等待以确定新的主节点</span><span class="err">，</span><span class="nx">可重试写入不能解决故障转移期间</span><span class="err">，</span><span class="nx">时间超过serverSelectionTimeoutMS的实例</span>
+
+<span class="nx">注意</span><span class="err">：</span><span class="nx">如果客户端发出写入操作在超过serverSelectionTimeoutMS没有响应</span><span class="err">，</span><span class="nx">有可能在客户端重新响应时</span><span class="p">(</span><span class="nx">没有重新启动</span><span class="p">)</span><span class="err">，</span><span class="nx">则可能会再重试写入操作</span><span class="err">。</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">()</span><span class="nx">包含有关该transactions部分中可重试写入的统计信息</span>
+</pre></div>
+
+<h3 id="_8">文本搜索<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>示例文档如下所示：
+| _id | description | name |
+| :------: | :------: | :------: |
+| _id | description | name |
+| 1 | Coffee and cakes | Java Hut |
+| 2 | Gourmet hamburgers | Burger Buns |
+| 3 | Just coffee | Coffee Shop |
+| 4 | Discount clothing | Clothes Clothes Clothes |
+| 5 | Indonesian goods | Java Shopping |</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 视图不支持文本搜索；文本索引以支持对字符串内容的文本搜索查询。text索引可以包括其值为字符串或字符串元素数组的任何字段</span>
+<span class="c1">// 要执行文本搜索查询，您必须text在集合上有索引。集合只能有一个文本搜索索引，但该索引可以涵盖多个字段</span>
+<span class="c1">// 使用$text查询运算符对具有文本索引的集合执行文本搜索。$text将使用空格和大多数标点符号作为分隔符来标记搜索字符串，并OR在搜索字符串中执行所有此类标记的逻辑</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">stores</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">$text</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$search</span><span class="o">:</span> <span class="s2">&quot;java shop&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">//查找stores集合包含java shop的任何文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">stores</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">$text</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$search</span><span class="o">:</span> <span class="s2">&quot;java -shop&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">//查找stores集合包含java排除shop的任何文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">stores</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">$text</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$search</span><span class="o">:</span> <span class="s2">&quot;java coffee shop&quot;</span> <span class="p">}</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">score</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$meta</span><span class="o">:</span> <span class="s2">&quot;textScore&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">).</span><span class="nx">sort</span><span class="p">(</span> <span class="p">{</span> <span class="nx">score</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$meta</span><span class="o">:</span> <span class="s2">&quot;textScore&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>   <span class="c1">// 要按相关性得分的顺序对结果进行排序</span>
+
+<span class="nx">aggregation</span> <span class="nx">pipeline也可以进行text搜索</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">stores</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">(</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;text&quot;</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 创建索引,允许在name和description字段上进行文本搜索</span>
+<span class="nx">在聚合管道中通过$text在$match阶段使用查询运算符进行文本搜索</span><span class="err">；</span><span class="nx">聚合管道中的文本搜索具有以下限制</span><span class="err">：</span>
+<span class="mf">1.</span> <span class="nx">$match阶段包含的$text必须在流水线的第一阶段</span>
+<span class="mf">2.</span> <span class="nx">一个text操作只能在流水阶段出现一次</span>
+<span class="mf">3.</span> <span class="nx">text操作不能出现在$or或$not表达式</span>
+<span class="mf">4.</span> <span class="nx">默认情况下</span><span class="err">，</span><span class="nx">文本搜索不会按匹配分数的顺序返回匹配的文档</span><span class="err">，</span><span class="nx">在$sort阶段使用$meta聚合表达式</span>
+</pre></div>
+
+<h3 id="_9">地理空间查询<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1">// 指定GeoJSON数据,使用嵌入式文档：</span>
+<span class="mf">1.</span> <span class="nx">一个名为字段名为type</span><span class="err">，</span><span class="nx">指定GeoJSON对象类型</span>
+<span class="mf">2.</span> <span class="nx">一个名为字段coordinates</span><span class="err">，</span><span class="nx">用于指定对象的坐标</span><span class="err">，</span><span class="nx">指定经纬度坐标</span><span class="err">，</span><span class="nx">有效经度</span><span class="o">-</span><span class="mi">180</span><span class="nx">至180</span><span class="p">(</span><span class="nx">包括两者</span><span class="p">)</span><span class="err">，</span><span class="nx">有效纬度</span><span class="o">-</span><span class="mi">90</span><span class="nx">到90</span><span class="p">(</span><span class="nx">包括两者</span><span class="p">)</span>
+<span class="nx">location</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+      <span class="nx">coordinates</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">73.856077</span><span class="p">,</span> <span class="mf">40.848447</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nx">MongoDB提供以下地理空间索引类型以支持地理空间查询</span><span class="err">：</span>
+<span class="mi">2</span><span class="nx">dsphere索引支持在类似地球的球体上计算几何的查询</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">location</span> <span class="nx">field</span><span class="o">:</span> <span class="s2">&quot;2dsphere&quot;</span><span class="p">})</span> <span class="c1">// 创建2dsphere索引</span>
+
+<span class="mi">2</span><span class="nx">d索引支持在二维平面上计算几何的查询</span><span class="p">,</span><span class="nx">索引支持$nearSphere在球体上计算的查询</span><span class="err">，</span><span class="nx">如果可能的话</span><span class="err">，</span><span class="nx">还是使用2dsphere索引进行球形查询</span><span class="err">，</span><span class="mi">2</span><span class="nx">d对球形查询使用索引可能会导致错误的结果</span><span class="err">，</span><span class="nx">如</span><span class="err">：</span><span class="nx">使用2d包围极点的球形查询索引</span>
+
+<span class="nx">分片集合时</span><span class="err">，</span><span class="nx">不能将地理空间索引作为分片键</span><span class="err">，</span><span class="nx">但可以使用其他字段作为片键在分片集合上创建地址空间索引</span>
+
+<span class="nx">分片集合支持以下地理空间操作</span><span class="err">：</span>
+<span class="mf">1.</span> <span class="nx">$geoNear</span> <span class="nx">聚合阶段</span>
+<span class="mf">2.</span> <span class="nx">$near和$nearSphere查询运算符</span>
+<span class="mf">3.</span> <span class="nx">geoNear命令</span>
+
+<span class="nx">在分片集群</span><span class="err">，</span><span class="nx">可以使用$geoWithin和$geoIntersect来查询地理空间数据</span>
+
+<span class="nx">以下为地理空间查询运算符</span><span class="err">：</span>
+<span class="nx">$geoIntersects</span>    <span class="c1">// 选择和GeoJSON几何体相交的几何，该2dsphere索引支持$geoIntersects</span>
+<span class="nx">$geoWithin</span>        <span class="c1">// 选择边界GeoJSON几何体内的几何,该2dsphpere和2d索引支持$geoWithin</span>
+<span class="nx">$near</span>             <span class="c1">// 返回点附近的地理空间对象。需要地理空间索引。该2dsphere和2D索引支持 $near</span>
+<span class="nx">$nearSphere</span>       <span class="c1">// 返回球体上某点附近的地理空间对象。需要地理空间索引。该2dsphere和2D索引支持 $nearSphere</span>
+
+<span class="nx">地理空间命令</span><span class="err">：</span>
+<span class="nx">geoNear</span><span class="err">（</span><span class="nx">在MongoDB</span> <span class="mf">4.0</span><span class="nx">中不推荐使用</span><span class="err">）</span>  <span class="c1">// 执行地理空间查询，返回最接近给定点的文档。不推荐使用的geoNear命令需要地理空间索引</span>
+
+<span class="nx">地理空间聚合阶段</span><span class="o">:</span>
+<span class="nx">$geoNear</span>          <span class="c1">// 基于与地理空间点的接近度返回有序的文档流。集成的功能 $match，$sort以及$limit地理空间数据。输出文档包括附加距离字段，并且可以包括位置标识符字段。$geoNear需要地理空间索引</span>
+
+<span class="nx">地理空间模型</span><span class="o">:</span>
+<span class="nx">MongoDB地理空间查询可以解释平面或球面上的几何体</span>
+<span class="mi">2</span><span class="nx">dsphere</span> <span class="nx">索引仅支持球形查询</span><span class="err">（</span><span class="nx">即解释球面上几何的查询</span><span class="err">）</span>
+<span class="mi">2</span><span class="nx">d索引支持平面查询</span><span class="err">（</span><span class="nx">即解释平面上几何的查询</span><span class="err">）</span><span class="nx">和一些球形查询</span><span class="err">。</span><span class="nx">虽然2d</span> <span class="nx">索引支持某些球形查询</span><span class="err">，</span><span class="nx">但使用2d这些球形查询的索引可能会导致错误</span><span class="err">。</span><span class="nx">如果可能</span><span class="err">，</span><span class="nx">请使用</span> <span class="mi">2</span><span class="nx">dsphere索引进行球形查询</span>
+
+<span class="nx">下表列出了每个地理空间操作使用的地理空间查询运算符支持的查询</span><span class="err">：</span><span class="p">[</span><span class="nx">http</span><span class="o">:</span><span class="c1">//docs.mongodb.com/manual/geospatial-queries/]</span>
+<span class="o">|</span> <span class="nx">操作</span> <span class="o">|</span> <span class="nx">球形</span><span class="o">/</span><span class="nx">平面查询</span> <span class="o">|</span> <span class="nx">备注</span> <span class="o">|</span>
+<span class="o">|</span> <span class="o">:------:</span> <span class="o">|</span> <span class="o">:------:</span> <span class="o">|</span> <span class="o">:------:</span> <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+<span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="c1">// write-concern</span>
+<span class="p">{</span> <span class="nx">w</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">value</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">j</span><span class="o">:</span> <span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">wtimeot</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="nx">w选项</span><span class="err">：</span><span class="nx">确认写入请求传递给mongod实例的数量</span><span class="err">，</span><span class="mi">1</span><span class="nx">表示传递写入操作给一个standalone或副本的一个主节点</span><span class="err">；</span><span class="mi">0</span><span class="nx">写入操作没有确认</span><span class="err">，</span><span class="nx">w大于1是因为需要来自其他辅助数据节点的确认</span>
+<span class="nx">j选项</span><span class="err">：</span><span class="nx">确认写操作已写入磁盘日志</span><span class="p">(</span><span class="nx">on</span><span class="o">-</span><span class="nx">disk</span> <span class="nx">journal</span><span class="p">)</span>
+<span class="nx">wtimeout</span><span class="o">:</span><span class="nx">写入的时间限制</span><span class="p">(</span><span class="nx">毫秒为单位</span><span class="p">)</span><span class="err">，</span><span class="nx">wtimeout仅限于w大于1的情况</span>
+</pre></div>
+
+<h3 id="mongodbcrud">MongoDBCRUD概念<a class="headerlink" href="#mongodbcrud" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1">// 原子性和事务</span>
+<span class="nx">当单个写操作</span><span class="p">(</span><span class="nx">如</span><span class="err">：</span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">updateMany</span><span class="p">())</span><span class="nx">修改多个文件时</span><span class="err">，</span><span class="nx">每个文件的修改都是原子性的</span><span class="err">，</span><span class="nx">但是整个操作不是</span><span class="err">！</span>
+
+<span class="c1">// 并发控制</span>
+<span class="nx">并发控制允许多个程序同时运行</span><span class="err">，</span><span class="nx">而不会导致数据不一致或冲突</span>
+<span class="nx">一种方法是在字段上创建唯一索引</span><span class="err">，</span><span class="nx">该索引只有唯一值</span><span class="err">。</span><span class="nx">可以防止插入</span><span class="err">、</span><span class="nx">更新创建重复数据</span><span class="err">。</span><span class="nx">在多个字段创建唯一索引</span><span class="err">，</span><span class="nx">以强制该字段组合的唯一性</span><span class="err">。</span>
+<span class="nx">另一种方法是在为写操作的查询谓词中指定字段预期的当前值</span>
+
+<span class="c1">// 读取隔离,一致性和Recency</span>
+</pre></div>
+
+<h3 id="_10">分布式查询、查询优化、查询性能、优化查询<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nx">oplog是对数据集操作的可重现序列</span><span class="p">,</span><span class="nx">索引可以涵盖嵌入式文档中字段的查询</span><span class="err">；</span><span class="nx">如果索引跟踪哪个或哪些字段导致索引为多建索引</span><span class="err">，</span><span class="nx">则多建索引可以覆盖非数组字段上的查询</span><span class="err">。</span><span class="p">(</span><span class="nx">多建索引不能覆盖数组字段上的查询</span><span class="p">)</span><span class="err">；</span><span class="nx">地理空间索引无法覆盖索引</span><span class="err">。</span><span class="nx">要确定一个查询是否为覆盖查询</span><span class="err">，</span><span class="nx">使用db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">explain</span><span class="p">()</span><span class="nx">或explain</span><span class="p">()</span>
+
+<span class="nx">使用Database</span> <span class="nx">Profiler评估对数据库的操作</span><span class="err">，</span>
+
+<span class="c1">// 优化查询</span>
+<span class="mf">1.</span> <span class="nx">创建支持查询的索引</span>
+<span class="mf">2.</span> <span class="nx">如经常对timestamp字段进行排序性查询</span><span class="err">，</span><span class="nx">则可以通过在timestamp字段创建索引</span><span class="err">，</span><span class="nx">查询时使用db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span> <span class="nx">timestamp</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span><span class="nx">更快得到结果</span><span class="err">，</span><span class="nx">因为MongoDB可以按照升序或降序读取索引</span><span class="err">。</span>
+<span class="mf">3.</span> <span class="nx">索引支持查询</span><span class="err">、</span><span class="nx">更新操作和聚合管道的某些阶段</span><span class="err">；</span><span class="nx">如符合以下条件</span><span class="err">，</span><span class="nx">则BinData类型的索引建可以更有效的存储在索引中</span><span class="err">。</span>
+  <span class="o">*</span> <span class="nx">二进制子类型值得范围为0</span><span class="o">-</span><span class="mi">7</span><span class="nx">或128</span><span class="o">-</span><span class="mi">135</span>
+  <span class="o">*</span> <span class="nx">字节数组的长度为</span><span class="err">：</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">24</span><span class="nx">或32</span>
+<span class="mf">4.</span> <span class="nx">限制查询结果数</span><span class="err">，</span><span class="nx">通过limit</span><span class="p">()</span><span class="nx">方法减少查询对网络资源的消耗</span><span class="err">。</span><span class="nx">通常和sort</span><span class="p">()</span><span class="nx">结合使用</span>
+<span class="mf">5.</span> <span class="nx">使用预测返回必要的数据</span><span class="err">；</span><span class="nx">只需要文档的部分字段时</span><span class="err">，</span><span class="nx">只返回所需的字段可以获取更好的性能</span><span class="err">。</span>
+<span class="mf">6.</span> <span class="nx">使用$hint选择一个特定的指数</span><span class="err">，</span><span class="nx">大多数情况下</span><span class="err">，</span><span class="nx">查询优化器会为特定操作选择最佳的索引</span><span class="err">，</span><span class="nx">但是也可以使用$hint</span><span class="p">()</span><span class="nx">方法强制使用特定索引</span><span class="err">。</span><span class="nx">hint</span><span class="p">()</span><span class="nx">支持性能测试或在某些查询</span><span class="err">，</span><span class="nx">在一些查询中</span><span class="err">，</span><span class="nx">必须选择一个字段或字段必须包含在多个索引中</span><span class="err">。</span>
+<span class="mf">7.</span> <span class="nx">使用增量运算符执行操作服务端</span><span class="err">，</span><span class="nx">MongoDB的$inc运算符来增加或减少文档中的值</span><span class="err">，</span><span class="nx">该操作增加服务端字段的值</span><span class="err">，</span><span class="nx">作为选择文档的替代方法</span><span class="err">，</span><span class="nx">在客户端进行简单修改</span><span class="err">，</span><span class="nx">然后将整个文档写入服务器</span><span class="err">。</span><span class="nx">$inc操作还可以帮助避免竞争条件</span><span class="err">，</span><span class="nx">这将导致两个应用实例对同一个文件查询时</span><span class="err">，</span><span class="nx">手动增加一个字段</span><span class="err">，</span><span class="nx">并保存整个文件回到同一时间</span><span class="err">。</span>
+
+<span class="c1">// 写操作性能</span>
+
+<span class="nx">集合中每个索引都会增加性能的开销</span><span class="err">；</span><span class="nx">因集合中每个insert和delete写入操作</span><span class="err">。</span><span class="nx">MongoDB都会从目标集合的每个索引中插入或删除对应的文档键</span><span class="err">。</span><span class="nx">update操作可能会导致更新在这个集合中索引的子集</span><span class="err">，</span><span class="nx">取决于更新时这个键的影响</span><span class="err">。</span>
+<span class="c1">// 注意：如果写入操作中涉及的文档包含在索引中，MongoDB则仅更新sparse或partial索引(sparse和partial为MongoDB的索引类型)</span>
+
+<span class="nx">某些更新操作可能增加文档的大小</span><span class="err">。</span><span class="nx">如</span><span class="o">:</span><span class="nx">向文档增加字段</span><span class="err">。</span><span class="nx">对于MMAPv1引擎</span><span class="err">，</span><span class="nx">如果更新操作导致文档超过当前分配的记录大小</span><span class="err">。</span><span class="nx">MongoDB会将文档重新定位到磁盘上</span><span class="err">。</span><span class="nx">并留有足够的连续空间来保存文档</span><span class="err">。</span><span class="nx">需要重定位的更新比没有重定位的更新花费的时间更长</span><span class="err">，</span><span class="nx">特别是在集合具有索引的情况下</span><span class="err">。</span><span class="nx">如果集合具有索引</span><span class="err">，</span><span class="nx">MongoDB必须更新所有索引条目</span><span class="err">。</span><span class="nx">因此</span><span class="err">，</span><span class="nx">对于具有许多索引的集合</span><span class="err">，</span><span class="nx">此移动将影响写入吞吐量</span>
+
+<span class="c1">// explain结果</span>
+<span class="nx">Stages描述了操作</span><span class="o">--</span><span class="nx">如</span><span class="err">：</span>
+<span class="nx">COLLSCAN</span>          <span class="nx">用于集合扫描</span>
+<span class="nx">IXSCAN</span>            <span class="nx">用于扫描索引键</span>
+<span class="nx">FETCH</span>             <span class="nx">用于检索文档</span>
+<span class="nx">SHARD_MERGE</span>       <span class="nx">用于合并分片的结果</span>
+<span class="nx">SHARDING_FILTER</span>   <span class="nx">用于从分片中过滤掉孤立文档</span>
+
+<span class="c1">// queryPlanner</span>
+<span class="nx">explain</span><span class="p">.</span><span class="nx">queryPlanner</span>    <span class="c1">// 包含查询优化器选择查询计划的信息</span>
+<span class="nx">explain</span><span class="p">.</span><span class="nx">queryPlanner</span><span class="p">.</span><span class="nx">namespace</span>
+</pre></div>
+
+<h2 id="aggregation">聚合(Aggregation)<a class="headerlink" href="#aggregation" title="Permanent link">&para;</a></h2>
+<h2 id="_11">数据模型<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h2 id="transactions">Transactions<a class="headerlink" href="#transactions" title="Permanent link">&para;</a></h2>
+<h2 id="_12">索引<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h2 id="_13">安全<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h2 id="change-streams">Change Streams<a class="headerlink" href="#change-streams" title="Permanent link">&para;</a></h2>
+<h2 id="replication">复制(Replication)<a class="headerlink" href="#replication" title="Permanent link">&para;</a></h2>
+<h2 id="sharding">分片(Sharding)<a class="headerlink" href="#sharding" title="Permanent link">&para;</a></h2>
+<h2 id="administration">管理(Administration)<a class="headerlink" href="#administration" title="Permanent link">&para;</a></h2>
+<h2 id="storage">存储引擎(Storage)<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
+<h2 id="mongodb-kafka">MongoDB&rarr;kafka<a class="headerlink" href="#mongodb-kafka" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Debezium的MongoDB</span> <span class="n">Connector可以监视MongoDB副本集或MongoDB分片集群</span><span class="err">；</span><span class="n">MongoDB复制的工作原理是让Master记录其oplog</span><span class="err">（或操作日志）中的更改，然后每个</span><span class="n">Slave节点读取主要的oplog并按顺序应用所有操作到他们自己的文档</span><span class="err">。将新服务器添加到副本集时，该服务器首先执行初始同步主数据库上的所有数据库和集合，然后读取主数据库的</span><span class="n">oplog以应用自开始同步以来可能已经进行的所有更改</span><span class="err">。这个新服务器在赶上</span><span class="n">Master节点oplog的尾部时成为Slave服务器</span><span class="err">（并且能够处理查询）</span>
+
+<span class="n">Debezium</span> <span class="n">MongoDB</span> <span class="n">Connector使用相同的复制机制</span><span class="err">，但它实际上并不成为副本集的成员，</span><span class="n">Connector始终连接副本集的主节点来跟踪oplog</span><span class="err">，</span><span class="n">MongoDB重新选举主节点后</span><span class="err">，</span><span class="n">Connector会自动切换到新的主节点</span><span class="err">。</span><span class="n">Connector会记录oplog的位置</span><span class="err">，来实现增量同步。</span>
+
+<span class="n">Debezium</span> <span class="n">MongoDB</span> <span class="n">Connector和副本集一起使用时</span><span class="err">，只需将副本集的地址作为</span><span class="n">Connector的seed地址mongodb</span><span class="p">.</span><span class="n">hosts即可</span><span class="err">。</span><span class="n">Connector使用seed连接副本集</span><span class="err">，获取到完整的成员集及确定主节点后。</span><span class="n">Connector连接到主节点并从其oplog捕获更改</span><span class="err">。</span>
+
+<span class="n">Connector和分片集群一起使用时</span><span class="err">，使用</span><span class="n">config服务器的地址配置Connector连接</span><span class="err">。针对分片群集运行连接器时，请使用</span><span class="n">tasks</span><span class="p">.</span><span class="n">max大于副本集数量的值</span><span class="p">,</span><span class="err">这将允许连接器为每个副本集创建一个任务，并让</span><span class="n">Kafka</span> <span class="n">Connect在所有可用的工作进程中协调</span><span class="err">，分发和管理任务</span>
+
+<span class="n">mongodb</span><span class="p">.</span><span class="n">name</span><span class="err">，它充当</span><span class="n">MongoDB副本集或分片集群的逻辑名称</span><span class="p">,</span><span class="err">连接器以多种方式使用逻辑名称：作为所有主题名称的前缀，以及记录每个副本集的</span><span class="n">oplog位置时的唯一标识符</span><span class="err">。</span>
+</pre></div>
+
+<h2 id="topics-name">topics name<a class="headerlink" href="#topics-name" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">Connector对于每个集合的insert</span><span class="err">、</span><span class="k">update</span><span class="err">、</span><span class="n">delete文档操作写入事件到每个kafka</span> <span class="n">topic</span><span class="err">。</span><span class="n">kafka</span> <span class="n">topic的名字规则logicalName</span><span class="p">.</span><span class="n">databaseName</span><span class="p">.</span><span class="n">collectionName</span><span class="err">，</span><span class="n">logicalName是配置属性mongodb</span><span class="p">.</span><span class="n">name指定的连接器的名称</span><span class="p">,</span><span class="n">databaseName是发生操作数据库的名称</span><span class="p">,</span><span class="n">collectionName是受影响文档所在的MongoDB集合的名称</span><span class="err">。例如：</span>
+
+<span class="n">MongoDB数据库inventory包含四个集合</span><span class="err">：</span><span class="n">products</span><span class="p">,</span><span class="n">product_on_hand</span><span class="p">,</span><span class="n">customers</span><span class="p">,</span><span class="n">orders</span><span class="err">。假设监视此数据库的连接器逻辑名称是</span><span class="n">fulfillment</span><span class="err">，则连接器生成的四个</span><span class="n">kafka</span> <span class="n">topic事件为</span><span class="err">：</span>
+<span class="n">fulfillment</span><span class="p">.</span><span class="n">inventory</span><span class="p">.</span><span class="n">products</span>
+<span class="n">fulfillment</span><span class="p">.</span><span class="n">inventory</span><span class="p">.</span><span class="n">products_on_hand</span>
+<span class="n">fulfillment</span><span class="p">.</span><span class="n">inventory</span><span class="p">.</span><span class="n">customers</span>
+<span class="n">fulfillment</span><span class="p">.</span><span class="n">inventory</span><span class="p">.</span><span class="n">orders</span>
+</pre></div>
+
+<h2 id="partitions">Partitions<a class="headerlink" href="#partitions" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">MongoDB连接器不会明确确定事件的topic分区</span><span class="p">,</span><span class="err">相反，它允许</span><span class="n">Kafka根据密钥确定分区</span><span class="err">。您可以通过在</span><span class="n">Kafka</span> <span class="n">Connect工作程序配置中定义Partitioner实现的名称来更改Kafka的分区逻辑</span><span class="err">。</span>
+</pre></div>
+
+<h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">MongoDB连接器生成的数据更改事件都有一个key和value</span><span class="err">。下面概述了这些</span><span class="n">key和value的结构</span>
+<span class="err">从</span><span class="n">kafka0</span><span class="p">.</span><span class="mi">10</span><span class="err">开始，可以使用消息密钥进行记录并创建消息的时间戳</span><span class="p">(</span><span class="err">由生产者记录</span><span class="p">)</span><span class="err">或由</span><span class="n">kafka写入日志的值进行评估</span>
+<span class="err">如果事件的来源在结构上发生变化或连接器改变，事件的结构可能会随着时间推移而发生变化。对于消费者可能很难处理。因此</span><span class="n">kafka每个事件都自成一体</span><span class="err">，每个消息键值都有两部分</span><span class="p">:</span><span class="n">a</span> <span class="n">schema和payload</span><span class="err">。当</span><span class="n">payload包含数据时</span><span class="err">，</span><span class="n">schema描述payload的结构</span><span class="err">。</span>
+
+<span class="err">更改事件的</span><span class="k">key</span><span class="err">：对于给定集合，更改事件的</span><span class="n">key将是包含单个id字段的结构</span><span class="err">。它的值是文档的标识符表示为字符串。</span>
+</pre></div>
+
+<p>MongoDB不可用时，重新尝试连接由三个属性控制：</p>
+<ul>
+<li>connect.backoff.initial.delay.ms -- 第一次尝试重新连接之前的延迟，默认值为1秒（1000毫秒）</li>
+<li>connect.backoff.max.delay.ms --- 尝试重新连接之前的最大延迟，默认值为120秒（120,000毫秒）</li>
+<li>connect.max.attempts ------------ 产生错误之前的最大尝试次数，默认值为16</li>
+</ul>
+<h2 id="connector">Connector属性<a class="headerlink" href="#connector" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">默认</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">name</td>
+<td align="center"></td>
+<td align="center">连接器的唯一名称。尝试再次使用相同名称注册将失败。（所有Kafka Connect连接器都需要此属性。）</td>
+</tr>
+<tr>
+<td align="center">connector.class</td>
+<td align="center"></td>
+<td align="center">连接器的Java类的名称。始终使用io.debezium.connector.mongodb.MongoDbConnectorMongoDB连接器的值。</td>
+</tr>
+<tr>
+<td align="center">mongodb.hosts</td>
+<td align="center"></td>
+<td align="center">副本集中MongoDB服务器的主机名和端口对（格式为“host”或“host：port”）的逗号分隔列表。该列表可以包含单个主机名和端口对。如果mongodb.members.auto.discover设置为false，则主机和端口对应以副本集名称为前缀（例如，rs0/localhost:27017）。</td>
+</tr>
+<tr>
+<td align="center">mongodb.name</td>
+<td align="center"></td>
+<td align="center">一个唯一名称，用于标识此连接器监视的连接器和/或MongoDB副本集或分片群集。每个服务器最多应由一个Debezium连接器监控，因为此服务器名称前缀是MongoDB副本集或集群发出的所有持久性Kafka主题。</td>
+</tr>
+<tr>
+<td align="center">mongodb.user</td>
+<td align="center"></td>
+<td align="center">连接到MongoDB时要使用的数据库用户的名称。仅当MongoDB配置为使用身份验证时才需要这样做。</td>
+</tr>
+<tr>
+<td align="center">mongodb.password</td>
+<td align="center"></td>
+<td align="center">连接MongoDB时使用的密码。仅当MongoDB配置为使用身份验证时才需要这样做。</td>
+</tr>
+<tr>
+<td align="center">mongodb.ssl.enabled</td>
+<td align="center">false</td>
+<td align="center">Connector将使用SSL连接到MongoDB实例。</td>
+</tr>
+<tr>
+<td align="center">mongodb.ssl.invalid.hostname.allowed</td>
+<td align="center">false</td>
+<td align="center">启用S​​SL时，此设置控制在连接阶段是否禁用严格主机名检查。如果true连接不会阻止中间人攻击。</td>
+</tr>
+<tr>
+<td align="center">database.whitelist</td>
+<td align="center">空字符串</td>
+<td align="center">可选的以逗号分隔的正则表达式列表，用于匹配要监视的数据库名称; 未列入白名单的任何数据库名称都将从监视中排除。默认情况下，将监视所有数据库。不得与之配合使用database.blacklist。</td>
+</tr>
+<tr>
+<td align="center">database.blacklist</td>
+<td align="center">空字符串</td>
+<td align="center">可选的以逗号分隔的正则表达式列表，用于匹配要从监视中排除的数据库名称; 将监控黑名单中未包含的任何数据库名称。不得与之配合使用database.whitelist。</td>
+</tr>
+<tr>
+<td align="center">collection.whitelist</td>
+<td align="center">空字符串</td>
+<td align="center">可选的以逗号分隔的正则表达式列表，它们匹配要监视的MongoDB集合的完全限定名称空间; 任何未包含在白名单中的集合都将被排除在监控之外。每个标识符的格式为databaseName。collectionName。默认情况下，连接器将监视除local和admin数据库中的集合之外的所有集合。不得与之配合使用collection.blacklist。</td>
+</tr>
+<tr>
+<td align="center">collection.blacklist</td>
+<td align="center">空字符串</td>
+<td align="center">可选的以逗号分隔的正则表达式列表，它们匹配MongoDB集合的完全限定名称空间，以便从监视中排除; 任何未包含在黑名单中的集合都将受到监控。每个标识符的格式为databaseName。collectionName。不得与之配合使用collection.whitelist。</td>
+</tr>
+<tr>
+<td align="center">"</td>
+<td align="center">snapshot.mode</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">0.9.2及更高版本</td>
+<td align="center">initial</td>
+<td align="center">指定在启动连接器时运行快照的条件（例如，初始同步）。默认值为initial，并指定连接器在未找到偏移量或oplog不再包含先前偏移量时读取快照。在从不选项指定连接器不应该使用快照，而不是连接器应着手尾日志。</td>
+</tr>
+<tr>
+<td align="center">"</td>
+<td align="center">field.blacklist</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">0.9.0及更高版本</td>
+<td align="center">空字符串</td>
+<td align="center">应该从更改事件消息值中排除的字段的完全限定名称的可选逗号分隔列表。字段的完全限定名称的格式为databaseName。collectionName。fieldName。nestedFieldName，其中databaseName和collectionName可以包含匹配任何字符的通配符（*）。</td>
+</tr>
+<tr>
+<td align="center">"</td>
+<td align="center">field.renames</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">0.9.0及更高版本</td>
+<td align="center">空字符串</td>
+<td align="center">可选的以逗号分隔的完整限定字段替换列表，用于重命名更改事件消息值中的字段。字段的完全限定替换的格式为databaseName。collectionName。fieldName。nestedFieldName：newNestedFieldName，其中databaseName和collectionName可以包含匹配任何字符的通配符（*），冒号字符（:)用于确定字段的重命名映射。下一个字段替换将应用于列表中上一个字段替换的结果，因此在重命名同一路径中的多个字段时请记住这一点。</td>
+</tr>
+<tr>
+<td align="center">tasks.max</td>
+<td align="center">1</td>
+<td align="center">应为此连接器创建的最大任务数。MongoDB连接器将尝试为每个副本集使用单独的任务，因此在将连接器与单个MongoDB副本集一起使用时，默认值是可接受的。将连接器与MongoDB分片群集一起使用时，建议指定一个等于或大于群集中分片数的值，以便Kafka Connect可以分配每个副本集的工作。</td>
+</tr>
+<tr>
+<td align="center">initial.sync.max.threads</td>
+<td align="center">1</td>
+<td align="center">正整数值，指定用于在副本集中执行集合的初始同步的最大线程数。默认为1。</td>
+</tr>
+<tr>
+<td align="center">"</td>
+<td align="center">tombstones.on.delete</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">0.7.3及以后</td>
+<td align="center">true</td>
+<td align="center">控制是否应在删除事件后生成逻辑删除事件。</td>
+</tr>
+<tr>
+<td align="center">当true删除操作是通过删除事件和随后的墓碑事件表示。如果false只发送删除事件。</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">发送逻辑删除事件（默认行为）允许Kafka在删除源记录后完全删除与给定密钥有关的所有事件。</td>
+<td align="center">"</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">snapshot.delay.ms0.9.0及更高版本</td>
+<td align="center"></td>
+<td align="center">连接器在启动后拍摄快照之前应等待的间隔（以毫秒为单位）;可用于在群集中启动多个连接器时避免快照中断，这可能会导致连接器重新平衡</td>
+</tr>
+</tbody>
+</table>
+<p>以下高级配置属性具有良好的默认值，可在大多数情况下使用，因此很少需要在连接器的配置中指定。
+| 属性 | 默认 | 描述 |
+| :--: | :--: | :--: |
+| max.queue.size | 8192 | 正整数值，指定在将数据库日志写入Kafka之前将更改事件从数据库日志中读取的阻塞队列的最大大小。例如，当写入Kafka较慢或者Kafka不可用时，此队列可以向oplog读取器提供反压。队列中出现的事件不包含在此连接器定期记录的偏移中。默认为8192，并且应始终大于max.batch.size属性中指定的最大批量大小。 |
+| max.batch.size | 2048 | 正整数值，指定在此连接器的每次迭代期间应处理的每批事件的最大大小。默认为2048。 |
+| poll.interval.ms | 1000 | 正整数值，指定连接器在每次迭代期间应出现的毫秒数，以显示新的更改事件。默认为1000毫秒或1秒。 |
+| connect.backoff.initial.delay.ms | 1000 | 正整数值，指定在第一次尝试失败的连接尝试后或没有主节点可用时尝试重新连接到主节点时的初始延迟。默认为1秒（1000毫秒）。 |
+| connect.backoff.max.delay.ms | 1000 | 正整数值，指定在重复失败的连接尝试后或没有主节点可用时尝试重新连接到主节点时的最大延迟。默认为120秒（120,000毫秒）。 |
+| connect.max.attempts | 16 | 正整数值，指定在发生异常并且任务中止之前，对副本集主要连接尝试失败的最大次数。缺省值为16，其与默认值connect.backoff.initial.delay.ms和connect.backoff.max.delay.ms失效之前导致仅有20多分钟的尝试。 |
+| mongodb.members.auto.discover | true | 布尔值，指定'mongodb.hosts'中的地址是否应该用于发现集群或副本集（true）的所有成员的种子，或者是否mongodb.hosts应该按原样使用地址（false）。默认值是true并且应该在所有情况下使用，除非MongoDB 由代理提供 |</p>
+<p>安装debezium-connector-mongodb
+启动zookeeper   zookeeper-server-start zookeeper.properties</p>
+<p>启动kafka       kafka-server-start    server.properties</p>
+<p>启动schema-registry-start schema-registry.properties</p>
+<p>export CLASSPATH=/path/to/my/connectors/*
+启动connect-standalone  /schema-registry/
+connect-avro-standalone.properties kafka/connect-mongo-source.properties</p>
+<p>启动kafka consumer  kafka-console-consumer --zookeeper localhost:2181 --topic test.test.test --from-beginning</p>
+<p>schema-registry/connect-avro-distributed.properties添加debezium-connector-mongodb的plugin.path=</p>
+<p>配置Debezium MongoDB connector
+connect.json
+{
+  "name": "inventory-connector",  (1)
+  "config": {
+    "connector.class": "io.debezium.connector.mongodb.MongoDbConnector", (2)
+    "mongodb.hosts": "rs0/192.168.99.100:27017", (3)
+    "mongodb.name": "fullfillment", (4)
+    "collection.whitelist": "inventory[.]*", (5)
+  }
+}
+1 我们使用Kafka Connect服务注册时的连接器名称。
+2 MongoDB连接器类的名称。
+3 用于连接MongoDB副本集的主机地址
+4 该MongoDB的副本集逻辑名称，形成一个命名空间产生的事件，并在kafka的topics，kafka连接架构名称中的所有名称使用，以及相应的Avro架构的命名空间时的Avro使用。
+5 与要监视的所有集合的集合名称空间（例如，dbName collectionName）匹配的正则表达式列表。这是可选的。</p>
+<p>加载连接就是配置connect-mongo-source.properties
+curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" <a href="http://localhost:8084/connectors/">http://localhost:8084/connectors/</a> -d @/etc/kafka/mongodb.json</p>
+<p>查看kafka的topics
+kafka-topics --zookeeper localhost:2181 --list</p>
                 
                   
                 
@@ -1491,7 +2897,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
       
         
         
@@ -1503,7 +2909,7 @@
                 <script src="../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

@@ -21,7 +21,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="jp">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -523,8 +523,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nginx/" title="Nginx" class="md-nav__link">
-      Nginx
+    <a href="../Nginx/" title="Nginx&Unit" class="md-nav__link">
+      Nginx&Unit
     </a>
   </li>
 
@@ -847,8 +847,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
-      LVSKeepalived
+    <a href="../LVS/" title="LVS" class="md-nav__link">
+      LVS
     </a>
   </li>
 
@@ -1123,30 +1123,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
       SomelseMonitors
     </a>
@@ -1216,46 +1192,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
     <label class="md-nav__link" for="nav-15">
-      Security
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
-        Security
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Snort/" title="Snort" class="md-nav__link">
-      Snort
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
-    
-    <label class="md-nav__link" for="nav-16">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1297,13 +1237,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1317,6 +1257,42 @@
   <li class="md-nav__item">
     <a href="../VPN/" title="VPN" class="md-nav__link">
       VPN
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      Security
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Snort/" title="Snort" class="md-nav__link">
+      Snort
     </a>
   </li>
 
@@ -1431,308 +1407,308 @@ sudo smbpasswd -a youyou
 sudo smbpasswd -x youyou</p>
 <p>现在可以通过账户名：youyou 密码：自己刚才设置的进行访问了
 附上smb.conf 文件的全部内容</p>
-<div class="codehilite"><pre><span></span>#
-# Sample configuration file for the Samba suite for Debian GNU/Linux.
-#
-#
-# This is the main Samba configuration file. You should read the
-# smb.conf(5) manual page in order to understand the options listed
-# here. Samba has a huge number of configurable options most of which
-# are not shown in this example
-#
-# Some options that are often worth tuning have been included as
-# commented-out examples in this file.
-#  - When such options are commented with &quot;;&quot;, the proposed setting
-#    differs from the default Samba behaviour
-#  - When commented with &quot;#&quot;, the proposed setting is the default
-#    behaviour of Samba but the option is considered important
-#    enough to be mentioned here
-#
-# NOTE: Whenever you modify this file you should run the command
-# &quot;testparm&quot; to check that you have not made any basic syntactic
-# errors.
+<div class="codehilite"><pre><span></span><span class="err">#</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">Sample</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">suite</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Debian</span><span class="w"> </span><span class="n">GNU</span><span class="o">/</span><span class="n">Linux</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="w"></span>
+<span class="err">#</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="k">file</span><span class="p">.</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">read</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">smb</span><span class="p">.</span><span class="n">conf</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="n">manual</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">understand</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">listed</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">here</span><span class="p">.</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">huge</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">configurable</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">which</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">example</span><span class="w"></span>
+<span class="err">#</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="ow">Some</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">often</span><span class="w"> </span><span class="n">worth</span><span class="w"> </span><span class="n">tuning</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">included</span><span class="w"> </span><span class="k">as</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">commented</span><span class="o">-</span><span class="k">out</span><span class="w"> </span><span class="n">examples</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">file</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="k">When</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">commented</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="ss">&quot;;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">proposed</span><span class="w"> </span><span class="n">setting</span><span class="w"></span>
+<span class="err">#</span><span class="w">    </span><span class="n">differs</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">behaviour</span><span class="w"></span>
+<span class="err">#</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="k">When</span><span class="w"> </span><span class="n">commented</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="ss">&quot;#&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">proposed</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"></span>
+<span class="err">#</span><span class="w">    </span><span class="n">behaviour</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">option</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">considered</span><span class="w"> </span><span class="n">important</span><span class="w"></span>
+<span class="err">#</span><span class="w">    </span><span class="n">enough</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">mentioned</span><span class="w"> </span><span class="n">here</span><span class="w"></span>
+<span class="err">#</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="nl">NOTE</span><span class="p">:</span><span class="w"> </span><span class="k">Whenever</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">modify</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">command</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="ss">&quot;testparm&quot;</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="ow">any</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="n">syntactic</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">errors</span><span class="p">.</span><span class="w"></span>
 
-#======================= Global Settings =======================
+<span class="err">#</span><span class="o">=======================</span><span class="w"> </span><span class="k">Global</span><span class="w"> </span><span class="n">Settings</span><span class="w"> </span><span class="o">=======================</span><span class="w"></span>
 
-[global]
+<span class="o">[</span><span class="n">global</span><span class="o">]</span><span class="w"></span>
 
-## Browsing/Identification ###
+<span class="err">##</span><span class="w"> </span><span class="n">Browsing</span><span class="o">/</span><span class="n">Identification</span><span class="w"> </span><span class="err">###</span><span class="w"></span>
 
-# Change this to the workgroup/NT-domain name your Samba server will part of
-workgroup = WORKGROUP
+<span class="err">#</span><span class="w"> </span><span class="n">Change</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">workgroup</span><span class="o">/</span><span class="n">NT</span><span class="o">-</span><span class="k">domain</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k">of</span><span class="w"></span>
+<span class="n">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WORKGROUP</span><span class="w"></span>
 
-# server string is the equivalent of the NT Description field
-server string = %h server (Samba, Ubuntu)
+<span class="err">#</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">equivalent</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">NT</span><span class="w"> </span><span class="n">Description</span><span class="w"> </span><span class="n">field</span><span class="w"></span>
+<span class="n">server</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">%</span><span class="n">h</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="p">(</span><span class="n">Samba</span><span class="p">,</span><span class="w"> </span><span class="n">Ubuntu</span><span class="p">)</span><span class="w"></span>
 
-# Windows Internet Name Serving Support Section:
-# WINS Support - Tells the NMBD component of Samba to enable its WINS Server
-#   wins support = no
+<span class="err">#</span><span class="w"> </span><span class="n">Windows</span><span class="w"> </span><span class="n">Internet</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="n">Serving</span><span class="w"> </span><span class="n">Support</span><span class="w"> </span><span class="k">Section</span><span class="err">:</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">WINS</span><span class="w"> </span><span class="n">Support</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Tells</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">NMBD</span><span class="w"> </span><span class="n">component</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">WINS</span><span class="w"> </span><span class="n">Server</span><span class="w"></span>
+<span class="err">#</span><span class="w">   </span><span class="n">wins</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">no</span><span class="w"></span>
 
-# WINS Server - Tells the NMBD components of Samba to be a WINS Client
-# Note: Samba can be either a WINS Server, or a WINS Client, but NOT both
-;   wins server = w.x.y.z
+<span class="err">#</span><span class="w"> </span><span class="n">WINS</span><span class="w"> </span><span class="n">Server</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Tells</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">NMBD</span><span class="w"> </span><span class="n">components</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">WINS</span><span class="w"> </span><span class="n">Client</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="nl">Note</span><span class="p">:</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">WINS</span><span class="w"> </span><span class="n">Server</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">WINS</span><span class="w"> </span><span class="n">Client</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">NOT</span><span class="w"> </span><span class="k">both</span><span class="w"></span>
+<span class="p">;</span><span class="w">   </span><span class="n">wins</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">y</span><span class="p">.</span><span class="n">z</span><span class="w"></span>
 
-# This will prevent nmbd to search for NetBIOS names through DNS.
-dns proxy = no
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="n">nmbd</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">search</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">NetBIOS</span><span class="w"> </span><span class="k">names</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">DNS</span><span class="p">.</span><span class="w"></span>
+<span class="n">dns</span><span class="w"> </span><span class="n">proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">no</span><span class="w"></span>
 
-#### Networking ####
+<span class="err">####</span><span class="w"> </span><span class="n">Networking</span><span class="w"> </span><span class="err">####</span><span class="w"></span>
 
-# The specific set of interfaces / networks to bind to
-# This can be either the interface name or an IP address/netmask;
-# interface names are normally preferred
-;   interfaces = 127.0.0.0/8 eth0
+<span class="err">#</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">specific</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">networks</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="k">to</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">either</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">IP</span><span class="w"> </span><span class="n">address</span><span class="o">/</span><span class="n">netmask</span><span class="p">;</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="k">names</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">normally</span><span class="w"> </span><span class="n">preferred</span><span class="w"></span>
+<span class="p">;</span><span class="w">   </span><span class="n">interfaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">127.0.0.0</span><span class="o">/</span><span class="mi">8</span><span class="w"> </span><span class="n">eth0</span><span class="w"></span>
 
-# Only bind to the named interfaces and/or networks; you must use the
-# &#39;interfaces&#39; option above to use this.
-# It is recommended that you enable this feature if your Samba machine is
-# not protected by a firewall or is a firewall itself.  However, this
-# option cannot handle dynamic or non-broadcast interfaces correctly.
-;   bind interfaces only = yes
-
-
-
-#### Debugging/Accounting ####
-
-# This tells Samba to use a separate log file for each machine
-# that connects
-log file = /var/log/samba/log.%m
-
-# Cap the size of the individual log files (in KiB).
-max log size = 1000
-
-# If you want Samba to only log through syslog then set the following
-# parameter to &#39;yes&#39;.
-#   syslog only = no
-
-# We want Samba to log a minimum amount of information to syslog. Everything
-# should go to /var/log/samba/log.{smbd,nmbd} instead. If you want to log
-# through syslog you should set the following parameter to something higher.
-syslog = 0
-
-# Do something sensible when Samba crashes: mail the admin a backtrace
-panic action = /usr/share/samba/panic-action %d
+<span class="err">#</span><span class="w"> </span><span class="k">Only</span><span class="w"> </span><span class="n">bind</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">networks</span><span class="p">;</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="s1">&#39;interfaces&#39;</span><span class="w"> </span><span class="k">option</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">this</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">recommended</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="k">is</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">protected</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">firewall</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">firewall</span><span class="w"> </span><span class="n">itself</span><span class="p">.</span><span class="w">  </span><span class="n">However</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">option</span><span class="w"> </span><span class="n">cannot</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="k">dynamic</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">broadcast</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="n">correctly</span><span class="p">.</span><span class="w"></span>
+<span class="p">;</span><span class="w">   </span><span class="n">bind</span><span class="w"> </span><span class="n">interfaces</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
 
 
-####### Authentication #######
 
-# Server role. Defines in which mode Samba will operate. Possible
-# values are &quot;standalone server&quot;, &quot;member server&quot;, &quot;classic primary
-# domain controller&quot;, &quot;classic backup domain controller&quot;, &quot;active
-# directory domain controller&quot;.
-#
-# Most people will want &quot;standalone sever&quot; or &quot;member server&quot;.
-# Running as &quot;active directory domain controller&quot; will require first
-# running &quot;samba-tool domain provision&quot; to wipe databases and create a
-# new domain.
-server role = standalone server
+<span class="err">####</span><span class="w"> </span><span class="n">Debugging</span><span class="o">/</span><span class="n">Accounting</span><span class="w"> </span><span class="err">####</span><span class="w"></span>
 
-# If you are using encrypted passwords, Samba will need to know what
-# password database type you are using.  
-passdb backend = tdbsam
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">tells</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="nf">log</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">each</span><span class="w"> </span><span class="n">machine</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">connects</span><span class="w"></span>
+<span class="nf">log</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="nf">var</span><span class="o">/</span><span class="nf">log</span><span class="o">/</span><span class="n">samba</span><span class="o">/</span><span class="nf">log</span><span class="p">.</span><span class="o">%</span><span class="n">m</span><span class="w"></span>
 
-obey pam restrictions = yes
+<span class="err">#</span><span class="w"> </span><span class="n">Cap</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">individual</span><span class="w"> </span><span class="nf">log</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="p">(</span><span class="ow">in</span><span class="w"> </span><span class="n">KiB</span><span class="p">).</span><span class="w"></span>
+<span class="nf">max</span><span class="w"> </span><span class="nf">log</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"></span>
 
-# This boolean parameter controls whether Samba attempts to sync the Unix
-# password with the SMB password when the encrypted SMB password in the
-# passdb is changed.
-unix password sync = yes
+<span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="nf">log</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">syslog</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;yes&#39;</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="w">   </span><span class="n">syslog</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">no</span><span class="w"></span>
 
-# For Unix password sync to work on a Debian GNU/Linux system, the following
-# parameters must be set (thanks to Ian Kahan &lt;&lt;kahan@informatik.tu-muenchen.de&gt; for
-# sending the correct chat script for the passwd program in Debian Sarge).
-passwd program = /usr/bin/passwd %u
-passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+<span class="err">#</span><span class="w"> </span><span class="n">We</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nf">log</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">syslog</span><span class="p">.</span><span class="w"> </span><span class="n">Everything</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="o">/</span><span class="nf">var</span><span class="o">/</span><span class="nf">log</span><span class="o">/</span><span class="n">samba</span><span class="o">/</span><span class="nf">log</span><span class="p">.</span><span class="err">{</span><span class="n">smbd</span><span class="p">,</span><span class="n">nmbd</span><span class="err">}</span><span class="w"> </span><span class="n">instead</span><span class="p">.</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nf">log</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">syslog</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="n">higher</span><span class="p">.</span><span class="w"></span>
+<span class="n">syslog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 
-# This boolean controls whether PAM will be used for password changes
-# when requested by an SMB client instead of the program listed in
-# &#39;passwd program&#39;. The default is &#39;no&#39;.
-pam password change = yes
+<span class="err">#</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="n">sensible</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="nl">crashes</span><span class="p">:</span><span class="w"> </span><span class="n">mail</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">admin</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">backtrace</span><span class="w"></span>
+<span class="n">panic</span><span class="w"> </span><span class="k">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">samba</span><span class="o">/</span><span class="n">panic</span><span class="o">-</span><span class="k">action</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="w"></span>
 
-# This option controls how unsuccessful authentication attempts are mapped
-# to anonymous connections
-map to guest = bad user
 
-########## Domains ###########
+<span class="err">#######</span><span class="w"> </span><span class="n">Authentication</span><span class="w"> </span><span class="err">#######</span><span class="w"></span>
 
-#
-# The following settings only takes effect if &#39;server role = primary
-# classic domain controller&#39;, &#39;server role = backup domain controller&#39;
-# or &#39;domain logons&#39; is set
-#
+<span class="err">#</span><span class="w"> </span><span class="n">Server</span><span class="w"> </span><span class="k">role</span><span class="p">.</span><span class="w"> </span><span class="n">Defines</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">operate</span><span class="p">.</span><span class="w"> </span><span class="n">Possible</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="ss">&quot;standalone server&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;member server&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;classic primary</span>
+<span class="ss"># domain controller&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;classic backup domain controller&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;active</span>
+<span class="ss"># directory domain controller&quot;</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">Most</span><span class="w"> </span><span class="n">people</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="ss">&quot;standalone sever&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ss">&quot;member server&quot;</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">Running</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="ss">&quot;active directory domain controller&quot;</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">require</span><span class="w"> </span><span class="k">first</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="ss">&quot;samba-tool domain provision&quot;</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">wipe</span><span class="w"> </span><span class="n">databases</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">domain</span><span class="p">.</span><span class="w"></span>
+<span class="n">server</span><span class="w"> </span><span class="k">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">standalone</span><span class="w"> </span><span class="n">server</span><span class="w"></span>
 
-# It specifies the location of the user&#39;s
-# profile directory from the client point of view) The following
-# required a [profiles] share to be setup on the samba server (see
-# below)
-;   logon path = \\%N\profiles\%U
-# Another common choice is storing the profile in the user&#39;s home directory
-# (this is Samba&#39;s default)
-#   logon path = \\%N\%U\profile
+<span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">encrypted</span><span class="w"> </span><span class="n">passwords</span><span class="p">,</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">know</span><span class="w"> </span><span class="n">what</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="k">using</span><span class="p">.</span><span class="w">  </span>
+<span class="n">passdb</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tdbsam</span><span class="w"></span>
 
-# The following setting only takes effect if &#39;domain logons&#39; is set
-# It specifies the location of a user&#39;s home directory (from the client
-# point of view)
-;   logon drive = H:
-#   logon home = \\%N\%U
+<span class="n">obey</span><span class="w"> </span><span class="n">pam</span><span class="w"> </span><span class="n">restrictions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
 
-# The following setting only takes effect if &#39;domain logons&#39; is set
-# It specifies the script to run during logon. The script must be stored
-# in the [netlogon] share
-# NOTE: Must be store in &#39;DOS&#39; file format convention
-;   logon script = logon.cmd
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="k">boolean</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="n">controls</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">Samba</span><span class="w"> </span><span class="n">attempts</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">sync</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Unix</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">SMB</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">encrypted</span><span class="w"> </span><span class="n">SMB</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">passdb</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">changed</span><span class="p">.</span><span class="w"></span>
+<span class="n">unix</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">sync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
 
-# This allows Unix users to be created on the domain controller via the SAMR
-# RPC pipe.  The example command creates a user account with a disabled Unix
-# password; please adapt to your needs
-; add user script = /usr/sbin/adduser --quiet --disabled-password --gecos &quot;&quot; %u
+<span class="err">#</span><span class="w"> </span><span class="k">For</span><span class="w"> </span><span class="n">Unix</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">sync</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">work</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Debian</span><span class="w"> </span><span class="n">GNU</span><span class="o">/</span><span class="n">Linux</span><span class="w"> </span><span class="k">system</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">parameters</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="n">thanks</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">Ian</span><span class="w"> </span><span class="n">Kahan</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">kahan</span><span class="nv">@informatik</span><span class="p">.</span><span class="n">tu</span><span class="o">-</span><span class="n">muenchen</span><span class="p">.</span><span class="n">de</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="n">chat</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">passwd</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">Debian</span><span class="w"> </span><span class="n">Sarge</span><span class="p">).</span><span class="w"></span>
+<span class="n">passwd</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">passwd</span><span class="w"> </span><span class="o">%</span><span class="n">u</span><span class="w"></span>
+<span class="n">passwd</span><span class="w"> </span><span class="n">chat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">Enter</span><span class="err">\</span><span class="n">snew</span><span class="err">\</span><span class="n">s</span><span class="o">*</span><span class="err">\</span><span class="nl">spassword</span><span class="p">:</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="n">n</span><span class="err">\</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="n">Retype</span><span class="err">\</span><span class="n">snew</span><span class="err">\</span><span class="n">s</span><span class="o">*</span><span class="err">\</span><span class="nl">spassword</span><span class="p">:</span><span class="o">*</span><span class="w"> </span><span class="o">%</span><span class="n">n</span><span class="err">\</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="n">password</span><span class="err">\</span><span class="n">supdated</span><span class="err">\</span><span class="n">ssuccessfully</span><span class="o">*</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 
-# This allows machine accounts to be created on the domain controller via the
-# SAMR RPC pipe.  
-# The following assumes a &quot;machines&quot; group exists on the system
-; add machine script  = /usr/sbin/useradd -g machines -c &quot;%u machine account&quot; -d /var/lib/samba -s /bin/false %u
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="k">boolean</span><span class="w"> </span><span class="n">controls</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">PAM</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">changes</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">requested</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">SMB</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">instead</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="ow">in</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="s1">&#39;passwd program&#39;</span><span class="p">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="s1">&#39;no&#39;</span><span class="p">.</span><span class="w"></span>
+<span class="n">pam</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
 
-# This allows Unix groups to be created on the domain controller via the SAMR
-# RPC pipe.  
-; add group script = /usr/sbin/addgroup --force-badname %g
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="k">option</span><span class="w"> </span><span class="n">controls</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">unsuccessful</span><span class="w"> </span><span class="n">authentication</span><span class="w"> </span><span class="n">attempts</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">mapped</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">anonymous</span><span class="w"> </span><span class="n">connections</span><span class="w"></span>
+<span class="k">map</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">guest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bad</span><span class="w"> </span><span class="k">user</span><span class="w"></span>
 
-############ Misc ############
+<span class="err">##########</span><span class="w"> </span><span class="n">Domains</span><span class="w"> </span><span class="err">###########</span><span class="w"></span>
 
-# Using the following line enables you to customise your configuration
-# on a per machine basis. The %m gets replaced with the netbios name
-# of the machine that is connecting
-;   include = /home/samba/etc/smb.conf.%m
+<span class="err">#</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">effect</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="s1">&#39;server role = primary</span>
+<span class="s1"># classic domain controller&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;server role = backup domain controller&#39;</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">&#39;domain logons&#39;</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">set</span><span class="w"></span>
+<span class="err">#</span><span class="w"></span>
 
-# Some defaults for winbind (make sure you&#39;re not using the ranges
-# for something else.)
-;   idmap uid = 10000-20000
-;   idmap gid = 10000-20000
-;   template shell = /bin/bash
+<span class="err">#</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">user</span><span class="s1">&#39;s</span>
+<span class="s1"># profile directory from the client point of view) The following</span>
+<span class="s1"># required a [profiles] share to be setup on the samba server (see</span>
+<span class="s1"># below)</span>
+<span class="s1">;   logon path = \\%N\profiles\%U</span>
+<span class="s1"># Another common choice is storing the profile in the user&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="n">directory</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Samba</span><span class="s1">&#39;s default)</span>
+<span class="s1">#   logon path = \\%N\%U\profile</span>
 
-# Setup usershare options to enable non-root users to share folders
-# with the net usershare command.
+<span class="s1"># The following setting only takes effect if &#39;</span><span class="k">domain</span><span class="w"> </span><span class="n">logons</span><span class="s1">&#39; is set</span>
+<span class="s1"># It specifies the location of a user&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="p">(</span><span class="k">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">client</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">view</span><span class="p">)</span><span class="w"></span>
+<span class="p">;</span><span class="w">   </span><span class="n">logon</span><span class="w"> </span><span class="n">drive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nl">H</span><span class="p">:</span><span class="w"></span>
+<span class="err">#</span><span class="w">   </span><span class="n">logon</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">\\</span><span class="o">%</span><span class="n">N</span><span class="err">\</span><span class="o">%</span><span class="n">U</span><span class="w"></span>
 
-# Maximum number of usershare. 0 (default) means that usershare is disabled.
-;   usershare max shares = 100
+<span class="err">#</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">takes</span><span class="w"> </span><span class="n">effect</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="s1">&#39;domain logons&#39;</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">set</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="n">specifies</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">logon</span><span class="p">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">stored</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">[</span><span class="n">netlogon</span><span class="o">]</span><span class="w"> </span><span class="n">share</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="nl">NOTE</span><span class="p">:</span><span class="w"> </span><span class="n">Must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="s1">&#39;DOS&#39;</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="nf">format</span><span class="w"> </span><span class="n">convention</span><span class="w"></span>
+<span class="p">;</span><span class="w">   </span><span class="n">logon</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">logon</span><span class="p">.</span><span class="n">cmd</span><span class="w"></span>
 
-# Allow users who&#39;ve been granted usershare privileges to create
-# public shares, not just authenticated ones
-usershare allow guests = yes
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">Unix</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">domain</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">SAMR</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">RPC</span><span class="w"> </span><span class="n">pipe</span><span class="p">.</span><span class="w">  </span><span class="n">The</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="n">Unix</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">password</span><span class="p">;</span><span class="w"> </span><span class="n">please</span><span class="w"> </span><span class="n">adapt</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">needs</span><span class="w"></span>
+<span class="p">;</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">adduser</span><span class="w"> </span><span class="c1">--quiet --disabled-password --gecos &quot;&quot; %u</span>
 
-#======================= Share Definitions =======================
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">accounts</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">domain</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">SAMR</span><span class="w"> </span><span class="n">RPC</span><span class="w"> </span><span class="n">pipe</span><span class="p">.</span><span class="w">  </span>
+<span class="err">#</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">assumes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ss">&quot;machines&quot;</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="ow">exists</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">system</span><span class="w"></span>
+<span class="p">;</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">script</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">useradd</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="n">machines</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="ss">&quot;%u machine account&quot;</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">/</span><span class="nf">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">samba</span><span class="w"> </span><span class="o">-</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="k">false</span><span class="w"> </span><span class="o">%</span><span class="n">u</span><span class="w"></span>
 
-# Un-comment the following (and tweak the other settings below to suit)
-# to enable the default home directory shares. This will share each
-# user&#39;s home directory as \\server\username
-;[homes]
-;   comment = Home Directories
-;   browseable = no
+<span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">allows</span><span class="w"> </span><span class="n">Unix</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">domain</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">SAMR</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">RPC</span><span class="w"> </span><span class="n">pipe</span><span class="p">.</span><span class="w">  </span>
+<span class="p">;</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">addgroup</span><span class="w"> </span><span class="c1">--force-badname %g</span>
 
-# By default, the home directories are exported read-only. Change the
-# next parameter to &#39;no&#39; if you want to be able to write to them.
-;   read only = yes
+<span class="err">############</span><span class="w"> </span><span class="n">Misc</span><span class="w"> </span><span class="err">############</span><span class="w"></span>
 
-# File creation mask is set to 0700 for security reasons. If you want to
-# create files with group=rw permissions, set next parameter to 0775.
-;   create mask = 0700
+<span class="err">#</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">enables</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">customise</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">configuration</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">basis</span><span class="p">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="o">%</span><span class="n">m</span><span class="w"> </span><span class="n">gets</span><span class="w"> </span><span class="n">replaced</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">netbios</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">connecting</span><span class="w"></span>
+<span class="p">;</span><span class="w">   </span><span class="k">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">samba</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">smb</span><span class="p">.</span><span class="n">conf</span><span class="p">.</span><span class="o">%</span><span class="n">m</span><span class="w"></span>
 
-# Directory creation mask is set to 0700 for security reasons. If you want to
-# create dirs. with group=rw permissions, set next parameter to 0775.
-;   directory mask = 0700
+<span class="err">#</span><span class="w"> </span><span class="ow">Some</span><span class="w"> </span><span class="n">defaults</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">winbind</span><span class="w"> </span><span class="p">(</span><span class="n">make</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">you</span><span class="s1">&#39;re not using the ranges</span>
+<span class="s1"># for something else.)</span>
+<span class="s1">;   idmap uid = 10000-20000</span>
+<span class="s1">;   idmap gid = 10000-20000</span>
+<span class="s1">;   template shell = /bin/bash</span>
 
-# By default, \\server\username shares can be connected to by anyone
-# with access to the samba server.
-# Un-comment the following parameter to make sure that only &quot;username&quot;
-# can connect to \\server\username
-# This might need tweaking when using external authentication schemes
-;   valid users = %S
+<span class="s1"># Setup usershare options to enable non-root users to share folders</span>
+<span class="s1"># with the net usershare command.</span>
 
-# Un-comment the following and create the netlogon directory for Domain Logons
-# (you need to configure Samba to act as a domain controller too.)
-;[netlogon]
-;   comment = Network Logon Service
-;   path = /home/samba/netlogon
-;   guest ok = yes
-;   read only = yes
+<span class="s1"># Maximum number of usershare. 0 (default) means that usershare is disabled.</span>
+<span class="s1">;   usershare max shares = 100</span>
 
-# Un-comment the following and create the profiles directory to store
-# users profiles (see the &quot;logon path&quot; option above)
-# (you need to configure Samba to act as a domain controller too.)
-# The path below should be writable by all users so that their
-# profile directory may be created the first time they log on
-;[profiles]
-;   comment = Users profiles
-;   path = /home/samba/profiles
-;   guest ok = no
-;   browseable = no
-;   create mask = 0600
-;   directory mask = 0700
+<span class="s1"># Allow users who&#39;</span><span class="n">ve</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">granted</span><span class="w"> </span><span class="n">usershare</span><span class="w"> </span><span class="k">privileges</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">create</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">shares</span><span class="p">,</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">authenticated</span><span class="w"> </span><span class="n">ones</span><span class="w"></span>
+<span class="n">usershare</span><span class="w"> </span><span class="n">allow</span><span class="w"> </span><span class="n">guests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
 
-[printers]
-comment = All Printers
-browseable = no
-path = /var/spool/samba
-printable = yes
-guest ok = no
-read only = no
-create mask = 0700
+<span class="err">#</span><span class="o">=======================</span><span class="w"> </span><span class="n">Share</span><span class="w"> </span><span class="n">Definitions</span><span class="w"> </span><span class="o">=======================</span><span class="w"></span>
 
-# Windows clients look for this share name as a source of downloadable
-# printer drivers
-[print$]
-comment = Printer Drivers
-path = /var/lib/samba/printers
-browseable = yes
-writable = yes
-read only = yes
-guest ok = no
-# Uncomment to allow remote administration of Windows print drivers.
-# You may need to replace &#39;lpadmin&#39; with the name of the group your
-# admin users are members of.
-# Please note that you also need to set appropriate Unix permissions
-# to the drivers directory for these users to have write rights in it
-;   write list = root, @lpadmin
+<span class="err">#</span><span class="w"> </span><span class="n">Un</span><span class="o">-</span><span class="n">comment</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="p">(</span><span class="ow">and</span><span class="w"> </span><span class="n">tweak</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">suit</span><span class="p">)</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">home</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">shares</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="k">each</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">user</span><span class="s1">&#39;s home directory as \\server\username</span>
+<span class="s1">;[homes]</span>
+<span class="s1">;   comment = Home Directories</span>
+<span class="s1">;   browseable = no</span>
 
-[share]
-comment = Share Folder by youyou
-path = /home/youyou/public
-browseable = yes
-writable = yes
-read only = no
-guest ok = no
-create mask = 0700
+<span class="s1"># By default, the home directories are exported read-only. Change the</span>
+<span class="s1"># next parameter to &#39;</span><span class="k">no</span><span class="s1">&#39; if you want to be able to write to them.</span>
+<span class="s1">;   read only = yes</span>
 
-[it]
+<span class="s1"># File creation mask is set to 0700 for security reasons. If you want to</span>
+<span class="s1"># create files with group=rw permissions, set next parameter to 0775.</span>
+<span class="s1">;   create mask = 0700</span>
 
-    path = /home/it
-    comment = Pasta IT
-    browseable = yes
-    create mask = 0770
-    writeable = yes
-    directory mask = 0770
-    force directory mode = 0770
-    map acl inherit = yes
+<span class="s1"># Directory creation mask is set to 0700 for security reasons. If you want to</span>
+<span class="s1"># create dirs. with group=rw permissions, set next parameter to 0775.</span>
+<span class="s1">;   directory mask = 0700</span>
 
-[hr]
+<span class="s1"># By default, \\server\username shares can be connected to by anyone</span>
+<span class="s1"># with access to the samba server.</span>
+<span class="s1"># Un-comment the following parameter to make sure that only &quot;username&quot;</span>
+<span class="s1"># can connect to \\server\username</span>
+<span class="s1"># This might need tweaking when using external authentication schemes</span>
+<span class="s1">;   valid users = %S</span>
 
-    path = /home/hr
-    comment = Pasta HR
-    browseable = yes
-    create mask = 0770
-    writeable = yes
-    directory mask = 0770
-    force directory mode = 0770
-    map acl inherit = yes
+<span class="s1"># Un-comment the following and create the netlogon directory for Domain Logons</span>
+<span class="s1"># (you need to configure Samba to act as a domain controller too.)</span>
+<span class="s1">;[netlogon]</span>
+<span class="s1">;   comment = Network Logon Service</span>
+<span class="s1">;   path = /home/samba/netlogon</span>
+<span class="s1">;   guest ok = yes</span>
+<span class="s1">;   read only = yes</span>
 
-[commercial]
+<span class="s1"># Un-comment the following and create the profiles directory to store</span>
+<span class="s1"># users profiles (see the &quot;logon path&quot; option above)</span>
+<span class="s1"># (you need to configure Samba to act as a domain controller too.)</span>
+<span class="s1"># The path below should be writable by all users so that their</span>
+<span class="s1"># profile directory may be created the first time they log on</span>
+<span class="s1">;[profiles]</span>
+<span class="s1">;   comment = Users profiles</span>
+<span class="s1">;   path = /home/samba/profiles</span>
+<span class="s1">;   guest ok = no</span>
+<span class="s1">;   browseable = no</span>
+<span class="s1">;   create mask = 0600</span>
+<span class="s1">;   directory mask = 0700</span>
 
-    path = /home/commercial
-    comment = Pasta Commercial
-    browseable = yes
-    create mask = 0770
-    writeable = yes
-    directory mask = 0770
-    force directory mode = 0770
-    map acl inherit = yes
+<span class="s1">[printers]</span>
+<span class="s1">comment = All Printers</span>
+<span class="s1">browseable = no</span>
+<span class="s1">path = /var/spool/samba</span>
+<span class="s1">printable = yes</span>
+<span class="s1">guest ok = no</span>
+<span class="s1">read only = no</span>
+<span class="s1">create mask = 0700</span>
+
+<span class="s1"># Windows clients look for this share name as a source of downloadable</span>
+<span class="s1"># printer drivers</span>
+<span class="s1">[print$]</span>
+<span class="s1">comment = Printer Drivers</span>
+<span class="s1">path = /var/lib/samba/printers</span>
+<span class="s1">browseable = yes</span>
+<span class="s1">writable = yes</span>
+<span class="s1">read only = yes</span>
+<span class="s1">guest ok = no</span>
+<span class="s1"># Uncomment to allow remote administration of Windows print drivers.</span>
+<span class="s1"># You may need to replace &#39;</span><span class="n">lpadmin</span><span class="err">&#39;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="n">your</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">admin</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">members</span><span class="w"> </span><span class="k">of</span><span class="p">.</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">Please</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">appropriate</span><span class="w"> </span><span class="n">Unix</span><span class="w"> </span><span class="nf">permissions</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">drivers</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="k">write</span><span class="w"> </span><span class="n">rights</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">it</span><span class="w"></span>
+<span class="p">;</span><span class="w">   </span><span class="k">write</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="nv">@lpadmin</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">share</span><span class="o">]</span><span class="w"></span>
+<span class="n">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Share</span><span class="w"> </span><span class="n">Folder</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">youyou</span><span class="w"></span>
+<span class="k">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">youyou</span><span class="o">/</span><span class="k">public</span><span class="w"></span>
+<span class="n">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="n">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="k">read</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">no</span><span class="w"></span>
+<span class="n">guest</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">no</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0700</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">it</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">it</span><span class="w"></span>
+<span class="w">    </span><span class="n">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pasta</span><span class="w"> </span><span class="n">IT</span><span class="w"></span>
+<span class="w">    </span><span class="n">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="w">    </span><span class="k">create</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="n">writeable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="w">    </span><span class="n">directory</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="n">force</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="k">map</span><span class="w"> </span><span class="n">acl</span><span class="w"> </span><span class="n">inherit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">hr</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">hr</span><span class="w"></span>
+<span class="w">    </span><span class="n">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pasta</span><span class="w"> </span><span class="n">HR</span><span class="w"></span>
+<span class="w">    </span><span class="n">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="w">    </span><span class="k">create</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="n">writeable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="w">    </span><span class="n">directory</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="n">force</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="k">map</span><span class="w"> </span><span class="n">acl</span><span class="w"> </span><span class="n">inherit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">commercial</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">commercial</span><span class="w"></span>
+<span class="w">    </span><span class="n">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pasta</span><span class="w"> </span><span class="n">Commercial</span><span class="w"></span>
+<span class="w">    </span><span class="n">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="w">    </span><span class="k">create</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="n">writeable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="w">    </span><span class="n">directory</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="n">force</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0770</span><span class="w"></span>
+<span class="w">    </span><span class="k">map</span><span class="w"> </span><span class="n">acl</span><span class="w"> </span><span class="n">inherit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
 </pre></div>
                 
                   
@@ -1777,7 +1753,7 @@ create mask = 0700
       
     </div>
     
-      <script src="../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
       
         
         
@@ -1789,7 +1765,7 @@ create mask = 0700
                 <script src="../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

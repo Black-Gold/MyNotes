@@ -21,7 +21,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="jp">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
@@ -527,8 +527,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Nginx/" title="Nginx" class="md-nav__link">
-      Nginx
+    <a href="../Nginx/" title="Nginx&Unit" class="md-nav__link">
+      Nginx&Unit
     </a>
   </li>
 
@@ -887,8 +887,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../LVSKeepalived/" title="LVSKeepalived" class="md-nav__link">
-      LVSKeepalived
+    <a href="../LVS/" title="LVS" class="md-nav__link">
+      LVS
     </a>
   </li>
 
@@ -1163,30 +1163,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../OpenTSDB/" title="OpenTSDB" class="md-nav__link">
-      OpenTSDB
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../TICK/" title="TICKStack" class="md-nav__link">
-      TICKStack
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../Monitors/" title="SomelseMonitors" class="md-nav__link">
       SomelseMonitors
     </a>
@@ -1256,46 +1232,10 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
     <label class="md-nav__link" for="nav-15">
-      Security
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
-        Security
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../Snort/" title="Snort" class="md-nav__link">
-      Snort
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
-    
-    <label class="md-nav__link" for="nav-16">
       Network
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-15">
         Network
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1337,13 +1277,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-16">
       CrossGFW
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-16">
         CrossGFW
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1357,6 +1297,42 @@
   <li class="md-nav__item">
     <a href="../VPN/" title="VPN" class="md-nav__link">
       VPN
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      Security
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Snort/" title="Snort" class="md-nav__link">
+      Snort
     </a>
   </li>
 
@@ -1473,68 +1449,68 @@
                   <h1>Oracle</h1>
                 
                 <h3 id="oracle">oracle 内存调优办法<a class="headerlink" href="#oracle" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>当项目的生产环境出现性能问题，我们如何通过判断那些参数需要调整呢？
+<div class="codehilite"><pre><span></span><span class="err">当项目的生产环境出现性能问题，我们如何通过判断那些参数需要调整呢？</span>
 
-3.1 检查ORACLE实例的Library Cache命中率:
+<span class="mi">3</span><span class="p">.</span><span class="mi">1</span> <span class="err">检查</span><span class="n">ORACLE实例的Library</span> <span class="n">Cache命中率</span><span class="p">:</span>
 
-标准:一般是大于99％
+<span class="err">标准</span><span class="p">:</span><span class="err">一般是大于</span><span class="mi">99</span><span class="err">％</span>
 
-检查方式:
-select 1-(sum(reloads)/sum(pins)) &quot;Library cache Hit Ratio&quot; from v$librarycache;
+<span class="err">检查方式</span><span class="p">:</span>
+<span class="k">select</span> <span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="n">reloads</span><span class="p">)</span><span class="o">/</span><span class="k">sum</span><span class="p">(</span><span class="n">pins</span><span class="p">))</span> <span class="ss">&quot;Library cache Hit Ratio&quot;</span> <span class="k">from</span> <span class="n">v$librarycache</span><span class="p">;</span>
 
-处理措施:
-如果Library cache Hit Ratio的值低于99%，应调高shared_pool_size的大小。通过sqlplus连接数据库执行如下命令，调整shared_pool_size的大小：
-SQL&gt;alter system flush shared_pool;
-SQL&gt;alter system set shared_pool_size=设定值 scope=spfile;
+<span class="err">处理措施</span><span class="p">:</span>
+<span class="err">如果</span><span class="n">Library</span> <span class="k">cache</span> <span class="n">Hit</span> <span class="n">Ratio的值低于99</span><span class="o">%</span><span class="err">，应调高</span><span class="n">shared_pool_size的大小</span><span class="err">。通过</span><span class="n">sqlplus连接数据库执行如下命令</span><span class="err">，调整</span><span class="n">shared_pool_size的大小</span><span class="err">：</span>
+<span class="k">SQL</span><span class="o">&gt;</span><span class="k">alter</span> <span class="k">system</span> <span class="n">flush</span> <span class="n">shared_pool</span><span class="p">;</span>
+<span class="k">SQL</span><span class="o">&gt;</span><span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">shared_pool_size</span><span class="o">=</span><span class="err">设定值</span> <span class="k">scope</span><span class="o">=</span><span class="n">spfile</span><span class="p">;</span>
 
-3.2 检查ORACLE实例的Data Buffer（数据缓冲区）命中率:
+<span class="mi">3</span><span class="p">.</span><span class="mi">2</span> <span class="err">检查</span><span class="n">ORACLE实例的Data</span> <span class="n">Buffer</span><span class="err">（数据缓冲区）命中率</span><span class="p">:</span>
 
-标准:一般是大于90%
+<span class="err">标准</span><span class="p">:</span><span class="err">一般是大于</span><span class="mi">90</span><span class="o">%</span>
 
-检查方式:
-select 1 - (phy.value / (cur.value + con.value)) &quot;HIT RATIO&quot; from v$sysstat cur, v$sysstat con, v$sysstat phy where cur.name = &#39;db block gets&#39; and con.name = &#39;consistent gets&#39; and phy.name = &#39;physical reads&#39;;
+<span class="err">检查方式</span><span class="p">:</span>
+<span class="k">select</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">phy</span><span class="p">.</span><span class="n">value</span> <span class="o">/</span> <span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">con</span><span class="p">.</span><span class="n">value</span><span class="p">))</span> <span class="ss">&quot;HIT RATIO&quot;</span> <span class="k">from</span> <span class="n">v$sysstat</span> <span class="n">cur</span><span class="p">,</span> <span class="n">v$sysstat</span> <span class="n">con</span><span class="p">,</span> <span class="n">v$sysstat</span> <span class="n">phy</span> <span class="k">where</span> <span class="n">cur</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;db block gets&#39;</span> <span class="k">and</span> <span class="n">con</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;consistent gets&#39;</span> <span class="k">and</span> <span class="n">phy</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;physical reads&#39;</span><span class="p">;</span>
 
-处理措施:
-如果HIT RATIO的值低于90%，应调高db_cache_size的大小。通过sqlplus连接数据库执行如下命令，
-调整db_cache_size的大小
-SQL&gt;alter system set db_cache_size=设定值 scope=spfile
+<span class="err">处理措施</span><span class="p">:</span>
+<span class="err">如果</span><span class="n">HIT</span> <span class="n">RATIO的值低于90</span><span class="o">%</span><span class="err">，应调高</span><span class="n">db_cache_size的大小</span><span class="err">。通过</span><span class="n">sqlplus连接数据库执行如下命令</span><span class="err">，</span>
+<span class="err">调整</span><span class="n">db_cache_size的大小</span>
+<span class="k">SQL</span><span class="o">&gt;</span><span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">db_cache_size</span><span class="o">=</span><span class="err">设定值</span> <span class="k">scope</span><span class="o">=</span><span class="n">spfile</span>
 
-3.3 检查ORACLE实例的Dictionary Cache命中率:
+<span class="mi">3</span><span class="p">.</span><span class="mi">3</span> <span class="err">检查</span><span class="n">ORACLE实例的Dictionary</span> <span class="n">Cache命中率</span><span class="p">:</span>
 
-标准:一般是大于95%
+<span class="err">标准</span><span class="p">:</span><span class="err">一般是大于</span><span class="mi">95</span><span class="o">%</span>
 
-检查方式:
-select 1 - (sum(getmisses) / sum(gets)) &quot;Data Dictionary Hit Ratio&quot; from v$rowcache;
+<span class="err">检查方式</span><span class="p">:</span>
+<span class="k">select</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="n">getmisses</span><span class="p">)</span> <span class="o">/</span> <span class="k">sum</span><span class="p">(</span><span class="n">gets</span><span class="p">))</span> <span class="ss">&quot;Data Dictionary Hit Ratio&quot;</span> <span class="k">from</span> <span class="n">v$rowcache</span><span class="p">;</span>
 
-处理措施:
-如果Data Dictionary Hit Ratio的值低于95%，应调高shared_pool_size的大小。通过sqlplus连接数据库执行如下命令，调整shared_pool_size的大小：
-SQL&gt;alter system flush shared_pool;
-SQL&gt;alter system set shared_pool_size=设定值 scope=spfile;
+<span class="err">处理措施</span><span class="p">:</span>
+<span class="err">如果</span><span class="k">Data</span> <span class="k">Dictionary</span> <span class="n">Hit</span> <span class="n">Ratio的值低于95</span><span class="o">%</span><span class="err">，应调高</span><span class="n">shared_pool_size的大小</span><span class="err">。通过</span><span class="n">sqlplus连接数据库执行如下命令</span><span class="err">，调整</span><span class="n">shared_pool_size的大小</span><span class="err">：</span>
+<span class="k">SQL</span><span class="o">&gt;</span><span class="k">alter</span> <span class="k">system</span> <span class="n">flush</span> <span class="n">shared_pool</span><span class="p">;</span>
+<span class="k">SQL</span><span class="o">&gt;</span><span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">shared_pool_size</span><span class="o">=</span><span class="err">设定值</span> <span class="k">scope</span><span class="o">=</span><span class="n">spfile</span><span class="p">;</span>
 
-3.4  检查ORACLE实例的Log Buffer命中率:
+<span class="mi">3</span><span class="p">.</span><span class="mi">4</span>  <span class="err">检查</span><span class="n">ORACLE实例的Log</span> <span class="n">Buffer命中率</span><span class="p">:</span>
 
-标准:一般是小于1%
+<span class="err">标准</span><span class="p">:</span><span class="err">一般是小于</span><span class="mi">1</span><span class="o">%</span>
 
-检查方式:
-select (req.value * 5000) / entries.value &quot;Ratio&quot; from v$sysstat req, v$sysstat entries where req.name = &#39;redo log space requests&#39; and entries.name = &#39;redo entries&#39;;
+<span class="err">检查方式</span><span class="p">:</span>
+<span class="k">select</span> <span class="p">(</span><span class="n">req</span><span class="p">.</span><span class="n">value</span> <span class="o">*</span> <span class="mi">5000</span><span class="p">)</span> <span class="o">/</span> <span class="n">entries</span><span class="p">.</span><span class="n">value</span> <span class="ss">&quot;Ratio&quot;</span> <span class="k">from</span> <span class="n">v$sysstat</span> <span class="n">req</span><span class="p">,</span> <span class="n">v$sysstat</span> <span class="n">entries</span> <span class="k">where</span> <span class="n">req</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;redo log space requests&#39;</span> <span class="k">and</span> <span class="n">entries</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;redo entries&#39;</span><span class="p">;</span>
 
-处理措施:
-如果Ratio高于1％，应调高log_buffer的大小。通过sqlplus连接数据库执行如下命令，调整log_buffer的大小：
-SQL&gt;alter system set log_buffer=设定值 scope=spfile;
+<span class="err">处理措施</span><span class="p">:</span>
+<span class="err">如果</span><span class="n">Ratio高于1</span><span class="err">％，应调高</span><span class="n">log_buffer的大小</span><span class="err">。通过</span><span class="n">sqlplus连接数据库执行如下命令</span><span class="err">，调整</span><span class="n">log_buffer的大小</span><span class="err">：</span>
+<span class="k">SQL</span><span class="o">&gt;</span><span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">log_buffer</span><span class="o">=</span><span class="err">设定值</span> <span class="k">scope</span><span class="o">=</span><span class="n">spfile</span><span class="p">;</span>
 
-3.5 检查undo_retention:
+<span class="mi">3</span><span class="p">.</span><span class="mi">5</span> <span class="err">检查</span><span class="n">undo_retention</span><span class="p">:</span>
 
-标准:undo_retention 的值必须大于max(maxquerylen)的值
+<span class="err">标准</span><span class="p">:</span><span class="n">undo_retention</span> <span class="err">的值必须大于</span><span class="k">max</span><span class="p">(</span><span class="n">maxquerylen</span><span class="p">)</span><span class="err">的值</span>
 
-检查方式:
-col undo_retention format a30
-select value &quot;undo_retention&quot; from v$parameter where name=&#39;undo_retention&#39;;
-select max(maxquerylen) From v$undostat Where begin_time&gt;sysdate-(1/4);
+<span class="err">检查方式</span><span class="p">:</span>
+<span class="n">col</span> <span class="n">undo_retention</span> <span class="n">format</span> <span class="n">a30</span>
+<span class="k">select</span> <span class="n">value</span> <span class="ss">&quot;undo_retention&quot;</span> <span class="k">from</span> <span class="n">v$parameter</span> <span class="k">where</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;undo_retention&#39;</span><span class="p">;</span>
+<span class="k">select</span> <span class="k">max</span><span class="p">(</span><span class="n">maxquerylen</span><span class="p">)</span> <span class="k">From</span> <span class="n">v$undostat</span> <span class="k">Where</span> <span class="n">begin_time</span><span class="o">&gt;</span><span class="n">sysdate</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">);</span>
 
-处理措施:
-如果不满足要求，需要调高undo_retention 的值。通过sqlplus 连接数据库执行如下命
-令，调整undo_retention 的大小：
-SQL&gt;alter system set undo_retention= 设定值 scope=spfile;
+<span class="err">处理措施</span><span class="p">:</span>
+<span class="err">如果不满足要求，需要调高</span><span class="n">undo_retention</span> <span class="err">的值。通过</span><span class="n">sqlplus</span> <span class="err">连接数据库执行如下命</span>
+<span class="err">令，调整</span><span class="n">undo_retention</span> <span class="err">的大小：</span>
+<span class="k">SQL</span><span class="o">&gt;</span><span class="k">alter</span> <span class="k">system</span> <span class="k">set</span> <span class="n">undo_retention</span><span class="o">=</span> <span class="err">设定值</span> <span class="k">scope</span><span class="o">=</span><span class="n">spfile</span><span class="p">;</span>
 </pre></div>
                 
                   
@@ -1614,7 +1590,7 @@ SQL&gt;alter system set undo_retention= 设定值 scope=spfile;
       
     </div>
     
-      <script src="../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../assets/javascripts/application.39abc4af.js"></script>
       
         
         
@@ -1626,7 +1602,7 @@ SQL&gt;alter system set undo_retention= 设定值 scope=spfile;
                 <script src="../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           
