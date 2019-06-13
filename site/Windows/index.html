@@ -1405,6 +1405,10 @@ bat脚本远程连接；脚本如下。使用示例：rdp.bat <span class="s2">&
 cmdkey /add:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">&quot;</span> /user:<span class="s2">&quot;</span><span class="nv">%~3</span><span class="s2">&quot;</span> /pass:<span class="s2">&quot;</span><span class="nv">%~4</span><span class="s2">&quot;</span>
 <span class="k">start</span> /wait mstsc /v:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">:</span><span class="nv">%~2</span><span class="s2">&quot;</span>
 cmdkey /delete:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">&quot;</span>
+
+<span class="p">:</span><span class="c1">: 刷新组策略</span>
+gpupdate/force
+gpupdate /target:computer
 </pre></div>
 
 <p>windows服务绑定IP问题
