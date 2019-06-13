@@ -122,6 +122,10 @@ cmdkey /add:"%~1" /user:"%~3" /pass:"%~4"
 start /wait mstsc /v:"%~1:%~2"
 cmdkey /delete:"%~1"
 
+:: 刷新组策略
+gpupdate/force
+gpupdate /target:computer
+
 ```
 
 windows服务绑定IP问题
