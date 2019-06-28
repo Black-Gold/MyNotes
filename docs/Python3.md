@@ -150,87 +150,7 @@ python3中常用的内置数据类型：
 | str.lower(),str.upper() | 返回字符串的副本，并将所有套接字符转换为小写或大写 |
 | str.strip([chars]) | 返回删除了开头和结尾字符的字符串副本。 chars参数是一个字符串，指定要删除的字符集。如果省略或None，则chars参数默认为删除空格 |
 | str.isalpha()/str.isdigit()/str.isspace()...  | 测试所有字符串字符是否在各种字符类中 |
-| str.find(sub[, start[, end]]) |  |
-|  |  |
-
-### printf风格的字符串格式化
-
-字符串具有一种特殊内置操作：使用%(取模)运算符，类似于C语言的sprintf()
-
-转换标记符包含两个或更多字符并具有以下组成，且必须遵循此处规定的顺序：
-
-1. '%' 字符，用于标记转换符的起始
-2. 映射键（可选），由加圆括号的字符序列组成 (例如 (somename))
-3. 转换旗标（可选），用于影响某些转换类型的结果
-4. 最小字段宽度（可选）。 如果指定为 '*' (星号)，则实际宽度会从 values 元组的下一元素中读取，要转换的对象则为最小字段宽度和可选的精度之后的元素
-5. 精度（可选），以在 '.' (点号) 之后加精度值的形式给出。 如果指定为 '*' (星号)，则实际精度会从 values 元组的下一元素中读取，要转换的对象则为精度之后的元素
-6. 长度修饰符（可选）
-7. 转换类型
-
-转换旗标为：
-
-| 标志  | 含义  |
-| :---------: | :---------: |
-| '#' | 值的转换将使用“替代形式”(具体定义见下文) |
-| '0' | 转换将为数字值填充零字符  |
-| '-' | 转换值将靠左对齐（如果同时给出 '0' 转换，则会覆盖后者）  |
-| ' ' | (空格) 符号位转换产生的正数（或空字符串）前将留出一个空格  |
-| '+' | 符号字符 ('+' 或 '-') 将显示于转换结果的开头(会覆盖 "空格" 旗标) |
-
-转换类型为：
-
-| 转换符 | 含义 | 注释 |
-| :---------: | :---------: | :---------: |
-| d | 有符号十进制整数。 |  |
-| i | 有符号十进制整数。 |  |
-| o | 有符号八进制数。 | 1 |
-| u | 过时类型  等价于 'd'。 | 6 |
-| x | 有符号十六进制数（小写）。 | 2 |
-| X | 有符号十六进制数（大写）。 | 2 |
-| e | 浮点指数格式（小写）。 | 3 |
-| E | 浮点指数格式（大写）。 | 3 |
-| f | 浮点十进制格式。 | 3 |
-| F | 浮点十进制格式。 | 3 |
-| g | 浮点格式。 如果指数小于 4 或不小于精度则使用小写指数格式，否则使用十进制格式 | 4 |
-| G | 浮点格式。 如果指数小于 4 或不小于精度则使用大写指数格式，否则使用十进制格式 | 4 |
-| c | 单个字符（接受整数或单个字符的字符串）。 |  |
-| r | 字符串（使用 repr() 转换任何 Python 对象） | 5 |
-| s | 字符串（使用 str() 转换任何 Python 对象） | 5 |
-| a | 字符串（使用 ascii() 转换任何 Python 对象） | 5 |
-| % | 不转换参数，在结果中输出一个 '%' 字符。 |  |
-
-注释:
-
-1. 此替代形式会在第一个数码之前插入标示八进制数的前缀 ('0o')
-2. 此替代形式会在第一个数码之前插入 '0x' 或 '0X' 前缀（取决于是使用 'x' 还是 'X' 格式）
-3. 此替代形式总是会在结果中包含一个小数点，即使其后并没有数字,小数点后的数字位数由精度决定，默认为 6
-4. 此替代形式总是会在结果中包含一个小数点，末尾各位的零不会如其他情况下那样被移除,小数点前后的有效数码位数由精度决定，默认为 6
-5. 如果精度为 N，输出将截短为 N 个字符
-6. 参见[PEP 237](http://www.python.org/dev/peps/pep-0237)
-
-### Mini-Language格式化
-
-```py
-# 格式化整数和浮点数还可以指定是否补0和整数与小数的位数：
-print('%2d-%02d' % (3, 1))
-print('%.2f' % 3.1415926)
-
-# 字符串里面的%是一个普通字符怎么办？这个时候就需要转义，用%%来表示一个%
-
-# 利用format()方法进行格式化字符串，它会用传入的参数依次替换字符串内的占位符{0},{1}......,但要比占位符麻烦。
->>> 'Hello, {0}, 成绩提升了 {1:.1f}%'.format('小明', 17.125)
-'Hello, 小明, 成绩提升了 17.1%'
-```
-
-字符串 % 操作，python有一个printf格式将字符串放在一起，%操作符将左边(%d int, %s string, %f或%g floating point)以printf-type格式化，匹配在右边的元组里的值
-
-| 格式化符号 | 替换内容类型 |
-| :------: | :------: |
-| %s | 字符串 |
-| %d | 十进制整数 |
-| %x | 十六进制整数 |
-| %f | 浮点数,精度默认为6位 |
-| %g | 浮点数,精度默认为6位,不尾随0 |
+| str.find() | 检测字符串中是否包含子字符串str，如果指定start和end范围，则检查是否包含在指定范围内，如果包含子字符串返回最低的索引值，否则返回-1 |
 
 ## Numbers(数字)
 
@@ -415,9 +335,23 @@ sys.path变量是一个字符串列表，用于确定解释器的模块搜索，
 
 相反，当使用 import item.subitem.subsubitem 这样的语法时，除了最后一项之外的每一项都必须是一个包；最后一项可以是模块或包，但不能是前一项中定义的类或函数或变量
 
-## 输入输出
+## 输入和输出
 
-格式化输出的方法：当需要快速显示某些变量输出进行调试时，可以用repr()或str()函数将任何值转为字符串
+```py
+输出格式化
+Python两种输出值的方式:
+表达式语句和 print() 函数
+第三种方式是使用文件对象的 write() 方法，标准输出文件可以用 sys.stdout 引用
+如果你希望输出的形式更加多样，可以使用 str.format() 函数来格式化输出值
+当需要快速显示某些变量输出进行调试时，以用repr()或str()函数将任何值转为字符串
+str()： 函数返回一个用户易读的表达形式
+repr()： 产生一个解释器易读的表达形式
+
+读取键盘输入
+python提供了input()内置函数从标准输入读取一行文本，默认标准输入是键盘
+str = input("输入："):
+print(str)
+```
 
 * 要使用格式化字符串字面值，在字符串开始引导或三引号之前加上一个f或F，在此字符串中，可以在{}字符之间引用变量或字面值的Python表达式
 * 字符串的str.format()方法
@@ -425,7 +359,391 @@ sys.path变量是一个字符串列表，用于确定解释器的模块搜索，
 
 ## 错误和异常
 
-try ... except 语句有一个可选的 else 子句，在使用时必须放在所有的 except 子句后面,raise 语句允许程序员强制发生指定的异常;raise 唯一的参数就是要抛出的异常。这个参数必须是一个异常实例或者是一个异常类（派生自 Exception 的类）
+Python 中，所有异常必须为一个派生自 BaseException 的类的实例。在带有提及一个特定类的 except子句的try语句中，该子句也会处理任何派生自该类的异常类,(但不处理它所派生出的异常类)通过子类化创建的两个不相关异常类永远是不等效的，既使它们具有相同的名称。try...except语句有一个可选的else字句，使用时必须放在所有except字句后面，raise语句允许程序强制发生指定的异常，raise唯一的参数就是抛出的异常，这个参数必须是一个异常实例或一个异常类(派生自Exception的类)
+
+### 基类
+
+```py
+异常主要被用作其他异常的基类。
+
+exception BaseException
+所有内置异常的基类。它不应该被用户自定义类直接继承(这种情况请使用 Exception)。如果在此类的实例上调用str()，则会返回实例的参数表示，或者当没有参数时返回空字符串
+
+args
+传给异常构造器的参数元组。某些内置异常(例如 OSError) 接受特定数量的参数并赋予此元组中的元素特殊的含义，而其他异常通常只接受一个给出错误信息的单独字符串。
+
+with_traceback(tb)
+此方法将tb设为异常的新回溯信息并返回该异常对象。它通常以如下的形式在异常处理程序中使用:
+try:
+    ...
+except SomeException:
+    tb = sys.exc_info()[2]
+    raise OtherException(...).with_traceback(tb)
+
+exception Exception
+所有内置的非系统退出类异常都派生自此类。所有用户自定义异常也应当派生自此类
+
+exception ArithmeticError
+此基类用于派生针对各种算术类错误而引发的内置异常: OverflowError, ZeroDivisionError, FloatingPointError
+
+exception BufferError
+当与缓冲区相关的操作无法执行时将被引发此类异常
+
+exception LookupError
+此基类用于派生当映射或序列所使用的键或索引无效时引发的异常: IndexError, KeyError。这可以通过codecs.lookup()来直接引发
+```
+
+### 具体异常
+
+```py
+以下异常是经常被引发的异常
+
+exception AssertionError
+当 assert 语句失败时将被引发。
+
+exception AttributeError
+当属性引用 (参见 属性引用) 或赋值失败时将被引发。 （当一个对象根本不支持属性引用或属性赋值时则将引发 TypeError。）
+
+exception EOFError
+当 input() 函数未读取任何数据即达到文件结束条件 (EOF) 时将被引发。 （另外，io.IOBase.read() 和 io.IOBase.readline() 方法在遇到 EOF 则将返回一个空字符串。）
+
+exception FloatingPointError
+目前未被使用。
+
+exception GeneratorExit
+当一个 generator 或 coroutine 被关闭时将被引发；参见 generator.close() 和 coroutine.close()。 它直接继承自 BaseException 而不是 Exception，因为从技术上来说它并不是一个错误。
+
+exception ImportError
+当 import 语句尝试加载模块遇到麻烦时将被引发。 并且当 from ... import 中的 "from list" 存在无法找到的名称时也会被引发。
+
+name 与 path 属性可通过对构造器使用仅关键字参数来设定。 设定后它们将分别表示被尝试导入的模块名称与触发异常的任意文件所在路径。(在 3.3 版更改: 添加了 name 与 path 属性)
+
+exception ModuleNotFoundError
+ImportError 的子类，当一个模块无法被定位时将由 import 引发。 当在 sys.modules 中找到 None 时也会被引发。(3.6 新版功能)
+
+exception IndexError
+当序列抽取超出范围时将被引发。 （切片索引会被静默截短到允许的范围；如果指定索引不是整数则 TypeError 会被引发。）
+
+exception KeyError
+当在现有键集合中找不到指定的映射（字典）键时将被引发。
+
+exception KeyboardInterrupt
+当用户按下中断键 (通常为 Control-C 或 Delete) 时将被引发。 在执行期间，会定期检测中断信号。 该异常继承自 BaseException 以确保不会被处理 Exception 的代码意外捕获，这样可以避免退出解释器。
+
+exception MemoryError
+当一个操作耗尽内存但情况仍可（通过删除一些对象）进行挽救时将被引发。 关联的值是一个字符串，指明是哪种（内部）操作耗尽了内存。 请注意由于底层的内存管理架构（C 的 malloc() 函数），解释器也许并不总是能够从这种情况下完全恢复；但它毕竟可以引发一个异常，这样就能打印出栈回溯信息，以便找出导致问题的失控程序。
+
+exception NameError
+当某个局部或全局名称未找到时将被引发。 此异常仅用于非限定名称。 关联的值是一条错误信息，其中包含未找到的名称。
+
+exception NotImplementedError
+此异常派生自 RuntimeError。 在用户自定义的基类中，抽象方法应当在其要求所派生类重载该方法，或是在其要求所开发的类提示具体实现尚待添加时引发此异常。
+"""
+注解：它不应该用来表示一个根本不支持的运算符或方法，在此情况下应当让特定运算符/方法保持未定义，或者在子类中将其设为None。NotImplementedError 和 NotImplemented 不可互换，即使它们有相似的名称和用途
+"""
+
+exception OSError([arg])
+exception OSError(errno, strerror[, filename[, winerror[, filename2]]])
+此异常在一个系统函数返回系统相关的错误时将被引发，此类错误包括 I/O 操作失败例如 "文件未找到" 或 "磁盘已满" 等（不包括非法参数类型或其他偶然性错误）
+
+构造器的第二种形式可设置如下所述的相应属性。 如果未指定这些属性则默认为 None。 为了能向下兼容，如果传入了三个参数，则 args 属性将仅包含由前两个构造器参数组成的2元组
+
+构造器实际返回的往往是 OSError 的某个子类，如下文 OS exceptions 中所描述的。 具体的子类取决于最终的 errno 值。 此行为仅在直接或通过别名来构造 OSError 时发生，并且在子类化时不会被继承。
+
+errno
+来自于 C 变量 errno 的数字错误码。
+
+winerror
+在 Windows 下，此参数将给出原生的 Windows 错误码。 而 errno 属性将是该原生错误码在 POSIX 平台下的近似转换形式。
+
+在 Windows 下，如果 winerror 构造器参数是一个整数，则 errno 属性会根据 Windows 错误码来确定，而 errno 参数会被忽略。 在其他平台上，winerror 参数会被忽略，并且 winerror 属性将不存在。
+
+strerror
+操作系统所提供的相应错误信息。 它在 POSIX 平台中由 C 函数 perror() 来格式化，在 Windows 中则是由 FormatMessage()。
+
+filename
+filename2
+对于与文件系统路径有关 (例如 open() 或 os.unlink()) 的异常，filename 是传给函数的文件名。 对于涉及两个文件系统路径的函数 (例如 os.rename())，filename2 将是传给函数的第二个文件名。
+
+在 3.3 版更改: EnvironmentError, IOError, WindowsError, socket.error, select.error 与 mmap.error 已被合并到 OSError，构造器可能返回其中一个子类。
+
+在 3.4 版更改: filename 属性现在将是传给函数的原始文件名，而不是经过编码或基于文件系统编码进行解码之后的名称。 此外还添加了 filename2 构造器参数和属性。
+
+exception OverflowError
+当算术运算的结果大到无法表示时将被引发。 这对整数来说不可能发生（宁可引发 MemoryError 也不会放弃尝试）。 但是出于历史原因，有时也会在整数超出要求范围的情况下引发 OverflowError。 因为在 C 中缺少对浮点异常处理的标准化，大多数浮点运算都不会做检查。
+
+exception RecursionError
+此异常派生自 RuntimeError。 它会在解释器检测发现超过最大递归深度 (参见 sys.getrecursionlimit()) 时被引发。(3.5 新版功能: 在此之前将只引发 RuntimeError)
+
+exception ReferenceError
+此异常将在使用 weakref.proxy() 函数所创建的弱引用来访问该引用的某个已被作为垃圾回收的属性时被引发。 有关弱引用的更多信息请参阅 weakref 模块。
+
+exception RuntimeError
+当检测到一个不归属于任何其他类别的错误时将被引发。 关联的值是一个指明究竟发生了什么问题的字符串。
+
+exception StopIteration
+由内置函数 next() 和 iterator 的 __next__() 方法所引发，用来表示该迭代器不能产生下一项。
+
+该异常对象只有一个属性 value，它在构造该异常时作为参数给出，默认值为 None。
+
+当一个 generator 或 coroutine 函数返回时，将引发一个新的 StopIteration 实例，函数返回的值将被用作异常构造器的 value 形参。
+
+如果某个生成器代码直接或间接地引发了 StopIteration，它会被转换为 RuntimeError (并将 StopIteration 保留为导致新异常的原因)。
+
+在 3.3 版更改: 添加了 value 属性及其被生成器函数用作返回值的功能。
+在 3.5 版更改: 引入了通过 from __future__ import generator_stop 来实现 RuntimeError 转换，参见 PEP 479。
+在 3.7 版更改: 默认对所有代码启用 PEP 479: 在生成器中引发的 StopIteration 错误将被转换为 RuntimeError。
+
+exception StopAsyncIteration
+必须由一个 asynchronous iterator 对象的 __anext__() 方法来引发以停止迭代操作。3.5 新版功能
+
+exception SyntaxError
+当解析器遇到语法错误时将被引发。 这可以发生在 import 语句，对内置函数 exec() 或 eval() 的调用，或者读取原始脚本或标准输入（也包括交互模式）的时候。
+
+该类的实例包含有属性 filename, lineno, offset 和 text 用于方便地访问相应的详细信息。 异常实例的 str() 仅返回消息文本。
+
+exception IndentationError
+与不正确的缩进相关的语法错误的基类。 这是 SyntaxError 的一个子类。
+
+exception TabError
+当缩进包含对制表符和空格符不一致的使用时将被引发。 这是 IndentationError 的一个子类。
+
+exception SystemError
+当解释器发现内部错误，但情况看起来尚未严重到要放弃所有希望时将被引发。 关联的值是一个指明发生了什么问题的字符串（表示为低层级的符号）。
+
+你应当将此问题报告给你所用 Python 解释器的作者或维护人员。 请确认报告 Python 解释器的版本号 (sys.version; 它也会在交互式 Python 会话开始时被打印出来)，具体的错误消息（异常所关联的值）以及可能触发该错误的程序源码。
+
+exception SystemExit
+此异常由 sys.exit() 函数引发。 它继承自 BaseException 而不是 Exception 以确保不会被处理 Exception 的代码意外捕获。 这允许此异常正确地向上传播并导致解释器退出。 如果它未被处理，则 Python 解释器就将退出；不会打印任何栈回溯信息。 构造器接受的可选参数与传递给 sys.exit() 的相同。 如果该值为一个整数，则它指明系统退出状态码（会传递给 C 的 exit() 函数）；如果该值为 None，则退出状态码为零；如果该值为其他类型（例如字符串），则会打印对象的值并将退出状态码设为一。
+
+对 sys.exit() 的调用会被转换为一个异常以便能执行清理处理程序 (try 语句的 finally 子句)，并且使得调试器可以执行一段脚本而不必冒失去控制的风险。 如果绝对确实地需要立即退出（例如在调用 os.fork() 之后的子进程中）则可使用 os._exit().
+
+code
+传给构造器的退出状态码或错误信息（默认为 None。）
+
+exception TypeError
+当一个操作或函数被应用于类型不适当的对象时将被引发。 关联的值是一个字符串，给出有关类型不匹配的详情。
+
+此异常可以由用户代码引发，以表明尝试对某个对象进行的操作不受支持也不应当受支持。 如果某个对象应当支持给定的操作但尚未提供相应的实现，所要引发的适当异常应为 NotImplementedError。
+
+传入参数的类型错误 (例如在要求 int 时却传入了 list) 应当导致 TypeError，但传入参数的值错误 (例如传入要求范围之外的数值) 则应当导致 ValueError。
+
+exception UnboundLocalError
+当在函数或方法中对某个局部变量进行引用，但该变量并未绑定任何值时将被引发。 此异常是 NameError 的一个子类。
+
+exception UnicodeError
+当发生与 Unicode 相关的编码或解码错误时将被引发。 此异常是 ValueError 的一个子类。
+
+UnicodeError 具有一些描述编码或解码错误的属性。 例如 err.object[err.start:err.end] 会给出导致编解码器失败的特定无效输入。
+
+encoding
+引发错误的编码名称。
+
+reason
+描述特定编解码器错误的字符串。
+
+object
+编解码器试图要编码或解码的对象。
+
+start
+object 中无效数据的开始位置索引。
+
+end
+object 中无效数据的末尾位置索引（不含）。
+
+exception UnicodeEncodeError
+当在编码过程中发生与 Unicode 相关的错误时将被引发。 此异常是 UnicodeError 的一个子类。
+
+exception UnicodeDecodeError
+当在解码过程中发生与 Unicode 相关的错误时将被引发。 此异常是 UnicodeError 的一个子类。
+
+exception UnicodeTranslateError
+在转写过程中发生与 Unicode 相关的错误时将被引发。 此异常是 UnicodeError 的一个子类。
+
+exception ValueError
+当操作或函数接收到具有正确类型但值不适合的参数，并且情况不能用更精确的异常例如 IndexError 来描述时将被引发。
+
+exception ZeroDivisionError
+当除法或取余运算的第二个参数为零时将被引发。 关联的值是一个字符串，指明操作数和运算的类型。
+
+下列异常被保留以与之前的版本相兼容；从 Python 3.3 开始，它们都是 OSError 的别名。
+
+exception EnvironmentError
+exception IOError
+exception WindowsError
+限在 Windows 中可用
+
+```
+
+### OS 异常
+
+```py
+下列异常均为 OSError 的子类，它们将根据系统错误代码被引发。
+
+exception BlockingIOError
+当一个操作会被某个设置为非阻塞操作的对象（例如套接字）所阻塞时将被引发。 对应于 errno EAGAIN, EALREADY, EWOULDBLOCK 和 EINPROGRESS。
+
+除了 OSError 已有的属性，BlockingIOError 还有一个额外属性：
+
+characters_written
+一个整数，表示在被阻塞前已写入到流的字符数。 当使用来自 io 模块的带缓冲 I/O 类时此属性可用。
+
+exception ChildProcessError
+当一个子进程上的操作失败时将被引发。 对应于 errno ECHILD。
+
+exception ConnectionError
+与连接相关问题的基类。
+
+其子类有 BrokenPipeError, ConnectionAbortedError, ConnectionRefusedError 和 ConnectionResetError。
+
+exception BrokenPipeError
+ConnectionError 的子类，当试图写入另一端已被关闭的管道，或是试图写入已关闭写入的套接字时将被引发。 对应于 errno EPIPE 和 ESHUTDOWN。
+
+exception ConnectionAbortedError
+ConnectionError 的子类，当连接尝试被对端中止时将被引发。 对应于 errno ECONNABORTED。
+
+exception ConnectionRefusedError
+ConnectionError 的子类，当连接尝试被对端拒绝时将被引发。 对应于 errno ECONNREFUSED。
+
+exception ConnectionResetError
+ConnectionError 的子类，当连接被对端重置时将被引发。 对应于 errno ECONNRESET。
+
+exception FileExistsError
+当试图创建一个已存在的文件或目录时将被引发。 对应于 errno EEXIST。
+
+exception FileNotFoundError
+当所请求的文件或目录不存在时将被引发。 对应于 errno ENOENT。
+
+exception InterruptedError
+当系统调用被输入信号中断时将被引发。 对应于 errno EINTR。
+
+在 3.5 版更改: 当系统调用被某个信号中断时，Python 现在会重试系统调用，除非该信号的处理程序引发了其它异常 (原理参见 PEP 475) 而不是引发 InterruptedError。
+
+exception IsADirectoryError
+当请求对一个目录执行文件操作 (例如 os.remove()) 将被引发。 对应于 errno EISDIR。
+
+exception NotADirectoryError
+当请求对一个非目录对象执行目录操作 (例如 os.listdir()) 时将被引发。 对应于 errno ENOTDIR。
+
+exception PermissionError
+当在没有足够操作权限的情况下试图执行某个操作时将被引发 —— 例如缺少文件系统权限。 对应于 errno EACCES 和 EPERM。
+
+exception ProcessLookupError
+当给定的进程不存在时将被引发。 对应于 errno ESRCH。
+
+exception TimeoutError
+当一个系统函数发生系统级超时的情况下将被引发。对应于 errno ETIMEDOU
+```
+
+### 警告
+
+```py
+下列异常被用作警告类别:
+
+exception Warning
+警告类别的基类。
+
+exception UserWarning
+用户代码所产生警告的基类。
+
+exception DeprecationWarning
+如果所发出的警告是针对其他 Python 开发者的，则以此作为与已弃用特性相关警告的基类。
+
+exception PendingDeprecationWarning
+对于已过时并预计在未来弃用，但目前尚未弃用的特性相关警告的基类。
+
+这个类很少被使用，因为针对未来可能的弃用发出警告的做法并不常见，而针对当前已有的弃用则推荐使用 DeprecationWarning。
+
+exception SyntaxWarning
+与模糊的语法相关的警告的基类。
+
+exception RuntimeWarning
+与模糊的运行时行为相关的警告的基类。
+
+exception FutureWarning
+如果所发出的警告是针对以 Python 所编写应用的最终用户的，则以此作为与已弃用特性相关警告的基类。
+
+exception ImportWarning
+与在模块导入中可能的错误相关的警告的基类。
+
+exception UnicodeWarning
+与 Unicode 相关的警告的基类。
+
+exception BytesWarning
+与 bytes 和 bytearray 相关的警告的基类。
+
+exception ResourceWarning
+与资源使用相关的警告的基类。 会被默认的警告过滤器忽略。(3.2 新版功能)
+```
+
+### 异常层次结构
+
+```py
+BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StopAsyncIteration
+      +-- ArithmeticError
+      |    +-- FloatingPointError
+      |    +-- OverflowError
+      |    +-- ZeroDivisionError
+      +-- AssertionError
+      +-- AttributeError
+      +-- BufferError
+      +-- EOFError
+      +-- ImportError
+      |    +-- ModuleNotFoundError
+      +-- LookupError
+      |    +-- IndexError
+      |    +-- KeyError
+      +-- MemoryError
+      +-- NameError
+      |    +-- UnboundLocalError
+      +-- OSError
+      |    +-- BlockingIOError
+      |    +-- ChildProcessError
+      |    +-- ConnectionError
+      |    |    +-- BrokenPipeError
+      |    |    +-- ConnectionAbortedError
+      |    |    +-- ConnectionRefusedError
+      |    |    +-- ConnectionResetError
+      |    +-- FileExistsError
+      |    +-- FileNotFoundError
+      |    +-- InterruptedError
+      |    +-- IsADirectoryError
+      |    +-- NotADirectoryError
+      |    +-- PermissionError
+      |    +-- ProcessLookupError
+      |    +-- TimeoutError
+      +-- ReferenceError
+      +-- RuntimeError
+      |    +-- NotImplementedError
+      |    +-- RecursionError
+      +-- SyntaxError
+      |    +-- IndentationError
+      |         +-- TabError
+      +-- SystemError
+      +-- TypeError
+      +-- ValueError
+      |    +-- UnicodeError
+      |         +-- UnicodeDecodeError
+      |         +-- UnicodeEncodeError
+      |         +-- UnicodeTranslateError
+      +-- Warning
+           +-- DeprecationWarning
+           +-- PendingDeprecationWarning
+           +-- RuntimeWarning
+           +-- SyntaxWarning
+           +-- UserWarning
+           +-- FutureWarning
+           +-- ImportWarning
+           +-- UnicodeWarning
+           +-- BytesWarning
+           +-- ResourceWarning
+```
 
 ## 类
 
@@ -614,21 +932,238 @@ Python有三种不同的数字类型：整数、浮点数和复数。布尔值�
 
 以下表格列出了从最高到最低优先级的所有运算符：
 
-|运算符|描述|
+| 运算符 | 描述 |
 | :------: | :------: |
-|**|指数 (最高优先级)|
-|~ + -|按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@)|
-|* / % //|乘，除，取模和取整除|
-|+ -|加法减法|
-|>> <<|右移，左移运算符|
-|&|位 'AND'|
-|^ ||位运算符|
-|<= < > >=|比较运算符|
-|<> == !=|等于运算符|
-|= %= /= //= -= += *= **=|赋值运算符|
-|is is not|身份运算符|
-|in not in|成员运算符|
-|not or and|逻辑运算符|
+| ** | 指数 (最高优先级) |
+| ~ + - | 按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@) |
+| * / % // | 乘，除，取模和取整除 |
+| + - | 加法减法 |
+| >> << | 右移，左移位运算符 |
+| & | AND |
+| \| ^ | 或 异或--位运算 |
+| <= < > >= | 比较运算符 |
+| <> == != | 等于运算符 |
+| = %= /= //= -= += *= **= | 赋值运算符 |
+| is is not | 身份运算符 |
+| in not in | 成员运算符 |
+| not or and | 逻辑运算符 |
+
+## 文本处理服务
+
+### 自定义格式化字符串
+
+str.format()格式化字符串，使用{}括起来要替换的字段，不在花括号之内的内容会不加修改的打印到输出中。
+
+### Mini-Language格式化
+
+```py
+# 格式化整数和浮点数还可以指定是否补0和整数与小数的位数：
+print('%2d-%02d' % (3, 1))
+print('%.2f' % 3.1415926)
+
+# 字符串里面的%是一个普通字符怎么办？这个时候就需要转义，用%%来表示一个%
+
+# 利用format()方法进行格式化字符串，它会用传入的参数依次替换字符串内的占位符{0},{1}......,但要比占位符麻烦。
+>>> 'Hello, {0}, 成绩提升了 {1:.1f}%'.format('小明', 17.125)
+'Hello, 小明, 成绩提升了 17.1%'
+```
+
+字符串 % 操作，python有一个printf格式将字符串放在一起，%操作符将左边(%d int, %s string, %f或%g floating point)以printf-type格式化，匹配在右边的元组里的值
+
+| 格式化符号 | 替换内容类型 |
+| :------: | :------: |
+| %s | 字符串 |
+| %d | 十进制整数 |
+| %x | 十六进制整数 |
+| %f | 浮点数,精度默认为6位 |
+| %g | 浮点数,精度默认为6位,不尾随0 |
+
+### printf风格的字符串格式化
+
+字符串具有一种特殊内置操作：使用%(取模)运算符，类似于C语言的sprintf()
+
+转换标记符包含两个或更多字符并具有以下组成，且必须遵循此处规定的顺序：
+
+1. '%' 字符，用于标记转换符的起始
+2. 映射键（可选），由加圆括号的字符序列组成 (例如 (somename))
+3. 转换旗标（可选），用于影响某些转换类型的结果
+4. 最小字段宽度（可选）。 如果指定为 '*' (星号)，则实际宽度会从 values 元组的下一元素中读取，要转换的对象则为最小字段宽度和可选的精度之后的元素
+5. 精度（可选），以在 '.' (点号) 之后加精度值的形式给出。 如果指定为 '*' (星号)，则实际精度会从 values 元组的下一元素中读取，要转换的对象则为精度之后的元素
+6. 长度修饰符（可选）
+7. 转换类型
+
+转换旗标为：
+
+| 标志  | 含义  |
+| :---------: | :---------: |
+| '#' | 值的转换将使用“替代形式”(具体定义见下文) |
+| '0' | 转换将为数字值填充零字符  |
+| '-' | 转换值将靠左对齐（如果同时给出 '0' 转换，则会覆盖后者）  |
+| ' ' | (空格) 符号位转换产生的正数（或空字符串）前将留出一个空格  |
+| '+' | 符号字符 ('+' 或 '-') 将显示于转换结果的开头(会覆盖 "空格" 旗标) |
+
+转换类型为：
+
+| 转换符 | 含义 | 注释 |
+| :---------: | :---------: | :---------: |
+| d | 有符号十进制整数。 |  |
+| i | 有符号十进制整数。 |  |
+| o | 有符号八进制数。 | 1 |
+| u | 过时类型  等价于 'd'。 | 6 |
+| x | 有符号十六进制数（小写）。 | 2 |
+| X | 有符号十六进制数（大写）。 | 2 |
+| e | 浮点指数格式（小写）。 | 3 |
+| E | 浮点指数格式（大写）。 | 3 |
+| f | 浮点十进制格式。 | 3 |
+| F | 浮点十进制格式。 | 3 |
+| g | 浮点格式。 如果指数小于 4 或不小于精度则使用小写指数格式，否则使用十进制格式 | 4 |
+| G | 浮点格式。 如果指数小于 4 或不小于精度则使用大写指数格式，否则使用十进制格式 | 4 |
+| c | 单个字符（接受整数或单个字符的字符串）。 |  |
+| r | 字符串（使用 repr() 转换任何 Python 对象） | 5 |
+| s | 字符串（使用 str() 转换任何 Python 对象） | 5 |
+| a | 字符串（使用 ascii() 转换任何 Python 对象） | 5 |
+| % | 不转换参数，在结果中输出一个 '%' 字符。 |  |
+
+注释:
+
+1. 此替代形式会在第一个数码之前插入标示八进制数的前缀 ('0o')
+2. 此替代形式会在第一个数码之前插入 '0x' 或 '0X' 前缀（取决于是使用 'x' 还是 'X' 格式）
+3. 此替代形式总是会在结果中包含一个小数点，即使其后并没有数字,小数点后的数字位数由精度决定，默认为 6
+4. 此替代形式总是会在结果中包含一个小数点，末尾各位的零不会如其他情况下那样被移除,小数点前后的有效数码位数由精度决定，默认为 6
+5. 如果精度为 N，输出将截短为 N 个字符
+6. 参见[PEP 237](http://www.python.org/dev/peps/pep-0237)
+
+### re--正则表达式
+
+re模块与Perl语言类似的正则表达式匹配操作，模式和被搜索的字符串可以使Unicode字符串也可以是8为字节串(bytes)，但Unicode和8位字节串不能混用。因反斜杠\在Python中和在正则表达式中，都具有将把特殊字符转换为普通字符串的作用。所以在正则表达式模式要写成`\\\\`。解决办法是对于正则表达式样式用带有r前缀的表示Python原始字符的方法。
+
+```py
+.   默认模式匹配除了换行的任意字符，若指定标签DOTALL，将匹配包括换行符的所有字符
+^   匹配字符串的开头，在MULTILINE模式也匹配换行后的首个字符
+$   匹配字符串结尾或换行符的前一个字符，在MULTILINE模式匹配换行符的前一个字符
+*   对其前面的正则式匹配0到任意次重复
++   对其前面的正则式匹配1到任意次重复
+?   对其前的正则式匹配0到1重复
+*? +? ??    * + ?三个修饰符都是贪婪地，尽可能多的匹配。而加上?则以非贪婪模式匹配。
+{m} 对其之前正则式匹配m个重复
+{m,n}   对正则式m至n次匹配，忽略m意味着下界为0,忽略n意味着上界无限次
+{m,n}?  {m,n}修饰符的非贪婪模式,a{3,5}匹配5个a，而a{3,5}?匹配3个a
+\   转义特殊字符
+[]  表示一个字符集合，[ab]表示匹配a或b。[a-z]匹配a到z所有小写字母，特殊字符在集合中将失去其意义如：[(*+)]只匹配(、*、+、)这几个字符。字符类\w或\S在集合中可以接受，其匹配的字符由ASCII或LOCALE模块来决定。不在集合范围内的字符可以通过取反匹配，如果集合首字符是^，那么不在集合中字符将被匹配，如果^不在首位，则不具有特殊含义。
+|   A|B，A和B可以是任意正则表达式，匹配到A就不会再匹配B
+(...)   匹配括号内的任意正则表达式，并识别出组合的开始和结尾
+(?...)  扩展标记法，?和()并没有什么含义，?后的第一个字符决定构建采用什么样的语法。(?P<name>...) 是唯一的例外
+(?aiLmsux)  ( 'a', 'i', 'L', 'm', 's', 'u', 'x' 中的一个或多个) 这个组合匹配一个空字符串；这些字符对正则表达式设置以下标记 re.A (只匹配ASCII字符), re.I (忽略大小写), re.L (语言依赖), re.M (多行模式), re.S (点dot匹配全部字符), re.U (Unicode匹配), and re.X (冗长模式)。 (这些标记在 模块内容 中描述) 如果你想将这些标记包含在正则表达式中，这个方法就很有用，免去了在 re.compile() 中传递 flag 参数。标记应该在表达式字符串首位表示
+(?:…)
+正则括号的非捕获版本。 匹配在括号内的任何正则表达式，但该分组所匹配的子字符串 不能 在执行匹配后被获取或是之后在模式中被引用。
+
+(?aiLmsux-imsx:…)
+('a', 'i', 'L', 'm', 's', 'u', 'x' 中的0或者多个， 之后可选跟随 '-' 在后面跟随 'i' , 'm' , 's' , 'x' 中的一到多个 .) 这些字符为表达式的其中一部分 设置 或者 去除 相应标记 re.A (只匹配ASCII), re.I (忽略大小写), re.L (语言依赖), re.M (多行), re.S (点匹配所有字符), re.U (Unicode匹配), and re.X (冗长模式)。(标记描述在 模块内容 .)
+
+'a', 'L' and 'u' 作为内联标记是相互排斥的， 所以它们不能结合在一起，或者跟随 '-' 。 当他们中的某个出现在内联组中，它就覆盖了括号组内的匹配模式。在Unicode样式中， (?a:...) 切换为 只匹配ASCII， (?u:...) 切换为Unicode匹配 (默认). 在byte样式中 (?L:...) 切换为语言依赖模式， (?a:...) 切换为 只匹配ASCII (默认)。这种方式只覆盖组合内匹配，括号外的匹配模式不受影响。
+
+3.6 新版功能.
+
+在 3.7 版更改: 符号 'a', 'L' 和 'u' 同样可以用在一个组合内。
+
+(?P<name>…)
+（命名组合）类似正则组合，但是匹配到的子串组在外部是通过定义的 name 来获取的。组合名必须是有效的Python标识符，并且每个组合名只能用一个正则表达式定义，只能定义一次。一个符号组合同样是一个数字组合，就像这个组合没有被命名一样。
+
+命名组合可以在三种上下文中引用。如果样式是 (?P<quote>['"]).*?(?P=quote) （也就是说，匹配单引号或者双引号括起来的字符串)：
+
+
+| 引用组合quote的上下文  | 引用方法 |
+| :---------: | :---------: |
+| 在正则式自身内 | (?P=quote) (如示)
+\1 |
+| 处理匹配对象 m | m.group('quote')
+m.end('quote') (等) |
+| 传递到 re.sub() 里的 repl 参数中 | \g<quote>
+\g<1>
+\1 |
+
+(?P=name)
+反向引用一个命名组合；它匹配前面那个叫 name 的命名组中匹配到的串同样的字串。
+
+(?#…)
+注释；里面的内容会被忽略。
+
+(?=…)
+匹配 … 的内容，但是并不消费样式的内容。这个叫做 lookahead assertion。比如， Isaac (?=Asimov) 匹配 'Isaac ' 只有在后面是 'Asimov' 的时候。
+
+(?!…)
+匹配 … 不符合的情况。这个叫 negative lookahead assertion （前视取反）。比如说， Isaac (?!Asimov) 只有后面 不 是 'Asimov' 的时候才匹配 'Isaac ' 。
+
+(?<=…)
+匹配字符串的当前位置，它的前面匹配 … 的内容到当前位置。这叫:dfn:positive lookbehind assertion （正向后视断定）。 (?<=abc)def 会在 'abcdef' 中找到一个匹配，因为后视会往后看3个字符并检查是否包含匹配的样式。包含的匹配样式必须是定长的，意思就是 abc 或 a|b 是允许的，但是 a* 和 a{3,4} 不可以。注意以 positive lookbehind assertions 开始的样式，如 (?<=abc)def ，并不是从 a 开始搜索，而是从 d 往回看的。你可能更加愿意使用 search() 函数，而不是 match() 函数：
+
+>>> import re
+>>> m = re.search('(?<=abc)def', 'abcdef')
+>>> m.group(0)
+'def'
+这个例子搜索一个跟随在连字符后的单词：
+
+>>> m = re.search(r'(?<=-)\w+', 'spam-egg')
+>>> m.group(0)
+'egg'
+在 3.5 版更改: 添加定长组合引用的支持。
+
+(?<!…)
+匹配当前位置之前不是 … 的样式。这个叫:dfn:negative lookbehind assertion （后视断定取非）。类似正向后视断定，包含的样式匹配必须是定长的。由 negative lookbehind assertion 开始的样式可以从字符串搜索开始的位置进行匹配。
+
+(?(id/name)yes-pattern|no-pattern)
+如果给定的 id 或 name 存在，将会尝试匹配 yes-pattern ，否则就尝试匹配 no-pattern，no-pattern 可选，也可以被忽略。比如， (<)?(\w+@\w+(?:\.\w+)+)(?(1)>|$) 是一个email样式匹配，将匹配 '<user@host.com>' 或 'user@host.com' ，但不会匹配 '<user@host.com' ，也不会匹配 'user@host.com>'。
+
+由\和一个字符组成的特殊序列在以下列出。 如果普通字符不是ASCII数位或者ASCII字母，那么正则样式将匹配第二个字符。比如，\$ 匹配字符 '$'.
+
+\number
+匹配数字代表的组合。每个括号是一个组合，组合从1开始编号。比如 (.+) \1 匹配 'the the' 或者 '55 55', 但不会匹配 'thethe' (注意组合后面的空格)。这个特殊序列只能用于匹配前面99个组合。如果 number 的第一个数位是0， 或者 number 是三个八进制数，它将不会被看作是一个组合，而是八进制的数字值。在 '[' 和 ']' 字符集合内，任何数字转义都被看作是字符。
+
+\A
+只匹配字符串开始。
+
+\b
+匹配空字符串，但只在单词开始或结尾的位置。一个单词被定义为一个单词字符的序列。注意，通常 \b 定义为 \w 和 \W 字符之间，或者 \w 和字符串开始/结尾的边界， 意思就是 r'\bfoo\b' 匹配 'foo', 'foo.', '(foo)', 'bar foo baz' 但不匹配 'foobar' 或者 'foo3'。
+
+默认情况下，Unicode字母和数字是在Unicode样式中使用的，但是可以用 ASCII 标记来更改。如果 LOCALE 标记被设置的话，词的边界是由当前语言区域设置决定的，\b 表示退格字符，以便与Python字符串文本兼容。
+
+\B
+匹配空字符串，但 不 能在词的开头或者结尾。意思就是 r'py\B' 匹配 'python', 'py3', 'py2', 但不匹配 'py', 'py.', 或者 'py!'. \B 是 \b 的取非，所以Unicode样式的词语是由Unicode字母，数字或下划线构成的，虽然可以用 ASCII 标志来改变。如果使用了 LOCALE 标志，则词的边界由当前语言区域设置。
+
+\d
+对于 Unicode (str) 样式：
+匹配任何Unicode十进制数（就是在Unicode字符目录[Nd]里的字符）。这包括了 [0-9] ，和很多其他的数字字符。如果设置了 ASCII 标志，就只匹配 [0-9] 。
+
+对于8位(bytes)样式：
+匹配任何十进制数，就是 [0-9]。
+
+\D
+匹配任何非十进制数字的字符。就是 \d 取非。 如果设置了 ASCII 标志，就相当于 [^0-9] 。
+
+\s
+对于 Unicode (str) 样式：
+匹配任何Unicode空白字符（包括 [ \t\n\r\f\v] ，还有很多其他字符，比如不同语言排版规则约定的不换行空格）。如果 ASCII 被设置，就只匹配 [ \t\n\r\f\v] 。
+
+对于8位(bytes)样式：
+匹配ASCII中的空白字符，就是 [ \t\n\r\f\v] 。
+
+\S
+匹配任何非空白字符。就是 \s 取非。如果设置了 ASCII 标志，就相当于 [^ \t\n\r\f\v] 。
+
+\w
+对于 Unicode (str) 样式：
+匹配Unicode词语的字符，包含了可以构成词语的绝大部分字符，也包括数字和下划线。如果设置了 ASCII 标志，就只匹配 [a-zA-Z0-9_] 。
+
+对于8位(bytes)样式：
+匹配ASCII字符中的数字和字母和下划线，就是 [a-zA-Z0-9_] 。如果设置了 LOCALE 标记，就匹配当前语言区域的数字和字母和下划线。
+
+\W
+匹配任何非词语字符。是 \w 取非。如果设置了 ASCII 标记，就相当于 [^a-zA-Z0-9_] 。如果设置了 LOCALE 标志，就匹配当前语言区域的 非 词语字符。
+
+\Z
+只匹配字符串尾
+
+```
 
 ## Python条件判断语句
 
@@ -941,24 +1476,6 @@ while True:
         break
 ```
 
-### python3输入和输出
-
-```py
-输出格式化
-Python两种输出值的方式: 表达式语句和 print() 函数。
-第三种方式是使用文件对象的 write() 方法，标准输出文件可以用 sys.stdout 引用。
-如果你希望输出的形式更加多样，可以使用 str.format() 函数来格式化输出值。
-如果你希望将输出的值转成字符串，可以使用 repr() 或 str() 函数来实现。
-str()： 函数返回一个用户易读的表达形式。
-repr()： 产生一个解释器易读的表达形式。
-
-读取键盘输入
-python提供了input()内置函数从标准输入读取一行文本，默认标准输入是键盘
-str = input("输入："):
-print(str)
-
-```
-
 ## Python3 File(文件) 方法
 
 ```py
@@ -988,6 +1505,7 @@ opener:可以通过传递可调用的* opener *来使用自定义opener。 然�
 ```
 
 mode 参数有：
+
 |模式|描述|
 | :------: | :------: |
 |r|以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。|
@@ -1111,982 +1629,3 @@ file 对象使用 open 函数来创建，下表列出了 file 对象常用的函
 | os.walk(top[, topdown=True[, onerror=None[, followlinks=False]]]) | 输出在文件夹中的文件名通过在树中游走，向上或者向下。 |
 | os.write(fd, str) | 写入字符串到文件描述符 fd中. 返回实际写入的字符串长度 |
 | os.path 模块) | 获取文件的属性信息。 |
-
-## python3面向对象
-
-```py
-类(Class): 用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。
-方法：类中定义的函数。
-类变量：类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。
-数据成员：类变量或者实例变量用于处理类及其实例对象的相关的数据。
-方法重写：如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重写。
-实例变量：定义在方法中的变量，只作用于当前实例的类。
-继承：即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟"是一个（is-a）"关系（例图，Dog是一个Animal）。
-实例化：创建一个类的实例，类的具体对象。
-对象：通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。
-
-类的专有方法：
-__init__ : 构造函数，在生成对象时调用
-__del__ : 析构函数，释放对象时使用
-__repr__ : 打印，转换
-__setitem__ : 按照索引赋值
-__getitem__: 按照索引获取值
-__len__: 获得长度
-__cmp__: 比较运算
-__call__: 函数调用
-__add__: 加运算
-__sub__: 减运算
-__mul__: 乘运算
-__div__: 除运算
-__mod__: 求余运算
-__pow__: 乘方
-```
-
-```py
-# ###################################################
-# # 1. 基本数据类型和运算
-# ###################################################
-
-# You have numbers
-3  # => 3
-
-# Math is what you would expect
-1 + 1   # => 2
-8 - 1   # => 7
-10 * 2  # => 20
-35 / 5  # => 7.0
-
-# Result of integer division truncated down both for positive and negative.
-5 // 3       # => 1
-5.0 // 3.0   # => 1.0 # works on floats too
--5 // 3      # => -2
--5.0 // 3.0  # => -2.0
-
-# The result of division is always a float
-10.0 / 3  # => 3.3333333333333335
-
-# Modulo operation
-7 % 3  # => 1
-
-# Exponentiation (x**y, x to the yth power)
-2**3  # => 8
-
-# Enforce precedence with parentheses
-(1 + 3) * 2  # => 8
-
-# Boolean values are primitives (Note: the capitalization)
-True
-False
-
-# negate with not
-not True   # => False
-not False  # => True
-
-# Boolean Operators
-# Note "and" and "or" are case-sensitive
-True and False  # => False
-False or True   # => True
-'''
-# Note using Bool operators with ints
-# False is 0 and True is 1
-# Don't mix up with bool(ints) and bitwise and/or (&,|)
-0 and 2     # => 0
--5 or 0     # => -5
-0 == False  # => True
-2 == True   # => False
-1 == True   # => True
--5 != False != True #=> True
-'''
-# Equality is ==
-1 == 1  # => True
-2 == 1  # => False
-
-# Inequality is !=
-1 != 1  # => False
-2 != 1  # => True
-
-# More comparisons
-1 < 10  # => True
-1 > 10  # => False
-2 <= 2  # => True
-2 >= 2  # => True
-
-# Comparisons can be chained!
-1 < 2 < 3  # => True
-2 < 3 < 2  # => False
-
-# (is vs. ==) is checks if two variables refer to the same object, but == checks
-# if the objects pointed to have the same values.
-a = [1, 2, 3, 4]  # Point a at a new list, [1, 2, 3, 4]
-b = a             # Point b at what a is pointing to
-b is a            # => True, a and b refer to the same object
-b == a            # => True, a's and b's objects are equal
-b = [1, 2, 3, 4]  # Point b at a new list, [1, 2, 3, 4]
-b is a            # => False, a and b do not refer to the same object
-b == a            # => True, a's and b's objects are equal
-
-# Strings are created with " or '
-"This is a string."
-'This is also a string.'
-
-# Strings can be added too! But try not to do this.
-"Hello " + "world!"  # => "Hello world!"
-# String literals (but not variables) can be concatenated without using '+'
-"Hello " "world!"    # => "Hello world!"
-
-# A string can be treated like a list of characters
-"This is a string"[0]  # => 'T'
-
-# You can find the length of a string
-len("This is a string")  # => 16
-
-# .format can be used to format strings, like this:
-"{} can be {}".format("Strings", "interpolated")  # => "Strings can be interpolated"
-
-# You can repeat the formatting arguments to save some typing.
-"{0} be nimble, {0} be quick, {0} jump over the {1}".format("Jack", "candle stick")
-# => "Jack be nimble, Jack be quick, Jack jump over the candle stick"
-
-# You can use keywords if you don't want to count.
-"{name} wants to eat {food}".format(name="Bob", food="lasagna")  # => "Bob wants to eat lasagna"
-
-# If your Python 3 code also needs to run on Python 2.5 and below, you can also
-# still use the old style of formatting:
-"%s can be %s the %s way" % ("Strings", "interpolated", "old")  # => "Strings can be interpolated the old way"
-
-
-# None is an object
-None  # => None
-
-# Don't use the equality "==" symbol to compare objects to None
-# Use "is" instead. This checks for equality of object identity.
-"etc" is None  # => False
-None is None   # => True
-
-# None, 0, and empty strings/lists/dicts/tuples all evaluate to False.
-# All other values are True
-bool(0)   # => False
-bool("")  # => False
-bool([])  # => False
-bool({})  # => False
-bool(())  # => False
-
-####################################################
-## 2. Variables and Collections
-####################################################
-
-# Python has a print function
-print("I'm Python. Nice to meet you!")  # => I'm Python. Nice to meet you!
-
-# By default the print function also prints out a newline at the end.
-# Use the optional argument end to change the end string.
-print("Hello, World", end="!")  # => Hello, World!
-
-# Simple way to get input data from console
-input_string_var = input("Enter some data: ") # Returns the data as a string
-# Note: In earlier versions of Python, input() method was named as raw_input()
-
-# There are no declarations, only assignments.
-# Convention is to use lower_case_with_underscores
-some_var = 5
-some_var  # => 5
-
-# Accessing a previously unassigned variable is an exception.
-# See Control Flow to learn more about exception handling.
-some_unknown_var  # Raises a NameError
-
-# if can be used as an expression
-# Equivalent of C's '?:' ternary operator
-"yahoo!" if 3 > 2 else 2  # => "yahoo!"
-
-# Lists store sequences
-li = []
-# You can start with a prefilled list
-other_li = [4, 5, 6]
-
-# Add stuff to the end of a list with append
-li.append(1)    # li is now [1]
-li.append(2)    # li is now [1, 2]
-li.append(4)    # li is now [1, 2, 4]
-li.append(3)    # li is now [1, 2, 4, 3]
-# Remove from the end with pop
-li.pop()        # => 3 and li is now [1, 2, 4]
-# Let's put it back
-li.append(3)    # li is now [1, 2, 4, 3] again.
-
-# Access a list like you would any array
-li[0]   # => 1
-# Look at the last element
-li[-1]  # => 3
-
-# Looking out of bounds is an IndexError
-li[4]  # Raises an IndexError
-
-# You can look at ranges with slice syntax.
-# The start index is included, the end index is not
-# (It's a closed/open range for you mathy types.)
-li[1:3]   # => [2, 4]
-# Omit the end
-li[2:]    # => [4, 3]
-# Omit the beginning
-li[:3]    # => [1, 2, 4]
-# Select every second entry
-li[::2]   # =>[1, 4]
-# Return a reversed copy of the list
-li[::-1]  # => [3, 4, 2, 1]
-# Use any combination of these to make advanced slices
-# li[start:end:step]
-
-# Make a one layer deep copy using slices
-li2 = li[:]  # => li2 = [1, 2, 4, 3] but (li2 is li) will result in false.
-
-# Remove arbitrary elements from a list with "del"
-del li[2]  # li is now [1, 2, 3]
-
-# Remove first occurrence of a value
-li.remove(2)  # li is now [1, 3]
-li.remove(2)  # Raises a ValueError as 2 is not in the list
-
-# Insert an element at a specific index
-li.insert(1, 2)  # li is now [1, 2, 3] again
-
-# Get the index of the first item found matching the argument
-li.index(2)  # => 1
-li.index(4)  # Raises a ValueError as 4 is not in the list
-
-# You can add lists
-# Note: values for li and for other_li are not modified.
-li + other_li  # => [1, 2, 3, 4, 5, 6]
-
-# Concatenate lists with "extend()"
-li.extend(other_li)  # Now li is [1, 2, 3, 4, 5, 6]
-
-# Check for existence in a list with "in"
-1 in li  # => True
-
-# Examine the length with "len()"
-len(li)  # => 6
-
-
-# Tuples are like lists but are immutable.
-tup = (1, 2, 3)
-tup[0]      # => 1
-tup[0] = 3  # Raises a TypeError
-
-# Note that a tuple of length one has to have a comma after the last element but
-# tuples of other lengths, even zero, do not.
-type((1))   # => <class 'int'>
-type((1,))  # => <class 'tuple'>
-type(())    # => <class 'tuple'>
-
-# You can do most of the list operations on tuples too
-len(tup)         # => 3
-tup + (4, 5, 6)  # => (1, 2, 3, 4, 5, 6)
-tup[:2]          # => (1, 2)
-2 in tup         # => True
-
-# You can unpack tuples (or lists) into variables
-a, b, c = (1, 2, 3)  # a is now 1, b is now 2 and c is now 3
-# You can also do extended unpacking
-a, *b, c = (1, 2, 3, 4)  # a is now 1, b is now [2, 3] and c is now 4
-# Tuples are created by default if you leave out the parentheses
-d, e, f = 4, 5, 6
-# Now look how easy it is to swap two values
-e, d = d, e  # d is now 5 and e is now 4
-
-
-# Dictionaries store mappings from keys to values
-empty_dict = {}
-# Here is a prefilled dictionary
-filled_dict = {"one": 1, "two": 2, "three": 3}
-
-# Note keys for dictionaries have to be immutable types. This is to ensure that
-# the key can be converted to a constant hash value for quick look-ups.
-# Immutable types include ints, floats, strings, tuples.
-invalid_dict = {[1,2,3]: "123"}  # => Raises a TypeError: unhashable type: 'list'
-valid_dict = {(1,2,3):[1,2,3]}   # Values can be of any type, however.
-
-# Look up values with []
-filled_dict["one"]  # => 1
-
-# Get all keys as an iterable with "keys()". We need to wrap the call in list()
-# to turn it into a list. We'll talk about those later.  Note - Dictionary key
-# ordering is not guaranteed. Your results might not match this exactly.
-list(filled_dict.keys())  # => ["three", "two", "one"]
-
-
-# Get all values as an iterable with "values()". Once again we need to wrap it
-# in list() to get it out of the iterable. Note - Same as above regarding key
-# ordering.
-list(filled_dict.values())  # => [3, 2, 1]
-
-
-# Check for existence of keys in a dictionary with "in"
-"one" in filled_dict  # => True
-1 in filled_dict      # => False
-
-# Looking up a non-existing key is a KeyError
-filled_dict["four"]  # KeyError
-
-# Use "get()" method to avoid the KeyError
-filled_dict.get("one")      # => 1
-filled_dict.get("four")     # => None
-# The get method supports a default argument when the value is missing
-filled_dict.get("one", 4)   # => 1
-filled_dict.get("four", 4)  # => 4
-
-# "setdefault()" inserts into a dictionary only if the given key isn't present
-filled_dict.setdefault("five", 5)  # filled_dict["five"] is set to 5
-filled_dict.setdefault("five", 6)  # filled_dict["five"] is still 5
-
-# Adding to a dictionary
-filled_dict.update({"four":4})  # => {"one": 1, "two": 2, "three": 3, "four": 4}
-filled_dict["four"] = 4         # another way to add to dict
-
-# Remove keys from a dictionary with del
-del filled_dict["one"]  # Removes the key "one" from filled dict
-
-# From Python 3.5 you can also use the additional unpacking options
-{'a': 1, **{'b': 2}}  # => {'a': 1, 'b': 2}
-{'a': 1, **{'a': 2}}  # => {'a': 2}
-
-
-
-# Sets store ... well sets
-empty_set = set()
-# Initialize a set with a bunch of values. Yeah, it looks a bit like a dict. Sorry.
-some_set = {1, 1, 2, 2, 3, 4}  # some_set is now {1, 2, 3, 4}
-
-# Similar to keys of a dictionary, elements of a set have to be immutable.
-invalid_set = {[1], 1}  # => Raises a TypeError: unhashable type: 'list'
-valid_set = {(1,), 1}
-
-# Add one more item to the set
-filled_set = some_set
-filled_set.add(5)  # filled_set is now {1, 2, 3, 4, 5}
-
-# Do set intersection with &
-other_set = {3, 4, 5, 6}
-filled_set & other_set  # => {3, 4, 5}
-
-# Do set union with |
-filled_set | other_set  # => {1, 2, 3, 4, 5, 6}
-
-# Do set difference with -
-{1, 2, 3, 4} - {2, 3, 5}  # => {1, 4}
-
-# Do set symmetric difference with ^
-{1, 2, 3, 4} ^ {2, 3, 5}  # => {1, 4, 5}
-
-# Check if set on the left is a superset of set on the right
-{1, 2} >= {1, 2, 3} # => False
-
-# Check if set on the left is a subset of set on the right
-{1, 2} <= {1, 2, 3} # => True
-
-# Check for existence in a set with in
-2 in filled_set   # => True
-10 in filled_set  # => False
-
-
-
-####################################################
-## 3. Control Flow and Iterables
-####################################################
-
-# Let's just make a variable
-some_var = 5
-
-# Here is an if statement. Indentation is significant in Python!
-# Convention is to use four spaces, not tabs.
-# This prints "some_var is smaller than 10"
-if some_var > 10:
-    print("some_var is totally bigger than 10.")
-elif some_var < 10:    # This elif clause is optional.
-    print("some_var is smaller than 10.")
-else:                  # This is optional too.
-    print("some_var is indeed 10.")
-
-
-"""
-For loops iterate over lists
-prints:
-    dog is a mammal
-    cat is a mammal
-    mouse is a mammal
-"""
-for animal in ["dog", "cat", "mouse"]:
-    # You can use format() to interpolate formatted strings
-    print("{} is a mammal".format(animal))
-
-"""
-"range(number)" returns an iterable of numbers
-from zero to the given number
-prints:
-    0
-    1
-    2
-    3
-"""
-for i in range(4):
-    print(i)
-
-"""
-"range(lower, upper)" returns an iterable of numbers
-from the lower number to the upper number
-prints:
-    4
-    5
-    6
-    7
-"""
-for i in range(4, 8):
-    print(i)
-
-"""
-"range(lower, upper, step)" returns an iterable of numbers
-from the lower number to the upper number, while incrementing
-by step. If step is not indicated, the default value is 1.
-prints:
-    4
-    6
-"""
-for i in range(4, 8, 2):
-    print(i)
-"""
-
-While loops go until a condition is no longer met.
-prints:
-    0
-    1
-    2
-    3
-"""
-x = 0
-while x < 4:
-    print(x)
-    x += 1  # Shorthand for x = x + 1
-
-# Handle exceptions with a try/except block
-try:
-    # Use "raise" to raise an error
-    raise IndexError("This is an index error")
-except IndexError as e:
-    pass                 # Pass is just a no-op. Usually you would do recovery here.
-except (TypeError, NameError):
-    pass                 # Multiple exceptions can be handled together, if required.
-else:                    # Optional clause to the try/except block. Must follow all except blocks
-    print("All good!")   # Runs only if the code in try raises no exceptions
-finally:                 #  Execute under all circumstances
-    print("We can clean up resources here")
-
-# Instead of try/finally to cleanup resources you can use a with statement
-with open("myfile.txt") as f:
-    for line in f:
-        print(line)
-
-# Python offers a fundamental abstraction called the Iterable.
-# An iterable is an object that can be treated as a sequence.
-# The object returned by the range function, is an iterable.
-
-filled_dict = {"one": 1, "two": 2, "three": 3}
-our_iterable = filled_dict.keys()
-print(our_iterable)  # => dict_keys(['one', 'two', 'three']). This is an object that implements our Iterable interface.
-
-# We can loop over it.
-for i in our_iterable:
-    print(i)  # Prints one, two, three
-
-# However we cannot address elements by index.
-our_iterable[1]  # Raises a TypeError
-
-# An iterable is an object that knows how to create an iterator.
-our_iterator = iter(our_iterable)
-
-# Our iterator is an object that can remember the state as we traverse through it.
-# We get the next object with "next()".
-next(our_iterator)  # => "one"
-
-# It maintains state as we iterate.
-next(our_iterator)  # => "two"
-next(our_iterator)  # => "three"
-
-# After the iterator has returned all of its data, it raises a StopIteration exception
-next(our_iterator)  # Raises StopIteration
-
-# You can grab all the elements of an iterator by calling list() on it.
-list(filled_dict.keys())  # => Returns ["one", "two", "three"]
-
-
-####################################################
-## 4. Functions
-####################################################
-
-# Use "def" to create new functions
-def add(x, y):
-    print("x is {} and y is {}".format(x, y))
-    return x + y  # Return values with a return statement
-
-# Calling functions with parameters
-add(5, 6)  # => prints out "x is 5 and y is 6" and returns 11
-
-# Another way to call functions is with keyword arguments
-add(y=6, x=5)  # Keyword arguments can arrive in any order.
-
-# You can define functions that take a variable number of
-# positional arguments
-def varargs(*args):
-    return args
-
-varargs(1, 2, 3)  # => (1, 2, 3)
-
-# You can define functions that take a variable number of
-# keyword arguments, as well
-def keyword_args(**kwargs):
-    return kwargs
-
-# Let's call it to see what happens
-keyword_args(big="foot", loch="ness")  # => {"big": "foot", "loch": "ness"}
-
-
-# You can do both at once, if you like
-def all_the_args(*args, **kwargs):
-    print(args)
-    print(kwargs)
-"""
-all_the_args(1, 2, a=3, b=4) prints:
-    (1, 2)
-    {"a": 3, "b": 4}
-"""
-
-# When calling functions, you can do the opposite of args/kwargs!
-# Use * to expand tuples and use ** to expand kwargs.
-args = (1, 2, 3, 4)
-kwargs = {"a": 3, "b": 4}
-all_the_args(*args)            # equivalent to foo(1, 2, 3, 4)
-all_the_args(**kwargs)         # equivalent to foo(a=3, b=4)
-all_the_args(*args, **kwargs)  # equivalent to foo(1, 2, 3, 4, a=3, b=4)
-
-# Returning multiple values (with tuple assignments)
-def swap(x, y):
-    return y, x  # Return multiple values as a tuple without the parenthesis.
-                 # (Note: parenthesis have been excluded but can be included)
-
-x = 1
-y = 2
-x, y = swap(x, y)     # => x = 2, y = 1
-# (x, y) = swap(x,y)  # Again parenthesis have been excluded but can be included.
-
-# Function Scope
-x = 5
-
-def set_x(num):
-    # Local var x not the same as global variable x
-    x = num    # => 43
-    print(x)   # => 43
-
-def set_global_x(num):
-    global x
-    print(x)   # => 5
-    x = num    # global var x is now set to 6
-    print(x)   # => 6
-
-set_x(43)
-set_global_x(6)
-
-
-# Python has first class functions
-def create_adder(x):
-    def adder(y):
-        return x + y
-    return adder
-
-add_10 = create_adder(10)
-add_10(3)   # => 13
-
-# There are also anonymous functions
-(lambda x: x > 2)(3)                  # => True
-(lambda x, y: x ** 2 + y ** 2)(2, 1)  # => 5
-
-# There are built-in higher order functions
-list(map(add_10, [1, 2, 3]))          # => [11, 12, 13]
-list(map(max, [1, 2, 3], [4, 2, 1]))  # => [4, 2, 3]
-
-list(filter(lambda x: x > 5, [3, 4, 5, 6, 7]))  # => [6, 7]
-
-# We can use list comprehensions for nice maps and filters
-# List comprehension stores the output as a list which can itself be a nested list
-[add_10(i) for i in [1, 2, 3]]         # => [11, 12, 13]
-[x for x in [3, 4, 5, 6, 7] if x > 5]  # => [6, 7]
-
-# You can construct set and dict comprehensions as well.
-{x for x in 'abcddeef' if x not in 'abc'}  # => {'d', 'e', 'f'}
-{x: x**2 for x in range(5)}  # => {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
-
-
-####################################################
-## 5. Modules
-####################################################
-
-# You can import modules
-import math
-print(math.sqrt(16))  # => 4.0
-
-# You can get specific functions from a module
-from math import ceil, floor
-print(ceil(3.7))   # => 4.0
-print(floor(3.7))  # => 3.0
-
-# You can import all functions from a module.
-# Warning: this is not recommended
-from math import *
-
-# You can shorten module names
-import math as m
-math.sqrt(16) == m.sqrt(16)  # => True
-
-# Python modules are just ordinary Python files. You
-# can write your own, and import them. The name of the
-# module is the same as the name of the file.
-
-# You can find out which functions and attributes
-# are defined in a module.
-import math
-dir(math)
-
-# If you have a Python script named math.py in the same
-# folder as your current script, the file math.py will
-# be loaded instead of the built-in Python module.
-# This happens because the local folder has priority
-# over Python's built-in libraries.
-
-
-####################################################
-## 6. Classes
-####################################################
-
-# We use the "class" statement to create a class
-class Human:
-
-    # A class attribute. It is shared by all instances of this class
-    species = "H. sapiens"
-
-    # Basic initializer, this is called when this class is instantiated.
-    # Note that the double leading and trailing underscores denote objects
-    # or attributes that are used by Python but that live in user-controlled
-    # namespaces. Methods(or objects or attributes) like: __init__, __str__,
-    # __repr__ etc. are called special methods (or sometimes called dunder methods)
-    # You should not invent such names on your own.
-    def __init__(self, name):
-        # Assign the argument to the instance's name attribute
-        self.name = name
-
-        # Initialize property
-        self._age = 0
-
-    # An instance method. All methods take "self" as the first argument
-    def say(self, msg):
-        print("{name}: {message}".format(name=self.name, message=msg))
-
-    # Another instance method
-    def sing(self):
-        return 'yo... yo... microphone check... one two... one two...'
-
-    # A class method is shared among all instances
-    # They are called with the calling class as the first argument
-    @classmethod
-    def get_species(cls):
-        return cls.species
-
-    # A static method is called without a class or instance reference
-    @staticmethod
-    def grunt():
-        return "*grunt*"
-
-    # A property is just like a getter.
-    # It turns the method age() into an read-only attribute of the same name.
-    # There's no need to write trivial getters and setters in Python, though.
-    @property
-    def age(self):
-        return self._age
-
-    # This allows the property to be set
-    @age.setter
-    def age(self, age):
-        self._age = age
-
-    # This allows the property to be deleted
-    @age.deleter
-    def age(self):
-        del self._age
-
-
-# When a Python interpreter reads a source file it executes all its code.
-# This __name__ check makes sure this code block is only executed when this
-# module is the main program.
-if __name__ == '__main__':
-    # Instantiate a class
-    i = Human(name="Ian")
-    i.say("hi")                     # "Ian: hi"
-    j = Human("Joel")
-    j.say("hello")                  # "Joel: hello"
-    # i and j are instances of type Human, or in other words: they are Human objects
-
-    # Call our class method
-    i.say(i.get_species())          # "Ian: H. sapiens"
-    # Change the shared attribute
-    Human.species = "H. neanderthalensis"
-    i.say(i.get_species())          # => "Ian: H. neanderthalensis"
-    j.say(j.get_species())          # => "Joel: H. neanderthalensis"
-
-    # Call the static method
-    print(Human.grunt())            # => "*grunt*"
-
-    # Cannot call static method with instance of object
-    # because i.grunt() will automatically put "self" (the object i) as an argument
-    print(i.grunt())                # => TypeError: grunt() takes 0 positional arguments but 1 was given
-
-    # Update the property for this instance
-    i.age = 42
-    # Get the property
-    i.say(i.age)                    # => "Ian: 42"
-    j.say(j.age)                    # => "Joel: 0"
-    # Delete the property
-    del i.age
-    # i.age                         # => this would raise an AttributeError
-
-
-####################################################
-## 6.1 Inheritance
-####################################################
-
-# Inheritance allows new child classes to be defined that inherit methods and
-# variables from their parent class.
-
-# Using the Human class defined above as the base or parent class, we can
-# define a child class, Superhero, which inherits the class variables like
-# "species", "name", and "age", as well as methods, like "sing" and "grunt"
-# from the Human class, but can also have its own unique properties.
-
-# To take advantage of modularization by file you could place the classes above in their own files,
-# say, human.py
-
-# To import functions from other files use the following format
-# from "filename-without-extension" import "function-or-class"
-
-from human import Human
-
-
-# Specify the parent class(es) as parameters to the class definition
-class Superhero(Human):
-
-    # If the child class should inherit all of the parent's definitions without
-    # any modifications, you can just use the "pass" keyword (and nothing else)
-    # but in this case it is commented out to allow for a unique child class:
-    # pass
-
-    # Child classes can override their parents' attributes
-    species = 'Superhuman'
-
-    # Children automatically inherit their parent class's constructor including
-    # its arguments, but can also define additional arguments or definitions
-    # and override its methods such as the class constructor.
-    # This constructor inherits the "name" argument from the "Human" class and
-    # adds the "superpower" and "movie" arguments:
-    def __init__(self, name, movie=False,
-                 superpowers=["super strength", "bulletproofing"]):
-
-        # add additional class attributes:
-        self.fictional = True
-        self.movie = movie
-        self.superpowers = superpowers
-
-        # The "super" function lets you access the parent class's methods
-        # that are overridden by the child, in this case, the __init__ method.
-        # This calls the parent class constructor:
-        super().__init__(name)
-
-    # overload the sing method
-    def sing(self):
-        return 'Dun, dun, DUN!'
-
-    # add an additional class method
-    def boast(self):
-        for power in self.superpowers:
-            print("I wield the power of {pow}!".format(pow=power))
-
-
-if __name__ == '__main__':
-    sup = Superhero(name="Tick")
-
-    # Instance type checks
-    if isinstance(sup, Human):
-        print('I am human')
-    if type(sup) is Superhero:
-        print('I am a superhero')
-
-    # Get the Method Resolution search Order used by both getattr() and super()
-    # This attribute is dynamic and can be updated
-    print(Superhero.__mro__)    # => (<class '__main__.Superhero'>,
-                                # => <class 'human.Human'>, <class 'object'>)
-
-    # Calls parent method but uses its own class attribute
-    print(sup.get_species())    # => Superhuman
-
-    # Calls overloaded method
-    print(sup.sing())           # => Dun, dun, DUN!
-
-    # Calls method from Human
-    sup.say('Spoon')            # => Tick: Spoon
-
-    # Call method that exists only in Superhero
-    sup.boast()                 # => I wield the power of super strength!
-                                # => I wield the power of bulletproofing!
-
-    # Inherited class attribute
-    sup.age = 31
-    print(sup.age)              # => 31
-
-    # Attribute that only exists within Superhero
-    print('Am I Oscar eligible? ' + str(sup.movie))
-
-####################################################
-## 6.2 Multiple Inheritance
-####################################################
-
-# Another class definition
-# bat.py
-class Bat:
-
-    species = 'Baty'
-
-    def __init__(self, can_fly=True):
-        self.fly = can_fly
-
-    # This class also has a say method
-    def say(self, msg):
-        msg = '... ... ...'
-        return msg
-
-    # And its own method as well
-    def sonar(self):
-        return '))) ... ((('
-
-if __name__ == '__main__':
-    b = Bat()
-    print(b.say('hello'))
-    print(b.fly)
-
-
-# And yet another class definition that inherits from Superhero and Bat
-# superhero.py
-from superhero import Superhero
-from bat import Bat
-
-# Define Batman as a child that inherits from both Superhero and Bat
-class Batman(Superhero, Bat):
-
-    def __init__(self, *args, **kwargs):
-        # Typically to inherit attributes you have to call super:
-        #super(Batman, self).__init__(*args, **kwargs)
-        # However we are dealing with multiple inheritance here, and super()
-        # only works with the next base class in the MRO list.
-        # So instead we explicitly call __init__ for all ancestors.
-        # The use of *args and **kwargs allows for a clean way to pass arguments,
-        # with each parent "peeling a layer of the onion".
-        Superhero.__init__(self, 'anonymous', movie=True,
-                           superpowers=['Wealthy'], *args, **kwargs)
-        Bat.__init__(self, *args, can_fly=False, **kwargs)
-        # override the value for the name attribute
-        self.name = 'Sad Affleck'
-
-    def sing(self):
-        return 'nan nan nan nan nan batman!'
-
-
-if __name__ == '__main__':
-    sup = Batman()
-
-    # Get the Method Resolution search Order used by both getattr() and super().
-    # This attribute is dynamic and can be updated
-    print(Batman.__mro__)       # => (<class '__main__.Batman'>,
-                                # => <class 'superhero.Superhero'>,
-                                # => <class 'human.Human'>,
-                                # => <class 'bat.Bat'>, <class 'object'>)
-
-    # Calls parent method but uses its own class attribute
-    print(sup.get_species())    # => Superhuman
-
-    # Calls overloaded method
-    print(sup.sing())           # => nan nan nan nan nan batman!
-
-    # Calls method from Human, because inheritance order matters
-    sup.say('I agree')          # => Sad Affleck: I agree
-
-    # Call method that exists only in 2nd ancestor
-    print(sup.sonar())          # => ))) ... (((
-
-    # Inherited class attribute
-    sup.age = 100
-    print(sup.age)              # => 100
-
-    # Inherited attribute from 2nd ancestor whose default value was overridden.
-    print('Can I fly? ' + str(sup.fly)) # => Can I fly? False
-
-
-
-####################################################
-## 7. Advanced
-####################################################
-
-# Generators help you make lazy code.
-def double_numbers(iterable):
-    for i in iterable:
-        yield i + i
-
-# Generators are memory-efficient because they only load the data needed to
-# process the next value in the iterable. This allows them to perform
-# operations on otherwise prohibitively large value ranges.
-# NOTE: `range` replaces `xrange` in Python 3.
-for i in double_numbers(range(1, 900000000)):  # `range` is a generator.
-    print(i)
-    if i >= 30:
-        break
-
-# Just as you can create a list comprehension, you can create generator
-# comprehensions as well.
-values = (-x for x in [1,2,3,4,5])
-for x in values:
-    print(x)  # prints -1 -2 -3 -4 -5 to console/terminal
-
-# You can also cast a generator comprehension directly to a list.
-values = (-x for x in [1,2,3,4,5])
-gen_to_list = list(values)
-print(gen_to_list)  # => [-1, -2, -3, -4, -5]
-
-
-# Decorators
-# In this example `beg` wraps `say`. If say_please is True then it
-# will change the returned message.
-from functools import wraps
-
-
-def beg(target_function):
-    @wraps(target_function)
-    def wrapper(*args, **kwargs):
-        msg, say_please = target_function(*args, **kwargs)
-        if say_please:
-            return "{} {}".format(msg, "Please! I am poor :(")
-        return msg
-
-    return wrapper
-
-
-@beg
-def say(say_please=False):
-    msg = "Can you buy me a beer?"
-    return msg, say_please
-
-
-print(say())                 # Can you buy me a beer?
-print(say(say_please=True))  # Can you buy me a beer? Please! I am poor :(

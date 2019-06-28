@@ -4,7 +4,7 @@
 
 views是只读的且无法重新命名，对视图执行写操作会报错，视图支持的读操作有：
 
-```js
+```markdown
 db.collection.find()
 db.collection.findOne()
 db.collection.aggregate()
@@ -37,27 +37,27 @@ capped替代方案：使用TTL(生存时间)索引从集合删除过期数据；
 每种BSON类型都有整数和字符串标识符，如下表所示
 | Type | Number | Alias | Notes |
 | :------: | :------: | :------: | :------: |
-| Double | 1 | “double” |  |
-| String | 2 | “string” |  |
-| Object | 3 | “object” |  |
-| Array | 4 | “array” |  |
-| Binary data | 5 | “binData” |  |
+| Double | 1 | “double” |
+| String | 2 | “string” |
+| Object | 3 | “object” |
+| Array | 4 | “array” |
+| Binary data | 5 | “binData” |
 | Undefined | 6 | “undefined” | 已废弃 |
-| ObjectId | 7 | “objectId” |  |
-| Boolean | 8 | “bool” |  |
-| Date | 9 | “date” |  |
-| Null | 10 | “null” |  |
-| Regular Expression | 11 | “regex” |  |
+| ObjectId | 7 | “objectId” |
+| Boolean | 8 | “bool” |
+| Date | 9 | “date” |
+| Null | 10 | “null” |
+| Regular Expression | 11 | “regex” |
 | DBPointer | 12 | “dbPointer” | 已废弃 |
-| JavaScript | 13 | “javascript” |  |
+| JavaScript | 13 | “javascript” |
 | Symbol | 14 | “symbol” | 已废弃 |
-| JavaScript (with scope) | 15 | “javascriptWithScope” |  |
-| 32-bit integer | 16 | “int” |  |
-| Timestamp | 17 | “timestamp” |  |
-| 64-bit integer | 18 | “long” |  |
+| JavaScript (with scope) | 15 | “javascriptWithScope” |
+| 32-bit integer | 16 | “int” |
+| Timestamp | 17 | “timestamp” |
+| 64-bit integer | 18 | “long” |
 | Decimal128 | 19 | “decimal” | New in version 3.4. |
-| Min key | -1 | “minKey” |  |
-| Max key | 127 | “maxKey” |  |
+| Min key | -1 | “minKey” |
+| Max key | 127 | “maxKey” |
 
 ObjectId值由12个字节组成：
 
@@ -417,7 +417,7 @@ BinData排序顺序为：
 
 ### 插入文件
 
-```js
+```markdown
 db.collection.insertOne()           // 插入一个文档
 db.collection.insertMany()          // 插入多个文档
 db.collection.insert()              // 插入一个或多个文档
@@ -433,7 +433,7 @@ db.collection.bulkWrite()
 
 ### 查询文档
 
-```js
+```markdown
 db.collection.find({person:{age:21,sex:"male"}});  // 查询嵌入/嵌套式文档
 db.collection.find({"person.sex":"male"});  // 匹配嵌入式文档某个字段
 
@@ -474,7 +474,7 @@ db.inventory.find({item: {$exists: false}}) // 只查询不包含item字段的�
 
 ### 更新文档
 
-```js
+```markdown
 db.inventory.updateOne({ item: "paper" },{$set: { "size.uom": "cm", status: "P" },$currentDate: { lastModified: true }})  // 更新一个文档item字段值为paper，将size数组中uom更新为cm，status更新为P
 db.inventory.updateMany({ "qty": { $lt: 50 }},{$set: { "size.uom": "in", status: "Z" },$currentDate: { lastModified: true }})   // 更新qty字段值小于50，更新size数组uom字段值为in，status字段值为Z，用$currentDate操作更新lastModified字段为当前时间，没有此字段
 db.collection.update()  // 更新或替换与指定过滤器匹配的单个文档，或更新与指定过滤器匹配的所有文档
@@ -488,7 +488,7 @@ db.collection.bulkWrite()
 
 ### 删除文档
 
-```js
+```markdown
 db.collection.deleteMany({})  // 删除集合所有文档
 db.collection.deleteOne( { status: "D" } )   // 删除status为D的第一个文档
 db.collection.remove()  // 删除单个文档或与指定过滤器匹配的所有文档
@@ -501,7 +501,7 @@ db.collection.bulkWrite()
 
 ### 批量写入操作
 
-```js
+```markdown
 db.collection.bulkWrite() // 此方法可以批量插入、更新、删除操作。批量写操作可以有序也可无序。
 // 通过有序的操作列表，MongoDB以串行方式执行操作。如果在处理其中一个写操作期间发生错误，MongoDB将返回而不处理列表中的任何剩余写操作
 // 使用无序的操作列表，MongoDB可以并行执行操作，但不保证这种行为。如果在处理其中一个写操作期间发生错误，MongoDB将继续处理列表中的剩余写操作
@@ -522,7 +522,7 @@ deleteMany
 
 ### 可重试的写入
 
-```js
+```markdown
 可重试写入要具备以下条件：
 1. 需要副本集或分片集群
 2. 支持文档锁定的存储引擎，例如：WiredTiger或inmemory内存存储引擎
@@ -590,7 +590,7 @@ db.serverStatus()包含有关该transactions部分中可重试写入的统计信
 | 4 | Discount clothing | Clothes Clothes Clothes |
 | 5 | Indonesian goods | Java Shopping |
 
-```js
+```markdown
 // 视图不支持文本搜索；文本索引以支持对字符串内容的文本搜索查询。text索引可以包括其值为字符串或字符串元素数组的任何字段
 // 要执行文本搜索查询，您必须text在集合上有索引。集合只能有一个文本搜索索引，但该索引可以涵盖多个字段
 // 使用$text查询运算符对具有文本索引的集合执行文本搜索。$text将使用空格和大多数标点符号作为分隔符来标记搜索字符串，并OR在搜索字符串中执行所有此类标记的逻辑
@@ -609,7 +609,7 @@ db.stores.createIndex( { name: "text", description: "text" } )  // 创建索引,
 
 ### 地理空间查询
 
-```js
+```markdown
 // 指定GeoJSON数据,使用嵌入式文档：
 1. 一个名为字段名为type，指定GeoJSON对象类型
 2. 一个名为字段coordinates，用于指定对象的坐标，指定经纬度坐标，有效经度-180至180(包括两者)，有效纬度-90到90(包括两者)
@@ -653,26 +653,26 @@ MongoDB地理空间查询可以解释平面或球面上的几何体
 下表列出了每个地理空间操作使用的地理空间查询运算符支持的查询：[http://docs.mongodb.com/manual/geospatial-queries/]
 | 操作 | 球形/平面查询 | 备注 |
 | :------: | :------: | :------: |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 
 
 ```
 
-```js
+```markdown
 // write-concern
 { w: <value>, j: <boolean>, wtimeot: <number> }
 w选项：确认写入请求传递给mongod实例的数量，1表示传递写入操作给一个standalone或副本的一个主节点；0写入操作没有确认，w大于1是因为需要来自其他辅助数据节点的确认
@@ -683,7 +683,7 @@ wtimeout:写入的时间限制(毫秒为单位)，wtimeout仅限于w大于1的�
 
 ### MongoDBCRUD概念
 
-```js
+```markdown
 // 原子性和事务
 当单个写操作(如：db.collection.updateMany())修改多个文件时，每个文件的修改都是原子性的，但是整个操作不是！
 
@@ -699,7 +699,7 @@ wtimeout:写入的时间限制(毫秒为单位)，wtimeout仅限于w大于1的�
 
 ### 分布式查询、查询优化、查询性能、优化查询
 
-```js
+```markdown
 oplog是对数据集操作的可重现序列,索引可以涵盖嵌入式文档中字段的查询；如果索引跟踪哪个或哪些字段导致索引为多建索引，则多建索引可以覆盖非数组字段上的查询。(多建索引不能覆盖数组字段上的查询)；地理空间索引无法覆盖索引。要确定一个查询是否为覆盖查询，使用db.collection.explain()或explain()
 
 使用Database Profiler评估对数据库的操作，
@@ -766,14 +766,16 @@ db.collection.createIndex( { type: 1, quantity: 1 } ) // 索引先type字段排�
 
 聚合操作将来自多个文档的值组合一起，并且对分组数据执行各种操作后返回单个结果。MongoDB三种执行聚合的方式：聚合管道、map-reduce函数和单用途(single purpose)聚合方法。
 
-聚合管道：最基本的管道阶段是过滤器，操作类似于查询和文档转换。其他管道操作提供了按特定字段或字段对文档进行分组和排序的工具以及用于聚合数组内容的工具，包括文档中的数组。此方式是MongoDB数据聚合的首选方法
+### 聚合管道
+
+最基本的管道阶段是过滤器，操作类似于查询和文档转换。其他管道操作提供了按特定字段或字段对文档进行分组和排序的工具以及用于聚合数组内容的工具，包括文档中的数组。此方式是MongoDB数据聚合的首选方法
 
 map-reduce函数：通常，map-reduce操作有两个阶段：一个map阶段，它处理每个文档并为每个输入文档发出一个或多个对象，并减少组合map操作输出的阶段。可选地，map-reduce可以具有 最终化阶段以对结果进行最终修改。与其他聚合操作一样，map-reduce可以指定查询条件以选择输入文档以及排序和限制结果。Map-reduce使用自定义JavaScript函数来执行映射和减少操作，以及可选的finalize操作。虽然自定义JavaScript与聚合管道相比提供了极大的灵活性，但通常，map-reduce比聚合管道效率更低，更复杂
 [map-reduce](http://docs.mongodb.com/manual/_images/map-reduce.bakedsvg.svg)
 
 单用途聚合操作：MongoDB有db.collection.estimatedDocumentCount()，db.collection.count()和db.collection.distinct(),这些操作聚合都只能聚合来自单个集合的文档
 
-```js
+```markdown
 聚合管道流水线表达式：某些阶段将流水线表达式作为操作数，流水线表达式指定要应用于输入文档的转换。表达式具有文档结构且包含其他表达式。
 流水线表达式只能操作在当前流水线的文档并且不能引用其他文档中的数据。表达式提供文档的内存中转换操作。通常，当聚合过程带有一个例外：accumulator表达式，表达式是无状态的。仅进行评估
 这个累加器用在$group阶段，保持其状态(例如：totals,maximums,minimums和related data)通过流水线作为文档处理进程
@@ -784,31 +786,30 @@ map-reduce函数：通常，map-reduce操作有两个阶段：一个map阶段，
 
 限制：聚合管道对值类型和结果大小有一定的限制
 
-// 聚合管道优化
-
+ 聚合管道优化：
 Projection优化：聚合管道可以确定它是否仅需要文档中字段的子集来获得结果。如果是这样，管道将只使用那些必需的字段，减少通过管道的数据量
 流水线序列化优化：$project或$addFields + $match序列优化；对于包含projection阶段($project或$addFields)后面跟着一个$match阶段的聚合流水线，在projection之前MongoDB移动$match阶段中任何过滤器不需要在projection阶段计算的值给一个新的$match阶段
 
-// 聚合管道限制
+聚合管道限制：
 使用aggregate命令的聚合操作具有以下限制：
 1. 结果大小限制：此aggregate命令可以返回游标或将结果存储在集合中。目前16M
 2. 内存限制：管道阶段的RAM限制为100M，如果某个阶段超过此限制，则会出现错误，允许处理大型数据集，使用allowDishUse选项将数据写入到临时文件
 
 $groupLookkup阶段必须保持在100M的内存限制中，如果allowDishUse: true指定在aggregate()操作，$graphLookup阶段会忽略此选项。如果有其他阶段在aggregate()操作中，allowDiskUse: true选项将影响这些阶段
 
-// 聚合管道和分片集合
+聚合管道和分片集合：
 如果管道的开始在分片键有一个确切的$match，则整个管道仅在匹配的分片上运行。对于必须在多个分片上运行的聚合操作。如果操作不需要在数据库主分片运行，则这些操作会将结果路由到随机的分片上来合并结果，避免使数据库的主分片超载。$out和$lookup阶段需要在数据库的主分片上运行
 
 在将聚合管道分成两部分时，管道被拆分以确保分片在考虑优化的情况下执行尽可能多的阶段；优化可能会在不同版本之间发生变化
-
-// Map-Reduce
-
-// 聚合参考
-聚合管道快速参考：
-Stages(db.collection.aggregate)除了$out和$geoNear阶段都可以在管道中多次出现
 ```
 
-### Stages(db.collection.aggregate)
+### Map-Reduce
+
+### 聚合参考
+
+聚合管道快速参考：Stages(db.collection.aggregate)除了$out和$geoNear阶段都可以在管道中多次出现
+
+#### Stages(db.collection.aggregate)
 
 | 阶段 | 描述 |
 | :------: | :------: |
@@ -836,7 +837,7 @@ Stages(db.collection.aggregate)除了$out和$geoNear阶段都可以在管道中�
 | $sortByCount | 根据指定表达式的值对传入文档进行分组，然后计算每个不同组中的文档计数。 |
 | $unwind | 从输入文档解构数组字段以输出每个元素的文档。每个输出文档都使用元素值替换数组。对于每个输入文档，输出n个文档，其中n是数组元素的数量，对于空数组，可以为零。 |
 
-### Stages(db.aggregate)
+#### Stages(db.aggregate)
 
 MongoDB还提供db.aggregate方法：
 
@@ -847,7 +848,7 @@ MongoDB还提供db.aggregate方法：
 
 表达式可以包括字段路径和系统变量，文字， 表达式对象和 表达式运算符。表达式可以嵌套
 
-### 布尔表达式运算符
+#### 布尔表达式运算符
 
 布尔表达式将其参数表达式计算为布尔值，并返回布尔值作为结果。除了false布尔值，布尔表达式为false如下：null，0，和undefined 的值。布尔表达式将所有其他值计算为true，包括非零数值和数组
 
@@ -857,88 +858,247 @@ MongoDB还提供db.aggregate方法：
 | $not | 返回与其参数表达式相反的布尔值，接受单个参数表达式 |
 | $or | 当任何表达式求值为true时，返回true，允许任意数量的参数表达式 |
 
-### 比较表达式运算符
+#### 比较表达式运算符
 
 比较表达式返回一个布尔值，除了$cmp返回一个数字。比较表达式采用两个参数表达式并比较值和类型，使用指定的BSON比较顺序来表示不同类型的值
 
 | 名称 | 描述 |
 | :------: | :------: |
 | $cmp | 返回0如果这两个值是相等的，1如果第一个值大于所述第二值，以及-1比所述第二如果第一个值是以下。 |
-| $eq | 返回true值是否相等。 |  |
-| $gt | true如果第一个值大于第二个值，则返回。 |  |
-| $gte | true如果第一个值大于或等于第二个值，则返回。 |  |
-| $lt | true如果第一个值小于第二个值，则返回。 |  |
-| $lte | true如果第一个值小于或等于第二个值，则返回。 |  |
-| $ne | true如果值不相等则返回。 |  |
+| $eq | 返回true值是否相等。 |
+| $gt | true如果第一个值大于第二个值，则返回。 |
+| $gte | true如果第一个值大于或等于第二个值，则返回。 |
+| $lt | true如果第一个值小于第二个值，则返回。 |
+| $lte | true如果第一个值小于或等于第二个值，则返回。 |
+| $ne | true如果值不相等则返回。 |
 
-### 条件表达式运算符
+#### 条件表达式运算符
 
 | 名称 | 描述 |
 | :------: | :------: |
 | $cond | 一个三元运算符，用于计算一个表达式，并根据结果返回其他两个表达式之一的值。接受有序列表中的三个表达式或三个命名参数。 |
-| $ifNull | 如果第一个表达式导致null结果，则返回第一个表达式的非null结果或第二个表达式的结果。空结果包含未定义值或缺少字段的实例。接受两个表达式作为参数。第二个表达式的结果可以为null。 |  |
-| $switch | 评估一系列案例表达。当它找到一个求值的表达式时true，$switch执行一个指定的表达式并中断控制流。 |  |
+| $ifNull | 如果第一个表达式导致null结果，则返回第一个表达式的非null结果或第二个表达式的结果。空结果包含未定义值或缺少字段的实例。接受两个表达式作为参数。第二个表达式的结果可以为null。 |
+| $switch | 评估一系列案例表达。当它找到一个求值的表达式时true，$switch执行一个指定的表达式并中断控制流。 |
 
-### 日期表达式运算符
+#### 日期表达式运算符
 
 以下运算符返回日期对象或日期对象的组件
 
 | 名称 | 描述 |
 | :------: | :------: |
-| $dateFromParts | 给定日期的组成部分构造BSON Date对象。 |  |
-| $dateFromString | 将日期/时间字符串转换为日期对象。 |  |
-| $dateToParts | 返回包含日期组成部分的文档。 |  |
-| $dateToString | 以格式化字符串形式返回日期。 |  |
-| $dayOfMonth | 以1到31之间的数字返回日期的月中某天。 |  |
-| $dayOfWeek | 返回日期的星期几，作为1（星期日）和7（星期六）之间的数字。 |  |
-| $dayOfYear | 以1到366（闰年）之间的数字返回日期的日期。 |  |
-| $hour | 以0到23之间的数字返回日期的小时。 |  |
-| $isoDayOfWeek | 返回ISO 8601格式的工作日编号，范围从 1（星期一）到7（星期日）。 |  |
-| $isoWeek | 返回ISO 8601格式的周数，从 1到53。周数从1包含年份第一个星期四的一周（星期一到星期日）开始。 |  |
-| $isoWeekYear | 以ISO 8601格式返回年份编号。年份从第1周的星期一（ISO 8601）开始，到上周的星期日（ISO 8601）结束。 |  |
-| $millisecond | 以0到999之间的数字返回日期的毫秒数。 |  |
-| $minute | 以0到59之间的数字返回日期的分钟。 |  |
-| $month | 以1（1月）到12（12月）之间的数字返回日期的月份。 |  |
-| $second | 以0到60（闰秒）之间的数字返回日期的秒数。 |  |
-| $toDate | 将值转换为日期。(4.0版中的新功能) |  |
-| $week | 返回日期的周数，作为0（在一年的第一个星期日之前的部分周）和53（闰年）之间的数字。 |  |
-| $year | 以数字形式返回日期年份（例如2014年）。 |  |
+| $dateFromParts | 给定日期的组成部分构造BSON Date对象。 |
+| $dateFromString | 将日期/时间字符串转换为日期对象。 |
+| $dateToParts | 返回包含日期组成部分的文档。 |
+| $dateToString | 以格式化字符串形式返回日期。 |
+| $dayOfMonth | 以1到31之间的数字返回日期的月中某天。 |
+| $dayOfWeek | 返回日期的星期几，作为1（星期日）和7（星期六）之间的数字。 |
+| $dayOfYear | 以1到366（闰年）之间的数字返回日期的日期。 |
+| $hour | 以0到23之间的数字返回日期的小时。 |
+| $isoDayOfWeek | 返回ISO 8601格式的工作日编号，范围从 1（星期一）到7（星期日）。 |
+| $isoWeek | 返回ISO 8601格式的周数，从 1到53。周数从1包含年份第一个星期四的一周（星期一到星期日）开始。 |
+| $isoWeekYear | 以ISO 8601格式返回年份编号。年份从第1周的星期一（ISO 8601）开始，到上周的星期日（ISO 8601）结束。 |
+| $millisecond | 以0到999之间的数字返回日期的毫秒数。 |
+| $minute | 以0到59之间的数字返回日期的分钟。 |
+| $month | 以1（1月）到12（12月）之间的数字返回日期的月份。 |
+| $second | 以0到60（闰秒）之间的数字返回日期的秒数。 |
+| $toDate | 将值转换为日期。(4.0版中的新功能) |
+| $week | 返回日期的周数，作为0（在一年的第一个星期日之前的部分周）和53（闰年）之间的数字。 |
+| $year | 以数字形式返回日期年份（例如2014年）。 |
 
 以下算术运算符可以采用日期操作数
 
 | 名称 | 描述 |
 | :------: | :------: |
 | $add | 添加数字和日期以返回新日期。如果添加数字和日期，请将数字视为毫秒。接受任意数量的参数表达式，但最多只能有一个表达式解析为日期。 |
-| $subtract | 返回从第一个值中减去第二个值的结果。如果这两个值是日期，则返回以毫秒为单位的差异。如果这两个值是日期和以毫秒为单位的数字，则返回结果日期。接受两个参数表达式。如果这两个值是日期和数字，请首先指定日期参数，因为从数字中减去日期没有意义。 |  |
+| $subtract | 返回从第一个值中减去第二个值的结果。如果这两个值是日期，则返回以毫秒为单位的差异。如果这两个值是日期和以毫秒为单位的数字，则返回结果日期。接受两个参数表达式。如果这两个值是日期和数字，请首先指定日期参数，因为从数字中减去日期没有意义。 |
 
-### 文字表达运算符
+#### 文字表达运算符
 
 | 名称 | 描述 |
 | :------: | :------: |
 | $literal | 返回一个没有解析的值。用于聚合管道可以将其解释为表达式的值。例如，将$literal表达式用于以a开头的字符串，$以避免将其解析为字段路径 |
 
-### 对象表达式运算符
+#### 对象表达式运算符
 
 | 名称 | 描述 |
 | :------: | :------: |
 | $mergeObjects | 将多个文档合并为一个文档。(版本3.6中的新功能) |
-| $objectToArray | 将文档转换为表示键值对的文档数组。(版本3.6中的新功能) |  |
+| $objectToArray | 将文档转换为表示键值对的文档数组。(版本3.6中的新功能) |
 
-### Set表达式运算符
+#### Set表达式运算符
 
 Set表达式对数组执行set操作，将数组视为集合。Set表达式忽略每个输入数组中的重复条目以及元素的顺序。如果set操作返回一个set，则该操作会过滤掉结果中的重复项，以输出仅包含唯一条目的数组。未指定输出数组中元素的顺序
 
 | 名称 | 描述 |
 | :------: | :------: |
+| $allElementsTrue | 如果集合的没有元素的计算结果为false，则返回true，否则返回false。接受单个参数表达式 |
+| $anyElementTrue | 如果集合的任何元素的计算结果为true， 则返回true; 否则返回false。接受单个参数表达式 |
+| $setDifference | 返回一个集合，其中的元素出现在第一个集合中但不在第二个集合中; 即执行第二组相对于第一组的相对补充。接受两个参数表达式 |
+| $setEquals | 如果输入集合具有相同的不同元素返回true。接受两个或多个参数表达式 |
+| $setIntersection | 返回包含出现在所有输入集中的元素的集合。接受任意数量的参数表达式 |
+| $setIsSubset | 第一组中的所有元素出现在第二组中返回true，包括第一组中的所有元素等于第二组时; 即不是严格的子集。接受两个参数表达式 |
+| $setUnion | 返回包含出现在任何输入集中的元素的集合 |
+
+#### String表达式运算符
+
+无论使用什么字符，$concat行为都是明确定义的
+
+| 名称 | 描述 |
+| :------: | :------: |
+| $concat | 连接任意数量的字符串。 |
+| $dateFromString | 将日期/时间字符串转换为日期对象。 |
+| $dateToString | 以格式化字符串形式返回日期。 |
+| $indexOfBytes | 搜索字符串以查找子字符串的出现并返回第一次出现的UTF-8字节索引。如果未找到子字符串，则返回-1。 |
+| $indexOfCP | 搜索字符串以查找子字符串的出现并返回第一次出现的UTF-8代码点索引。如果未找到子字符串，则返回-1 |
+| $ltrim | 从字符串的开头删除空格或指定的字符。(4.0版中的新功能) |
+| $rtrim | 从字符串末尾删除空格或指定的字符。(4.0版中的新功能) |
+| $split | 根据分隔符将字符串拆分为子字符串。返回一个子字符串数组。如果在字符串中找不到分隔符，则返回包含原始字符串的数组。 |
+| $strLenBytes | 返回字符串中UTF-8编码字节的数量。 |
+| $strLenCP | 返回字符串中UTF-8 代码点的数量。 |
+| $strcasecmp | 执行不区分大小写的字符串比较并返回： 0如果两个字符串相同，1如果第一个字符串大于第二个-1字符串，并且第一个字符串小于第二个字符串。 |
+| $substr | 已过时。使用$substrBytes或 $substrCP。 |
+| $substrBytes | 返回字符串的子字符串。从字符串中指定的UTF-8字节索引（从零开始）开始，并继续指定的字节数。 |
+| $substrCP | 返回字符串的子字符串。以字符串中指定的UTF-8 代码点（CP）索引（从零开始）处的字符开始，并继续指定的代码点数。 |
+| $toLower | 将字符串转换为小写。接受单个参数表达式。 |
+| $toString | 将值转换为字符串。(4.0版中的新功能) |
+
+#### 文本表达式运算符
+
+| 名称 | 描述 |
+| :------: | :------: |
+| $meta | 访问文本搜索元数据 |
 
 
+#### Type表达式运算符
 
+| 名称 | 描述 |
+| :------: | :------: |
+| $convert | 将值转换为指定的类型。(4.0版中的新功能) |
+| $toBool | 将值转换为布尔值。(4.0版中的新功能) |
+| $toDate | 将值转换为日期。(4.0版中的新功能) |
+| $toDecimal | 将值转换为Decimal128。(4.0版中的新功能) |
+| $toDouble | 将值转换为double。(4.0版中的新功能) |
+| $toInt | 将值转换为整数。(4.0版中的新功能) |
+| $toLong | 将值转换为long。(4.0版中的新功能) |
+| $toObjectId | 将值转换为ObjectId。(4.0版中的新功能) |
+| $toString | 将值转换为字符串。(4.0版中的新功能) |
+| $type | 返回该字段的BSON数据类型(4.0版中的新功能) |
+
+#### Accumulators(累加器)($group)
+
+可以在$group阶段使用，其是在文档通过管道时保持其状态(如：总数、最大值、最小值和相关数据)的运算符。当在$group阶段中作为累加器使用时，这些运算符将单个表达式作为输入，为每个输入文档计算一次表达式，并为共享相同组密钥的文档组保持其阶段
+
+| 名称 | 描述 |
+| :------: | :------: |
+| $addToSet | 返回每个组的唯一表达式值数组。数组元素的顺序未定义 |
+| $avg | 返回数值的平均值。忽略非数字值 |
+| $first | 返回每个组的第一个文档中的值。仅在文档按定义的顺序定义时才定义订单 |
+| $last | 返回每个组的最后一个文档的值。仅在文档按定义的顺序定义时才定义订单 |
+| $max | 返回每个组的最高表达式值 |
+| $mergeObjects | 返回通过组合每个组的输入文档创建的文档 |
+| $min | 返回每个组的最低表达式值 |
+| $push | 返回每个组的表达式值数组 |
+| $stdDevPop | 返回输入值的总体标准偏差 |
+| $stdDevSamp | 返回输入值的样本标准偏差 |
+| $sum | 返回数值的总和。忽略非数字值 |
+
+#### Accumulators(累加器)($project和$addFields)
+
+一些可用用作$group阶段的累加器操作也可以用于$project和$addFields阶段，但不能用作累加器。在$project和$addFields阶段使用时，这些运算符不会保持其状态，并且可以将单个参数或多个参数作为输入。
+
+| 名称 | 描述 |
+| :------: | :------: |
+| $avg | 返回每个文档的指定表达式或表达式列表的平均值。忽略非数字值 |
+| $max | 返回每个文档的指定表达式或表达式列表的最大值 |
+| $min | 返回每个文档的指定表达式或表达式列表的最小值 |
+| $stdDevPop | 返回输入值的总体标准偏差 |
+| $stdDevSamp | 返回输入值的样本标准偏差 |
+| $sum | 返回数值的总和。忽略非数字值 |
+
+#### 变量表达式运算符
+
+| 名称 | 描述 |
+| :------: | :------: |
+| $let | 定义在子表达式范围内使用的变量，并返回子表达式的结果。接受命名参数。接受任意数量的参数表达式 |
+
+[表达式运算符索引](http://docs.mongodb.com/manual/meta/aggregation-quick-reference/#index-of-expression-operators)
+
+### aggregation-commands(聚合命令)
+
+#### 聚合命令
+| 名称 | 描述 |
+| :------: | :------: |
+| aggregate | 使用聚合框架执行聚合任务，例如组 |
+| count | 计算集合或视图中的文档数 |
+| distinct | 显示为集合或视图中的指定键找到的不同值 |
+| group | 不推荐。按指定键对集合中的文档进行分组，并执行简单聚合 |
+| mapReduce | 对大型数据集执行map-reduce聚合 |
+
+#### 聚合方法
+
+| 名称 | 描述 |
+| :------: | :------: |
+| 名称 | 描述 |
+| db.collection.aggregate() | 提供对聚合管道的访问 |
+| db.collection.group() | 已过时。按指定键对集合中的文档进行分组，并执行简单聚合 |
+| db.collection.mapReduce() | 对大型数据集执行map-reduce聚合 |
+
+### 聚合表达式中的变量
+
+聚合表达式可以使用用户自定义和系统变量，变量可以保存任何BSON类型的数据。要访问变量的值，使用带有前缀双dollar符($$)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"$$<variable>.<field>"表示法
+
+#### 用户变量
+
+用户变量名称可以包含ASCII字符[_a-zA-Z0-9]和任何非ASCII字符，用户变量名必须以小写的ASCII字符[a-z]或非ASCII字符开头
+
+#### 系统变量
+
+| 变量 | 描述 |
+| :------: | :------: |
+| ROOT | 引用当前正在聚合管道阶段处理的根文档，即顶级文档 |
+| CURRENT | 引用聚合管道阶段中正在处理的字段路径的开始。除非另有说明，否则所有阶段都以CURRENT相同的 方式开头ROOT |
+|  | CURRENT是可以修改的。但是，由于$<field> 等同于$$CURRENT.<field>，重新绑定会CURRENT改变$访问的含义 |
+| REMOVE | 一个计算缺失值的变量。允许条件排除字段。在a中$projection，REMOVE从输出中排除设置为变量的字段 |
+|  | 有关其用法的示例，请参阅有条件排除字段 |
+|  | 版本3.6中的新功能 |
+| DESCEND | $redact表达式的允许结果之一 |
+| PRUNE | $redact表达式的允许结果之一 |
+| KEEP | $redact表达式的允许结果之一 |
+
+### SQL和aggregation(聚合)的比较
+
+[sql-aggregation](http://docs.mongodb.com/manual/reference/sql-comparison/)
 
 ## 数据模型
 
+创建索引应考虑以下：
+* 每个索引至少占用8kb的数据空间
+* 添加索引会对写入操作产生负面影响，因每个插入也必须更新索引
+* 具有高读写比率的集合通常受益于其他索引，索引不影响未创建索引的操作
+* 处于活动状态时，每个索引都会占用磁盘空间和内存
+
 ## Transactions
 
+可以跨多个操作、集合、数据库和文档使用多文档事务
+
+多文档事务是原子性的：
+* 当事务提交时，事务中所有的数据更改都被保存并在事务外部可见，事务提交之前，事务中发生的数据更改事务外部不可见。
+* 事务中止时，事务中所有的数据更改都会被丢弃但不会不可见
+
 ## 索引
+
+索引的排序支持有效的等式匹配和基于范围的查询操作，mongodb还可以使用索引中的顺序返回排序结果
+
+分片集群中，如果不将_id字段作为片键，则应用程序必须确保_id字段值的唯一性以防出错
+
+### 索引类型
+
+单字段索引：对于单字段索引和排序操作，索引键的排序顺序无关紧要
+
+复合索引：MongoDB支持多字段的用户定义索引，复合索引中字段的顺序具有重要意义
+
+多键索引：MongoDB使用多键索引来索引存储在数组中的内容，如果索引包含数组的字段，则会为数组的每个元素创建单独的索引条目。
+
 
 ## 安全
 

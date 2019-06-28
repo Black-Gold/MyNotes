@@ -31,7 +31,6 @@ nav:
   - Database: 
     - 'MySQL&MariaDB': 'MySQL.md'
     - 'Oracle': 'Oracle.md'
-    - 'PostgreSQL': 'PostgreSQL.md'
     - 'MongoDB': 'MongoDB.md'
     - 'Redis': 'Redis.md'
     - 'Memcached': 'Memcached.md'
@@ -40,8 +39,6 @@ nav:
     - 'ELKStack': 'Elk.md'
     - 'Prometheus': 'Prometheus.md'
     - 'Grafana': 'Grafana.md'
-    - 'Nagios': 'Nagios.md'
-    - 'OtherMonitors': 'Monitors.md'
   - ContainerEcosystem: 
     - 'Docker': 'Docker.md'
     - 'Kubernetes': 'Kubernetes.md'
@@ -65,14 +62,6 @@ nav:
   - FileSystem: 
     - 'Ceph': 'Ceph.md'
     - 'GlusterFS': 'GlusterFS.md'
-  - Security: 
-    - 'Cisco': 'Cisco.md'
-    - 'Huawei&H3C': 'HW3C.md'
-    - 'Security': 'Security.md'
-  - TreasureTheLeisure:
-    - 'VPN': 'VPN.md'
-    - 'GoogleTricks': 'GoogleTricks.md'
-    - 'Others': 'Others.md'
 
 theme:
   name: 'material'

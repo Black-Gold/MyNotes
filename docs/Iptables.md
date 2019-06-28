@@ -36,7 +36,7 @@
 | **表** |  |
 | filter | 负责包过滤，用于防火墙规则 |
 | nat | nat功能(端口映射，地址映射,网关路由等） |
-| mangle | 负责包处理，用于实现服务质量 |
+| mangle | 负责IP数据包处理，如：Tos，服务类型等，用于实现服务质量 |
 | raw | 负责连接跟踪,如:网址过滤 |
 | security | 用于强制访问控制(SELinux等)网络规则 |
 |  |  |
@@ -312,8 +312,7 @@ iptables -A INPUT -p tcp --dport 80 -m limit --limit 100/minute --limit-burst 20
 iptables -A INPUT -p tcp --syn --dport 22 -m connlimit --connlimit-above 3 -j REJECT    # 限制22端口并发连接
 
 # 列出已设置的规则
-
-> iptables -L [-t 表名] [链名]
+iptables -L [-t 表名] [链名]
 
 - 四个表名 `raw`，`nat`，`filter`，`mangle`
 - 五个规则链名 `INPUT`、`OUTPUT`、`FORWARD`、`PREROUTING`、`POSTROUTING`

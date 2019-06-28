@@ -516,8 +516,6 @@ net.ipv4.tcp_tw_reuse = 1 # 默认为0
 
 net.ipv4.tcp_max_orphans = 32768
 
-net.ipv4.tcp_syncookies = 1
-
 net.ipv4.tcp_max_syn_backlog = 16384  # 默认128;对于还未获得对方确认的连接请求，可保存在队列中的最大数目。如果服务器经常出现过载，可以尝试增加这个数字
 net.ipv4.tcp_low_latency = 0 #  默认值为0;正常的TCP堆栈行为设置为有利于最大化网络吞吐量的决策，通常关闭此选项。对于延迟优先级较高的工作负载或环境，可以设置为1开启
 net.ipv4.tcp_congestion_control = reno # 大多数版本默认是reno算法，设置网络拥塞控制算法
@@ -550,19 +548,31 @@ vi /etc/sysctl.conf
 net.ipv4.ip_forward = 0
 
 #启用源路由核查功能，反向路径过滤
+net.ipv4.conf.all.rp_filter = 1
 net.ipv4.conf.default.rp_filter = 1
 0 ——未进行源验证。
 1 ——处于如 RFC3704 所定义的严格模式。
 2 ——处于如 RFC3704 所定义的松散模式
 
-#禁用所有IP源路由
-net.ipv4.conf.default.accept_source_route = 0
+# 确保无人能修改路由表
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0
+net.ipv4.conf.all.secure_redirects = 0
+net.ipv4.conf.default.secure_redirects = 0
+
+# 不充当路由器
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.default.send_redirects = 0
+
+# 开启execshild
+kernel.exec-shield = 1
+kernel.randomize_va_space = 1
+
 #使用sysrq组合键是了解系统目前运行情况，为安全起见设为0关闭
 kernel.sysrq = 0
 #控制core文件的文件名是否添加pid作为扩展
 kernel.core_uses_pid = 1
-#开启SYN Cookies，当出现SYN等待队列溢出时，启用cookies来处理
-net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_syncookies = 1 (0 by default)  # 开启SYN Cookies，当出现SYN等待队列溢出时，启用cookies来处理，可以做SYN洪水攻击保护
 #每个消息队列的大小（单位：字节）限制
 kernel.msgmnb = 65536
 #整个系统最大消息队列数量限制
@@ -601,8 +611,7 @@ net.ipv4.tcp_max_syn_backlog = 262144
 net.ipv4.tcp_timestamps = 0
 #为了打开对端的连接，内核需要发送一个SYN并附带一个回应前面一个SYN的ACK。也就是所谓三次握手中的第二次握手。这个设置决定了内核放弃连接之前发送SYN+ACK包的数量
 net.ipv4.tcp_synack_retries = 1
-# 使用cookie来处理SYN队列溢出
-net.ipv4.tcp_syncookies = 1 (0 by default)
+
 # 路由刷新频率
 net.ipv4.route.gc_timeout = 100
 #在内核放弃建立连接之前发送SYN包的数量
@@ -627,6 +636,18 @@ net.ipv4.tcp_keepalive_probes = 5
 net.ipv4.ip_local_port_range = 2048 65000
 # 防止TCP时间等待
 net.ipv4.tcp_rfc1337 = 1
+net.ipv4.icmp_echo_ignore_broadcasts = 1     # 设置为1表示忽略icmp广播请求,避免放大攻击
+net.ipv4.icmp_ignore_bogus_error_responses = 1      # 开启恶意icmp错误消息保护
+net.ipv4.icmp_echo_ignore_all = 1    # 忽略所有icmp请求,即关闭ping
+
+# 记录在不可达的地址的数据包(错误的路由)；开启并记录欺骗，源路由和重定向包
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.conf.default.log_martians = 1
+
+
+net.ipv4.conf.all.accept_source_route = 0   # 处理无源路由的包
+net.ipv4.conf.default.accept_source_route = 0   # 禁用所有IP源路由
+
 #表示文件句柄的最大数量
 fs.file-max = 102400
 
@@ -1362,72 +1383,6 @@ ssh -X <SSH Server>
 SCSI/SAS/SATA/USB接口的硬盘的设备名均以/dev/sd开头，不同硬盘编号依次是/dev/sda、/dev/sdb
 SAS/SATA是主流硬盘接口，SSD固态硬盘，速度性能SSD>SAS>SATA
 ```
-
-## Raid0 1 5 10详解
-
-RAID(Redundant Array of Independent Disk 独立冗余磁盘阵列)
-
-A, B, C, D, E and F     代表blocks(块)
-p1, p2, and p3          代表parity(奇偶校验)
-
-RAID 0 （又称为Stripe或Striping－－分条）
-即Data Stripping数据分条技术。RAID 0可以把多块硬盘连成一个容量更大的硬盘群，可以提高磁 盘的性能和吞吐量。RAID 0没有冗余或错误修复能力，成本低，要求至少两个磁盘，一般只是在那些对数 据安全性要求不高的情况下才被使用,并行操作使同一时间内磁盘读写速度提升
-
-最少需要两块磁盘
-数据条带式分布
-没有冗余，性能最佳(不存储镜像、校验信息)
-不能应用于对数据安全性要求高的场合
-![raid 0](http://static.thegeekstuff.com/wp-content/uploads/2010/07/raid-0.png)
-
-|  |  |
-| :------: | :------: |
-| 容错性 | 没有 |
-| 热备盘选项 | 没有 |
-| 随机写性能 | 高 |
-| 需要的磁盘数 | 只需2个或2*N个（这里应该是多于两个硬盘都可以） |
-| 典型应用 | 无故障的迅速读写，要求安全性不高，如图形工作站等 |
-
-RAID 1 （又称为Mirror或Mirroring－－镜像）
-RAID 1称为磁盘镜像：把一个磁盘的数据镜像到另一个磁盘上，在不影响性能情况下最大限度的保证系统的可靠性和可修复性上，具有很高的数据冗余能力，但磁盘利用 率为50%，故成本最高，多用在保存关键性的重要数据的场合。RAID 1的操作方式是把用户写入硬盘的数据百分之百地自动复制到另外一个硬盘上
-
-最少需要2块磁盘
-提供数据块冗余
-性能好
-![raid 1](http://static.thegeekstuff.com/wp-content/uploads/2010/07/raid-1.png)
-
-RAID 5 （可以理解为是RAID 0和RAID 1的折衷方案，但没有完全使用RAID 1镜像理念，而是使用了“奇偶校验信息”来作为数据恢复的方式，与下面的RAID10不同,RAID 5 是一种存储性能、数据安全和存储成本兼顾的存储解决方案
-
-最少3块磁盘
-数据条带形式分布
-以奇偶校验作冗余
-适合多读少写的情景，是性能与数据冗余最佳的折中方案
-![raid 5](http://static.thegeekstuff.com/wp-content/uploads/2010/07/raid-5.png)
-
-|  |  |
-| :------: | :------: |
-| 容错性 | 有 |
-| 热备盘选项 | 有 |
-| 随机写性能 | 低 |
-| 需要的磁盘数 | 三个或更多 |
-| 可用容量 | （n-1）/n的总磁盘容量（n为磁盘数） |
-| 典型应用 | 随机数据传输要求安全性高，如金融、数据库、存储等 |
-
-RAID10也被称为镜象阵列条带。象RAID0一样，数据跨磁盘抽取；象RAID1一样，每个磁盘都有一个镜象磁盘, 所以RAID 10的另一种会说法是 RAID 0+1。RAID10提供100%的数据冗余，支持更大的卷尺寸
-
-最少需要4块磁盘
-先按RAID 0分成两组，再分别对两组按RAID 1方式镜像
-兼顾冗余(提供镜像存储)和性能(数据条带形分布)
-在实际应用中较为常用(尤其是数据库中)
-![raid 10](http://static.thegeekstuff.com/wp-content/uploads/2010/08/raid10.png)
-
-RAID总结
-
-| 安全性 | 磁盘利用率 | 成本 | 应用方面 |
-| :------: | :------: | :------: | :------: |
-| 最差（完全无安全保障） | 最高（100％） | 最低 | 个人用户 |
-| 最高（提供数据的百分之百备份） | 差（50％） | 最高 | 适用于存放重要数据，如服务器和数据库存储等领域。 |
-| RAID 5<RAID 1 | RAID 5>RAID 1 | RAID 5<RAID 1 | 是一种存储性能、数据安全和存储成本兼顾的存储解决方案。 |
-| RAID10＝RAID1 | RAID10＝RAID1（50％） | RAID10＝RAID1 | 集合了RAID0，RAID1的优点，但是空间上由于使用镜像，而不是类似RAID5的“奇偶校验信息”，磁盘利用率一样是50％ |
 
 ### Linux文件系统目录介绍
 
