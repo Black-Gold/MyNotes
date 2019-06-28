@@ -1,5 +1,5 @@
 # Welcome to MyWebSite
 
-![zootopia](http://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bcdbac5b-cdc4-410e-8020-c863a7210f66/d9w8r3n-a7a21483-7061-4b68-a162-7dceb7aa9df4.jpg/v1/fill/w_1280,h_720,q_75,strp/come_on_partner_____zootopia_fanart__by_neytirix_d9w8r3n-fullview.jpg)
+![zootopia](http://tj-download.weiyun.com/ftn_handler/1fb5ed544c9ba1078e06cae77bdfce250c765f40cabf94111f5ba4679443473d9ba524baa27b38aeac8aa22e66563b47be8e94f98af05360eca16f5907b4bb4c/come_on_partner.jpg)
 
 ## DevOps Wiki
