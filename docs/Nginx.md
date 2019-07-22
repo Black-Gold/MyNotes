@@ -489,10 +489,17 @@ server
   error_page   500 502 503 504 /50x.html;
   location = /50x.html {
   }
-  #日志格式设定
+  #日志格式1
   log_format access '$remote_addr - $remote_user [$time_local] "$request" '
   '$status $body_bytes_sent "$http_referer" '
   '"$http_user_agent" $http_x_forwarded_for';
+# 日志格式2
+log_format custom '$remote_addr - $remote_user [$time_local] '
+'"$request" $status $body_bytes_sent '
+'"$http_referer" "$http_user_agent" '
+'"$http_x_forwarded_for" $request_id '
+'$geoip_country_name $geoip_country_code '
+'$geoip_region_name $geoip_city ';
   #定义本虚拟主机的访问日志
   access_log /var/log/nginx/access.log;
 

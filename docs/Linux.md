@@ -58,7 +58,7 @@ Ctrl – g      # 从历史搜索模式（Ctrl – r）退出。
 M – 操作次数 操作动作   # 指定操作次数，重复执行指定的操作
 ```
 
-I. stunnel -> vanish -> HAProxy -> nginx -> nodeJS -> memcached(redis) (for session storage[Session 对象存储])
+I. stunnel -> varnish -> HAProxy -> nginx -> nodeJS -> memcached(redis) (for session storage[Session 对象存储])
 
 II. Apache Traffic Server/Squid/Vanish + HAProxy + Nginx + memcached(Redis) (for session storage[Session 对象存储])
 

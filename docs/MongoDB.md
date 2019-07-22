@@ -1,4 +1,4 @@
-# *MongoDB-4.0.10
+# MongoDB-4.0.10
 
 ## 基础
 
@@ -433,7 +433,7 @@ db.collection.bulkWrite()
 
 ### 查询文档
 
-```markdown
+```javascript
 db.collection.find({person:{age:21,sex:"male"}});  // 查询嵌入/嵌套式文档
 db.collection.find({"person.sex":"male"});  // 匹配嵌入式文档某个字段
 
@@ -467,18 +467,18 @@ db.inventory.find( { status: "A" }, { status: 0, instock: 0 } ) // 查询集合�
 db.inventory.find( { status: "A" }, { item: 1, status: 1, "size.uom": 1 } ) // 查询集合中status值为A，结果只包括item、status字段及嵌入文档size的uom字段
 db.inventory.find( { status: "A" }, { item: 1, status: 1, instock: { $slice: -1 } } )   // 查询集合中status为A，结果只包含item、status字段instock，$slice运算符返回instock数组最后一个元素
 
-db.inventory.find({item: null})  // 查询item字段为null，或不包含item字段的文档
-db.inventory.find({item: {$type: 10}})  // 只查询item字段值类型是10(即null类型)的文档
+db.inventory.find({item: null});  // 查询item字段为null，或不包含item字段的文档
+db.inventory.find({item: {$type: 10}});  // 只查询item字段值类型是10(即null类型)的文档
 db.inventory.find({item: {$exists: false}}) // 只查询不包含item字段的文档
 ```
 
 ### 更新文档
 
-```markdown
-db.inventory.updateOne({ item: "paper" },{$set: { "size.uom": "cm", status: "P" },$currentDate: { lastModified: true }})  // 更新一个文档item字段值为paper，将size数组中uom更新为cm，status更新为P
-db.inventory.updateMany({ "qty": { $lt: 50 }},{$set: { "size.uom": "in", status: "Z" },$currentDate: { lastModified: true }})   // 更新qty字段值小于50，更新size数组uom字段值为in，status字段值为Z，用$currentDate操作更新lastModified字段为当前时间，没有此字段
+```javascript
+db.inventory.updateOne({ item: "paper" },{$set: { "size.uom": "cm", status: "P" },$currentDate: { lastModified: true }});    // 更新一个文档item字段值为paper，将size数组中uom更新为cm，status更新为P
+db.inventory.updateMany({ "qty": { $lt: 50 }},{$set: { "size.uom": "in", status: "Z" },$currentDate: { lastModified: true }});   // 更新qty字段值小于50，更新size数组uom字段值为in，status字段值为Z，用$currentDate操作更新lastModified字段为当前时间，没有此字段
 db.collection.update()  // 更新或替换与指定过滤器匹配的单个文档，或更新与指定过滤器匹配的所有文档
-以下几种方法也可以用来更新文档
+// 以下几种方法也可以用来更新文档
 db.collection.findOneAndReplace()
 db.collection.findOneAndUpdate()
 db.collection.findAndModify()
@@ -1099,7 +1099,46 @@ Set表达式对数组执行set操作，将数组视为集合。Set表达式忽�
 
 多键索引：MongoDB使用多键索引来索引存储在数组中的内容，如果索引包含数组的字段，则会为数组的每个元素创建单独的索引条目。
 
+地理空间索引：mongodb提供两个特殊索引以支持对地理空间坐标数据的查询，2d索引使用平面几何返回结果；2dsphere索引使用球形几何返回结果
 
+文本索引：mongodb提供text索引类型以支持字符串查询
+
+散列索引：MongoDB提供散列索引类型以支持基于散列的分片，该类型索引是一个字段值的hash，索引在其范围内有相当多随机值分配，仅支持相等匹配不支持范围查询
+
+### 索引属性
+
+索引具有唯一性，MongoDB拒绝索引字段的重复值，唯一索引可与其他MongoDB索引互换
+
+部分索引仅索引符合指定过滤器表达式的集合中的文档
+
+索引的稀疏属性可确保索引仅包含具有索引字段的文档的条目。索引会跳过没有索引字段的文档
+
+TTL索引是MongoDB可用于在一定时间后自动从集合中删除文档的特殊索引。这对于某些类型的信息非常理想，例如机器生成的事件数据，日志和会话信息，这些信息只需要在数据库中持续有限的时间
+
+### 文本索引
+
+一个集合对多只能有一个text索引,对于text索引，索引字段的权重表示字段相对于其他索引字段在文本搜索分数方面的重要性，对于文档中的每个索引字段，MongoDB将匹配数乘以权重并将结果相加。使用此总和，MongoDB然后计算文档的分数。索引字段的默认权重为1。要调整索引字段的权重，请weights在db.collection.createIndex()方法中包含该选项
+
+db.collection.createIndex( { field: "text" } )
+
+text在多个字段上创建索引时，还可以使用通配符说明符（$**）。使用通配符文本索引，MongoDB会为包含集合中每个文档的字符串数据的每个字段编制索引。以下示例使用通配符说明符创建文本索引
+db.collection.createIndex( { "$**": "text" } )
+
+指定text索引名称：索引的默认名称由每个索引名称加_text组成，可自定义索引名称;db.collection.createIndex( { content: "text", "user.comments": "text"}, { name: "myTextName"} )
+用权重控制搜索结果：以下为设置content和keywords索引权重分别为10和5，about默认为1
+db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weights: { content: 10, keywords: 5 }, name: "TextIndex" } )
+限制文档扫描数量：文档结构如下
+
+```markdown
+{ _id: 1, dept: "tech", description: "lime green computer" }
+{ _id: 2, dept: "tech", description: "wireless red mouse" }
+{ _id: 3, dept: "kitchen", description: "green placemat" }
+{ _id: 4, dept: "kitchen", description: "red peeler" }
+{ _id: 5, dept: "food", description: "green apple" }
+{ _id: 6, dept: "food", description: "red potato" }
+```
+
+db.in
 ## 安全
 
 ## Change Streams
