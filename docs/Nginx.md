@@ -2,9 +2,8 @@
 
 ## centos安装
 
-To set up the yum repository for RHEL/CentOS, create the file named /etc/yum.repos.d/nginx.repo with the following contents:
-
-```sh
+```bash
+# To set up the yum repository for RHEL/CentOS, create the file named /etc/yum.repos.d/nginx.repo with the following contents:
 # Replace “OS” with “rhel” or “centos”, depending on the distribution used, and “OSRELEASE” with “6” or “7”, for 6.x or 7.x versions, respectively.
 cat << EOF > /etc/yum.repos.d/nginx.repo
 [nginx-stable]
@@ -26,15 +25,13 @@ deb http://nginx.org/packages/debian/ codename nginx
 deb-src http://nginx.org/packages/debian/ codename nginx
 EOF
 
-apt-get update
-apt-get install nginx
+apt-get update && apt-get install nginx
 
 # Mainline版本的预构建包;利用rpm包安装
 rpm --import nginx_signing.key
 wget http://nginx.org/packages/mainline/centos/7/x86_64/RPMS/nginx-1.13.9-1.el7_4.ngx.x86_64.rpm
 rpm -ivh nginx-1.13.9-1.el7_4.ngx.x86_64.rpm
-systemctl enable nginx
-systemctl start nginx
+systemctl enable nginx && systemctl start nginx
 ```
 
 2.从源代码构建nginx
@@ -91,8 +88,6 @@ wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
 配置完成后，make && make install安装
 
 验证nginx是否运行：curl -I 127.0.0.1
-HTTP/1.1 200 OK
-Server: nginx/1.13.8
 ```
 
 ## 关于构建模块
@@ -359,7 +354,7 @@ stream {
 }
 ```
 
-```nginx
+```conf
 
 #定义Nginx运行的用户和用户组
 user www www;
@@ -384,9 +379,8 @@ use epoll;
 #单个进程最大并发连接数（最大连接数=连接数*进程数）
 worker_connections 65535;
 
-# 并发总数是 worker_processes 和 worker_connections 的乘积
-# 即 max_clients = worker_processes * worker_connections
-# 在设置了反向代理的情况下，max_clients = worker_processes *worker_connections / 4  为什么
+# 并发总数是 worker_processes 和 worker_connections 的乘积,即 max_clients = worker_processes * worker_connections
+# 在设置了反向代理的情况下，max_clients = worker_processes *worker_connections / 4
 # 为什么上面反向代理要除以4，应该说是一个经验值
 # 根据以上条件，正常情况下的Nginx Server可以应付的最大连接数为：4* 8000 = 32000
 # worker_connections 值的设置跟物理内存大小有关
@@ -422,7 +416,7 @@ tcp_nodelay on; #防止网络阻塞
 keepalive_timeout 120; #长连接超时时间，单位是秒
 
 #FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
-fastcgi_connect_timeout 300;
+fastcgi_connect_timeout 60; # 默认60s，建立连接越多消耗资源越多
 fastcgi_send_timeout 300;
 fastcgi_read_timeout 300;
 fastcgi_buffer_size 64k;

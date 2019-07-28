@@ -12,24 +12,29 @@ nav:
   - Home: 'index.md'
   - Vim: 'Vim.md' 
   - Languages: 
-    - 'Regex&Lua': 'Regex_Lua.md'
+    - 'Regex': 'Regex.md'
     - 'Shell': 'Shell.md'
     - 'Python3': 'Python3.md'
     - 'Go': 'Go.md'
+  - CloudNative:
+      - 'Docker': 'Docker.md'
+      - 'Kubernetes': 'Kubernetes.md'
+      - 'ContainerOS': 'Coreos.md'
   - Servers: 
     - 'Linux': 'Linux.md'
     - 'Iproute2&Net-tools': 'Utilities.md'
     - 'Iptables': 'Iptables.md'
     - 'Firewalld': 'Firewalld.md'
-    - 'WindowsServer': 'Windows.md'
     - 'Ansible': 'Ansible.md'
-  - WebServer: 
-    - 'Nginx&Unit': 'Nginx.md'
-    - 'Apache&PHP-FPM': 'Apache.md'
+    - 'WindowsServer': 'Windows.md'
+  - WebServer:
+    - 'Nginx': 'Nginx.md'
+    - 'Apache': 'Apache.md'
     - 'Tomcat': 'Tomcat.md'
     - 'Caddy': 'Caddy.md'
   - Database: 
-    - 'MySQL&MariaDB': 'MySQL.md'
+    - 'MySQL': 'MySQL.md'
+    - 'MariaDB': 'MySQL.md'
     - 'Oracle': 'Oracle.md'
     - 'MongoDB': 'MongoDB.md'
     - 'Redis': 'Redis.md'
@@ -39,29 +44,29 @@ nav:
     - 'ELKStack': 'Elk.md'
     - 'Prometheus': 'Prometheus.md'
     - 'Grafana': 'Grafana.md'
-  - ContainerEcosystem: 
-    - 'Docker': 'Docker.md'
-    - 'Kubernetes': 'Kubernetes.md'
-    - 'ContainerOS': 'Coreos.md'
-    - 'Landscape': 'Landscape.md'
+    - 'Nagios': 'Nagios.md'
   - CI/CD: 
     - 'Git&GitLab': 'Git.md'
     - 'Jenkins': 'Jenkins.md'
-  - OptimisingWebDelivery: 
+  - Cache:
     - 'Squid': 'Squid.md'
     - 'Varnish': 'Varnish.md'
     - 'Stunnel': 'Stunnel.md'
-    - 'ApacheTrafficServer': 'TrafficServer.md'
+    - 'ApacheTraffic': 'TrafficServer.md'
   - LB&HA: 
     - 'LVS': 'LVS.md'
     - 'HAProxy': 'Haproxy.md'
   - MessageQueue: 
-    - 'ActiveMQ': 'ActiveMQ.md'
     - 'Kafka': 'Kafka.md'
+    - 'ActiveMQ': 'ActiveMQ.md'
     - 'RabbitMQ': 'RabbitMQ.md'
-  - FileSystem: 
+  - FileSystem:
     - 'Ceph': 'Ceph.md'
     - 'GlusterFS': 'GlusterFS.md'
+  - Network:
+      - 'Cisco': 'Cisco.md'
+      - 'Monitors': 'Monitors.md'
+      - 'Others': 'Others.md'
 
 theme:
   name: 'material'

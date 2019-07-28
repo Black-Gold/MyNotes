@@ -132,10 +132,13 @@ windows服务绑定IP问题
 netsh-->>http-->>show iplisten
 delete iplisten ipaddress=x.x.x.x
 
-网易云：()[http://music.163.com/song/media/outer/url?id=27493175.mp3]
+网易云：()[27493175.mp3]
 nslookup -vc github.com 8.8.8.8
 
 choice /t 5 /d y /n >nul    # 批处理命令延迟方法
+
+
+https://www.jsdelivr.com/package/gh/Black-Gold/MyNotes
 
 ## Windows Commands详解大全
 

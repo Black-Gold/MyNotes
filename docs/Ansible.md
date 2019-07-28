@@ -1,15 +1,16 @@
 # Ansible
 
-ansible是指令核心部分，主要用于执行ad-hoc命令，即单条命令。默认后面需跟主机和选项部分，默认不指定模块时，使用的是command模块。
+```markdown
+sage: ansible <host-pattern> [options]
 
-用法：ansible (host-pattern) [options]
+Define and run a single task 'playbook' against a set of hosts
 
 Options:
   -a MODULE_ARGS, --args=MODULE_ARGS
-                        模块参数
-  --ask-vault-pass      vault密码 
+                        module arguments
+  --ask-vault-pass      ask for vault password
   -B SECONDS, --background=SECONDS
-                        异步运行时，超时时长 
+                        run asynchronously, failing after X seconds
                         (default=N/A)
   -C, --check           don't make any changes; instead, try to predict some
                         of the changes that may occur
@@ -94,13 +95,15 @@ Options:
     --become-method=BECOME_METHOD
                         privilege escalation method to use (default=sudo),
                         valid choices: [ sudo | su | pbrun | pfexec | doas |
-                        dzdo | ksu | runas | pmrun | enable ]
+                        dzdo | ksu | runas | pmrun | enable | machinectl ]
     --become-user=BECOME_USER
                         run operations as this user (default=root)
     --ask-sudo-pass     ask for sudo password (deprecated, use become)
     --ask-su-pass       ask for su password (deprecated, use become)
     -K, --ask-become-pass
                         ask for privilege escalation password
+
+```
 
 
 ### Centos下安装部署
