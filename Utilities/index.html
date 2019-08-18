@@ -2288,9 +2288,9 @@ ip netconf show dev eth0</p>
 <span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="c1">--unix               此参数的效果和指定&quot;-A unix&quot;参数相同</span>
 <span class="c1">--ip,--inet             此参数的效果和指定&quot;-A inet&quot;参数相同</span>
 <span class="o">-</span><span class="n">N</span><span class="p">,</span><span class="c1">--symbolic           解析硬件、外围设备的符号连接名称</span>
-<span class="o">-</span><span class="n">e</span><span class="p">,</span><span class="c1">--extend             显示更多信息</span>
+<span class="o">-</span><span class="n">e</span><span class="p">,</span><span class="c1">--extend             显示网络中其他更多信息</span>
 <span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="c1">--programs           显示正在使用Socket的进程PID和程序名称</span>
-<span class="o">-</span><span class="n">o</span><span class="p">,</span><span class="c1">--timers             display timers</span>
+<span class="o">-</span><span class="n">o</span><span class="p">,</span><span class="c1">--timers             display timers(显示计时器)</span>
 <span class="o">-</span><span class="k">c</span><span class="p">,</span><span class="c1">--continuous         持续列出网络状态(默认1s)</span>
 <span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="c1">--listening          显示侦听服务器sockets</span>
 <span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="c1">--all                显示所有连线中的Socket(default: connected)</span>
@@ -2317,8 +2317,7 @@ netstat -s   显示所有端口的统计信息
 netstat -st   显示TCP端口的统计信息
 netstat -su   显示UDP端口的统计信息
 
-<span class="c1"># 在netstat输出中显示 PID 和进程名称</span>
-netstat -pt
+netstat -pt     <span class="c1"># 在netstat输出中显示 PID 和进程名称</span>
 </pre></div>
 
 <p><code class="codehilite"><span class="n">netstat</span> <span class="o">-</span><span class="n">p</span></code>可以与其它开关一起使用，就可以添加“PID/进程名称”到netstat输出中，这样debugging的时候可以很方便的发现特定端口运行的程序。</p>

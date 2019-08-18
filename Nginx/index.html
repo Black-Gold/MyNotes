@@ -1711,13 +1711,17 @@ server <span class="o">{</span>
 
 #<span class="nv">FastCGI</span>相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
 <span class="nv">fastcgi_connect_timeout</span> <span class="mi">60</span><span class="c1">; # 默认60s，建立连接越多消耗资源越多</span>
-<span class="nv">fastcgi_send_timeout</span> <span class="mi">300</span><span class="c1">;</span>
-<span class="nv">fastcgi_read_timeout</span> <span class="mi">300</span><span class="c1">;</span>
+<span class="nv">fastcgi_send_timeout</span> <span class="mi">60</span><span class="c1">;</span>
+<span class="nv">fastcgi_read_timeout</span> <span class="mi">60</span><span class="c1">;</span>
 <span class="nv">fastcgi_buffer_size</span> <span class="mi">64</span><span class="nv">k</span><span class="c1">;</span>
 <span class="nv">fastcgi_buffers</span> <span class="mi">4</span> <span class="mi">64</span><span class="nv">k</span><span class="c1">;</span>
 <span class="nv">fastcgi_busy_buffers_size</span> <span class="mi">128</span><span class="nv">k</span><span class="c1">;</span>
 <span class="nv">fastcgi_temp_file_write_size</span> <span class="mi">256</span><span class="nv">k</span><span class="c1">;</span>
 <span class="nv">fastcgi_intercept_errors</span> <span class="nv">on</span><span class="c1">;</span>
+<span class="nv">fastcgi_cache_valid</span> <span class="mi">200</span> <span class="mi">302</span> <span class="mi">1</span><span class="nv">h</span><span class="c1">; # 指定应答代码缓存时间</span>
+<span class="nv">fastcgi_cache_min_uses</span> <span class="mi">1</span><span class="c1">; # 请求几次响应后将被缓存，1表示一次就缓存</span>
+<span class="nv">fastcgi_cache_use_stale</span> <span class="nv">error</span> <span class="nb">timeout</span> <span class="nv">invalid_header</span> <span class="nv">http_500</span><span class="c1">;  # 定义那种情况下使用过期缓存</span>
+<span class="nv">fastcgi_cache_key</span> $<span class="nv">request_method</span>:<span class="o">//</span>$<span class="nv">host</span>$<span class="nv">request_uri</span><span class="c1">;  # 此示例以请求的uri作为缓存的key值</span>
 
 #<span class="nv">gzip</span>模块设置
 <span class="nv">gzip</span> <span class="nv">on</span><span class="c1">; #开启gzip压缩输出</span>
