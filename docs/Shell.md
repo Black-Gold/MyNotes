@@ -1,6 +1,7 @@
 # shell笔记
 
-bash shell本身不支持正则表达式，使用正则的是shell命令和工具，如grep、sed等。bash shell可以使用正则表达式中的一些元字符实现通配(Globbing)功能。通配就是把一个包含通配符的非具体文件名扩展存储在计算机或网络上的一批具体文件名的过程。
+bash shell本身不支持正则表达式，使用正则的是shell命令和工具，如grep、sed等。bash shell可以使用正则表达式中的一些元字符实
+现通配(Globbing)功能。通配就是把一个包含通配符的非具体文件名扩展存储在计算机或网络上的一批具体文件名的过程
 
 - Reference List
 
@@ -9,41 +10,170 @@ bash shell本身不支持正则表达式，使用正则的是shell命令和工�
 
 ## shell特殊变量基本解释
 
-```sh
+```bash
 
-$*     传递给程序的所有参数组成的字符串。
-$@     所有的参数，每个都用双括号括起
-$#     传递给程序的总的参数数目
-$*     传递给程序的所有参数组成的字符串。
-$-     在Shell启动或使用set命令时提供选项
-$?     上一条命令执行后返回值;成功返回0,失败返回1
+$*     # 传递给程序的所有参数组成的字符串
+$@     # (常用)所有的参数，每个都用双括号括起
+$#     # (常用)传递给程序的总的参数数目
+$*     # (常用)传递给程序的所有参数组成的字符串
+$_     # 获取在此之前执行的命令或脚本的最后一个参数
+$?     # (常用)上一条命令执行后返回值;成功返回0,失败返回1
 
-返回值参考：
-0      表示运行成功
-2      权限拒绝
-1~125  运行失败、脚本命令、系统命令错误或参数传递错误
-126    找到该命令但无法执行
-127    未找到要运行的命令
->128   命令被系统强制结束
-$$     当前shell的进程号
-$!     上一个子进程的进程号
-$@     所有的参数，每个都用双括号括起
-$n     位置参数值，n表示位置
-$0     当前shell名（当前执行进程的进程名）
+# 返回值参考：
+0      # 表示运行成功
+2      # 权限拒绝
+1~125  # 运行失败、脚本命令、系统命令错误或参数传递错误
+126    # 找到该命令但无法执行
+127    # 未找到要运行的命令
+>128   # 命令被系统强制结束
+$$     # 当前shell的进程号
+$!     # 上一个子进程的进程号
+$@     # 所有的参数，每个都用双括号括起
+$n     # (常用)位置参数值，n表示位置，获取当前脚本第n个参数值，n大于9时要用大括号，例${10}，接的参数以空格隔开
+$0     # (常用)当前shell名(当前执行进程的进程名，如果执行脚本包含路径则返回也包含脚本路径)
 
-数值比较：
+# 数值比较：
 
--eq ：等于
--ne ：不等于
--gt ：大于
--lt  ：小于
--le  ：小于或等于
--ge ：大于或等于
+-eq     # 等于
+-ne     # 不等于
+-gt     # 大于
+-lt     # 小于
+-le     # 小于或等于
+-ge     # 大于或等于
 
-逻辑测试：
-&& ：逻辑与
-|| ：逻辑或
-！ ：逻辑否
+# 逻辑测试：
+&&      # 逻辑与
+||      # 逻辑或
+!       # 逻辑否
+```
+
+## 控制快捷键
+
+```bash
+
+更改终端行为或文本显示. 控制字符都是以CONTROL + key的组合键.
+
+在脚本文件中控制字符是不起作用的
+Ctl-B
+
+退格 (非破坏性的).
+
+Ctl-C
+
+中断. 终结一个前台作业.
+
+
+Ctl-D
+
+从一个shell中退出 (类似于exit).
+
+"EOF" (文件结尾：end of file).它也用于表示标准输入（stdin）的结束.
+
+在控制台或xterm 窗口输入文本时, Ctl-D删除在光标下的字符.如果没有字符存在，Ctl-D 则会登录出该会话. 在一个xterm窗口中，则会产生关闭此窗口的效果。
+
+Ctl-G
+
+"哔" (beep).在一些老式的打字机终端上，它会响一下铃.
+
+Ctl-H
+
+"杀掉" (破坏性的退格). 删除光标前的一个字符＝＝＝.
+
+   1 #!/bin/bash
+   2 # 在一个字符串里嵌入 Ctl-H.
+   4 a="^H^H"                  # 两个 Ctl-H (退格).
+   5 echo "abcdef"             # abcdef
+   6 echo -n "abcdef$a "       # abcd f
+   7 #以一个空格结尾  ^              ^ 退二格.
+   8 echo -n "abcdef$a"        # abcdef
+   9 #  现在没有尾部的空格            不退格了 (为什么?).
+  10                           # 结果和预料的不一样.
+  11 echo; echo
+
+Ctl-I
+
+水平制表符.
+
+Ctl-J
+
+新行(换一行并到行首).
+
+Ctl-K
+
+垂直制表符.
+
+在控制台或xterm 窗口输入文本时, Ctl-K 会删除从光标所在处到行尾的所有字符。
+
+Ctl-L
+
+清屏 (重绘屏幕，清除前面的打印信息).这与clear命令作用相同.
+
+Ctl-M
+
+回车.
+
+   1 #!/bin/bash
+   2 # 多谢Lee Maschmeyer的例子
+   4 read -n 1 -s -p $'Control-M leaves cursor at beginning of this line. Press Enter. \x0d'
+   5                                   # 是的, '0d'是Control-M的十六进制值.
+   6 echo >&2   #  '-s'使所有被键入的字符都不回显,
+   7            #+ 所以需要明确地键入新行.
+   9 read -n 1 -s -p $'Control-J leaves cursor on next line. \x0a'
+  10 echo >&2   #  Control-J 是换行.
+  12 ###
+  14 read -n 1 -s -p $'And Control-K\x0bgoes straight down.'
+  15 echo >&2   #  Control-K 是垂直制表符.
+  17 # 展示垂直制表符作用的更好的例子是:
+  19 var=$'\x0aThis is the bottom line\x0bThis is the top line\x0a'
+  20 echo "$var"
+  21 #  这和上面的例子一样工作.但是:
+  22 echo "$var" | col
+  23 #  这使行的右端比左端更高.
+  24 #  这也解释了为什么我们以一个换行符开始和结束 --
+  25 #+ 是为了避免屏幕显示混乱.
+  27 # 这是Lee Maschmeyer的解释:
+  28 # --------------------------
+  29 #  在第一个垂直制表符例子中 . . . 垂直制表符使还未打印回车就直接垂直打印下来。
+  30 #
+  31 #  这只在不能“倒后”的设备里才成立,比如在Linux控制台,
+  32 #
+  33 #  垂直制表符真正的意图是能垂直地往上移，而不是往下移.
+  34 #  可以在打印机里用于打印上标.
+  35 #  这个要点的作用被用于仿效垂直制表符正确的功能.
+  37 exit 0
+
+Ctl-Q
+
+解冻 (XON).
+
+它解冻终端的标准输入.
+
+Ctl-S
+
+挂起输入 (XOFF).
+
+它冻结终端的标准输入. (用 Ctl-Q 可恢复输入.)
+
+Ctl-U
+
+删除从光标到行首的一行输入.在某些设置里，Ctl-U 删除整行的输入，而不管光标的位置.
+
+Ctl-V
+
+当输入一个文本, Ctl-V允许插入控制字符。例如，下面两个命令是相等的:
+   1 echo -e '\x0a'
+   2 echo <Ctl-V><Ctl-J>
+
+Ctl-V 主要用于文本编辑.
+
+Ctl-W
+
+当在控制台或一个xterm窗口敲入文本时, Ctl-W 会删除从在光标处往后的第一个空白符之间的内容.在某些设置里, Ctl-W 删除光标往后到第一个非文字和数字之间的字符.
+
+Ctl-Z
+
+暂停一个前台作业.
+
 ```
 
 ## 在shell中常用的特殊符号罗列如下：
@@ -186,9 +316,11 @@ vrs=123echo \"vrs = $vrs\" # vrs = 123
 
 ### ${} 变量的正规表达式
 
-```sh
+```bash
 bash 对 ${} 定义了不少用法。以下是取自线上说明的表列
-${parameter:-word}   ${parameter:=word}   ${parameter:?word}  ${parameter:+word}   ${parameterffset}   {parameterffset:length}   ${!prefix*}   ${#parameter}   {parameter#word}   ${parameter##word}   ${parameter%word}   {parameter%%word}   ${parameter/pattern/string}   {parameter//pattern/string}
+${parameter:-word}   ${parameter:=word}   ${parameter:?word}  ${parameter:+word}   ${parameterffset}   {parameterffset:length}
+${!prefix*}   ${#parameter}   {parameter#word}   ${parameter##word}   ${parameter%word}   {parameter%%word}   ${parameter/pattern/string}   {parameter//pattern/string}
+
 ```
 
 ### $*符号
@@ -463,134 +595,7 @@ echo "whatever" | cat - #输出 whatever
 
 先前的工作目录. 它与外部变量$OLDPWD是一致的
 
-### 控制字符
 
-```sh
-
-更改终端行为或文本显示. 控制字符都是以CONTROL + key的组合键.
-
-在脚本文件中控制字符是不起作用的
-Ctl-B
-
-退格 (非破坏性的).
-
-Ctl-C
-
-中断. 终结一个前台作业.
-
-
-Ctl-D
-
-从一个shell中退出 (类似于exit).
-
-"EOF" (文件结尾：end of file).它也用于表示标准输入（stdin）的结束.
-
-在控制台或xterm 窗口输入文本时, Ctl-D删除在光标下的字符.如果没有字符存在，Ctl-D 则会登录出该会话. 在一个xterm窗口中，则会产生关闭此窗口的效果。
-
-Ctl-G
-
-"哔" (beep).在一些老式的打字机终端上，它会响一下铃.
-
-Ctl-H
-
-"杀掉" (破坏性的退格). 删除光标前的一个字符＝＝＝.
-
-   1 #!/bin/bash
-   2 # 在一个字符串里嵌入 Ctl-H.
-   4 a="^H^H"                  # 两个 Ctl-H (退格).
-   5 echo "abcdef"             # abcdef
-   6 echo -n "abcdef$a "       # abcd f
-   7 #以一个空格结尾  ^              ^ 退二格.
-   8 echo -n "abcdef$a"        # abcdef
-   9 #  现在没有尾部的空格            不退格了 (为什么?).
-  10                           # 结果和预料的不一样.
-  11 echo; echo
-
-Ctl-I
-
-水平制表符.
-
-Ctl-J
-
-新行(换一行并到行首).
-
-Ctl-K
-
-垂直制表符.
-
-在控制台或xterm 窗口输入文本时, Ctl-K 会删除从光标所在处到行尾的所有字符。
-
-Ctl-L
-
-清屏 (重绘屏幕，清除前面的打印信息).这与clear命令作用相同.
-
-Ctl-M
-
-回车.
-
-   1 #!/bin/bash
-   2 # 多谢Lee Maschmeyer的例子
-   4 read -n 1 -s -p $'Control-M leaves cursor at beginning of this line. Press Enter. \x0d'
-   5                                   # 是的, '0d'是Control-M的十六进制值.
-   6 echo >&2   #  '-s'使所有被键入的字符都不回显,
-   7            #+ 所以需要明确地键入新行.
-   9 read -n 1 -s -p $'Control-J leaves cursor on next line. \x0a'
-  10 echo >&2   #  Control-J 是换行.
-  12 ###
-  14 read -n 1 -s -p $'And Control-K\x0bgoes straight down.'
-  15 echo >&2   #  Control-K 是垂直制表符.
-  17 # 展示垂直制表符作用的更好的例子是:
-  19 var=$'\x0aThis is the bottom line\x0bThis is the top line\x0a'
-  20 echo "$var"
-  21 #  这和上面的例子一样工作.但是:
-  22 echo "$var" | col
-  23 #  这使行的右端比左端更高.
-  24 #  这也解释了为什么我们以一个换行符开始和结束 --
-  25 #+ 是为了避免屏幕显示混乱.
-  27 # 这是Lee Maschmeyer的解释:
-  28 # --------------------------
-  29 #  在第一个垂直制表符例子中 . . . 垂直制表符使还未打印回车就直接垂直打印下来。
-  30 #
-  31 #  这只在不能“倒后”的设备里才成立,比如在Linux控制台,
-  32 #
-  33 #  垂直制表符真正的意图是能垂直地往上移，而不是往下移.
-  34 #  可以在打印机里用于打印上标.
-  35 #  这个要点的作用被用于仿效垂直制表符正确的功能.
-  37 exit 0
-
-Ctl-Q
-
-解冻 (XON).
-
-它解冻终端的标准输入.
-
-Ctl-S
-
-挂起输入 (XOFF).
-
-它冻结终端的标准输入. (用 Ctl-Q 可恢复输入.)
-
-Ctl-U
-
-删除从光标到行首的一行输入.在某些设置里，Ctl-U 删除整行的输入，而不管光标的位置.
-
-Ctl-V
-
-当输入一个文本, Ctl-V允许插入控制字符。例如，下面两个命令是相等的:
-   1 echo -e '\x0a'
-   2 echo <Ctl-V><Ctl-J>
-
-Ctl-V 主要用于文本编辑.
-
-Ctl-W
-
-当在控制台或一个xterm窗口敲入文本时, Ctl-W 会删除从在光标处往后的第一个空白符之间的内容.在某些设置里, Ctl-W 删除光标往后到第一个非文字和数字之间的字符.
-
-Ctl-Z
-
-暂停一个前台作业.
-
-```
 
 ### shell多行注释实现方式
 
@@ -606,6 +611,55 @@ Ctl-Z
 语句
 '
 ```
+
+### shell变量子串说明
+
+| 表达式 | 说明 |
+| :------: | :------: |
+| ${parameter} | 返回变量$parameter的内容 |
+| ${#parameter} | 返回变量$parameter内容的字符长度 |
+| ${parameter:offset} | 在变量$parameter中，从位置offset后提取字符串到结尾 |
+| ${parameter:offset:length} | 在变量$parameter中从位置offset后提取字符串长度为length的子串 |
+| ${parameter#word} | 从变量$parameter开头删除最短匹配的word子串 |
+| ${parameter##word} | 从变量$parameter开头删除最长匹配的word子串 |
+| ${parameter%word} | 从变量$parameter结尾开始删除最短匹配的word子串 |
+| ${parameter%%word} | 从变量$parameter结尾开始删除最长匹配的word子串 |
+| ${parameter/pattern/string} | 使用string代替第一个匹配的pattern |
+| ${parameter//pattern/string} | 使用string代替所有匹配的pattern |
+| ${parameter:-word} | 如果变量parameter没有值为空或未赋值则返回word字符串作为变量的值 |
+| ${parameter:=word} | 如果变量parameter没有值为空或未赋值则返回word字符串作为变量的值,位置变量和特殊变量不适用 |
+| ${parameter:?word} | 如果变量parameter没有值为空或未赋值则word字符串作为标准错误输出，否则输出变量的值 |
+| ${parameter:+word} | 如果变量parameter没有值为空或未赋值则什么都不做，否则word字符串替代变量的值 |
+
+word可以表示为一串字符，比如a*c表示删除从字符a到c的所有字符
+
+## 算术运算符
+
+| 算术运算符 | 描述 |
+| :------: | :------: |
+| + - | 加法 减法(常用) |
+| * / % | 乘法 除法 取模(常用) |
+| ** | 幂运算(常用) |
+| ++ -- | 自加 自减，可放在变量前变量后,变量之前表示先自增或自减再赋值给变量，之后表示先赋值再自增或自减(常用) |
+| ! && \|\| | 逻辑非（取反） 逻辑与（and） 逻辑或（or） (常用) |
+| < <= > >= | 比较符号 |
+| == != = | 比较符号 |
+| << >> | 向左位移 向右位移 |
+| ~ | & ^ | 按位取反 按位异或 按位与 按位或 |
+| = += -= *= /= %= | 赋值运算符 |
+
+| 算术运算操作符和运算命令 | 描述 |
+| :------: | :------: |
+| (()) | 整数运算的常用操作符 |
+| let | 用于整数运算和(())类似 |
+| expr | 通常用于整数计算也有其他额外功能 |
+| bc | 适合整数和小数运算 |
+| $[] | 用于整数运算 |
+| awk | 整数和小数运算 |
+| declare | 定义变量值和属性,-i参数用于定义整型变量 |
+
+
+
 
 ### 变量替换
 
@@ -706,9 +760,12 @@ echo命令使用的转义序列
 | \NNN | The eight-bit character whose value is the octal value NNN (one to three octal digits) |
 | \xHH | The eight-bit character whose value is the hexadecimal value (one or two hexadecimal digits) |
 
+## 
+
+
 ### bash变量是无类型的
 
-```sh
+```bash
 #不同与许多其他的编程语言，Bash不以"类型"来区分变量。本质上来说，Bash变量是字符串，但是根据环境的不同，Bash允许变量有整数计算和比较。其中的决定因素是变量的值是不是只含有数字.
 #整数还是字符串？
 var1=2314
@@ -1460,359 +1517,6 @@ fi
 
 ```
 
-### 操作符
-
-```sh
-赋值
-
-变量赋值
-初始化或改变一个变量的值
-
-=
-通用的变量赋值操作符，可以用于数值和字符串的赋值
-var=27
-category=minerals  # "="字符后面不能加空白字符.
-
-不要把"="赋值操作符和=测试操作符搞混了。
-#    = 用于测试操作符
-
-if [ "$string1" = "$string2" ]
-# if [ "X$string1" = "X$string2" ] 会更安全,
-# 它为了防止其中有一个字符串为空时产生错误信息.
-# (增加的"X"字符可以互相抵消.)
-then
-   command
-fi
-
-计算操作符
-
-+
-加
-
--
-减
-
-*
-乘
-
-/
-除
-
-**
-求幂
-# Bash在版本2.02引入了"**"求幂操作符.
-let "z=5**3"
-echo "z = $z"   # z = 125
-
-%
-求模（它返回整数整除一个数后的余数）
-
-expr 5 % 3
-2
-
-5/3 = 1 余 2
-
-This operator finds use in, among other things, generating numbers within a specific range (see Example 9-24 and Example 9-27) and formatting program output (see Example 26-15 and Example A-6). It can even be used to generate prime numbers, (see Example A-16). Modulo turns up surprisingly often in various numerical recipes.
-
-#求最大公约数
-#!/bin/bash
-# gcd.sh: 最大公约数
-#         用Euclid运算法则
-#  两个整数的"最大公约数"
-#+ 是能被这两个整数整除的大最整数.
-#  Euclid运算法则采用逐次除法.
-#  每一次都重新赋值,
-#+ 被除数 <---  除数
-#+ 除数  <---  余数
-#+ 直到 余数 = 0.
-#+ 最后被传递的值中：最大公约数 = 被除数.
-#
-#  关于Euclid运算法则的讨论有一个出色的讨论,
-#  访问Jim Loy的网站, http://www.jimloy.com/number/euclids.htm.
-# ------------------------------------------------------
-# 参数检查
-ARGS=2
-E_BADARGS=65
-if [ $# -ne "$ARGS" ]
-then
-  echo "Usage: `basename $0` first-number second-number"
-  exit $E_BADARGS
-fi
-# ------------------------------------------------------
-gcd ()
-{
-      dividend=$1                    #  随意赋值.
-  divisor=$2                     #+ 这里在两个参数赋大的还是小的都没有关系.
-                                 #  为什么?
-  remainder=1                    #  如果在循环中使用未初始化的变量,
-                                 #+ 在循环中第一个传递值会使它返回一个错误信息
-                                 #
-  until [ "$remainder" -eq 0 ]
-  do
-    let "remainder = $dividend % $divisor"
-    dividend=$divisor            # 现在用最小的两个数字来重复.
-    divisor=$remainder
-  done                           # Euclid运算法则
-}                                # 最后的$dividend变量值就是最大公约数.
-gcd $1 $2
-echo; echo "GCD of $1 and $2 = $dividend"; echo
-# 练习:
-# --------
-#  检测命令行参数以确保它们是整数,
-#+ 如果不是整数则给出一个适当的错误信息并退出脚本.
-exit 0
-+=
-"加-等(plus-equal)" (把原变量值增加一个常量并重新赋值给变量)
-
-let "var += 5"会使变量var值加了5并把值赋给var.
-
--=
-"(减-等)minus-equal" (把原变量值减少一个常量并重新赋值给变量)
-
-*=
-"(乘-等)times-equal" (把原变量值乘上一个常量并重新赋值给变量)
-
-let "var *= 4" 使变量var的值乘上4并把值赋给var.
-
-/=
-"(除-等)slash-equal" (把原变量值除以一个常量并重新赋值给变量)
-
-%=
-"(模-等)mod-equal" (把原变量值除以一个常量整除（译者注：即取模）并重新赋余数的值给变量)
-
-计算操作符常常出现在expr或let命令的表达式中.
-
-例子 8-2. 使用计算操作符
-
-#!/bin/bash
-# 用10种不同的方法计数到11.
-
-n=1; echo -n "$n "
-
-let "n = $n + 1"   # let "n = n + 1"也可以.
-echo -n "$n "
-
-: $((n = $n + 1))
-#  ":"是需要的，
-#+ 否则Bash会尝试把"$((n = $n + 1))"作为命令运行.
-echo -n "$n "
-
-(( n = n + 1 ))
-#  上面是更简单的可行的办法.
-#  多谢David Lombard指出这一点.
-echo -n "$n "
-
-n=$(($n + 1))
-echo -n "$n "
-
-: $[ n = $n + 1 ]
-#  ":"是需要的，
-#+ 否则Bash会尝试把"$[ n = $n + 1 ]"作为命令运行.
-#  即使"n"被当作字符串来初始化也能工作.
-echo -n "$n "
-
-n=$[ $n + 1 ]
-#  即使"n"被当作字符串来初始化也能工作.
-#* 应避免这种使用这种结构,因为它是被废弃并不可移植的.
-#  多谢Stephane Chazelas.
-echo -n "$n "
-
-# 现在是C风格的增加操作.
-# 多谢Frank Wang指出这一点.
-
-let "n++"          # let "++n"也可以.
-echo -n "$n "
-
-(( n++ ))          # (( ++n )也可以.
-echo -n "$n "
-
-: $(( n++ ))       # : $(( ++n ))也可以.
-echo -n "$n "
-
-: $[ n++ ]         # : $[ ++n ]]也可以.
-echo -n "$n "
-
-echo
-
-exit 0
-
-Bash中的整数变量实际上是有符号的长整数(32位)，它的范围在-2147483648至2147483647之间。如果有在此范围限制之外的操作将会得到一个错误的结果。
-a=2147483646
-echo "a = $a"      # a = 2147483646
-let "a+=1"         # 把变量"a"的值自增一.
-echo "a = $a"      # a = 2147483647
-let "a+=1"         # 再自增"a"一次,超过这个限制.
-echo "a = $a"      # a = -2147483648
-                   #      错误 (溢出)
-到2.05b版本为止，Bash支持64位的整数。
-
-Bash不能处理浮点计算。它会把含有小数点的数当成字符串。
-a=1.5
-
-let "b = $a + 1.3"  # 错误
-# t2.sh: let: b = 1.5 + 1.3: syntax error in expression (error token is 5 + 1.3") 意为表达式错误(错误的符号".5 + 1.3")
-
-echo "b = $b"       # b=1
-在脚本中用bc需要浮点计算或数学库函数的支持。
-
-位操作符. 位操作符很少在脚本中使用。他们主要用于操作和测试从端口或sockets中读到的数据。“位运算”更多地用于编译型的语言，比如说C和C++，它们运行起来快地像飞。
-
-位操作符
-
-<<
-位左移（每移一位相当乘以2）
-
-: <<comment
-
-<<=
-"位左移赋值"
-
-comment
-
-let "var <<= 2" 结果使var的二进制值左移了二位（相当于乘以4）
-
->>
-位右移（每移一位相当除以2）
-
-: <<comment
-
->>=
-"位右移赋值"（和<<=相反）
-
-comment
-
-&
-位与
-
-&=
-"位于赋值"
-
-|
-位或
-
-|=
-"位或赋值"
-
-~
-位反
-
-!
-位非
-
-^
-位或
-
-^=
-"位或赋值"
-
-逻辑操作符
-
-&&
-逻辑与
-
-if [ $condition1 ] && [ $condition2 ]
-# 等同于:  if [ $condition1 -a $condition2 ]
-# 如果condition1和condition2都为真则返回真...
-
-if [[ $condition1 && $condition2 ]]    # Also works.
-# 注意&&操作不能在[ ... ]结构中使用.
-
-依据上下文，&&也可以在与列表(and list)连接命令中。
-
-||
-逻辑或
-
-if [ $condition1 ] || [ $condition2 ]
-# 等同于:  if [ $condition1 -o $condition2 ]
-# 如果condition1和condition2有一个为真则返回真...
-if [[ $condition1 || $condition2 ]]    # Also works.
-# 注意||操作不能在[ ... ]结构中使用.
-
-Bash测试由逻辑操作符连接起来的每一个表达式的退出状态。
-
-
-#使用&&和||进行混合条件测试
-#!/bin/bash
-
-a=24
-b=47
-
-if [ "$a" -eq 24 ] && [ "$b" -eq 47 ]
-then
-  echo "Test #1 succeeds."
-else
-  echo "Test #1 fails."
-fi
-
-# 错误:   if [ "$a" -eq 24 && "$b" -eq 47 ]
-#+         这会尝试执行' [ "$a" -eq 24 '
-#+         然后会因没找到匹配的']'而失败.
-#
-#  注意:  if [[ $a -eq 24 && $b -eq 24 ]]也可以.
-#  双方括号的if-test比
-#+ 单方括号的结构更灵活
-#    (第17行和第6行的"&&"有不同的意思.)
-#    多谢Stephane Chazelas指出这一点.
-
-
-if [ "$a" -eq 98 ] || [ "$b" -eq 47 ]
-then
-  echo "Test #2 succeeds."
-else
-  echo "Test #2 fails."
-fi
-
-
-#  -a和-o选项提供
-#+ 混合条件测试另一个选择.
-#  多谢Patrick Callahan指出这一点.
-
-
-if [ "$a" -eq 24 -a "$b" -eq 47 ]
-then
-  echo "Test #3 succeeds."
-else
-  echo "Test #3 fails."
-fi
-
-
-if [ "$a" -eq 98 -o "$b" -eq 47 ]
-then
-  echo "Test #4 succeeds."
-else
-  echo "Test #4 fails."
-fi
-
-
-a=rhino
-b=crocodile
-if [ "$a" = rhino ] && [ "$b" = crocodile ]
-then
-  echo "Test #5 succeeds."
-else
-  echo "Test #5 fails."
-fi
-
-exit 0
-在算术计算的环境中，&&和||操作符也可以使用。
-
-echo $(( 1 && 2 )) $((3 && 0)) $((4 || 0)) $((0 || 0))
-1 0 1 0
-
-杂合的其他操作符
-
-,   逗号操作符
-
-逗号操作符连接两个或更多的算术操作。所有的操作都被求值(可能会有副作用)，但只返回最后一个操作的结构
-let "t1 = ((5 + 3, 7 - 1, 15 - 4))"
-echo "t1 = $t1"               # t1 = 11
-
-let "t2 = ((a = 9, 15 / 3))"  # 初始化"a"并求"t2"的值.
-echo "t2 = $t2    a = $a"     # t2 = 5    a = 9
-
-逗号操作符主要用在for 循环里.
-
-```
 
 ### 数字常量
 
@@ -1879,18 +1583,4 @@ let "bad_oct = 081"
 
 ```
 
-### read内置命令是echo和printf命令的对应命令
 
-读取内置的选项
-
-| 选项 | 含义 |
-| :------: | :------: |
-| -a ANAME | The words are assigned to sequential indexes of the array variable ANAME, starting at 0 All elements are removed from ANAME before the assignment Other NAME arguments are ignored |
-| -d DELIM | The first character of DELIM is used to terminate the input line, rather than newline |
-| -e | readline is used to obtain the line |
-| -n NCHARS | read returns after reading NCHARS characters rather than waiting for a complete line of input |
-| -p PROMPT | Display PROMPT, without a trailing newline, before attempting to read any input The prompt is displayed only if input is coming from a terminal |
-| -r | If this option is given, backslash does not act as an escape character The backslash is considered to be part of the line In particular, a backslash-newline pair may not be used as a line continuation |
-| -s | Silent mode If input is coming from a terminal, characters are not echoed |
-| -t TIMEOUT | Cause read to time out and return failure if a complete line of input is not read within TIMEOUT seconds This option has no effect if read is not reading input from the terminal or from a pipe |
-| -u FD | Read input from file descriptor FD |

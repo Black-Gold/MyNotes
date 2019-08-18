@@ -154,7 +154,7 @@ vim /usr/libexec/urlgrabber-ext-down
 
 python --version验证版本
 Tips :若python版本已经为2.6或以上，可以不需要再重装python，只是还需要安装python开发包：python-dev(有的操作系统下为python-devel)
-
+        
 (2)、setuptools pip wheel模块安装
 wget https://bootstrap.pypa.io/get-pip.py
 

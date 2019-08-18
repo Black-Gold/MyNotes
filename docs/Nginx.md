@@ -417,13 +417,17 @@ keepalive_timeout 120; #长连接超时时间，单位是秒
 
 #FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
 fastcgi_connect_timeout 60; # 默认60s，建立连接越多消耗资源越多
-fastcgi_send_timeout 300;
-fastcgi_read_timeout 300;
+fastcgi_send_timeout 60;
+fastcgi_read_timeout 60;
 fastcgi_buffer_size 64k;
 fastcgi_buffers 4 64k;
 fastcgi_busy_buffers_size 128k;
 fastcgi_temp_file_write_size 256k;
 fastcgi_intercept_errors on;
+fastcgi_cache_valid 200 302 1h; # 指定应答代码缓存时间
+fastcgi_cache_min_uses 1; # 请求几次响应后将被缓存，1表示一次就缓存
+fastcgi_cache_use_stale error timeout invalid_header http_500;  # 定义那种情况下使用过期缓存
+fastcgi_cache_key $request_method://$host$request_uri;  # 此示例以请求的uri作为缓存的key值
 
 #gzip模块设置
 gzip on; #开启gzip压缩输出

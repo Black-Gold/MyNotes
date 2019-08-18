@@ -1077,7 +1077,7 @@ ip netconf show dev eth0
 
 
 
-```info
+```markdown
 netstat [-vWeenNcCF] [<Af>] -r
 netstat [-vWnNcaeol] [<Socket> ...]
 netstat { [-vWeenNac] -i | [-cnNe] -M | -s [-6tuw] }
@@ -1108,9 +1108,9 @@ netstat { [-vWeenNac] -i | [-cnNe] -M | -s [-6tuw] }
 -x,--unix               此参数的效果和指定"-A unix"参数相同
 --ip,--inet             此参数的效果和指定"-A inet"参数相同
 -N,--symbolic           解析硬件、外围设备的符号连接名称
--e,--extend             显示更多信息
+-e,--extend             显示网络中其他更多信息
 -p,--programs           显示正在使用Socket的进程PID和程序名称
--o,--timers             display timers
+-o,--timers             display timers(显示计时器)
 -c,--continuous         持续列出网络状态(默认1s)
 -l,--listening          显示侦听服务器sockets
 -a,--all                显示所有连线中的Socket(default: connected)
@@ -1121,7 +1121,7 @@ netstat { [-vWeenNac] -i | [-cnNe] -M | -s [-6tuw] }
 
 ### netstat实例
 
-```sh
+```bash
 # 列出所有端口 (包括监听和未监听的)
 netstat -a     #列出所有端口
 netstat -at    #列出所有tcp端口
@@ -1139,8 +1139,7 @@ netstat -s   显示所有端口的统计信息
 netstat -st   显示TCP端口的统计信息
 netstat -su   显示UDP端口的统计信息
 
-# 在netstat输出中显示 PID 和进程名称
-netstat -pt
+netstat -pt     # 在netstat输出中显示 PID 和进程名称
 ```
 
 `netstat -p`可以与其它开关一起使用，就可以添加“PID/进程名称”到netstat输出中，这样debugging的时候可以很方便的发现特定端口运行的程序。
