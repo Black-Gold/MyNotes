@@ -116,7 +116,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#nginx-unit" tabindex="1" class="md-skip">
+      <a href="#nginxunit" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -581,6 +581,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#nginx" title="nginx内核相关参数" class="md-nav__link">
+    nginx内核相关参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" title="初学者指南" class="md-nav__link">
     初学者指南
   </a>
@@ -616,7 +623,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nginx" title="nginx日志相关命令" class="md-nav__link">
+  <a href="#nginx_1" title="nginx日志相关命令" class="md-nav__link">
     nginx日志相关命令
   </a>
   
@@ -1246,6 +1253,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#nginx" title="nginx内核相关参数" class="md-nav__link">
+    nginx内核相关参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_4" title="初学者指南" class="md-nav__link">
     初学者指南
   </a>
@@ -1281,7 +1295,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nginx" title="nginx日志相关命令" class="md-nav__link">
+  <a href="#nginx_1" title="nginx日志相关命令" class="md-nav__link">
     nginx日志相关命令
   </a>
   
@@ -1313,7 +1327,7 @@
                   <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/Nginx.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="nginx-unit">Nginx--Unit<a class="headerlink" href="#nginx-unit" title="Permanent link">&para;</a></h1>
+                <h1 id="nginxunit">Nginx&amp;&amp;Unit<a class="headerlink" href="#nginxunit" title="Permanent link">&para;</a></h1>
 <h2 id="centos">centos安装<a class="headerlink" href="#centos" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="c1"># To set up the yum repository for RHEL/CentOS, create the file named /etc/yum.repos.d/nginx.repo with the following contents:</span>
 <span class="c1"># Replace “OS” with “rhel” or “centos”, depending on the distribution used, and “OSRELEASE” with “6” or “7”, for 6.x or 7.x versions, respectively.</span>
@@ -1484,6 +1498,78 @@ systemctl <span class="nb">enable</span> nginx <span class="o">&amp;&amp;</span>
 <span class="n">load_module</span> <span class="n">modules</span> <span class="o">/</span> <span class="n">ngx_mail_module</span><span class="p">.</span><span class="n">so</span><span class="p">;</span>
 </pre></div>
 
+
+<h2 id="nginx">nginx内核相关参数<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span># <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">sysctl</span>.<span class="nv">conf</span>
+# <span class="nv">Avoid</span> <span class="nv">a</span> <span class="nv">smurf</span> <span class="nv">attack</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">icmp_echo_ignore_broadcasts</span> <span class="o">=</span> <span class="mi">1</span>
+
+# <span class="nv">Turn</span> <span class="nv">on</span> <span class="nv">protection</span> <span class="k">for</span> <span class="nv">bad</span> <span class="nv">icmp</span> <span class="nv">error</span> <span class="nv">messages</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">icmp_ignore_bogus_error_responses</span> <span class="o">=</span> <span class="mi">1</span>
+
+# <span class="nv">Turn</span> <span class="nv">on</span> <span class="nv">syncookies</span> <span class="k">for</span> <span class="nv">SYN</span> <span class="nv">flood</span> <span class="nv">attack</span> <span class="nv">protection</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">tcp_syncookies</span> <span class="o">=</span> <span class="mi">1</span>
+
+# <span class="nv">Turn</span> <span class="nv">on</span> <span class="nv">and</span> <span class="nv">log</span> <span class="nv">spoofed</span>, <span class="nv">source</span> <span class="nv">routed</span>, <span class="nv">and</span> <span class="nv">redirect</span> <span class="nv">packets</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">all</span>.<span class="nv">log_martians</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">log_martians</span> <span class="o">=</span> <span class="mi">1</span>
+
+# <span class="nv">No</span> <span class="nv">source</span> <span class="nv">routed</span> <span class="nv">packets</span> <span class="nv">here</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">all</span>.<span class="nv">accept_source_route</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">accept_source_route</span> <span class="o">=</span> <span class="mi">0</span>
+
+# <span class="nv">Turn</span> <span class="nv">on</span> <span class="nv">reverse</span> <span class="nv">path</span> <span class="nv">filtering</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">all</span>.<span class="nv">rp_filter</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">rp_filter</span> <span class="o">=</span> <span class="mi">1</span>
+
+# <span class="nv">Make</span> <span class="nv">sure</span> <span class="nv">no</span> <span class="nv">one</span> <span class="nv">can</span> <span class="nv">alter</span> <span class="nv">the</span> <span class="nv">routing</span> <span class="nv">tables</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">all</span>.<span class="nv">accept_redirects</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">accept_redirects</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">all</span>.<span class="nv">secure_redirects</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">secure_redirects</span> <span class="o">=</span> <span class="mi">0</span>
+
+# <span class="nv">Don</span><span class="s1">&#39;</span><span class="s">t act as a router</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">ip_forward</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">all</span>.<span class="nv">send_redirects</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">send_redirects</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+# <span class="nv">Turn</span> <span class="nv">on</span> <span class="nv">execshild</span>
+<span class="nv">kernel</span>.<span class="k">exec</span><span class="o">-</span><span class="nv">shield</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nv">kernel</span>.<span class="nv">randomize_va_space</span> <span class="o">=</span> <span class="mi">1</span>
+
+# <span class="nv">Tuen</span> <span class="nv">IPv6</span>
+<span class="nv">net</span>.<span class="nv">ipv6</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">router_solicitations</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv6</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">accept_ra_rtr_pref</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv6</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">accept_ra_pinfo</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv6</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">accept_ra_defrtr</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv6</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">autoconf</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv6</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">dad_transmits</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nv">net</span>.<span class="nv">ipv6</span>.<span class="nv">conf</span>.<span class="nv">default</span>.<span class="nv">max_addresses</span> <span class="o">=</span> <span class="mi">1</span>
+
+# <span class="nv">Optimization</span> <span class="k">for</span> <span class="nv">port</span> <span class="nv">usefor</span> <span class="nv">LBs</span>
+# <span class="nv">Increase</span> <span class="nv">system</span> <span class="nv">file</span> <span class="nv">descriptor</span> <span class="nv">limit</span>
+<span class="nv">fs</span>.<span class="nv">file</span><span class="o">-</span><span class="nv">max</span> <span class="o">=</span> <span class="mi">65535</span>
+
+# <span class="nv">Allow</span> <span class="k">for</span> <span class="nv">more</span> <span class="nv">PIDs</span> <span class="ss">(</span><span class="nv">to</span> <span class="nv">reduce</span> <span class="nv">rollover</span> <span class="nv">problems</span><span class="ss">)</span><span class="c1">; may break some programs 32768</span>
+<span class="nv">kernel</span>.<span class="nv">pid_max</span> <span class="o">=</span> <span class="mi">65536</span>
+
+# <span class="nv">Increase</span> <span class="nv">system</span> <span class="nv">IP</span> <span class="nv">port</span> <span class="nv">limits</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">ip_local_port_range</span> <span class="o">=</span> <span class="mi">2000</span> <span class="mi">65000</span>
+
+# <span class="nv">Increase</span> <span class="nv">TCP</span> <span class="nv">max</span> <span class="nv">buffer</span> <span class="nv">size</span> <span class="nv">setable</span> <span class="nv">using</span> <span class="nv">setsockopt</span><span class="ss">()</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">tcp_rmem</span> <span class="o">=</span> <span class="mi">4096</span> <span class="mi">87380</span> <span class="mi">8388608</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">tcp_wmem</span> <span class="o">=</span> <span class="mi">4096</span> <span class="mi">87380</span> <span class="mi">8388608</span>
+
+# <span class="nv">Increase</span> <span class="nv">Linux</span> <span class="nv">auto</span> <span class="nv">tuning</span> <span class="nv">TCP</span> <span class="nv">buffer</span> <span class="nv">limits</span>
+# <span class="nv">min</span>, <span class="nv">default</span>, <span class="nv">and</span> <span class="nv">max</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">bytes</span> <span class="nv">to</span> <span class="nv">use</span>
+# <span class="nv">set</span> <span class="nv">max</span> <span class="nv">to</span> <span class="nv">at</span> <span class="nv">least</span> <span class="mi">4</span><span class="nv">MB</span>, <span class="nv">or</span> <span class="nv">higher</span> <span class="k">if</span> <span class="nv">you</span> <span class="nv">use</span> <span class="nv">very</span> <span class="nv">high</span> <span class="nv">BDP</span> <span class="nv">paths</span>
+# <span class="nv">Tcp</span> <span class="nv">Windows</span> <span class="nv">etc</span>
+<span class="nv">net</span>.<span class="nv">core</span>.<span class="nv">rmem_max</span> <span class="o">=</span> <span class="mi">8388608</span>
+<span class="nv">net</span>.<span class="nv">core</span>.<span class="nv">wmem_max</span> <span class="o">=</span> <span class="mi">8388608</span>
+<span class="nv">net</span>.<span class="nv">core</span>.<span class="nv">netdev_max_backlog</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">tcp_window_scaling</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
 
 <h2 id="_4">初学者指南<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>要启动nginx，请运行可执行文件。启动nginx后，可以通过使用-s参数调用可执行文件来控制它。使用以下语法：
@@ -1867,9 +1953,36 @@ server <span class="o">{</span>
     <span class="nv">fastcgi_param</span>   <span class="nv">SCRIPT_FILENAME</span>       <span class="mh">$d</span><span class="nv">ocument_root</span><span class="mh">$fa</span><span class="nv">stcgi_script_name</span><span class="c1">;</span>
     <span class="nv">fastcgi_param</span>   <span class="nv">SCRIPT_NAME</span>        <span class="mh">$fa</span><span class="nv">stcgi_script_name</span><span class="c1">;</span>
   }
+# 拒绝图片热链接
+<span class="nv">location</span> <span class="o">/</span><span class="nv">images</span><span class="o">/</span> {
+  <span class="nv">valid_referers</span> <span class="nv">none</span> <span class="nv">blocked</span> <span class="nv">www</span>.<span class="nv">example</span>.<span class="nv">com</span> <span class="nv">example</span>.<span class="nv">com</span><span class="c1">;</span>
+   <span class="k">if</span> <span class="ss">(</span>$<span class="nv">invalid_referer</span><span class="ss">)</span> {
+     <span class="k">return</span>   <span class="mi">403</span><span class="c1">;</span>
+   }
+}
+
+另外一个方法可跳转到一个固定的图片链接或<span class="nv">url</span>
+<span class="nv">valid_referers</span> <span class="nv">blocked</span> <span class="nv">www</span>.<span class="nv">example</span>.<span class="nv">com</span> <span class="nv">example</span>.<span class="nv">com</span><span class="c1">;</span>
+ <span class="k">if</span> <span class="ss">(</span>$<span class="nv">invalid_referer</span><span class="ss">)</span> {
+  <span class="nv">rewrite</span> <span class="o">^/</span><span class="nv">images</span><span class="o">/</span><span class="nv">uploads</span>.<span class="o">*</span>\.<span class="ss">(</span><span class="nv">gif</span><span class="o">|</span><span class="nv">jpg</span><span class="o">|</span><span class="nv">jpeg</span><span class="o">|</span><span class="nv">png</span><span class="ss">)</span>$ <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">examples</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">banned</span>.<span class="nv">jpg</span> <span class="nv">last</span>
+ }
+
+### <span class="nv">Password</span> <span class="nv">Protect</span> <span class="o">/</span><span class="nv">personal</span><span class="o">-</span><span class="nv">images</span><span class="o">/</span> <span class="nv">and</span> <span class="o">/</span><span class="nv">delta</span><span class="o">/</span> <span class="nv">directories</span> ###
+<span class="nv">location</span> <span class="o">~</span> <span class="o">/</span><span class="ss">(</span><span class="nv">personal</span><span class="o">-</span><span class="nv">images</span><span class="o">/</span>.<span class="o">*|</span><span class="nv">delta</span><span class="o">/</span>.<span class="o">*</span><span class="ss">)</span> {
+  <span class="nv">auth_basic</span>  <span class="s2">&quot;</span><span class="s">Restricted</span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="nv">auth_basic_user_file</span>   <span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">conf</span><span class="o">/</span>.<span class="nv">htpasswd</span><span class="o">/</span><span class="nv">passwd</span><span class="c1">;</span>
+}
+
+<span class="nv">Create</span> <span class="nv">an</span> <span class="nv">SSL</span> <span class="nv">Certificate</span>
+# <span class="nv">cd</span> <span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">conf</span>
+# <span class="nv">openssl</span> <span class="nv">genrsa</span> <span class="o">-</span><span class="nv">des3</span> <span class="o">-</span><span class="nv">out</span> <span class="nv">server</span>.<span class="nv">key</span> <span class="mi">1024</span>
+# <span class="nv">openssl</span> <span class="nv">req</span> <span class="o">-</span><span class="nv">new</span> <span class="o">-</span><span class="nv">key</span> <span class="nv">server</span>.<span class="nv">key</span> <span class="o">-</span><span class="nv">out</span> <span class="nv">server</span>.<span class="nv">csr</span>
+# <span class="nv">cp</span> <span class="nv">server</span>.<span class="nv">key</span> <span class="nv">server</span>.<span class="nv">key</span>.<span class="nv">org</span>
+# <span class="nv">openssl</span> <span class="nv">rsa</span> <span class="o">-</span><span class="nv">in</span> <span class="nv">server</span>.<span class="nv">key</span>.<span class="nv">org</span> <span class="o">-</span><span class="nv">out</span> <span class="nv">server</span>.<span class="nv">key</span>
+# <span class="nv">openssl</span> <span class="nv">x509</span> <span class="o">-</span><span class="nv">req</span> <span class="o">-</span><span class="nv">days</span> <span class="mi">365</span> <span class="o">-</span><span class="nv">in</span> <span class="nv">server</span>.<span class="nv">csr</span> <span class="o">-</span><span class="nv">signkey</span> <span class="nv">server</span>.<span class="nv">key</span> <span class="o">-</span><span class="nv">out</span> <span class="nv">server</span>.<span class="nv">crt</span>
 </pre></div>
 
-<h2 id="nginx">nginx日志相关命令<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
+<h2 id="nginx_1">nginx日志相关命令<a class="headerlink" href="#nginx_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>nginx日志最好实现每天定时切割下，特别是在访问量比较大的时候，方便查看与处理，如果没切割，可以用sed直接切割，
 
 切割日志

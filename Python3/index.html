@@ -800,6 +800,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lambda" title="Lambda表达式" class="md-nav__link">
+    Lambda表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_27" title="参数组合" class="md-nav__link">
     参数组合
   </a>
@@ -989,6 +996,26 @@
   <a href="#binary-data-services" title="Binary Data Services" class="md-nav__link">
     Binary Data Services
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" title="开发者工具" class="md-nav__link">
+    开发者工具
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unittest" title="unittest" class="md-nav__link">
+    unittest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2236,6 +2263,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lambda" title="Lambda表达式" class="md-nav__link">
+    Lambda表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_27" title="参数组合" class="md-nav__link">
     参数组合
   </a>
@@ -2425,6 +2459,26 @@
   <a href="#binary-data-services" title="Binary Data Services" class="md-nav__link">
     Binary Data Services
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" title="开发者工具" class="md-nav__link">
+    开发者工具
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unittest" title="unittest" class="md-nav__link">
+    unittest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3295,7 +3349,7 @@ trusted-host <span class="o">=</span>
 <p>列表list是Python中使用最频繁的数据类型;列表是写在<code class="codehilite"><span class="p">[]</span></code>方括号之间，用逗号隔开的元素列表，列表中元素的类型可以不同，和字符串
 一样，列表也可以被索引和切片。列表被切片后返回一个包含所需元素的新列表，列表还支持串联操作，使用+符号。</p>
 <div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">注意：</span>
-<span class="mi">1</span><span class="err">、</span><span class="n">List写在方括号之间</span><span class="err">，元素用逗号隔开</span>
+<span class="mi">1</span><span class="err">、</span><span class="n">List写在方括号之间</span><span class="err">，元素用逗号隔开</span><span class="p">,</span><span class="err">列表解析可以生成常规列表</span>
 <span class="mi">2</span><span class="err">、和字符串一样，</span><span class="n">list可以被索引和切片</span>
 <span class="mi">3</span><span class="err">、</span><span class="n">List可以使用</span><span class="o">+</span><span class="err">操作符进行拼接</span>
 <span class="mi">4</span><span class="err">、</span><span class="n">List中的元素是可以改变的</span>
@@ -3310,8 +3364,8 @@ trusted-host <span class="o">=</span>
 | list.extend(list2) | 在列表list2最后添加元素，相当于 a[len(a):] = list2;在一个列表使用+或+=和extend()类似;extend()方法只接受一个列表作为参数 |
 | list.index(elem) | 从列表的开头搜索给定元素并返回其索引。如果没有匹配的元素就会返回一个错误 |
 | list.remove(elem) | 搜索给定元素的第一个实例并将其删除,如果不存在则抛出ValueError |
-| list.sort() | 对列表中的元素进行排序,不要直接返回结果,后面使用sorted()函数显示更好 |
-| list.reverse() | 倒排列表中的元素 |
+| list.sort() | 对列表中的元素进行永久排序,不要直接返回结果,后面使用sorted()函数临时排序显示更好 |
+| list.reverse() | 倒序排列列表中的元素 |
 | list.pop([i]) | 从列表的指定位置删除元素，并将其返回。如果没有指定索引，a.pop()返回最右边一个元素,并返回所删除的值。方法中 i 两边的方括号表示这个参数是可选的，而不是要求你输入一对方括号，你会经常在Python库参考手册中遇到这样的标记 |
 | list.clear() | 移除列表中的所有项，等于del a[:] |
 | list.count(x) | 返回 x 在列表中出现的次数 |
@@ -3321,13 +3375,16 @@ trusted-host <span class="o">=</span>
 方法可以把一个元素添加到堆栈顶。用不指定索引的 pop() 方法可以把一个元素从堆栈顶取出来</p>
 <h5 id="_14">将列表当作队列使用<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h5>
 <p>也可以把列表当做队列用，其中先添加的元素被最先取出 (“先进先出”)；但是列表用作这样的目的相当低效。在列表的最后添加或者
-弹出元素速度快，然而在列表里插入或者从头部弹出速度却很慢（因为所有其他的元素都必须移动一位）;要实现一个队列，collections.deque被设计用于快速从两端操作</p>
+弹出元素速度快，然而在列表里插入或者从头部弹出速度却很慢（因为所有其他的元素都必须移动一位）;要实现一个队列，collections.
+deque被设计用于快速从两端操作</p>
 <h5 id="_15">列表推导式<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
-<p>列表推导式提供了从序列创建列表的简单途径。常见的用法是把某种操作应用于序列或可迭代对象的每个元素上，然后使用其结果来创建列表，或者通过满足某些特定条件元素来创建子序列。
-每个列表推导式都在 for 之后跟一个表达式，然后有零到多个 for 或 if 子句。返回结果是一个根据表达从其后的 for 和 if 上下文环境中生成出来的列表。如果希望表达式推导出一个元组，就必须使用括号。</p>
+<p>列表推导式提供了从序列创建列表的简单途径。常见的用法是把某种操作应用于序列或可迭代对象的每个元素上，然后使用其结果来创建
+列表，或者通过满足某些特定条件元素来创建子序列。</p>
+<p>每个列表推导式都在 for 之后跟一个表达式，然后有零到多个 for 或 if 子句。返回结果是一个根据表达从其后的 for 和 if 上下文环
+境中生成出来的列表。如果希望表达式推导出一个元组，就必须使用括号。</p>
 <h5 id="del">嵌套列表推导式和del语句<a class="headerlink" href="#del" title="Permanent link">&para;</a></h5>
-<p>列表推导式中的初始表达式可以是任何表达式，包括另一个列表推导式。
-<em>del语句</em>：使用del语句可以从一个列表中依索引而不是值来删除一个元素。这与使用 pop() 返回一个值不同。可以用 del 语句从列表
+<p>列表推导式中的初始表达式可以是任何表达式，包括另一个列表推导式。</p>
+<p><em>del语句</em>：使用del语句可以从一个列表中依索引而不是值来删除一个元素。这与使用 pop() 返回一个值不同。可以用 del 语句从列表
 中移除切片，或清空整个列表（我们以前介绍的方法是空列表赋值给一个指定的切片)，del也可以用来删除整个变量</p>
 <h4 id="tuple">Tuple（元组）<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h4>
 <p>元组（tuple）与列表类似，不同之处在于元组的元素不能修改。元组写在<code class="codehilite"><span class="p">()</span></code>小括号里，元素之间用逗号隔开。元组中的元素类型也可
@@ -3745,7 +3802,7 @@ trusted-host <span class="o">=</span>
 <p>请注意，Python / C API中Python对象的类型结构中没有针对这些方法的特定插槽。想要定义这些方法的扩展类型必须将它们作为普通的
 Python可访问方法提供。与设置运行时上下文的开销相比，单个类字典查找的开销可以忽略不计</p>
 <h2 id="_20">循环<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="c1"># python循环语句有for和while</span>
+<div class="codehilite"><pre><span></span><span class="c1"># python循环语句有for和while,while使用与提前知道条件的情况。</span>
 <span class="c1"># 使用while循环计算1-100和</span>
 
 <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
@@ -3825,7 +3882,7 @@ Python可访问方法提供。与设置运行时上下文的开销相比，单�
     <span class="k">return</span> <span class="n">s</span>
 <span class="c1"># 注意：一是必选参数在前，默认参数在后，否则Python的解释器会报错。设置默认参数技巧--当函数有多个参数时，把变化大的参数放</span>
 <span class="c1"># 前面，变化小的参数放后面。变化小的参数就可以作为默认参数</span>
-<span class="c1"># 定义默认参数要牢记一点：默认参数必须指向不变对象</span>
+<span class="c1"># 定义默认参数要牢记一点：默认参数必须指向不变对象,x是形参，调用power(3, n=2),3就是实参</span>
 </pre></div>
 
 <h4 id="_24">位置参数：<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
@@ -3854,6 +3911,26 @@ Python可访问方法提供。与设置运行时上下文的开销相比，单�
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
         <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span>
     <span class="k">return</span> <span class="nb">sum</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">python中*和**含义:</span>
+<span class="sd">当其在函数头内(function header)时</span>
+<span class="sd">*   收集元组中的所有位置参数</span>
+<span class="sd">**  收集字典中的所有关键字参数</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">function_1</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">kw</span><span class="p">)</span>
+<span class="n">function_1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 传参给函数function_1，返回值为(1, 2, 3) {&#39;x&#39;: 1, &#39;y&#39;: 2, &#39;z&#39;: 3}</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">当其在一个函数调用中</span>
+<span class="sd">当参数已经在列表或元组中但需要为需要单独位置参数的函数调用解包时,与*运算符一起编写函数调用以从列表或元组中解压缩参数</span>
+<span class="sd">*   将列表或元组解包到位置参数中</span>
+<span class="sd">**  将字典解压缩为关键字参数</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">function_1</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">,</span> <span class="o">**</span><span class="n">dic</span><span class="p">)</span>
 </pre></div>
 
 <h4 id="kwargvalue">关键字参数，函数也可以使用kwarg=value的关键字参数形式被调用。<a class="headerlink" href="#kwargvalue" title="Permanent link">&para;</a></h4>
@@ -3896,9 +3973,24 @@ Python可访问方法提供。与设置运行时上下文的开销相比，单�
     <span class="k">pass</span>
 </pre></div>
 
+<h4 id="lambda">Lambda表达式<a class="headerlink" href="#lambda" title="Permanent link">&para;</a></h4>
+<p>可以使用lambda关键字创建小的匿名函数。此函数返回其两个参数的总和：。Lambda函数可以在需要函数对象的任何地方使用。它们在语
+法上限于单个表达式。从语义上讲，它们只是正常函数定义的语法糖。与嵌套函数定义一样，lambda函数可以引用包含范围的变量：lamb
+da a, b: a+b</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 用途一：使用lambda表达式返回一个函数</span>
+<span class="k">def</span> <span class="nf">make_incrementor</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">n</span>
+
+<span class="c1"># 用途二：传递一个小函数作为参数</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">)]</span>
+<span class="n">pairs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pair</span><span class="p">:</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+</pre></div>
+
 <h4 id="_27">参数组合<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="c1"># Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意</span>
 <span class="c1"># 参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数</span>
+<span class="c1"># 如果函数接受不同类型的实参，必须在函数定义中将接纳任意数量实参的形参放在最后</span>
 
 <span class="c1"># 定义一个函数，包含上述若干种参数：在函数调用的时候，Python解释器自动按照参数位置和参数名把对应的参数传进去</span>
 
@@ -4223,6 +4315,44 @@ try...except语句有一个可选的else字句，使用时必须放在所有exce
 <h2 id="binary-data-services">Binary Data Services<a class="headerlink" href="#binary-data-services" title="Permanent link">&para;</a></h2>
 <p>struct — Interpret bytes as packed binary data
 codecs — Codec registry and base classes</p>
+<h2 id="_37">开发者工具<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<h3 id="unittest">unittest<a class="headerlink" href="#unittest" title="Permanent link">&para;</a></h3>
+<p>unittest.TestCase类中提供了很多断言方法，断言方法用于检验条件是否满足期望的结果</p>
+<p>unittest类的断言方法</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">assertEqual(a, b)</td>
+<td align="center">核实a == b</td>
+</tr>
+<tr>
+<td align="center">assertNotEqual(a, b)</td>
+<td align="center">核实a != b</td>
+</tr>
+<tr>
+<td align="center">assertTrue(x)</td>
+<td align="center">核实x为True</td>
+</tr>
+<tr>
+<td align="center">assertFalse(x)</td>
+<td align="center">核实x为False</td>
+</tr>
+<tr>
+<td align="center">assertIn(item, list)</td>
+<td align="center">核实item在list中</td>
+</tr>
+<tr>
+<td align="center">assertNotIn(item, list)</td>
+<td align="center">核实item不在list中</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
