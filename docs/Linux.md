@@ -197,7 +197,6 @@ $ sudo export PATH="$PATH:your path1:your path2 …"
 |  |  |  |  |
 | :------: | :------: | :------: | :------: |
 | 分类 | 重要性 | 命令 | 描述 |
-|  |   | find dir/ -name '*.txt' | tar -c --files-from=- | bzip2 > dir_txt.tar.bz2 | 将目录dir/及其子目录下所有.txt文件打包 |
 |  |   | find dir/ -name '*.txt' | xargs cp -a --target-directory=dir_txt/ --parents | 将目录dir/及其子目录下所有.txt按照目录结构拷贝到dir_txt/ |
 |  |   |  cd /dir/to/copy && tar -c .  |  cd /where/to/ && tar -x -p  | 拷贝目录copy/下的所有文件到目录/where/to/并保持文件属性 |
 |  |   | dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz' | 将整个硬盘备份到远程机器上 |

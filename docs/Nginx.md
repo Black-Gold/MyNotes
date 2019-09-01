@@ -1,4 +1,4 @@
-# Nginx--Unit
+# Nginx&&Unit
 
 ## centos安装
 
@@ -178,6 +178,80 @@ wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
     生成的* .so文件将写入前缀/ modules /目录，其中前缀是服务器文件的目录，例如/ usr / local / nginx /。
     要加载动态模块，请load_module在安装后将指令添加到NGINX配置：
     load_module modules / ngx_mail_module.so;
+
+## nginx内核相关参数
+
+```markdown
+# /etc/sysctl.conf
+# Avoid a smurf attack
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+ 
+# Turn on protection for bad icmp error messages
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+ 
+# Turn on syncookies for SYN flood attack protection
+net.ipv4.tcp_syncookies = 1
+ 
+# Turn on and log spoofed, source routed, and redirect packets
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.conf.default.log_martians = 1
+ 
+# No source routed packets here
+net.ipv4.conf.all.accept_source_route = 0
+net.ipv4.conf.default.accept_source_route = 0
+ 
+# Turn on reverse path filtering
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.default.rp_filter = 1
+ 
+# Make sure no one can alter the routing tables
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0
+net.ipv4.conf.all.secure_redirects = 0
+net.ipv4.conf.default.secure_redirects = 0
+ 
+# Don't act as a router
+net.ipv4.ip_forward = 0
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.default.send_redirects = 0
+ 
+ 
+# Turn on execshild
+kernel.exec-shield = 1
+kernel.randomize_va_space = 1
+ 
+# Tuen IPv6
+net.ipv6.conf.default.router_solicitations = 0
+net.ipv6.conf.default.accept_ra_rtr_pref = 0
+net.ipv6.conf.default.accept_ra_pinfo = 0
+net.ipv6.conf.default.accept_ra_defrtr = 0
+net.ipv6.conf.default.autoconf = 0
+net.ipv6.conf.default.dad_transmits = 0
+net.ipv6.conf.default.max_addresses = 1
+ 
+# Optimization for port usefor LBs
+# Increase system file descriptor limit
+fs.file-max = 65535
+ 
+# Allow for more PIDs (to reduce rollover problems); may break some programs 32768
+kernel.pid_max = 65536
+ 
+# Increase system IP port limits
+net.ipv4.ip_local_port_range = 2000 65000
+ 
+# Increase TCP max buffer size setable using setsockopt()
+net.ipv4.tcp_rmem = 4096 87380 8388608
+net.ipv4.tcp_wmem = 4096 87380 8388608
+ 
+# Increase Linux auto tuning TCP buffer limits
+# min, default, and max number of bytes to use
+# set max to at least 4MB, or higher if you use very high BDP paths
+# Tcp Windows etc
+net.core.rmem_max = 8388608
+net.core.wmem_max = 8388608
+net.core.netdev_max_backlog = 5000
+net.ipv4.tcp_window_scaling = 1
+```
 
 ## 初学者指南
 
@@ -577,7 +651,33 @@ location ~* \.php$ {
     fastcgi_param   SCRIPT_FILENAME       $document_root$fastcgi_script_name;
     fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
   }
+# 拒绝图片热链接
+location /images/ {
+  valid_referers none blocked www.example.com example.com;
+   if ($invalid_referer) {
+     return   403;
+   }
+}
 
+另外一个方法可跳转到一个固定的图片链接或url
+valid_referers blocked www.example.com example.com;
+ if ($invalid_referer) {
+  rewrite ^/images/uploads.*\.(gif|jpg|jpeg|png)$ http://www.examples.com/banned.jpg last
+ }
+ 
+### Password Protect /personal-images/ and /delta/ directories ###
+location ~ /(personal-images/.*|delta/.*) {
+  auth_basic  "Restricted";
+  auth_basic_user_file   /usr/local/nginx/conf/.htpasswd/passwd;
+}
+
+Create an SSL Certificate
+# cd /usr/local/nginx/conf
+# openssl genrsa -des3 -out server.key 1024
+# openssl req -new -key server.key -out server.csr
+# cp server.key server.key.org
+# openssl rsa -in server.key.org -out server.key
+# openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 ```
 
 ## nginx日志相关命令

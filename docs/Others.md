@@ -1127,8 +1127,8 @@ https://xueqiu.com/stock/forchartk/stocklist.json?symbol=YHOO&period=1day&type=n
 
 http://tushare.org
 https://xueqiu.com/hq/screener
-http://baostock.com/baostock/index.php
-https://tushare.pro/
+http://baostock.com
+https://tushare.pro
 
 
 ```
