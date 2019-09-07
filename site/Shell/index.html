@@ -1879,14 +1879,33 @@ $0     # (常用)当前shell名(当前执行进程的进程名，如果执行脚
 </tr>
 </tbody>
 </table>
-<p>可以使用以下运算符组合表达式，按优先级递减顺序列出：
-结合表达式
-| 类别 | 例子 |
-| :------: | :------: |
-| [ ! EXPR ] | "非" -- 反转上面所有测试的结果(如果没有给出条件则返回真),如果EXPR是false则为真 |
-| [ ( EXPR ) ] | 返回EXPR的值。 这可以用于覆盖运算符的正常优先级 |
-| [ EXPR1 -a EXPR2 ] | 如果EXPR1和EXPR2都为真，则为真 |
-| [ EXPR1 -o EXPR2 ] | 如果EXPR1或EXPR2为真，则为真 |</p>
+<p>可以使用以下运算符组合表达式，按优先级递减顺序列出：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">[ ! EXPR ]</td>
+<td align="center">"非" -- 反转上面所有测试的结果(如果没有给出条件则返回真),如果EXPR是false则为真</td>
+</tr>
+<tr>
+<td align="center">[ ( EXPR ) ]</td>
+<td align="center">返回EXPR的值。 这可以用于覆盖运算符的正常优先级</td>
+</tr>
+<tr>
+<td align="center">[ EXPR1 -a EXPR2 ]</td>
+<td align="center">如果EXPR1和EXPR2都为真，则为真</td>
+</tr>
+<tr>
+<td align="center">[ EXPR1 -o EXPR2 ]</td>
+<td align="center">如果EXPR1或EXPR2为真，则为真</td>
+</tr>
+</tbody>
+</table>
 <div class="codehilite"><pre><span></span><span class="c1"># 大多数程序员更喜欢使用test内置命令，这相当于使用方括号进行比较，如下所示</span>
 <span class="nb">test</span> <span class="s2">&quot;</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s1">&#39;root&#39;</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="nb">echo</span> you are using a non-privileged account<span class="p">;</span> <span class="nb">exit</span> <span class="m">1</span><span class="o">)</span>
 <span class="c1"># 如果在子shell中调用exit，则不会将变量传递给父级。如果您不希望Bash派生子shell，请使用{ }代替()</span>
@@ -2327,18 +2346,16 @@ link_chk <span class="o">()</span> <span class="o">{</span>
 </tbody>
 </table>
 <p>①区别解析：
-==和=同义词，但==比较操作符在一个双中括号测试和一个单中括号测试意思不同
-[[ <span><span class="MathJax_Preview">a == z* ]]    # 如果变量</span><script type="math/tex">a == z* ]]    # 如果变量</script></span>a以字符"z"开始(模式匹配)则为真
-[[ <span><span class="MathJax_Preview">a == "z*" ]]  # 如果变量</span><script type="math/tex">a == "z*" ]]  # 如果变量</script></span>a与z*(字面上的匹配)相等则为真
-[ <span><span class="MathJax_Preview">a == z* ]      # 文件扩展和单元分割有效
-[ "</span><script type="math/tex">a == z* ]      # 文件扩展和单元分割有效
-[ "</script></span>a" == "z*" ]  # 如果变量$a与z*(字面上的匹配)相等则为真</p>
-<p>注意事项：
-在方括号测试里，进行-n测试时必须把字符串用引号引起来，-z一般不引起来都能工作，但最好把测试字符串用引号括起来。如果<span><span class="MathJax_Preview">string
-变量为空，此字符串变量引起来依然会报错，安全的方法是附加一个外部字符串给可能有空字符变量。如：
-[ "x</span><script type="math/tex">string
-变量为空，此字符串变量引起来依然会报错，安全的方法是附加一个外部字符串给可能有空字符变量。如：
-[ "x</script></span>string" != x -o "x<span><span class="MathJax_Preview">a" = "x</span><script type="math/tex">a" = "x</script></span>b" ]（x字符可以互相抵消）</p>
+* ==和=同义词，但==比较操作符在一个双中括号测试和一个单中括号测试意思不同
+* [[ <span><span class="MathJax_Preview">a == z* ]]    # 如果变量</span><script type="math/tex">a == z* ]]    # 如果变量</script></span>a以字符"z"开始(模式匹配)则为真
+* [[ <span><span class="MathJax_Preview">a == "z*" ]]  # 如果变量</span><script type="math/tex">a == "z*" ]]  # 如果变量</script></span>a与z*(字面上的匹配)相等则为真
+* [ <span><span class="MathJax_Preview">a == z* ]      # 文件扩展和单元分割有效
+* [ "</span><script type="math/tex">a == z* ]      # 文件扩展和单元分割有效
+* [ "</script></span>a" == "z*" ]  # 如果变量$a与z*(字面上的匹配)相等则为真</p>
+<p>注意事项：</p>
+<p>在方括号测试里，进行-n测试时必须把字符串用引号引起来，-z一般不引起来都能工作，但最好把测试字符串用引号括起来。如果$string
+变量为空，此字符串变量引起来依然会报错，安全的方法是附加一个外部字符串给可能有空字符变量。如：</p>
+<p>[ "x<span><span class="MathJax_Preview">string" != x -o "x</span><script type="math/tex">string" != x -o "x</script></span>a" = "x$b" ]（x字符可以互相抵消）</p>
 <h3 id="_7">算术和字符串比较<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="c1"># a和b既能被看成是整数也能被看着是字符串。在字符串和数字之间不是严格界定的，bash变量是无类型的，Bash变量不是强类型的</span>
 <span class="c1">#  Bash允许变量的整数操作和比较，但这些变量必须只包括数字字符,不管怎么样，应该小心考虑。例如：</span>
