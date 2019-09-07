@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -208,7 +208,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -337,316 +337,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shell_1" title="shell特殊变量基本解释" class="md-nav__link">
+  <a href="#shell_1" class="md-nav__link">
+    shell多行注释实现方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell_2" class="md-nav__link">
     shell特殊变量基本解释
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="控制快捷键" class="md-nav__link">
-    控制快捷键
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shell_2" title="在shell中常用的特殊符号罗列如下：" class="md-nav__link">
-    在shell中常用的特殊符号罗列如下：
+  <a href="#shell_3" class="md-nav__link">
+    在shell中常用的符号一般用法：
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#command-separator" title="; 分号 (Command separator)" class="md-nav__link">
-    ; 分号 (Command separator)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#terminator" title=";; 连续分号 (Terminator)" class="md-nav__link">
-    ;; 连续分号 (Terminator)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dot" title=". 逗号 (dot,就是“点”)" class="md-nav__link">
-    . 逗号 (dot,就是“点”)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-single-quote" title="'string' 单引号 (single quote)" class="md-nav__link">
-    'string' 单引号 (single quote)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-double-quote" title="\"string" 双引号 (double quote)" class="md-nav__link">
-    \"string" 双引号 (double quote)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#96command-backticks" title="`command` 倒引号 (backticks)" class="md-nav__link">
-    `command` 倒引号 (backticks)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comma" title=", 逗点 (comma，标点中的逗号)" class="md-nav__link">
-    , 逗点 (comma，标点中的逗号)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#forward-slash" title="/ 斜线 (forward slash)" class="md-nav__link">
-    / 斜线 (forward slash)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9232" title="\ 倒斜线" class="md-nav__link">
-    \ 倒斜线
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pipeline" title="| 管道 (pipeline)" class="md-nav__link">
-    | 管道 (pipeline)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#negate-or-reverse" title="! 惊叹号(negate or reverse)" class="md-nav__link">
-    ! 惊叹号(negate or reverse)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" title=": 冒号" class="md-nav__link">
-    : 冒号
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wild-card" title="? 问号 (wild card)" class="md-nav__link">
-    ? 问号 (wild card)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wild-card_1" title="* 星号 (wild card)" class="md-nav__link">
-    * 星号 (wild card)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="** 次方运算" class="md-nav__link">
-    ** 次方运算
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dollardollar-sign" title="$ dollar符号(dollar sign)" class="md-nav__link">
-    $ dollar符号(dollar sign)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" title="${} 变量的正规表达式" class="md-nav__link">
-    ${} 变量的正规表达式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" title="$*符号" class="md-nav__link">
-    $*符号
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" title="$@" class="md-nav__link">
-    $@
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#status-variable" title="$? 状态值 (status variable)" class="md-nav__link">
-    $? 状态值 (status variable)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" title="$$" class="md-nav__link">
-    $$
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#command-group" title="(   ) 指令群组 (command group)" class="md-nav__link">
-    (   ) 指令群组 (command group)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" title="(( ))" class="md-nav__link">
-    (( ))
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#block-of-code" title="{ } 大括号 (Block of code)" class="md-nav__link">
-    { } 大括号 (Block of code)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" title="[ ] 中括号" class="md-nav__link">
-    [ ] 中括号
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" title="[[ ]]" class="md-nav__link">
-    [[ ]]
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-or" title="|| 逻辑符号----代表 or 逻辑的符号。" class="md-nav__link">
-    || 逻辑符号----代表 or 逻辑的符号。
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-and" title="&amp;&amp; 逻辑符号----代表 and 逻辑的符号。" class="md-nav__link">
-    &amp;&amp; 逻辑符号----代表 and 逻辑的符号。
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" title="&amp; 后台工作" class="md-nav__link">
-    &amp; 后台工作
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9292" title="\&lt;...\&gt; 单字边界" class="md-nav__link">
-    \&lt;...\&gt; 单字边界
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plus" title="+ 加号 (plus)" class="md-nav__link">
-    + 加号 (plus)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-dash" title="- 减号 (dash)" class="md-nav__link">
-    - 减号 (dash)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modulo" title="% 除法 (Modulo)" class="md-nav__link">
-    % 除法 (Modulo)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#equals" title="= 等号 (Equals)" class="md-nav__link">
-    = 等号 (Equals)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#equals_1" title="== 等号 (Equals)" class="md-nav__link">
-    == 等号 (Equals)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" title="!= 不等于" class="md-nav__link">
-    != 不等于
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-" title="-" class="md-nav__link">
-    -
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" title="~" class="md-nav__link">
-    ~
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" title="~+" class="md-nav__link">
-    ~+
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-_1" title="~-" class="md-nav__link">
-    ~-
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shell_3" title="shell多行注释实现方式" class="md-nav__link">
-    shell多行注释实现方式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shell_4" title="shell变量子串说明" class="md-nav__link">
+  <a href="#shell_4" class="md-nav__link">
     shell变量子串说明
   </a>
   
@@ -658,16 +371,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" title="算术运算符" class="md-nav__link">
-    算术运算符
+  <a href="#bash" class="md-nav__link">
+    bash退出和退出状态
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    特殊变量类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    if使用的主要表达式
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" title="变量替换" class="md-nav__link">
-    变量替换
+  <a href="#if_1" class="md-nav__link">
+    if语句[ ] [[ ]]比较
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#then" class="md-nav__link">
+    then语句后面的命令
   </a>
   
 </li>
@@ -678,79 +412,70 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bash" title="bash变量是无类型的" class="md-nav__link">
-    bash变量是无类型的
+  <a href="#_2" class="md-nav__link">
+    算术运算符
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算术测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_18" title="特殊变量类型" class="md-nav__link">
-    特殊变量类型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_19" title="转义字符" class="md-nav__link">
-    转义字符
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bash_1" title="bash退出和退出状态" class="md-nav__link">
-    bash退出和退出状态
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#if" title="和if一起使用的主要表达式" class="md-nav__link">
-    和if一起使用的主要表达式
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#if_1" title="if语句[ ] [[ ]]比较" class="md-nav__link">
-    if语句[ ] [[ ]]比较
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ifthenelse" title="if/then/else构造" class="md-nav__link">
-    if/then/else构造
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#then" title="then语句后面的命令" class="md-nav__link">
-    then语句后面的命令
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_20" title="其他比较操作符" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     其他比较操作符
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fithen" title="嵌套的fi/then条件语句" class="md-nav__link">
-    嵌套的fi/then条件语句
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    整数比较
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_21" title="数字常量" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    字符串比较
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    算术和字符串比较
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    混合比较
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     数字常量
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1559,316 +1284,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shell_1" title="shell特殊变量基本解释" class="md-nav__link">
+  <a href="#shell_1" class="md-nav__link">
+    shell多行注释实现方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell_2" class="md-nav__link">
     shell特殊变量基本解释
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="控制快捷键" class="md-nav__link">
-    控制快捷键
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#shell_2" title="在shell中常用的特殊符号罗列如下：" class="md-nav__link">
-    在shell中常用的特殊符号罗列如下：
+  <a href="#shell_3" class="md-nav__link">
+    在shell中常用的符号一般用法：
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#command-separator" title="; 分号 (Command separator)" class="md-nav__link">
-    ; 分号 (Command separator)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#terminator" title=";; 连续分号 (Terminator)" class="md-nav__link">
-    ;; 连续分号 (Terminator)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dot" title=". 逗号 (dot,就是“点”)" class="md-nav__link">
-    . 逗号 (dot,就是“点”)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-single-quote" title="'string' 单引号 (single quote)" class="md-nav__link">
-    'string' 单引号 (single quote)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#string-double-quote" title="\"string" 双引号 (double quote)" class="md-nav__link">
-    \"string" 双引号 (double quote)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#96command-backticks" title="`command` 倒引号 (backticks)" class="md-nav__link">
-    `command` 倒引号 (backticks)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comma" title=", 逗点 (comma，标点中的逗号)" class="md-nav__link">
-    , 逗点 (comma，标点中的逗号)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#forward-slash" title="/ 斜线 (forward slash)" class="md-nav__link">
-    / 斜线 (forward slash)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9232" title="\ 倒斜线" class="md-nav__link">
-    \ 倒斜线
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pipeline" title="| 管道 (pipeline)" class="md-nav__link">
-    | 管道 (pipeline)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#negate-or-reverse" title="! 惊叹号(negate or reverse)" class="md-nav__link">
-    ! 惊叹号(negate or reverse)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" title=": 冒号" class="md-nav__link">
-    : 冒号
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wild-card" title="? 问号 (wild card)" class="md-nav__link">
-    ? 问号 (wild card)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wild-card_1" title="* 星号 (wild card)" class="md-nav__link">
-    * 星号 (wild card)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="** 次方运算" class="md-nav__link">
-    ** 次方运算
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dollardollar-sign" title="$ dollar符号(dollar sign)" class="md-nav__link">
-    $ dollar符号(dollar sign)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" title="${} 变量的正规表达式" class="md-nav__link">
-    ${} 变量的正规表达式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" title="$*符号" class="md-nav__link">
-    $*符号
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" title="$@" class="md-nav__link">
-    $@
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#status-variable" title="$? 状态值 (status variable)" class="md-nav__link">
-    $? 状态值 (status variable)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" title="$$" class="md-nav__link">
-    $$
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#command-group" title="(   ) 指令群组 (command group)" class="md-nav__link">
-    (   ) 指令群组 (command group)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" title="(( ))" class="md-nav__link">
-    (( ))
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#block-of-code" title="{ } 大括号 (Block of code)" class="md-nav__link">
-    { } 大括号 (Block of code)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" title="[ ] 中括号" class="md-nav__link">
-    [ ] 中括号
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" title="[[ ]]" class="md-nav__link">
-    [[ ]]
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-or" title="|| 逻辑符号----代表 or 逻辑的符号。" class="md-nav__link">
-    || 逻辑符号----代表 or 逻辑的符号。
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-and" title="&amp;&amp; 逻辑符号----代表 and 逻辑的符号。" class="md-nav__link">
-    &amp;&amp; 逻辑符号----代表 and 逻辑的符号。
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" title="&amp; 后台工作" class="md-nav__link">
-    &amp; 后台工作
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9292" title="\&lt;...\&gt; 单字边界" class="md-nav__link">
-    \&lt;...\&gt; 单字边界
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plus" title="+ 加号 (plus)" class="md-nav__link">
-    + 加号 (plus)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-dash" title="- 减号 (dash)" class="md-nav__link">
-    - 减号 (dash)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modulo" title="% 除法 (Modulo)" class="md-nav__link">
-    % 除法 (Modulo)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#equals" title="= 等号 (Equals)" class="md-nav__link">
-    = 等号 (Equals)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#equals_1" title="== 等号 (Equals)" class="md-nav__link">
-    == 等号 (Equals)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" title="!= 不等于" class="md-nav__link">
-    != 不等于
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-" title="-" class="md-nav__link">
-    -
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" title="~" class="md-nav__link">
-    ~
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" title="~+" class="md-nav__link">
-    ~+
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-_1" title="~-" class="md-nav__link">
-    ~-
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shell_3" title="shell多行注释实现方式" class="md-nav__link">
-    shell多行注释实现方式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shell_4" title="shell变量子串说明" class="md-nav__link">
+  <a href="#shell_4" class="md-nav__link">
     shell变量子串说明
   </a>
   
@@ -1880,16 +1318,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" title="算术运算符" class="md-nav__link">
-    算术运算符
+  <a href="#bash" class="md-nav__link">
+    bash退出和退出状态
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    特殊变量类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    if使用的主要表达式
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_16" title="变量替换" class="md-nav__link">
-    变量替换
+  <a href="#if_1" class="md-nav__link">
+    if语句[ ] [[ ]]比较
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#then" class="md-nav__link">
+    then语句后面的命令
   </a>
   
 </li>
@@ -1900,79 +1359,70 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bash" title="bash变量是无类型的" class="md-nav__link">
-    bash变量是无类型的
+  <a href="#_2" class="md-nav__link">
+    算术运算符
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    算术测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_18" title="特殊变量类型" class="md-nav__link">
-    特殊变量类型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_19" title="转义字符" class="md-nav__link">
-    转义字符
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bash_1" title="bash退出和退出状态" class="md-nav__link">
-    bash退出和退出状态
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#if" title="和if一起使用的主要表达式" class="md-nav__link">
-    和if一起使用的主要表达式
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#if_1" title="if语句[ ] [[ ]]比较" class="md-nav__link">
-    if语句[ ] [[ ]]比较
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ifthenelse" title="if/then/else构造" class="md-nav__link">
-    if/then/else构造
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#then" title="then语句后面的命令" class="md-nav__link">
-    then语句后面的命令
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_20" title="其他比较操作符" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     其他比较操作符
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fithen" title="嵌套的fi/then条件语句" class="md-nav__link">
-    嵌套的fi/then条件语句
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    整数比较
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_21" title="数字常量" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    字符串比较
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    算术和字符串比较
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    混合比较
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     数字常量
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2007,495 +1457,9 @@
 </li>
 <li>Advanced Bash-Scripting Guide</li>
 </ul>
-<h2 id="shell_1">shell特殊变量基本解释<a class="headerlink" href="#shell_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="nv">$*</span>     <span class="c1"># 传递给程序的所有参数组成的字符串</span>
-<span class="nv">$@</span>     <span class="c1"># (常用)所有的参数，每个都用双括号括起</span>
-<span class="nv">$#</span>     <span class="c1"># (常用)传递给程序的总的参数数目</span>
-<span class="nv">$*</span>     <span class="c1"># (常用)传递给程序的所有参数组成的字符串</span>
-<span class="nv">$_</span>     <span class="c1"># 获取在此之前执行的命令或脚本的最后一个参数</span>
-<span class="nv">$?</span>     <span class="c1"># (常用)上一条命令执行后返回值;成功返回0,失败返回1</span>
-
-<span class="c1"># 返回值参考：</span>
-<span class="m">0</span>      <span class="c1"># 表示运行成功</span>
-<span class="m">2</span>      <span class="c1"># 权限拒绝</span>
-<span class="m">1</span>~125  <span class="c1"># 运行失败、脚本命令、系统命令错误或参数传递错误</span>
-<span class="m">126</span>    <span class="c1"># 找到该命令但无法执行</span>
-<span class="m">127</span>    <span class="c1"># 未找到要运行的命令</span>
-&gt;128   <span class="c1"># 命令被系统强制结束</span>
-<span class="nv">$$</span>     <span class="c1"># 当前shell的进程号</span>
-<span class="nv">$!</span>     <span class="c1"># 上一个子进程的进程号</span>
-<span class="nv">$@</span>     <span class="c1"># 所有的参数，每个都用双括号括起</span>
-<span class="nv">$n</span>     <span class="c1"># (常用)位置参数值，n表示位置，获取当前脚本第n个参数值，n大于9时要用大括号，例${10}，接的参数以空格隔开</span>
-<span class="nv">$0</span>     <span class="c1"># (常用)当前shell名(当前执行进程的进程名，如果执行脚本包含路径则返回也包含脚本路径)</span>
-
-<span class="c1"># 数值比较：</span>
-
--eq     <span class="c1"># 等于</span>
--ne     <span class="c1"># 不等于</span>
--gt     <span class="c1"># 大于</span>
--lt     <span class="c1"># 小于</span>
--le     <span class="c1"># 小于或等于</span>
--ge     <span class="c1"># 大于或等于</span>
-
-<span class="c1"># 逻辑测试：</span>
-<span class="o">&amp;&amp;</span>      <span class="c1"># 逻辑与</span>
-<span class="o">||</span>      <span class="c1"># 逻辑或</span>
-!       <span class="c1"># 逻辑否</span>
-</pre></div>
-
-<h2 id="_1">控制快捷键<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>更改终端行为或文本显示. 控制字符都是以CONTROL + key的组合键.
-
-在脚本文件中控制字符是不起作用的
-Ctl-B
-
-退格 <span class="o">(</span>非破坏性的<span class="o">)</span>.
-
-Ctl-C
-
-中断. 终结一个前台作业.
-
-
-Ctl-D
-
-从一个shell中退出 <span class="o">(</span>类似于exit<span class="o">)</span>.
-
-<span class="s2">&quot;EOF&quot;</span> <span class="o">(</span>文件结尾：end of file<span class="o">)</span>.它也用于表示标准输入（stdin）的结束.
-
-在控制台或xterm 窗口输入文本时, Ctl-D删除在光标下的字符.如果没有字符存在，Ctl-D 则会登录出该会话. 在一个xterm窗口中，则会产生关闭此窗口的效果。
-
-Ctl-G
-
-<span class="s2">&quot;哔&quot;</span> <span class="o">(</span>beep<span class="o">)</span>.在一些老式的打字机终端上，它会响一下铃.
-
-Ctl-H
-
-<span class="s2">&quot;杀掉&quot;</span> <span class="o">(</span>破坏性的退格<span class="o">)</span>. 删除光标前的一个字符＝＝＝.
-
-   <span class="m">1</span> <span class="c1">#!/bin/bash</span>
-   <span class="m">2</span> <span class="c1"># 在一个字符串里嵌入 Ctl-H.</span>
-   <span class="m">4</span> <span class="nv">a</span><span class="o">=</span><span class="s2">&quot;^H^H&quot;</span>                  <span class="c1"># 两个 Ctl-H (退格).</span>
-   <span class="m">5</span> <span class="nb">echo</span> <span class="s2">&quot;abcdef&quot;</span>             <span class="c1"># abcdef</span>
-   <span class="m">6</span> <span class="nb">echo</span> -n <span class="s2">&quot;abcdef</span><span class="nv">$a</span><span class="s2"> &quot;</span>       <span class="c1"># abcd f</span>
-   <span class="m">7</span> <span class="c1">#以一个空格结尾  ^              ^ 退二格.</span>
-   <span class="m">8</span> <span class="nb">echo</span> -n <span class="s2">&quot;abcdef</span><span class="nv">$a</span><span class="s2">&quot;</span>        <span class="c1"># abcdef</span>
-   <span class="m">9</span> <span class="c1">#  现在没有尾部的空格            不退格了 (为什么?).</span>
-  <span class="m">10</span>                           <span class="c1"># 结果和预料的不一样.</span>
-  <span class="m">11</span> echo<span class="p">;</span> <span class="nb">echo</span>
-
-Ctl-I
-
-水平制表符.
-
-Ctl-J
-
-新行<span class="o">(</span>换一行并到行首<span class="o">)</span>.
-
-Ctl-K
-
-垂直制表符.
-
-在控制台或xterm 窗口输入文本时, Ctl-K 会删除从光标所在处到行尾的所有字符。
-
-Ctl-L
-
-清屏 <span class="o">(</span>重绘屏幕，清除前面的打印信息<span class="o">)</span>.这与clear命令作用相同.
-
-Ctl-M
-
-回车.
-
-   <span class="m">1</span> <span class="c1">#!/bin/bash</span>
-   <span class="m">2</span> <span class="c1"># 多谢Lee Maschmeyer的例子</span>
-   <span class="m">4</span> <span class="nb">read</span> -n <span class="m">1</span> -s -p <span class="s1">$&#39;Control-M leaves cursor at beginning of this line. Press Enter. \x0d&#39;</span>
-   <span class="m">5</span>                                   <span class="c1"># 是的, &#39;0d&#39;是Control-M的十六进制值.</span>
-   <span class="m">6</span> <span class="nb">echo</span> &gt;<span class="p">&amp;</span><span class="m">2</span>   <span class="c1">#  &#39;-s&#39;使所有被键入的字符都不回显,</span>
-   <span class="m">7</span>            <span class="c1">#+ 所以需要明确地键入新行.</span>
-   <span class="m">9</span> <span class="nb">read</span> -n <span class="m">1</span> -s -p <span class="s1">$&#39;Control-J leaves cursor on next line. \x0a&#39;</span>
-  <span class="m">10</span> <span class="nb">echo</span> &gt;<span class="p">&amp;</span><span class="m">2</span>   <span class="c1">#  Control-J 是换行.</span>
-  <span class="m">12</span> <span class="c1">###</span>
-  <span class="m">14</span> <span class="nb">read</span> -n <span class="m">1</span> -s -p <span class="s1">$&#39;And Control-K\x0bgoes straight down.&#39;</span>
-  <span class="m">15</span> <span class="nb">echo</span> &gt;<span class="p">&amp;</span><span class="m">2</span>   <span class="c1">#  Control-K 是垂直制表符.</span>
-  <span class="m">17</span> <span class="c1"># 展示垂直制表符作用的更好的例子是:</span>
-  <span class="m">19</span> <span class="nv">var</span><span class="o">=</span><span class="s1">$&#39;\x0aThis is the bottom line\x0bThis is the top line\x0a&#39;</span>
-  <span class="m">20</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
-  <span class="m">21</span> <span class="c1">#  这和上面的例子一样工作.但是:</span>
-  <span class="m">22</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span> <span class="p">|</span> col
-  <span class="m">23</span> <span class="c1">#  这使行的右端比左端更高.</span>
-  <span class="m">24</span> <span class="c1">#  这也解释了为什么我们以一个换行符开始和结束 --</span>
-  <span class="m">25</span> <span class="c1">#+ 是为了避免屏幕显示混乱.</span>
-  <span class="m">27</span> <span class="c1"># 这是Lee Maschmeyer的解释:</span>
-  <span class="m">28</span> <span class="c1"># --------------------------</span>
-  <span class="m">29</span> <span class="c1">#  在第一个垂直制表符例子中 . . . 垂直制表符使还未打印回车就直接垂直打印下来。</span>
-  <span class="m">30</span> <span class="c1">#</span>
-  <span class="m">31</span> <span class="c1">#  这只在不能“倒后”的设备里才成立,比如在Linux控制台,</span>
-  <span class="m">32</span> <span class="c1">#</span>
-  <span class="m">33</span> <span class="c1">#  垂直制表符真正的意图是能垂直地往上移，而不是往下移.</span>
-  <span class="m">34</span> <span class="c1">#  可以在打印机里用于打印上标.</span>
-  <span class="m">35</span> <span class="c1">#  这个要点的作用被用于仿效垂直制表符正确的功能.</span>
-  <span class="m">37</span> <span class="nb">exit</span> <span class="m">0</span>
-
-Ctl-Q
-
-解冻 <span class="o">(</span>XON<span class="o">)</span>.
-
-它解冻终端的标准输入.
-
-Ctl-S
-
-挂起输入 <span class="o">(</span>XOFF<span class="o">)</span>.
-
-它冻结终端的标准输入. <span class="o">(</span>用 Ctl-Q 可恢复输入.<span class="o">)</span>
-
-Ctl-U
-
-删除从光标到行首的一行输入.在某些设置里，Ctl-U 删除整行的输入，而不管光标的位置.
-
-Ctl-V
-
-当输入一个文本, Ctl-V允许插入控制字符。例如，下面两个命令是相等的:
-   <span class="m">1</span> <span class="nb">echo</span> -e <span class="s1">&#39;\x0a&#39;</span>
-   <span class="m">2</span> <span class="nb">echo</span> &lt;Ctl-V&gt;&lt;Ctl-J&gt;
-
-Ctl-V 主要用于文本编辑.
-
-Ctl-W
-
-当在控制台或一个xterm窗口敲入文本时, Ctl-W 会删除从在光标处往后的第一个空白符之间的内容.在某些设置里, Ctl-W 删除光标往后到第一个非文字和数字之间的字符.
-
-Ctl-Z
-
-暂停一个前台作业.
-</pre></div>
-
-<h2 id="shell_2">在shell中常用的特殊符号罗列如下：<a class="headerlink" href="#shell_2" title="Permanent link">&para;</a></h2>
-<h3 id="command-separator">; 分号 (Command separator)<a class="headerlink" href="#command-separator" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在 shell 中，担任<span class="se">\&quot;</span>连续指令<span class="se">\&quot;</span>功能的符号就是<span class="se">\&quot;</span>分号<span class="se">\&quot;</span>。
-譬如以下的例子：cd ~/backup <span class="p">;</span> mkdir startup <span class="p">;</span>cp ~/.* startup/.
-</pre></div>
-
-<h3 id="terminator">;; 连续分号 (Terminator)<a class="headerlink" href="#terminator" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>专用在 <span class="k">case</span> 的选项，担任 Terminator 的角色。
-<span class="k">case</span> <span class="se">\&quot;</span><span class="nv">$fop</span><span class="se">\&quot;</span> inhelp<span class="o">)</span> <span class="nb">echo</span> <span class="se">\&quot;</span>Usage: Command -help -version filename<span class="se">\&quot;</span><span class="p">;;</span>version<span class="o">)</span> <span class="nb">echo</span> <span class="se">\&quot;</span>version <span class="m">0</span>.1<span class="se">\&quot;</span> <span class="p">;;</span><span class="k">esac</span>
-</pre></div>
-
-<h3 id="dot">. 逗号 (dot,就是“点”)<a class="headerlink" href="#dot" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在 shell 中，使用者应该都清楚，一个 dot 代表当前目录，两个 dot 代表上层目录。
-<span class="nv">CDPATH</span><span class="o">=</span>.:~:/home:/home/web:/var:/usr/local
-在上行 CDPATH 的设定中，等号后的 dot 代表的就是当前目录的意思。
-如果档案名称以 dot 开头，该档案就属特殊档案，用 ls 指令必须加上 -a 选项才会显示。除此之外，在 regularexpression 中，一个 dot 代表匹配一个字元。
-</pre></div>
-
-<h3 id="string-single-quote">'string' 单引号 (single quote)<a class="headerlink" href="#string-single-quote" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>被单引号用括住的内容，将被视为单一字串。在引号内的代表变数的$符号，没有作用，也就是说，他被视为一般符号处理，防止任何变量替换。
-<span class="nv">heyyou</span><span class="o">=</span>homeecho <span class="s1">&#39;$heyyou&#39;</span> <span class="c1"># We get $heyyou</span>
-</pre></div>
-
-<h3 id="string-double-quote">\"string" 双引号 (double quote)<a class="headerlink" href="#string-double-quote" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>被双引号用括住的内容，将被视为单一字串。它防止通配符扩展，但允许变量扩展。这点与单引数的处理方式不同。
-<span class="nv">heyyou</span><span class="o">=</span>homeecho <span class="se">\&quot;</span><span class="nv">$heyyou</span><span class="se">\&quot;</span> <span class="c1"># We get home</span>
-</pre></div>
-
-<h3 id="96command-backticks">`command` 倒引号 (backticks)<a class="headerlink" href="#96command-backticks" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在前面的单双引号，括住的是字串，但如果该字串是一列命令列，会怎样？答案是不会执行。要处理这种情况，我们得用倒单引号来做。
-<span class="nv">fdv</span><span class="o">=</span><span class="sb">`</span>date +%F<span class="sb">`</span><span class="nb">echo</span> <span class="se">\&quot;</span>Today <span class="nv">$fdv</span><span class="se">\&quot;</span>
-在倒引号内的 date +%F 会被视为指令，执行的结果会带入 fdv 变数中。
-</pre></div>
-
-<h3 id="comma">, 逗点 (comma，标点中的逗号)<a class="headerlink" href="#comma" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>这个符号常运用在运算当中当做<span class="se">\&quot;</span>区隔<span class="se">\&quot;</span>用途。如下例
-<span class="c1">#!/bin/bashlet \&quot;t1 = ((a = 5 + 3, b = 7 - 1, c = 15 / 3))\&quot;echo \&quot;t1= $t1, a = $a, b = $b\&quot;</span>
-</pre></div>
-
-<h3 id="forward-slash">/ 斜线 (forward slash)<a class="headerlink" href="#forward-slash" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在路径表示时，代表目录。
-<span class="nb">cd</span> /etc/rc.dcd ../..cd /
-通常单一的 / 代表 root 根目录的意思；在四则运算中，代表除法的符号。
-<span class="nb">let</span> <span class="se">\&quot;</span><span class="nv">num1</span> <span class="o">=</span> <span class="o">((</span><span class="nv">a</span> <span class="o">=</span> <span class="m">10</span> / <span class="m">2</span>, <span class="nv">b</span> <span class="o">=</span> <span class="m">25</span> / <span class="m">5</span><span class="o">))</span><span class="se">\&quot;</span>
-</pre></div>
-
-<h3 id="9232">\ 倒斜线<a class="headerlink" href="#9232" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在交互模式下的escape 字元，有几个作用；放在指令前，有取消 aliases的作用；放在特殊符号前，则该特殊符号的作用消失；放在指令的最末端，表示指令连接下一行。
-<span class="c1"># type rmrm is aliased to `rm -i&#39;# \\rm ./*.log</span>
-上例，我在 rm 指令前加上 escape 字元，作用是暂时取消别名的功能，将 rm 指令还原。
-<span class="c1"># bkdir=/home# echo \&quot;Backup dir, \\$bkdir = $bkdir\&quot;Backup dir,$bkdir = /home</span>
-上例 <span class="nb">echo</span> 内的 <span class="se">\\</span><span class="nv">$bkdir</span>，escape 将 $ 变数的功能取消了，因此，会输出 <span class="nv">$bkdir</span>，而第二个 <span class="nv">$bkdir则会输出变数的内容</span> /home。
-</pre></div>
-
-<h3 id="pipeline">| 管道 (pipeline)<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>pipeline 是 UNIX 系统，基础且重要的观念。连结上个指令的标准输出，做为下个指令的标准输入。
-who <span class="p">|</span> wc -l
-善用这个观念，对精简 script 有相当的帮助。
-</pre></div>
-
-<h3 id="negate-or-reverse">! 惊叹号(negate or reverse)<a class="headerlink" href="#negate-or-reverse" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>通常它代表反逻辑的作用，譬如条件侦测中，用 !<span class="o">=</span> 来代表<span class="se">\&quot;</span>不等于<span class="se">\&quot;</span>
-<span class="k">if</span> <span class="o">[</span> <span class="se">\&quot;</span><span class="nv">$?</span><span class="se">\&quot;</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span>thenecho <span class="se">\&quot;</span>Executes error<span class="se">\&quot;</span><span class="nb">exit</span> 1fi
-在规则表达式中她担任 <span class="se">\&quot;</span>反逻辑<span class="se">\&quot;</span> 的角色
-ls a<span class="o">[</span>!0-9<span class="o">]</span>
-上例，代表显示除了a0, a1 .... a9 这几个文件的其他文件。
-</pre></div>
-
-<h3 id="_2">: 冒号<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在 bash 中，这是一个内建指令：<span class="se">\&quot;</span>什么事都不干<span class="se">\&quot;</span>，但返回状态值 <span class="m">0</span>。
-:
-<span class="nb">echo</span> <span class="nv">$?</span> <span class="c1"># 回应为 0</span>
-: &gt; f.<span class="nv">$$</span>
-上面这一行，相当于 cat /dev/null &gt;f.<span class="nv">$$</span>。不仅写法简短了，而且执行效率也好上许多。
-有时，也会出现以下这类的用法
-: <span class="si">${</span><span class="nv">HOSTNAME</span><span class="p">?</span><span class="si">}</span> <span class="si">${</span><span class="nv">USER</span><span class="p">?</span><span class="si">}</span> <span class="si">${</span><span class="nv">MAIL</span><span class="p">?</span><span class="si">}</span>
-这行的作用是，检查这些环境变数是否已设置，没有设置的将会以标准错误显示错误讯息。像这种检查如果使用类似 <span class="nb">test</span> 或 if这类的做法，基本上也可以处理，但都比不上上例的简洁与效率。
-</pre></div>
-
-<h3 id="wild-card">? 问号 (wild card)<a class="headerlink" href="#wild-card" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在文件名扩展<span class="o">(</span>Filename expansion<span class="o">)</span>上扮演的角色是匹配一个任意的字元，但不包含 null 字元。
-<span class="c1"># ls a?a1</span>
-善用它的特点，可以做比较精确的档名匹配。
-</pre></div>
-
-<h3 id="wild-card_1">* 星号 (wild card)<a class="headerlink" href="#wild-card_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>相当常用的符号。在文件名扩展<span class="o">(</span>Filename expansion<span class="o">)</span>上，她用来代表任何字元，包含 null 字元。
-<span class="c1"># ls a*a a1 access_log</span>
-在运算时，它则代表 <span class="se">\&quot;</span>乘法<span class="se">\&quot;</span>。
-<span class="nb">let</span> <span class="se">\&quot;</span><span class="nv">fmult</span><span class="o">=</span><span class="m">2</span>*3<span class="se">\&quot;</span>
-除了内建指令 let，还有一个关于运算的指令expr，星号在这里也担任<span class="se">\&quot;</span>乘法<span class="se">\&quot;</span>的角色。不过在使用上得小心，他的前面必须加上escape 字元。
-</pre></div>
-
-<h3 id="_3">** 次方运算<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>两个星号在运算时代表 <span class="se">\&quot;</span>次方<span class="se">\&quot;</span> 的意思。
-<span class="nb">let</span> <span class="se">\&quot;</span><span class="nv">sus</span><span class="o">=</span><span class="m">2</span>**3<span class="se">\&quot;</span><span class="nb">echo</span> <span class="se">\&quot;</span><span class="nv">sus</span> <span class="o">=</span> <span class="nv">$sus</span><span class="se">\&quot;</span> <span class="c1"># sus = 8</span>
-</pre></div>
-
-<h3 id="dollardollar-sign">$ dollar符号(dollar sign)<a class="headerlink" href="#dollardollar-sign" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>变量替换<span class="o">(</span>Variable Substitution<span class="o">)</span>的代表符号。
-<span class="nv">vrs</span><span class="o">=</span>123echo <span class="se">\&quot;</span><span class="nv">vrs</span> <span class="o">=</span> <span class="nv">$vrs</span><span class="se">\&quot;</span> <span class="c1"># vrs = 123</span>
-另外，在 Regular Expressions 里被定义为 <span class="se">\&quot;</span>行<span class="se">\&quot;</span> 的最末端 <span class="o">(</span>end-of-line<span class="o">)</span>。这个常用在grep、sed、awk 以及 vim<span class="o">(</span>vi<span class="o">)</span> 当中。
-</pre></div>
-
-<h3 id="_4">${} 变量的正规表达式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>bash 对 <span class="si">${}</span> 定义了不少用法。以下是取自线上说明的表列
-<span class="si">${</span><span class="nv">parameter</span><span class="k">:-</span><span class="nv">word</span><span class="si">}</span>   <span class="si">${</span><span class="nv">parameter</span><span class="p">:=word</span><span class="si">}</span>   <span class="si">${</span><span class="nv">parameter</span><span class="p">:?word</span><span class="si">}</span>  <span class="si">${</span><span class="nv">parameter</span><span class="p">:+word</span><span class="si">}</span>   <span class="si">${</span><span class="nv">parameterffset</span><span class="si">}</span>   <span class="o">{</span>parameterffset:length<span class="o">}</span>
-<span class="si">${</span><span class="p">!prefix*</span><span class="si">}</span>   <span class="si">${#</span><span class="nv">parameter</span><span class="si">}</span>   <span class="o">{</span>parameter#word<span class="o">}</span>   <span class="si">${</span><span class="nv">parameter</span><span class="p">##word</span><span class="si">}</span>   <span class="si">${</span><span class="nv">parameter</span><span class="p">%word</span><span class="si">}</span>   <span class="o">{</span>parameter%%word<span class="o">}</span>   <span class="si">${</span><span class="nv">parameter</span><span class="p">/pattern/string</span><span class="si">}</span>   <span class="o">{</span>parameter//pattern/string<span class="o">}</span>
-</pre></div>
-
-<h3 id="_5">$*符号<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="nv">$*</span> 引用script的执行引用变量，引用参数的算法与一般指令相同，指令本身为0，其后为1，然后依此类推。引用变量的代表方式如下：
-<span class="nv">$0</span>, <span class="nv">$1</span>, <span class="nv">$2</span>, <span class="nv">$3</span>, <span class="nv">$4</span>, <span class="nv">$5</span>, <span class="nv">$6</span>, <span class="nv">$7</span>, <span class="nv">$8</span>, <span class="nv">$9</span>, <span class="si">${</span><span class="nv">10</span><span class="si">}</span>, <span class="si">${</span><span class="nv">11</span><span class="si">}</span>.....
-个位数的，可直接使用数字，但两位数以上，则必须使用 <span class="o">{}</span> 符号来括住。
-<span class="nv">$*</span> 则是代表所有引用变量的符号。使用时，得视情况加上双引号。
-<span class="nb">echo</span> <span class="se">\&quot;</span><span class="nv">$*</span><span class="se">\&quot;</span>
-还有一个与 <span class="nv">$*</span> 具有相同作用的符号，但效用与处理方式略为不同的符号。
-</pre></div>
-
-<h3 id="_6">$@<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="nv">$@</span> 与 <span class="nv">$*</span> 具有相同作用的符号，不过她们两者有一个不同点。
-符号 <span class="nv">$*</span> 将所有的引用变量视为一个整体。但符号 <span class="nv">$@</span> 则仍旧保留每个引用变量的区段观念。
-</pre></div>
-
-<p>$#</p>
-<div class="codehilite"><pre><span></span>这也是与引用变量相关的符号，她的作用是告诉你，引用变量的总数量是多少。
-<span class="nb">echo</span> <span class="se">\&quot;</span><span class="nv">$#</span><span class="se">\&quot;</span>
-</pre></div>
-
-<h3 id="status-variable">$? 状态值 (status variable)<a class="headerlink" href="#status-variable" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>一般来说，UNIX<span class="o">(</span>linux<span class="o">)</span> 系统的进程以执行系统调用exit<span class="o">()</span>来结束的。这个回传值就是status值。回传给父进程，用来检查子进程的执行状态。
-一般指令程序倘若执行成功，其回传值为 <span class="m">0</span>；失败为 <span class="m">1</span>。
-tar cvfz dfbackup.tar.gz /home/user &gt; /dev/nullecho<span class="se">\&quot;</span><span class="nv">$?</span><span class="se">\&quot;</span><span class="nv">$$</span>
-由于进程的ID是唯一的，所以在同一个时间，不可能有重复性的 PID。有时，script会需要产生临时文件，用来存放必要的资料。而此script亦有可能在同一时间被使用者们使用。在这种情况下，固定文件名在写法上就显的不可靠。唯有产生动态文件名，才能符合需要。符号<span class="nv">$$</span>或许可以符合这种需求。它代表当前shell 的 PID。
-<span class="nb">echo</span> <span class="se">\&quot;</span><span class="nv">$HOSTNAME</span>, <span class="nv">$USER</span>, <span class="nv">$MAIL</span><span class="se">\&quot;</span> &gt; ftmp.<span class="nv">$$</span>
-使用它来作为文件名的一部份，可以避免在同一时间，产生相同文件名的覆盖现象。
-ps: 基本上，系统会回收执行完毕的 PID，然后再次依需要分配使用。所以 script 即使临时文件是使用动态档名的写法，如果script 执行完毕后仍不加以清除，会产生其他问题。
-</pre></div>
-
-<h3 id="_7">$$<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>进程ID变量，保存了脚本运行时的ID
-</pre></div>
-
-<h3 id="command-group">(   ) 指令群组 (command group)<a class="headerlink" href="#command-group" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>用括号将一串连续指令括起来，这种用法对 shell 来说，称为指令群组。如下面的例子：<span class="o">(</span><span class="nb">cd</span> ~ <span class="p">;</span> <span class="nv">vcgh</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span> <span class="p">;</span><span class="nb">echo</span> <span class="nv">$vcgh</span><span class="o">)</span>，指令群组有一个特性，shell会以产生 subshell来执行这组指令。因此，在其中所定义的变数，仅作用于指令群组本身。我们来看个例子
-<span class="c1"># cat ftmp-01#!/bin/basha=fsh(a=incg ; echo -e \&quot;\\n $a \\n\&quot;)echo $a#./ftmp-01incgfsh</span>
-除了上述的指令群组，括号也用在 array 变数的定义上；另外也应用在其他可能需要加上escape字元才能使用的场合，如运算式。
-</pre></div>
-
-<h3 id="_8">(( ))<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>这组符号的作用与 <span class="nb">let</span> 指令相似，用在算数运算上，是 bash 的内建功能。所以，在执行效率上会比使用 let指令要好许多。
-<span class="c1">#!/bin/bash(( a = 10 ))echo -e \&quot;inital value, a = $a\\n\&quot;(( a++))echo \&quot;after a++, a = $a\&quot;</span>
-</pre></div>
-
-<h3 id="block-of-code">{ } 大括号 (Block of code)<a class="headerlink" href="#block-of-code" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>有时候脚本当中会出现，大括号中会夹着一段或几段以<span class="se">\&quot;</span>分号<span class="se">\&quot;</span>做结尾的指令或变数设定。
-<span class="c1"># cat ftmp-02#!/bin/basha=fsh{a=inbc ; echo -e \&quot;\\n $a \\n\&quot;}echo $a#./ftmp-02inbcinbc</span>
-这种用法与上面介绍的指令群组非常相似，但有个不同点，它在当前的 shell 执行，不会产生 subshell。
-大括号也被运用在 <span class="se">\&quot;</span>函数<span class="se">\&quot;</span> 的功能上。广义地说，单纯只使用大括号时，作用就像是个没有指定名称的函数一般。因此，这样写 script也是相当好的一件事。尤其对输出输入的重导向上，这个做法可精简 script 的复杂度。
-此外，大括号还有另一种用法，如下
-<span class="o">{</span>xx,yy,zz,...<span class="o">}</span>
-这种大括号的组合，常用在字串的组合上，来看个例子
-mkdir <span class="o">{</span>userA,userB,userC<span class="o">}</span>-<span class="o">{</span>home,bin,data<span class="o">}</span>
-我们得到 userA-home, userA-bin, userA-data, userB-home, userB-bin,userB-data, userC-home, userC-bin,userC-data，这几个目录。这组符号在适用性上相当广泛。能加以善用的话，回报是精简与效率。像下面的例子
-chown root /usr/<span class="o">{</span>ucb/<span class="o">{</span>ex,edit<span class="o">}</span>,lib/<span class="o">{</span>ex?.?*,how_ex<span class="o">}}</span>
-如果不是因为支援这种用法，我们得写几行重复几次呀！
-</pre></div>
-
-<h3 id="_9">[ ] 中括号<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>常出现在流程控制中，扮演括住判断式的作用。if <span class="o">[</span> <span class="se">\&quot;</span><span class="nv">$?</span><span class="se">\&quot;</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span>thenecho <span class="se">\&quot;</span>Executes error<span class="se">\&quot;</span>exit1fi
-这个符号在正则表达式中担任类似 <span class="se">\&quot;</span>范围<span class="se">\&quot;</span> 或 <span class="se">\&quot;</span>集合<span class="se">\&quot;</span> 的角色
-rm -r <span class="m">200</span><span class="o">[</span><span class="m">1234</span><span class="o">]</span>
-上例，代表删除 <span class="m">2001</span>, <span class="m">2002</span>, <span class="m">2003</span>, <span class="m">2004</span> 等目录的意思。
-</pre></div>
-
-<p>{} \;</p>
-<div class="codehilite"><pre><span></span>路径名，基本用于find命令内，不是shell內建命令
-分号<span class="p">;</span> 结束find命令中-exec选项的命令序列，应该转义以免被shell误解释
-</pre></div>
-
-<h3 id="_10">[[ ]]<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>这组符号与先前的 <span class="o">[]</span> 符号，基本上作用相同，但她允许在其中直接使用 <span class="o">||</span> 与<span class="o">&amp;&amp;</span> 逻辑等符号。
-<span class="c1">#!/bin/bashread akif [[ $ak &gt; 5 || $ak&lt; 9 ]]thenecho $akfi</span>
-</pre></div>
-
-<h3 id="-or">|| 逻辑符号----代表 or 逻辑的符号。<a class="headerlink" href="#-or" title="Permanent link">&para;</a></h3>
-<h3 id="-and">&amp;&amp; 逻辑符号----代表 and 逻辑的符号。<a class="headerlink" href="#-and" title="Permanent link">&para;</a></h3>
-<h3 id="_11">&amp; 后台工作<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>单一个<span class="p">&amp;</span> 符号，且放在完整指令列的最后端，即表示将该指令列放入后台中工作。
-tar cvfz data.tar.gz data &gt; /dev/null<span class="p">&amp;</span>
-</pre></div>
-
-<h3 id="9292">\&lt;...\&gt; 单字边界<a class="headerlink" href="#9292" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>这组符号在规则表达式中，被定义为<span class="se">\&quot;</span>边界<span class="se">\&quot;</span>的意思。譬如，当我们想找寻 the 这个单字时，如果我们用
-grep the FileA
-你将会发现，像 there 这类的单字，也会被当成是匹配的单字。因为 the 正巧是 there的一部份。如果我们要必免这种情况，就得加上 <span class="se">\&quot;</span>边界<span class="se">\&quot;</span> 的符号
-grep <span class="s1">&#39;\\&#39;</span> FileA
-</pre></div>
-
-<h3 id="plus">+ 加号 (plus)<a class="headerlink" href="#plus" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在运算式中，她用来表示 <span class="se">\&quot;</span>加法<span class="se">\&quot;</span>。
-expr <span class="m">1</span> + <span class="m">2</span> + <span class="m">3</span>
-此外在规则表达式中，用来表示<span class="se">\&quot;</span>很多个<span class="se">\&quot;</span>的前面字元的意思。
-<span class="c1"># grep &#39;10\\+9&#39; fileB109100910000910000931010009#这个符号在使用时，前面必须加上escape 字元。</span>
-</pre></div>
-
-<h3 id="-dash">- 减号 (dash)<a class="headerlink" href="#-dash" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在运算式中，她用来表示 <span class="se">\&quot;</span>减法<span class="se">\&quot;</span>。
-expr <span class="m">10</span> - <span class="m">2</span>
-此外也是系统指令的选项符号。
-ls -expr <span class="m">10</span> - <span class="m">2</span>
-在 GNU 指令中，如果单独使用 - 符号，不加任何该加的文件名称时，代表<span class="se">\&quot;</span>标准输入<span class="se">\&quot;</span>的意思。这是 GNU指令的共通选项。譬如下例
-tar xpvf -
-这里的 - 符号，既代表从标准输入读取资料。
-不过，在 <span class="nb">cd</span> 指令中则比较特别
-<span class="nb">cd</span> -
-这代表变更工作目录到<span class="se">\&quot;</span>上一次<span class="se">\&quot;</span>工作目录。
-</pre></div>
-
-<h3 id="modulo">% 除法 (Modulo)<a class="headerlink" href="#modulo" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>在运算式中，用来表示 <span class="se">\&quot;</span>除法<span class="se">\&quot;</span>。
-expr <span class="m">10</span> % <span class="m">2</span>
-此外，也被运用在关于变量的规则表达式当中的下列
-<span class="si">${</span><span class="nv">parameter</span><span class="p">%word</span><span class="si">}${</span><span class="nv">parameter</span><span class="p">%%word</span><span class="si">}</span>
-一个 % 表示最短的 word 匹配，两个表示最长的 word 匹配。
-</pre></div>
-
-<h3 id="equals">= 等号 (Equals)<a class="headerlink" href="#equals" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>常在设定变数时看到的符号。
-<span class="nv">vara</span><span class="o">=</span>123echo <span class="se">\&quot;</span> <span class="nv">vara</span> <span class="o">=</span> <span class="nv">$vara</span><span class="se">\&quot;</span>
-或者像是 PATH 的设定，甚至应用在运算或判断式等此类用途上。
-</pre></div>
-
-<h3 id="equals_1">== 等号 (Equals)<a class="headerlink" href="#equals_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>常在条件判断式中看到，代表 <span class="se">\&quot;</span>等于<span class="se">\&quot;</span> 的意思。
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$vara</span> <span class="o">==</span> <span class="nv">$varb</span> <span class="o">]</span>
-...下略
-</pre></div>
-
-<h3 id="_12">!= 不等于<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>常在条件判断式中看到，代表 <span class="se">\&quot;</span>不等于<span class="se">\&quot;</span> 的意思。
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$vara</span> !<span class="o">=</span> <span class="nv">$varb</span> <span class="o">]</span>
-...下略
-</pre></div>
-
-<p>^
-在规则表达式中，代表行的 \"开头\" 位置，在[]中也与\"!\"(叹号)一样表示“非”</p>
-<p>输出/输入重定向 &gt; &gt;&gt;   &lt;   &lt;&lt;   :&gt;   &amp;&gt;   2&amp;&gt;   2&lt;&gt;&gt;&amp;   &gt;&amp;2</p>
-<div class="codehilite"><pre><span></span>文件描述符<span class="o">(</span>File Descriptor<span class="o">)</span>，用一个数字（通常为0-9）来表示一个文件。
-常用的文件描述符如下：
-文件描述符     名称     常用缩写    默认值
-<span class="m">0</span>        标准输入       stdin      键盘
-<span class="m">1</span>        标准输出       stdout     屏幕
-<span class="m">2</span>        标准错误输出    stderr     屏幕
-我们在简单地用&lt;或&gt;时，相当于使用 <span class="m">0</span>&lt; 或 <span class="m">1</span>&gt;（下面会详细介绍）。
-* cmd &gt; file
-把cmd命令的输出重定向到文件file中。如果file已经存在，则清空原有文件，使用bash的noclobber选项可以防止复盖原有文件。
-* cmd &gt;&gt; file
-把cmd命令的输出重定向到文件file中，如果file已经存在，则把信息加在原有文件後面。
-* cmd &lt; file
-使cmd命令从file读入
-* cmd <span class="s">&lt;&lt; text</span>
-<span class="s">从命令行读取输入，直到一个与text</span>相同的行结束。除非使用引号把输入括起来，此模式将对输入内容进行shell变量替换。如果使用&lt;&lt;- ，则会忽略接下来输入行首的tab，结束行也可以是一堆tab再加上一个与text相同的内容，可以参考後面的例子。
-* cmd <span class="o">&lt;&lt;&lt;</span> word
-把word（而不是文件word）和後面的换行作为输入提供给cmd。
-* cmd &lt;&gt; file
-以读写模式把文件file重定向到输入，文件file不会被破坏。仅当应用程序利用了这一特性时，它才是有意义的。
-* cmd &gt;<span class="p">|</span> file
-功能同&gt;，但即便在设置了noclobber时也会复盖file文件，注意用的是<span class="p">|</span>而非一些书中说的!，目前仅在csh中仍沿用&gt;!实现这一功能。
-: &gt; filename    把文件<span class="se">\&quot;</span>filename<span class="se">\&quot;</span>截断为0长度.# 如果文件不存在, 那么就创建一个0长度的文件<span class="o">(</span>与<span class="s1">&#39;touch&#39;</span>的效果相同<span class="o">)</span>.
-cmd &gt;<span class="p">&amp;</span>n 把输出送到文件描述符n
-cmd m&gt;<span class="p">&amp;</span>n 把输出 到文件符m的信息重定向到文件描述符n
-cmd &gt;<span class="p">&amp;</span>- 关闭标准输出
-cmd &lt;<span class="p">&amp;</span>n 输入来自文件描述符n
-cmd m&lt;<span class="p">&amp;</span>n m来自文件描述各个n
-cmd &lt;<span class="p">&amp;</span>- 关闭标准输入
-cmd &lt;<span class="p">&amp;</span>n- 移动输入文件描述符n而非复制它。（需要解释）
-cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制它。（需要解释）
-注意： &gt;<span class="p">&amp;</span>实际上复制了文件描述符，这使得cmd &gt; file <span class="m">2</span>&gt;<span class="p">&amp;</span>1与cmd <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> &gt;file的效果不一样。
-<span class="p">&amp;</span>&gt; file和 &gt; file <span class="m">2</span>&gt;<span class="p">&amp;</span>1相同
-</pre></div>
-
-<h3 id="-">-<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
-<p>用于stdin或stdout重定向的源或目的[dash]</p>
-<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;whatever&quot;</span> <span class="p">|</span> cat - <span class="c1">#输出 whatever</span>
-</pre></div>
-
-<p>使用- 的tar命令的真实例子</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="c1">#  备份当前目录下所有前24小时被修改的文件为一个归档压缩包（归档并且压缩）</span>
- <span class="nv">BACKUPFILE</span><span class="o">=</span>backup-<span class="k">$(</span>date +%m-%d-%Y<span class="k">)</span>
-  <span class="c1">#                 在备份文件中嵌入日期.</span>
-  <span class="c1">#                 多谢Joshua Tschida的这个主意.</span>
-  <span class="nv">archive</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">$BACKUPFILE</span><span class="si">}</span>
-  <span class="c1">#  如果没有在命令行上指定备份的归档文件名,</span>
-  <span class="c1">#+ 会以&quot;backup-MM-DD-YYYY.tar.gz.&quot;作为默认的文件名</span>
-
-  tar cvf - <span class="sb">`</span>find . -mtime -1 -type f -print<span class="sb">`</span> &gt; <span class="nv">$archive</span>.tar
-  gzip <span class="nv">$archive</span>.tar
-  <span class="nb">echo</span> <span class="s2">&quot;Directory </span><span class="nv">$PWD</span><span class="s2"> backed up in archive file \&quot;</span><span class="nv">$archive</span><span class="s2">.tar.gz\&quot;.&quot;</span>
-
-
-  <span class="c1">#  Stephane Chazelas指出：如果有许多文件被找到</span>
-  <span class="c1">#+ 或任何一个文件名中包含有空白字符</span>
-  <span class="c1">#+ 上面的代码将会失败.</span>
-
-  <span class="c1"># 他建议用下面的代码:</span>
-  <span class="c1"># -------------------------------------------------------------------</span>
-  <span class="c1">#   find . -mtime -1 -type f -print0 | xargs -0 tar rvf &quot;$archive.tar&quot;</span>
-  <span class="c1">#      using the GNU version of &quot;find&quot;.</span>
-
-  <span class="c1">#   find . -mtime -1 -type f -exec tar rvf &quot;$archive.tar&quot; &#39;{}&#39; \;</span>
-
-  <span class="nb">exit</span> <span class="m">0</span>
-</pre></div>
-
-<p>先前的工作目录. 命令cd - 可以回到原来的工作目录.它使用了$OLDPWD 环境变量.
-不要弄混了这儿使用的"-"和上面刚讨论的"-"重定向操作符.对于"-"字符的解释应依赖于它出现的环境.</p>
-<p>负号或减号. 减号用于算术操作</p>
-<h3 id="_13">~<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<p>主目录或称为家目录[波浪号]. 它与内部变量 $HOME 是一致的. ~bozo是bozo'的主目录,而ls ~bozo 会列出此目录的内容. ~/ 是当前用户的主目录,并且ls ~/ 会列出此目录的内容.</p>
-<h3 id="_14">~+<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<p>当前工作目录. 它与外部变量$PWD是一致的</p>
-<h3 id="-_1">~-<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
-<p>先前的工作目录. 它与外部变量$OLDPWD是一致的</p>
-<h3 id="shell_3">shell多行注释实现方式<a class="headerlink" href="#shell_3" title="Permanent link">&para;</a></h3>
+<h2 id="shell_1">shell多行注释实现方式<a class="headerlink" href="#shell_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>方法一：
-: <span class="s">&lt;&lt; 字符</span>
+: <span class="s">&lt;&lt; 字符(一般使用comment便于识别)</span>
 <span class="s">语句</span>
 <span class="s">字符</span>
 
@@ -2503,6 +1467,160 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 : <span class="s1">&#39;</span>
 <span class="s1">语句</span>
 <span class="s1">&#39;</span>
+</pre></div>
+
+<h2 id="shell_2">shell特殊变量基本解释<a class="headerlink" href="#shell_2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>$*     # 传递给程序的所有参数组成的字符串
+$@     # (常用)传递给程序的所有参数，和$*类似，但每个都用双括号括起，且仍保留每个引用变量的区段含义
+$#     # (常用)传递给程序的总的参数数目
+$*     # (常用)传递给程序的所有参数组成的字符串
+<span class="nv">$_</span>     # 获取在此之前执行的命令或脚本的最后一个参数
+$?     # (常用)上一条命令执行后返回值;成功返回0,失败返回1
+
+# 返回值参考：
+0      # 表示运行成功
+2      # 权限拒绝
+1~125  # 运行失败、脚本命令、系统命令错误或参数传递错误
+126    # 找到该命令但无法执行
+127    # 未找到要运行的命令
+&gt;128   # 命令被系统强制结束
+$$     # 当前shell运行时的进程ID
+$!     # 上一个子进程的进程号
+$@     # 所有的参数，每个都用双括号括起
+<span class="nv">$n</span>     # (常用)位置参数值，n表示位置，获取当前脚本第n个参数值，n大于9时要用大括号，例<span class="cp">${</span><span class="mi">10</span><span class="cp">}</span>，接的参数以空格隔开
+$0     # (常用)当前shell名(当前执行进程的进程名，如果执行脚本包含路径则返回也包含脚本路径)
+
+# 数值比较：
+
+-eq     # 等于
+-ne     # 不等于
+-gt     # 大于
+-ge     # 大于或等于
+-lt     # 小于
+-le     # 小于或等于
+
+# 逻辑测试：
+<span class="err">&amp;&amp;</span>      # 逻辑与
+||      # 逻辑或
+!       # 逻辑否
+</pre></div>
+
+<h2 id="shell_3">在shell中常用的符号一般用法：<a class="headerlink" href="#shell_3" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span># <span class="c1">;(Command separator)分号</span>
+在<span class="nv">shell</span>中担任<span class="s2">&quot;</span><span class="s">连续指令</span><span class="s2">&quot;</span>功能的符号就是分号
+例如：<span class="nv">cd</span> <span class="o">~/</span><span class="nv">backup</span><span class="c1">;mkdir startup;cp ~/.* startup/.  # 进入家目录下backup并创建目录startup，复制家目录下所有到startup下</span>
+
+# <span class="c1">;;(Terminator)连续分号</span>
+专用在<span class="nv">case</span>流程控制选项，担任<span class="nv">Terminator</span>角色。例如：
+<span class="nv">case</span> \<span class="s2">&quot;</span><span class="s">$fop\</span><span class="s2">&quot;</span> <span class="nv">in</span> <span class="nv">help</span><span class="ss">)</span> <span class="nv">echo</span> \<span class="s2">&quot;</span><span class="s">Usage: Command -help -version filename\</span><span class="s2">&quot;</span><span class="c1">;;version) echo \&quot;version 0.1\&quot; ;;esac</span>
+
+# .<span class="ss">(</span><span class="nv">dot</span><span class="ss">)</span>英文句号
+<span class="nv">shell</span>中一个<span class="nv">dot</span>代表当前目录，两个代表上层目录，正则表达式中则代表一个字符
+
+# <span class="s1">&#39;</span><span class="s">string</span><span class="s1">&#39;</span><span class="ss">(</span><span class="nv">single</span> <span class="nv">quote</span><span class="ss">)</span>单引号
+单引号括住的内容将被视为单一字符串，且$符号也被当做一般字符处理
+
+# <span class="s2">&quot;</span><span class="s">string</span><span class="s2">&quot;</span><span class="ss">(</span><span class="nv">double</span> <span class="nv">quote</span><span class="ss">)</span>双引号
+双引号括住的内容将被视为单一字符串，可以防止通配符扩展，但是允许变量扩展。此处和单引号不同
+
+# `<span class="nv">command</span>`<span class="ss">(</span><span class="nv">backticks</span><span class="ss">)</span>倒引号
+倒引号内的<span class="nv">command</span>会被当做命令来执行
+
+# ,<span class="ss">(</span><span class="nv">comma</span><span class="ss">)</span>英文逗号
+此符号常用在运算中，用作区域隔离。例如：
+<span class="nv">let</span> <span class="s2">&quot;</span><span class="s">t1 = ((a = 5 + 3, b = 7 - 1, c = 15 - 4))</span><span class="s2">&quot;</span><span class="c1">;echo &quot;t1 = $t1, a = $a, b = $b&quot;</span>
+
+# <span class="o">/</span><span class="ss">(</span><span class="nv">forward</span> <span class="nv">slash</span><span class="ss">)</span>斜线
+路径中表示目录，四则运算中代表除法符号。例如：<span class="nv">let</span> <span class="s2">&quot;</span><span class="s">num1 = ((a = 10 / 2, b = 25 / 5))</span><span class="s2">&quot;</span><span class="c1">;echo $num1,$a,$b</span>
+
+# \\ 倒斜线
+交互模式下的<span class="nv">escape</span>字符
+作用：放在指令前取消<span class="nv">aliases</span>；放在特殊符号前则该特殊符号不再有特殊意义；放在指令最末端表示连接下一行
+
+# <span class="o">|</span> <span class="ss">(</span><span class="nv">pipeline</span><span class="ss">)</span>管道
+<span class="nv">pipeline</span>用来连接上个指令的标准输出作为下个指令的标准输入
+
+# <span class="o">!</span><span class="ss">(</span><span class="nv">negate</span> <span class="nv">or</span> <span class="nv">reverse</span><span class="ss">)</span>英文感叹号
+通常作为反逻辑使用，如条件测试中<span class="o">!=</span>表示不等于,例如判断上个指令是否执行成功
+<span class="k">if</span> [ <span class="s2">&quot;</span><span class="s">$?</span><span class="s2">&quot;</span> <span class="o">!=</span> <span class="mi">0</span> ]<span class="c1">; then echo &quot;Executes error&quot;; fi</span>
+
+# : 英文冒号
+<span class="nv">bash</span>中作为内建指令表示什么都不做，但返回状态值<span class="mi">0</span> 例如：
+: ${<span class="nv">HOSTNAME</span>}${<span class="nv">USER</span>}    # 检查这两个环境变量是否已设置，没有设置则以标准错误显示错误信息
+
+# ? <span class="ss">(</span><span class="nv">wild</span> <span class="nv">card</span><span class="ss">)</span>问号
+正则表示匹配任意一个字符，但不包含<span class="nv">null</span>
+
+# <span class="o">*</span> <span class="ss">(</span><span class="nv">wild</span> <span class="nv">card</span><span class="ss">)</span>星号
+正则中表示任何字符，包含<span class="nv">null</span>；四则运算中表示乘法
+
+# <span class="o">**</span> 幂运算
+<span class="nv">let</span> <span class="nv">sum</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="c1">;echo $sum  # 输出8</span>
+
+# $ <span class="ss">(</span><span class="nv">dollar</span> <span class="nv">sign</span><span class="ss">)</span><span class="nv">dollar</span>符号
+变量替换代表符号；正则中表示匹配行尾
+
+# ${}   变量的正则表达式
+<span class="nv">bash</span>中很多用法，详情见下文
+
+# <span class="ss">()</span>   <span class="ss">(</span><span class="nv">command</span> <span class="nv">group</span><span class="ss">)</span>指令群组
+用括号将一串连续指令括起来，称作指令群组，例如：<span class="ss">(</span><span class="nv">cd</span> <span class="o">~</span> <span class="c1">; var=`pwd` ;echo $var)</span>
+
+# <span class="ss">(())</span>
+作用和<span class="nv">let</span>命令相似，用在算数运算中，但执行效率略高.例如：
+<span class="ss">((</span><span class="nv">a</span> <span class="o">=</span> <span class="mi">10</span><span class="ss">))</span><span class="c1">;echo -e &quot;初始值: a = $a \n&quot;;((a++));echo &quot;a++ 后结果: a=$a&quot;</span>
+
+# { }   大括号<span class="ss">(</span><span class="nv">block</span> <span class="nv">of</span> <span class="nv">code</span><span class="ss">)</span>
+用法一：是作为代码块，实际是创建了一个匿名函数，与小括号不同的是不会新创建一个<span class="nv">sub</span> <span class="nv">shell</span>运行。脚本余下部分仍可使用括号内
+变量，括号内命令之间用分号隔开，最后一个也必须有分号，{}第一个命令和左边的大括号必须要有一个空格。例如：
+<span class="nv">a</span><span class="o">=</span><span class="nv">one</span><span class="c1">; { a=two; echo -e &quot;\n$a \n&quot;;}; echo $a</span>
+
+用法二：大括号拓展。<span class="ss">(</span>通配<span class="ss">(</span><span class="nv">globbing</span><span class="ss">))</span>将对大括号中的文件名做扩展。在大括号中，不允许有空白，除非这个空白被引用或转义。
+第一种：对大括号中的以逗号分割的文件列表进行拓展。如 <span class="nv">touch</span> {<span class="nv">a</span>,<span class="nv">b</span>}.<span class="nv">txt</span> 结果为<span class="nv">a</span>.<span class="nv">txt</span> <span class="nv">b</span>.<span class="nv">txt</span>。第二种：对大括号中以点点（..）
+分割的顺序文件列表起拓展作用，如：<span class="nv">touch</span> {<span class="nv">a</span>..<span class="nv">d</span>}.<span class="nv">txt</span> 结果为<span class="nv">a</span>.<span class="nv">txt</span> <span class="nv">b</span>.<span class="nv">txt</span> <span class="nv">c</span>.<span class="nv">txt</span> <span class="nv">d</span>.<span class="nv">txt</span>
+还可以用在字符串组合上，如：<span class="nv">mkdir</span> {<span class="nv">a</span>,<span class="nv">b</span>}<span class="o">-</span>{<span class="mi">1</span>,<span class="mi">2</span>} 结果为：<span class="nv">a</span><span class="o">-</span><span class="mi">1</span> <span class="nv">a</span><span class="o">-</span><span class="mi">2</span> <span class="nv">b</span><span class="o">-</span><span class="mi">1</span> <span class="nv">b</span><span class="o">-</span><span class="mi">2</span>
+
+# [] 中括号
+与<span class="nv">test</span>等同，通常用作条件判断，参数作为比较表达式或文件测试，根据结果返回状态码
+<span class="nv">test</span>和[]中比较运算符只有<span class="o">==</span>和<span class="o">!=</span>，用于字符串比较，整数比较只能<span class="o">-</span><span class="nv">gt</span>,<span class="o">-</span><span class="nv">eq</span>等
+正则中表示一个字符范围
+在一个<span class="nv">array</span>结构的上下文中，中括号用于引用数组中每个元素的编号
+
+# [[]]
+此括号之间任何字符都不会发生文件扩展名或者单词的分割，但会有参数扩展和命令替换
+支持字符串的模式匹配，字符串比较时可以把右边当做一个模式
+使用[[]]作为条件判断可防止脚本中逻辑错误，<span class="o">&amp;&amp;</span>,<span class="o">||</span>,<span class="o">&lt;</span>,<span class="o">&gt;</span>操作符可在[[]]正常使用，但在[]中会报错
+例如：<span class="nv">read</span> <span class="nv">ak</span><span class="c1">; if [[ $ak &gt; 5 || $ak &lt; 2 ]]; then echo &quot;$ak&quot;; fi</span>
+
+# 输出<span class="o">/</span>输入重定向操作符：<span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="o">&lt;</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;&gt;</span> <span class="mi">2</span><span class="o">&amp;&gt;</span> <span class="mi">2</span><span class="o">&lt;&gt;&gt;&amp;</span> <span class="o">&gt;&amp;</span><span class="mi">2</span>
+文件描述符<span class="ss">(</span><span class="nv">file</span> <span class="nv">descriptor</span>）通常用一个数字<span class="ss">(</span><span class="mi">0</span><span class="o">-</span><span class="mi">9</span><span class="ss">)</span>表示文件
+常见描述符如下：
+文件描述符       名称           缩写      默认值
+    <span class="mi">0</span>          标准输入        <span class="nv">stdin</span>      键盘
+    <span class="mi">1</span>          标准输出        <span class="nv">stdout</span>     屏幕
+    <span class="mi">2</span>        标准错误输出      <span class="nv">stderr</span>     屏幕
+简单使用<span class="o">&lt;</span>或<span class="o">&gt;</span>时，相当于<span class="mi">0</span><span class="o">&lt;</span>或<span class="mi">1</span><span class="o">&gt;</span>
+
+<span class="nv">command</span> <span class="o">&gt;</span> <span class="nv">file</span>  # <span class="nv">command</span>命令输出重定向到<span class="nv">file</span>
+<span class="nv">command</span> <span class="o">&gt;&gt;</span> <span class="nv">file</span> # <span class="nv">command</span>命令输出重定向追加到<span class="nv">file</span>
+<span class="nv">command</span> <span class="o">&lt;</span> <span class="nv">file</span>  # <span class="nv">command</span>命令从<span class="nv">file</span>读取
+<span class="nv">command</span> <span class="o">&lt;&lt;</span> <span class="nv">file</span> # 从命令行读取输入，知道与<span class="nv">file</span>匹配的行结束，除非使用引号将输入括起来，此模式将对输入内容进行<span class="nv">shell</span>变量
+                  替换如果使用<span class="o">&lt;&lt;-</span>   则忽略接下来输入行首的<span class="nv">tab</span>
+<span class="nv">command</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">word</span>    # 把字符<span class="nv">word</span>和后面的换行作为输入提供给<span class="nv">command</span>
+<span class="nv">command</span> <span class="o">&lt;&gt;</span> <span class="nv">file</span>     # 以读写模式将<span class="nv">file</span>重定向到输入，<span class="nv">file</span>不会被破坏
+<span class="nv">command</span> <span class="o">&gt;|</span> <span class="nv">file</span>     # 和<span class="o">&gt;</span>功能相同
+: <span class="o">&gt;</span> <span class="nv">file</span>     # 将<span class="nv">file</span>截断为<span class="mi">0</span>长度
+<span class="nv">command</span> <span class="o">&gt;&amp;</span><span class="nv">n</span>     # 把输出送到文件描述符<span class="nv">n</span>，注意： <span class="o">&gt;&amp;</span>实际上复制了文件描述符，使<span class="nv">cmd</span> <span class="o">&gt;</span> <span class="nv">file</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>与<span class="nv">cmd</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="o">&gt;</span><span class="nv">file</span>的效果不一样
+<span class="nv">command</span> <span class="nv">m</span><span class="o">&gt;&amp;</span><span class="nv">n</span>    # 把输出到文件符<span class="nv">m</span>的信息重定向到文件描述符<span class="nv">n</span>
+<span class="nv">command</span> <span class="o">&gt;&amp;-</span>     # 关闭标准输出
+<span class="nv">command</span> <span class="o">&lt;&amp;</span><span class="nv">n</span>     # 输入来自文件描述符<span class="nv">n</span>
+<span class="nv">command</span> <span class="nv">m</span><span class="o">&lt;&amp;</span><span class="nv">n</span>    # <span class="nv">m</span>来自文件描述各个<span class="nv">n</span>
+<span class="nv">command</span> <span class="o">&lt;&amp;-</span>     # 关闭标准输入
+<span class="nv">command</span> <span class="o">&lt;&amp;</span><span class="nv">n</span><span class="o">-</span>    # 移动输入文件描述符<span class="nv">n</span>而非复制它（需要解释）
+<span class="o">&amp;&gt;</span> <span class="nv">file</span>和 <span class="o">&gt;</span> <span class="nv">file</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>相同
+
+# <span class="o">~+</span>
+表示当前工作路径，与变量$<span class="nv">PWD</span>一致
 </pre></div>
 
 <h3 id="shell_4">shell变量子串说明<a class="headerlink" href="#shell_4" title="Permanent link">&para;</a></h3>
@@ -2573,368 +1691,60 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 </tbody>
 </table>
 <p>word可以表示为一串字符，比如a*c表示删除从字符a到c的所有字符</p>
-<h2 id="_15">算术运算符<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th align="center">算术运算符</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">+ -</td>
-<td align="center">加法 减法(常用)</td>
-</tr>
-<tr>
-<td align="center">* / %</td>
-<td align="center">乘法 除法 取模(常用)</td>
-</tr>
-<tr>
-<td align="center">**</td>
-<td align="center">幂运算(常用)</td>
-</tr>
-<tr>
-<td align="center">++ --</td>
-<td align="center">自加 自减，可放在变量前变量后,变量之前表示先自增或自减再赋值给变量，之后表示先赋值再自增或自减(常用)</td>
-</tr>
-<tr>
-<td align="center">! &amp;&amp; ||</td>
-<td align="center">逻辑非（取反） 逻辑与（and） 逻辑或（or） (常用)</td>
-</tr>
-<tr>
-<td align="center">&lt; &lt;= &gt; &gt;=</td>
-<td align="center">比较符号</td>
-</tr>
-<tr>
-<td align="center">== != =</td>
-<td align="center">比较符号</td>
-</tr>
-<tr>
-<td align="center">&lt;&lt; &gt;&gt;</td>
-<td align="center">向左位移 向右位移</td>
-</tr>
-<tr>
-<td align="center">~</td>
-<td align="center">&amp; ^</td>
-</tr>
-<tr>
-<td align="center">= += -= *= /= %=</td>
-<td align="center">赋值运算符</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th align="center">算术运算操作符和运算命令</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">(())</td>
-<td align="center">整数运算的常用操作符</td>
-</tr>
-<tr>
-<td align="center">let</td>
-<td align="center">用于整数运算和(())类似</td>
-</tr>
-<tr>
-<td align="center">expr</td>
-<td align="center">通常用于整数计算也有其他额外功能</td>
-</tr>
-<tr>
-<td align="center">bc</td>
-<td align="center">适合整数和小数运算</td>
-</tr>
-<tr>
-<td align="center">$[]</td>
-<td align="center">用于整数运算</td>
-</tr>
-<tr>
-<td align="center">awk</td>
-<td align="center">整数和小数运算</td>
-</tr>
-<tr>
-<td align="center">declare</td>
-<td align="center">定义变量值和属性,-i参数用于定义整型变量</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_16">变量替换<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="nv">Var1</span><span class="o">=</span><span class="m">12</span>
-<span class="nv">Var2</span><span class="o">=</span><span class="nv">$Var1</span> <span class="c1">#等号两边不能有空白符</span>
+<h2 id="bash">bash退出和退出状态<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>: <span class="s">&lt;&lt; comment</span>
+<span class="s">exit命令一般用于结束一个脚本，它也能返回一个值给父进程,每一个命令都能返回一个退出状态（有时也看做返回状态).一个命令执行</span>
+<span class="s">成功返回0，一个执行不成功的命令则返回一个非零值，此值通常可以被解释成一个对应的错误值。除了一些例外的情况，UNIX命令，程</span>
+<span class="s">序或是软件包执行成功都是以返回0的作为退出码</span>
 
-<span class="nb">echo</span> <span class="nv">$Var1</span>
-<span class="nb">echo</span> <span class="nv">$Var2</span>
-<span class="nb">echo</span> <span class="si">${</span><span class="nv">Var2</span><span class="si">}</span> <span class="c1">#与上句表示的一样，$Var2是其简写形式</span>
+<span class="s">同样的，在脚本里的函数和脚本自身都会返回退出状态码。在脚本或函数里最后一个命令将决定退出状态码。在一个脚本里，exit n命令</span>
+<span class="s">将会返回shell一个nnn的退出状态码。（nnn必须是一个在0-255范围的十进制整数）</span>
 
-<span class="nv">Var2</span><span class="o">=</span><span class="s2">&quot;a b  c&quot;</span>
-<span class="nb">echo</span> <span class="nv">$Var2</span> <span class="c1">#输出为a b c</span>
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$Var2</span><span class="s2">&quot;</span> <span class="c1">#输出为a b  c</span>
-<span class="c1"># 两者输出不同，把变量用双引号引起来会保留空白字符</span>
+<span class="s">如果一个脚本以不带参数的exit命令结束，脚本的退出状态码将会是执行exit命令前的最后一个命令的退出码，脚本结束没有exit,不带</span>
+<span class="s">参数的exit和exit $?三者等价，$?变量保存了最后一个命令执行后的退出状态，当一个函数返回时，$?保存了函数里最后一个命令的退</span>
+<span class="s">出状态码。这就是Bash里函数返回值的处理办法。当一个脚本运行结束，$? 变量保存脚本的退出状态，而脚本的退出状态则是脚本中最</span>
+<span class="s">后一个已执行命令的退出状态。并且依照惯例，0表示执行成功，1-255的整数范围表示错误或反常的条件</span>
 
-<span class="nb">echo</span> <span class="s1">&#39;$Var2&#39;</span> <span class="c1">#把变量用单引号引起来只表示普通的字符</span>
-
-<span class="c1">#设置Var2为null value</span>
-<span class="nv">Var2</span><span class="o">=</span>
-<span class="nb">echo</span> <span class="s2">&quot;\$Var2(null value)=</span><span class="nv">$Var2</span><span class="s2">&quot;</span>
-<span class="c1">#注意：具有null值的变量不等同于废弃(unset)此变量，虽然结果都相同</span>
-
-<span class="nv">Nub1</span><span class="o">=</span><span class="s2">&quot;1 2 3&quot;</span> <span class="c1">#给变量赋值有空白时，引号时必须的</span>
-<span class="nb">echo</span> <span class="nv">$Nub1</span>
-
-<span class="c1">#未初始化的变量具有null值</span>
-<span class="nv">Nub2</span><span class="o">=</span>
-
-<span class="c1">#一个未初始化的变量有一个”null”值――表示从没有被赋值过（注意null值不等于零）。在一个变量从未赋值之前就使用它通常会引起问题。然而，仍然有可能在执行算术计算时使用一个未初始化的变量。</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$Nub2</span><span class="s2">&quot;</span>
-<span class="nb">let</span> <span class="s2">&quot;Nub2 += 2&quot;</span>
-<span class="nb">echo</span> <span class="nv">$Nub2</span>
-
-<span class="c1">##变量赋值</span>
-<span class="c1">#赋值操作符(它的两边不能有空白符)</span>
-<span class="c1">#不要搞混=和-eq，-eq是比赋值操作更高级的测试</span>
-<span class="c1">#等号=在不同的环境不同，可能时赋值操作符也可能时测试操作符</span>
-
-<span class="c1">#当变量被赋值而不是引用时，称之为裸变量</span>
-<span class="c1">#赋值</span>
-<span class="nv">a</span><span class="o">=</span><span class="m">3</span>
-<span class="nb">echo</span> <span class="s2">&quot;这个变量\&quot;a\&quot;是</span><span class="nv">$a</span><span class="s2">&quot;</span>
-
-<span class="c1">#用let命令赋值</span>
-<span class="nb">let</span> <span class="nv">a</span><span class="o">=</span><span class="m">12</span>+42
-<span class="nb">echo</span> <span class="s2">&quot;let赋值的变量\&quot;a\&quot;是</span><span class="nv">$a</span><span class="s2">&quot;</span>
-
-<span class="c1">#在一个循环中赋值(其实是一种伪赋值)</span>
-<span class="k">for</span> a in <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
-<span class="k">do</span>
-    <span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span>
-<span class="k">done</span>
-
-: &lt;&lt;!
-<span class="c1">#使用read命令(也是一种赋值)</span>
-<span class="nb">echo</span> -n <span class="s2">&quot;输入：\&quot;a\&quot;&quot;</span>
-<span class="nb">read</span> a
-<span class="nb">echo</span> <span class="s2">&quot;read赋值后\&quot;a\&quot;是</span><span class="nv">$a</span><span class="s2">&quot;</span>
-!
-
-<span class="c1"># 简述简单而又奇特的变量赋值</span>
-<span class="nv">a</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">echo</span> <span class="nv">$a</span>
-<span class="nv">b</span><span class="o">=</span><span class="nv">$a</span>
-<span class="nb">echo</span> <span class="nv">$b</span>
-
-<span class="c1">#下面讲奇怪的赋值(命令替换)</span>
-<span class="nv">a</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> hello!<span class="sb">`</span> <span class="c1">#把echo命令的结果赋值给变量a</span>
-<span class="nb">echo</span> <span class="nv">$a</span>
-<span class="c1">#若只在一个命令替换结构中包含一个感叹号!，将不会工作，因为感叹号触发了bash历史命令机制。不过在脚本中，历史命令机制是被禁止的。</span>
-<span class="nv">a</span><span class="o">=</span><span class="sb">`</span>ls -l<span class="sb">`</span> <span class="c1">#把ls -a的结果赋值给变量a</span>
-<span class="nb">echo</span> <span class="nv">$a</span> <span class="c1">#没有引号则会删除多余的tab键和空白符</span>
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="c1">#加引号可以保留空白符</span>
-<span class="nv">R</span><span class="o">=</span><span class="k">$(</span>cat /etc/lsb-release<span class="k">)</span>
-<span class="nv">arch</span><span class="o">=</span><span class="k">$(</span>uname -m<span class="k">)</span>
-
-<span class="nb">echo</span> <span class="nv">$R</span>
-<span class="nb">echo</span> <span class="nv">$arch</span>
+<span class="s">逻辑非操作符!，反转一个命令或一个测试的结果。也能反转退出状态</span>
+<span class="s">comment</span>
 </pre></div>
 
-<p>echo命令使用的转义序列</p>
-<table>
-<thead>
-<tr>
-<th align="center">序列</th>
-<th align="center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">\a</td>
-<td align="center">Alert (bell)</td>
-</tr>
-<tr>
-<td align="center">\b</td>
-<td align="center">Backspace</td>
-</tr>
-<tr>
-<td align="center">\c</td>
-<td align="center">Suppress trailing newline</td>
-</tr>
-<tr>
-<td align="center">\e</td>
-<td align="center">Escape</td>
-</tr>
-<tr>
-<td align="center">\f</td>
-<td align="center">Form feed</td>
-</tr>
-<tr>
-<td align="center">\n</td>
-<td align="center">Newline</td>
-</tr>
-<tr>
-<td align="center">\r</td>
-<td align="center">Carriage return</td>
-</tr>
-<tr>
-<td align="center">\t</td>
-<td align="center">Horizontal tab</td>
-</tr>
-<tr>
-<td align="center">\v</td>
-<td align="center">Vertical tab</td>
-</tr>
-<tr>
-<td align="center">\</td>
-<td align="center">Backslash</td>
-</tr>
-<tr>
-<td align="center">\0NNN</td>
-<td align="center">The eight-bit character whose value is the octal value NNN (zero to three octal digits)</td>
-</tr>
-<tr>
-<td align="center">\NNN</td>
-<td align="center">The eight-bit character whose value is the octal value NNN (one to three octal digits)</td>
-</tr>
-<tr>
-<td align="center">\xHH</td>
-<td align="center">The eight-bit character whose value is the hexadecimal value (one or two hexadecimal digits)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_17"><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
-<h3 id="bash">bash变量是无类型的<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="c1">#不同与许多其他的编程语言，Bash不以&quot;类型&quot;来区分变量。本质上来说，Bash变量是字符串，但是根据环境的不同，Bash允许变量有整数计算和比较。其中的决定因素是变量的值是不是只含有数字.</span>
-<span class="c1">#整数还是字符串？</span>
-<span class="nv">var1</span><span class="o">=</span><span class="m">2314</span>
-<span class="nb">let</span> <span class="s2">&quot;var1+=1&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;var1=</span><span class="nv">$var1</span><span class="s2">&quot;</span> <span class="c1">#var1仍然是整数</span>
-
-<span class="nv">var2</span><span class="o">=</span><span class="si">${</span><span class="nv">var1</span><span class="p">/23/aa</span><span class="si">}</span> <span class="c1">#将var1中的23替换成aa并赋值给var2，这使var2成为字符串</span>
-<span class="nb">echo</span> <span class="s2">&quot;var2=</span><span class="nv">$var2</span><span class="s2">&quot;</span>
-<span class="nb">declare</span> -i var2 <span class="c1">#即使明确声明var2是整数也没用</span>
-<span class="nb">echo</span> <span class="s2">&quot;var2=</span><span class="nv">$var2</span><span class="s2">&quot;</span>
-
-<span class="nb">let</span> <span class="s2">&quot;var2+=1&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;var2=</span><span class="nv">$var2</span><span class="s2">&quot;</span>
-
-<span class="nv">var3</span><span class="o">=</span>aa14
-<span class="nb">echo</span> <span class="s2">&quot;var3=</span><span class="nv">$var3</span><span class="s2">&quot;</span>
-<span class="nv">var4</span><span class="o">=</span><span class="si">${</span><span class="nv">var3</span><span class="p">/aa/23</span><span class="si">}</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;var4=</span><span class="nv">$var4</span><span class="s2">&quot;</span>
-<span class="nb">let</span> <span class="s2">&quot;var+=1&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;var4=</span><span class="nv">$var4</span><span class="s2">&quot;</span>
-
-<span class="c1">#如果变量是null如何</span>
-<span class="nv">var5</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;var5=</span><span class="nv">$var5</span><span class="s2">&quot;</span>
-<span class="nb">let</span> <span class="s2">&quot;var5+=1&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;var5=</span><span class="nv">$var5</span><span class="s2">&quot;</span>
-
-<span class="c1">#如果没有声明变量如何</span>
-<span class="nb">echo</span> <span class="s2">&quot;var6=</span><span class="nv">$var6</span><span class="s2">&quot;</span>
-<span class="nb">let</span> <span class="s2">&quot;var6+=1&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;var6=</span><span class="nv">$var6</span><span class="s2">&quot;</span>
-
-<span class="c1">#结论：在bash中变量确实是无类型的</span>
-<span class="nb">exit</span> <span class="m">0</span>
-</pre></div>
-
-<h3 id="_18">特殊变量类型<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="c1">#局部变量：只在代码块或一个函数中有效</span>
-<span class="c1">#环境变量：其会影响shell的行为和用户接口，大部分情况下，每个进程都有一个环境，其由进程使用的环境变量组成</span>
-<span class="c1">#分配给环境变量的总空间有限，若创建太多环境变量或有些环境变量的值太长而占用过多空间则会出错</span>
-<span class="c1">#例如：</span>
+<h2 id="_1">特殊变量类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="c1"># 局部变量：只在代码块或一个函数中有效</span>
+<span class="c1"># 环境变量：其会影响shell的行为和用户接口，大部分情况下，每个进程都有一个环境，其由进程使用的环境变量组成</span>
+<span class="c1"># 分配给环境变量的总空间有限，若创建太多环境变量或有些环境变量的值太长而占用过多空间则会出错</span>
+<span class="c1"># 例如：</span>
 : <span class="s">&lt;&lt;comment</span>
 <span class="s">eval &quot;`seq 10000 | sed -e &#39;s/.*/export var&amp;=ZZZZZZZZZZZZZZ/&#39;`&quot;</span>
 <span class="s">du</span>
 <span class="s">/usr/bin/du:Argument list too long</span>
 <span class="s">comment</span>
-<span class="c1">#如果一个脚步要设置一个环境变量，则需要将其导出(export)，也就是讲需通知到脚步的环境表，这是export命令功能</span>
-<span class="c1">#一个脚本只能导出（export）变量到子进程，也就是说只能导出到由此脚本生成的命令或进程中。在一个命令行中运行的脚本不能导出一个变量影响到命令行的环境。子进程不能导出变量到生成它的父进程中。</span>
-<span class="c1">#位置参数</span>
+<span class="c1"># 如果一个脚步要设置一个环境变量，则需要将其导出(export)，也就是讲需通知到脚本的环境表，这是export命令功能</span>
+<span class="c1"># 一个脚本只能导出（export）变量到子进程，也就是说只能导出到由此脚本生成的命令或进程中。在一个命令行中运行的脚本不能导出</span>
+<span class="c1"># 一个变量影响到命令行的环境。子进程不能导出变量到生成它的父进程中。</span>
+<span class="c1"># 位置参数</span>
 : <span class="s">&lt;&lt;comment</span>
 <span class="s">命令行传递给脚本的参数是$0,$1,$2....</span>
 <span class="s">$0是脚本的名字，$1是第一个参数，$2是第二个参数......在位置参数$9之后的参数必须用大括号括起来。如：${10}</span>
 <span class="s">特殊变量$*和$@表示所有的位置参数</span>
 <span class="s">comment</span>
 
-<span class="c1">#位置参数例子：</span>
 : <span class="s">&lt;&lt;comment</span>
 <span class="s">#!/bin/bash</span>
-<span class="s">#至少以10个参数运行此脚本。例如：./script.sh 1 2 3 4 5 6 7 8 9 10</span>
-<span class="s">Minparams=10</span>
-
+<span class="s"># 位置参数例子：</span>
+<span class="s"># 至少以10个参数运行此脚本。例如：./script.sh 1 2 3 4 5 6 7 8 9 10</span>
+<span class="s">min_params=10</span>
 <span class="s">echo &quot;脚本名字是\&quot;$0\&quot;.&quot;</span>
-<span class="s">#用./表示当前目录</span>
+<span class="s"># 用./表示当前目录</span>
 <span class="s">echo &quot;脚本名字是\&quot;`basename $0`\&quot;.&quot;</span>
-
 <span class="s">comment</span>
 </pre></div>
 
-<h3 id="_19">转义字符<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;\v\v\v&quot;</span>
-
-<span class="c1">#用-e选项，echo会打印出转义字符</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;\v\v\v&quot;</span>
-
-<span class="c1">#打印出字符&quot; (&quot;引号字符的八进制ASCII码为42)</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;\042&quot;</span>
-
-<span class="c1">#当使用像$&#39;\x&#39;的结构时，-e的选项是多余的</span>
-<span class="nb">echo</span> <span class="s2">&quot;NEW LINE and BEEP&quot;</span>
-<span class="nb">echo</span> <span class="s1">$&#39;\n&#39;</span>  <span class="c1">#新行</span>
-<span class="nb">echo</span> <span class="s1">$&#39;\a&#39;</span>  <span class="c1">#警告(峰鸣)</span>
-
-<span class="c1">#版本2开始bash允许使用$&#39;\nnn&#39;结构，这里&#39;\nnn&#39;表示一个八进制的值</span>
-<span class="nb">echo</span> <span class="s1">$&#39;\042&#39;</span>
-
-<span class="c1">#使用$&#39;\xnnn&#39;结构也可以使用十六进制来转义</span>
-<span class="nb">echo</span> <span class="s1">$&#39;\x22&#39;</span>
-
-<span class="c1">#用ASCII码值把字符赋给变量</span>
-<span class="nv">quote</span><span class="o">=</span><span class="s1">$&#39;\042&#39;</span>   <span class="c1">#引号&quot;被赋值给变量quote</span>
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$quote</span><span class="s2"> 这是一个引号字符串&quot;</span>
-
-<span class="c1"># 用连串的ASCII码把一串字符赋给变量..</span>
-<span class="nv">triple_underline</span><span class="o">=</span><span class="s1">$&#39;\137\137\137&#39;</span>  <span class="c1"># 137是字符&#39;_&#39;的ASCII码</span>
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$triple_underline</span><span class="s2"> UNDERLINE </span><span class="nv">$triple_underline</span><span class="s2">&quot;</span>
-
-<span class="nv">ABC</span><span class="o">=</span><span class="s1">$&#39;\101\102\103\010&#39;</span> <span class="c1"># 101, 102, 103分别是A, B, C字符的八进制ASCII码.</span>
-<span class="nb">echo</span> <span class="nv">$ABC</span>
-
-<span class="nv">escape</span><span class="o">=</span><span class="s1">$&#39;\033&#39;</span>  <span class="c1"># 033是ESC的ASCII码的八进制值</span>
-<span class="nb">echo</span> <span class="s2">&quot;\&quot;escape\&quot; echoes as </span><span class="nv">$escape</span><span class="s2">&quot;</span> <span class="c1"># 不可见的输出</span>
-
-一个字符串赋给变量时里面的组成部分可能会被转义，但如果单独一个转义字符（<span class="se">\）</span>是不能赋给变量的。
-
-转义一个空格可以防止一个字符串参数被分割成多个命令行参数。
-
-转义符也提供了写一个多行命令的手段。一般地，每个单独的行有一个不同的命令，而在一行末尾的转义符转义新行符，命令序列则由下一行继续。
-</pre></div>
-
-<h3 id="bash_1">bash退出和退出状态<a class="headerlink" href="#bash_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>exit命令一般用于结束一个脚本，它也能返回一个值给父进程
-每一个命令都能返回一个退出状态（有时也看做返回状态<span class="o">)</span>.一个命令执行成功返回0，一个执行不成功的命令则返回一个非零值，此值通常可以被解释成一个对应的错误值。除了一些例外的情况，一个行为端庄的UNIX命令，程序或是软件包执行成功能返回0的作为退出码。
-
-同样的，在脚本里的函数和脚本自身都会返回一个退出状态码。在脚本或函数里被执行的最后一个命令将决定退出状态码。在一个脚本里，exit nnn 命令将会返回shell一个nnn的退出状态码。（nnn必须是一个在0-255范围的十进制整数）。
-
-如果一个脚本以不带参数的exit命令结束，脚本的退出状态码将会是执行exit命令前的最后一个命令的退出码。
-
-脚本结束没有exit,不带参数的exit和exit <span class="nv">$?</span>三者等价
-<span class="nv">$?</span>变量保存了最后一个命令执行后的退出状态，当一个函数返回时，<span class="nv">$?</span>保存了函数里最后一个命令的退出状态码。这就是Bash里函数返回值的处理办法。当一个脚本运行结束，<span class="nv">$?</span> 变量保存脚本的退出状态，而脚本的退出状态则是脚本中最后一个已执行命令的退出状态。并且依照惯例，0表示执行成功，1-255的整数范围表示错误或反常的条件。
-
-逻辑非操作符!，反转一个命令或一个测试的结果。也能反转退出状态
-</pre></div>
-
-<h3 id="if">和if一起使用的主要表达式<a class="headerlink" href="#if" title="Permanent link">&para;</a></h3>
+<h2 id="if">if使用的主要表达式<a class="headerlink" href="#if" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th align="center">主要的</th>
+<th align="center">主要的表达式</th>
 <th align="center">含义</th>
 </tr>
 </thead>
@@ -2965,7 +1775,7 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 </tr>
 <tr>
 <td align="center">[ -g FILE ]</td>
-<td align="center">文件如果存在并且文件或目录的设置-组-ID(sgid)标记被设置返回True，如果一个目录的sgid标志被设置，在这个目录下创建的文件都属于拥有此目录的用户组，而不必是创建文件的用户所属的组。这个特性对在一个工作组里的同享目录很有用处</td>
+<td align="center">文件如果存在并且文件或目录的设置-组-ID(sgid)标记被设置返回True，如果一个目录的sgid标志被设置，在这个<br>目录下创建的文件都属于拥有此目录的用户组，而不必是创建文件的用户所属的组。这个特性对在一个工作组里的同享目录很有用处</td>
 </tr>
 <tr>
 <td align="center">[ -h FILE ]</td>
@@ -2973,7 +1783,7 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 </tr>
 <tr>
 <td align="center">[ -k FILE ]</td>
-<td align="center">文件如果存在返回True and 粘住位设置。俗称“粘性位”，保存文本模式标志是一种特殊类型的文件权限。如果一个文件设置了这个标志，该文件将被保存在缓存内存中，以便更快地访问。〔2〕如果设置在目录上，则限制写入权限。设置粘性位将T添加到文件或目录列表的权限(drwxrwxrw**t**)，如果用户不拥有设置了粘性位的目录，但在该目录中具有写权限，则他只能删除其拥有的目录中的文件。这样可以防止用户在公共可访问目录（如/tMP）中无意中覆盖或删除彼此的文件</td>
+<td align="center">文件如果存在返回True and 粘住位设置。俗称“粘性位”，保存文本模式标志是一种特殊类型的文件权限。如果<br>一个文件设置了这个标志，该文件将被保存在缓存内存中，以便更快地访问。〔2〕如果设置在目录上，则限制写入权限。设置粘性<br>位将T添加到文件或目录列表的权限(drwxrwxrw**t**)，如果用户不拥有设置了粘性位的目录，但在该目录中具有写权限，则他只能<br>删除其拥有的目录中的文件。这样可以防止用户在公共可访问目录（如/tMP）中无意中覆盖或删除彼此的文件</td>
 </tr>
 <tr>
 <td align="center">[ -p FILE ]</td>
@@ -2989,11 +1799,11 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 </tr>
 <tr>
 <td align="center">[ -t FD ]</td>
-<td align="center">如果一个文件描述符FD(对应函数的返回值)打开并引用了终端则为True，文件(描述符)与一个终端设备相关，这个测试选项可以用于检查脚本中是否标准输入 ([ -t 0 ])或标准输出([ -t 1 ])是一个终端</td>
+<td align="center">如果一个文件描述符FD(对应函数的返回值)打开并引用了终端则为True，文件(描述符)与一个终端设备相关，这个测<br>试选项可以用于检查脚本中是否标准输入 ([ -t 0 ])或标准输出([ -t 1 ])是一个终端</td>
 </tr>
 <tr>
 <td align="center">[ -u FILE ]</td>
-<td align="center">文件如果存在返回True，文件的设置-用户-ID(suid)标志被设置，一个root用户拥有的二进制执行文件如果设置了设置-用户-ID位(suid)标志普通用户可以以root权限运行。[1] 这对需要存取系统硬件的执行程序（比如说pppd和cdrecord）很有用。如果没有设置suid位，则这些二进制执行程序不能由非root的普通用户调用。被设置了suid标志的文件在权限列中以s标志表示(-rw**s**r-xr-t)</td>
+<td align="center">文件如果存在返回True，文件的设置-用户-ID(suid)标志被设置，一个root用户拥有的二进制执行文件如果设置了<br>设置-用户-ID位(suid)标志普通用户可以以root权限运行。[1] 这对需要存取系统硬件的执行程序（比如说pppd和cdrecord）很有用<br>如果没有设置suid位，则这些二进制执行程序不能由非root调用。被设置了suid标志的文件在权限列中以s标志表示(-rw**s**r-xr-t)</td>
 </tr>
 <tr>
 <td align="center">[ -w FILE ]</td>
@@ -3065,7 +1875,7 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 </tr>
 <tr>
 <td align="center">[ ARG1 OP ARG2 ]</td>
-<td align="center">“OP”是-eq，-ne，-lt，-le，-gt或-ge之一。 如果“ARG1”分别等于，不等于，小于，小于或等于，大于或大于或等于“ARG2”，则这些算术二元运算符返回true。 “ARG1”和“ARG2”是整数</td>
+<td align="center">“OP”是-eq，-ne，-lt，-le，-gt或-ge之一。 如果“ARG1”分别等于，不等于，小于，小于或等于，大于<br>或大于或等于“ARG2”，则这些算术二元运算符返回true。 “ARG1”和“ARG2”是整数</td>
 </tr>
 </tbody>
 </table>
@@ -3077,15 +1887,12 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 | [ ( EXPR ) ] | 返回EXPR的值。 这可以用于覆盖运算符的正常优先级 |
 | [ EXPR1 -a EXPR2 ] | 如果EXPR1和EXPR2都为真，则为真 |
 | [ EXPR1 -o EXPR2 ] | 如果EXPR1或EXPR2为真，则为真 |</p>
-<p>大多数程序员更喜欢使用test内置命令，这相当于使用方括号进行比较，如下所示</p>
-<div class="codehilite"><pre><span></span><span class="nb">test</span> <span class="s2">&quot;</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s1">&#39;root&#39;</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="nb">echo</span> you are using a non-privileged account<span class="p">;</span> <span class="nb">exit</span> <span class="m">1</span><span class="o">)</span>
-
-如果在子shell中调用exit，则不会将变量传递给父级。如果您不希望Bash派生子shell，请使用<span class="o">{</span> <span class="o">}</span>代替<span class="o">()</span>
+<div class="codehilite"><pre><span></span><span class="c1"># 大多数程序员更喜欢使用test内置命令，这相当于使用方括号进行比较，如下所示</span>
+<span class="nb">test</span> <span class="s2">&quot;</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s1">&#39;root&#39;</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="nb">echo</span> you are using a non-privileged account<span class="p">;</span> <span class="nb">exit</span> <span class="m">1</span><span class="o">)</span>
+<span class="c1"># 如果在子shell中调用exit，则不会将变量传递给父级。如果您不希望Bash派生子shell，请使用{ }代替()</span>
 </pre></div>
 
 <h3 id="if_1">if语句[ ] [[ ]]比较<a class="headerlink" href="#if_1" title="Permanent link">&para;</a></h3>
-<p>[] vs [[]]</p>
-<p>Contrary to [, [[ prevents word splitting of variable values. So, if VAR="var with spaces", you do not need to double quote $VAR in a test - eventhough using quotes remains a good habit. Also, [[ prevents pathname expansion, so literal strings with wildcards do not try to expand to filenames. Using [[, == and != interpret strings to the right as shell glob patterns to be matched against the value to the left, for instance: [[ "value" == val* ]]</p>
 <table>
 <thead>
 <tr>
@@ -3127,11 +1934,10 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 </tr>
 </tbody>
 </table>
-<p>情况较复杂的字符测试</p>
 <table>
 <thead>
 <tr>
-<th align="center">字符测试</th>
+<th align="center">情况复杂的字符测试</th>
 <th align="center">[ ]</th>
 <th align="center">[[ ]]</th>
 </tr>
@@ -3140,7 +1946,7 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 <tr>
 <td align="center">&lt; &gt;</td>
 <td align="center">比较结果异常，如:<span><span class="MathJax_Preview">[ 12 &gt; 21 ]与</span><script type="math/tex">[ 12 > 21 ]与</script></span>[ 21 &gt; 12 ]、<span><span class="MathJax_Preview">[ a &gt; b ]与</span><script type="math/tex">[ a > b ]与</script></span>[ b &gt; a ]的返回值一样</td>
-<td align="center">根据对于ASCII码进行比较(若多个字母和数字组合，则先比较首个，相同再比较下一个)</td>
+<td align="center">根据对于ASCII码进行比较<br>(若多个字母和数字组合，则先比较首个，相同再比较下一个)</td>
 </tr>
 <tr>
 <td align="center">\&gt; \&lt;</td>
@@ -3149,127 +1955,99 @@ cmd &gt;<span class="p">&amp;</span>n- 移动输出文件描述符 n而非复制
 </tr>
 </tbody>
 </table>
-<h3 id="ifthenelse">if/then/else构造<a class="headerlink" href="#ifthenelse" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="c1"># 测试断掉的连接</span>
+<div class="codehilite"><pre><span></span><span class="c1"># if then else结构测试断掉的连接</span>
 
 <span class="c1">#!/bin/bash</span>
 <span class="c1"># broken-link.sh</span>
 <span class="c1"># 由Lee bigelow所写&lt;ligelowbee@yahoo.com&gt;</span>
 
-<span class="c1">#一个用于发现死符号链接并且输出它们的链接文件的纯shell的脚本。</span>
-<span class="c1">#所以它们能把输出提供给xargs并处理 :)</span>
-<span class="c1">#例如： broken-link.sh /somedir /someotherdir|xargs rm</span>
-<span class="c1">#</span>
-<span class="c1">#下面是更好的发现死符号链接的办法:</span>
-<span class="c1">#</span>
-<span class="c1">#find &quot;somedir&quot; -type l -print0|\</span>
-<span class="c1">#xargs -r0 file|\</span>
-<span class="c1">#grep &quot;broken symbolic&quot;|</span>
-<span class="c1">#sed -e &#39;s/^\|: *broken symbolic.*$/&quot;/g&#39;</span>
-<span class="c1">#</span>
-<span class="c1">#但这不是纯bash脚本，下面的则是.</span>
-<span class="c1">#注意: 谨防在/proc文件系统和死循环链接中使用!</span>
-<span class="c1">###############################################</span>
+<span class="c1"># 一个用于发现死符号链接并且输出它们的链接文件的纯shell的脚本。</span>
+<span class="c1"># 所以它们能把输出提供给xargs并处理 :)</span>
+<span class="c1"># 例如： broken-link.sh /somedir /someotherdir|xargs rm</span>
+<span class="c1"># 下面是更好的发现死符号链接的办法:</span>
+<span class="c1"># find &quot;somedir&quot; -type l -print0|\</span>
+<span class="c1"># xargs -r0 file|\</span>
+<span class="c1"># grep &quot;broken symbolic&quot;|</span>
+<span class="c1"># sed -e &#39;s/^\|: *broken symbolic.*$/&quot;/g&#39;</span>
+<span class="c1"># 但这不是纯bash脚本，下面的则是.</span>
+<span class="c1"># 注意: 谨防在/proc文件系统和死循环链接中使用!</span>
+<span class="c1"># 如果没有参数被传递给脚本作为搜索目录，则使用当前目录</span>
+<span class="o">[[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nv">directories</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span> <span class="o">||</span> <span class="nv">directories</span><span class="o">=</span><span class="nv">$@</span>
 
-
-<span class="c1">#如果没有参数被传递给脚本作为搜索目录，则使用当前目录</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1">###############</span>
-<span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">directorys</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span> <span class="o">||</span> <span class="nv">directorys</span><span class="o">=</span><span class="nv">$@</span>
-
-<span class="c1">#Setup the function linkchk to check the directory it is passed</span>
+<span class="c1">#Setup the function link_chk to check the directory it is passed</span>
 <span class="c1">#for files that are links and don&#39;t exist, then print them quoted.</span>
 <span class="c1">#If one of the elements in the directory is a subdirectory then</span>
-<span class="c1">#send that send that subdirectory to the linkcheck function.</span>
+<span class="c1">#send that send that subdirectory to the link_check function.</span>
 <span class="c1">########</span>
-linkchk <span class="o">()</span> <span class="o">{</span>
+link_chk <span class="o">()</span> <span class="o">{</span>
     <span class="k">for</span> element in <span class="nv">$1</span>/*<span class="p">;</span> <span class="k">do</span>
-    <span class="o">[</span> -h <span class="s2">&quot;</span><span class="nv">$element</span><span class="s2">&quot;</span> -a ! -e <span class="s2">&quot;</span><span class="nv">$element</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="se">\&quot;</span><span class="nv">$element</span><span class="se">\&quot;</span>
-    <span class="o">[</span> -d <span class="s2">&quot;</span><span class="nv">$element</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> linkchk <span class="nv">$element</span>
+    <span class="o">[[</span> -h <span class="s2">&quot;</span><span class="nv">$element</span><span class="s2">&quot;</span> -a ! -e <span class="s2">&quot;</span><span class="nv">$element</span><span class="s2">&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="se">\&quot;</span><span class="nv">$element</span><span class="se">\&quot;</span>
+    <span class="o">[[</span> -d <span class="s2">&quot;</span><span class="nv">$element</span><span class="s2">&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> linkchk <span class="nv">$element</span>
     <span class="c1"># Of course, &#39;-h&#39; tests for symbolic link, &#39;-d&#39; for directory.</span>
     <span class="k">done</span>
 <span class="o">}</span>
 
-<span class="c1">#Send each arg that was passed to the script to the linkchk function</span>
-<span class="c1">#if it is a valid directoy.  If not, then print the error message</span>
+<span class="c1">#Send each arg that was passed to the script to the link_chk function</span>
+<span class="c1">#if it is a valid directory.  If not, then print the error message</span>
 <span class="c1">#and usage info.</span>
 <span class="c1">############</span>
-<span class="k">for</span> directory in <span class="nv">$directorys</span><span class="p">;</span> <span class="k">do</span>
-    <span class="k">if</span> <span class="o">[</span> -d <span class="nv">$directory</span> <span class="o">]</span>
-    <span class="k">then</span> linkchk <span class="nv">$directory</span>
+<span class="k">for</span> directory in <span class="nv">$directories</span><span class="p">;</span> <span class="k">do</span>
+    <span class="k">if</span> <span class="o">[[</span> -d <span class="nv">$directories</span> <span class="o">]]</span>
+    <span class="k">then</span> link_chk <span class="nv">$directories</span>
     <span class="k">else</span>
-        <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$directory</span><span class="s2"> is not a directory&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$directories</span><span class="s2"> is not a directory&quot;</span>
         <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> dir1 dir2 ...&quot;</span>
     <span class="k">fi</span>
 <span class="k">done</span>
 
-<span class="o">[</span><span class="m">1</span><span class="o">]</span> 一定要意识到suid二进制文件可能引起潜在的安全漏洞，并且在shell脚本中suid标志已经不起作用了。
-<span class="o">[</span><span class="m">2</span><span class="o">]</span> 在现代UNIX操作系统，粘住位已经不在文件中再使用，只用在目录中
+<span class="c1"># [1] 一定要意识到suid二进制文件可能引起潜在的安全漏洞，并且在shell脚本中suid标志已经不起作用了</span>
+<span class="c1"># [2] 在现代UNIX操作系统，粘住位已经不在文件中再使用，只用在目录中</span>
 </pre></div>
 
 <h3 id="then">then语句后面的命令<a class="headerlink" href="#then" title="Permanent link">&para;</a></h3>
-<p>then语句后面的CONSEQUENT-COMMANDS列表可以是任何有效的UNIX命令，任何可执行程序，任何可执行shell脚本或任何shell语句，但结束fi除外。重要的是要记住，then和fi被认为是shell中的分隔语句。因此，在命令行上发出时，它们用分号分隔。</p>
-<div class="codehilite"><pre><span></span><span class="c1">#第一个示例检查文件是否存在</span>
+<div class="codehilite"><pre><span></span><span class="c1"># then语句后面的CONSEQUENT-COMMANDS列表可以是任何有效的UNIX命令，任何可执行程序，任何可执行shell脚本或任何shell语句，但结</span>
+<span class="c1"># 束fi除外。重要的是要记住，then和fi被认为是shell中的分隔语句。因此，在命令行上发出时，它们用分号分隔</span>
+<span class="c1">#第一个示例检查文件是否存在</span>
 <span class="c1">#!/bin/bash</span>
 
 <span class="nb">echo</span> <span class="s2">&quot;This scripts checks the existence of the messages file.&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;Checking...&quot;</span>
-<span class="k">if</span> <span class="o">[</span> -f /var/log/messages <span class="o">]</span>
+<span class="k">if</span> <span class="o">[[</span> -f /var/log/messages <span class="o">]]</span>
   <span class="k">then</span>
     <span class="nb">echo</span> <span class="s2">&quot;/var/log/messages exists.&quot;</span>
 <span class="k">fi</span>
 <span class="nb">echo</span>
 <span class="nb">echo</span> <span class="s2">&quot;...done.&quot;</span>
-</pre></div>
 
-<div class="codehilite"><pre><span></span>一个if/then结构测试一列命令的退出状态是否为0（因为依照惯例，0意味着命令执行成功），如果是0则会执行一个或多个命令。
+: <span class="s">&lt;&lt; comment</span>
+<span class="s">一个if/then结构测试一列命令的退出状态是否为0（因为依照惯例，0意味着命令执行成功），如果是0则会执行一个或多个命令</span>
+<span class="s">有一个命令 [ (左方括是特殊字符). 它和test是同义词,因为效率的原因，它被内建在shell里。这个命令的参数是比较表达式或者</span>
+<span class="s">文件测试，它会返回一个退出状态指示比较的结果(0表示真，1表示假)</span>
+<span class="s">comment</span>
 
-有一个命令 <span class="o">[</span> <span class="o">(</span>左方括是特殊字符<span class="o">)</span>. 它和test是同义词,因为效率的原因，它被内建在shell里。这个命令的参数是比较表达式或者文件测试，它会返回一个退出状态指示比较的结果<span class="o">(</span>0表示真，1表示假<span class="o">)</span>。
-
-<span class="c1">#一个if/then结构能包含嵌套的比较和测试。</span>
+<span class="c1">#一个if/then结构能包含嵌套的比较和测试</span>
 <span class="k">if</span> <span class="nb">echo</span> <span class="s2">&quot;Next *if* is part of the comparison for the first *if*.&quot;</span>
-
   <span class="k">if</span> <span class="o">[[</span> <span class="nv">$comparison</span> <span class="o">=</span> <span class="s2">&quot;integer&quot;</span> <span class="o">]]</span>
     <span class="k">then</span> <span class="o">((</span> a &lt; b <span class="o">))</span>
   <span class="k">else</span>
     <span class="o">[[</span> <span class="nv">$a</span> &lt; <span class="nv">$b</span> <span class="o">]]</span>
   <span class="k">fi</span>
-
 <span class="k">then</span>
   <span class="nb">echo</span> <span class="s1">&#39;$a is less than $b&#39;</span>
 <span class="k">fi</span>
 
-<span class="c1">#if基本结构</span>
-<span class="k">if</span> <span class="o">[</span> condition-true <span class="o">]</span>
-<span class="k">then</span>
-   <span class="nb">command</span> <span class="m">1</span>
-   <span class="nb">command</span> <span class="m">2</span>
-   ...
-<span class="k">else</span>
-   <span class="c1"># 或选的(如果不需要就可去掉).</span>
-   <span class="c1"># 如果条件测试失败，就在这里加入默认的执行命令.</span>
-   <span class="nb">command</span> <span class="m">3</span>
-   <span class="nb">command</span> <span class="m">4</span>
-   ...
-<span class="k">fi</span>
-
-当if和then在同一行的时候，一个分号（<span class="p">;</span>）必须用在if语句的结尾。if和then都是关键字.关键字（或命令）开始一个语句，如果在同一行开始另一个新语句时，前面一个语句必须用分号（<span class="p">;</span>）结束。
+<span class="c1"># 当if和then在同一行的时候，一个分号（;）必须用在if语句的结尾。if和then都是关键字.关键字（或命令）开始一个语句，如果在同</span>
+<span class="c1"># 一行开始另一个新语句时，前面一个语句必须用分号（;）结束</span>
 <span class="k">if</span> <span class="o">[</span> -x <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
 
 <span class="c1">#等价的测试命令：test,/usr/bin/test,[]和/usr/bin/[</span>
 <span class="c1">#!/bin/bash</span>
-
-<span class="nb">echo</span>
-
 <span class="k">if</span> <span class="nb">test</span> -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;No command-line arguments.&quot;</span>
 <span class="k">else</span>
   <span class="nb">echo</span> <span class="s2">&quot;First command-line argument is </span><span class="nv">$1</span><span class="s2">.&quot;</span>
 <span class="k">fi</span>
-
-<span class="nb">echo</span>
 
 <span class="k">if</span> /usr/bin/test -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>      <span class="c1"># 和内建的&quot;test&quot;命令一样.</span>
 <span class="k">then</span>
@@ -3278,31 +2056,22 @@ linkchk <span class="o">()</span> <span class="o">{</span>
   <span class="nb">echo</span> <span class="s2">&quot;First command-line argument is </span><span class="nv">$1</span><span class="s2">.&quot;</span>
 <span class="k">fi</span>
 
-<span class="nb">echo</span>
-
 <span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">]</span>                <span class="c1"># 和上面代码块的功能一样</span>
-<span class="c1">#   if [ -z &quot;$1&quot;                应该来说会运行, 但是...</span>
-<span class="c1">#+  Bash给出错误说少了一个封闭的右方括.</span>
 <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;No command-line arguments.&quot;</span>
 <span class="k">else</span>
   <span class="nb">echo</span> <span class="s2">&quot;First command-line argument is </span><span class="nv">$1</span><span class="s2">.&quot;</span>
 <span class="k">fi</span>
-
-<span class="nb">echo</span>
-
 
 <span class="k">if</span> /usr/bin/<span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">]</span>       <span class="c1"># 同样和上面的代码块一样.</span>
-<span class="c1"># if /usr/bin/[ -z &quot;$1&quot;       # 工作, 但还是给出一个错误信息.</span>
-<span class="c1">#                             # 注意:</span>
-<span class="c1">#                               这个已经在bash 3.x版本被修补好了。</span>
+<span class="c1"># if /usr/bin/[ -z &quot;$1&quot;       # 工作, 但还是给出一个错误信息.注意:这个已经在bash 3.x版本被修补好了。</span>
 <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;No command-line arguments.&quot;</span>
 <span class="k">else</span>
   <span class="nb">echo</span> <span class="s2">&quot;First command-line argument is </span><span class="nv">$1</span><span class="s2">.&quot;</span>
 <span class="k">fi</span>
 
-在<span class="o">[[</span>和<span class="o">]]</span>之间的所有的字符都不会被文件扩展或是标记分割，但是会有参数引用和命令替换。
+<span class="c1"># 在[[和]]之间的所有的字符都不会被文件扩展或是标记分割，但是会有参数引用和命令替换</span>
 <span class="nv">file</span><span class="o">=</span>/etc/passwd
 
 <span class="k">if</span> <span class="o">[[</span> -e <span class="nv">$file</span> <span class="o">]]</span>
@@ -3310,9 +2079,8 @@ linkchk <span class="o">()</span> <span class="o">{</span>
   <span class="nb">echo</span> <span class="s2">&quot;Password file exists.&quot;</span>
 <span class="k">fi</span>
 
-用<span class="o">[[</span> ... <span class="o">]]</span>测试结构比用<span class="o">[</span> ... <span class="o">]</span>更能防止脚本里的许多逻辑错误。比如说，<span class="o">&amp;&amp;</span>,<span class="o">||</span>,&lt;和&gt;操作符能在一个<span class="o">[[]]</span>测试里通过，但在<span class="o">[]</span>结构会发生错误。
-
-在一个if的后面，不必一定是test命令或是test结构（<span class="o">[]</span>或是<span class="o">[[]]</span>）。
+<span class="c1"># 用[[ .. ]]测试结构比用[ .. ]更能防止脚本逻辑错误。例如：&amp;&amp;,||,&lt;和&gt;操作符能在一个[[]]测试里通过，但在[]结构会发生错误</span>
+<span class="c1"># 在一个if的后面，不必一定是test命令或是test结构（[]或是[[]]）</span>
 <span class="nv">dir</span><span class="o">=</span>/home/bozo
 
 <span class="k">if</span> <span class="nb">cd</span> <span class="s2">&quot;</span><span class="nv">$dir</span><span class="s2">&quot;</span> <span class="m">2</span>&gt;/dev/null<span class="p">;</span> <span class="k">then</span>   <span class="c1"># &quot;2&gt;/dev/null&quot;会隐藏错误的信息.</span>
@@ -3320,279 +2088,323 @@ linkchk <span class="o">()</span> <span class="o">{</span>
 <span class="k">else</span>
   <span class="nb">echo</span> <span class="s2">&quot;Can&#39;t change to </span><span class="nv">$dir</span><span class="s2">.&quot;</span>
 <span class="k">fi</span>
-<span class="s2">&quot;if COMMAND&quot;</span>结构会返回COMMAND命令的退出状态码。
-
-同样的，在一个测试方括号里面的条件测试也可以用列表结构<span class="o">(</span>list construct<span class="o">)</span>而不必用if。
+<span class="c1"># &quot;if COMMAND&quot;结构会返回COMMAND命令的退出状态码</span>
+<span class="c1"># 同样的，在一个测试方括号里面的条件测试也可以用列表结构(list construct)而不必用if。</span>
 <span class="nv">var1</span><span class="o">=</span><span class="m">20</span>
 <span class="nv">var2</span><span class="o">=</span><span class="m">22</span>
 <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$var1</span><span class="s2">&quot;</span> -ne <span class="s2">&quot;</span><span class="nv">$var2</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var1</span><span class="s2"> is not equal to </span><span class="nv">$var2</span><span class="s2">&quot;</span>
 
 <span class="nv">home</span><span class="o">=</span>/home/bozo
 <span class="o">[</span> -d <span class="s2">&quot;</span><span class="nv">$home</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$home</span><span class="s2"> directory does not exist.&quot;</span>
+</pre></div>
 
-<span class="o">((</span> <span class="o">))</span>结构扩展并计算一个算术表达式的值。如果表达式值为0，会返回1或假作为退出状态码。一个非零值的表达式返回一个0或真作为退出状态码。这个结构和先前test命令及<span class="o">[]</span>结构的讨论刚好相反。
+<h2 id="_2">算术运算符<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="center">算术运算符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">+ -</td>
+<td align="center">加法 减法(常用)</td>
+</tr>
+<tr>
+<td align="center">* / %</td>
+<td align="center">乘法 除法 取模(常用)</td>
+</tr>
+<tr>
+<td align="center">**</td>
+<td align="center">幂运算(常用)</td>
+</tr>
+<tr>
+<td align="center">++ --</td>
+<td align="center">自加 自减，可放在变量前变量后,变量之前表示先自增或自减再赋值给变量，之后表示先赋值再自增或自减(常用)</td>
+</tr>
+<tr>
+<td align="center">! &amp;&amp; ||</td>
+<td align="center">逻辑非（取反） 逻辑与（and） 逻辑或（or） (常用)</td>
+</tr>
+<tr>
+<td align="center">&lt; &lt;= &gt; &gt;=</td>
+<td align="center">比较符号</td>
+</tr>
+<tr>
+<td align="center">== != =</td>
+<td align="center">比较符号</td>
+</tr>
+<tr>
+<td align="center">&lt;&lt; &gt;&gt;</td>
+<td align="center">向左位移 向右位移</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center">&amp; ^</td>
+</tr>
+<tr>
+<td align="center">= += -= *= /= %=</td>
+<td align="center">赋值运算符</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">算术运算表达式和运算命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">(())</td>
+<td align="center">整数运算的常用操作符</td>
+</tr>
+<tr>
+<td align="center">let</td>
+<td align="center">用于整数运算和(())类似</td>
+</tr>
+<tr>
+<td align="center">expr</td>
+<td align="center">通常用于整数计算也有其他额外功能</td>
+</tr>
+<tr>
+<td align="center">bc</td>
+<td align="center">适合整数和小数运算</td>
+</tr>
+<tr>
+<td align="center">$[]</td>
+<td align="center">用于整数运算</td>
+</tr>
+<tr>
+<td align="center">awk</td>
+<td align="center">整数和小数运算</td>
+</tr>
+<tr>
+<td align="center">declare</td>
+<td align="center">定义变量值和属性,-i参数用于定义整型变量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">算术测试<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1"># (( ))结构扩展并计算一个算术表达式的值。如果表达式值为0，会返回1或假作为退出状态码。一个非零值的表达式返回一个0或真作为</span>
+<span class="c1"># 退出状态码。这个结构和先前test命令及[]结构的讨论刚好相反</span>
 
 <span class="c1">#用(( ))进行算术测试</span>
 <span class="c1">#!/bin/bash</span>
-<span class="c1"># 算术测试.</span>
+<span class="c1"># 算术测试.(( ... ))结构会求值并测试该值。退出状态码与[ ... ]结构正好相反!返回0代表真，1代表假</span>
 
-<span class="c1"># (( ... ))结构会求值并测试该值。</span>
-<span class="c1"># 退出状态码与[ ... ]结构正好相反!</span>
-
-<span class="o">((</span> <span class="m">0</span> <span class="o">))</span>
-<span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 0 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>         <span class="c1"># 1</span>
-
-<span class="o">((</span> <span class="m">1</span> <span class="o">))</span>
-<span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 1 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>         <span class="c1"># 0</span>
-
-<span class="o">((</span> <span class="m">5</span> &gt; <span class="m">4</span> <span class="o">))</span>                                      <span class="c1"># 真</span>
-<span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 5 &gt; 4 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 0</span>
-
-<span class="o">((</span> <span class="m">5</span> &gt; <span class="m">9</span> <span class="o">))</span>                                      <span class="c1"># 假</span>
-<span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 5 &gt; 9 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 1</span>
-
-<span class="o">((</span> <span class="m">5</span> - <span class="m">5</span> <span class="o">))</span>                                      <span class="c1"># 0</span>
-<span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 5 - 5 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 1</span>
-
-<span class="o">((</span> <span class="m">5</span> / <span class="m">4</span> <span class="o">))</span>                                      <span class="c1"># 除法有效.</span>
-<span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 5 / 4 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 0</span>
-
-<span class="o">((</span> <span class="m">1</span> / <span class="m">2</span> <span class="o">))</span>                                      <span class="c1"># 除法计算结果&lt; 1</span>
-<span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 1 / 2 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 截取为0.</span>
-                                                 <span class="c1"># 1</span>
-
-<span class="o">((</span> <span class="m">1</span> / <span class="m">0</span> <span class="o">))</span> <span class="m">2</span>&gt;/dev/null                          <span class="c1"># 除以0的非法计算.</span>
-<span class="c1">#           ^^^^^^^^^^^</span>
-<span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 1 / 0 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 1</span>
+<span class="o">((</span> <span class="m">0</span> <span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 0 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>         <span class="c1"># 1</span>
+<span class="o">((</span> <span class="m">1</span> <span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 1 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>         <span class="c1"># 0</span>
+<span class="o">((</span> <span class="m">5</span> &gt; <span class="m">4</span> <span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 5 &gt; 4 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 0</span>
+<span class="o">((</span> <span class="m">5</span> &gt; <span class="m">9</span> <span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 5 &gt; 9 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 1</span>
+<span class="o">((</span> <span class="m">5</span> - <span class="m">5</span> <span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 5 - 5 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 1</span>
+<span class="o">((</span> <span class="m">5</span> / <span class="m">4</span> <span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 5 / 4 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 0</span>
+<span class="o">((</span> <span class="m">1</span> / <span class="m">2</span> <span class="o">))</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 1 / 2 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 1</span>
+<span class="o">((</span> <span class="m">1</span> / <span class="m">0</span> <span class="o">))</span> <span class="m">2</span>&gt; /dev/null<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Exit status of \&quot;(( 1 / 0 ))\&quot; is </span><span class="nv">$?</span><span class="s2">.&quot;</span>     <span class="c1"># 1</span>
 </pre></div>
 
-<h3 id="_20">其他比较操作符<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>二元比较操作符比较两个变量或是数值。注意整数和字符串比较的分别。
-
-整数比较
-
--eq
-
-等于
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -eq <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
--ne
-不等于
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -ne <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
--gt
-大于
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -gt <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
--ge
-大于等于
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -ge <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
--lt
-小于
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -lt <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
--le
-小于等于
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -le <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
-&lt;
-小于<span class="o">(</span>在双括号里使用<span class="o">)</span>
-
-<span class="o">((</span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> &lt; <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="o">))</span>
-
-&lt;<span class="o">=</span>
-小于等于 <span class="o">(</span>在双括号里使用<span class="o">)</span>
-
-<span class="o">((</span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> &lt;<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="o">))</span>
-
-&gt;
-大于 <span class="o">(</span>在双括号里使用<span class="o">)</span>
-
-<span class="o">((</span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> &gt; <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="o">))</span>
-
-&gt;<span class="o">=</span>
-大于等于<span class="o">(</span>在双括号里使用<span class="o">)</span>
-
-<span class="o">((</span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> &gt;<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="o">))</span>
-
-<span class="nv">字符串比较</span>
-
-<span class="o">=</span>
-
-等于
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
-<span class="o">==</span>
-等于
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
-<span class="nv">它和</span><span class="o">=</span>是同义词。
-
-<span class="o">==</span>比较操作符在一个双方括号测试和一个单方括号号里意思不同。
-<span class="o">[[</span> <span class="nv">$a</span> <span class="o">==</span> z* <span class="o">]]</span>    <span class="c1"># 如果变量$a以字符&quot;z&quot;开始(模式匹配)则为真.</span>
-<span class="o">[[</span> <span class="nv">$a</span> <span class="o">==</span> <span class="s2">&quot;z*&quot;</span> <span class="o">]]</span>  <span class="c1"># 如果变量$a与z*(字面上的匹配)相等则为真.</span>
-
-<span class="o">[</span> <span class="nv">$a</span> <span class="o">==</span> z* <span class="o">]</span>      <span class="c1"># 文件扩展和单元分割有效.</span>
-<span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;z*&quot;</span> <span class="o">]</span>  <span class="c1"># 如果变量$a与z*(字面上的匹配)相等则为真.</span>
-
-!<span class="o">=</span>
-不相等
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
-操作符在<span class="o">[[</span> ... <span class="o">]]</span>结构里使用模式匹配.
-
-&lt;
-小于，依照ASCII字符排列顺序
-
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> &lt; <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]]</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="se">\&lt;</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
-注意<span class="s2">&quot;&lt;&quot;</span>字符在<span class="o">[</span> <span class="o">]</span> 结构里需要转义
-
-&gt;
-大于，依照ASCII字符排列顺序
-
-<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> &gt; <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]]</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="se">\&gt;</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-
-注意<span class="s2">&quot;&gt;&quot;</span>字符在<span class="o">[</span> <span class="o">]</span> 结构里需要转义.
-
-参考例子 <span class="m">26</span>-11 中这种比较的一个应用.
-
--z
-字符串为<span class="s2">&quot;null&quot;</span>，即是指字符串长度为零。
-
--n
-字符串不为<span class="s2">&quot;null&quot;</span>，即长度不为零.
-
-在测试方括号里进行-n测试时一定要把字符串用引号起来。用没有引号引起的! -z或者在方括号里只有未引号引起的字符串 <span class="o">(</span>参考例子 <span class="m">7</span>-6<span class="o">)</span>来进行测试一般都能工作，然而，这其实是不安全的测试。应该总是用引号把测试字符串引起来。<span class="o">[</span><span class="m">1</span><span class="o">]</span>
-<span class="o">[</span><span class="m">1</span><span class="o">]</span> 就像S.C.指出的那样，在一个混合测试中，把一个字符串变量引号引起来可能还不够。如果<span class="nv">$string变量是空的话</span>，表达式<span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$string</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>在一些Bash版本中可能会引起错误。安全的办法是附加一个外部的字符串给可能有空字符串变量比较的所有变量，<span class="o">[</span> <span class="s2">&quot;x</span><span class="nv">$string</span><span class="s2">&quot;</span> !<span class="o">=</span> x -o <span class="s2">&quot;x</span><span class="nv">$a</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;x</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">](</span>x字符可以互相抵消<span class="o">)</span>。
-
-<span class="c1">#算术和字符串比较</span>
+<h2 id="_4">其他比较操作符<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>二元比较操作符比较两个变量或是数值。注意整数和字符串比较的分别</p>
+<h3 id="_5">整数比较<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">含义</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">-eq</td>
+<td align="center">等于</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" -eq "</span><script type="math/tex">a" -eq "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">-ne</td>
+<td align="center">不等于</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" -ne "</span><script type="math/tex">a" -ne "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">-gt</td>
+<td align="center">大于</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" -gt "</span><script type="math/tex">a" -gt "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">-ge</td>
+<td align="center">大于等于</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" -ge "</span><script type="math/tex">a" -ge "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">-lt</td>
+<td align="center">小于</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" -lt "</span><script type="math/tex">a" -lt "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">-le</td>
+<td align="center">小于等于</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" -le "</span><script type="math/tex">a" -le "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">小于(在双小括号内使用)</td>
+<td align="center">(("<span><span class="MathJax_Preview">a" &gt; "</span><script type="math/tex">a" > "</script></span>b"))</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">大于等于(在双小括号里使用)</td>
+<td align="center">(("<span><span class="MathJax_Preview">a" &gt;= "</span><script type="math/tex">a" >= "</script></span>b"))</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于(在双小括号里使用)</td>
+<td align="center">(("<span><span class="MathJax_Preview">a" &lt; "</span><script type="math/tex">a" < "</script></span>b"))</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td align="center">小于等于 (在双括号里使用)</td>
+<td align="center">(("<span><span class="MathJax_Preview">a" &lt;= "</span><script type="math/tex">a" <= "</script></span>b"))</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">字符串比较<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">表达式</th>
+<th align="center">含义</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">=</td>
+<td align="center">等于</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" = "</span><script type="math/tex">a" = "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">==</td>
+<td align="center">等于①</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" == "</span><script type="math/tex">a" == "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">!=</td>
+<td align="center">不等于</td>
+<td align="center">if [ "<span><span class="MathJax_Preview">a" != "</span><script type="math/tex">a" != "</script></span>b" ]</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于,按照ASCII字符排序进行比较</td>
+<td align="center">if [[ "<span><span class="MathJax_Preview">a" &lt; "</span><script type="math/tex">a" < "</script></span>b" ]]或if [ "<span><span class="MathJax_Preview">a" \&lt; "</span><script type="math/tex">a" \< "</script></span>b" ]，在[]要注意转义字符&lt;</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">大于,按照ASCII字符排序进行比较</td>
+<td align="center">if [[ "<span><span class="MathJax_Preview">a" &gt; "</span><script type="math/tex">a" > "</script></span>b" ]]或if [ "<span><span class="MathJax_Preview">a" \&gt; "</span><script type="math/tex">a" \> "</script></span>b" ]，在[]要注意转义字符&gt;</td>
+</tr>
+<tr>
+<td align="center">-z</td>
+<td align="center">字符串为null,即指定字符串长度为零</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">-n</td>
+<td align="center">字符串不为null,即长度不为零</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">-a</td>
+<td align="center">逻辑与</td>
+<td align="center">如果exp1和exp2都为真，则exp1 -a exp2返回真</td>
+</tr>
+<tr>
+<td align="center">-o</td>
+<td align="center">逻辑或</td>
+<td align="center">只要exp1和exp2任何一个为真，则exp1 -o exp2返回真</td>
+</tr>
+</tbody>
+</table>
+<p>①区别解析：
+==和=同义词，但==比较操作符在一个双中括号测试和一个单中括号测试意思不同
+[[ <span><span class="MathJax_Preview">a == z* ]]    # 如果变量</span><script type="math/tex">a == z* ]]    # 如果变量</script></span>a以字符"z"开始(模式匹配)则为真
+[[ <span><span class="MathJax_Preview">a == "z*" ]]  # 如果变量</span><script type="math/tex">a == "z*" ]]  # 如果变量</script></span>a与z*(字面上的匹配)相等则为真
+[ <span><span class="MathJax_Preview">a == z* ]      # 文件扩展和单元分割有效
+[ "</span><script type="math/tex">a == z* ]      # 文件扩展和单元分割有效
+[ "</script></span>a" == "z*" ]  # 如果变量$a与z*(字面上的匹配)相等则为真</p>
+<p>注意事项：
+在方括号测试里，进行-n测试时必须把字符串用引号引起来，-z一般不引起来都能工作，但最好把测试字符串用引号括起来。如果<span><span class="MathJax_Preview">string
+变量为空，此字符串变量引起来依然会报错，安全的方法是附加一个外部字符串给可能有空字符变量。如：
+[ "x</span><script type="math/tex">string
+变量为空，此字符串变量引起来依然会报错，安全的方法是附加一个外部字符串给可能有空字符变量。如：
+[ "x</script></span>string" != x -o "x<span><span class="MathJax_Preview">a" = "x</span><script type="math/tex">a" = "x</script></span>b" ]（x字符可以互相抵消）</p>
+<h3 id="_7">算术和字符串比较<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1"># a和b既能被看成是整数也能被看着是字符串。在字符串和数字之间不是严格界定的，bash变量是无类型的，Bash变量不是强类型的</span>
+<span class="c1">#  Bash允许变量的整数操作和比较，但这些变量必须只包括数字字符,不管怎么样，应该小心考虑。例如：</span>
 <span class="c1">#!/bin/bash</span>
-
+<span class="c1"># 此例子中-ne和!=均能工作，以下是具体比较</span>
 <span class="nv">a</span><span class="o">=</span><span class="m">4</span>
 <span class="nv">b</span><span class="o">=</span><span class="m">5</span>
 
-<span class="c1">#  这儿的&quot;a&quot;和&quot;b&quot;既能被看成是整数也能被看着是字符串。</span>
-<span class="c1">#  在字符串和数字之间不是严格界定的，</span>
-<span class="c1">#+ 因为Bash变量不是强类型的。</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -ne <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a不等于$b</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;(整数比较)&quot;</span><span class="p">;</span> <span class="k">fi</span>   <span class="c1"># ab作为整数比较</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a不等于$b</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;(字符串比较)&quot;</span><span class="p">;</span> <span class="k">fi</span>    <span class="c1"># ab作为字符串比较</span>
 
-<span class="c1">#  Bash允许变量的整数操作和比较，</span>
-<span class="c1">#+ 但这些变量必须只包括数字字符.</span>
-<span class="c1">#  不管怎么样，你应该小心考虑.</span>
-
-<span class="nb">echo</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> -ne <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2"> is not equal to </span><span class="nv">$b</span><span class="s2">&quot;</span>
-  <span class="nb">echo</span> <span class="s2">&quot;(arithmetic comparison)&quot;</span>
-<span class="k">fi</span>
-
-<span class="nb">echo</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span> <span class="o">]</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2"> is not equal to </span><span class="nv">$b</span><span class="s2">.&quot;</span>
-  <span class="nb">echo</span> <span class="s2">&quot;(string comparison)&quot;</span>
-  <span class="c1">#     &quot;4&quot;  != &quot;5&quot;</span>
-  <span class="c1"># ASCII 52 != ASCII 53</span>
-<span class="k">fi</span>
-<span class="c1"># 在这个实际的例子中,&quot;-ne&quot;和&quot;!=&quot;都能工作</span>
-
-
-<span class="c1">#测试一个字符串是否是null值</span>
+<span class="c1"># 测试一个字符串是否是null值</span>
 <span class="c1">#!/bin/bash</span>
-<span class="c1">#  str-test.sh: 测试null字符串和没有用引号引起的字符串,</span>
-<span class="c1">#+ but not strings and sealing wax, not to mention cabbages and kings . .</span>
 
-<span class="c1"># 用if [ ... ]结构</span>
+<span class="c1"># 用if [ ... ]结构,测试null字符串和没有用引号引起的字符串</span>
+<span class="c1"># 如果一个字符串变量没有被初始化，它里面的值未定义。这种情况称为&quot;null&quot;值(不同于零)</span>
 
-
-<span class="c1"># 如果一个字符串变量没有被初始化，它里面的值未定义。</span>
-<span class="c1"># 这种情况称为&quot;null&quot;值(不同于零).</span>
-
-<span class="k">if</span> <span class="o">[</span> -n <span class="nv">$string1</span> <span class="o">]</span>    <span class="c1"># $string1没有被声明或初始化.</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
-<span class="k">else</span>  
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
-<span class="k">fi</span>  
+<span class="c1"># 第一次，$string1没有被声明或初始化</span>
+<span class="k">if</span> <span class="o">[</span> -n <span class="nv">$string1</span> <span class="o">]</span>
+    <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
+<span class="k">fi</span>
 <span class="c1"># 错误结果.</span>
 <span class="c1"># Shows $string1 as not null, although it was not initialized.</span>
 
-
-<span class="nb">echo</span>
-
-
-<span class="c1"># 让我们再试试.</span>
-
-<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$string1</span><span class="s2">&quot;</span> <span class="o">]</span>  <span class="c1"># 这次, $string1变量被引号引起.</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
-<span class="k">else</span>  
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
+<span class="c1"># 第二次, $string1变量被引号引起</span>
+<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$string1</span><span class="s2">&quot;</span> <span class="o">]</span>
+    <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
 <span class="k">fi</span>                    <span class="c1"># 在一个测试方括里用引号引起变量!</span>
 
-
-<span class="nb">echo</span>
-
-
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$string1</span> <span class="o">]</span>       <span class="c1"># 这次,变量$string1什么也不加.</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
-<span class="k">else</span>  
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
-<span class="k">fi</span>  
-<span class="c1"># This works fine.</span>
-<span class="c1"># The [ ] test operator alone detects whether the string is null.</span>
-<span class="c1"># However it is good practice to quote it (&quot;$string1&quot;).</span>
-<span class="c1">#</span>
-<span class="c1"># As Stephane Chazelas points out,</span>
-<span class="c1">#    if [ $string1 ]    has one argument, &quot;]&quot;</span>
-<span class="c1">#    if [ &quot;$string1&quot; ]  has two arguments, the empty &quot;$string1&quot; and &quot;]&quot;</span>
+<span class="c1"># 第三次,变量$string1什么也不加</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$string1</span> <span class="o">]</span>
+    <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
+<span class="k">fi</span>
+<span class="c1"># 以上正常执行,[]测试运算符单独检测字符串是否为空,但用引号括起来&quot;$string1&quot;才是更好习惯</span>
 
 <span class="nv">string1</span><span class="o">=</span>initialized
 
 <span class="k">if</span> <span class="o">[</span> <span class="nv">$string1</span> <span class="o">]</span>       <span class="c1"># Again, $string1 stands naked.</span>
 <span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
-<span class="k">else</span>  
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
-<span class="k">fi</span>  
-<span class="c1"># Again, gives correct result.</span>
-<span class="c1"># Still, it is better to quote it (&quot;$string1&quot;), because . . .</span>
-
+<span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
+<span class="k">else</span>
+<span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
+<span class="k">fi</span>
+<span class="c1"># 再次显示正确结果，然而更好仍然是用引号括起来，且看以下的列子</span>
 
 <span class="nv">string1</span><span class="o">=</span><span class="s2">&quot;a = b&quot;</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$string1</span> <span class="o">]</span>       <span class="c1"># Again, $string1 stands naked.</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
-<span class="k">else</span>  
-  <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
-<span class="k">fi</span>  
-<span class="c1"># Not quoting &quot;$string1&quot; now gives wrong result!</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$string1</span> <span class="o">]</span>       <span class="c1"># 没有用引号引起来</span>
+    <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is not null.&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;String \&quot;string1\&quot; is null.&quot;</span>
+<span class="k">fi</span>
+<span class="c1"># $string1没有引号显示出错误的结果</span>
 
-
-<span class="c1">#例子：zmore</span>
 <span class="c1">#!/bin/bash</span>
-<span class="c1"># zmore</span>
-
-<span class="c1">#用&#39;more&#39;查看被压缩过的文件</span>
+<span class="c1"># 用more命令查看被压缩过的文件</span>
 
 <span class="nv">NOARGS</span><span class="o">=</span><span class="m">65</span>
 <span class="nv">NOTFOUND</span><span class="o">=</span><span class="m">66</span>
@@ -3600,142 +2412,84 @@ linkchk <span class="o">()</span> <span class="o">{</span>
 
 <span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="c1"># 等同于:  if [ -z &quot;$1&quot; ]</span>
 <span class="c1"># $1可以存在,但为空:  zmore &quot;&quot; arg2 arg3</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;Usage: `basename </span><span class="nv">$0</span><span class="s2">` filename&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
-  <span class="c1"># 错误信息打印到标准错误.</span>
-  <span class="nb">exit</span> <span class="nv">$NOARGS</span>
-  <span class="c1"># 返回65作为脚本的退出状态(错误码).</span>
-<span class="k">fi</span>  
+    <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Usage: `basename </span><span class="nv">$0</span><span class="s2">` filename&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="c1"># 错误信息打印到标准错误.</span>
+<span class="nb">exit</span> <span class="nv">$NOARGS</span>
+<span class="c1"># 返回65作为脚本的退出状态(错误码).</span>
+<span class="k">fi</span>
 
 <span class="nv">filename</span><span class="o">=</span><span class="nv">$1</span>
 
 <span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="o">]</span>   <span class="c1"># Quoting $filename allows for possible ces.</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;File </span><span class="nv">$filename</span><span class="s2"> not found!&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
-  <span class="c1"># 错误信息打印到标准错误.</span>
-  <span class="nb">exit</span> <span class="nv">$NOTFOUND</span>
-<span class="k">fi</span>  
+    <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;File </span><span class="nv">$filename</span><span class="s2"> not found!&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="c1"># 错误信息打印到标准错误.</span>
+<span class="nb">exit</span> <span class="nv">$NOTFOUND</span>
+<span class="k">fi</span>
 
 <span class="k">if</span> <span class="o">[</span> <span class="si">${</span><span class="nv">filename</span><span class="p">##*.</span><span class="si">}</span> !<span class="o">=</span> <span class="s2">&quot;gz&quot;</span> <span class="o">]</span>
 <span class="c1"># 在方括号里使用变量替换.</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&quot;File </span><span class="nv">$1</span><span class="s2"> is not a gzipped file!&quot;</span>
-  <span class="nb">exit</span> <span class="nv">$NOTGZIP</span>
-<span class="k">fi</span>  
-
-zcat <span class="nv">$1</span> <span class="p">|</span> more
-
-<span class="c1"># 用过滤程序&#39;more.&#39;</span>
-<span class="c1"># 如果你想，也可以用&#39;less&#39;代替。</span>
-
-<span class="nb">exit</span> <span class="nv">$?</span>   <span class="c1"># 脚本返回管道的退出状态</span>
-<span class="c1"># 实际上&quot;exit $?&quot;是多余的,因为在任何情况下，</span>
-<span class="c1"># 脚本会返回最后一个执行命令的退出码。</span>
-
-
-<span class="c1">#混合比较</span>
--a
-逻辑与
-
-如果exp1和exp2都为真，则exp1 -a exp2返回真.
-
--o
-逻辑或
-
-只要exp1和exp2任何一个为真，则exp1 -o exp2 返回真.
-
-它们和Bash中用于双方括号结构的比较操作符<span class="o">&amp;&amp;</span>和<span class="o">||</span>很相似。
-   <span class="m">1</span> <span class="o">[[</span> condition1 <span class="o">&amp;&amp;</span> condition2 <span class="o">]]</span>
--o和-a操作符和test命令或单方括号一起使用。
-   <span class="m">1</span> <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$exp1</span><span class="s2">&quot;</span> -a <span class="s2">&quot;</span><span class="nv">$exp2</span><span class="s2">&quot;</span> <span class="o">]</span>
-</pre></div>
-
-<h3 id="fithen">嵌套的fi/then条件语句<a class="headerlink" href="#fithen" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>使用if/then结构的测试可以嵌套。最终的结果和使用上一节的<span class="o">&amp;&amp;</span>混合比较操作符一样。
-<span class="k">if</span> <span class="o">[</span> condition1 <span class="o">]</span>
-<span class="k">then</span>
-  <span class="k">if</span> <span class="o">[</span> condition2 <span class="o">]</span>
-  <span class="k">then</span>
-    <span class="k">do</span>-something  <span class="c1"># But only if both &quot;condition1&quot; and &quot;condition2&quot; valid.</span>
-   <span class="k">fi</span>  
- <span class="k">fi</span>
-
-
-<span class="c1">#检测你对测试命令掌握</span>
-一个xinitrc系统文件能用来启动一个X服务器。这个文件包含了相当多的if/then测试，就像下面这个文件的一个摘录展示的一样。
-<span class="k">if</span> <span class="o">[</span> -f <span class="nv">$HOME</span>/.Xclients <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">exec</span> <span class="nv">$HOME</span>/.Xclients
-<span class="k">elif</span> <span class="o">[</span> -f /etc/X11/xinit/Xclients <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-  <span class="nb">exec</span> /etc/X11/xinit/Xclients
-<span class="k">else</span>
-     <span class="c1"># 失败后的安全设置。　虽然我们决不该执行到这儿</span>
-     <span class="c1"># (我们也在X客户提供可靠保证) 它不能被破坏.</span>
-     xclock -geometry 100x100-5+5 <span class="p">&amp;</span>
-     xterm -geometry 80x50-50+150 <span class="p">&amp;</span>
-     <span class="k">if</span> <span class="o">[</span> -f /usr/bin/netscape -a -f /usr/share/doc/HTML/index.html <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-             netscape /usr/share/doc/HTML/index.html <span class="p">&amp;</span>
-     <span class="k">fi</span>
+    <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;File </span><span class="nv">$1</span><span class="s2"> is not a gzipped file!&quot;</span>
+<span class="nb">exit</span> <span class="nv">$NOTGZIP</span>
 <span class="k">fi</span>
 
-解释上面摘录的test结构，然后检查整个/etc/X11/xinit/xinitrc文件并分析那儿的所有if/then测试结构。xubuntu在<span class="o">(</span>/etc/xdg/xfce4/xinitrc<span class="o">)</span>路径下
+zcat <span class="nv">$1</span> <span class="p">|</span> more  <span class="c1"># 用过滤程序more,也可以用less代替</span>
+
+<span class="nb">exit</span> <span class="nv">$?</span>   <span class="c1"># 脚本返回管道的退出状态,实际上&quot;exit $?&quot;是多余的,因为在任何情况下，脚本会返回最后一个执行命令的退出码</span>
 </pre></div>
 
-<h3 id="_21">数字常量<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>除非一个数字有特别的前缀或符号，否则shell脚本把它当成十进制的数。一个前缀为0的数字是八进制数。一个前缀为0x的数字是十六进制数。一个数用内嵌的#来求值则看成BASE#NUMBER<span class="o">(</span>有范围和符号限制<span class="o">)(</span>译者注：BASE#NUMBER即：基数#数值，参考下面的例子<span class="o">)</span>
+<h3 id="_8">混合比较<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1"># -a 逻辑与、-o 逻辑或操作符和Bash中用于双方括号结构的比较操作符&amp;&amp;和||很相似</span>
+<span class="c1"># -o和-a操作符和test命令或单方括号一起使用</span>
+<span class="c1"># 检测你对测试命令掌握</span>
+<span class="c1"># 一个xinitrc系统文件能用来启动一个X服务器。这个文件包含了相当多的if/then测试，就像下面这个文件的一个摘录展示的一样</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="nv">$HOME</span>/.Xclients <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">exec</span> <span class="nv">$HOME</span>/.Xclients
+<span class="k">elif</span> <span class="o">[</span> -f /etc/X11/xinit/Xclients <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">exec</span> /etc/X11/xinit/Xclients
+<span class="k">else</span>
+<span class="c1"># 失败后的安全设置。虽然我们决不该执行到这儿,(我们也在X客户提供可靠保证) 它不能被破坏</span>
+    xclock -geometry 100x100-5+5 <span class="p">&amp;</span>
+    xterm -geometry 80x50-50+150 <span class="p">&amp;</span>
+    <span class="k">if</span> <span class="o">[</span> -f /usr/bin/netscape -a -f /usr/share/doc/HTML/index.html <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        netscape /usr/share/doc/HTML/index.html <span class="p">&amp;</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
+</pre></div>
 
-<span class="c1">#数字常量的表示法</span>
+<h3 id="_9">数字常量<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>除非一个数字有特别的前缀或符号，否则shell脚本把它当成十进制的数。一个前缀为0的数字是八进制数。一个前缀为0x的数字是十六
+进制数。一个数用内嵌的#来求值则看成BASE#NUMBER(有范围和符号限制)(译者注：BASE#NUMBER即：基数#数值，参考下面的例子)</p>
+<div class="codehilite"><pre><span></span><span class="c1">#数字常量的表示法</span>
 <span class="c1">#!/bin/bash</span>
 <span class="c1"># numbers.sh: 不同基数的数字表示法.</span>
 
 <span class="c1"># 十进制数: 它是默认的</span>
-<span class="nb">let</span> <span class="s2">&quot;dec = 32&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;decimal number = </span><span class="nv">$dec</span><span class="s2">&quot;</span>             <span class="c1"># 32</span>
-<span class="c1"># 这儿没有什么特别的.</span>
-
+<span class="nb">let</span> <span class="s2">&quot;dec = 32&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;decimal number = </span><span class="nv">$dec</span><span class="s2">&quot;</span>             <span class="c1"># 32</span>
 
 <span class="c1"># 八进制数: 以&#39;0&#39;(零)为前缀</span>
-<span class="nb">let</span> <span class="s2">&quot;oct = 032&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;octal number = </span><span class="nv">$oct</span><span class="s2">&quot;</span>               <span class="c1"># 26</span>
-<span class="c1"># 结果表示为十进制.</span>
-<span class="c1"># --------- ------ -- -------</span>
+<span class="nb">let</span> <span class="s2">&quot;oct = 032&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;octal number = </span><span class="nv">$oct</span><span class="s2">&quot;</span>               <span class="c1"># 26,结果表示为十进制.</span>
 
 <span class="c1"># 十六进制: 以&#39;0x&#39;或&#39;0X&#39;为前缀</span>
-<span class="nb">let</span> <span class="s2">&quot;hex = 0x32&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;hexadecimal number = </span><span class="nv">$hex</span><span class="s2">&quot;</span>         <span class="c1"># 50</span>
-<span class="c1"># 以十进制的形式表示.</span>
+<span class="nb">let</span> <span class="s2">&quot;hex = 0x32&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;hexadecimal number = </span><span class="nv">$hex</span><span class="s2">&quot;</span>         <span class="c1"># 50,以十进制的形式表示.</span>
 
 <span class="c1"># 其他的进制的表示形式: BASE#NUMBER</span>
 <span class="c1"># BASE值在2和64之间.</span>
 <span class="c1"># NUMBER必须使用在BASE范围内的符号,看下面的示例.</span>
 
-
-<span class="nb">let</span> <span class="s2">&quot;bin = 2#111100111001101&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;binary number = </span><span class="nv">$bin</span><span class="s2">&quot;</span>              <span class="c1"># 31181</span>
-
-<span class="nb">let</span> <span class="s2">&quot;b32 = 32#77&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;base-32 number = </span><span class="nv">$b32</span><span class="s2">&quot;</span>             <span class="c1"># 231</span>
-
-<span class="nb">let</span> <span class="s2">&quot;b64 = 64#@_&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;base-64 number = </span><span class="nv">$b64</span><span class="s2">&quot;</span>             <span class="c1"># 4031</span>
+<span class="nb">let</span> <span class="s2">&quot;bin = 2#111100111001101&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;binary number = </span><span class="nv">$bin</span><span class="s2">&quot;</span>              <span class="c1"># 31181</span>
+<span class="nb">let</span> <span class="s2">&quot;b32 = 32#77&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;base-32 number = </span><span class="nv">$b32</span><span class="s2">&quot;</span>             <span class="c1"># 231</span>
+<span class="nb">let</span> <span class="s2">&quot;b64 = 64#@_&quot;</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;base-64 number = </span><span class="nv">$b64</span><span class="s2">&quot;</span>             <span class="c1"># 4031</span>
 <span class="c1"># 这个符号只能工作在ASCII码值为2-64的范围限制.</span>
 <span class="c1"># 10个数字+26个小写字母+26个大写字母+ @ + _</span>
 
-
-<span class="nb">echo</span>
-
-<span class="nb">echo</span> <span class="k">$((</span><span class="m">36#</span>zz<span class="k">))</span> <span class="k">$((</span><span class="m">2#10101010</span><span class="k">))</span> <span class="k">$((</span><span class="m">16#</span>AF16<span class="k">))</span> <span class="k">$((</span><span class="m">53#1</span>aA<span class="k">))</span>
-<span class="c1"># 1295 170 44822 3375</span>
+<span class="nb">echo</span> <span class="k">$((</span><span class="m">36#</span>zz<span class="k">))</span> <span class="k">$((</span><span class="m">2#10101010</span><span class="k">))</span> <span class="k">$((</span><span class="m">16#</span>AF16<span class="k">))</span> <span class="k">$((</span><span class="m">53#1</span>aA<span class="k">))</span>    <span class="c1"># 1295 170 44822 3375</span>
 
 
-<span class="c1">#  重要提示:</span>
-<span class="c1">#  --------------</span>
-<span class="c1">#  使用一个超出给定进制的数字将会引起一个错误信息。</span>
-<span class="c1">#+ gives an error message.</span>
-
-<span class="nb">let</span> <span class="s2">&quot;bad_oct = 081&quot;</span>
-<span class="c1"># ((部分的) 错误信息输出:</span>
-<span class="c1">#  bad_oct = 081: value too great for base (error token is &quot;081&quot;)</span>
-<span class="c1"># 八进制数字只能使用数字0-7.</span>
+<span class="c1">#  提示：使用一个超出给定进制的数字将会引起一个错误信息，例如：</span>
+<span class="nb">let</span> <span class="s2">&quot;bad_oct = 081&quot;</span>     <span class="c1"># 此例子会发生错误，因为八进制数字只能使用数字0-7.</span>
 </pre></div>
                 
                   
@@ -3815,7 +2569,7 @@ zcat <span class="nv">$1</span> <span class="p">|</span> more
       
     </div>
     
-      <script src="../assets/javascripts/application.245445c6.js"></script>
+      <script src="../assets/javascripts/application.c648116f.js"></script>
       
         
         
