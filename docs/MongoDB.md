@@ -1278,3 +1278,8 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 
 查看kafka的topics
 kafka-topics --zookeeper localhost:2181 --list
+
+db.getCollection("rent_houses").find({ 
+    "price": { "$lte": 2000 },
+    "title": { "$in": [ /转租/,/整租/ ] }
+     })
