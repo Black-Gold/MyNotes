@@ -1008,6 +1008,7 @@ ssh -L 7001:localhost:389 LDAPServer
 # SSH 同时提供了 GatewayPorts 关键字，我们可以通过指定它与其他机器共享这个本地端口转发
 ssh -g -L <local port>:<remote host>:<remote port> <SSH hostname>
 ```
+
 ![fagure](http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image002.jpg)
 
 #### 远程转发实例
