@@ -3190,7 +3190,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 <h3 id="ssh_2">SSH端口转发<a class="headerlink" href="#ssh_2" title="Permanent link">&para;</a></h3>
 <p>SSH端口转发将其他TCP端口的网络数据通过SSH链路转发，并自动加密和解密</p>
 <h4 id="_6">本地转发实例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">一台</span><span class="n">LDAP</span> <span class="n">server</span><span class="err">，但限制远程机器连接，此时利用</span><span class="n">ssh端口转发达到从远程机器测试server的目的</span>
+<div class="codehilite"><pre><span></span><span class="o">#</span> <span class="err">一台</span><span class="n">LDAP</span> <span class="n">server</span><span class="err">，但限制远程机器连接，此时利用</span><span class="n">ssh端口转发达到从远程机器测试server的目的</span>
 <span class="o">#</span> <span class="err">命令格式：</span>
 <span class="n">ssh</span> <span class="o">-</span><span class="n">L</span> <span class="o">&lt;</span><span class="k">local</span> <span class="n">port</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">remote</span> <span class="k">host</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">remote</span> <span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">SSH</span> <span class="n">hostname</span><span class="o">&gt;</span>
 <span class="o">#</span> <span class="err">在</span><span class="n">LDAP</span> <span class="n">client执行以下命令即可建立ssh的本地端口转发</span>
@@ -3200,7 +3200,8 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 <span class="o">#</span> <span class="n">SSH</span> <span class="err">同时提供了</span> <span class="n">GatewayPorts</span> <span class="err">关键字，我们可以通过指定它与其他机器共享这个本地端口转发</span>
 <span class="n">ssh</span> <span class="o">-</span><span class="k">g</span> <span class="o">-</span><span class="n">L</span> <span class="o">&lt;</span><span class="k">local</span> <span class="n">port</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">remote</span> <span class="k">host</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">remote</span> <span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">SSH</span> <span class="n">hostname</span><span class="o">&gt;</span>
 </pre></div>
-<img alt="fagure" src="http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image002.jpg" /></p>
+
+<p><img alt="fagure" src="http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/image002.jpg" /></p>
 <h4 id="_7">远程转发实例<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p><div class="codehilite"><pre><span></span><span class="err">假设由于网络或防火墙的原因我们不能用</span> <span class="n">SSH</span> <span class="err">直接从</span> <span class="n">LdapClientHost</span> <span class="err">连接到</span> <span class="n">LDAP</span> <span class="err">服务器（</span><span class="n">LdapServertHost</span><span class="err">），但是反向连接却是被允许的。</span>
 <span class="err">那此时我们的选择自然就是远程端口转发了</span>
