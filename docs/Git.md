@@ -4,7 +4,7 @@
 
 ```bash
 # http和https协议设置socks5代理
-git config --global http.proxy 'socks5h://127.0.0.1:1080'   # socks5h表示包括域名解析
+git config --global http.proxy 'socks5h://127.0.0.1:1080'   # socks5, h表示包括域名解析
 git config --global http.proxy http://127.0.0.1:108 # 设置http和https代理
 git config --global --unset http.proxy  # 取消代理
 
