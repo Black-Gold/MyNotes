@@ -1161,7 +1161,7 @@ curl ipinfo.io
 # 返回ip和地区
 curl ip.6655.com/ip.aspx?area=1
 curl cip.cc
-
+/usr/bin/wget -q -O - http://icanhazip.com/ | /usr/bin/tail
 ```
 
 
@@ -1246,3 +1246,5 @@ pullword在线分词服务 http://apistore.baidu.com/apiworks/servicedetail/143.
 https://www.yesapi.cn/
 https://www.tianqiapi.com
 https://www.free-api.com/
+
+https://www.mumble.info/

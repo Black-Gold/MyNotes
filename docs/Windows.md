@@ -74,14 +74,43 @@ netdom.exe join %computername% /domain:DomainName /UserD:DomainName\UserName /Pa
 netdom.exe remove %computername% /domain:Domainname /UserD:DomainName\UserName /PasswordD:Password
 ```
 
+@echo off&setlocal enabledelayedexpansion
+rem 根据当前日期获取，年月日串
+set yyyy=%date:~0,4%
+set mm=%date:~5,2%
+set day=%date:~8,2% 
+set "Ymd=%yyyy%-%mm%-%day%"
+
+rem 把年月日串中末尾空格替换掉
+set "Ymd=%Ymd: =%"
+echo %Ymd%
+
+rem 获取n天前的日期
+for /f "tokens=1-3 delims=-:/ " %%a in ("%date%") do (set Y=%%a&set M=%%b&set D=%%c&if "!M:~0,1!"=="0" set M=!M:~1!
+if "!D:~0,1!"=="0" set D=!D:~1!)
+rem 想获取n天前，就修改set/a D-=n天数就行
+set/a D-=1&if !D! leq 0 (set/a M-=1&if !M!==0 set/a Y-=1,M=12
+set/a "T=^!(M-2)","R=(^!(Y%%4)&^!^!(Y%%100))|^!(Y%%400)","C=^!(M-4)|^!(M-6)|^!(M-9)|^!(M-11)","D=T*(28+R)+C*30+(^!T&^!C)*31"+D)
+set M=0%M%&set D=0%D%
+set previousdate=%Y%-%M:~-2%-%D:~-2%
+echo %previousdate%
+
+rem 删除前一天的压缩文件
+del E:\compresed\%previousdate%.7z /q
+
+rem 压缩今天的日志文件
+cd /d D:
+cd D:\7-Zip
+7z.exe a -r E:\compresed\%Ymd%.7z E:\log_%Ymd%.csv -m0=LZMA2 -mx=9 -aoa -y
+
 java 环境
 
 变量名：Path
-变量值：%java_home%\bin;%java_home%\jre\bin;
+变量值：%java_home%\bin
 新建变量名：JAVA_HOME
-变量值：C:\Program Files\Java\jdk1.8.0_111; （这里是jdk的安装目录）
-新建变量名：ClassPath
-变量值：%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;.;
+变量值：D:\jdk1.8.0_111（这里是jdk的安装目录）
+新建变量名：CLASSPATH
+变量值：.;%JAVA_HOME%\lib
 
 ```txt
 VMware Workstation 15.x

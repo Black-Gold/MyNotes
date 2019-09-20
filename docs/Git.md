@@ -1,12 +1,45 @@
-# Git使用规范流程
+# Git
 
-```sh
+## 代理设置
+
+```bash
+# http和https协议设置socks5代理
+git config --global http.proxy 'socks5h://127.0.0.1:1080'   # socks5h表示包括域名解析
+git config --global http.proxy http://127.0.0.1:108 # 设置http和https代理
+git config --global --unset http.proxy  # 取消代理
+
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1080   # 只对github.com设置代理
+git config --global --unset http.https://github.com.proxy  # 取消对github.com的代理
+
+# ssh协议设置代理
+# Linux修改~/.ssh/config文件，添加如下内容
+Host github.com
+User git
+ProxyCommand nc -v -x 127.0.0.1:1080 %h %p
+# Windows在用户目录下修改.ssh/config文件，注意要安装gitforwindows并设置环境变量
+Host github.com
+User git
+ProxyCommand connect -S 127.0.0.1:1080 %h %p
+
+```
+
+## 基本设置
+
+```bash
+git config --global core.autocrlf true  # 设置true后，提交时自动转为LF，签出时自动转为crlf
+git config --global core.autocrlf input # 提交时自动转为LF，签出时不自动转为CRLF
+git config --global core.autocrlf false # 提交和签出时保留crlf换行
+
+```
+
+## 基本使用流程
+
+```bash
 # 安装后设置用户名和邮箱：
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
 
-# 初始化仓库
-git init
+git init    # 初始化仓库
 
 # 每次开发一个新功能，都应该建一个新的单独分支,获取主干master代码
 git checkout master
@@ -100,7 +133,7 @@ git add -p
 git rm [file1] [file2] ...
 
 # 停止追踪指定文件，但该文件会保留在工作区
-git rm --cached [file]
+git rm -r --cached [file]
 
 # 改名文件，并且将这个改名放入暂存区
 git mv [file-original] [file-renamed]

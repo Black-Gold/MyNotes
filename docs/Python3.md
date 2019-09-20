@@ -137,26 +137,9 @@ import math as m
 ## Python开发环境最佳实践
 
 ```bash
-python -m SimpleHTTPServer | Serve current directory tree at http://$HOSTNAME:8000/     # 利用python简单建立webserver
-
-# yum -y install epel-release
-# yum -y install python2-pip
-# yum -y install python3-pip
-python -m pip install -U pip setuptools
-
-# python -m site --user-base 找到 用户基础目录,将基础目录添加到PATH
-# 在 Windows 上，您通过运行 py -m site --user-site 找到用户基础目录，将 site-packages 替换为 Scripts
-pip install --user pipenv
-
-# 在Windows安装virtualenv和virtualenvwrapper-win用于创建多个Python版本开发环境，Linux中最好使用pyenv代替
-# 安装pipenv和autoenv，自动激活环境
-# 在Linux上:
-git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
-echo 'source ~/.autoenv/activate.sh' >> ~/.bashrc
-
 # 设置pip配置文件
 : << comment
-Linux：$HOME/.config/pip/pip.conf
+Linux：$HOME/.pip/pip.conf
 Windows：%APPDATA%\pip\pip.ini
 virtualenv：%VIRTUAL_ENV%\pip.ini
 全局生效设置如下：(不支持Windows Vista)
@@ -180,6 +163,34 @@ ignore-installed = true
 trusted-host =
     mirrors.aliyun.com
     mirrors.huaweicloud.com
+
+python -m SimpleHTTPServer | Serve current directory tree at http://$HOSTNAME:8000/     # 利用python简单建立webserver
+
+# yum -y install epel-release
+# yum -y install python2-pip
+# yum -y install python3-pip
+python -m pip install -U pip setuptools
+
+# python -m site --user-base 找到 用户基础目录,将基础目录添加到PATH
+# 在 Windows 上，您通过运行 py -m site --user-site 找到用户基础目录，将 site-packages 替换为 Scripts
+# 自定义pipenv虚拟环境创建目录，windows通过设置变量WORKON_HOME，其值设置为PIPENV_VENV_IN_PROJECT时表示当项目目录中创建
+# linux在.bashrc文件添加export PIPENV_VENV_IN_PROJECT=1或export PIPENV_VENV_IN_PROJECT="enabled"
+pip install --user pipenv
+
+# 在Windows安装virtualenv和virtualenvwrapper-win用于创建多个Python版本开发环境，Linux中最好使用pyenv代替
+# 安装pipenv和autoenv，自动激活环境
+# 在Linux上:
+git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
+echo 'source ~/.autoenv/activate.sh' >> ~/.bashrc
+
+# pipes：Pipenv虚拟环境切换工具
+# MacOs + Ubuntu:
+pip3 install pipenv-pipes --user
+
+# Windows:
+pip3 install pipenv-pipes
+pip3 install curses --find-links=https://github.com/gtalarico/curses-win/releases
+
 ```
 
 ## 简介
@@ -264,8 +275,8 @@ python内置函数列表：具体用法见help(函数)
 | 运算 | 结果 | 注释 |
 | :------: | :------: | :------: |
 | x or y | if x is false, then y, else x | 这是个短路运算符，因此只有在第一个参数为真值时才会对第二个参数求值 |
-| x and y | if x is false, then x, else y | not 的优先级比非布尔运算符低，因此 not a == b 会被解读为 not (a == b) 而 a == not b 会引发语法错误 |
-| not x | if x is false, then True, else False | not 的优先级比非布尔运算符低，因此 not a == b 会被解读为 not (a == b) 而 a == not b 会引发语法错误 |
+| x and y | if x is false, then x, else y | not 的优先级比非布尔运算符低，因此 not a == b 会被解读为 not (a == b) 而<br> a == not b 会引发语法错误 |
+| not x | if x is false, then True, else False | not 的优先级比非布尔运算符低，因此 not a == b 会被解读为 not (a == b)<br> 而 a == not b 会引发语法错误 |
 
 ### 比较运算：
 
@@ -288,8 +299,8 @@ python内置函数列表：具体用法见help(函数)
 Python有三种不同的数字类型：整数、浮点数和复数。布尔值属于整数的子类型。整数有无限精度，浮点数通常以C语言中double实现
 复数具有实部和虚部，每个都是浮点数
 
-数字是由数字字面值或内置函数与运算符的结果来创建。未修饰的整数字面值(包括十六进制、八进制和二进制数)会生成整数，包含小数点
-或幂运算符的数字字面值会生成浮点数，在数字字面值末尾加上 'j' 或 'J' 会生成虚数(实部为零的复数)将其与整数或浮点数相加来得到具有实部和虚部的复数
+数字是由数字字面值或内置函数与运算符的结果来创建。未修饰的整数字面值(包括十六进制、八进制和二进制数)会生成整数，包含小数点或幂运算符的
+数字字面值会生成浮点数，在数字字面值末尾加上 'j' 或 'J' 会生成虚数(实部为零的复数)将其与整数或浮点数相加来得到具有实部和虚部的复数
 
 #### Numbers(数字)
 
@@ -345,11 +356,11 @@ python可以同时为多个变量赋值，如：a,b=1,2
 
 | 运算符 | 结果 | 注释 |
 | :------: | :------: | :------: |
-| \| | 按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1 | 使用带有至少一个额外符号扩展位的有限个二进制补码表示（有效位宽度为 1 + max(x.bit_length(), y.bit_length()) 或以上）执行这些计算就足以获得相当于有无数个符号位时的同样结果 |
-| ^ | 按位异或运算符：当两对应的二进位相异时，结果为1 | 使用带有至少一个额外符号扩展位的有限个二进制补码表示（有效位宽度为 1 + max(x.bit_length(), y.bit_length()) 或以上）执行这些计算就足以获得相当于有无数个符号位时的同样结果 |
-| & | 按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0 | 使用带有至少一个额外符号扩展位的有限个二进制补码表示（有效位宽度为 1 + max(x.bit_length(), y.bit_length()) 或以上）执行这些计算就足以获得相当于有无数个符号位时的同样结果 |
-| x << n | x的各二进位全部左移 n 位，高位丢弃，低位补0 | 负的移位数是非法的，会导致引发 ValueError；左移 n 位等价于不带溢出检测地乘以 pow(2, n) |
-| x >> n | x的各二进位全部右移 n 位 | 负的移位数是非法的，会导致引发 ValueError；右移 n 位等价于不带溢出检测地除以 pow(2, n) |
+| \| | 按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1 | 使用带有至少一个额外符号扩展位的有限个二进制补码表示（有效位宽度<br>为 1 + max(x.bit_length(), y.bit_length()) 或以上）执行这些计算就足以获得相当于有无数个符号位时的同样结果 |
+| ^ | 按位异或运算符：当两对应的二进位相异时，结果为1 | 使用带有至少一个额外符号扩展位的有限个二进制补码表示（有效位宽度为<br> 1 + max(x.bit_length(), y.bit_length()) 或以上）执行这些计算就足以获得相当于有无数个符号位时的同样结果 |
+| & | 按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0 | 使用带有至少一个额外符号扩展位的有限个二进制补码<br>表示（有效位宽度为 1 + max(x.bit_length(), y.bit_length()) 或以上）执行这些计算就足以获得相当于有无数个符号位时的同样结果 |
+| x << n | x的各二进位全部左移n位，高位丢弃，低位补0 | 负的移位数是非法的会导致引发ValueError,左移n位等价于不带溢出检测乘以pow(2, n) |
+| x >> n | x的各二进位全部右移n位 | 负的移位数是非法的，会导致引发 ValueError；右移 n 位等价于不带溢出检测地除以 pow(2, n) |
 | ~x | x 逐位取反 |  |
 
 ### 迭代器类型
@@ -392,15 +403,22 @@ Python的生成器提供了一种实现迭代器协议的便捷方式。如果�
 1. 虽然 in 和 not in 操作在通常情况下仅被用于简单的成员检测，某些专门化序列 (例如 str, bytes 和 bytearray) 也使用它们进行子序列检测
 2. 小于 0 的 n 值会被当作 0 来处理 (生成一个与 s 同类型的空序列)。 请注意序列 s 中的项并不会被拷贝；它们会被多次引用
 3. 如果 i 或 j 为负值，则索引顺序是相对于序列 s 的末尾: 索引号会被替换为 len(s) + i 或 len(s) + j。 但要注意 -0 仍然为 0
-4. s 从 i 到 j 的切片被定义为所有满足 i <= k < j 的索引号 k 的项组成的序列。 如果 i 或 j 大于 len(s)，则使用 len(s)。 如果 i 被省略或为 None，则使用 0。 如果 j 被省略或为 None，则使用 len(s)。 如果 i 大于等于 j，则切片为空
-5. s 从 i 到 j 步长为 k 的切片被定义为所有满足 0 <= n < (j-i)/k 的索引号 x = i + n\*k 的项组成的序列。 换句话说，索引号为 i, i+k, i+2\*k, i+3*k，以此类推，当达到 j 时停止 (但一定不包括 j)。 当 k 为正值时，i 和 j 会被减至不大于 len(s)。 当 k 为负值时，i 和 j 会被减至不大于 len(s) - 1。 如果 i 或 j 被省略或为 None，它们会成为“终止”值 (是哪一端的终止值则取决于 k 的符号)。 请注意，k 不可为零。 如果 k 为 None，则当作 1 处理
-6. 拼接不可变序列总是会生成新的对象。 这意味着通过重复拼接来构建序列的运行时开销将会基于序列总长度的乘方。 想要获得线性的运行时开销，必须改用下列替代方案之一：
+4. s 从 i 到 j 的切片被定义为所有满足 i <= k < j 的索引号 k 的项组成的序列。 如果 i 或 j 大于 len(s)，则使用 len(s)。 如果 i 被省略
+   或为 None，则使用 0。 如果 j 被省略或为 None，则使用 len(s)。 如果 i 大于等于 j，则切片为空
+5. s 从 i 到 j 步长为 k 的切片被定义为所有满足 0 <= n < (j-i)/k 的索引号 x = i + n\*k 的项组成的序列。 换句话说，索引号为 i, i+k,
+   i+2\*k, i+3*k，以此类推，当达到 j 时停止 (但一定不包括 j)。 当 k 为正值时，i 和 j 会被减至不大于 len(s)。 当 k 为负值时，i 和 j
+   会被减至不大于 len(s) - 1。 如果 i 或 j 被省略或为 None，它们会成为“终止”值 (是哪一端的终止值则取决于 k 的符号)。 请注意，k 不可
+   为零。 如果 k 为 None，则当作 1 处理
+6. 拼接不可变序列总是会生成新的对象。 这意味着通过重复拼接来构建序列的运行时开销将会基于序列总长度的乘方。 想要获得线性的运行时开销，必须
+   改用下列替代方案之一：
     * 如果拼接 str 对象，你可以构建一个列表并在最后使用 str.join() 或是写入一个 io.StringIO 实例并在结束时获取它的值
-    * 如果拼接 bytes 对象，你可以类似地使用 bytes.join() 或 io.BytesIO，或者你也可以使用 bytearray 对象进行原地拼接。 bytearray 对象是可变的，并且具有高效的重分配机制
+    * 如果拼接 bytes 对象，你可以类似地使用 bytes.join() 或 io.BytesIO，或者你也可以使用 bytearray 对象进行原地拼接。 bytearray
+      对象是可变的，并且具有高效的重分配机制
     * 如果拼接 tuple 对象，请改为扩展 list 类
     * 对于其它类型，请查看相应的文档
 7. 某些序列类型 (例如 range) 仅支持遵循特定模式的项序列，因此并不支持序列拼接或重复
-8. 当 x 在 s 中找不到时 index 会引发 ValueError。 不是所有实现都支持传入额外参数 i 和 j。 这两个参数允许高效地搜索序列的子序列。 传入这两个额外参数大致相当于使用 s[i:j].index(x)，但是不会复制任何数据，并且返回的索引是相对于序列的开头而非切片的开头
+8. 当 x 在 s 中找不到时 index 会引发 ValueError。 不是所有实现都支持传入额外参数 i 和 j。 这两个参数允许高效地搜索序列的子序列。
+   传入这两个额外参数大致相当于使用 s[i:j].index(x)，但是不会复制任何数据，并且返回的索引是相对于序列的开头而非切片的开头
 
 #### 不可变序列类型
 
@@ -410,7 +428,8 @@ Python的生成器提供了一种实现迭代器协议的便捷方式。如果�
 
 以下操作是在可变序列类型定义，collections.abc.MutableSequence ABC被提供用来更容易在自定义序列类型上正确实现这些操作
 
-表格中的 s 是可变序列类型的实例，t 是任意可迭代对象，而 x 是符合对 s 所规定类型与值限制的任何对象 (例如，bytearray 仅接受满足 0 <= x <= 255 值限制的整数)
+表格中的 s 是可变序列类型的实例，t 是任意可迭代对象，而 x 是符合对 s 所规定类型与值限制的任何对象 (例如，bytearray 仅接受满足
+0 <= x <= 255 值限制的整数)
 
 | 运算符 | 结果 | 注释 |
 | :------: | :------: | :------: |
@@ -423,11 +442,11 @@ Python的生成器提供了一种实现迭代器协议的便捷方式。如果�
 | s.clear() | 从 s 中移除所有项 (等同于 del s[:]) | clear()和copy()均是为了与不支持切片操作的可变容器(如:dict、set)的接口保持一致 |
 | s.copy() | 创建 s 的浅拷贝 (等同于 s[:]) | 同上 |
 | s.extend(t) 或 s += t | 用 t 的内容扩展 s (基本上等同于 s[len(s):len(s)] = t) |  |
-| s *= n | 使用 s 的内容重复 n 次来对其进行更新 | n值为一个整数或一个实现了__index__()的对象，n值为0或负数将清空序列。序列中的项不能被拷贝，会被多次引用 |
+| s *= n | 使用 s 的内容重复 n 次来对其进行更新 | n值为一个整数或一个实现了__index__()的对象，n值为0或负数将清空序列。序列中的项不能<br>被拷贝，会被多次引用 |
 | s.insert(i, x) | 在由 i 给出的索引位置将 x 插入 s (等同于 s[i:i] = [x]) |  |
 | s.pop([i]) | 提取在 i 位置上的项，并将其从 s 中移除 | 可选参数默认为-1，因此默认情况会移除并返回最后一项 |
 | s.remove(x) | 删除 s 中第一个 s[i] 等于 x 的项目。 | 当s找不到x时，remove操作会引发ValueError |
-| s.reverse() | 将列表中的元素逆序 | 当反转比较大的序列时，reverse()方法会原地修改此序列来保证空间经济性，为提醒用户此操作是通过间接影响进行的，它并不会返回反转后的序列 |
+| s.reverse() | 将列表中的元素逆序 | 当反转比较大的序列时，reverse()方法会原地修改此序列来保证空间经济性，为提醒用户此操作是通过间接<br>影响进行的，它并不会返回反转后的序列 |
 
 #### Python运算符优先级
 
@@ -513,7 +532,8 @@ deque被设计用于快速从两端操作
 元组是不可变序列，给元祖的单独一个元素赋值是不允许的，空元祖由一对空圆括号创建，含有一个元素的元祖可以通过再此元祖之后添加一个逗号创建
 
 ```markdown
-# 元组与字符串类似，可以被索引且下标索引从0开始，也可以进行截取/切片。其实，可以把字符串看作一种特殊的元组。改元组元素的操作是非法的,元组也支持用+操作符
+# 元组与字符串类似，可以被索引且下标索引从0开始，也可以进行截取/切片。其实，可以把字符串看作一种特殊的元组。改元组元素的操作是非法的,元组
+  也支持用+操作符
 # 虽然tuple的元素不可改变，但它可以包含可变的对象，比如list列表。构造包含0个或1个元素的tuple是个特殊的问题，所以有一些额外的语法规则：
 tup1 = ()    # 空元组
 tup2 = (20,) # 单元组，需要在元素后添加逗号
@@ -567,15 +587,17 @@ Python中的文本数据由str对象或字符串处理，字符串是Unicode的�
 | :------: | :------: |
 | str.capitalize() | 返回字符串的副本，其首字符大写，其余字符小写 |
 | str.lower(),str.upper() | 返回字符串的副本，并将所有套接字符转换为小写或大写 |
-| str.strip([chars]) | 返回删除了开头和结尾字符的字符串副本。 chars参数是一个字符串，指定要删除的字符集。如果省略或None，则chars参数默认为删除空格 |
+| str.strip([chars]) | 返回删除了开头和结尾字符的字符串副本。 chars参数是一个字符串，指定要删除的字符集。如果省略或None，则chars参数<br>默认为删除空格 |
 | str.isalpha()/str.isdigit()/str.isspace()...  | 测试所有字符串字符是否在各种字符类中 |
-| str.find() | 检测字符串中是否包含子字符串str，如果指定start和end范围，则检查是否包含在指定范围内，如果包含子字符串返回最低的索引值，否则返回-1 |
+| str.find() | 检测字符串中是否包含子字符串str，如果指定start和end范围，则检查是否包含在指定范围内，如果包含子字符串返回最低的索引值，<br>否则返回-1 |
+| str.format(*args, **kwargs) | 执行字符串格式化操作。调用此方法的字符串可以包含由大括号{}分隔的文字文本或替换字段。每个替换字段都<br>包含位置参数的数字索引或关键字参数的名称。返回字符串的副本，其中每个替换字段都替换为相应参数的字符串值 |
+| str.split(sep=None, maxsplit=-1) | 返回字符串中的单词组成的列表，使用sep作为分割的字符，若给出sep，则连续的分隔字符不会组合在一起，<br>并被视为划分空字符串,如果给出maxsplit，列表最多只有maxsplit + 1个元素,如果maxsplit没有给出或者是-1，则没有分割数量限制
+| str.splitlines([keepends]) | 返回字符串中的行作为列表，在行边界处断开。除非给出keepends且为true，否则换行符不包括在结果列表中;此方法<br>在以下边界处进行分割 |
 
-str.splitlines([keepends])      返回字符串中的行列表，在行边界处断开。除非给出keepends且为true，否则换行符不包括在结果列表中;此方法在以下边界处进行分割
 | 表示 | 描述 |
 | :------: | :------: |
 | \n | 换行 |
-| \r | 回程 |
+| \r | 回车 |
 | \r\n | 回车+换行 |
 | \v or \x0b | 行列表 |
 | \f or \x0c | 换页 |
@@ -1219,8 +1241,9 @@ BaseException
 
 ### 常见字符串操作
 
-| 字符串常量 | 描述 |
+| 字符串 | 描述 |
 | :------: | :------: |
+| string.capwords(s, sep) | 将以sep分割的字符首字母大写，没有sep默认是首字母 |
 | string.ascii_letters | 以下lowercase和uppercase两个常量的串联 |
 | string.ascii_lowercase | 小写字母abcdefghijklmnopqrstuvwxyz |
 | string.ascii_uppercase | 大写字母ABCDEFGHIJKLMNOPQRSTUVWXYZ |
@@ -1283,18 +1306,34 @@ print('%.2f' % 3.1415926)
 
 re模块与Perl语言类似的正则表达式匹配操作，模式和被搜索的字符串可以使Unicode字符串也可以是8为字节串(bytes)，但Unicode和
 8位字节串不能混用。因反斜杠\在Python中和在正则表达式中，都具有将把特殊字符转换为普通字符串的作用。所以在正则表达式模式
-要写成`\\\\`。解决办法是对于正则表达式样式用带有r前缀的表示Python原始字符的方法。
+要写成`\\\\`。解决办法是对于正则表达式样式用带有r前缀的表示Python原始字符的方法
 
-#### 常用正则表达式
+常用正则表达式匹配：[详细点击此处了解](https://devdocs.io/python~3.7/library/re)
 
-[详细点击此处了解](https://devdocs.io/python~3.7/library/re)
+|  |  |
+| :------: | :------: |
+| re.search(pattern, string, flags=0) | 查找在string中与pattern匹配的第一个位置字符，并返回匹配对象和位置。如果string中没有<br>与模式匹配，则返回None |
+|  |  |
+|  |  |
+|  |  |
 
 ### difflib -- helpers for computing deltas
 
+| :------: | :------: |
 [详细点击此处了解](https://devdocs.io/python~3.7/library/difflib)
 
+### textwrap
 
-[textwrap](https://devdocs.io/python~3.7/library/textwrap)
+通过调整段落中出现换行符的位置来格式化文本。TextWrapper构造函数接受许多可选的关键字参数。每个关键字参数对应一个实例属性
+
+|  |  |
+| :------: | :------: |
+| textwrap.wrap(text, width=79, **kwargs) | 将text以width长度划分段落，输出以长度划分的行列表 |
+| textwrap.fill(text, width=79, **kwargs) | 将text以width长度划分为新的一行 |
+| textwrap.shorten(text, width, **kwargs) | 截断给定文本以适合给定宽度并以[...]折叠被截断的文本 |
+| textwrap.dedent(text) | 从文本的每一行中删除任何常见的前导空格、制表符 |
+| textwrap.indent(text, prefix, predicate=None) | 在文本中选定行的开头添加前缀 |
+
 [unicodedata](https://devdocs.io/python~3.7/library/unicodedata)
 [stringprep](https://devdocs.io/python~3.7/library/stringprep)
 [readline](https://devdocs.io/python~3.7/library/readline)
