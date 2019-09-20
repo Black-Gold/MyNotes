@@ -805,6 +805,27 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    代理设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本使用流程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#git_1" class="md-nav__link">
     常用git命令
   </a>
@@ -1148,6 +1169,27 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    代理设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本使用流程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#git_1" class="md-nav__link">
     常用git命令
   </a>
@@ -1173,13 +1215,39 @@
                   <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/Git.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="git">Git使用规范流程<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
+                <h1 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
+<h2 id="_1">代理设置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="c1"># http和https协议设置socks5代理</span>
+git config --global http.proxy <span class="s1">&#39;socks5h://127.0.0.1:1080&#39;</span>   <span class="c1"># socks5, h表示包括域名解析</span>
+git config --global http.proxy http://127.0.0.1:108 <span class="c1"># 设置http和https代理</span>
+git config --global --unset http.proxy  <span class="c1"># 取消代理</span>
+
+git config --global http.https://github.com.proxy socks5://127.0.0.1:1080   <span class="c1"># 只对github.com设置代理</span>
+git config --global --unset http.https://github.com.proxy  <span class="c1"># 取消对github.com的代理</span>
+
+<span class="c1"># ssh协议设置代理</span>
+<span class="c1"># Linux修改~/.ssh/config文件，添加如下内容</span>
+Host github.com
+User git
+ProxyCommand nc -v -x <span class="m">127</span>.0.0.1:1080 %h %p
+<span class="c1"># Windows在用户目录下修改.ssh/config文件，注意要安装gitforwindows并设置环境变量</span>
+Host github.com
+User git
+ProxyCommand connect -S <span class="m">127</span>.0.0.1:1080 %h %p
+</pre></div>
+
+<h2 id="_2">基本设置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>git config --global core.autocrlf <span class="nb">true</span>  <span class="c1"># 设置true后，提交时自动转为LF，签出时自动转为crlf</span>
+git config --global core.autocrlf input <span class="c1"># 提交时自动转为LF，签出时不自动转为CRLF</span>
+git config --global core.autocrlf <span class="nb">false</span> <span class="c1"># 提交和签出时保留crlf换行</span>
+</pre></div>
+
+<h2 id="_3">基本使用流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="c1"># 安装后设置用户名和邮箱：</span>
 git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
 git config --global user.email <span class="s2">&quot;email@example.com&quot;</span>
 
-<span class="c1"># 初始化仓库</span>
-git init
+git init    <span class="c1"># 初始化仓库</span>
 
 <span class="c1"># 每次开发一个新功能，都应该建一个新的单独分支,获取主干master代码</span>
 git checkout master
@@ -1271,7 +1339,7 @@ git add -p
 git rm <span class="o">[</span>file1<span class="o">]</span> <span class="o">[</span>file2<span class="o">]</span> ...
 
 <span class="c1"># 停止追踪指定文件，但该文件会保留在工作区</span>
-git rm --cached <span class="o">[</span>file<span class="o">]</span>
+git rm -r --cached <span class="o">[</span>file<span class="o">]</span>
 
 <span class="c1"># 改名文件，并且将这个改名放入暂存区</span>
 git mv <span class="o">[</span>file-original<span class="o">]</span> <span class="o">[</span>file-renamed<span class="o">]</span>
