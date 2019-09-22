@@ -344,6 +344,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#eof" class="md-nav__link">
+    EOF常见用法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shell_2" class="md-nav__link">
     shell特殊变量基本解释
   </a>
@@ -379,7 +386,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    特殊变量类型
+    变量类型
   </a>
   
 </li>
@@ -470,6 +477,61 @@
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     数字常量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    定义一个颜色输出字符串函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    批量创建用户
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shellcpu" class="md-nav__link">
+    shell采集系统cpu 内存 磁盘 网络信息
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    cpu信息采集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    内存采集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    磁盘信息采集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    网络信息采集
   </a>
   
 </li>
@@ -1291,6 +1353,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#eof" class="md-nav__link">
+    EOF常见用法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shell_2" class="md-nav__link">
     shell特殊变量基本解释
   </a>
@@ -1326,7 +1395,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    特殊变量类型
+    变量类型
   </a>
   
 </li>
@@ -1426,6 +1495,61 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    定义一个颜色输出字符串函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    批量创建用户
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shellcpu" class="md-nav__link">
+    shell采集系统cpu 内存 磁盘 网络信息
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    cpu信息采集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    内存采集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    磁盘信息采集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    网络信息采集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1467,6 +1591,24 @@
 : <span class="s1">&#39;</span>
 <span class="s1">语句</span>
 <span class="s1">&#39;</span>
+</pre></div>
+
+<h2 id="eof">EOF常见用法<a class="headerlink" href="#eof" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="c1"># 编写SHELL显示多个信息</span>
+cat <span class="s">&lt;&lt;EOF</span>
+<span class="s">+--------------------------------------------------------------+</span>
+<span class="s">|         === Welcome to Tunoff services ===                   |</span>
+<span class="s">+--------------------------------------------------------------+</span>
+<span class="s">EOF</span>
+
+<span class="c1"># 将mongodbrepo写入到mongodb.repo文件</span>
+cat <span class="s">&lt;&lt; EOF &gt; /etc/yum.repos.d/mongodb.repo</span>
+<span class="s">[mongodb-org-3.4]</span>
+<span class="s">name=MongoDB 3.4 Repository</span>
+<span class="s">baseurl=https://mirrors.aliyun.com/mongodb/yum/redhat/\$releasever/mongodb-org/3.4/\$basearch/</span>
+<span class="s">gpgcheck=0</span>
+<span class="s">enabled=1</span>
+<span class="s">EOF</span>
 </pre></div>
 
 <h2 id="shell_2">shell特殊变量基本解释<a class="headerlink" href="#shell_2" title="Permanent link">&para;</a></h2>
@@ -1709,7 +1851,7 @@ $0     # (常用)当前shell名(当前执行进程的进程名，如果执行脚
 <span class="s">comment</span>
 </pre></div>
 
-<h2 id="_1">特殊变量类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">变量类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="c1"># 局部变量：只在代码块或一个函数中有效</span>
 <span class="c1"># 环境变量：其会影响shell的行为和用户接口，大部分情况下，每个进程都有一个环境，其由进程使用的环境变量组成</span>
 <span class="c1"># 分配给环境变量的总空间有限，若创建太多环境变量或有些环境变量的值太长而占用过多空间则会出错</span>
@@ -2507,6 +2649,142 @@ zcat <span class="nv">$1</span> <span class="p">|</span> more  <span class="c1">
 
 <span class="c1">#  提示：使用一个超出给定进制的数字将会引起一个错误信息，例如：</span>
 <span class="nb">let</span> <span class="s2">&quot;bad_oct = 081&quot;</span>     <span class="c1"># 此例子会发生错误，因为八进制数字只能使用数字0-7.</span>
+</pre></div>
+
+<h2 id="_10">定义一个颜色输出字符串函数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="c1"># function关键字定义一个函数，可加或不加</span>
+方法一：
+<span class="k">function</span> echo_color<span class="o">(){</span>
+ <span class="k">if</span> <span class="o">[</span><span class="nv">$1</span> <span class="o">==</span> <span class="s2">&quot;green&quot;</span><span class="o">]</span><span class="p">;</span><span class="k">then</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;\033[32;40m</span><span class="nv">$2</span><span class="s2">\033[0m&quot;</span>
+ <span class="k">elif</span> <span class="o">[</span><span class="nv">$1</span> <span class="o">==</span> <span class="s2">&quot;red&quot;</span><span class="m">0</span><span class="o">]</span><span class="p">;</span><span class="k">then</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;\\033[31;40m</span><span class="nv">$2</span><span class="s2">\033[0m&quot;</span>
+ <span class="k">fi</span>
+<span class="o">}</span>
+
+方法二：
+<span class="k">function</span> echo_color<span class="o">(){</span>
+ <span class="k">case</span> <span class="nv">$1</span> in
+  green<span class="o">)</span>
+   <span class="nb">echo</span> -e <span class="s2">&quot;\033[32;40m</span><span class="nv">$2</span><span class="s2">\033[0m&quot;</span>
+   <span class="p">;;</span>
+  red<span class="o">)</span>
+   <span class="nb">echo</span> -e <span class="s2">&quot;\033[31;40m</span><span class="nv">$2</span><span class="s2">\033[0m&quot;</span>
+   <span class="p">;;</span>
+  *<span class="o">)</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Example:echo_color red string&quot;</span>
+  <span class="k">esac</span>
+<span class="o">}</span>
+</pre></div>
+
+<h2 id="_11">批量创建用户<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">DATE</span><span class="o">=</span><span class="k">$(</span>date+%F_%T<span class="k">)</span>
+<span class="nv">USER_FILE</span><span class="o">=</span>user.txt
+echo_color<span class="o">(){</span>
+ <span class="k">if</span> <span class="o">[</span><span class="nv">$1</span> <span class="o">==</span> <span class="s2">&quot;green&quot;</span><span class="o">]</span><span class="p">;</span><span class="k">then</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;\033[32;40m</span><span class="nv">$2</span><span class="s2">\033[0m&quot;</span>
+ <span class="k">elif</span> <span class="o">[</span><span class="nv">$1</span> <span class="o">==</span> <span class="s2">&quot;red&quot;</span><span class="m">0</span><span class="o">]</span><span class="p">;</span><span class="k">then</span>
+  <span class="nb">echo</span> -e <span class="s2">&quot;\\033[31;40m</span><span class="nv">$2</span><span class="s2">\033[0m&quot;</span>
+ <span class="k">fi</span>
+<span class="o">}</span>
+<span class="c1"># 如果用户文件存在并大于0就备份</span>
+ <span class="k">if</span> <span class="o">[</span>-s <span class="nv">$USER_FILE</span><span class="o">]</span><span class="p">;</span><span class="k">then</span>
+  mv <span class="nv">$USER_FILE</span> <span class="si">${</span><span class="nv">USER_FILE</span><span class="si">}</span>-<span class="si">${</span><span class="nv">DATE</span><span class="si">}</span>.bak
+  echo_color green <span class="s2">&quot;</span><span class="nv">$USER_FILE</span><span class="s2"> exist,rename </span><span class="si">${</span><span class="nv">USER_FILE</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">DATE</span><span class="si">}</span><span class="s2">.bak&quot;</span>
+ <span class="k">fi</span>
+ <span class="nb">echo</span>
+</pre></div>
+
+<h2 id="shellcpu">shell采集系统cpu 内存 磁盘 网络信息<a class="headerlink" href="#shellcpu" title="Permanent link">&para;</a></h2>
+<h3 id="cpu">cpu信息采集<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1"># cpu使用率采集算法;通过/proc/stat文件采集并计算CPU总使用率或者单个核使用率。以cpu0为例，算法如下：</span>
+: <span class="s">&lt;&lt; comment</span>
+<span class="s">cat /proc/stat | grep ‘cpu0’ # 得到cpu0的信息</span>
+<span class="s">cpuTotal1=user+nice+system+idle+iowait+irq+softirq</span>
+<span class="s">cpuUsed1=user+nice+system+irq+softirq</span>
+<span class="s">sleep 30秒</span>
+<span class="s"># 再次cat /proc/stat | grep ‘cpu0’ 得到cpu的信息</span>
+<span class="s">cpuTotal2=user+nice+system+idle+iowait+irq+softirq</span>
+<span class="s">cpuUsed2=user+nice+system+irq+softirq</span>
+<span class="s"># 得到cpu0 在30秒内的单核利用率：(cpuUsed2 – cpuUsed1) * 100 / (cpuTotal2 – cpuTotal1)</span>
+<span class="s"># 相当于使用top –d 30命令，把user、nice、system、irq、softirq五项的使用率相加</span>
+<span class="s">comment</span>
+
+<span class="nv">a</span><span class="o">=(</span><span class="sb">`</span>cat /proc/stat <span class="p">|</span> grep -E <span class="s2">&quot;cpu\b&quot;</span> <span class="p">|</span> awk -v <span class="nv">total</span><span class="o">=</span><span class="m">0</span> <span class="se">\</span>
+<span class="s1">&#39;{$1=&quot;&quot;;for(i=2;i&lt;=NF;i++){total+=$i};used=$2+$3+$4+$7+$8 }END{print total,used}&#39;</span><span class="sb">`</span><span class="o">)</span>
+sleep <span class="m">30</span>
+<span class="nv">b</span><span class="o">=(</span><span class="sb">`</span>cat /proc/stat <span class="p">|</span> grep -E <span class="s2">&quot;cpu\b&quot;</span> <span class="p">|</span> awk -v <span class="nv">total</span><span class="o">=</span><span class="m">0</span> <span class="s1">&#39;{$1=&quot;&quot;;for(i=2;i&lt;=NF;i++){total+=$i};used=$2+$3+$4+$7+$8 }\</span>
+<span class="s1">END{print total,used}&#39;</span><span class="sb">`</span><span class="o">)</span>
+<span class="nv">cpu_usage</span><span class="o">=(((</span><span class="si">${</span><span class="nv">b</span><span class="p">[1]</span><span class="si">}</span>-<span class="si">${</span><span class="nv">a</span><span class="p">[1]</span><span class="si">}</span><span class="o">)</span>*100<span class="o">)</span>/<span class="o">(</span><span class="si">${</span><span class="nv">b</span><span class="p">[0]</span><span class="si">}</span>-<span class="si">${</span><span class="nv">a</span><span class="p">[0]</span><span class="si">}</span><span class="o">)))</span>  <span class="c1"># 此处语法有问题，暂未修复</span>
+
+<span class="c1"># cpu负载采集算法：读取/proc/loadavg得到机器的1/5/15分钟平均负载，再乘以100</span>
+
+<span class="nv">cpuload</span><span class="o">=(</span><span class="sb">`</span>cat /proc/loadavg <span class="p">|</span> awk <span class="s1">&#39;{print $1,$2,$3}&#39;</span><span class="sb">`</span><span class="o">)</span>
+<span class="nv">load1</span><span class="o">=</span><span class="si">${</span><span class="nv">cpuload</span><span class="p">[0]</span><span class="si">}</span>
+<span class="nv">load5</span><span class="o">=</span><span class="si">${</span><span class="nv">cpuload</span><span class="p">[1]</span><span class="si">}</span>
+<span class="nv">load15</span><span class="o">=</span><span class="si">${</span><span class="nv">cpuload</span><span class="p">[2]</span><span class="si">}</span>
+</pre></div>
+
+<h3 id="_12">内存采集<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1"># 应用程序使用内存采集算法：读取/proc/meminfo文件，(MemTotal – MemFree – Buffers – Cached)/1024得到应用程序使用内存数</span>
+
+awk <span class="s1">&#39;/MemTotal/{total=$2}/MemFree/{free=$2}/Buffers/{buffers=$2}/^Cached/{cached=$2}END\</span>
+<span class="s1">{print (total-free-buffers-cached)/1024}&#39;</span>  /proc/meminfo
+
+<span class="c1"># MEM使用量采集算法：读取/proc/meminfo文件，MemTotal – MemFree得到MEM使用量</span>
+
+awk <span class="s1">&#39;/MemTotal/{total=$2}/MemFree/{free=$2}END{print (total-free)/1024}&#39;</span>  /proc/meminfo
+
+<span class="c1"># SWAP使用大小采集算法：通过/proc/meminfo文件，SwapTotal – SwapFree得到SWAP使用大小</span>
+
+awk <span class="s1">&#39;/SwapTotal/{total=$2}/SwapFree/{free=$2}END{print (total-free)/1024}&#39;</span>  /proc/meminfo
+</pre></div>
+
+<h3 id="_13">磁盘信息采集<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1"># 磁盘I/O</span>
+<span class="c1"># IN：平均每秒把数据从硬盘读到物理内存的数据量</span>
+<span class="c1"># 采集算法：读取/proc/vmstat文件得出最近240秒内pgpgin的增量，把pgpgin的增量再除以240得到每秒的平均增量</span>
+<span class="c1"># 相当于vmstat 240命令bi一列的输出</span>
+
+<span class="nv">a</span><span class="o">=</span><span class="sb">`</span>awk <span class="s1">&#39;/pgpgin/{print $2}&#39;</span> /proc/vmstat<span class="sb">`</span>
+<span class="c1">#sleep 240</span>
+<span class="nv">b</span><span class="o">=</span><span class="sb">`</span>awk <span class="s1">&#39;/pgpgin/{print $2}&#39;</span> /proc/vmstat<span class="sb">`</span>
+<span class="nv">ioin</span><span class="o">=</span><span class="k">$((</span>b-a<span class="o">)/</span><span class="m">240</span><span class="k">))</span>
+
+<span class="c1"># OUT：平均每秒把数据从物理内存写到硬盘的数据量</span>
+<span class="c1"># 采集算法：读取/proc/vmstat文件得出最近240秒内pgpgout的增量，把pgpgout的增量再除以240得到每秒的平均增量</span>
+<span class="c1"># 相当于vmstat 240命令bo一列的输出</span>
+
+<span class="nv">a</span><span class="o">=</span><span class="sb">`</span>awk <span class="s1">&#39;/pgpgout/{print $2}&#39;</span> /proc/vmstat<span class="sb">`</span>
+sleep <span class="m">240</span>
+<span class="nv">b</span><span class="o">=</span><span class="sb">`</span>awk <span class="s1">&#39;/pgpgout/{print $2}&#39;</span> /proc/vmstat<span class="sb">`</span>
+<span class="nv">ioout</span><span class="o">=</span><span class="k">$((</span><span class="o">(</span>b-a<span class="o">)/</span><span class="m">240</span><span class="k">))</span>
+</pre></div>
+
+<h3 id="_14">网络信息采集<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1"># 流量:以https://www.centos.bz/为例，eth0是内网，eth1外网，获取60秒的流量</span>
+<span class="c1"># 机器网卡的平均每秒流量</span>
+<span class="c1"># 采集算法：读取/proc/net/dev文件，得到60秒内发送和接收的字节数（KB），然后乘以8，再除以60，得到每秒的平均流量</span>
+
+<span class="nv">traffic_be</span><span class="o">=(</span><span class="sb">`</span>awk -F<span class="s1">&#39;[: ]+&#39;</span> <span class="s1">&#39;BEGIN{ORS=&quot; &quot;}/eth0/{print $3,$10}/eth1/{print $3,$11}&#39;</span> /proc/net/dev<span class="sb">`</span><span class="o">)</span>
+sleep <span class="m">60</span>
+<span class="nv">traffic_af</span><span class="o">=(</span><span class="sb">`</span>awk -F<span class="s1">&#39;[: ]+&#39;</span> <span class="s1">&#39;BEGIN{ORS=&quot; &quot;}/eth0/{print $3,$10}/eth1/{print $3,$11}&#39;</span> /proc/net/dev<span class="sb">`</span><span class="o">)</span>
+<span class="nv">eth0_in</span><span class="o">=</span><span class="k">$((</span> <span class="o">(</span><span class="si">${</span><span class="nv">traffic_af</span><span class="p">[0]</span><span class="si">}</span><span class="o">-</span><span class="si">${</span><span class="nv">traffic_be</span><span class="p">[0]</span><span class="si">}</span><span class="o">)/</span><span class="m">60</span> <span class="k">))</span>
+<span class="nv">eth0_out</span><span class="o">=</span><span class="k">$((</span> <span class="o">(</span><span class="si">${</span><span class="nv">traffic_af</span><span class="p">[1]</span><span class="si">}</span><span class="o">-</span><span class="si">${</span><span class="nv">traffic_be</span><span class="p">[1]</span><span class="si">}</span><span class="o">)/</span><span class="m">60</span> <span class="k">))</span>
+<span class="nv">eth1_in</span><span class="o">=</span><span class="k">$((</span> <span class="o">(</span><span class="si">${</span><span class="nv">traffic_af</span><span class="p">[2]</span><span class="si">}</span><span class="o">-</span><span class="si">${</span><span class="nv">traffic_be</span><span class="p">[2]</span><span class="si">}</span><span class="o">)/</span><span class="m">60</span> <span class="k">))</span>
+<span class="nv">eth1_out</span><span class="o">=</span><span class="k">$((</span> <span class="o">(</span><span class="si">${</span><span class="nv">traffic_af</span><span class="p">[3]</span><span class="si">}</span><span class="o">-</span><span class="si">${</span><span class="nv">traffic_be</span><span class="p">[3]</span><span class="si">}</span><span class="o">)/</span><span class="m">60</span> <span class="k">))</span>
+
+<span class="c1"># 数据包量：机器网卡的平均每秒包量</span>
+<span class="c1"># 采集算法：读取/proc/net/dev文件，得到60秒内发送和接收的包量，然后除以60，得到每秒的平均包量</span>
+
+<span class="nv">packet_be</span><span class="o">=(</span><span class="sb">`</span>awk -F<span class="s1">&#39;[: ]+&#39;</span> <span class="s1">&#39;BEGIN{ORS=&quot; &quot;}/eth0/{print $4,$12}/eth1/{print $4,$12}&#39;</span> /proc/net/dev<span class="sb">`</span><span class="o">)</span>
+sleep <span class="m">60</span>
+<span class="nv">packet_af</span><span class="o">=(</span><span class="sb">`</span>awk -F<span class="s1">&#39;[: ]+&#39;</span> <span class="s1">&#39;BEGIN{ORS=&quot; &quot;}/eth0/{print $4,$12}/eth1/{print $4,$12}&#39;</span> /proc/net/dev<span class="sb">`</span><span class="o">)</span>
+<span class="nv">eth0_in</span><span class="o">=</span><span class="k">$((</span> <span class="o">(</span><span class="si">${</span><span class="nv">packet_af</span><span class="p">[0]</span><span class="si">}</span><span class="o">-</span><span class="si">${</span><span class="nv">packet_be</span><span class="p">[0]</span><span class="si">}</span><span class="o">)/</span><span class="m">60</span> <span class="k">))</span>
+<span class="nv">eth0_out</span><span class="o">=</span><span class="k">$((</span> <span class="o">(</span><span class="si">${</span><span class="nv">packet_af</span><span class="p">[1]</span><span class="si">}</span><span class="o">-</span> <span class="si">${</span><span class="nv">packet_be</span><span class="p">[1]</span><span class="si">}</span><span class="o">)/</span><span class="m">60</span> <span class="k">))</span>
+<span class="nv">eth1_in</span><span class="o">=</span><span class="k">$((</span> <span class="o">(</span><span class="si">${</span><span class="nv">packet_af</span><span class="p">[2]</span><span class="si">}</span><span class="o">-</span> <span class="si">${</span><span class="nv">packet_be</span><span class="p">[2]</span><span class="si">}</span><span class="o">)/</span><span class="m">60</span> <span class="k">))</span>
+<span class="nv">eth1_out</span><span class="o">=</span><span class="k">$((</span> <span class="o">(</span><span class="si">${</span><span class="nv">packet_af</span><span class="p">[3]</span><span class="si">}</span><span class="o">-</span> <span class="si">${</span><span class="nv">packet_be</span><span class="p">[3]</span><span class="si">}</span><span class="o">)/</span><span class="m">60</span> <span class="k">))</span>
 </pre></div>
                 
                   
