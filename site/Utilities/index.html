@@ -2388,6 +2388,7 @@ netstat -an <span class="p">|</span> grep <span class="s1">&#39;:80&#39;</span>
 netstat -ntu <span class="p">|</span> grep :80 <span class="p">|</span> awk <span class="s1">&#39;{print $5}&#39;</span> <span class="p">|</span> cut -d: -f1 <span class="p">|</span> awk <span class="s1">&#39;{++ip[$1]} END {for(i in ip) print ip[i],&quot;\t&quot;,i}&#39;</span> <span class="p">|</span> sort -nr <span class="p">|</span> head -n <span class="m">20</span>
 netstat -anlp<span class="p">|</span>grep <span class="m">80</span><span class="p">|</span>grep tcp<span class="p">|</span>awk <span class="s1">&#39;{print $5}&#39;</span><span class="p">|</span>awk -F: <span class="s1">&#39;{print $1}&#39;</span><span class="p">|</span>sort<span class="p">|</span>uniq -c<span class="p">|</span>sort -nr <span class="p">|</span> head -n <span class="m">20</span>
 netstat -nat <span class="p">|</span>awk <span class="s1">&#39;/:80/{split($5,ip,&quot;:&quot;);++A[ip[1]]}END{for(i in A) print A[i],i}&#39;</span> <span class="p">|</span>sort -rn <span class="p">|</span> head -n <span class="m">20</span>
+netstat -nat <span class="p">|</span> grep <span class="s2">&quot;:80&quot;</span> <span class="p">|</span> grep ESTABLISHED <span class="p">|</span> awk <span class="s1">&#39;{printf &quot;%s %s\n&quot;,$5,$6}&#39;</span> <span class="p">|</span> sort -rn <span class="p">|</span> head -n <span class="m">20</span>
 
 <span class="c1"># 根据端口列出进程</span>
 netstat -ntlp <span class="p">|</span> grep <span class="m">80</span> <span class="p">|</span> awk <span class="s1">&#39;{print $7}&#39;</span> <span class="p">|</span> cut -d: -f1
@@ -2398,14 +2399,11 @@ tcpdump -i eth0 -tnn dst port <span class="m">80</span> -c <span class="m">1000<
 <span class="c1"># 查看phpcgi进程数，如果接近预设值，说明不够用，需要增加</span>
 netstat -anpo <span class="p">|</span> grep <span class="s2">&quot;php-cgi&quot;</span> <span class="p">|</span> wc -l
 
-<span class="c1"># 查看TCP连接状态及连接数的命令</span>
+<span class="c1"># 查看TCP连接状态、并发及连接数的命令</span>
 netstat -n <span class="p">|</span> awk <span class="s1">&#39;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&#39;</span>
 netstat -nat <span class="p">|</span> awk <span class="s1">&#39;{print $NF}&#39;</span> <span class="p">|</span> grep -v <span class="s1">&#39;[a-z]&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -rn
-
 netstat -n <span class="p">|</span> awk <span class="s1">&#39;/^tcp/ {++state[$NF]}; END {for(key in state) print key,&quot;\t&quot;,state[key]}&#39;</span>
-或
 netstat -n <span class="p">|</span> awk <span class="s1">&#39;/^tcp/ {++arr[$NF]};END {for(k in arr) print k,&quot;\t&quot;,arr[k]}&#39;</span>
-
 netstat -nt <span class="p">|</span> grep -e <span class="m">127</span>.0.0.1 -e <span class="m">0</span>.0.0.0 -e ::: -v <span class="p">|</span> awk <span class="s1">&#39;/^tcp/ {++state[$NF]} END {for(i in state) print i,&quot;\t&quot;,state[i]}&#39;</span>
 
 <span class="c1"># 查找前20的time_wait连接</span>

@@ -23,6 +23,27 @@ bash shell本身不支持正则表达式，使用正则的是shell命令和工�
 '
 ```
 
+## EOF常见用法
+
+```bash
+# 编写SHELL显示多个信息
+cat <<EOF
++--------------------------------------------------------------+
+|         === Welcome to Tunoff services ===                   |
++--------------------------------------------------------------+
+EOF
+
+# 将mongodbrepo写入到mongodb.repo文件
+cat << EOF > /etc/yum.repos.d/mongodb.repo
+[mongodb-org-3.4]
+name=MongoDB 3.4 Repository
+baseurl=https://mirrors.aliyun.com/mongodb/yum/redhat/\$releasever/mongodb-org/3.4/\$basearch/
+gpgcheck=0
+enabled=1
+EOF
+
+```
+
 ## shell特殊变量基本解释
 
 ```markdown
@@ -225,7 +246,7 @@ comment
 
 ```
 
-## 特殊变量类型
+## 变量类型
 
 ```bash
 # 局部变量：只在代码块或一个函数中有效
@@ -729,5 +750,159 @@ echo $((36#zz)) $((2#10101010)) $((16#AF16)) $((53#1aA))    # 1295 170 44822 337
 
 #  提示：使用一个超出给定进制的数字将会引起一个错误信息，例如：
 let "bad_oct = 081"     # 此例子会发生错误，因为八进制数字只能使用数字0-7.
+
+```
+
+## 定义一个颜色输出字符串函数
+
+```bash
+# function关键字定义一个函数，可加或不加
+方法一：
+function echo_color(){
+ if [$1 == "green"];then
+  echo -e "\033[32;40m$2\033[0m"
+ elif [$1 == "red"0];then
+  echo -e "\\033[31;40m$2\033[0m"
+ fi
+}
+
+方法二：
+function echo_color(){
+ case $1 in
+  green)
+   echo -e "\033[32;40m$2\033[0m"
+   ;;
+  red)
+   echo -e "\033[31;40m$2\033[0m"
+   ;;
+  *)
+   echo "Example:echo_color red string"
+  esac
+}
+```
+
+## 批量创建用户
+
+```bash
+#!/bin/bash
+DATE=$(date+%F_%T)
+USER_FILE=user.txt
+echo_color(){
+ if [$1 == "green"];then
+  echo -e "\033[32;40m$2\033[0m"
+ elif [$1 == "red"0];then
+  echo -e "\\033[31;40m$2\033[0m"
+ fi
+}
+# 如果用户文件存在并大于0就备份
+ if [-s $USER_FILE];then
+  mv $USER_FILE ${USER_FILE}-${DATE}.bak
+  echo_color green "$USER_FILE exist,rename ${USER_FILE}-${DATE}.bak"
+ fi
+ echo
+```
+
+## shell采集系统cpu 内存 磁盘 网络信息
+
+### cpu信息采集
+
+```bash
+# cpu使用率采集算法;通过/proc/stat文件采集并计算CPU总使用率或者单个核使用率。以cpu0为例，算法如下：
+: << comment
+cat /proc/stat | grep ‘cpu0’ # 得到cpu0的信息
+cpuTotal1=user+nice+system+idle+iowait+irq+softirq
+cpuUsed1=user+nice+system+irq+softirq
+sleep 30秒
+# 再次cat /proc/stat | grep ‘cpu0’ 得到cpu的信息
+cpuTotal2=user+nice+system+idle+iowait+irq+softirq
+cpuUsed2=user+nice+system+irq+softirq
+# 得到cpu0 在30秒内的单核利用率：(cpuUsed2 – cpuUsed1) * 100 / (cpuTotal2 – cpuTotal1)
+# 相当于使用top –d 30命令，把user、nice、system、irq、softirq五项的使用率相加
+comment
+
+a=(`cat /proc/stat | grep -E "cpu\b" | awk -v total=0 \
+'{$1="";for(i=2;i<=NF;i++){total+=$i};used=$2+$3+$4+$7+$8 }END{print total,used}'`)
+sleep 30
+b=(`cat /proc/stat | grep -E "cpu\b" | awk -v total=0 '{$1="";for(i=2;i<=NF;i++){total+=$i};used=$2+$3+$4+$7+$8 }\
+END{print total,used}'`)
+cpu_usage=(((${b[1]}-${a[1]})*100)/(${b[0]}-${a[0]})))  # 此处语法有问题，暂未修复
+
+# cpu负载采集算法：读取/proc/loadavg得到机器的1/5/15分钟平均负载，再乘以100
+
+cpuload=(`cat /proc/loadavg | awk '{print $1,$2,$3}'`)
+load1=${cpuload[0]}
+load5=${cpuload[1]}
+load15=${cpuload[2]}
+
+```
+
+### 内存采集
+
+```bash
+# 应用程序使用内存采集算法：读取/proc/meminfo文件，(MemTotal – MemFree – Buffers – Cached)/1024得到应用程序使用内存数
+
+awk '/MemTotal/{total=$2}/MemFree/{free=$2}/Buffers/{buffers=$2}/^Cached/{cached=$2}END\
+{print (total-free-buffers-cached)/1024}'  /proc/meminfo
+
+# MEM使用量采集算法：读取/proc/meminfo文件，MemTotal – MemFree得到MEM使用量
+
+awk '/MemTotal/{total=$2}/MemFree/{free=$2}END{print (total-free)/1024}'  /proc/meminfo
+
+# SWAP使用大小采集算法：通过/proc/meminfo文件，SwapTotal – SwapFree得到SWAP使用大小
+
+awk '/SwapTotal/{total=$2}/SwapFree/{free=$2}END{print (total-free)/1024}'  /proc/meminfo
+
+```
+
+### 磁盘信息采集
+
+```bash
+
+# 磁盘I/O
+# IN：平均每秒把数据从硬盘读到物理内存的数据量
+# 采集算法：读取/proc/vmstat文件得出最近240秒内pgpgin的增量，把pgpgin的增量再除以240得到每秒的平均增量
+# 相当于vmstat 240命令bi一列的输出
+
+a=`awk '/pgpgin/{print $2}' /proc/vmstat`
+#sleep 240
+b=`awk '/pgpgin/{print $2}' /proc/vmstat`
+ioin=$((b-a)/240))
+
+# OUT：平均每秒把数据从物理内存写到硬盘的数据量
+# 采集算法：读取/proc/vmstat文件得出最近240秒内pgpgout的增量，把pgpgout的增量再除以240得到每秒的平均增量
+# 相当于vmstat 240命令bo一列的输出
+
+a=`awk '/pgpgout/{print $2}' /proc/vmstat`
+sleep 240
+b=`awk '/pgpgout/{print $2}' /proc/vmstat`
+ioout=$(((b-a)/240))
+
+```
+
+### 网络信息采集
+
+```bash
+# 流量:以https://www.centos.bz/为例，eth0是内网，eth1外网，获取60秒的流量
+# 机器网卡的平均每秒流量
+# 采集算法：读取/proc/net/dev文件，得到60秒内发送和接收的字节数（KB），然后乘以8，再除以60，得到每秒的平均流量
+
+traffic_be=(`awk -F'[: ]+' 'BEGIN{ORS=" "}/eth0/{print $3,$10}/eth1/{print $3,$11}' /proc/net/dev`)
+sleep 60
+traffic_af=(`awk -F'[: ]+' 'BEGIN{ORS=" "}/eth0/{print $3,$10}/eth1/{print $3,$11}' /proc/net/dev`)
+eth0_in=$(( (${traffic_af[0]}-${traffic_be[0]})/60 ))
+eth0_out=$(( (${traffic_af[1]}-${traffic_be[1]})/60 ))
+eth1_in=$(( (${traffic_af[2]}-${traffic_be[2]})/60 ))
+eth1_out=$(( (${traffic_af[3]}-${traffic_be[3]})/60 ))
+
+# 数据包量：机器网卡的平均每秒包量
+# 采集算法：读取/proc/net/dev文件，得到60秒内发送和接收的包量，然后除以60，得到每秒的平均包量
+
+packet_be=(`awk -F'[: ]+' 'BEGIN{ORS=" "}/eth0/{print $4,$12}/eth1/{print $4,$12}' /proc/net/dev`)
+sleep 60
+packet_af=(`awk -F'[: ]+' 'BEGIN{ORS=" "}/eth0/{print $4,$12}/eth1/{print $4,$12}' /proc/net/dev`)
+eth0_in=$(( (${packet_af[0]}-${packet_be[0]})/60 ))
+eth0_out=$(( (${packet_af[1]}- ${packet_be[1]})/60 ))
+eth1_in=$(( (${packet_af[2]}- ${packet_be[2]})/60 ))
+eth1_out=$(( (${packet_af[3]}- ${packet_be[3]})/60 ))
 
 ```

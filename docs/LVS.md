@@ -1,7 +1,8 @@
 # Linux Virtual Server
 
-```txt
-Linux虚拟服务器是一个高度可扩展且高度可用的服务器，构建在真实服务器集群上。服务器群集的体系结构对最终用户完全透明，用户与群集系统进行交互，就好像它只是一个高性能的虚拟服务器一样。
+```markdown
+Linux虚拟服务器是一个高度可扩展且高度可用的服务器，构建在真实服务器集群上。服务器群集的体系结构对最终用户完全透明，用户与群集系统进行交互，
+就好像它只是一个高性能的虚拟服务器一样
 ```
 
 ![figure](http://www.linuxvirtualserver.org/VirtualServer.png)
@@ -31,7 +32,7 @@ LinuxVirtualServer以三种IP负载均衡技术(数据包转发方法)实现。
 
 VS/NAT，VS/TUN和VS/DR的比较：
 |      对比方面       |   VS/NAT   |  VS/TUN   |   VS/DR    |
-| :-----------------: | :--------: | :-------: | :--------: |
+| :--------: | :--------: | :-------: | :--------: |
 |     realserver      |    任何    |   隧道    | 非ARP设备  |
 | realserver network  |    私有    |  lan/wan  |    lan     |
 | realserver numbers  | low(10-20) |   high    |    high    |

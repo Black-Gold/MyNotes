@@ -1176,11 +1176,12 @@ netstat -an | grep ':80'
 
 ## IP和TCP分析
 
-```sh
+```bash
 #查看连接某服务端口前20个IP地址及连接数：
 netstat -ntu | grep :80 | awk '{print $5}' | cut -d: -f1 | awk '{++ip[$1]} END {for(i in ip) print ip[i],"\t",i}' | sort -nr | head -n 20
 netstat -anlp|grep 80|grep tcp|awk '{print $5}'|awk -F: '{print $1}'|sort|uniq -c|sort -nr | head -n 20
 netstat -nat |awk '/:80/{split($5,ip,":");++A[ip[1]]}END{for(i in A) print A[i],i}' |sort -rn | head -n 20
+netstat -nat | grep ":80" | grep ESTABLISHED | awk '{printf "%s %s\n",$5,$6}' | sort -rn | head -n 20
 
 # 根据端口列出进程
 netstat -ntlp | grep 80 | awk '{print $7}' | cut -d: -f1
@@ -1191,14 +1192,11 @@ tcpdump -i eth0 -tnn dst port 80 -c 1000 | awk -F"." '{print $1"."$2"."$3"."$4}'
 # 查看phpcgi进程数，如果接近预设值，说明不够用，需要增加
 netstat -anpo | grep "php-cgi" | wc -l
 
-# 查看TCP连接状态及连接数的命令
+# 查看TCP连接状态、并发及连接数的命令
 netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
 netstat -nat | awk '{print $NF}' | grep -v '[a-z]' | sort | uniq -c | sort -rn
-
 netstat -n | awk '/^tcp/ {++state[$NF]}; END {for(key in state) print key,"\t",state[key]}'
-或
 netstat -n | awk '/^tcp/ {++arr[$NF]};END {for(k in arr) print k,"\t",arr[k]}'
-
 netstat -nt | grep -e 127.0.0.1 -e 0.0.0.0 -e ::: -v | awk '/^tcp/ {++state[$NF]} END {for(i in state) print i,"\t",state[i]}'
 
 # 查找前20的time_wait连接
@@ -1360,7 +1358,7 @@ The state of the socket is unknown
 
 未知的状态。
 
-```sh
+```bash
 # 日志分析篇(Apache)：
 # 得访问前10位的ip地址
 cat access.log|awk '{print $1}'|sort|uniq -c|sort -nr|head -10
