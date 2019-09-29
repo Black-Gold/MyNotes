@@ -172,13 +172,13 @@ https://www.jsdelivr.com/package/gh/Black-Gold/MyNotes
 ## Windows Commands详解大全
 
 
-远程桌面服务有2种工作模式，Administration Mode和Application Mode。这两种工作模式分别适应不同的场景需求。
+远程桌面服务有2种工作模式，Administration Mode和Application Mode。这两种工作模式分别适应不同的场景需求
 
 Administration Mode
-默认的Windows Server安装后就处于该模式，服务器不要求客户端提供License，但是仅仅允许2个远程桌面连接。
+默认的Windows Server安装后就处于该模式，服务器不要求客户端提供License，但是仅仅允许2个远程桌面连接
 
 Application Mode
-微软的Windows Server为了满足用户复杂的远程连接的场景需要，提供了类似于Citrix基于远程桌面的解决方案，用户在安装远程桌面会话服务(Remote Desktop  Session Host)后，服务器转换为application mode，才可以不限制用户数进行连接。
+微软的Windows Server为了满足用户复杂的远程连接的场景需要，提供了类似于Citrix基于远程桌面的解决方案，用户在安装远程桌面会话服务(Remote Desktop  Session Host)后，服务器转换为application mode，才可以不限制用户数进行连接
 
 此时，服务器默认有120天的Grace Period，允许不限制用户数的远程连接。在120天后，您必须指定一台已经安装Remote Desktop License的远程桌面授权服务器才可以多用户继续连接，否则会提示“由于没有远程桌面授权服务器可以提供许可证，远程会话被中断“的报错。但是此时您还可以通过mstsc /admin命令连接到远程桌面
 

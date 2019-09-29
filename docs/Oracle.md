@@ -24,7 +24,7 @@ SQL>alter system set shared_pool_size=设定值 scope=spfile;
 select 1 - (phy.value / (cur.value + con.value)) "HIT RATIO" from v$sysstat cur, v$sysstat con, v$sysstat phy where cur.name = 'db block gets' and con.name = 'consistent gets' and phy.name = 'physical reads';
 
 处理措施:
-如果HIT RATIO的值低于90%，应调高db_cache_size的大小。通过sqlplus连接数据库执行如下命令，
+如果HIT RATIO的值低于90%，应调高db_cache_size的大小。通过sqlplus连接数据库执行如下命令
 调整db_cache_size的大小
 SQL>alter system set db_cache_size=设定值 scope=spfile
 

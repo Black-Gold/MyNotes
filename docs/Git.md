@@ -72,7 +72,7 @@ git config --unset-all credential.helper
 git config --global --unset-all credential.helper
 git config --system --unset-all credential.helper
 
-# 写提交信息,提交commit时，必须给出完整的提交信息。第一行是不超过50个字的提要，然后空一行，罗列出改动原因、主要变动、以及需要注意的问题。最后，提供对应的网址（比如Bug ticket）。
+# 写提交信息,提交commit时，必须给出完整的提交信息。第一行是不超过50个字的提要，然后空一行，罗列出改动原因、主要变动、以及需要注意的问题。最后，提供对应的网址（比如Bug ticket）
 
 # 与主干同步-分支开发过程应经常与主干保持同步
 git fetch origin
@@ -88,7 +88,7 @@ git push --force origin myfeature
 
 # 切换远程仓库地址：
 # 方式一：修改远程仓库地址
-git remote set-url origin URL # 更换远程仓库地址，URL为新地址。
+git remote set-url origin URL # 更换远程仓库地址，URL为新地址
 
 # 方式二：先删除远程仓库地址，然后再添加
 git remote rm origin # 删除现有远程仓库

@@ -2,21 +2,21 @@
 
 ## apachectl选型
 
-* configtest：检查设置文件中的语法是否正确；
-* fullstatus：显示服务器完整的状态信息；
-* graceful：重新启动Apache服务器，但不会中断原有的连接；
-* help：显示帮助信息；
-* restart：重新启动Apache服务器；
-* start：启动Apache服务器；
-* status：显示服务器摘要的状态信息；
-* stop：停止Apache服务器。
+* configtest：检查设置文件中的语法是否正确
+* fullstatus：显示服务器完整的状态信息
+* graceful：重新启动Apache服务器，但不会中断原有的连接
+* help：显示帮助信息
+* restart：重新启动Apache服务器
+* start：启动Apache服务器
+* status：显示服务器摘要的状态信息
+* stop：停止Apache服务器
 
 php离线安装：
 
 ```sh
 cannot find config.m4.
 make sure that you run '/usr/local/php/bin/phpize' in the top level source directory of the module
-其实报这个错的原因是，在执行phpize时，一定要在需要扩展编译的php模块目录中进行/usr/local/php/bin/phpize 这样才不会报错。
+其实报这个错的原因是，在执行phpize时，一定要在需要扩展编译的php模块目录中进行/usr/local/php/bin/phpize 这样才不会报错
 安装php-ldap模块
 php-ldap模块作用就是实现ldap认证，因此需要安装
 1、安装软件包解决依赖
@@ -62,13 +62,13 @@ log_level = notice
  
 emergency_restart_threshold = 60
 emergency_restart_interval = 60s
-#表示在emergency_restart_interval所设值内出现SIGSEGV或者SIGBUS错误的php-cgi进程数如果超过 emergency_restart_threshold个，php-fpm就会优雅重启。这两个选项一般保持默认值。
+#表示在emergency_restart_interval所设值内出现SIGSEGV或者SIGBUS错误的php-cgi进程数如果超过 emergency_restart_threshold个，php-fpm就会优雅重启。这两个选项一般保持默认值
  
 process_control_timeout = 0
 #设置子进程接受主进程复用信号的超时时间. 可用单位: s(秒), m(分), h(小时), 或者 d(天) 默认单位: s(秒). 默认值: 0.
  
 daemonize = yes
-#后台执行fpm,默认值为yes，如果为了调试可以改为no。在FPM中，可以使用不同的设置来运行多个进程池。 这些设置可以针对每个进程池单独设置。
+#后台执行fpm,默认值为yes，如果为了调试可以改为no。在FPM中，可以使用不同的设置来运行多个进程池。 这些设置可以针对每个进程池单独设置
  
 listen = 127.0.0.1:9000
 #fpm监听端口，即nginx中php处理的地址，一般默认值即可。可用格式为: 'ip:port', 'port', '/path/to/unix/socket'. 每个进程池都需要设置.
@@ -82,13 +82,13 @@ listen.allowed_clients = 127.0.0.1
 listen.owner = www
 listen.group = www
 listen.mode = 0666
-#unix socket设置选项，如果使用tcp方式访问，这里注释即可。
+#unix socket设置选项，如果使用tcp方式访问，这里注释即可
  
 user = www
 group = www
 #启动进程的帐户和组
  
-pm = dynamic #对于专用服务器，pm可以设置为static。
+pm = dynamic #对于专用服务器，pm可以设置为static
 #如何控制子进程，选项有static和dynamic。如果选择static，则由pm.max_children指定固定的子进程数。如果选择dynamic，则由下开参数决定：
 pm.max_children #，子进程最大数
 pm.start_servers #，启动时的进程数
@@ -102,13 +102,13 @@ pm.status_path = /status
 #FPM状态页面的网址. 如果没有设置, 则无法访问状态页面. 默认值: none. munin监控会使用到
  
 ping.path = /ping
-#FPM监控页面的ping网址. 如果没有设置, 则无法访问ping页面. 该页面用于外部检测FPM是否存活并且可以响应请求. 请注意必须以斜线开头 (/)。
+#FPM监控页面的ping网址. 如果没有设置, 则无法访问ping页面. 该页面用于外部检测FPM是否存活并且可以响应请求. 请注意必须以斜线开头 (/)
  
 ping.response = pong
 #用于定义ping请求的返回相应. 返回为 HTTP 200 的 text/plain 格式文本. 默认值: pong.
  
 request_terminate_timeout = 0
-#设置单个请求的超时中止时间. 该选项可能会对php.ini设置中的'max_execution_time'因为某些特殊原因没有中止运行的脚本有用. 设置为 '0' 表示 'Off'.当经常出现502错误时可以尝试更改此选项。
+#设置单个请求的超时中止时间. 该选项可能会对php.ini设置中的'max_execution_time'因为某些特殊原因没有中止运行的脚本有用. 设置为 '0' 表示 'Off'.当经常出现502错误时可以尝试更改此选项
  
 request_slowlog_timeout = 10s
 #当一个请求该设置的超时时间后，就会将对应的PHP调用堆栈信息完整写入到慢日志中. 设置为 '0' 表示 'Off'
@@ -117,7 +117,7 @@ slowlog = log/$pool.log.slow
 #慢请求的记录日志,配合request_slowlog_timeout使用
  
 rlimit_files = 1024
-#设置文件打开描述符的rlimit限制. 默认值: 系统定义值默认可打开句柄是1024，可使用 ulimit -n查看，ulimit -n 2048修改。
+#设置文件打开描述符的rlimit限制. 默认值: 系统定义值默认可打开句柄是1024，可使用 ulimit -n查看，ulimit -n 2048修改
  
 rlimit_core = 0
 #设置核心rlimit最大限制值. 可用值: 'unlimited' 、0或者正整数. 默认值: 系统定义值.

@@ -40,47 +40,47 @@ systemctl enable nginx && systemctl start nginx
 wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
 # 构建使用configure命令进行配置。它定义了系统的各个方面，包括nginx允许用于连接处理的方法。最后它创建一个Makefile。该configure命令支持以下参数：
 
---prefix=path - 定义一个将保留服务器文件的目录。这个相同的目录也将被用于所有相关的路径 configure（除了源资源的路径）和nginx.conf配置文件。它/usr/local/nginx默认设置为目录。
+--prefix=path - 定义一个将保留服务器文件的目录。这个相同的目录也将被用于所有相关的路径 configure（除了源资源的路径）和nginx.conf配置文件。它/usr/local/nginx默认设置为目录
 
---sbin-path=path - 设置一个nginx可执行文件的名字。该名称仅在安装过程中使用。默认情况下，该文件被命名 prefix/sbin/nginx。
+--sbin-path=path - 设置一个nginx可执行文件的名字。该名称仅在安装过程中使用。默认情况下，该文件被命名 prefix/sbin/nginx
 
 --conf-path=path - 设置nginx.conf配置文件的名称。如果需要的话，nginx可以始终使用不同的配置文件启动，只要在命令行参数中指定即可 。默认情况下，该文件被命名 。 -c fileprefix/conf/nginx.conf
 
---pid-path=path - 设置将存储主进程的进程ID的nginx.pid文件的名称。安装完成后，可以nginx.conf使用pid指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/nginx.pid。
+--pid-path=path - 设置将存储主进程的进程ID的nginx.pid文件的名称。安装完成后，可以nginx.conf使用pid指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/nginx.pid
 
---error-log-path=path - 设置主要错误的名称，警告和诊断文件。安装之后，可以nginx.conf使用error_log指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/error.log。
+--error-log-path=path - 设置主要错误的名称，警告和诊断文件。安装之后，可以nginx.conf使用error_log指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/error.log
 
---http-log-path=path - 设置HTTP服务器的主要请求日志文件的名称。安装完成后，可以nginx.conf使用access_log指令随时在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/access.log。
+--http-log-path=path - 设置HTTP服务器的主要请求日志文件的名称。安装完成后，可以nginx.conf使用access_log指令随时在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/access.log
 
---build=name - 设置一个可选的nginx构建名称。
+--build=name - 设置一个可选的nginx构建名称
 
---user=name - 设置工作进程将使用其凭据的非特权用户的名称。安装完成后，可以nginx.conf使用user指令始终在配置文件中 更改名称 。默认的用户名是nobody。
+--user=name - 设置工作进程将使用其凭据的非特权用户的名称。安装完成后，可以nginx.conf使用user指令始终在配置文件中 更改名称 。默认的用户名是nobody
 
---group=name - 设置工作进程将使用其凭据的组的名称。安装完成后，可以nginx.conf使用user指令始终在配置文件中 更改名称 。默认情况下，组名称设置为非特权用户的名称。
+--group=name - 设置工作进程将使用其凭据的组的名称。安装完成后，可以nginx.conf使用user指令始终在配置文件中 更改名称 。默认情况下，组名称设置为非特权用户的名称
 
 --with-select_module
---without-select_module - 启用或禁用构建允许服务器使用该select()方法的模块 。如果平台不支持更合适的方法（如kqueue，epoll或/ dev / poll），则自动构建此模块。
+--without-select_module - 启用或禁用构建允许服务器使用该select()方法的模块 。如果平台不支持更合适的方法（如kqueue，epoll或/ dev / poll），则自动构建此模块
 
 --with-poll_module
---without-poll_module - 启用或禁用构建允许服务器使用该poll()方法的模块 。如果平台不支持更合适的方法（如kqueue，epoll或/ dev / poll），则自动构建此模块。
+--without-poll_module - 启用或禁用构建允许服务器使用该poll()方法的模块 。如果平台不支持更合适的方法（如kqueue，epoll或/ dev / poll），则自动构建此模块
 
---without-http_gzip_module - 禁用构建压缩 HTTP服务器响应的模块。zlib库是建立和运行这个模块所必需的。
+--without-http_gzip_module - 禁用构建压缩 HTTP服务器响应的模块。zlib库是建立和运行这个模块所必需的
 
---without-http_rewrite_module - 禁用构建允许HTTP服务器 重定向请求并更改请求URI的模块。PCRE库需要构建和运行这个模块。
+--without-http_rewrite_module - 禁用构建允许HTTP服务器 重定向请求并更改请求URI的模块。PCRE库需要构建和运行这个模块
 
---without-http_proxy_module - 禁用构建HTTP服务器代理模块。
+--without-http_proxy_module - 禁用构建HTTP服务器代理模块
 
---with-http_ssl_module - 可以构建一个模块，将HTTPS协议支持添加到HTTP服务器。该模块不是默认生成的。OpenSSL库需要构建和运行这个模块。
+--with-http_ssl_module - 可以构建一个模块，将HTTPS协议支持添加到HTTP服务器。该模块不是默认生成的。OpenSSL库需要构建和运行这个模块
 
---with-pcre=path - 设置PCRE库源的路径。图书馆发行（版本4.4 - 8.41）需要从PCRE网站下载 并提取。其余的是由nginx的./configure和 make。在位置指令和 ngx_http_rewrite_module 模块中，该库是正则表达式支持所必需的 。
+--with-pcre=path - 设置PCRE库源的路径。图书馆发行（版本4.4 - 8.41）需要从PCRE网站下载 并提取。其余的是由nginx的./configure和 make。在位置指令和 ngx_http_rewrite_module 模块中，该库是正则表达式支持所必需的 
 
---with-pcre-jit - 用“即时编译”支持（1.1.12，pcre_jit指令）构建PCRE库 。
+--with-pcre-jit - 用“即时编译”支持（1.1.12，pcre_jit指令）构建PCRE库 
 
---with-zlib=path - 设置zlib库的源的路径。库发行版（版本1.1.3 - 1.2.11）需要从zlib站点下载 并提取。其余的是由nginx的./configure和 make。该库是ngx_http_gzip_module模块所必需的 。
+--with-zlib=path - 设置zlib库的源的路径。库发行版（版本1.1.3 - 1.2.11）需要从zlib站点下载 并提取。其余的是由nginx的./configure和 make。该库是ngx_http_gzip_module模块所必需的 
 
---with-cc-opt=parameters - 设置将被添加到CFLAGS变量的附加参数。在FreeBSD下使用系统PCRE库时， --with-cc-opt="-I /usr/local/include" 应该指定。如果select()需要增加支持的文件数量，也可以在这里指定如下： --with-cc-opt="-D FD_SETSIZE=2048"。
+--with-cc-opt=parameters - 设置将被添加到CFLAGS变量的附加参数。在FreeBSD下使用系统PCRE库时， --with-cc-opt="-I /usr/local/include" 应该指定。如果select()需要增加支持的文件数量，也可以在这里指定如下： --with-cc-opt="-D FD_SETSIZE=2048"
 
---with-ld-opt=parameters - 设置将在链接期间使用的其他参数。在FreeBSD下使用系统PCRE库时， --with-ld-opt="-L /usr/local/lib" 应该指定。
+--with-ld-opt=parameters - 设置将在链接期间使用的其他参数。在FreeBSD下使用系统PCRE库时， --with-ld-opt="-L /usr/local/lib" 应该指定
 
 参数使用示例（所有这些都需要输入一行）：
 
@@ -93,7 +93,7 @@ wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
 ## 关于构建模块
 
 ```sh
-默认情况下不包括的模块以及第三方模块必须在configure脚本中与其他构建选项一起显式指定。这些模块可以静态链接到NGINX二进制文件（每次NGINX启动时加载它们）或动态加载（只有在NGINX配置文件中包含相关指令时才加载它们。
+默认情况下不包括的模块以及第三方模块必须在configure脚本中与其他构建选项一起显式指定。这些模块可以静态链接到NGINX二进制文件（每次NGINX启动时加载它们）或动态加载（只有在NGINX配置文件中包含相关指令时才加载它们
 
 默认构建的模块
 如果您不需要默认构建的模块，可以通过使用脚本--without-<MODULE-NAME>上的选项命名它来禁用它configure，如此示例中禁用Empty GIF模块（应该键入为单行）：
@@ -172,10 +172,10 @@ wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
     ./configure ... --add-module = / usr / build / nginx-rtmp-module
 
     动态链接模块
-    NGINX模块也可以编译为共享对象（* .so文件），然后在运行时动态加载到NGINX Open Source中。这提供了更大的   灵活性，因为可以通过load_module在NGINX配置文件中添加或删除关联指令并重新加载配置来随时加载或卸载模块。 请注意，模块本身必须支持动态链接。
+    NGINX模块也可以编译为共享对象（* .so文件），然后在运行时动态加载到NGINX Open Source中。这提供了更大的   灵活性，因为可以通过load_module在NGINX配置文件中添加或删除关联指令并重新加载配置来随时加载或卸载模块。 请注意，模块本身必须支持动态链接
     要使用动态加载的第三方模块编译NGINX Open Source，请--add-dynamic-module=<PATH>在configure命令中 包含选项，其中<PATH>是源代码的路径：
     ./configure ... --add-dynamic-module = <PATH>
-    生成的* .so文件将写入前缀/ modules /目录，其中前缀是服务器文件的目录，例如/ usr / local / nginx /。
+    生成的* .so文件将写入前缀/ modules /目录，其中前缀是服务器文件的目录，例如/ usr / local / nginx /
     要加载动态模块，请load_module在安装后将指令添加到NGINX配置：
     load_module modules / ngx_mail_module.so;
 
@@ -266,7 +266,7 @@ reopen - 重新打开日志文件
 
 例如，要在等待工作进程完成当前请求的服务时停止nginx进程，可以执行以下命令：
 nginx -s quit
-此命令应在启动nginx的同一用户下执行。
+此命令应在启动nginx的同一用户下执行
 
 nginx由模块组成，模块由配置文件指定的指令控制，指令分为简单指令和块指令，简单指令包括由空格分隔的名称和参数，以分号结尾，块指令和简单指令相同结构，但不以分号结尾，而是以大括号{}包围的一组附加指令结束，若块指令可以在大括号包含其他指令，则称为上下文。如：events,http,server和location
 放置在任何上下文之外的配置文件中的指令都被认为是在主上下文中。在events和http指令驻留在main上下文server中，http和location在server中
@@ -286,7 +286,7 @@ http {
 location / {
   root /data/ww;
 }
-此location块指定/与请求中的URI进行比较的“/”前缀。对于匹配请求，URI将添加到root 指令中指定的路径 ，即to /data/www，以形成本地文件系统上所请求文件的路径。如果存在多个匹配location块，则nginx选择具有最长前缀的块。location上面的块提供长度为1的最短前缀，因此只有当所有其他location 块都无法提供匹配时，才会使用此块。
+此location块指定/与请求中的URI进行比较的“/”前缀。对于匹配请求，URI将添加到root 指令中指定的路径 ，即to /data/www，以形成本地文件系统上所请求文件的路径。如果存在多个匹配location块，则nginx选择具有最长前缀的块。location上面的块提供长度为1的最短前缀，因此只有当所有其他location 块都无法提供匹配时，才会使用此块
 接着添加第二个location块：
 location /images/ {
   root /data;
@@ -310,7 +310,7 @@ server {
 
 ```sh
 nginx可以用作代理服务器，即服务器接受请求，将这些请求传递给代理服务器，从中检索响应，然后返回给客户端
-我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。在此示例中，将在单个nginx实例上定义两个服务器。
+我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。在此示例中，将在单个nginx实例上定义两个服务器
 
 向server nginx的配置文件添加一个以上内容来定义代理服务器，其中包含以下内容：
 
@@ -337,9 +337,9 @@ server {
 location ~ \.(gif|jpg|png)$ {
     root /data/images;
 }
-该参数是一个正则表达式匹配结尾的所有URI .gif，.jpg或.png。应该以正则表达式开头~。相应的请求将映射到该/data/images 目录。
+该参数是一个正则表达式匹配结尾的所有URI .gif，.jpg或.png。应该以正则表达式开头~。相应的请求将映射到该/data/images 目录
 
-当nginx选择一个location块来提供请求时，它首先检查 指定前缀的位置指令，记住location 最长的前缀，然后检查正则表达式。如果与正则表达式匹配，则nginx选择此项 location，否则，它会选择之前记住的那个。
+当nginx选择一个location块来提供请求时，它首先检查 指定前缀的位置指令，记住location 最长的前缀，然后检查正则表达式。如果与正则表达式匹配，则nginx选择此项 location，否则，它会选择之前记住的那个
 生成的代理服务器配置如下所示：
 server {
     location / {
@@ -356,7 +356,7 @@ server {
 ## 设置FastCGI代理
 
 ```sh
-nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序。
+nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序
 
 使用FastCGI服务器的最基本的nginx配置包括使用 fastcgi_pass 指令而不是proxy_pass指令，以及fastcgi_param 指令来设置传递给FastCGI服务器的参数。假设可以访问FastCGI服务器localhost:9000。以上一节中的代理配置为基础，将proxy_pass指令替换为指令 fastcgi_pass并将参数更改为 localhost:9000。在PHP中，该SCRIPT_FILENAME参数用于确定脚本名称，该QUERY_STRING 参数用于传递请求参数。结果配置为：
 server {
@@ -390,10 +390,10 @@ http - HTTP流量
 mail - 邮件流量
 stream - TCP和UDP流量
 
-在每个流量处理上下文中，您包含一个或多个server块来定义控制请求处理的虚拟服务器。您可以在server上下文中包含的指令因流量类型而异。
+在每个流量处理上下文中，您包含一个或多个server块来定义控制请求处理的虚拟服务器。您可以在server上下文中包含的指令因流量类型而异
 
-对于HTTP流量（http上下文），每个server指令控制对特定域或IP地址的资源请求的处理。location上下文中的一个或多个server上下文定义了如何处理特定的URI集。
-对于邮件和TCP / UDP流量（mail和stream上下文），server指令各自控制到达特定TCP端口或UNIX套接字的流量的处理。
+对于HTTP流量（http上下文），每个server指令控制对特定域或IP地址的资源请求的处理。location上下文中的一个或多个server上下文定义了如何处理特定的URI集
+对于邮件和TCP / UDP流量（mail和stream上下文），server指令各自控制到达特定TCP端口或UNIX套接字的流量的处理
 例如：
 
 user nobody; # a directive in the 'main' context
@@ -433,7 +433,7 @@ stream {
 #定义Nginx运行的用户和用户组
 user www www;
 
-#nginx进程数，建议设置为等于CPU总核心数。
+#nginx进程数，建议设置为等于CPU总核心数
 worker_processes auto;
 
 #全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]
@@ -442,13 +442,13 @@ error_log /var/log/nginx/error.log crit;
 #进程文件
 pid /var/run/nginx.pid;
 
-#一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致。
+#一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致
 worker_rlimit_nofile 65535;
 
 #工作模式与连接数上限
 events
 {
-#参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的多路复用高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型。
+#参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的多路复用高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型
 use epoll;
 #单个进程最大并发连接数（最大连接数=连接数*进程数）
 worker_connections 65535;
@@ -467,7 +467,7 @@ worker_connections 65535;
 # 所以，worker_connections 的值需根据 worker_processes 进程数和系统可以打开的最大文件总数进行适当地进行设置
 # 使得并发总数小于操作系统可以打开的最大文件数目
 # 其实质也就是根据主机的物理CPU和内存进行配置
-# 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的作进程需要消耗系统资源。
+# 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的作进程需要消耗系统资源
 # ulimit -SHn 65535
 
 multi_accept on;
@@ -483,13 +483,13 @@ server_names_hash_bucket_size 128; #服务器名字的hash表大小
 client_header_buffer_size 32k; #上传文件大小限制
 large_client_header_buffers 4 64k; #设定请求缓存
 client_max_body_size 8m; #设定请求缓存
-sendfile on; #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数（zero copy 方式）来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。
-autoindex on; #开启目录列表访问，合适下载服务器，默认关闭。
+sendfile on; #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数（zero copy 方式）来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off
+autoindex on; #开启目录列表访问，合适下载服务器，默认关闭
 tcp_nopush on; #防止网络阻塞
 tcp_nodelay on; #防止网络阻塞
 keepalive_timeout 120; #长连接超时时间，单位是秒
 
-#FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
+#FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解
 fastcgi_connect_timeout 60; # 默认60s，建立连接越多消耗资源越多
 fastcgi_send_timeout 60;
 fastcgi_read_timeout 60;
@@ -510,7 +510,7 @@ gzip_buffers 4 16k; #压缩缓冲区
 gzip_http_version 1.1; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）
 gzip_comp_level 2; #压缩等级
 gzip_types text/plain application/x-javascript text/javascript text/css application/xml;
-#压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
+#压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn
 gzip_vary on;
 #limit_zone crawler $binary_remote_addr 10m; #开启限制IP连接数的时候需要使用
 gzip_proxied   expired no-cache no-store private auth;
@@ -522,7 +522,7 @@ server_tokens off;
 access_log off;
 
 upstream www.19950128.com {
-#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
+#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大
 server 192.168.80.121:80 weight=3;
 server 192.168.80.122:80 weight=2;
 server 192.168.80.123:80 weight=3;
@@ -582,10 +582,10 @@ log_format custom '$remote_addr - $remote_user [$time_local] '
   proxy_set_header X-Real-IP $remote_addr;
   #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  #以下是一些反向代理的配置，可选。
+  #以下是一些反向代理的配置，可选
   proxy_set_header Host $host;
   client_max_body_size 10m; #允许客户端请求的最大单文件字节数
-  client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，
+  client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数
   proxy_connect_timeout 90; #nginx跟后端服务器连接超时时间(代理连接超时)
   proxy_send_timeout 90; #后端服务器数据回传时间(代理发送超时)
   proxy_read_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)
@@ -602,7 +602,7 @@ log_format custom '$remote_addr - $remote_user [$time_local] '
   access_log on;
   auth_basic "NginxStatus";
   auth_basic_user_file conf/htpasswd;
-  #htpasswd文件的内容可以用apache提供的htpasswd工具来产生。
+  #htpasswd文件的内容可以用apache提供的htpasswd工具来产生
   }
 
   #本地动静分离反向代理配置
@@ -638,8 +638,8 @@ nginx.conf配置补充扩展：
 
 #静态文件，nginx自己处理
 location ~ ^/(images|javascript|js|css|flash|media|static/ {
-    #过期30天，静态文件不怎么更新，过期可以设大一点，
-    #如果频繁更新，则可以设置得小一点。
+    #过期30天，静态文件不怎么更新，过期可以设大一点
+    #如果频繁更新，则可以设置得小一点
     expires 30d;
 }
 
@@ -684,7 +684,7 @@ Create an SSL Certificate
 
 ```sh
 
-nginx日志最好实现每天定时切割下，特别是在访问量比较大的时候，方便查看与处理，如果没切割，可以用sed直接切割，
+nginx日志最好实现每天定时切割下，特别是在访问量比较大的时候，方便查看与处理，如果没切割，可以用sed直接切割
 
 切割日志
 

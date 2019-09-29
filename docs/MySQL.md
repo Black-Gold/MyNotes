@@ -442,7 +442,7 @@ mysql -u root -pvmware;
 mysql>use mysql;
 mysql>update user set host = '%' where user = 'root';
 mysql>select host, user from user;
-2、授权法。例如，你想myuser使用mypassword从任何主机连接到mysql服务器的话。
+2、授权法。例如，你想myuser使用mypassword从任何主机连接到mysql服务器的话
 GRANT ALL PRIVILEGES ON *.* TO 'myuser'@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
 如果你想允许用户myuser从ip为192.168.1.3的主机连接到mysql服务器，并使用mypassword作为密码
 GRANT ALL PRIVILEGES ON *.* TO 'myuser'@'192.168.1.3' IDENTIFIED BY 'mypassword' WITH GRANT
@@ -454,17 +454,17 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost.localdomain' IDENTIFIED BY '密
 OPTION;
 查看查询缓存系统属性：show variables like '%_cache_%';
 设置查询缓存类型：query_cache_type
-0或OFF：不启动缓存查询结果。
-1或ON：缓存除了以SELECT SQL_NO_CACHE开头的所有查询结果。
-2或DEMAND：只缓存以SELECT SQL_NO_CACHE开头的查询结果。
+0或OFF：不启动缓存查询结果
+1或ON：缓存除了以SELECT SQL_NO_CACHE开头的所有查询结果
+2或DEMAND：只缓存以SELECT SQL_NO_CACHE开头的查询结果
 不缓存大于该值的结果。默认值是1048576(1MB)。：query_cache_limit
 缓存查询结果分配的内存的数量。默认值是0，即禁用查询缓存。：query_cache_size
 查询缓存分配的最小块的大小(字节)。 默认值是4096(4KB)。：query_cache_min_res_unit
 query_cache_wlock_invalidate
 0或OFF：当查询结果位于查询缓存中，客户端对MyISAM（默认存储引擎）表进行WRITE锁定时，其他客
-户端可以对该表查询。
+户端可以对该表查询
 1或ON：锁定生效时，查询缓存内所有对该表进行的查询变得非法，强制访问该表的其他客户端进行等
-待。
+待
 查看最大连接数：show variables like '%CONNECTION%';
 MySQL建表语句大全
 1. 创建表（含有约束）
@@ -561,7 +561,7 @@ MySQL数据库备份和还原的常用命令
 mysqldump -hhostname -uusername -ppassword databasename > backupfile.sql
 
 备份MySQL数据库为带删除表的格式
-备份MySQL数据库为带删除表的格式，能够让该备份覆盖已有数据库而不需要手动删除原有数据库。
+备份MySQL数据库为带删除表的格式，能够让该备份覆盖已有数据库而不需要手动删除原有数据库
 
 mysqldump -–add-drop-table -uusername -ppassword databasename > backupfile.sql
 
@@ -600,7 +600,7 @@ mysqldump -uusername -ppassword databasename | mysql –host=*.*.*.* -C database
 ```
 
 下面简单描述MySQL Repl ica tion的复制原理过程
-1)在Slave服务器上执行startslave命令开启主从复制开关， 开始进行主从复制。
+1)在Slave服务器上执行startslave命令开启主从复制开关， 开始进行主从复制
 2)此时 Slave服务器的1/0线程会通过在Master上已经授权的复制用户权限请求连接Master服务器， 并请求从指定binlog日志文件的指定
 位置（日志文件名和位置就是在配置主从复制服务时执行changemaster命令指定的）之后开始发送binlog日志内容
 3) Master服务器接收到来自Slave服务器的1/0线程的请求后， 其上负责复制的l/0线程会根据Slave服务器的1/0线程请求的信息分批读
@@ -608,15 +608,15 @@ mysqldump -uusername -ppassword databasename | mysql –host=*.*.*.* -C database
 在Master服务器端记录的新的binlog文件名称， 以及在新的binlog中的下一个指定更新位置
 4)当Slave服务器的1/0线程获取到Master服务器上1/0线程发送的日志内容、日志文件及位置点后， 会将binlog日志内容依次写到Slave
 端自身的Relay Log (即中继日志）文件(MySQL-relay-bin.xxxxxx)的最末端， 并将新的binlog文件名和位置记录到 master-info文件中
-以便下一次读取Master端新biolog日志时能够告诉Master服务器 从新binlog日志的指定文件及位置开始请求新的binlog日志内容。
+以便下一次读取Master端新biolog日志时能够告诉Master服务器 从新binlog日志的指定文件及位置开始请求新的binlog日志内容
 5) Slave服务器端的SQL线程会实时检测本地RelayLog中1/0线程新增加的日志内容， 然后及时地把Relay Log文件中的内容解析成SQL语句
 并在自身Slave服务器上按解析SQL语句的位置顺序执行应用这些SQL语句， 并在relay- log.info中记录当前应用中继日志的文件名及位置点
 经过了上面的过程， 就可以确保在Master端和Slave端执行了同样的SQL语句。当复制状态正常时， Master端和Slave端的数据是完全一样的
 当然， MySQL的复制机制也有一些特殊情况， 具体请参考官方的说明
 
 MySQL主从复制原理重点小结
-□	主从复制是异步的逻辑的SQL语句级的复制。
-D复制时， 主库有一个VO线程， 从库有两个线程， 即1/0和SQL线程。
-□	实现主从复制的必要条件是主库要开启记录binlog功能。
-D作为复制的所有MySQL节点的server-id都不能相同。
+□	主从复制是异步的逻辑的SQL语句级的复制
+D复制时， 主库有一个VO线程， 从库有两个线程， 即1/0和SQL线程
+□	实现主从复制的必要条件是主库要开启记录binlog功能
+D作为复制的所有MySQL节点的server-id都不能相同
 □ binlog文件只记录对数据库有更改的SQL语句（来自主数据库内容的变更）， 不记录任何查询（如select、show)语句
