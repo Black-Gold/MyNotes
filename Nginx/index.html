@@ -1364,47 +1364,47 @@ systemctl <span class="nb">enable</span> nginx <span class="o">&amp;&amp;</span>
 <div class="codehilite"><pre><span></span><span class="nv">wget</span> <span class="o">-</span><span class="nv">c</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">nginx</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">download</span><span class="o">/</span><span class="nv">nginx</span><span class="o">-</span><span class="mi">1</span>.<span class="mi">12</span>.<span class="mi">2</span>.<span class="nv">tar</span>.<span class="nv">gz</span>
 # 构建使用<span class="nv">configure</span>命令进行配置。它定义了系统的各个方面，包括<span class="nv">nginx</span>允许用于连接处理的方法。最后它创建一个<span class="nv">Makefile</span>。该<span class="nv">configure</span>命令支持以下参数：
 
-<span class="o">--</span><span class="nv">prefix</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 定义一个将保留服务器文件的目录。这个相同的目录也将被用于所有相关的路径 <span class="nv">configure</span>（除了源资源的路径）和<span class="nv">nginx</span>.<span class="nv">conf</span>配置文件。它<span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span>默认设置为目录。
+<span class="o">--</span><span class="nv">prefix</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 定义一个将保留服务器文件的目录。这个相同的目录也将被用于所有相关的路径 <span class="nv">configure</span>（除了源资源的路径）和<span class="nv">nginx</span>.<span class="nv">conf</span>配置文件。它<span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span>默认设置为目录
 
-<span class="o">--</span><span class="nv">sbin</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置一个<span class="nv">nginx</span>可执行文件的名字。该名称仅在安装过程中使用。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">nginx</span>。
+<span class="o">--</span><span class="nv">sbin</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置一个<span class="nv">nginx</span>可执行文件的名字。该名称仅在安装过程中使用。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">nginx</span>
 
 <span class="o">--</span><span class="nv">conf</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">nginx</span>.<span class="nv">conf</span>配置文件的名称。如果需要的话，<span class="nv">nginx</span>可以始终使用不同的配置文件启动，只要在命令行参数中指定即可 。默认情况下，该文件被命名 。 <span class="o">-</span><span class="nv">c</span> <span class="nv">fileprefix</span><span class="o">/</span><span class="nv">conf</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">conf</span>
 
-<span class="o">--</span><span class="nv">pid</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置将存储主进程的进程<span class="nv">ID</span>的<span class="nv">nginx</span>.<span class="nv">pid</span>文件的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">pid</span>指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">pid</span>。
+<span class="o">--</span><span class="nv">pid</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置将存储主进程的进程<span class="nv">ID</span>的<span class="nv">nginx</span>.<span class="nv">pid</span>文件的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">pid</span>指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">pid</span>
 
-<span class="o">--</span><span class="nv">error</span><span class="o">-</span><span class="nv">log</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置主要错误的名称，警告和诊断文件。安装之后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">error_log</span>指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">error</span>.<span class="nv">log</span>。
+<span class="o">--</span><span class="nv">error</span><span class="o">-</span><span class="nv">log</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置主要错误的名称，警告和诊断文件。安装之后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">error_log</span>指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">error</span>.<span class="nv">log</span>
 
-<span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">log</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">HTTP</span>服务器的主要请求日志文件的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">access_log</span>指令随时在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">access</span>.<span class="nv">log</span>。
+<span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">log</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">HTTP</span>服务器的主要请求日志文件的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">access_log</span>指令随时在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">access</span>.<span class="nv">log</span>
 
-<span class="o">--</span><span class="nv">build</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置一个可选的<span class="nv">nginx</span>构建名称。
+<span class="o">--</span><span class="nv">build</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置一个可选的<span class="nv">nginx</span>构建名称
 
-<span class="o">--</span><span class="nv">user</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置工作进程将使用其凭据的非特权用户的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">user</span>指令始终在配置文件中 更改名称 。默认的用户名是<span class="nv">nobody</span>。
+<span class="o">--</span><span class="nv">user</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置工作进程将使用其凭据的非特权用户的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">user</span>指令始终在配置文件中 更改名称 。默认的用户名是<span class="nv">nobody</span>
 
-<span class="o">--</span><span class="nv">group</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置工作进程将使用其凭据的组的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">user</span>指令始终在配置文件中 更改名称 。默认情况下，组名称设置为非特权用户的名称。
+<span class="o">--</span><span class="nv">group</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置工作进程将使用其凭据的组的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">user</span>指令始终在配置文件中 更改名称 。默认情况下，组名称设置为非特权用户的名称
 
 <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">select_module</span>
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">select_module</span> <span class="o">-</span> 启用或禁用构建允许服务器使用该<span class="nv">select</span><span class="ss">()</span>方法的模块 。如果平台不支持更合适的方法（如<span class="nv">kqueue</span>，<span class="nv">epoll</span>或<span class="o">/</span> <span class="nv">dev</span> <span class="o">/</span> <span class="nv">poll</span>），则自动构建此模块。
+<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">select_module</span> <span class="o">-</span> 启用或禁用构建允许服务器使用该<span class="nv">select</span><span class="ss">()</span>方法的模块 。如果平台不支持更合适的方法（如<span class="nv">kqueue</span>，<span class="nv">epoll</span>或<span class="o">/</span> <span class="nv">dev</span> <span class="o">/</span> <span class="nv">poll</span>），则自动构建此模块
 
 <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">poll_module</span>
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">poll_module</span> <span class="o">-</span> 启用或禁用构建允许服务器使用该<span class="nv">poll</span><span class="ss">()</span>方法的模块 。如果平台不支持更合适的方法（如<span class="nv">kqueue</span>，<span class="nv">epoll</span>或<span class="o">/</span> <span class="nv">dev</span> <span class="o">/</span> <span class="nv">poll</span>），则自动构建此模块。
+<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">poll_module</span> <span class="o">-</span> 启用或禁用构建允许服务器使用该<span class="nv">poll</span><span class="ss">()</span>方法的模块 。如果平台不支持更合适的方法（如<span class="nv">kqueue</span>，<span class="nv">epoll</span>或<span class="o">/</span> <span class="nv">dev</span> <span class="o">/</span> <span class="nv">poll</span>），则自动构建此模块
 
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_gzip_module</span> <span class="o">-</span> 禁用构建压缩 <span class="nv">HTTP</span>服务器响应的模块。<span class="nv">zlib</span>库是建立和运行这个模块所必需的。
+<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_gzip_module</span> <span class="o">-</span> 禁用构建压缩 <span class="nv">HTTP</span>服务器响应的模块。<span class="nv">zlib</span>库是建立和运行这个模块所必需的
 
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_rewrite_module</span> <span class="o">-</span> 禁用构建允许<span class="nv">HTTP</span>服务器 重定向请求并更改请求<span class="nv">URI</span>的模块。<span class="nv">PCRE</span>库需要构建和运行这个模块。
+<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_rewrite_module</span> <span class="o">-</span> 禁用构建允许<span class="nv">HTTP</span>服务器 重定向请求并更改请求<span class="nv">URI</span>的模块。<span class="nv">PCRE</span>库需要构建和运行这个模块
 
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_proxy_module</span> <span class="o">-</span> 禁用构建<span class="nv">HTTP</span>服务器代理模块。
+<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_proxy_module</span> <span class="o">-</span> 禁用构建<span class="nv">HTTP</span>服务器代理模块
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">http_ssl_module</span> <span class="o">-</span> 可以构建一个模块，将<span class="nv">HTTPS</span>协议支持添加到<span class="nv">HTTP</span>服务器。该模块不是默认生成的。<span class="nv">OpenSSL</span>库需要构建和运行这个模块。
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">http_ssl_module</span> <span class="o">-</span> 可以构建一个模块，将<span class="nv">HTTPS</span>协议支持添加到<span class="nv">HTTP</span>服务器。该模块不是默认生成的。<span class="nv">OpenSSL</span>库需要构建和运行这个模块
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">PCRE</span>库源的路径。图书馆发行（版本<span class="mi">4</span>.<span class="mi">4</span> <span class="o">-</span> <span class="mi">8</span>.<span class="mi">41</span>）需要从<span class="nv">PCRE</span>网站下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。在位置指令和 <span class="nv">ngx_http_rewrite_module</span> 模块中，该库是正则表达式支持所必需的 。
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">PCRE</span>库源的路径。图书馆发行（版本<span class="mi">4</span>.<span class="mi">4</span> <span class="o">-</span> <span class="mi">8</span>.<span class="mi">41</span>）需要从<span class="nv">PCRE</span>网站下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。在位置指令和 <span class="nv">ngx_http_rewrite_module</span> 模块中，该库是正则表达式支持所必需的 
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">-</span><span class="nv">jit</span> <span class="o">-</span> 用“即时编译”支持（<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">12</span>，<span class="nv">pcre_jit</span>指令）构建<span class="nv">PCRE</span>库 。
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">-</span><span class="nv">jit</span> <span class="o">-</span> 用“即时编译”支持（<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">12</span>，<span class="nv">pcre_jit</span>指令）构建<span class="nv">PCRE</span>库 
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">zlib</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">zlib</span>库的源的路径。库发行版（版本<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span>.<span class="mi">2</span>.<span class="mi">11</span>）需要从<span class="nv">zlib</span>站点下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。该库是<span class="nv">ngx_http_gzip_module</span>模块所必需的 。
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">zlib</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">zlib</span>库的源的路径。库发行版（版本<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span>.<span class="mi">2</span>.<span class="mi">11</span>）需要从<span class="nv">zlib</span>站点下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。该库是<span class="nv">ngx_http_gzip_module</span>模块所必需的 
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="nv">parameters</span> <span class="o">-</span> 设置将被添加到<span class="nv">CFLAGS</span>变量的附加参数。在<span class="nv">FreeBSD</span>下使用系统<span class="nv">PCRE</span>库时， <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-I /usr/local/include</span><span class="s2">&quot;</span> 应该指定。如果<span class="nv">select</span><span class="ss">()</span>需要增加支持的文件数量，也可以在这里指定如下： <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-D FD_SETSIZE=2048</span><span class="s2">&quot;</span>。
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="nv">parameters</span> <span class="o">-</span> 设置将被添加到<span class="nv">CFLAGS</span>变量的附加参数。在<span class="nv">FreeBSD</span>下使用系统<span class="nv">PCRE</span>库时， <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-I /usr/local/include</span><span class="s2">&quot;</span> 应该指定。如果<span class="nv">select</span><span class="ss">()</span>需要增加支持的文件数量，也可以在这里指定如下： <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-D FD_SETSIZE=2048</span><span class="s2">&quot;</span>
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">ld</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="nv">parameters</span> <span class="o">-</span> 设置将在链接期间使用的其他参数。在<span class="nv">FreeBSD</span>下使用系统<span class="nv">PCRE</span>库时， <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">ld</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-L /usr/local/lib</span><span class="s2">&quot;</span> 应该指定。
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">ld</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="nv">parameters</span> <span class="o">-</span> 设置将在链接期间使用的其他参数。在<span class="nv">FreeBSD</span>下使用系统<span class="nv">PCRE</span>库时， <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">ld</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-L /usr/local/lib</span><span class="s2">&quot;</span> 应该指定
 
 参数使用示例（所有这些都需要输入一行）：
 
@@ -1415,7 +1415,7 @@ systemctl <span class="nb">enable</span> nginx <span class="o">&amp;&amp;</span>
 </pre></div>
 
 <h2 id="_1">关于构建模块<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>默认情况下不包括的模块以及第三方模块必须在configure脚本中与其他构建选项一起显式指定。这些模块可以静态链接到NGINX二进制文件（每次NGINX启动时加载它们）或动态加载（只有在NGINX配置文件中包含相关指令时才加载它们。
+<div class="codehilite"><pre><span></span>默认情况下不包括的模块以及第三方模块必须在configure脚本中与其他构建选项一起显式指定。这些模块可以静态链接到NGINX二进制文件（每次NGINX启动时加载它们）或动态加载（只有在NGINX配置文件中包含相关指令时才加载它们
 
 默认构建的模块
 如果您不需要默认构建的模块，可以通过使用脚本--without-&lt;MODULE-NAME&gt;上的选项命名它来禁用它configure，如此示例中禁用Empty GIF模块（应该键入为单行）：
@@ -1490,10 +1490,10 @@ systemctl <span class="nb">enable</span> nginx <span class="o">&amp;&amp;</span>
 <span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="p">...</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">module</span> <span class="o">=</span> <span class="o">/</span> <span class="n">usr</span> <span class="o">/</span> <span class="n">build</span> <span class="o">/</span> <span class="n">nginx</span><span class="o">-</span><span class="n">rtmp</span><span class="o">-</span><span class="n">module</span>
 
 <span class="err">动态链接模块</span>
-<span class="n">NGINX模块也可以编译为共享对象</span><span class="err">（</span><span class="o">*</span> <span class="p">.</span><span class="n">so文件</span><span class="err">），然后在运行时动态加载到</span><span class="n">NGINX</span> <span class="n">Open</span> <span class="n">Source中</span><span class="err">。这提供了更大的</span>   <span class="err">灵活性，因为可以通过</span><span class="n">load_module在NGINX配置文件中添加或删除关联指令并重新加载配置来随时加载或卸载模块</span><span class="err">。</span> <span class="err">请注意，模块本身必须支持动态链接。</span>
+<span class="n">NGINX模块也可以编译为共享对象</span><span class="err">（</span><span class="o">*</span> <span class="p">.</span><span class="n">so文件</span><span class="err">），然后在运行时动态加载到</span><span class="n">NGINX</span> <span class="n">Open</span> <span class="n">Source中</span><span class="err">。这提供了更大的</span>   <span class="err">灵活性，因为可以通过</span><span class="n">load_module在NGINX配置文件中添加或删除关联指令并重新加载配置来随时加载或卸载模块</span><span class="err">。</span> <span class="err">请注意，模块本身必须支持动态链接</span>
 <span class="err">要使用动态加载的第三方模块编译</span><span class="n">NGINX</span> <span class="n">Open</span> <span class="n">Source</span><span class="err">，请</span><span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">dynamic</span><span class="o">-</span><span class="n">module</span><span class="o">=&lt;</span><span class="n">PATH</span><span class="o">&gt;</span><span class="err">在</span><span class="n">configure命令中</span> <span class="err">包含选项，其中</span><span class="o">&lt;</span><span class="n">PATH</span><span class="o">&gt;</span><span class="err">是源代码的路径：</span>
 <span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="p">...</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">dynamic</span><span class="o">-</span><span class="n">module</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">PATH</span><span class="o">&gt;</span>
-<span class="err">生成的</span><span class="o">*</span> <span class="p">.</span><span class="n">so文件将写入前缀</span><span class="o">/</span> <span class="n">modules</span> <span class="o">/</span><span class="err">目录，其中前缀是服务器文件的目录，例如</span><span class="o">/</span> <span class="n">usr</span> <span class="o">/</span> <span class="n">local</span> <span class="o">/</span> <span class="n">nginx</span> <span class="o">/</span><span class="err">。</span>
+<span class="err">生成的</span><span class="o">*</span> <span class="p">.</span><span class="n">so文件将写入前缀</span><span class="o">/</span> <span class="n">modules</span> <span class="o">/</span><span class="err">目录，其中前缀是服务器文件的目录，例如</span><span class="o">/</span> <span class="n">usr</span> <span class="o">/</span> <span class="n">local</span> <span class="o">/</span> <span class="n">nginx</span> <span class="o">/</span>
 <span class="err">要加载动态模块，请</span><span class="n">load_module在安装后将指令添加到NGINX配置</span><span class="err">：</span>
 <span class="n">load_module</span> <span class="n">modules</span> <span class="o">/</span> <span class="n">ngx_mail_module</span><span class="p">.</span><span class="n">so</span><span class="p">;</span>
 </pre></div>
@@ -1582,7 +1582,7 @@ reopen - 重新打开日志文件
 
 例如，要在等待工作进程完成当前请求的服务时停止nginx进程，可以执行以下命令：
 nginx -s quit
-此命令应在启动nginx的同一用户下执行。
+此命令应在启动nginx的同一用户下执行
 
 nginx由模块组成，模块由配置文件指定的指令控制，指令分为简单指令和块指令，简单指令包括由空格分隔的名称和参数，以分号结尾，块指令和简单指令相同结构，但不以分号结尾，而是以大括号<span class="o">{}</span>包围的一组附加指令结束，若块指令可以在大括号包含其他指令，则称为上下文。如：events,http,server和location
 放置在任何上下文之外的配置文件中的指令都被认为是在主上下文中。在events和http指令驻留在main上下文server中，http和location在server中
@@ -1600,7 +1600,7 @@ http <span class="o">{</span>
 location / <span class="o">{</span>
   root /data/ww<span class="p">;</span>
 <span class="o">}</span>
-此location块指定/与请求中的URI进行比较的“/”前缀。对于匹配请求，URI将添加到root 指令中指定的路径 ，即to /data/www，以形成本地文件系统上所请求文件的路径。如果存在多个匹配location块，则nginx选择具有最长前缀的块。location上面的块提供长度为1的最短前缀，因此只有当所有其他location 块都无法提供匹配时，才会使用此块。
+此location块指定/与请求中的URI进行比较的“/”前缀。对于匹配请求，URI将添加到root 指令中指定的路径 ，即to /data/www，以形成本地文件系统上所请求文件的路径。如果存在多个匹配location块，则nginx选择具有最长前缀的块。location上面的块提供长度为1的最短前缀，因此只有当所有其他location 块都无法提供匹配时，才会使用此块
 接着添加第二个location块：
 location /images/ <span class="o">{</span>
   root /data<span class="p">;</span>
@@ -1622,7 +1622,7 @@ server <span class="o">{</span>
 
 <h2 id="_6">设置简单的代理服务器<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>nginx可以用作代理服务器，即服务器接受请求，将这些请求传递给代理服务器，从中检索响应，然后返回给客户端
-我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。在此示例中，将在单个nginx实例上定义两个服务器。
+我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。在此示例中，将在单个nginx实例上定义两个服务器
 
 向server nginx的配置文件添加一个以上内容来定义代理服务器，其中包含以下内容：
 
@@ -1649,9 +1649,9 @@ server <span class="o">{</span>
 location ~ <span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpg<span class="p">|</span>png<span class="o">)</span>$ <span class="o">{</span>
     root /data/images<span class="p">;</span>
 <span class="o">}</span>
-该参数是一个正则表达式匹配结尾的所有URI .gif，.jpg或.png。应该以正则表达式开头~。相应的请求将映射到该/data/images 目录。
+该参数是一个正则表达式匹配结尾的所有URI .gif，.jpg或.png。应该以正则表达式开头~。相应的请求将映射到该/data/images 目录
 
-当nginx选择一个location块来提供请求时，它首先检查 指定前缀的位置指令，记住location 最长的前缀，然后检查正则表达式。如果与正则表达式匹配，则nginx选择此项 location，否则，它会选择之前记住的那个。
+当nginx选择一个location块来提供请求时，它首先检查 指定前缀的位置指令，记住location 最长的前缀，然后检查正则表达式。如果与正则表达式匹配，则nginx选择此项 location，否则，它会选择之前记住的那个
 生成的代理服务器配置如下所示：
 server <span class="o">{</span>
     location / <span class="o">{</span>
@@ -1666,7 +1666,7 @@ server <span class="o">{</span>
 </pre></div>
 
 <h2 id="fastcgi">设置FastCGI代理<a class="headerlink" href="#fastcgi" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序。
+<div class="codehilite"><pre><span></span>nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序
 
 使用FastCGI服务器的最基本的nginx配置包括使用 fastcgi_pass 指令而不是proxy_pass指令，以及fastcgi_param 指令来设置传递给FastCGI服务器的参数。假设可以访问FastCGI服务器localhost:9000。以上一节中的代理配置为基础，将proxy_pass指令替换为指令 fastcgi_pass并将参数更改为 localhost:9000。在PHP中，该SCRIPT_FILENAME参数用于确定脚本名称，该QUERY_STRING 参数用于传递请求参数。结果配置为：
 server <span class="o">{</span>
@@ -1698,10 +1698,10 @@ server <span class="o">{</span>
 <span class="s">mail</span> <span class="s">-</span> <span class="s">邮件流量</span>
 <span class="s">stream</span> <span class="s">-</span> <span class="s">TCP和UDP流量</span>
 
-<span class="s">在每个流量处理上下文中，您包含一个或多个server块来定义控制请求处理的虚拟服务器。您可以在server上下文中包含的指令因流量类型而异。</span>
+<span class="s">在每个流量处理上下文中，您包含一个或多个server块来定义控制请求处理的虚拟服务器。您可以在server上下文中包含的指令因流量类型而异</span>
 
-<span class="s">对于HTTP流量（http上下文），每个server指令控制对特定域或IP地址的资源请求的处理。location上下文中的一个或多个server上下文定义了如何处理特定的URI集。</span>
-<span class="s">对于邮件和TCP</span> <span class="s">/</span> <span class="s">UDP流量（mail和stream上下文），server指令各自控制到达特定TCP端口或UNIX套接字的流量的处理。</span>
+<span class="s">对于HTTP流量（http上下文），每个server指令控制对特定域或IP地址的资源请求的处理。location上下文中的一个或多个server上下文定义了如何处理特定的URI集</span>
+<span class="s">对于邮件和TCP</span> <span class="s">/</span> <span class="s">UDP流量（mail和stream上下文），server指令各自控制到达特定TCP端口或UNIX套接字的流量的处理</span>
 <span class="s">例如：</span>
 
 <span class="s">user</span> <span class="s">nobody</span><span class="p">;</span> <span class="c1"># a directive in the &#39;main&#39; context</span>
@@ -1739,7 +1739,7 @@ server <span class="o">{</span>
 <div class="codehilite"><pre><span></span>#定义<span class="nv">Nginx</span>运行的用户和用户组
 <span class="nv">user</span> <span class="nv">www</span> <span class="nv">www</span><span class="c1">;</span>
 
-#<span class="nv">nginx</span>进程数，建议设置为等于<span class="nv">CPU</span>总核心数。
+#<span class="nv">nginx</span>进程数，建议设置为等于<span class="nv">CPU</span>总核心数
 <span class="nv">worker_processes</span> <span class="nv">auto</span><span class="c1">;</span>
 
 #全局错误日志定义类型，[ <span class="nv">debug</span> <span class="o">|</span> <span class="nv">info</span> <span class="o">|</span> <span class="nv">notice</span> <span class="o">|</span> <span class="nv">warn</span> <span class="o">|</span> <span class="nv">error</span> <span class="o">|</span> <span class="nv">crit</span> ]
@@ -1748,13 +1748,13 @@ server <span class="o">{</span>
 #进程文件
 <span class="nv">pid</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">run</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">pid</span><span class="c1">;</span>
 
-#一个<span class="nv">nginx</span>进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值<span class="nv">ulimit</span> <span class="o">-</span><span class="nv">n</span>）与<span class="nv">nginx</span>进程数相除，但是<span class="nv">nginx</span>分配请求并不均匀，所以建议与<span class="nv">ulimit</span> <span class="o">-</span><span class="nv">n</span>的值保持一致。
+#一个<span class="nv">nginx</span>进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值<span class="nv">ulimit</span> <span class="o">-</span><span class="nv">n</span>）与<span class="nv">nginx</span>进程数相除，但是<span class="nv">nginx</span>分配请求并不均匀，所以建议与<span class="nv">ulimit</span> <span class="o">-</span><span class="nv">n</span>的值保持一致
 <span class="nv">worker_rlimit_nofile</span> <span class="mi">65535</span><span class="c1">;</span>
 
 #工作模式与连接数上限
 <span class="nv">events</span>
 {
-#参考事件模型，<span class="nv">use</span> [ <span class="nv">kqueue</span> <span class="o">|</span> <span class="nv">rtsig</span> <span class="o">|</span> <span class="nv">epoll</span> <span class="o">|</span> <span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">poll</span> <span class="o">|</span> <span class="nv">select</span> <span class="o">|</span> <span class="nv">poll</span> ]<span class="c1">; epoll模型是Linux 2.6以上版本内核中的多路复用高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型。</span>
+#参考事件模型，<span class="nv">use</span> [ <span class="nv">kqueue</span> <span class="o">|</span> <span class="nv">rtsig</span> <span class="o">|</span> <span class="nv">epoll</span> <span class="o">|</span> <span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">poll</span> <span class="o">|</span> <span class="nv">select</span> <span class="o">|</span> <span class="nv">poll</span> ]<span class="c1">; epoll模型是Linux 2.6以上版本内核中的多路复用高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型</span>
 <span class="nv">use</span> <span class="nv">epoll</span><span class="c1">;</span>
 #单个进程最大并发连接数（最大连接数<span class="o">=</span>连接数<span class="o">*</span>进程数）
 <span class="nv">worker_connections</span> <span class="mi">65535</span><span class="c1">;</span>
@@ -1773,7 +1773,7 @@ server <span class="o">{</span>
 # 所以，<span class="nv">worker_connections</span> 的值需根据 <span class="nv">worker_processes</span> 进程数和系统可以打开的最大文件总数进行适当地进行设置
 # 使得并发总数小于操作系统可以打开的最大文件数目
 # 其实质也就是根据主机的物理<span class="nv">CPU</span>和内存进行配置
-# 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的作进程需要消耗系统资源。
+# 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的作进程需要消耗系统资源
 # <span class="nv">ulimit</span> <span class="o">-</span><span class="nv">SHn</span> <span class="mi">65535</span>
 
 <span class="nv">multi_accept</span> <span class="nv">on</span><span class="c1">;</span>
@@ -1789,13 +1789,13 @@ server <span class="o">{</span>
 <span class="nv">client_header_buffer_size</span> <span class="mi">32</span><span class="nv">k</span><span class="c1">; #上传文件大小限制</span>
 <span class="nv">large_client_header_buffers</span> <span class="mi">4</span> <span class="mi">64</span><span class="nv">k</span><span class="c1">; #设定请求缓存</span>
 <span class="nv">client_max_body_size</span> <span class="mi">8</span><span class="nv">m</span><span class="c1">; #设定请求缓存</span>
-<span class="k">sendfile</span> <span class="nv">on</span><span class="c1">; #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数（zero copy 方式）来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。</span>
-<span class="nv">autoindex</span> <span class="nv">on</span><span class="c1">; #开启目录列表访问，合适下载服务器，默认关闭。</span>
+<span class="k">sendfile</span> <span class="nv">on</span><span class="c1">; #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数（zero copy 方式）来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off</span>
+<span class="nv">autoindex</span> <span class="nv">on</span><span class="c1">; #开启目录列表访问，合适下载服务器，默认关闭</span>
 <span class="nv">tcp_nopush</span> <span class="nv">on</span><span class="c1">; #防止网络阻塞</span>
 <span class="nv">tcp_nodelay</span> <span class="nv">on</span><span class="c1">; #防止网络阻塞</span>
 <span class="nv">keepalive_timeout</span> <span class="mi">120</span><span class="c1">; #长连接超时时间，单位是秒</span>
 
-#<span class="nv">FastCGI</span>相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
+#<span class="nv">FastCGI</span>相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解
 <span class="nv">fastcgi_connect_timeout</span> <span class="mi">60</span><span class="c1">; # 默认60s，建立连接越多消耗资源越多</span>
 <span class="nv">fastcgi_send_timeout</span> <span class="mi">60</span><span class="c1">;</span>
 <span class="nv">fastcgi_read_timeout</span> <span class="mi">60</span><span class="c1">;</span>
@@ -1816,7 +1816,7 @@ server <span class="o">{</span>
 <span class="nv">gzip_http_version</span> <span class="mi">1</span>.<span class="mi">1</span><span class="c1">; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）</span>
 <span class="nv">gzip_comp_level</span> <span class="mi">2</span><span class="c1">; #压缩等级</span>
 <span class="nv">gzip_types</span> <span class="nv">text</span><span class="o">/</span><span class="nv">plain</span> <span class="nv">application</span><span class="o">/</span><span class="nv">x</span><span class="o">-</span><span class="nv">javascript</span> <span class="nv">text</span><span class="o">/</span><span class="nv">javascript</span> <span class="nv">text</span><span class="o">/</span><span class="nv">css</span> <span class="nv">application</span><span class="o">/</span><span class="nv">xml</span><span class="c1">;</span>
-#压缩类型，默认就已经包含<span class="nv">text</span><span class="o">/</span><span class="nv">html</span>，所以下面就不用再写了，写上去也不会有问题，但是会有一个<span class="nv">warn</span>。
+#压缩类型，默认就已经包含<span class="nv">text</span><span class="o">/</span><span class="nv">html</span>，所以下面就不用再写了，写上去也不会有问题，但是会有一个<span class="nv">warn</span>
 <span class="nv">gzip_vary</span> <span class="nv">on</span><span class="c1">;</span>
 #<span class="nv">limit_zone</span> <span class="nv">crawler</span> <span class="mh">$b</span><span class="nv">inary_remote_addr</span> <span class="mi">10</span><span class="nv">m</span><span class="c1">; #开启限制IP连接数的时候需要使用</span>
 <span class="nv">gzip_proxied</span>   <span class="nv">expired</span> <span class="nv">no</span><span class="o">-</span><span class="nv">cache</span> <span class="nv">no</span><span class="o">-</span><span class="nv">store</span> <span class="nv">private</span> <span class="nv">auth</span><span class="c1">;</span>
@@ -1828,7 +1828,7 @@ server <span class="o">{</span>
 <span class="nv">access_log</span> <span class="nv">off</span><span class="c1">;</span>
 
 <span class="nv">upstream</span> <span class="nv">www</span>.<span class="mi">19950128</span>.<span class="nv">com</span> {
-#<span class="nv">upstream</span>的负载均衡，<span class="nv">weight</span>是权重，可以根据机器配置定义权重。<span class="nv">weigth</span>参数表示权值，权值越高被分配到的几率越大。
+#<span class="nv">upstream</span>的负载均衡，<span class="nv">weight</span>是权重，可以根据机器配置定义权重。<span class="nv">weigth</span>参数表示权值，权值越高被分配到的几率越大
 <span class="nv">server</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">80</span>.<span class="mi">121</span>:<span class="mi">80</span> <span class="nv">weight</span><span class="o">=</span><span class="mi">3</span><span class="c1">;</span>
 <span class="nv">server</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">80</span>.<span class="mi">122</span>:<span class="mi">80</span> <span class="nv">weight</span><span class="o">=</span><span class="mi">2</span><span class="c1">;</span>
 <span class="nv">server</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">80</span>.<span class="mi">123</span>:<span class="mi">80</span> <span class="nv">weight</span><span class="o">=</span><span class="mi">3</span><span class="c1">;</span>
@@ -1888,10 +1888,10 @@ server <span class="o">{</span>
   <span class="nv">proxy_set_header</span> <span class="nv">X</span><span class="o">-</span><span class="nv">Real</span><span class="o">-</span><span class="nv">IP</span> $<span class="nv">remote_addr</span><span class="c1">;</span>
   #后端的<span class="nv">Web</span>服务器可以通过<span class="nv">X</span><span class="o">-</span><span class="nv">Forwarded</span><span class="o">-</span><span class="nv">For</span>获取用户真实<span class="nv">IP</span>
   <span class="nv">proxy_set_header</span> <span class="nv">X</span><span class="o">-</span><span class="nv">Forwarded</span><span class="o">-</span><span class="k">For</span> $<span class="nv">proxy_add_x_forwarded_for</span><span class="c1">;</span>
-  #以下是一些反向代理的配置，可选。
+  #以下是一些反向代理的配置，可选
   <span class="nv">proxy_set_header</span> <span class="nv">Host</span> $<span class="nv">host</span><span class="c1">;</span>
   <span class="nv">client_max_body_size</span> <span class="mi">10</span><span class="nv">m</span><span class="c1">; #允许客户端请求的最大单文件字节数</span>
-  <span class="nv">client_body_buffer_size</span> <span class="mi">128</span><span class="nv">k</span><span class="c1">; #缓冲区代理缓冲用户端请求的最大字节数，</span>
+  <span class="nv">client_body_buffer_size</span> <span class="mi">128</span><span class="nv">k</span><span class="c1">; #缓冲区代理缓冲用户端请求的最大字节数</span>
   <span class="nv">proxy_connect_timeout</span> <span class="mi">90</span><span class="c1">; #nginx跟后端服务器连接超时时间(代理连接超时)</span>
   <span class="nv">proxy_send_timeout</span> <span class="mi">90</span><span class="c1">; #后端服务器数据回传时间(代理发送超时)</span>
   <span class="nv">proxy_read_timeout</span> <span class="mi">90</span><span class="c1">; #连接成功后，后端服务器响应时间(代理接收超时)</span>
@@ -1908,7 +1908,7 @@ server <span class="o">{</span>
   <span class="nv">access_log</span> <span class="nv">on</span><span class="c1">;</span>
   <span class="nv">auth_basic</span> <span class="s2">&quot;</span><span class="s">NginxStatus</span><span class="s2">&quot;</span><span class="c1">;</span>
   <span class="nv">auth_basic_user_file</span> <span class="nv">conf</span><span class="o">/</span><span class="nv">htpasswd</span><span class="c1">;</span>
-  #<span class="nv">htpasswd</span>文件的内容可以用<span class="nv">apache</span>提供的<span class="nv">htpasswd</span>工具来产生。
+  #<span class="nv">htpasswd</span>文件的内容可以用<span class="nv">apache</span>提供的<span class="nv">htpasswd</span>工具来产生
   }
 
   #本地动静分离反向代理配置
@@ -1940,8 +1940,8 @@ server <span class="o">{</span>
 <p>nginx.conf配置补充扩展：</p>
 <div class="codehilite"><pre><span></span>#静态文件，<span class="nv">nginx</span>自己处理
 <span class="nv">location</span> <span class="o">~</span> <span class="o">^/</span><span class="ss">(</span><span class="nv">images</span><span class="o">|</span><span class="nv">javascript</span><span class="o">|</span><span class="nv">js</span><span class="o">|</span><span class="nv">css</span><span class="o">|</span><span class="nv">flash</span><span class="o">|</span><span class="nv">media</span><span class="o">|</span><span class="nv">static</span><span class="o">/</span> {
-    #过期<span class="mi">30</span>天，静态文件不怎么更新，过期可以设大一点，
-    #如果频繁更新，则可以设置得小一点。
+    #过期<span class="mi">30</span>天，静态文件不怎么更新，过期可以设大一点
+    #如果频繁更新，则可以设置得小一点
     <span class="nv">expires</span> <span class="mi">30</span><span class="nv">d</span><span class="c1">;</span>
 }
 
@@ -1983,7 +1983,7 @@ server <span class="o">{</span>
 </pre></div>
 
 <h2 id="nginx_1">nginx日志相关命令<a class="headerlink" href="#nginx_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>nginx日志最好实现每天定时切割下，特别是在访问量比较大的时候，方便查看与处理，如果没切割，可以用sed直接切割，
+<div class="codehilite"><pre><span></span>nginx日志最好实现每天定时切割下，特别是在访问量比较大的时候，方便查看与处理，如果没切割，可以用sed直接切割
 
 切割日志
 

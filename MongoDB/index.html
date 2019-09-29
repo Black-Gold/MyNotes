@@ -2053,7 +2053,7 @@
 <span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="k">distinct</span><span class="p">()</span>
 </pre></div>
 
-<p>视图使用基础集合的索引。由于索引位于基础集合上，因此无法直接在视图上创建，删除或重新构建索引，也无法在视图上获取索引列表。无法在视图使用<span><span class="MathJax_Preview">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</span><script type="math/tex">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</script></span>lookup和$graphlookup操作指定分片视图。
+<p>视图使用基础集合的索引。由于索引位于基础集合上，因此无法直接在视图上创建，删除或重新构建索引，也无法在视图上获取索引列表。无法在视图使用<span><span class="MathJax_Preview">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</span><script type="math/tex">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</script></span>lookup和$graphlookup操作指定分片视图
 创建视图是可以指定排序规则，默认规则是“简单”二进制比较排序规则，多个视图做聚合操作，排序规则必须相同</p>
 <p>find()对视图的操作不支持以下Projection操作符：</p>
 <ul>
@@ -2115,16 +2115,16 @@
 </ol>
 <p>Object比较使用以下顺序：</p>
 <ol>
-<li>按照它们在BSON对象中出现的顺序递归地比较键值对。</li>
-<li>比较关键字段名称。</li>
-<li>如果键字段名称相等，则比较字段值。</li>
-<li>如果字段值相等，则比较下一个键/值对（返回步骤1）。没有进一步对的对象小于具有更多对的对象。</li>
+<li>按照它们在BSON对象中出现的顺序递归地比较键值对</li>
+<li>比较关键字段名称</li>
+<li>如果键字段名称相等，则比较字段值</li>
+<li>如果字段值相等，则比较下一个键/值对（返回步骤1）。没有进一步对的对象小于具有更多对的对象</li>
 </ol>
 <p>BinData排序顺序为：</p>
 <ol>
-<li>首先，数据的长度或大小。</li>
-<li>然后，通过BSON一字节子类型。</li>
-<li>最后，通过数据，执行逐字节比较。</li>
+<li>首先，数据的长度或大小</li>
+<li>然后，通过BSON一字节子类型</li>
+<li>最后，通过数据，执行逐字节比较</li>
 </ol>
 <div class="codehilite"><pre><span></span>  <span class="cp"># 配置日志</span>
     <span class="nl">systemLog</span><span class="p">:</span>
@@ -2142,7 +2142,7 @@
     <span class="cp">#         verbosity: &lt;int&gt;</span>
     <span class="cp">#      command:</span>
     <span class="cp">#         verbosity: &lt;int&gt;</span>
-      <span class="nl">destination</span><span class="p">:</span> <span class="n">file</span> <span class="err">#</span><span class="nl">mogodb日志的产生方式</span><span class="p">:</span><span class="n">file</span><span class="o">=</span><span class="err">指定的文件</span><span class="p">,</span><span class="n">syslog系统日志</span><span class="err">，如果不指定，则指向标准输出流。</span>
+      <span class="nl">destination</span><span class="p">:</span> <span class="n">file</span> <span class="err">#</span><span class="nl">mogodb日志的产生方式</span><span class="p">:</span><span class="n">file</span><span class="o">=</span><span class="err">指定的文件</span><span class="p">,</span><span class="n">syslog系统日志</span><span class="err">，如果不指定，则指向标准输出流</span>
       <span class="nl">logAppend</span><span class="p">:</span> <span class="nb">true</span>   <span class="err">#在</span><span class="n">mongodb重启时</span><span class="p">,</span><span class="err">继续往已有的日志文件中追加内容，而不是新建一个文件</span><span class="p">.</span>
       <span class="nl">path</span><span class="p">:</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">mongod</span><span class="p">.</span><span class="n">log</span>    <span class="err">#日志文件的输出路径，</span><span class="n">mongo将在指定的位置创建日志文件</span><span class="p">.</span>
       <span class="nl">logRotate</span><span class="p">:</span> <span class="n">reopen</span>   <span class="err">#</span><span class="mf">3.0.0</span><span class="p">,</span><span class="err">两个值</span><span class="o">:</span><span class="n">rename</span><span class="o">=</span><span class="err">重命名日志文件，</span><span class="n">reopen</span><span class="o">=</span><span class="err">关闭并重新打开日志文件</span><span class="p">.</span><span class="err">如果使用</span><span class="n">reopen则要使systemLog</span><span class="p">.</span><span class="n">logAppend</span><span class="o">=</span><span class="nb">true</span><span class="p">.</span>
@@ -2198,9 +2198,9 @@
     <span class="cp"># 进程管理配置</span>
     <span class="nl">processManagement</span><span class="p">:</span>
       <span class="nl">fork</span><span class="p">:</span> <span class="nb">true</span>  <span class="err">#</span> <span class="err">以守护线程模式在后台运行</span>
-      <span class="nl">pidFilePath</span><span class="p">:</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">mongod</span><span class="p">.</span><span class="n">pid</span>  <span class="err">#</span> <span class="err">指定保存</span><span class="n">PID的文件</span><span class="err">。</span>
+      <span class="nl">pidFilePath</span><span class="p">:</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">mongod</span><span class="p">.</span><span class="n">pid</span>  <span class="err">#</span> <span class="err">指定保存</span><span class="n">PID的文件</span>
       <span class="cp">#时区文件:https:</span><span class="c1">//downloads.mongodb.org/olson_tz_db/timezonedb-latest.zip</span>
-      <span class="cp">#timeZoneInfo:    #加载数据库时区的完整路径，如果不指定，则采用默认时区。</span>
+      <span class="cp">#timeZoneInfo:    #加载数据库时区的完整路径，如果不指定，则采用默认时区</span>
 
     <span class="cp"># 网络配置</span>
     <span class="nl">net</span><span class="p">:</span>
@@ -2253,7 +2253,7 @@
        <span class="cp">#  - sendX509:发送x.509文件进行身份验证，可以接受密钥文件和x.509证书.</span>
        <span class="cp">#  - x509:推荐使用，发送x.509证书进行身份验证，且只接受x.509证书.</span>
        <span class="cp">#clusterAuthMode: &lt;string&gt;</span>
-       <span class="cp">#启用或禁用基于角色的控制访问(RBAC)来控制每个用户对数据库资源和操作的访问。</span>
+       <span class="cp">#启用或禁用基于角色的控制访问(RBAC)来控制每个用户对数据库资源和操作的访问</span>
        <span class="cp">#  -  enabled:用户只能访问被授权的数据库资源和操作.</span>
        <span class="cp">#  -  disabled:用户可以访问任何资源和进行任何操作.</span>
        <span class="cp">#authorization: &lt;string&gt;</span>
@@ -2276,29 +2276,29 @@
           <span class="cp">#keyIdentifier: &lt;string&gt;   #KMIP服务器中现有秘钥的唯一KNIP标识符.version:3.2</span>
           <span class="cp">#rotateMasterKey: &lt;boolean&gt;   #旋转主秘钥并重新加密内部秘钥库.version:3.2[MongoDB Enterprise]</span>
           <span class="cp">#serverName: &lt;string&gt; #运行KMIP服务器的密钥管理解决方案的主机名或IP地址.[MongoDB Enterprise]</span>
-          <span class="cp">#port: &lt;string&gt; #KMIP服务器正在监听的端口号。</span>
-          <span class="cp">#clientCertificateFile: &lt;string&gt;  #包含用于向KMIP服务器验证MongoDB的客户端证书路径的字符串。</span>
+          <span class="cp">#port: &lt;string&gt; #KMIP服务器正在监听的端口号</span>
+          <span class="cp">#clientCertificateFile: &lt;string&gt;  #包含用于向KMIP服务器验证MongoDB的客户端证书路径的字符串</span>
           <span class="cp">#clientCertificatePassword: &lt;string&gt;  #用于解密客户端证书（即security.kmip.clientCertificateFile）的密码</span>
-          <span class="cp">#serverCAFile: &lt;string&gt; #CA文件的路径。用于验证与KMIP服务器的安全客户端连接。</span>
+          <span class="cp">#serverCAFile: &lt;string&gt; #CA文件的路径。用于验证与KMIP服务器的安全客户端连接</span>
           <span class="cp">#</span>
           <span class="cp">#注意:security.ldap只能用于mongodb的企业版本,且版本需要高于3.4.</span>
           <span class="cp">#</span>
     <span class="cp">#   ldap:</span>
     <span class="cp">#      servers: &lt;string&gt;  #通过LDAP确定执行操作的用户是否被授权，多个服务器之间可以通过[,]分割.</span>
     <span class="cp">#      bind:</span>
-    <span class="cp">#         method: &lt;string&gt;  #该方法mongod或mongos用于向LDAP服务器进行身份验证。</span>
-    <span class="cp">#                                - simple- mongod或mongos使用简单的身份验证。</span>
+    <span class="cp">#         method: &lt;string&gt;  #该方法mongod或mongos用于向LDAP服务器进行身份验证</span>
+    <span class="cp">#                                - simple- mongod或mongos使用简单的身份验证</span>
     <span class="cp">#                                - sasl- mongod或mongos使用SASL协议进行身份验证</span>
     <span class="cp">#         saslMechanisms: &lt;string&gt;  #以逗号分隔的SASL机制列表.</span>
     <span class="cp">#         queryUser: &lt;string&gt; #绑定LADP查询用户.</span>
     <span class="cp">#         queryPassword: &lt;string&gt; #绑定LADP服务器的密码.</span>
-    <span class="cp">#         useOSDefaults: &lt;boolean&gt;  #连接到LDAP服务器时，允许mongod或mongos使用Windows登录凭据进行身份验证或绑定。</span>
+    <span class="cp">#         useOSDefaults: &lt;boolean&gt;  #连接到LDAP服务器时，允许mongod或mongos使用Windows登录凭据进行身份验证或绑定</span>
     <span class="cp">#      transportSecurity: &lt;string&gt;  #默认情况下，mongod或mongos创建一个到LDAP服务器的TLS / SSL安全连接.</span>
     <span class="cp">#      timeoutMS: &lt;int&gt; #等待LDAP服务器响应请求时间(毫秒).</span>
-    <span class="cp">#      userToDNMapping: &lt;string&gt;  #用于验证的用户名映射到LDAP专有名称（DN）。</span>
-    <span class="cp">#                                  -  match=ECMAScript格式的正则表达式（正则表达式）与提供的用户名匹配。</span>
-    <span class="cp">#                                          每个括号包围的部分表示由substitutionor 使用的正则表达式捕获组ldapQuery。</span>
-    <span class="cp">#                                  - substitution=LDAP专有名称（DN）格式化模板。</span>
+    <span class="cp">#      userToDNMapping: &lt;string&gt;  #用于验证的用户名映射到LDAP专有名称（DN）</span>
+    <span class="cp">#                                  -  match=ECMAScript格式的正则表达式（正则表达式）与提供的用户名匹配</span>
+    <span class="cp">#                                          每个括号包围的部分表示由substitutionor 使用的正则表达式捕获组ldapQuery</span>
+    <span class="cp">#                                  - substitution=LDAP专有名称（DN）格式化模板</span>
     <span class="cp">#                                  - ldapQuery=LDAP查询格式化模板.</span>
     <span class="cp">#      authz:</span>
     <span class="cp">#         queryTemplate: &lt;string&gt;   #一个相对的LDAP查询URL.</span>
@@ -2306,7 +2306,7 @@
     <span class="cp"># 属性设置选项</span>
     <span class="cp">#</span>
     <span class="cp">#setParameter:</span>
-    <span class="cp">#     ldapUserCacheInvalidationInterval: &lt;int&gt; #用于使用LDAP授权mongod或mongos使用LDAP授权的服务器(秒)。</span>
+    <span class="cp">#     ldapUserCacheInvalidationInterval: &lt;int&gt; #用于使用LDAP授权mongod或mongos使用LDAP授权的服务器(秒)</span>
     <span class="cp">#   &lt;parameter1&gt;: &lt;value1&gt;</span>
     <span class="cp">#   &lt;parameter2&gt;: &lt;value2&gt;</span>
 
@@ -2315,66 +2315,66 @@
        <span class="nl">dbPath</span><span class="p">:</span>  <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span> <span class="err">#</span><span class="n">mongod实例存储数据的目录</span><span class="p">,</span><span class="err">默认值：</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">db</span><span class="p">.</span>
        <span class="nl">indexBuildRetry</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#指定</span><span class="n">mongodb在下次启动时是否重建不完整的索引</span><span class="p">,</span><span class="err">默认</span><span class="o">:</span><span class="nb">true</span><span class="p">.</span>
     <span class="cp">#   repairPath: &lt;string&gt;</span>
-    <span class="cp">#          MongoDB在--repair操作过程中将使用的工作目录 。</span>
-    <span class="cp">#          当--repair完成后,storage.repairPath目录是空的,并且 dbPath包含了修复的文件。</span>
-    <span class="cp">#          该storage.repairPath设置仅适用于mongod。</span>
-    <span class="cp">#          仅适用于mongod使用MMAPv1存储引擎的实例。</span>
+    <span class="cp">#          MongoDB在--repair操作过程中将使用的工作目录 </span>
+    <span class="cp">#          当--repair完成后,storage.repairPath目录是空的,并且 dbPath包含了修复的文件</span>
+    <span class="cp">#          该storage.repairPath设置仅适用于mongod</span>
+    <span class="cp">#          仅适用于mongod使用MMAPv1存储引擎的实例</span>
        <span class="nl">journal</span><span class="p">:</span>
           <span class="nl">enabled</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#启用或禁用耐久性日志以确保数据文件保持有效并可恢复。</span><span class="mi">64</span><span class="n">bit默认开启</span><span class="p">,</span><span class="mi">32</span><span class="n">bit默认关闭</span><span class="p">.</span>
-    <span class="cp">#                     不适用于mongod使用内存存储引擎的实例 。</span>
-          <span class="nl">commitIntervalMs</span><span class="p">:</span> <span class="mi">100</span> <span class="err">#</span><span class="n">mongod日志操作之间进程允许的最大时间量</span><span class="p">(</span><span class="err">毫秒</span><span class="p">),</span><span class="err">范围是</span><span class="mi">1</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span><span class="err">默认值是</span><span class="mi">100</span><span class="err">，</span>
+    <span class="cp">#                     不适用于mongod使用内存存储引擎的实例 </span>
+          <span class="nl">commitIntervalMs</span><span class="p">:</span> <span class="mi">100</span> <span class="err">#</span><span class="n">mongod日志操作之间进程允许的最大时间量</span><span class="p">(</span><span class="err">毫秒</span><span class="p">),</span><span class="err">范围是</span><span class="mi">1</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span><span class="err">默认值是</span><span class="mi">100</span>
     <span class="cp">#                                  该值太低会增加日志的持久性，但是会牺牲磁盘性能.</span>
-    <span class="cp">#                                  该storage.journal.commitIntervalMs设置仅适用于mongod。</span>
-    <span class="cp">#                                  不适用于mongod使用内存存储引擎的实例 。</span>
-    <span class="cp">#   directoryPerDB: &lt;boolean&gt;    #MongoDB使用单独的目录来存储每个数据库的数据。</span>
-    <span class="cp">#                                  目录位于storage.dbPath目录下，并且每个子目录名称都与数据库名称相对应。</span>
+    <span class="cp">#                                  该storage.journal.commitIntervalMs设置仅适用于mongod</span>
+    <span class="cp">#                                  不适用于mongod使用内存存储引擎的实例 </span>
+    <span class="cp">#   directoryPerDB: &lt;boolean&gt;    #MongoDB使用单独的目录来存储每个数据库的数据</span>
+    <span class="cp">#                                  目录位于storage.dbPath目录下，并且每个子目录名称都与数据库名称相对应</span>
     <span class="cp">#                                  3.0版本有变更.</span>
     <span class="cp">#   syncPeriodSecs: &lt;int&gt;  #在MongoDB将数据通过sync操作刷新到数据文件之前可以传递的时间量,默认60s.</span>
-    <span class="cp">#                              不要在生产系统上设置此值。在几乎所有情况下，您都应该使用默认设置。</span>
-    <span class="cp">#   engine: &lt;string&gt;  #mongod数据库的存储引擎。</span>
-    <span class="cp">#                         仅在MongoDB Enterprise中可用，3.0版本中的新功能,从MongoDB 3.2开始，wiredTiger是默认值。</span>
-    <span class="cp">#                         mmapv1=指定MMAPv1存储引擎。</span>
-    <span class="cp">#                         wiredTiger=指定WiredTiger存储引擎。</span>
-    <span class="cp">#                         inMemory=指定内存中存储引擎。</span>
+    <span class="cp">#                              不要在生产系统上设置此值。在几乎所有情况下，您都应该使用默认设置</span>
+    <span class="cp">#   engine: &lt;string&gt;  #mongod数据库的存储引擎</span>
+    <span class="cp">#                         仅在MongoDB Enterprise中可用，3.0版本中的新功能,从MongoDB 3.2开始，wiredTiger是默认值</span>
+    <span class="cp">#                         mmapv1=指定MMAPv1存储引擎</span>
+    <span class="cp">#                         wiredTiger=指定WiredTiger存储引擎</span>
+    <span class="cp">#                         inMemory=指定内存中存储引擎</span>
        <span class="nl">mmapv1</span><span class="p">:</span>
-          <span class="nl">preallocDataFiles</span><span class="p">:</span> <span class="nb">true</span>  <span class="err">#启用或禁用数据文件的预分配。默认情况下，</span><span class="n">MongoDB不预先分配数据文件</span><span class="err">。</span>
-          <span class="nl">nsSize</span><span class="p">:</span> <span class="mi">16</span> <span class="err">#命名空间文件的默认大小，它是以文件结尾的文件</span><span class="p">.</span><span class="n">ns</span><span class="err">。每个集合和索引都被视为一个名称空间。</span>
-    <span class="cp">#                        使用此设置控制新创建的名称空间文件的大小。该选项对现有文件没有影响。</span>
-    <span class="cp">#                        命名空间文件的最大大小是2047兆字节。默认值16兆字节提供了大约24,000个名称空间。</span>
+          <span class="nl">preallocDataFiles</span><span class="p">:</span> <span class="nb">true</span>  <span class="err">#启用或禁用数据文件的预分配。默认情况下，</span><span class="n">MongoDB不预先分配数据文件</span>
+          <span class="nl">nsSize</span><span class="p">:</span> <span class="mi">16</span> <span class="err">#命名空间文件的默认大小，它是以文件结尾的文件</span><span class="p">.</span><span class="n">ns</span><span class="err">。每个集合和索引都被视为一个名称空间</span>
+    <span class="cp">#                        使用此设置控制新创建的名称空间文件的大小。该选项对现有文件没有影响</span>
+    <span class="cp">#                        命名空间文件的最大大小是2047兆字节。默认值16兆字节提供了大约24,000个名称空间</span>
           <span class="nl">quota</span><span class="p">:</span>
-             <span class="nl">enforced</span><span class="p">:</span> <span class="nb">false</span>  <span class="err">#启用或禁用强制每个数据库可能具有的数字数据文件的最大限制。</span>
-    <span class="cp">#                                 使用该storage.mmapv1.quota.enforced选项运行时，MongoDB每个数据库最多有8个数据文件。</span>
-    <span class="cp">#                                 通过调整storage.quota.maxFilesPerDB来调整这个限制。</span>
+             <span class="nl">enforced</span><span class="p">:</span> <span class="nb">false</span>  <span class="err">#启用或禁用强制每个数据库可能具有的数字数据文件的最大限制</span>
+    <span class="cp">#                                 使用该storage.mmapv1.quota.enforced选项运行时，MongoDB每个数据库最多有8个数据文件</span>
+    <span class="cp">#                                 通过调整storage.quota.maxFilesPerDB来调整这个限制</span>
              <span class="nl">maxFilesPerDB</span><span class="p">:</span> <span class="mi">8</span> <span class="err">#每个数据库的数据文件数量限制，默认是</span><span class="mf">8.</span><span class="err">该设置仅适用于设置仅适用于</span><span class="n">mongod</span><span class="p">.</span>
-          <span class="nl">smallFiles</span><span class="p">:</span> <span class="nb">false</span> <span class="err">#如果你有大量的数据库，每个保存少量数据。</span><span class="n">MongoDB使用较小的默认文件大小</span><span class="err">。</span>
-    <span class="cp">#                         该storage.mmapv1.smallFiles选项可减少数据文件的初始大小，并将最大大小限制为512兆字节。</span>
-    <span class="cp">#                         storage.mmapv1.smallFiles也可以将每个日志文件的大小从1千兆字节减少到128兆字节。</span>
+          <span class="nl">smallFiles</span><span class="p">:</span> <span class="nb">false</span> <span class="err">#如果你有大量的数据库，每个保存少量数据。</span><span class="n">MongoDB使用较小的默认文件大小</span>
+    <span class="cp">#                         该storage.mmapv1.smallFiles选项可减少数据文件的初始大小，并将最大大小限制为512兆字节</span>
+    <span class="cp">#                         storage.mmapv1.smallFiles也可以将每个日志文件的大小从1千兆字节减少到128兆字节</span>
     <span class="cp">#      journal:</span>
-    <span class="cp">#         debugFlags: &lt;int&gt;   #提供测试功能。不用于一般用途，并且会在系统异常关闭的情况下影响数据文件的完整性。</span>
-    <span class="cp">#         commitIntervalMs: &lt;num&gt; #MongoDB 3.2弃用该 torage.mmapv1.journal.commitIntervalMs设置。</span>
-    <span class="cp">#                                    改为使用storage.journal.commitIntervalMs。</span>
+    <span class="cp">#         debugFlags: &lt;int&gt;   #提供测试功能。不用于一般用途，并且会在系统异常关闭的情况下影响数据文件的完整性</span>
+    <span class="cp">#         commitIntervalMs: &lt;num&gt; #MongoDB 3.2弃用该 torage.mmapv1.journal.commitIntervalMs设置</span>
+    <span class="cp">#                                    改为使用storage.journal.commitIntervalMs</span>
     <span class="cp">#   wiredTiger:</span>
     <span class="cp">#      engineConfig:</span>
     <span class="cp">#         cacheSizeGB: &lt;number&gt;    #WiredTiger将用于所有数据的内部缓存的最大大小,默认采用RAB-1GB的50%和256MB的最大值.</span>
     <span class="cp">#                                      尽可能不要超过最大值.</span>
     <span class="cp">#         journalCompressor: &lt;string&gt;  #用于压缩WiredTiger日志数据的压缩类型。none,snappy,zlib.version:3.0</span>
     <span class="cp">#         directoryForIndexes: true #mongod将索引存储在名为的子目录中 index,</span>
-    <span class="cp">#                                        并将集合数据存储在名为的子目录中 collection。</span>
+    <span class="cp">#                                        并将集合数据存储在名为的子目录中 collection</span>
     <span class="cp">#      collectionConfig:</span>
     <span class="cp">#         blockCompressor: &lt;string&gt;  #用于压缩收集数据的默认压缩类型。none,snappy,zlib.version:3.0</span>
           <span class="nl">indexConfig</span><span class="p">:</span>
-             <span class="nl">prefixCompression</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#启用或禁用索引数据的前缀压缩。</span>
-    <span class="cp">#   inMemory:    #仅在MongoDB Enterprise中可用。</span>
+             <span class="nl">prefixCompression</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#启用或禁用索引数据的前缀压缩</span>
+    <span class="cp">#   inMemory:    #仅在MongoDB Enterprise中可用</span>
     <span class="cp">#      engineConfig:</span>
-    <span class="cp">#         inMemorySizeGB: &lt;number&gt; #为内存存储引擎数据分配的最大内存量，</span>
-    <span class="cp">#                                      包括索引，oplog（如果 mongod是副本集，副本集或分片群集元数据的一部分）等。</span>
-    <span class="cp">#                                       默认情况下，内存存储引擎使用50％的物理RAM减1 GB。</span>
+    <span class="cp">#         inMemorySizeGB: &lt;number&gt; #为内存存储引擎数据分配的最大内存量</span>
+    <span class="cp">#                                      包括索引，oplog（如果 mongod是副本集，副本集或分片群集元数据的一部分）等</span>
+    <span class="cp">#                                       默认情况下，内存存储引擎使用50％的物理RAM减1 GB</span>
     <span class="cp">#运行分析配置</span>
     <span class="nl">operationProfiling</span><span class="p">:</span>
        <span class="nl">mode</span><span class="p">:</span> <span class="n">slowOp</span>   <span class="err">#指定应该分析哪些操作，分析操作可能会影响性能</span><span class="p">.</span>
-    <span class="cp">#                        - off=分析器已关闭，并且不收集任何数据。这是默认的分析器级别。</span>
-    <span class="cp">#                        - slowOp=分析器收集比花费时间更长的操作的数据slowms。</span>
-    <span class="cp">#                        - all=分析器收集所有操作的数据。</span>
+    <span class="cp">#                        - off=分析器已关闭，并且不收集任何数据。这是默认的分析器级别</span>
+    <span class="cp">#                        - slowOp=分析器收集比花费时间更长的操作的数据slowms</span>
+    <span class="cp">#                        - all=分析器收集所有操作的数据</span>
        <span class="nl">slowOpThresholdMs</span><span class="p">:</span> <span class="mi">100</span> <span class="err">#慢操作时间阈值，默认</span><span class="mf">100.</span>
     <span class="cp">#   slowOpSampleRate: &lt;double&gt; #慢操作采样率，0-1之间，包含0,1.</span>
     <span class="cp">#</span>
@@ -2384,48 +2384,48 @@
     <span class="cp">#   oplogSizeMB: &lt;int&gt; #复制操作日志的最大大小（MB）</span>
     <span class="cp">#   replSetName: &lt;string&gt;  #mongod一部分的副本集的名称。副本集中的所有主机必须具有相同的集名称。仅适用于mongod.</span>
     <span class="cp">#   secondaryIndexPrefetch: &lt;string&gt;  #仅适用于mmapv1 存储引擎.</span>
-    <span class="cp">#                                        在应用oplog中的操作之前，副本集的次要成员加载到内存中的索引。</span>
-    <span class="cp">#                                       - none=辅助程序不会将索引加载到内存中。</span>
-    <span class="cp">#                                       - all=辅助程序加载与操作相关的所有索引。</span>
-    <span class="cp">#                                       - _id_only=Secondaries不会将额外的索引加载到已有_id索引之外的内存中。</span>
+    <span class="cp">#                                        在应用oplog中的操作之前，副本集的次要成员加载到内存中的索引</span>
+    <span class="cp">#                                       - none=辅助程序不会将索引加载到内存中</span>
+    <span class="cp">#                                       - all=辅助程序加载与操作相关的所有索引</span>
+    <span class="cp">#                                       - _id_only=Secondaries不会将额外的索引加载到已有_id索引之外的内存中</span>
     <span class="cp">#   enableMajorityReadConcern: &lt;boolean&gt;  ## Deprecated in 3.6</span>
-    <span class="cp">#                                            从MongoDB 3.6开始，&quot;majority&quot;始终启用读取关注，并且此设置不起作用。</span>
-    <span class="cp">#    localPingThresholdMs: &lt;int&gt;  #mongos用于确定哪些辅助副本集成员从客户端传递读取操作的ping时间（以毫秒为单位）。</span>
-    <span class="cp">#                                    默认值15对应于所有客户端驱动程序中的默认值。</span>
+    <span class="cp">#                                            从MongoDB 3.6开始，&quot;majority&quot;始终启用读取关注，并且此设置不起作用</span>
+    <span class="cp">#    localPingThresholdMs: &lt;int&gt;  #mongos用于确定哪些辅助副本集成员从客户端传递读取操作的ping时间（以毫秒为单位）</span>
+    <span class="cp">#                                    默认值15对应于所有客户端驱动程序中的默认值</span>
     <span class="cp">#</span>
     <span class="cp"># 分片设置</span>
     <span class="cp">#</span>
     <span class="cp">#sharding:</span>
     <span class="cp">#   clusterRole: &lt;string&gt;    #mongod实例在分片群集中扮演的角色</span>
-    <span class="cp">#                           - configsvr=将此实例作为配置服务器启动。默认情况下，该实例在27019端口上启动。</span>
-    <span class="cp">#                           - shardsvr=启动此实例为碎片。默认情况下，该实例在27018端口上启动。</span>
-    <span class="cp">#                            设置sharding.clusterRole要求mongod 实例与复制一起运行。</span>
-    <span class="cp">#                            要将实例部署为副本集成员，请使用该replSetName 设置并指定副本集的名称。</span>
-    <span class="cp">#   archiveMovedChunks: false  #从3.2开始，MongoDB false用作默认值。在块迁移期间，分片不会保存从分片迁移的文档。</span>
-    <span class="cp">#   configDB: &lt;configReplSetName&gt;/cfg1.example.net:27017, cfg2.example.net:27017,...   #该配置服务器用于 分片群集。</span>
+    <span class="cp">#                           - configsvr=将此实例作为配置服务器启动。默认情况下，该实例在27019端口上启动</span>
+    <span class="cp">#                           - shardsvr=启动此实例为碎片。默认情况下，该实例在27018端口上启动</span>
+    <span class="cp">#                            设置sharding.clusterRole要求mongod 实例与复制一起运行</span>
+    <span class="cp">#                            要将实例部署为副本集成员，请使用该replSetName 设置并指定副本集的名称</span>
+    <span class="cp">#   archiveMovedChunks: false  #从3.2开始，MongoDB false用作默认值。在块迁移期间，分片不会保存从分片迁移的文档</span>
+    <span class="cp">#   configDB: &lt;configReplSetName&gt;/cfg1.example.net:27017, cfg2.example.net:27017,...   #该配置服务器用于 分片群集</span>
     <span class="cp">#</span>
-    <span class="cp"># 审计日志设置,仅在MongoDB Enterprise中可用。</span>
+    <span class="cp"># 审计日志设置,仅在MongoDB Enterprise中可用</span>
     <span class="cp">#</span>
     <span class="cp">#auditLog:</span>
-    <span class="cp">#   destination: file  #设置后，auditLog.destination启用使用指定格式往指定目标发送所有审核事件。</span>
+    <span class="cp">#   destination: file  #设置后，auditLog.destination启用使用指定格式往指定目标发送所有审核事件</span>
     <span class="cp">##                             - syslog=以JSON格式输出审计事件到系统日志.</span>
-    <span class="cp">##                             - console=以stdoutJSON格式输出审计事件。</span>
-    <span class="cp">##                             - file=将审核事件输出到以中指定auditLog.path格式auditLog.format指定的文件 。</span>
+    <span class="cp">##                             - console=以stdoutJSON格式输出审计事件</span>
+    <span class="cp">##                             - file=将审核事件输出到以中指定auditLog.path格式auditLog.format指定的文件 </span>
     <span class="cp">#   format: JSON   #用于审计的输出文件的格式,当auditLog.destination=file时,可以指定该值(JSON/BSON).</span>
     <span class="cp">#   path: &lt;string&gt; #输出文件的绝对或相对路径,当auditLog.destination=file时,可以指定该值.</span>
-    <span class="cp">#   filter: &lt;string&gt; #过滤指定类型的操作的记录。</span>
+    <span class="cp">#   filter: &lt;string&gt; #过滤指定类型的操作的记录</span>
     <span class="cp">#</span>
     <span class="cp"># 简单网络管理协议配置</span>
     <span class="cp">#</span>
     <span class="cp">#snmp:</span>
-    <span class="cp">#   subagent: &lt;boolean&gt;  #该snmp.subagent设置仅适用于mongod。</span>
-    <span class="cp">#                        如果snmp.subagent是true，SNMP运行的子代理。</span>
+    <span class="cp">#   subagent: &lt;boolean&gt;  #该snmp.subagent设置仅适用于mongod</span>
+    <span class="cp">#                        如果snmp.subagent是true，SNMP运行的子代理</span>
     <span class="cp">#   master: &lt;boolean&gt;    #当snmp.master是true，SNMP运行作为一个主站。·</span>
     <span class="cp">#</span>
-    <span class="cp"># 文本搜索选项 ,仅在MongoDB Enterprise中可用。</span>
+    <span class="cp"># 文本搜索选项 ,仅在MongoDB Enterprise中可用</span>
     <span class="cp">#</span>
     <span class="cp">#basisTech:</span>
-    <span class="cp">#   rootDirectory:&lt;string&gt; #指定Basis Technology Rosette语言学平台安装根目录的路径，以支持用于文本搜索操作的其他语言。</span>
+    <span class="cp">#   rootDirectory:&lt;string&gt; #指定Basis Technology Rosette语言学平台安装根目录的路径，以支持用于文本搜索操作的其他语言</span>
 </pre></div>
 
 <h2 id="mongo-shell">mongo shell<a class="headerlink" href="#mongo-shell" title="Permanent link">&para;</a></h2>
@@ -2550,7 +2550,7 @@
 </pre></div>
 
 <h3 id="_6">批量写入操作<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">bulkWrite</span><span class="p">()</span> <span class="o">//</span> <span class="err">此方法可以批量插入、更新、删除操作。批量写操作可以有序也可无序。</span>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">bulkWrite</span><span class="p">()</span> <span class="o">//</span> <span class="err">此方法可以批量插入、更新、删除操作。批量写操作可以有序也可无序</span>
 <span class="o">//</span> <span class="err">通过有序的操作列表，</span><span class="n">MongoDB以串行方式执行操作</span><span class="err">。如果在处理其中一个写操作期间发生错误，</span><span class="n">MongoDB将返回而不处理列表中的任何剩余写操作</span>
 <span class="o">//</span> <span class="err">使用无序的操作列表，</span><span class="n">MongoDB可以并行执行操作</span><span class="err">，但不保证这种行为。如果在处理其中一个写操作期间发生错误，</span><span class="n">MongoDB将继续处理列表中的剩余写操作</span>
 <span class="o">//</span> <span class="err">分片集合上，有序操作通常比无序要慢，</span><span class="n">bulk</span><span class="p">.</span><span class="k">Write</span><span class="p">()</span><span class="err">默认是有序操作</span>
@@ -2619,7 +2619,7 @@
 <span class="err">可重试写入有助于解决瞬时网络错误和副本集选举，并不能解决持久性网络错误，因为只进行一次重试尝试</span>
 <span class="err">如果驱动程序在目标副本集或分片集群分片中找不到正常的主节点，则驱动程序会在</span><span class="n">serverSelectionTimeoutMS在重试之前等待以确定新的主节点</span><span class="err">，可重试写入不能解决故障转移期间，时间超过</span><span class="n">serverSelectionTimeoutMS的实例</span>
 
-<span class="err">注意：如果客户端发出写入操作在超过</span><span class="n">serverSelectionTimeoutMS没有响应</span><span class="err">，有可能在客户端重新响应时</span><span class="p">(</span><span class="err">没有重新启动</span><span class="p">)</span><span class="err">，则可能会再重试写入操作。</span>
+<span class="err">注意：如果客户端发出写入操作在超过</span><span class="n">serverSelectionTimeoutMS没有响应</span><span class="err">，有可能在客户端重新响应时</span><span class="p">(</span><span class="err">没有重新启动</span><span class="p">)</span><span class="err">，则可能会再重试写入操作</span>
 
 <span class="n">db</span><span class="p">.</span><span class="n">serverStatus</span><span class="p">()</span><span class="err">包含有关该</span><span class="n">transactions部分中可重试写入的统计信息</span>
 </pre></div>
@@ -2724,7 +2724,7 @@
 
 <span class="o">//</span> <span class="err">并发控制</span>
 <span class="err">并发控制允许多个程序同时运行，而不会导致数据不一致或冲突</span>
-<span class="err">一种方法是在字段上创建唯一索引，该索引只有唯一值。可以防止插入、更新创建重复数据。在多个字段创建唯一索引，以强制该字段组合的唯一性。</span>
+<span class="err">一种方法是在字段上创建唯一索引，该索引只有唯一值。可以防止插入、更新创建重复数据。在多个字段创建唯一索引，以强制该字段组合的唯一性</span>
 <span class="err">另一种方法是在为写操作的查询谓词中指定字段预期的当前值</span>
 
 <span class="o">//</span> <span class="err">读取隔离</span><span class="p">,</span><span class="err">一致性和</span><span class="n">Recency</span>
@@ -2733,22 +2733,22 @@
 <h3 id="_10">分布式查询、查询优化、查询性能、优化查询<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="nv">oplog</span>是对数据集操作的可重现序列,索引可以涵盖嵌入式文档中字段的查询；如果索引跟踪哪个或哪些字段导致索引为多建索引，则多建索引可以覆盖非数组字段上的查询。<span class="ss">(</span>多建索引不能覆盖数组字段上的查询<span class="ss">)</span>；地理空间索引无法覆盖索引。要确定一个查询是否为覆盖查询，使用<span class="nv">db</span>.<span class="nv">collection</span>.<span class="nv">explain</span><span class="ss">()</span>或<span class="nv">explain</span><span class="ss">()</span>
 
-使用<span class="nv">Database</span> <span class="nv">Profiler</span>评估对数据库的操作，
+使用<span class="nv">Database</span> <span class="nv">Profiler</span>评估对数据库的操作
 
 <span class="o">//</span> 优化查询
 <span class="mi">1</span>. 创建支持查询的索引
-<span class="mi">2</span>. 如经常对<span class="nv">timestamp</span>字段进行排序性查询，则可以通过在<span class="nv">timestamp</span>字段创建索引，查询时使用<span class="nv">db</span>.<span class="nv">collection</span>.<span class="nv">find</span><span class="ss">()</span>.<span class="nv">sort</span><span class="ss">(</span>{ <span class="nv">timestamp</span>: <span class="o">-</span><span class="mi">1</span>}<span class="ss">)</span>更快得到结果，因为<span class="nv">MongoDB</span>可以按照升序或降序读取索引。
-<span class="mi">3</span>. 索引支持查询、更新操作和聚合管道的某些阶段；如符合以下条件，则<span class="nv">BinData</span>类型的索引建可以更有效的存储在索引中。
+<span class="mi">2</span>. 如经常对<span class="nv">timestamp</span>字段进行排序性查询，则可以通过在<span class="nv">timestamp</span>字段创建索引，查询时使用<span class="nv">db</span>.<span class="nv">collection</span>.<span class="nv">find</span><span class="ss">()</span>.<span class="nv">sort</span><span class="ss">(</span>{ <span class="nv">timestamp</span>: <span class="o">-</span><span class="mi">1</span>}<span class="ss">)</span>更快得到结果，因为<span class="nv">MongoDB</span>可以按照升序或降序读取索引
+<span class="mi">3</span>. 索引支持查询、更新操作和聚合管道的某些阶段；如符合以下条件，则<span class="nv">BinData</span>类型的索引建可以更有效的存储在索引中
   <span class="o">*</span> 二进制子类型值得范围为<span class="mi">0</span><span class="o">-</span><span class="mi">7</span>或<span class="mi">128</span><span class="o">-</span><span class="mi">135</span>
   <span class="o">*</span> 字节数组的长度为：<span class="mi">0</span>,<span class="mi">1</span>,<span class="mi">2</span>,<span class="mi">3</span>,<span class="mi">4</span>,<span class="mi">5</span>,<span class="mi">6</span>,<span class="mi">7</span>,<span class="mi">8</span>,<span class="mi">10</span>,<span class="mi">12</span>,<span class="mi">14</span>,<span class="mi">16</span>,<span class="mi">20</span>,<span class="mi">24</span>或<span class="mi">32</span>
 <span class="mi">4</span>. 限制查询结果数，通过<span class="nv">limit</span><span class="ss">()</span>方法减少查询对网络资源的消耗。通常和<span class="nv">sort</span><span class="ss">()</span>结合使用
-<span class="mi">5</span>. 使用预测返回必要的数据；只需要文档的部分字段时，只返回所需的字段可以获取更好的性能。
-<span class="mi">6</span>. 使用$<span class="nv">hint</span>选择一个特定的指数，大多数情况下，查询优化器会为特定操作选择最佳的索引，但是也可以使用$<span class="nv">hint</span><span class="ss">()</span>方法强制使用特定索引。<span class="nv">hint</span><span class="ss">()</span>支持性能测试或在某些查询，在一些查询中，必须选择一个字段或字段必须包含在多个索引中。
-<span class="mi">7</span>. 使用增量运算符执行操作服务端，<span class="nv">MongoDB</span>的$<span class="nv">inc</span>运算符来增加或减少文档中的值，该操作增加服务端字段的值，作为选择文档的替代方法，在客户端进行简单修改，然后将整个文档写入服务器。$<span class="nv">inc</span>操作还可以帮助避免竞争条件，这将导致两个应用实例对同一个文件查询时，手动增加一个字段，并保存整个文件回到同一时间。
+<span class="mi">5</span>. 使用预测返回必要的数据；只需要文档的部分字段时，只返回所需的字段可以获取更好的性能
+<span class="mi">6</span>. 使用$<span class="nv">hint</span>选择一个特定的指数，大多数情况下，查询优化器会为特定操作选择最佳的索引，但是也可以使用$<span class="nv">hint</span><span class="ss">()</span>方法强制使用特定索引。<span class="nv">hint</span><span class="ss">()</span>支持性能测试或在某些查询，在一些查询中，必须选择一个字段或字段必须包含在多个索引中
+<span class="mi">7</span>. 使用增量运算符执行操作服务端，<span class="nv">MongoDB</span>的$<span class="nv">inc</span>运算符来增加或减少文档中的值，该操作增加服务端字段的值，作为选择文档的替代方法，在客户端进行简单修改，然后将整个文档写入服务器。$<span class="nv">inc</span>操作还可以帮助避免竞争条件，这将导致两个应用实例对同一个文件查询时，手动增加一个字段，并保存整个文件回到同一时间
 
 <span class="o">//</span> 写操作性能
 
-集合中每个索引都会增加性能的开销；因集合中每个<span class="nv">insert</span>和<span class="nv">delete</span>写入操作。<span class="nv">MongoDB</span>都会从目标集合的每个索引中插入或删除对应的文档键。<span class="nv">update</span>操作可能会导致更新在这个集合中索引的子集，取决于更新时这个键的影响。
+集合中每个索引都会增加性能的开销；因集合中每个<span class="nv">insert</span>和<span class="nv">delete</span>写入操作。<span class="nv">MongoDB</span>都会从目标集合的每个索引中插入或删除对应的文档键。<span class="nv">update</span>操作可能会导致更新在这个集合中索引的子集，取决于更新时这个键的影响
 <span class="o">//</span> 注意：如果写入操作中涉及的文档包含在索引中，<span class="nv">MongoDB</span>则仅更新<span class="nv">sparse</span>或<span class="nv">partial</span>索引<span class="ss">(</span><span class="nv">sparse</span>和<span class="nv">partial</span>为<span class="nv">MongoDB</span>的索引类型<span class="ss">)</span>
 
 某些更新操作可能增加文档的大小。如:向文档增加字段。对于<span class="nv">MMAPv1</span>引擎，如果更新操作导致文档超过当前分配的记录大小。<span class="nv">MongoDB</span>会将文档重新定位到磁盘上。并留有足够的连续空间来保存文档。需要重定位的更新比没有重定位的更新花费的时间更长，特别是在集合具有索引的情况下。如果集合具有索引，<span class="nv">MongoDB</span>必须更新所有索引条目。因此，对于具有许多索引的集合，此移动将影响写入吞吐量
@@ -2768,10 +2768,10 @@
 <span class="o">//</span> 分析查询性能
 利用<span class="nv">cursor</span>.<span class="nv">explain</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">executionStats</span><span class="s2">&quot;</span><span class="ss">)</span>和<span class="nv">db</span>.<span class="nv">collection</span>.<span class="nv">explain</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">executionStats</span><span class="s2">&quot;</span><span class="ss">)</span>方法查看有关查询性能的统计信息
 
-<span class="mi">1</span>. <span class="nv">queryPlanner</span>.<span class="nv">winningPlan</span>.<span class="nv">stage</span> <span class="o">//</span> <span class="nv">COLLSCAN</span>表示集合扫描，也就表明<span class="nv">mongod</span>必须扫描整个集合文档来识别结果。
+<span class="mi">1</span>. <span class="nv">queryPlanner</span>.<span class="nv">winningPlan</span>.<span class="nv">stage</span> <span class="o">//</span> <span class="nv">COLLSCAN</span>表示集合扫描，也就表明<span class="nv">mongod</span>必须扫描整个集合文档来识别结果
 <span class="mi">2</span>. <span class="nv">executionStats</span>.<span class="nv">nReturned</span> <span class="o">//</span> 显示<span class="mi">3</span>，表明查询匹配到三个文档
 <span class="mi">3</span>. <span class="nv">executionStats</span>.<span class="nv">totalKeysExamined</span>   <span class="o">//</span> 显示<span class="mi">0</span>，表明此查询未用到索引
-<span class="mi">4</span>. <span class="nv">executionStats</span>.<span class="nv">totalDocsExamined</span>   <span class="o">//</span> 显示<span class="mi">10</span>，表明<span class="nv">MongoDB</span>必须扫描的文档数量<span class="ss">(</span>此处为<span class="mi">10</span>个<span class="ss">)</span>才能查找到和条件匹配相符的文档。
+<span class="mi">4</span>. <span class="nv">executionStats</span>.<span class="nv">totalDocsExamined</span>   <span class="o">//</span> 显示<span class="mi">10</span>，表明<span class="nv">MongoDB</span>必须扫描的文档数量<span class="ss">(</span>此处为<span class="mi">10</span>个<span class="ss">)</span>才能查找到和条件匹配相符的文档
 <span class="mi">5</span>. <span class="nv">queryPlanner</span>.<span class="nv">winningPlan</span>.<span class="nv">inputStage</span>.<span class="nv">stage</span>  <span class="o">//</span> 显示<span class="nv">IXSCAN</span>表示此查询使用索引
 
 <span class="o">//</span> 比较索引性能
@@ -2780,7 +2780,7 @@
 <span class="nv">db</span>.<span class="nv">collection</span>.<span class="nv">createIndex</span><span class="ss">(</span> { <span class="nv">type</span>: <span class="mi">1</span>, <span class="nv">quantity</span>: <span class="mi">1</span> } <span class="ss">)</span> <span class="o">//</span> 索引先<span class="nv">type</span>字段排序，再按<span class="nv">quantity</span>字段排序
 
 <span class="o">//</span> <span class="nv">Tailable</span> <span class="nv">Cursors</span>
-默认情况下，当查询操作结束后，会关闭返回的数据<span class="nv">cursor</span>，<span class="nv">Tailable</span> <span class="nv">Cursors</span>类似于<span class="nv">tail</span> <span class="o">-</span><span class="nv">f</span>命令。作用在<span class="nv">capped</span>集合上，当客户端有新的文档插入到<span class="nv">capped</span>集合时，<span class="nv">tailable</span>游标将继续检索文档。<span class="nv">MongoDB</span>副本集就使用<span class="nv">tailable</span>游标来跟踪主节点的<span class="nv">oplog</span>。
+默认情况下，当查询操作结束后，会关闭返回的数据<span class="nv">cursor</span>，<span class="nv">Tailable</span> <span class="nv">Cursors</span>类似于<span class="nv">tail</span> <span class="o">-</span><span class="nv">f</span>命令。作用在<span class="nv">capped</span>集合上，当客户端有新的文档插入到<span class="nv">capped</span>集合时，<span class="nv">tailable</span>游标将继续检索文档。<span class="nv">MongoDB</span>副本集就使用<span class="nv">tailable</span>游标来跟踪主节点的<span class="nv">oplog</span>
 
 注意：如果查询字段位于索引字段，不要使用<span class="nv">tailable</span>游标，使用常规游标即可，跟踪查询返回的索引字段的最后一个值。要检索新添加的文档，请使用查询条件中索引字段的最后一个值再次查询集合。例如：<span class="nv">db</span>.<span class="nv">collection</span>.<span class="nv">find</span><span class="ss">(</span> { <span class="nv">indexedField</span>: { $<span class="nv">gt</span>: <span class="nv">lastvalue</span> } } <span class="ss">)</span>
 
@@ -2794,19 +2794,19 @@
 </pre></div>
 
 <h2 id="aggregation">聚合(Aggregation)<a class="headerlink" href="#aggregation" title="Permanent link">&para;</a></h2>
-<p>聚合操作将来自多个文档的值组合一起，并且对分组数据执行各种操作后返回单个结果。MongoDB三种执行聚合的方式：聚合管道、map-reduce函数和单用途(single purpose)聚合方法。</p>
+<p>聚合操作将来自多个文档的值组合一起，并且对分组数据执行各种操作后返回单个结果。MongoDB三种执行聚合的方式：聚合管道、map-reduce函数和单用途(single purpose)聚合方法</p>
 <h3 id="_11">聚合管道<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>最基本的管道阶段是过滤器，操作类似于查询和文档转换。其他管道操作提供了按特定字段或字段对文档进行分组和排序的工具以及用于聚合数组内容的工具，包括文档中的数组。此方式是MongoDB数据聚合的首选方法</p>
 <p>map-reduce函数：通常，map-reduce操作有两个阶段：一个map阶段，它处理每个文档并为每个输入文档发出一个或多个对象，并减少组合map操作输出的阶段。可选地，map-reduce可以具有 最终化阶段以对结果进行最终修改。与其他聚合操作一样，map-reduce可以指定查询条件以选择输入文档以及排序和限制结果。Map-reduce使用自定义JavaScript函数来执行映射和减少操作，以及可选的finalize操作。虽然自定义JavaScript与聚合管道相比提供了极大的灵活性，但通常，map-reduce比聚合管道效率更低，更复杂
 <a href="http://docs.mongodb.com/manual/_images/map-reduce.bakedsvg.svg">map-reduce</a></p>
 <p>单用途聚合操作：MongoDB有db.collection.estimatedDocumentCount()，db.collection.count()和db.collection.distinct(),这些操作聚合都只能聚合来自单个集合的文档</p>
-<div class="codehilite"><pre><span></span><span class="err">聚合管道流水线表达式：某些阶段将流水线表达式作为操作数，流水线表达式指定要应用于输入文档的转换。表达式具有文档结构且包含其他表达式。</span>
+<div class="codehilite"><pre><span></span><span class="err">聚合管道流水线表达式：某些阶段将流水线表达式作为操作数，流水线表达式指定要应用于输入文档的转换。表达式具有文档结构且包含其他表达式</span>
 <span class="err">流水线表达式只能操作在当前流水线的文档并且不能引用其他文档中的数据。表达式提供文档的内存中转换操作。通常，当聚合过程带有一个例外：</span><span class="n">accumulator表达式</span><span class="err">，表达式是无状态的。仅进行评估</span>
 <span class="err">这个累加器用在$</span><span class="n">group阶段</span><span class="err">，保持其状态</span><span class="p">(</span><span class="err">例如：</span><span class="n">totals</span><span class="p">,</span><span class="n">maximums</span><span class="p">,</span><span class="n">minimums和related</span> <span class="k">data</span><span class="p">)</span><span class="err">通过流水线作为文档处理进程</span>
-<span class="err">在$</span><span class="n">project阶段使用一些累加器</span><span class="err">，但在此阶段使用时，累加器不会在文档中保持其状态。</span>
+<span class="err">在$</span><span class="n">project阶段使用一些累加器</span><span class="err">，但在此阶段使用时，累加器不会在文档中保持其状态</span>
 
 <span class="err">使用以下操作可以避免扫描整个集合：</span>
-<span class="err">流水线操作符和索引：当$</span><span class="n">match和$sort出现在管道流水线起始位置可以利用索引的优势</span><span class="err">。$</span><span class="n">GeoNear管道则可以有一个地理空间索引的优势</span><span class="err">，当使用$</span><span class="n">geoNear时</span><span class="err">，其必须在聚合管道操作中的第一个阶段。</span>
+<span class="err">流水线操作符和索引：当$</span><span class="n">match和$sort出现在管道流水线起始位置可以利用索引的优势</span><span class="err">。$</span><span class="n">GeoNear管道则可以有一个地理空间索引的优势</span><span class="err">，当使用$</span><span class="n">geoNear时</span><span class="err">，其必须在聚合管道操作中的第一个阶段</span>
 
 <span class="err">限制：聚合管道对值类型和结果大小有一定的限制</span>
 
@@ -3417,7 +3417,7 @@
 </tbody>
 </table>
 <h4 id="accumulatorsprojectprojectaddfields">Accumulators(累加器)(<span><span class="MathJax_Preview">project和</span><script type="math/tex">project和</script></span>addFields)<a class="headerlink" href="#accumulatorsprojectprojectaddfields" title="Permanent link">&para;</a></h4>
-<p>一些可用用作<span><span class="MathJax_Preview">group阶段的累加器操作也可以用于</span><script type="math/tex">group阶段的累加器操作也可以用于</script></span>project和<span><span class="MathJax_Preview">addFields阶段，但不能用作累加器。在</span><script type="math/tex">addFields阶段，但不能用作累加器。在</script></span>project和$addFields阶段使用时，这些运算符不会保持其状态，并且可以将单个参数或多个参数作为输入。</p>
+<p>一些可用用作<span><span class="MathJax_Preview">group阶段的累加器操作也可以用于</span><script type="math/tex">group阶段的累加器操作也可以用于</script></span>project和<span><span class="MathJax_Preview">addFields阶段，但不能用作累加器。在</span><script type="math/tex">addFields阶段，但不能用作累加器。在</script></span>project和$addFields阶段使用时，这些运算符不会保持其状态，并且可以将单个参数或多个参数作为输入</p>
 <table>
 <thead>
 <tr>
@@ -3589,7 +3589,7 @@
 <h2 id="transactions">Transactions<a class="headerlink" href="#transactions" title="Permanent link">&para;</a></h2>
 <p>可以跨多个操作、集合、数据库和文档使用多文档事务</p>
 <p>多文档事务是原子性的：
-* 当事务提交时，事务中所有的数据更改都被保存并在事务外部可见，事务提交之前，事务中发生的数据更改事务外部不可见。
+* 当事务提交时，事务中所有的数据更改都被保存并在事务外部可见，事务提交之前，事务中发生的数据更改事务外部不可见
 * 事务中止时，事务中所有的数据更改都会被丢弃但不会不可见</p>
 <h2 id="_27">索引<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
 <p>索引的排序支持有效的等式匹配和基于范围的查询操作，mongodb还可以使用索引中的顺序返回排序结果</p>
@@ -3597,7 +3597,7 @@
 <h3 id="_28">索引类型<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <p>单字段索引：对于单字段索引和排序操作，索引键的排序顺序无关紧要</p>
 <p>复合索引：MongoDB支持多字段的用户定义索引，复合索引中字段的顺序具有重要意义</p>
-<p>多键索引：MongoDB使用多键索引来索引存储在数组中的内容，如果索引包含数组的字段，则会为数组的每个元素创建单独的索引条目。</p>
+<p>多键索引：MongoDB使用多键索引来索引存储在数组中的内容，如果索引包含数组的字段，则会为数组的每个元素创建单独的索引条目</p>
 <p>地理空间索引：mongodb提供两个特殊索引以支持对地理空间坐标数据的查询，2d索引使用平面几何返回结果；2dsphere索引使用球形几何返回结果</p>
 <p>文本索引：mongodb提供text索引类型以支持字符串查询</p>
 <p>散列索引：MongoDB提供散列索引类型以支持基于散列的分片，该类型索引是一个字段值的hash，索引在其范围内有相当多随机值分配，仅支持相等匹配不支持范围查询</p>
@@ -3634,13 +3634,13 @@ db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weig
 <h2 id="mongodb-kafka">MongoDB&rarr;kafka<a class="headerlink" href="#mongodb-kafka" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="n">Debezium的MongoDB</span> <span class="n">Connector可以监视MongoDB副本集或MongoDB分片集群</span><span class="err">；</span><span class="n">MongoDB复制的工作原理是让Master记录其oplog</span><span class="err">（或操作日志）中的更改，然后每个</span><span class="n">Slave节点读取主要的oplog并按顺序应用所有操作到他们自己的文档</span><span class="err">。将新服务器添加到副本集时，该服务器首先执行初始同步主数据库上的所有数据库和集合，然后读取主数据库的</span><span class="n">oplog以应用自开始同步以来可能已经进行的所有更改</span><span class="err">。这个新服务器在赶上</span><span class="n">Master节点oplog的尾部时成为Slave服务器</span><span class="err">（并且能够处理查询）</span>
 
-<span class="n">Debezium</span> <span class="n">MongoDB</span> <span class="n">Connector使用相同的复制机制</span><span class="err">，但它实际上并不成为副本集的成员，</span><span class="n">Connector始终连接副本集的主节点来跟踪oplog</span><span class="err">，</span><span class="n">MongoDB重新选举主节点后</span><span class="err">，</span><span class="n">Connector会自动切换到新的主节点</span><span class="err">。</span><span class="n">Connector会记录oplog的位置</span><span class="err">，来实现增量同步。</span>
+<span class="n">Debezium</span> <span class="n">MongoDB</span> <span class="n">Connector使用相同的复制机制</span><span class="err">，但它实际上并不成为副本集的成员，</span><span class="n">Connector始终连接副本集的主节点来跟踪oplog</span><span class="err">，</span><span class="n">MongoDB重新选举主节点后</span><span class="err">，</span><span class="n">Connector会自动切换到新的主节点</span><span class="err">。</span><span class="n">Connector会记录oplog的位置</span><span class="err">，来实现增量同步</span>
 
-<span class="n">Debezium</span> <span class="n">MongoDB</span> <span class="n">Connector和副本集一起使用时</span><span class="err">，只需将副本集的地址作为</span><span class="n">Connector的seed地址mongodb</span><span class="p">.</span><span class="n">hosts即可</span><span class="err">。</span><span class="n">Connector使用seed连接副本集</span><span class="err">，获取到完整的成员集及确定主节点后。</span><span class="n">Connector连接到主节点并从其oplog捕获更改</span><span class="err">。</span>
+<span class="n">Debezium</span> <span class="n">MongoDB</span> <span class="n">Connector和副本集一起使用时</span><span class="err">，只需将副本集的地址作为</span><span class="n">Connector的seed地址mongodb</span><span class="p">.</span><span class="n">hosts即可</span><span class="err">。</span><span class="n">Connector使用seed连接副本集</span><span class="err">，获取到完整的成员集及确定主节点后。</span><span class="n">Connector连接到主节点并从其oplog捕获更改</span>
 
 <span class="n">Connector和分片集群一起使用时</span><span class="err">，使用</span><span class="n">config服务器的地址配置Connector连接</span><span class="err">。针对分片群集运行连接器时，请使用</span><span class="n">tasks</span><span class="p">.</span><span class="n">max大于副本集数量的值</span><span class="p">,</span><span class="err">这将允许连接器为每个副本集创建一个任务，并让</span><span class="n">Kafka</span> <span class="n">Connect在所有可用的工作进程中协调</span><span class="err">，分发和管理任务</span>
 
-<span class="n">mongodb</span><span class="p">.</span><span class="n">name</span><span class="err">，它充当</span><span class="n">MongoDB副本集或分片集群的逻辑名称</span><span class="p">,</span><span class="err">连接器以多种方式使用逻辑名称：作为所有主题名称的前缀，以及记录每个副本集的</span><span class="n">oplog位置时的唯一标识符</span><span class="err">。</span>
+<span class="n">mongodb</span><span class="p">.</span><span class="n">name</span><span class="err">，它充当</span><span class="n">MongoDB副本集或分片集群的逻辑名称</span><span class="p">,</span><span class="err">连接器以多种方式使用逻辑名称：作为所有主题名称的前缀，以及记录每个副本集的</span><span class="n">oplog位置时的唯一标识符</span>
 </pre></div>
 
 <h2 id="topics-name">topics name<a class="headerlink" href="#topics-name" title="Permanent link">&para;</a></h2>
@@ -3654,15 +3654,15 @@ db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weig
 </pre></div>
 
 <h2 id="partitions">Partitions<a class="headerlink" href="#partitions" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">MongoDB连接器不会明确确定事件的topic分区</span><span class="p">,</span><span class="err">相反，它允许</span><span class="n">Kafka根据密钥确定分区</span><span class="err">。您可以通过在</span><span class="n">Kafka</span> <span class="n">Connect工作程序配置中定义Partitioner实现的名称来更改Kafka的分区逻辑</span><span class="err">。</span>
+<div class="codehilite"><pre><span></span><span class="n">MongoDB连接器不会明确确定事件的topic分区</span><span class="p">,</span><span class="err">相反，它允许</span><span class="n">Kafka根据密钥确定分区</span><span class="err">。您可以通过在</span><span class="n">Kafka</span> <span class="n">Connect工作程序配置中定义Partitioner实现的名称来更改Kafka的分区逻辑</span>
 </pre></div>
 
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="n">MongoDB连接器生成的数据更改事件都有一个key和value</span><span class="err">。下面概述了这些</span><span class="n">key和value的结构</span>
 <span class="err">从</span><span class="n">kafka0</span><span class="p">.</span><span class="mi">10</span><span class="err">开始，可以使用消息密钥进行记录并创建消息的时间戳</span><span class="p">(</span><span class="err">由生产者记录</span><span class="p">)</span><span class="err">或由</span><span class="n">kafka写入日志的值进行评估</span>
-<span class="err">如果事件的来源在结构上发生变化或连接器改变，事件的结构可能会随着时间推移而发生变化。对于消费者可能很难处理。因此</span><span class="n">kafka每个事件都自成一体</span><span class="err">，每个消息键值都有两部分</span><span class="p">:</span><span class="n">a</span> <span class="n">schema和payload</span><span class="err">。当</span><span class="n">payload包含数据时</span><span class="err">，</span><span class="n">schema描述payload的结构</span><span class="err">。</span>
+<span class="err">如果事件的来源在结构上发生变化或连接器改变，事件的结构可能会随着时间推移而发生变化。对于消费者可能很难处理。因此</span><span class="n">kafka每个事件都自成一体</span><span class="err">，每个消息键值都有两部分</span><span class="p">:</span><span class="n">a</span> <span class="n">schema和payload</span><span class="err">。当</span><span class="n">payload包含数据时</span><span class="err">，</span><span class="n">schema描述payload的结构</span>
 
-<span class="err">更改事件的</span><span class="k">key</span><span class="err">：对于给定集合，更改事件的</span><span class="n">key将是包含单个id字段的结构</span><span class="err">。它的值是文档的标识符表示为字符串。</span>
+<span class="err">更改事件的</span><span class="k">key</span><span class="err">：对于给定集合，更改事件的</span><span class="n">key将是包含单个id字段的结构</span><span class="err">。它的值是文档的标识符表示为字符串</span>
 </pre></div>
 
 <p>MongoDB不可用时，重新尝试连接由三个属性控制：</p>
@@ -3789,10 +3789,10 @@ db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weig
 <tr>
 <td align="center">0.7.3及以后</td>
 <td align="center">true</td>
-<td align="center">控制是否应在删除事件后生成逻辑删除事件。</td>
+<td align="center">控制是否应在删除事件后生成逻辑删除事件</td>
 </tr>
 <tr>
-<td align="center">当true删除操作是通过删除事件和随后的墓碑事件表示。如果false只发送删除事件。</td>
+<td align="center">当true删除操作是通过删除事件和随后的墓碑事件表示。如果false只发送删除事件</td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
@@ -3808,7 +3808,7 @@ db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weig
 </tr>
 </tbody>
 </table>
-<p>以下高级配置属性具有良好的默认值，可在大多数情况下使用，因此很少需要在连接器的配置中指定。
+<p>以下高级配置属性具有良好的默认值，可在大多数情况下使用，因此很少需要在连接器的配置中指定
 | 属性 | 默认 | 描述 |
 | :--: | :--: | :--: |
 | max.queue.size | 8192 | 正整数值，指定在将数据库日志写入Kafka之前将更改事件从数据库日志中读取的阻塞队列的最大大小。例如，当写入Kafka较慢或者Kafka不可用时，此队列可以向oplog读取器提供反压。队列中出现的事件不包含在此连接器定期记录的偏移中。默认为8192，并且应始终大于max.batch.size属性中指定的最大批量大小。 |
@@ -3838,11 +3838,11 @@ connect.json
     "collection.whitelist": "inventory[.]*", (5)
   }
 }
-1 我们使用Kafka Connect服务注册时的连接器名称。
-2 MongoDB连接器类的名称。
+1 我们使用Kafka Connect服务注册时的连接器名称
+2 MongoDB连接器类的名称
 3 用于连接MongoDB副本集的主机地址
-4 该MongoDB的副本集逻辑名称，形成一个命名空间产生的事件，并在kafka的topics，kafka连接架构名称中的所有名称使用，以及相应的Avro架构的命名空间时的Avro使用。
-5 与要监视的所有集合的集合名称空间（例如，dbName collectionName）匹配的正则表达式列表。这是可选的。</p>
+4 该MongoDB的副本集逻辑名称，形成一个命名空间产生的事件，并在kafka的topics，kafka连接架构名称中的所有名称使用，以及相应的Avro架构的命名空间时的Avro使用
+5 与要监视的所有集合的集合名称空间（例如，dbName collectionName）匹配的正则表达式列表。这是可选的</p>
 <p>加载连接就是配置connect-mongo-source.properties
 curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" <a href="http://localhost:8084/connectors/">http://localhost:8084/connectors/</a> -d @/etc/kafka/mongodb.json</p>
 <p>查看kafka的topics
