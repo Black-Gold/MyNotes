@@ -2041,23 +2041,60 @@ keys /etc/ntp/keys
 # Note: Monitoring will not be disabled with the limited restriction flag.
 disable monitor
 
+----------------------------------------------------------------------------------------------------------------------
+
+## 内外网隔离情况chrony master client配置
+# Master,假设网段为192.168.165.x
+initstepslew 1 client1 client3 client6
+driftfile /var/lib/chrony/drift
+local stratum 8
+manual
+allow 192.168.165.0/24
+smoothtime 400 0.01
+rtcsync
+
+# Client,客户端均是相同配置
+server master iburst
+driftfile /var/lib/chrony/drift
+allow 192.168.165.0/24
+makestep 1.0 3
+rtcsync
+
+
+如果没有合适的计算机被指定为主服务器，或者要求即使客户端出现故障也要使客户端保持同步 ，则本地指令的orphan选项将启用一种特殊模式，
+在该模式下，可以从多台计算机中自动选择主服务器。他们都需要使用相同的 本地配置并相互轮询。具有最小引用ID（基于其IP地址）的服务器将
+充当主服务器的角色，其他服务器将与其同步。当它失败时，具有第二小的参考ID的服务器将接管等
+
+第一个服务器的配置文件可能是(假设有三个服务器分别称为master1，master2和master3)。
+其他服务器将是相同的，`但要修改initstepslew和server指令中的主机名以指定其他服务器`。他们的客户端可能配置为轮询所有三台服务器
+initstepslew 1 master2 master3
+server master2
+server master3
+driftfile /var/lib/chrony/drift
+local stratum 8 orphan
+manual
+allow 192.168.165.0/24
+rtcsync
+
+-----------------------------------------------------------------------------------------------------------------------
+
 ## chrony配置
 
 # Use public servers from the pool.ntp.org project.
-# Please consider joining the pool (http://www.pool.ntp.org/join.html).
+# Please consider joining the pool (http://www.pool.ntp.org/join.html).[必须要有]
 server 0.centos.pool.ntp.org iburst
 server 1.centos.pool.ntp.org iburst
 server 2.centos.pool.ntp.org iburst
 server 3.centos.pool.ntp.org iburst
 
-# Record the rate at which the system clock gains/losses time.
+# Record the rate at which the system clock gains/losses time.[必须要有]
 driftfile /var/lib/chrony/drift
 
 # Allow the system clock to be stepped in the first three updates
-# if its offset is larger than 1 second.
+# if its offset is larger than 1 second.[必须要有]
 makestep 1.0 3
 
-# Enable kernel synchronization of the real-time clock (RTC).
+# Enable kernel synchronization of the real-time clock (RTC).[必须要有]
 rtcsync
 
 # Enable hardware timestamping on all interfaces that support it.
@@ -2081,7 +2118,6 @@ logdir /var/log/chrony
 
 # Select which information is logged.
 #log measurements statistics tracking
-
 
 ```
 
@@ -2667,6 +2703,256 @@ xferlog_file
 此选项是我们编写wu-ftpd样式传输日志的文件的名称。仅当 设置了 xferlog_enable选项以及xferlog_std_format时才会写入传输日志 
 或者，如果已设置选项dual_log_enable，则会写入 
 默认值：/var/log/xferlog
+```
+
+### rsync
+
+#### 选项
+
+```markdown
+rsync [OPTION]... SRC DEST
+rsync [OPTION]... SRC [USER@]host:DEST
+rsync [OPTION]... [USER@]HOST:SRC DEST
+rsync [OPTION]... [USER@]HOST::SRC DEST
+rsync [OPTION]... SRC [USER@]HOST::DEST
+rsync [OPTION]... rsync://[USER@]HOST[:PORT]/SRC [DEST]
+
+对应于以上六种命令格式，rsync有六种不同的工作模式：
+
+* 同步本地目录。当SRC和DES路径信息都不包含有单个冒号":"分隔符时就启动这种工作模式
+  如：`rsync -a /data /backup`
+
+* 使用一个远程shell程序(如rsh、ssh)来实现将本地机器的内容拷贝到远程机器。当DST路径地址包含单个冒号":"分隔符时启动该模式
+  如：`rsync -avz *.c foo:src`
+
+* 使用一个远程shell程序(如rsh、ssh)来实现将远程机器的内容拷贝到本地机器。当SRC地址路径包含单个冒号":"分隔符时启动该模式
+  如：`rsync -avz foo:src/bar /data`
+
+* 拉取：从远程rsync服务器中拷贝文件到本地机。当SRC路径信息包含"::"分隔符时启动该模式
+  如：`rsync -av root@192.168.78.192::www /databack`
+
+* 推送：从本地机器拷贝文件到远程rsync服务器中。当DST路径信息包含"::"分隔符时启动该模式
+  如：`rsync -av /databack root@192.168.78.192::www`
+
+* 列远程机的文件列表。这类似于rsync传输，不过只要在命令中省略掉本地机信息即可
+  如：`rsync -v rsync://192.168.78.192/www`
+
+https://rsync.samba.org/resources.html
+原理论文：https://www.samba.org//~tridge/phd_thesis.pdf
+how_rsync_works:https://rsync.samba.org/how-rsync-works.html
+https://rsync.samba.org/examples.html
+
+```
+
+```markdown
+-v, --verbose               详细模式输出
+    --info=FLAGS            细粒度的info输出
+    --debug=FLAGS           细粒度的debug输出
+    --msgs2stderr           special output handling for debugging
+-q, --quiet                 suppress non-error messages
+    --no-motd               suppress daemon-mode MOTD (see manpage caveat)
+-c, --checksum              根据checksum跳过文件，而不是mod-time和size
+-a, --archive               归档模式;等同于-rlptgoD (no -H,-A,-X)
+    --no-OPTION             turn off an implied OPTION (e.g. --no-D)
+-r, --recursive             对子目录进行递归处理
+-R, --relative              使用相对路径的名称
+    --no-implied-dirs       don't send implied dirs with --relative
+-b, --backup                make backups (see --suffix & --backup-dir)
+    --backup-dir=DIR        make backups into hierarchy based in DIR
+    --suffix=SUFFIX         set backup suffix (default ~ w/o --backup-dir)
+-u, --update                跳过接收方比发送方较新的文件，即跳过所有已存在于DST且文件时间晚于SRC的文件
+    --inplace               update destination files in-place (SEE MAN PAGE)
+    --append                append data onto shorter files
+    --append-verify         like --append, but with old data in file checksum
+-d, --dirs                  transfer directories without recursing
+-l, --links                 保留软链接
+-L, --copy-links            将符号链接转换为对应的引用文件或引用目录
+    --copy-unsafe-links     only "unsafe" symlinks are transformed
+    --safe-links            ignore symlinks that point outside the source tree
+    --munge-links           munge symlinks to make them safer (but unusable)
+-k, --copy-dirlinks         transform symlink to a dir into referent dir
+-K, --keep-dirlinks         treat symlinked dir on receiver as dir
+-H, --hard-links            保留硬链接
+-p, --perms                 保留文件权限
+-E, --executability         preserve the file's executability
+    --chmod=CHMOD           affect file and/or directory permissions
+-A, --acls                  preserve ACLs (implies --perms)
+-X, --xattrs                preserve extended attributes
+-o, --owner                 保留文件属主信息(super-user only)
+-g, --group                 保留文件属组信息
+    --devices               preserve device files (super-user only)
+    --copy-devices          copy device contents as regular file
+    --specials              preserve special files
+-D                          same as --devices --specials
+-t, --times                 保留文件修改信息
+-O, --omit-dir-times        omit directories from --times
+-J, --omit-link-times       omit symlinks from --times
+    --super                 receiver attempts super-user activities
+    --fake-super            store/recover privileged attrs using xattrs
+-S, --sparse                对稀疏文件(它能尝试在文件内容大多为空时更有效率地使用文件系统的空间)进行特殊处理以节省DST空间
+    --preallocate           allocate dest files before writing them
+-n, --dry-run               不进行实际的传输，只作为测试运行
+-W, --whole-file            copy files whole (without delta-xfer algorithm)
+-x, --one-file-system       don't cross filesystem boundaries
+-B, --block-size=SIZE       强制校检块大小
+-e, --rsh=COMMAND           指定rsh、ssh方式进行传输
+    --rsync-path=PROGRAM    指定远程服务器rsync命令所在路径
+    --existing              skip creating new files on receiver
+    --ignore-existing       skip updating files that already exist on receiver
+    --remove-source-files   sender removes synchronized files (non-dirs)
+    --del                   an alias for --delete-during
+    --delete                从DST删除在SRC中没有的文件(慎用)
+    --delete-before         receiver deletes before transfer, not during
+    --delete-during         receiver deletes during the transfer
+    --delete-delay          find deletions during, delete after
+    --delete-after          receiver deletes after transfer, not during
+    --delete-excluded       also delete excluded files from destination dirs
+    --ignore-missing-args   ignore missing source args without error
+    --delete-missing-args   delete missing source args from destination
+    --ignore-errors         delete even if there are I/O errors
+    --force                 force deletion of directories even if not empty
+    --max-delete=NUM        don't delete more than NUM files
+    --max-size=SIZE         don't transfer any file larger than SIZE
+    --min-size=SIZE         don't transfer any file smaller than SIZE
+    --partial               keep partially transferred files
+    --partial-dir=DIR       put a partially transferred file into DIR
+    --delay-updates         put all updated files into place at transfer's end
+-m, --prune-empty-dirs      prune empty directory chains from the file-list
+    --numeric-ids           don't map uid/gid values by user/group name
+    --usermap=STRING        custom username mapping
+    --groupmap=STRING       custom groupname mapping
+    --chown=USER:GROUP      simple username/groupname mapping
+    --timeout=SECONDS       set I/O timeout in seconds
+    --contimeout=SECONDS    set daemon connection timeout in seconds
+-I, --ignore-times          不跳过那些具有相同size和mod-time的文件
+-M, --remote-option=OPTION  send OPTION to the remote side only
+    --size-only             skip files that match in size
+    --modify-window=NUM     compare mod-times with reduced accuracy
+-T, --temp-dir=DIR          在DIR中创建临时文件
+-y, --fuzzy                 find similar file for basis if no dest file
+    --compare-dest=DIR      also compare destination files relative to DIR
+    --copy-dest=DIR         ... and include copies of unchanged files
+    --link-dest=DIR         hardlink to files in DIR when unchanged
+-z, --compress              传输过程中对文件数据进行压缩处理
+    --compress-level=NUM    explicitly set compression level
+    --skip-compress=LIST    skip compressing files with a suffix in LIST
+-C, --cvs-exclude           像CVS一样自动忽略文件
+-f, --filter=RULE           add a file-filtering RULE
+-F                          same as --filter='dir-merge /.rsync-filter'
+                            repeated: --filter='- .rsync-filter'
+    --exclude=PATTERN       排除与PATTERN相匹配的文件
+    --exclude-from=FILE     排除与FILE文件中pattern匹配的文件
+    --include=PATTERN       不排除与PATTERN相匹配的文件
+    --include-from=FILE     不排除FILE文件中指定pattern匹配的文件
+    --files-from=FILE       从FILE读取源文件名列表匹配要传输的文件
+-0, --from0                 all *-from/filter files are delimited by 0s
+-s, --protect-args          no space-splitting; only wildcard special-chars
+    --address=ADDRESS       bind address for outgoing socket to daemon
+    --port=PORT             指定其他的rsync服务端口
+    --sockopts=OPTIONS      specify custom TCP options
+    --blocking-io           use blocking I/O for the remote shell
+    --stats                 give some file-transfer stats
+-8, --8-bit-output          leave high-bit chars unescaped in output
+-h, --human-readable        output numbers in a human-readable format
+    --progress              显示传输过程
+-P                          same as --partial --progress
+-i, --itemize-changes       output a change-summary for all updates
+    --out-format=FORMAT     output updates using the specified FORMAT
+    --log-file=FILE         log what we're doing to the specified FILE
+    --log-file-format=FMT   log updates using the specified FMT
+    --password-file=FILE    从FILE文件读取rsync后台程序访问密码
+    --list-only             list the files instead of copying them
+    --bwlimit=RATE          限制socket I/O带宽
+    --outbuf=N|L|B          set output buffering to None, Line, or Block
+    --write-batch=FILE      write a batched update to FILE
+    --only-write-batch=FILE like --write-batch but w/o updating destination
+    --read-batch=FILE       read a batched update from FILE
+    --protocol=NUM          force an older protocol version to be used
+    --iconv=CONVERT_SPEC    request charset conversion of filenames
+    --checksum-seed=NUM     set block/file checksum seed (advanced)
+-4, --ipv4                  prefer IPv4
+-6, --ipv6                  prefer IPv6
+
+--checksum详解：改变了rsync检查文件是否已更改以及是否需要传输的方式。如果没有此选项，rsync将使用“快速检查”（默认情况下），检查每个
+文件的大小和上次修改时间在发送方和接收方之间是否匹配。此选项将其更改为比较每个具有匹配大小的文件的128位校验和。生成校验和意味着双方将
+花费大量的磁盘I / O来读取传输中文件中的所有数据（这是在进行任何读取以传输更改的文件之前），因此这会减慢速度显著
+```
+
+#### 实例
+
+```bash
+: << comment
+注意事项：
+# 创建密码文件，用户名可以和密码可以随便定义,服务端需要user:pass形式，客户端只需要pass就行
+echo "work:abc123" > /etc/rsyncd.passwd
+chmod 600 /etc/rsyncd.passwd
+
+windows下rsync权限注意事项：密码文件执行：chmod 600 rsync.passwd,用当前用户执行chown 用户名 rsync.passwd
+
+将文件发送到Microsoft文件系统：如果文件的修改时间是一个奇数值，但是接收文件系统只能存储偶数值，
+那么rsync将重新传输太多文件。您可以通过指定--modify-window = 1选项来避免这种情况
+comment
+
+# 使用SSH方式rsync进行同步
+rsync -vzrtopg --progress -e ssh --delete work@172.16.78.192:/www/* /databack/experiment/rsync
+```
+
+##### 后台服务方式
+
+```markdown
+https://download.samba.org/pub/rsync/rsyncd.conf.html
+# 默认安装好rsync程序后，配置文件为“/etc/rsyncd.conf”
+# 全局参数，使用[global]模块名称指示一个或多个全局参数的开始，名称必须小写
+[global]
+motd file = path_to_file  # 指定每次连接时显示给客户端的消息
+# pid file = /var/run/rsyncd.pid    # 将进程id写入此文件
+port = PORT # 指定rsync进程端口号，默认873
+address = x # 通过指定此值来覆盖守护程序默认监听的IP地址
+socket options = xx # 设置各种套接字选项，这些选项可能会使传输更快或更慢,具体参考setsockopt()系统调用的手册页
+listen backlog = x  # 覆盖rsync进程对于连接的backlog value，默认为5
+
+# 模块名称不能包含斜杠或右方括号,名称内部包含多个空格都作为一个空格对待，首尾空格会被丢弃
+[module]
+comment = x  #  当客户端获取可用模块列表时，此参数指定在模块名称旁边显示的描述字符串，默认没注释
+path = x    # 指定rsync守护程序文件系统中的目录，必须为每个module指定此参数。可以使用百分号将变量名称括起来，从而使路径的值基于环境变量。
+              也可以引用用户连接时由rsync设置的变量。例如在路径中使用授权用户的名称：path = /home/%RSYNC_USER_NAME%
+use chroot = yes  # 值为yes时，rsync守护程序将chroot到“ path”，然后再开始与客户端进行文件传输。好处是可以提供额外的保护，以防止可能的
+                    安全漏洞，但是它的缺点是需要超级用户特权
+daemon chroot = x   # 此参数指定守护程序在开始与客户端通信之前将其更改为chroot的路径
+numeric ids = x # 启用此参数将禁用当前守护程序模块的按名称映射用户和组。这样可以防止守护程序尝试加载任何与用户/组相关的文件或库。
+                  默认情况下，此参数对chroot模块启用，对非chroot模块禁用。启用chroot的模块不应启用此参数
+charset = x # 指定了存储模块文件名的字符集。如果客户端使用--iconv选项，则守护程序将使用“字符集”参数的值，而与客户端实际传递的字符集无关。
+              这使守护进程rsync可以在chroot模块中支持字符集转换且还可以确保以一致的方式完成名称转换。如果未设置“ charset”参数，
+              则--iconv选项将被拒绝
+max connections = x # 
+
+# uid = nobody
+# gid = nobody
+# max connections = 4
+# exclude = lost+found/
+# transfer logging = yes
+# timeout = 900
+# ignore nonreadable = yes
+# dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2
+
+# [ftp]
+#        path = /home/ftp
+#        comment = ftp export area
+#
+#
+
+
+
+```
+
+### inotify-tools
+
+```markdown
+https://github.com/rvoicilas/inotify-tools/wiki
+
+inotifywait [-hcmrq] [-e <event> ] [-t <seconds> ] [--format <fmt> ] [--timefmt <fmt> ] <file> [ ... ]
+
+
 ```
 
 ### samba

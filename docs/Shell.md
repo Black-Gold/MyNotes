@@ -3,6 +3,16 @@
 bash shell本身不支持正则表达式，使用正则的是shell命令和工具，如grep、sed等。bash shell可以使用正则表达式中的一些元字符实
 现通配(Globbing)功能。通配就是把一个包含通配符的非具体文件名扩展存储在计算机或网络上的一批具体文件名的过程
 
+注意事项：
+
+* 不要使用for循环读取文件的行。请改用while读取循环
+* cat file | grep pattern   不要使用此方式，而应该使用grep 'pattern' file | sed 'expression'
+* 使用$(...)取代`...`
+* bash测试时使用[[]]代替[]更安全
+* ls -l | awk '{ print $8 }' 不要解析ls命令的输出，ls输出并非很靠谱
+* for number in $(seq 1 10); do 不要使用seq计数
+* i=`expr $i + 1` 不要使用expr，用i++代替
+
 - Reference List
 
   - Bash Guide for Beginners
@@ -104,7 +114,7 @@ shell中一个dot代表当前目录，两个代表上层目录，正则表达式
 双引号括住的内容将被视为单一字符串，可以防止通配符扩展，但是允许变量扩展。此处和单引号不同
 
 # `command`(backticks)倒引号
-倒引号内的command会被当做命令来执行
+倒引号内的command会被当做命令来执行,最好使用$(command)来代替
 
 # ,(comma)英文逗号
 此符号常用在运算中，用作区域隔离。例如：
@@ -160,7 +170,7 @@ a=one; { a=two; echo -e "\n$a \n";}; echo $a
 分割的顺序文件列表起拓展作用，如：touch {a..d}.txt 结果为a.txt b.txt c.txt d.txt
 还可以用在字符串组合上，如：mkdir {a,b}-{1,2} 结果为：a-1 a-2 b-1 b-2
 
-# [] 中括号
+# [] 中括号------尽量使用[[]]替代[]
 与test等同，通常用作条件判断，参数作为比较表达式或文件测试，根据结果返回状态码
 test和[]中比较运算符只有==和!=，用于字符串比较，整数比较只能-gt,-eq等
 正则中表示一个字符范围
