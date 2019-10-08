@@ -781,6 +781,53 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#rsync" class="md-nav__link">
+    rsync
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    选项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    实例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    后台服务方式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inotify-tools" class="md-nav__link">
+    inotify-tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#samba" class="md-nav__link">
     samba
   </a>
@@ -1830,6 +1877,53 @@
           <li class="md-nav__item">
   <a href="#vsftp" class="md-nav__link">
     Vsftp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsync" class="md-nav__link">
+    rsync
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    选项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    实例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    后台服务方式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inotify-tools" class="md-nav__link">
+    inotify-tools
   </a>
   
 </li>
@@ -3881,23 +3975,60 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 # <span class="nv">Note</span>: <span class="nv">Monitoring</span> <span class="nv">will</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">disabled</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">limited</span> <span class="nv">restriction</span> <span class="nv">flag</span>.
 <span class="nv">disable</span> <span class="nv">monitor</span>
 
+<span class="o">----------------------------------------------------------------------------------------------------------------------</span>
+
+## 内外网隔离情况<span class="nv">chrony</span> <span class="nv">master</span> <span class="nv">client</span>配置
+# <span class="nv">Master</span>,假设网段为<span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">165</span>.<span class="nv">x</span>
+<span class="nv">initstepslew</span> <span class="mi">1</span> <span class="nv">client1</span> <span class="nv">client3</span> <span class="nv">client6</span>
+<span class="nv">driftfile</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">chrony</span><span class="o">/</span><span class="nv">drift</span>
+<span class="nv">local</span> <span class="nv">stratum</span> <span class="mi">8</span>
+<span class="nv">manual</span>
+<span class="nv">allow</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">165</span>.<span class="mi">0</span><span class="o">/</span><span class="mi">24</span>
+<span class="nv">smoothtime</span> <span class="mi">400</span> <span class="mi">0</span>.<span class="mi">01</span>
+<span class="nv">rtcsync</span>
+
+# <span class="nv">Client</span>,客户端均是相同配置
+<span class="nv">server</span> <span class="nv">master</span> <span class="nv">iburst</span>
+<span class="nv">driftfile</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">chrony</span><span class="o">/</span><span class="nv">drift</span>
+<span class="nv">allow</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">165</span>.<span class="mi">0</span><span class="o">/</span><span class="mi">24</span>
+<span class="nv">makestep</span> <span class="mi">1</span>.<span class="mi">0</span> <span class="mi">3</span>
+<span class="nv">rtcsync</span>
+
+
+如果没有合适的计算机被指定为主服务器，或者要求即使客户端出现故障也要使客户端保持同步 ，则本地指令的<span class="nv">orphan</span>选项将启用一种特殊模式，
+在该模式下，可以从多台计算机中自动选择主服务器。他们都需要使用相同的 本地配置并相互轮询。具有最小引用<span class="nv">ID</span>（基于其<span class="nv">IP</span>地址）的服务器将
+充当主服务器的角色，其他服务器将与其同步。当它失败时，具有第二小的参考<span class="nv">ID</span>的服务器将接管等
+
+第一个服务器的配置文件可能是<span class="ss">(</span>假设有三个服务器分别称为<span class="nv">master1</span>，<span class="nv">master2</span>和<span class="nv">master3</span><span class="ss">)</span>。
+其他服务器将是相同的，`但要修改<span class="nv">initstepslew</span>和<span class="nv">server</span>指令中的主机名以指定其他服务器`。他们的客户端可能配置为轮询所有三台服务器
+<span class="nv">initstepslew</span> <span class="mi">1</span> <span class="nv">master2</span> <span class="nv">master3</span>
+<span class="nv">server</span> <span class="nv">master2</span>
+<span class="nv">server</span> <span class="nv">master3</span>
+<span class="nv">driftfile</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">chrony</span><span class="o">/</span><span class="nv">drift</span>
+<span class="nv">local</span> <span class="nv">stratum</span> <span class="mi">8</span> <span class="nv">orphan</span>
+<span class="nv">manual</span>
+<span class="nv">allow</span> <span class="mi">192</span>.<span class="mi">168</span>.<span class="mi">165</span>.<span class="mi">0</span><span class="o">/</span><span class="mi">24</span>
+<span class="nv">rtcsync</span>
+
+<span class="o">-----------------------------------------------------------------------------------------------------------------------</span>
+
 ## <span class="nv">chrony</span>配置
 
 # <span class="nv">Use</span> <span class="nv">public</span> <span class="nv">servers</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">pool</span>.<span class="nv">ntp</span>.<span class="nv">org</span> <span class="nv">project</span>.
-# <span class="nv">Please</span> <span class="nv">consider</span> <span class="nv">joining</span> <span class="nv">the</span> <span class="nv">pool</span> <span class="ss">(</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">pool</span>.<span class="nv">ntp</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">join</span>.<span class="nv">html</span><span class="ss">)</span>.
+# <span class="nv">Please</span> <span class="nv">consider</span> <span class="nv">joining</span> <span class="nv">the</span> <span class="nv">pool</span> <span class="ss">(</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">pool</span>.<span class="nv">ntp</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">join</span>.<span class="nv">html</span><span class="ss">)</span>.[必须要有]
 <span class="nv">server</span> <span class="mi">0</span>.<span class="nv">centos</span>.<span class="nv">pool</span>.<span class="nv">ntp</span>.<span class="nv">org</span> <span class="nv">iburst</span>
 <span class="nv">server</span> <span class="mi">1</span>.<span class="nv">centos</span>.<span class="nv">pool</span>.<span class="nv">ntp</span>.<span class="nv">org</span> <span class="nv">iburst</span>
 <span class="nv">server</span> <span class="mi">2</span>.<span class="nv">centos</span>.<span class="nv">pool</span>.<span class="nv">ntp</span>.<span class="nv">org</span> <span class="nv">iburst</span>
 <span class="nv">server</span> <span class="mi">3</span>.<span class="nv">centos</span>.<span class="nv">pool</span>.<span class="nv">ntp</span>.<span class="nv">org</span> <span class="nv">iburst</span>
 
-# <span class="nv">Record</span> <span class="nv">the</span> <span class="nv">rate</span> <span class="nv">at</span> <span class="nv">which</span> <span class="nv">the</span> <span class="nv">system</span> <span class="nv">clock</span> <span class="nv">gains</span><span class="o">/</span><span class="nv">losses</span> <span class="nv">time</span>.
+# <span class="nv">Record</span> <span class="nv">the</span> <span class="nv">rate</span> <span class="nv">at</span> <span class="nv">which</span> <span class="nv">the</span> <span class="nv">system</span> <span class="nv">clock</span> <span class="nv">gains</span><span class="o">/</span><span class="nv">losses</span> <span class="nv">time</span>.[必须要有]
 <span class="nv">driftfile</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">chrony</span><span class="o">/</span><span class="nv">drift</span>
 
 # <span class="nv">Allow</span> <span class="nv">the</span> <span class="nv">system</span> <span class="nv">clock</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">stepped</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">three</span> <span class="nv">updates</span>
-# <span class="k">if</span> <span class="nv">its</span> <span class="nv">offset</span> <span class="nv">is</span> <span class="nv">larger</span> <span class="nv">than</span> <span class="mi">1</span> <span class="nv">second</span>.
+# <span class="k">if</span> <span class="nv">its</span> <span class="nv">offset</span> <span class="nv">is</span> <span class="nv">larger</span> <span class="nv">than</span> <span class="mi">1</span> <span class="nv">second</span>.[必须要有]
 <span class="nv">makestep</span> <span class="mi">1</span>.<span class="mi">0</span> <span class="mi">3</span>
 
-# <span class="nv">Enable</span> <span class="nv">kernel</span> <span class="nv">synchronization</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">real</span><span class="o">-</span><span class="nv">time</span> <span class="nv">clock</span> <span class="ss">(</span><span class="nv">RTC</span><span class="ss">)</span>.
+# <span class="nv">Enable</span> <span class="nv">kernel</span> <span class="nv">synchronization</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">real</span><span class="o">-</span><span class="nv">time</span> <span class="nv">clock</span> <span class="ss">(</span><span class="nv">RTC</span><span class="ss">)</span>.[必须要有]
 <span class="nv">rtcsync</span>
 
 # <span class="nv">Enable</span> <span class="nv">hardware</span> <span class="nv">timestamping</span> <span class="nv">on</span> <span class="nv">all</span> <span class="nv">interfaces</span> <span class="nv">that</span> <span class="nv">support</span> <span class="nv">it</span>.
@@ -4503,6 +4634,240 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="cm">此选项是我们编写wu-ftpd样式传输日志的文件的名称。仅当 设置了 xferlog_enable选项以及xferlog_std_format时才会写入传输日志 </span>
 <span class="cm">或者，如果已设置选项dual_log_enable，则会写入 </span>
 <span class="cm">默认值：/var/log/xferlog</span>
+</pre></div>
+
+<h3 id="rsync">rsync<a class="headerlink" href="#rsync" title="Permanent link">&para;</a></h3>
+<h4 id="_15">选项<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="n">rsync</span> <span class="p">[</span><span class="n">OPTION</span><span class="p">]...</span> <span class="n">SRC</span> <span class="n">DEST</span>
+<span class="n">rsync</span> <span class="p">[</span><span class="n">OPTION</span><span class="p">]...</span> <span class="n">SRC</span> <span class="p">[</span><span class="n">USER</span><span class="p">@]</span><span class="nl">host</span><span class="p">:</span><span class="n">DEST</span>
+<span class="n">rsync</span> <span class="p">[</span><span class="n">OPTION</span><span class="p">]...</span> <span class="p">[</span><span class="n">USER</span><span class="p">@]</span><span class="nl">HOST</span><span class="p">:</span><span class="n">SRC</span> <span class="n">DEST</span>
+<span class="n">rsync</span> <span class="p">[</span><span class="n">OPTION</span><span class="p">]...</span> <span class="p">[</span><span class="n">USER</span><span class="p">@]</span><span class="n">HOST</span><span class="o">::</span><span class="n">SRC</span> <span class="n">DEST</span>
+<span class="n">rsync</span> <span class="p">[</span><span class="n">OPTION</span><span class="p">]...</span> <span class="n">SRC</span> <span class="p">[</span><span class="n">USER</span><span class="p">@]</span><span class="n">HOST</span><span class="o">::</span><span class="n">DEST</span>
+<span class="n">rsync</span> <span class="p">[</span><span class="n">OPTION</span><span class="p">]...</span> <span class="nl">rsync</span><span class="p">:</span><span class="c1">//[USER@]HOST[:PORT]/SRC [DEST]</span>
+
+<span class="err">对应于以上六种命令格式，</span><span class="n">rsync有六种不同的工作模式</span><span class="err">：</span>
+
+<span class="o">*</span> <span class="err">同步本地目录。当</span><span class="n">SRC和DES路径信息都不包含有单个冒号</span><span class="s">&quot;:&quot;</span><span class="err">分隔符时就启动这种工作模式</span>
+  <span class="err">如：`</span><span class="n">rsync</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">data</span> <span class="o">/</span><span class="n">backup</span><span class="err">`</span>
+
+<span class="o">*</span> <span class="err">使用一个远程</span><span class="n">shell程序</span><span class="p">(</span><span class="err">如</span><span class="n">rsh</span><span class="err">、</span><span class="n">ssh</span><span class="p">)</span><span class="err">来实现将本地机器的内容拷贝到远程机器。当</span><span class="n">DST路径地址包含单个冒号</span><span class="s">&quot;:&quot;</span><span class="err">分隔符时启动该模式</span>
+  <span class="err">如：`</span><span class="n">rsync</span> <span class="o">-</span><span class="n">avz</span> <span class="o">*</span><span class="p">.</span><span class="n">c</span> <span class="nl">foo</span><span class="p">:</span><span class="n">src</span><span class="err">`</span>
+
+<span class="o">*</span> <span class="err">使用一个远程</span><span class="n">shell程序</span><span class="p">(</span><span class="err">如</span><span class="n">rsh</span><span class="err">、</span><span class="n">ssh</span><span class="p">)</span><span class="err">来实现将远程机器的内容拷贝到本地机器。当</span><span class="n">SRC地址路径包含单个冒号</span><span class="s">&quot;:&quot;</span><span class="err">分隔符时启动该模式</span>
+  <span class="err">如：`</span><span class="n">rsync</span> <span class="o">-</span><span class="n">avz</span> <span class="nl">foo</span><span class="p">:</span><span class="n">src</span><span class="o">/</span><span class="n">bar</span> <span class="o">/</span><span class="n">data</span><span class="err">`</span>
+
+<span class="o">*</span> <span class="err">拉取：从远程</span><span class="n">rsync服务器中拷贝文件到本地机</span><span class="err">。当</span><span class="n">SRC路径信息包含</span><span class="s">&quot;::&quot;</span><span class="err">分隔符时启动该模式</span>
+  <span class="err">如：`</span><span class="n">rsync</span> <span class="o">-</span><span class="n">av</span> <span class="n">root</span><span class="mf">@192.168.78.192</span><span class="o">::</span><span class="n">www</span> <span class="o">/</span><span class="n">databack</span><span class="err">`</span>
+
+<span class="o">*</span> <span class="err">推送：从本地机器拷贝文件到远程</span><span class="n">rsync服务器中</span><span class="err">。当</span><span class="n">DST路径信息包含</span><span class="s">&quot;::&quot;</span><span class="err">分隔符时启动该模式</span>
+  <span class="err">如：`</span><span class="n">rsync</span> <span class="o">-</span><span class="n">av</span> <span class="o">/</span><span class="n">databack</span> <span class="n">root</span><span class="mf">@192.168.78.192</span><span class="o">::</span><span class="n">www</span><span class="err">`</span>
+
+<span class="o">*</span> <span class="err">列远程机的文件列表。这类似于</span><span class="n">rsync传输</span><span class="err">，不过只要在命令中省略掉本地机信息即可</span>
+  <span class="err">如：`</span><span class="n">rsync</span> <span class="o">-</span><span class="n">v</span> <span class="nl">rsync</span><span class="p">:</span><span class="c1">//192.168.78.192/www`</span>
+
+<span class="nl">https</span><span class="p">:</span><span class="c1">//rsync.samba.org/resources.html</span>
+<span class="err">原理论文：</span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.samba.org//~tridge/phd_thesis.pdf</span>
+<span class="nl">how_rsync_works</span><span class="p">:</span><span class="nl">https</span><span class="p">:</span><span class="c1">//rsync.samba.org/how-rsync-works.html</span>
+<span class="nl">https</span><span class="p">:</span><span class="c1">//rsync.samba.org/examples.html</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="o">-</span><span class="nv">v</span>, <span class="o">--</span><span class="nv">verbose</span>               详细模式输出
+    <span class="o">--</span><span class="nv">info</span><span class="o">=</span><span class="nv">FLAGS</span>            细粒度的<span class="nv">info</span>输出
+    <span class="o">--</span><span class="nv">debug</span><span class="o">=</span><span class="nv">FLAGS</span>           细粒度的<span class="nv">debug</span>输出
+    <span class="o">--</span><span class="nv">msgs2stderr</span>           <span class="nv">special</span> <span class="nv">output</span> <span class="nv">handling</span> <span class="k">for</span> <span class="nv">debugging</span>
+<span class="o">-</span><span class="nv">q</span>, <span class="o">--</span><span class="nv">quiet</span>                 <span class="nv">suppress</span> <span class="nv">non</span><span class="o">-</span><span class="nv">error</span> <span class="nv">messages</span>
+    <span class="o">--</span><span class="nv">no</span><span class="o">-</span><span class="nv">motd</span>               <span class="nv">suppress</span> <span class="nv">daemon</span><span class="o">-</span><span class="nv">mode</span> <span class="nv">MOTD</span> <span class="ss">(</span><span class="nv">see</span> <span class="nv">manpage</span> <span class="nv">caveat</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">c</span>, <span class="o">--</span><span class="nv">checksum</span>              根据<span class="nv">checksum</span>跳过文件，而不是<span class="nv">mod</span><span class="o">-</span><span class="nv">time</span>和<span class="nv">size</span>
+<span class="o">-</span><span class="nv">a</span>, <span class="o">--</span><span class="nv">archive</span>               归档模式<span class="c1">;等同于-rlptgoD (no -H,-A,-X)</span>
+    <span class="o">--</span><span class="nv">no</span><span class="o">-</span><span class="nv">OPTION</span>             <span class="nv">turn</span> <span class="nv">off</span> <span class="nv">an</span> <span class="nv">implied</span> <span class="nv">OPTION</span> <span class="ss">(</span><span class="nv">e</span>.<span class="nv">g</span>. <span class="o">--</span><span class="nv">no</span><span class="o">-</span><span class="nv">D</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">r</span>, <span class="o">--</span><span class="nv">recursive</span>             对子目录进行递归处理
+<span class="o">-</span><span class="nv">R</span>, <span class="o">--</span><span class="nv">relative</span>              使用相对路径的名称
+    <span class="o">--</span><span class="nv">no</span><span class="o">-</span><span class="nv">implied</span><span class="o">-</span><span class="nv">dirs</span>       <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t send implied dirs with --relative</span>
+<span class="o">-</span><span class="nv">b</span>, <span class="o">--</span><span class="nv">backup</span>                <span class="nv">make</span> <span class="nv">backups</span> <span class="ss">(</span><span class="nv">see</span> <span class="o">--</span><span class="nv">suffix</span> <span class="o">&amp;</span> <span class="o">--</span><span class="nv">backup</span><span class="o">-</span><span class="nv">dir</span><span class="ss">)</span>
+    <span class="o">--</span><span class="nv">backup</span><span class="o">-</span><span class="nv">dir</span><span class="o">=</span><span class="nv">DIR</span>        <span class="nv">make</span> <span class="nv">backups</span> <span class="nv">into</span> <span class="nv">hierarchy</span> <span class="nv">based</span> <span class="nv">in</span> <span class="nv">DIR</span>
+    <span class="o">--</span><span class="nv">suffix</span><span class="o">=</span><span class="nv">SUFFIX</span>         <span class="nv">set</span> <span class="nv">backup</span> <span class="nv">suffix</span> <span class="ss">(</span><span class="nv">default</span> <span class="o">~</span> <span class="nv">w</span><span class="o">/</span><span class="nv">o</span> <span class="o">--</span><span class="nv">backup</span><span class="o">-</span><span class="nv">dir</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">u</span>, <span class="o">--</span><span class="nv">update</span>                跳过接收方比发送方较新的文件，即跳过所有已存在于<span class="nv">DST</span>且文件时间晚于<span class="nv">SRC</span>的文件
+    <span class="o">--</span><span class="nv">inplace</span>               <span class="nv">update</span> <span class="nv">destination</span> <span class="nv">files</span> <span class="nv">in</span><span class="o">-</span><span class="nv">place</span> <span class="ss">(</span><span class="nv">SEE</span> <span class="nv">MAN</span> <span class="nv">PAGE</span><span class="ss">)</span>
+    <span class="o">--</span><span class="nv">append</span>                <span class="nv">append</span> <span class="nv">data</span> <span class="nv">onto</span> <span class="nv">shorter</span> <span class="nv">files</span>
+    <span class="o">--</span><span class="nv">append</span><span class="o">-</span><span class="nv">verify</span>         <span class="nv">like</span> <span class="o">--</span><span class="nv">append</span>, <span class="nv">but</span> <span class="nv">with</span> <span class="nv">old</span> <span class="nv">data</span> <span class="nv">in</span> <span class="nv">file</span> <span class="nv">checksum</span>
+<span class="o">-</span><span class="nv">d</span>, <span class="o">--</span><span class="nv">dirs</span>                  <span class="nv">transfer</span> <span class="nv">directories</span> <span class="nv">without</span> <span class="nv">recursing</span>
+<span class="o">-</span><span class="nv">l</span>, <span class="o">--</span><span class="nv">links</span>                 保留软链接
+<span class="o">-</span><span class="nv">L</span>, <span class="o">--</span><span class="nv">copy</span><span class="o">-</span><span class="nv">links</span>            将符号链接转换为对应的引用文件或引用目录
+    <span class="o">--</span><span class="nv">copy</span><span class="o">-</span><span class="nv">unsafe</span><span class="o">-</span><span class="nv">links</span>     <span class="nv">only</span> <span class="s2">&quot;</span><span class="s">unsafe</span><span class="s2">&quot;</span> <span class="nv">symlinks</span> <span class="nv">are</span> <span class="nv">transformed</span>
+    <span class="o">--</span><span class="nv">safe</span><span class="o">-</span><span class="nv">links</span>            <span class="nv">ignore</span> <span class="nv">symlinks</span> <span class="nv">that</span> <span class="nv">point</span> <span class="nv">outside</span> <span class="nv">the</span> <span class="nv">source</span> <span class="nv">tree</span>
+    <span class="o">--</span><span class="nv">munge</span><span class="o">-</span><span class="nv">links</span>           <span class="nv">munge</span> <span class="nv">symlinks</span> <span class="nv">to</span> <span class="nv">make</span> <span class="nv">them</span> <span class="nv">safer</span> <span class="ss">(</span><span class="nv">but</span> <span class="nv">unusable</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">k</span>, <span class="o">--</span><span class="nv">copy</span><span class="o">-</span><span class="nv">dirlinks</span>         <span class="nv">transform</span> <span class="nv">symlink</span> <span class="nv">to</span> <span class="nv">a</span> <span class="nv">dir</span> <span class="nv">into</span> <span class="nv">referent</span> <span class="nv">dir</span>
+<span class="o">-</span><span class="nv">K</span>, <span class="o">--</span><span class="nv">keep</span><span class="o">-</span><span class="nv">dirlinks</span>         <span class="nv">treat</span> <span class="nv">symlinked</span> <span class="nv">dir</span> <span class="nv">on</span> <span class="nv">receiver</span> <span class="nv">as</span> <span class="nv">dir</span>
+<span class="o">-</span><span class="nv">H</span>, <span class="o">--</span><span class="nv">hard</span><span class="o">-</span><span class="nv">links</span>            保留硬链接
+<span class="o">-</span><span class="nv">p</span>, <span class="o">--</span><span class="nv">perms</span>                 保留文件权限
+<span class="o">-</span><span class="nv">E</span>, <span class="o">--</span><span class="nv">executability</span>         <span class="nv">preserve</span> <span class="nv">the</span> <span class="nv">file</span><span class="s1">&#39;</span><span class="s">s executability</span>
+    <span class="o">--</span><span class="nv">chmod</span><span class="o">=</span><span class="nv">CHMOD</span>           <span class="nv">affect</span> <span class="nv">file</span> <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">directory</span> <span class="nv">permissions</span>
+<span class="o">-</span><span class="nv">A</span>, <span class="o">--</span><span class="nv">acls</span>                  <span class="nv">preserve</span> <span class="nv">ACLs</span> <span class="ss">(</span><span class="nv">implies</span> <span class="o">--</span><span class="nv">perms</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">X</span>, <span class="o">--</span><span class="nv">xattrs</span>                <span class="nv">preserve</span> <span class="nv">extended</span> <span class="nv">attributes</span>
+<span class="o">-</span><span class="nv">o</span>, <span class="o">--</span><span class="nv">owner</span>                 保留文件属主信息<span class="ss">(</span><span class="nv">super</span><span class="o">-</span><span class="nv">user</span> <span class="nv">only</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">g</span>, <span class="o">--</span><span class="nv">group</span>                 保留文件属组信息
+    <span class="o">--</span><span class="nv">devices</span>               <span class="nv">preserve</span> <span class="nv">device</span> <span class="nv">files</span> <span class="ss">(</span><span class="nv">super</span><span class="o">-</span><span class="nv">user</span> <span class="nv">only</span><span class="ss">)</span>
+    <span class="o">--</span><span class="nv">copy</span><span class="o">-</span><span class="nv">devices</span>          <span class="nv">copy</span> <span class="nv">device</span> <span class="nv">contents</span> <span class="nv">as</span> <span class="nv">regular</span> <span class="nv">file</span>
+    <span class="o">--</span><span class="nv">specials</span>              <span class="nv">preserve</span> <span class="nv">special</span> <span class="nv">files</span>
+<span class="o">-</span><span class="nv">D</span>                          <span class="nv">same</span> <span class="nv">as</span> <span class="o">--</span><span class="nv">devices</span> <span class="o">--</span><span class="nv">specials</span>
+<span class="o">-</span><span class="nv">t</span>, <span class="o">--</span><span class="nv">times</span>                 保留文件修改信息
+<span class="o">-</span><span class="nv">O</span>, <span class="o">--</span><span class="nv">omit</span><span class="o">-</span><span class="nv">dir</span><span class="o">-</span><span class="nv">times</span>        <span class="nv">omit</span> <span class="nv">directories</span> <span class="nv">from</span> <span class="o">--</span><span class="nv">times</span>
+<span class="o">-</span><span class="nv">J</span>, <span class="o">--</span><span class="nv">omit</span><span class="o">-</span><span class="nv">link</span><span class="o">-</span><span class="nv">times</span>       <span class="nv">omit</span> <span class="nv">symlinks</span> <span class="nv">from</span> <span class="o">--</span><span class="nv">times</span>
+    <span class="o">--</span><span class="nv">super</span>                 <span class="nv">receiver</span> <span class="nv">attempts</span> <span class="nv">super</span><span class="o">-</span><span class="nv">user</span> <span class="nv">activities</span>
+    <span class="o">--</span><span class="nv">fake</span><span class="o">-</span><span class="nv">super</span>            <span class="nv">store</span><span class="o">/</span><span class="nv">recover</span> <span class="nv">privileged</span> <span class="nv">attrs</span> <span class="nv">using</span> <span class="nv">xattrs</span>
+<span class="o">-</span><span class="nv">S</span>, <span class="o">--</span><span class="nv">sparse</span>                对稀疏文件<span class="ss">(</span>它能尝试在文件内容大多为空时更有效率地使用文件系统的空间<span class="ss">)</span>进行特殊处理以节省<span class="nv">DST</span>空间
+    <span class="o">--</span><span class="nv">preallocate</span>           <span class="nv">allocate</span> <span class="nv">dest</span> <span class="nv">files</span> <span class="nv">before</span> <span class="nv">writing</span> <span class="nv">them</span>
+<span class="o">-</span><span class="nv">n</span>, <span class="o">--</span><span class="nv">dry</span><span class="o">-</span><span class="nv">run</span>               不进行实际的传输，只作为测试运行
+<span class="o">-</span><span class="nv">W</span>, <span class="o">--</span><span class="nv">whole</span><span class="o">-</span><span class="nv">file</span>            <span class="nv">copy</span> <span class="nv">files</span> <span class="nv">whole</span> <span class="ss">(</span><span class="nv">without</span> <span class="nv">delta</span><span class="o">-</span><span class="nv">xfer</span> <span class="nv">algorithm</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">x</span>, <span class="o">--</span><span class="nv">one</span><span class="o">-</span><span class="nv">file</span><span class="o">-</span><span class="nv">system</span>       <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t cross filesystem boundaries</span>
+<span class="o">-</span><span class="nv">B</span>, <span class="o">--</span><span class="nv">block</span><span class="o">-</span><span class="nv">size</span><span class="o">=</span><span class="nv">SIZE</span>       强制校检块大小
+<span class="o">-</span><span class="nv">e</span>, <span class="o">--</span><span class="nv">rsh</span><span class="o">=</span><span class="nv">COMMAND</span>           指定<span class="nv">rsh</span>、<span class="nv">ssh</span>方式进行传输
+    <span class="o">--</span><span class="nv">rsync</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">PROGRAM</span>    指定远程服务器<span class="nv">rsync</span>命令所在路径
+    <span class="o">--</span><span class="nv">existing</span>              <span class="nv">skip</span> <span class="nv">creating</span> <span class="nv">new</span> <span class="nv">files</span> <span class="nv">on</span> <span class="nv">receiver</span>
+    <span class="o">--</span><span class="nv">ignore</span><span class="o">-</span><span class="nv">existing</span>       <span class="nv">skip</span> <span class="nv">updating</span> <span class="nv">files</span> <span class="nv">that</span> <span class="nv">already</span> <span class="nv">exist</span> <span class="nv">on</span> <span class="nv">receiver</span>
+    <span class="o">--</span><span class="nv">remove</span><span class="o">-</span><span class="nv">source</span><span class="o">-</span><span class="nv">files</span>   <span class="nv">sender</span> <span class="nv">removes</span> <span class="nv">synchronized</span> <span class="nv">files</span> <span class="ss">(</span><span class="nv">non</span><span class="o">-</span><span class="nv">dirs</span><span class="ss">)</span>
+    <span class="o">--</span><span class="nv">del</span>                   <span class="nv">an</span> <span class="nv">alias</span> <span class="k">for</span> <span class="o">--</span><span class="nv">delete</span><span class="o">-</span><span class="nv">during</span>
+    <span class="o">--</span><span class="nv">delete</span>                从<span class="nv">DST</span>删除在<span class="nv">SRC</span>中没有的文件<span class="ss">(</span>慎用<span class="ss">)</span>
+    <span class="o">--</span><span class="nv">delete</span><span class="o">-</span><span class="nv">before</span>         <span class="nv">receiver</span> <span class="nv">deletes</span> <span class="nv">before</span> <span class="nv">transfer</span>, <span class="nv">not</span> <span class="nv">during</span>
+    <span class="o">--</span><span class="nv">delete</span><span class="o">-</span><span class="nv">during</span>         <span class="nv">receiver</span> <span class="nv">deletes</span> <span class="nv">during</span> <span class="nv">the</span> <span class="nv">transfer</span>
+    <span class="o">--</span><span class="nv">delete</span><span class="o">-</span><span class="nv">delay</span>          <span class="nv">find</span> <span class="nv">deletions</span> <span class="nv">during</span>, <span class="nv">delete</span> <span class="nv">after</span>
+    <span class="o">--</span><span class="nv">delete</span><span class="o">-</span><span class="nv">after</span>          <span class="nv">receiver</span> <span class="nv">deletes</span> <span class="nv">after</span> <span class="nv">transfer</span>, <span class="nv">not</span> <span class="nv">during</span>
+    <span class="o">--</span><span class="nv">delete</span><span class="o">-</span><span class="nv">excluded</span>       <span class="nv">also</span> <span class="nv">delete</span> <span class="nv">excluded</span> <span class="nv">files</span> <span class="nv">from</span> <span class="nv">destination</span> <span class="nv">dirs</span>
+    <span class="o">--</span><span class="nv">ignore</span><span class="o">-</span><span class="nv">missing</span><span class="o">-</span><span class="nv">args</span>   <span class="nv">ignore</span> <span class="nv">missing</span> <span class="nv">source</span> <span class="nv">args</span> <span class="nv">without</span> <span class="nv">error</span>
+    <span class="o">--</span><span class="nv">delete</span><span class="o">-</span><span class="nv">missing</span><span class="o">-</span><span class="nv">args</span>   <span class="nv">delete</span> <span class="nv">missing</span> <span class="nv">source</span> <span class="nv">args</span> <span class="nv">from</span> <span class="nv">destination</span>
+    <span class="o">--</span><span class="nv">ignore</span><span class="o">-</span><span class="nv">errors</span>         <span class="nv">delete</span> <span class="nv">even</span> <span class="k">if</span> <span class="nv">there</span> <span class="nv">are</span> <span class="nv">I</span><span class="o">/</span><span class="nv">O</span> <span class="nv">errors</span>
+    <span class="o">--</span><span class="nv">force</span>                 <span class="nv">force</span> <span class="nv">deletion</span> <span class="nv">of</span> <span class="nv">directories</span> <span class="nv">even</span> <span class="k">if</span> <span class="nv">not</span> <span class="nv">empty</span>
+    <span class="o">--</span><span class="nv">max</span><span class="o">-</span><span class="nv">delete</span><span class="o">=</span><span class="nv">NUM</span>        <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t delete more than NUM files</span>
+    <span class="o">--</span><span class="nv">max</span><span class="o">-</span><span class="nv">size</span><span class="o">=</span><span class="nv">SIZE</span>         <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t transfer any file larger than SIZE</span>
+    <span class="o">--</span><span class="nv">min</span><span class="o">-</span><span class="nv">size</span><span class="o">=</span><span class="nv">SIZE</span>         <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t transfer any file smaller than SIZE</span>
+    <span class="o">--</span><span class="nv">partial</span>               <span class="nv">keep</span> <span class="nv">partially</span> <span class="nv">transferred</span> <span class="nv">files</span>
+    <span class="o">--</span><span class="nv">partial</span><span class="o">-</span><span class="nv">dir</span><span class="o">=</span><span class="nv">DIR</span>       <span class="nv">put</span> <span class="nv">a</span> <span class="nv">partially</span> <span class="nv">transferred</span> <span class="nv">file</span> <span class="nv">into</span> <span class="nv">DIR</span>
+    <span class="o">--</span><span class="nv">delay</span><span class="o">-</span><span class="nv">updates</span>         <span class="nv">put</span> <span class="nv">all</span> <span class="nv">updated</span> <span class="nv">files</span> <span class="nv">into</span> <span class="nv">place</span> <span class="nv">at</span> <span class="nv">transfer</span><span class="s1">&#39;</span><span class="s">s end</span>
+<span class="o">-</span><span class="nv">m</span>, <span class="o">--</span><span class="nv">prune</span><span class="o">-</span><span class="nv">empty</span><span class="o">-</span><span class="nv">dirs</span>      <span class="nv">prune</span> <span class="nv">empty</span> <span class="nv">directory</span> <span class="nv">chains</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">file</span><span class="o">-</span><span class="nv">list</span>
+    <span class="o">--</span><span class="nv">numeric</span><span class="o">-</span><span class="nv">ids</span>           <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t map uid/gid values by user/group name</span>
+    <span class="o">--</span><span class="nv">usermap</span><span class="o">=</span><span class="nv">STRING</span>        <span class="nv">custom</span> <span class="nv">username</span> <span class="nv">mapping</span>
+    <span class="o">--</span><span class="nv">groupmap</span><span class="o">=</span><span class="nv">STRING</span>       <span class="nv">custom</span> <span class="nv">groupname</span> <span class="nv">mapping</span>
+    <span class="o">--</span><span class="nv">chown</span><span class="o">=</span><span class="nv">USER</span>:<span class="nv">GROUP</span>      <span class="nv">simple</span> <span class="nv">username</span><span class="o">/</span><span class="nv">groupname</span> <span class="nv">mapping</span>
+    <span class="o">--</span><span class="nb">timeout</span><span class="o">=</span><span class="nv">SECONDS</span>       <span class="nv">set</span> <span class="nv">I</span><span class="o">/</span><span class="nv">O</span> <span class="nb">timeout</span> <span class="nv">in</span> <span class="nv">seconds</span>
+    <span class="o">--</span><span class="nv">contimeout</span><span class="o">=</span><span class="nv">SECONDS</span>    <span class="nv">set</span> <span class="nv">daemon</span> <span class="nv">connection</span> <span class="nb">timeout</span> <span class="nv">in</span> <span class="nv">seconds</span>
+<span class="o">-</span><span class="nv">I</span>, <span class="o">--</span><span class="nv">ignore</span><span class="o">-</span><span class="nv">times</span>          不跳过那些具有相同<span class="nv">size</span>和<span class="nv">mod</span><span class="o">-</span><span class="nv">time</span>的文件
+<span class="o">-</span><span class="nv">M</span>, <span class="o">--</span><span class="nv">remote</span><span class="o">-</span><span class="nv">option</span><span class="o">=</span><span class="nv">OPTION</span>  <span class="k">send</span> <span class="nv">OPTION</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">remote</span> <span class="nv">side</span> <span class="nv">only</span>
+    <span class="o">--</span><span class="nv">size</span><span class="o">-</span><span class="nv">only</span>             <span class="nv">skip</span> <span class="nv">files</span> <span class="nv">that</span> <span class="nv">match</span> <span class="nv">in</span> <span class="nv">size</span>
+    <span class="o">--</span><span class="nv">modify</span><span class="o">-</span><span class="nv">window</span><span class="o">=</span><span class="nv">NUM</span>     <span class="nv">compare</span> <span class="nv">mod</span><span class="o">-</span><span class="nv">times</span> <span class="nv">with</span> <span class="nv">reduced</span> <span class="nv">accuracy</span>
+<span class="o">-</span><span class="nv">T</span>, <span class="o">--</span><span class="nv">temp</span><span class="o">-</span><span class="nv">dir</span><span class="o">=</span><span class="nv">DIR</span>          在<span class="nv">DIR</span>中创建临时文件
+<span class="o">-</span><span class="nv">y</span>, <span class="o">--</span><span class="nv">fuzzy</span>                 <span class="nv">find</span> <span class="nv">similar</span> <span class="nv">file</span> <span class="k">for</span> <span class="nv">basis</span> <span class="k">if</span> <span class="nv">no</span> <span class="nv">dest</span> <span class="nv">file</span>
+    <span class="o">--</span><span class="nv">compare</span><span class="o">-</span><span class="nv">dest</span><span class="o">=</span><span class="nv">DIR</span>      <span class="nv">also</span> <span class="nv">compare</span> <span class="nv">destination</span> <span class="nv">files</span> <span class="nv">relative</span> <span class="nv">to</span> <span class="nv">DIR</span>
+    <span class="o">--</span><span class="nv">copy</span><span class="o">-</span><span class="nv">dest</span><span class="o">=</span><span class="nv">DIR</span>         ... <span class="nv">and</span> <span class="k">include</span> <span class="nv">copies</span> <span class="nv">of</span> <span class="nv">unchanged</span> <span class="nv">files</span>
+    <span class="o">--</span><span class="nv">link</span><span class="o">-</span><span class="nv">dest</span><span class="o">=</span><span class="nv">DIR</span>         <span class="nv">hardlink</span> <span class="nv">to</span> <span class="nv">files</span> <span class="nv">in</span> <span class="nv">DIR</span> <span class="nv">when</span> <span class="nv">unchanged</span>
+<span class="o">-</span><span class="nv">z</span>, <span class="o">--</span><span class="nv">compress</span>              传输过程中对文件数据进行压缩处理
+    <span class="o">--</span><span class="nv">compress</span><span class="o">-</span><span class="nv">level</span><span class="o">=</span><span class="nv">NUM</span>    <span class="nv">explicitly</span> <span class="nv">set</span> <span class="nv">compression</span> <span class="nv">level</span>
+    <span class="o">--</span><span class="nv">skip</span><span class="o">-</span><span class="nv">compress</span><span class="o">=</span><span class="nv">LIST</span>    <span class="nv">skip</span> <span class="nv">compressing</span> <span class="nv">files</span> <span class="nv">with</span> <span class="nv">a</span> <span class="nv">suffix</span> <span class="nv">in</span> <span class="nv">LIST</span>
+<span class="o">-</span><span class="nv">C</span>, <span class="o">--</span><span class="nv">cvs</span><span class="o">-</span><span class="nv">exclude</span>           像<span class="nv">CVS</span>一样自动忽略文件
+<span class="o">-</span><span class="nv">f</span>, <span class="o">--</span><span class="nv">filter</span><span class="o">=</span><span class="nv">RULE</span>           <span class="nv">add</span> <span class="nv">a</span> <span class="nv">file</span><span class="o">-</span><span class="nv">filtering</span> <span class="nv">RULE</span>
+<span class="o">-</span><span class="nv">F</span>                          <span class="nv">same</span> <span class="nv">as</span> <span class="o">--</span><span class="nv">filter</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">dir-merge /.rsync-filter</span><span class="s1">&#39;</span>
+                            <span class="nv">repeated</span>: <span class="o">--</span><span class="nv">filter</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">- .rsync-filter</span><span class="s1">&#39;</span>
+    <span class="o">--</span><span class="nv">exclude</span><span class="o">=</span><span class="nv">PATTERN</span>       排除与<span class="nv">PATTERN</span>相匹配的文件
+    <span class="o">--</span><span class="nv">exclude</span><span class="o">-</span><span class="nv">from</span><span class="o">=</span><span class="nv">FILE</span>     排除与<span class="nv">FILE</span>文件中<span class="nv">pattern</span>匹配的文件
+    <span class="o">--</span><span class="k">include</span><span class="o">=</span><span class="nv">PATTERN</span>       不排除与<span class="nv">PATTERN</span>相匹配的文件
+    <span class="o">--</span><span class="k">include</span><span class="o">-</span><span class="nv">from</span><span class="o">=</span><span class="nv">FILE</span>     不排除<span class="nv">FILE</span>文件中指定<span class="nv">pattern</span>匹配的文件
+    <span class="o">--</span><span class="nv">files</span><span class="o">-</span><span class="nv">from</span><span class="o">=</span><span class="nv">FILE</span>       从<span class="nv">FILE</span>读取源文件名列表匹配要传输的文件
+<span class="o">-</span><span class="mi">0</span>, <span class="o">--</span><span class="nv">from0</span>                 <span class="nv">all</span> <span class="o">*-</span><span class="nv">from</span><span class="o">/</span><span class="nv">filter</span> <span class="nv">files</span> <span class="nv">are</span> <span class="nv">delimited</span> <span class="nv">by</span> <span class="mi">0</span><span class="nv">s</span>
+<span class="o">-</span><span class="nv">s</span>, <span class="o">--</span><span class="nv">protect</span><span class="o">-</span><span class="nv">args</span>          <span class="nv">no</span> <span class="nv">space</span><span class="o">-</span><span class="nv">splitting</span><span class="c1">; only wildcard special-chars</span>
+    <span class="o">--</span><span class="nv">address</span><span class="o">=</span><span class="nv">ADDRESS</span>       <span class="nv">bind</span> <span class="nv">address</span> <span class="k">for</span> <span class="nv">outgoing</span> <span class="nv">socket</span> <span class="nv">to</span> <span class="nv">daemon</span>
+    <span class="o">--</span><span class="nv">port</span><span class="o">=</span><span class="nv">PORT</span>             指定其他的<span class="nv">rsync</span>服务端口
+    <span class="o">--</span><span class="nv">sockopts</span><span class="o">=</span><span class="nv">OPTIONS</span>      <span class="nv">specify</span> <span class="nv">custom</span> <span class="nv">TCP</span> <span class="nv">options</span>
+    <span class="o">--</span><span class="nv">blocking</span><span class="o">-</span><span class="nv">io</span>           <span class="nv">use</span> <span class="nv">blocking</span> <span class="nv">I</span><span class="o">/</span><span class="nv">O</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">remote</span> <span class="nv">shell</span>
+    <span class="o">--</span><span class="nv">stats</span>                 <span class="nv">give</span> <span class="nv">some</span> <span class="nv">file</span><span class="o">-</span><span class="nv">transfer</span> <span class="nv">stats</span>
+<span class="o">-</span><span class="mi">8</span>, <span class="o">--</span><span class="mi">8</span><span class="o">-</span><span class="nv">bit</span><span class="o">-</span><span class="nv">output</span>          <span class="nv">leave</span> <span class="nv">high</span><span class="o">-</span><span class="nv">bit</span> <span class="nv">chars</span> <span class="nv">unescaped</span> <span class="nv">in</span> <span class="nv">output</span>
+<span class="o">-</span><span class="nv">h</span>, <span class="o">--</span><span class="nv">human</span><span class="o">-</span><span class="nv">readable</span>        <span class="nv">output</span> <span class="nv">numbers</span> <span class="nv">in</span> <span class="nv">a</span> <span class="nv">human</span><span class="o">-</span><span class="nv">readable</span> <span class="nv">format</span>
+    <span class="o">--</span><span class="nv">progress</span>              显示传输过程
+<span class="o">-</span><span class="nv">P</span>                          <span class="nv">same</span> <span class="nv">as</span> <span class="o">--</span><span class="nv">partial</span> <span class="o">--</span><span class="nv">progress</span>
+<span class="o">-</span><span class="nv">i</span>, <span class="o">--</span><span class="nv">itemize</span><span class="o">-</span><span class="nv">changes</span>       <span class="nv">output</span> <span class="nv">a</span> <span class="nv">change</span><span class="o">-</span><span class="nv">summary</span> <span class="k">for</span> <span class="nv">all</span> <span class="nv">updates</span>
+    <span class="o">--</span><span class="nv">out</span><span class="o">-</span><span class="nv">format</span><span class="o">=</span><span class="nv">FORMAT</span>     <span class="nv">output</span> <span class="nv">updates</span> <span class="nv">using</span> <span class="nv">the</span> <span class="nv">specified</span> <span class="nv">FORMAT</span>
+    <span class="o">--</span><span class="nv">log</span><span class="o">-</span><span class="nv">file</span><span class="o">=</span><span class="nv">FILE</span>         <span class="nv">log</span> <span class="nv">what</span> <span class="nv">we</span><span class="s1">&#39;</span><span class="s">re doing to the specified FILE</span>
+    <span class="o">--</span><span class="nv">log</span><span class="o">-</span><span class="nv">file</span><span class="o">-</span><span class="nv">format</span><span class="o">=</span><span class="nv">FMT</span>   <span class="nv">log</span> <span class="nv">updates</span> <span class="nv">using</span> <span class="nv">the</span> <span class="nv">specified</span> <span class="nv">FMT</span>
+    <span class="o">--</span><span class="nv">password</span><span class="o">-</span><span class="nv">file</span><span class="o">=</span><span class="nv">FILE</span>    从<span class="nv">FILE</span>文件读取<span class="nv">rsync</span>后台程序访问密码
+    <span class="o">--</span><span class="nv">list</span><span class="o">-</span><span class="nv">only</span>             <span class="nv">list</span> <span class="nv">the</span> <span class="nv">files</span> <span class="nv">instead</span> <span class="nv">of</span> <span class="nv">copying</span> <span class="nv">them</span>
+    <span class="o">--</span><span class="nv">bwlimit</span><span class="o">=</span><span class="nv">RATE</span>          限制<span class="nv">socket</span> <span class="nv">I</span><span class="o">/</span><span class="nv">O</span>带宽
+    <span class="o">--</span><span class="nv">outbuf</span><span class="o">=</span><span class="nv">N</span><span class="o">|</span><span class="nv">L</span><span class="o">|</span><span class="nv">B</span>          <span class="nv">set</span> <span class="nv">output</span> <span class="nv">buffering</span> <span class="nv">to</span> <span class="nv">None</span>, <span class="nv">Line</span>, <span class="nv">or</span> <span class="nv">Block</span>
+    <span class="o">--</span><span class="nv">write</span><span class="o">-</span><span class="nv">batch</span><span class="o">=</span><span class="nv">FILE</span>      <span class="nv">write</span> <span class="nv">a</span> <span class="nv">batched</span> <span class="nv">update</span> <span class="nv">to</span> <span class="nv">FILE</span>
+    <span class="o">--</span><span class="nv">only</span><span class="o">-</span><span class="nv">write</span><span class="o">-</span><span class="nv">batch</span><span class="o">=</span><span class="nv">FILE</span> <span class="nv">like</span> <span class="o">--</span><span class="nv">write</span><span class="o">-</span><span class="nv">batch</span> <span class="nv">but</span> <span class="nv">w</span><span class="o">/</span><span class="nv">o</span> <span class="nv">updating</span> <span class="nv">destination</span>
+    <span class="o">--</span><span class="nv">read</span><span class="o">-</span><span class="nv">batch</span><span class="o">=</span><span class="nv">FILE</span>       <span class="nv">read</span> <span class="nv">a</span> <span class="nv">batched</span> <span class="nv">update</span> <span class="nv">from</span> <span class="nv">FILE</span>
+    <span class="o">--</span><span class="nv">protocol</span><span class="o">=</span><span class="nv">NUM</span>          <span class="nv">force</span> <span class="nv">an</span> <span class="nv">older</span> <span class="nv">protocol</span> <span class="nv">version</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">used</span>
+    <span class="o">--</span><span class="nv">iconv</span><span class="o">=</span><span class="nv">CONVERT_SPEC</span>    <span class="nv">request</span> <span class="nv">charset</span> <span class="nv">conversion</span> <span class="nv">of</span> <span class="nv">filenames</span>
+    <span class="o">--</span><span class="nv">checksum</span><span class="o">-</span><span class="nv">seed</span><span class="o">=</span><span class="nv">NUM</span>     <span class="nv">set</span> <span class="nv">block</span><span class="o">/</span><span class="nv">file</span> <span class="nv">checksum</span> <span class="nv">seed</span> <span class="ss">(</span><span class="nv">advanced</span><span class="ss">)</span>
+<span class="o">-</span><span class="mi">4</span>, <span class="o">--</span><span class="nv">ipv4</span>                  <span class="nv">prefer</span> <span class="nv">IPv4</span>
+<span class="o">-</span><span class="mi">6</span>, <span class="o">--</span><span class="nv">ipv6</span>                  <span class="nv">prefer</span> <span class="nv">IPv6</span>
+
+<span class="o">--</span><span class="nv">checksum</span>详解：改变了<span class="nv">rsync</span>检查文件是否已更改以及是否需要传输的方式。如果没有此选项，<span class="nv">rsync</span>将使用“快速检查”（默认情况下），检查每个
+文件的大小和上次修改时间在发送方和接收方之间是否匹配。此选项将其更改为比较每个具有匹配大小的文件的<span class="mi">128</span>位校验和。生成校验和意味着双方将
+花费大量的磁盘<span class="nv">I</span> <span class="o">/</span> <span class="nv">O</span>来读取传输中文件中的所有数据（这是在进行任何读取以传输更改的文件之前），因此这会减慢速度显著
+</pre></div>
+
+<h4 id="_16">实例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>: <span class="s">&lt;&lt; comment</span>
+<span class="s">注意事项：</span>
+<span class="s"># 创建密码文件，用户名可以和密码可以随便定义,服务端需要user:pass形式，客户端只需要pass就行</span>
+<span class="s">echo &quot;work:abc123&quot; &gt; /etc/rsyncd.passwd</span>
+<span class="s">chmod 600 /etc/rsyncd.passwd</span>
+
+<span class="s">windows下rsync权限注意事项：密码文件执行：chmod 600 rsync.passwd,用当前用户执行chown 用户名 rsync.passwd</span>
+
+<span class="s">将文件发送到Microsoft文件系统：如果文件的修改时间是一个奇数值，但是接收文件系统只能存储偶数值，</span>
+<span class="s">那么rsync将重新传输太多文件。您可以通过指定--modify-window = 1选项来避免这种情况</span>
+<span class="s">comment</span>
+
+<span class="c1"># 使用SSH方式rsync进行同步</span>
+rsync -vzrtopg --progress -e ssh --delete work@172.16.78.192:/www/* /databack/experiment/rsync
+</pre></div>
+
+<h5 id="_17">后台服务方式<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="p">.</span><span class="n">samba</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">rsync</span><span class="o">/</span><span class="n">rsyncd</span><span class="p">.</span><span class="n">conf</span><span class="p">.</span><span class="n">html</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">默认安装好rsync程序后</span><span class="err">，</span><span class="n">配置文件为</span><span class="err">“</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rsyncd</span><span class="p">.</span><span class="n">conf</span><span class="err">”</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">全局参数</span><span class="err">，</span><span class="n">使用</span><span class="o">[</span><span class="n">global</span><span class="o">]</span><span class="n">模块名称指示一个或多个全局参数的开始</span><span class="err">，</span><span class="n">名称必须小写</span><span class="w"></span>
+<span class="o">[</span><span class="n">global</span><span class="o">]</span><span class="w"></span>
+<span class="n">motd</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">path_to_file</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">指定每次连接时显示给客户端的消息</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="nf">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">rsyncd</span><span class="p">.</span><span class="n">pid</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">将进程id写入此文件</span><span class="w"></span>
+<span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PORT</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">指定rsync进程端口号</span><span class="err">，</span><span class="n">默认873</span><span class="w"></span>
+<span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">通过指定此值来覆盖守护程序默认监听的IP地址</span><span class="w"></span>
+<span class="n">socket</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xx</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">设置各种套接字选项</span><span class="err">，</span><span class="n">这些选项可能会使传输更快或更慢</span><span class="p">,</span><span class="n">具体参考setsockopt</span><span class="p">()</span><span class="n">系统调用的手册页</span><span class="w"></span>
+<span class="n">listen</span><span class="w"> </span><span class="n">backlog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">覆盖rsync进程对于连接的backlog</span><span class="w"> </span><span class="k">value</span><span class="err">，</span><span class="n">默认为5</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">模块名称不能包含斜杠或右方括号</span><span class="p">,</span><span class="n">名称内部包含多个空格都作为一个空格对待</span><span class="err">，</span><span class="n">首尾空格会被丢弃</span><span class="w"></span>
+<span class="o">[</span><span class="n">module</span><span class="o">]</span><span class="w"></span>
+<span class="n">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w">  </span><span class="err">#</span><span class="w">  </span><span class="n">当客户端获取可用模块列表时</span><span class="err">，</span><span class="n">此参数指定在模块名称旁边显示的描述字符串</span><span class="err">，</span><span class="n">默认没注释</span><span class="w"></span>
+<span class="k">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">指定rsync守护程序文件系统中的目录</span><span class="err">，</span><span class="n">必须为每个module指定此参数</span><span class="err">。</span><span class="n">可以使用百分号将变量名称括起来</span><span class="err">，</span><span class="n">从而使路径的值基于环境变量</span><span class="err">。</span><span class="w"></span>
+<span class="w">              </span><span class="n">也可以引用用户连接时由rsync设置的变量</span><span class="err">。</span><span class="n">例如在路径中使用授权用户的名称</span><span class="err">：</span><span class="k">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/%</span><span class="n">RSYNC_USER_NAME</span><span class="o">%</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">chroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">值为yes时</span><span class="err">，</span><span class="n">rsync守护程序将chroot到</span><span class="err">“</span><span class="w"> </span><span class="k">path</span><span class="err">”，</span><span class="n">然后再开始与客户端进行文件传输</span><span class="err">。</span><span class="n">好处是可以提供额外的保护</span><span class="err">，</span><span class="n">以防止可能的</span><span class="w"></span>
+<span class="w">                    </span><span class="n">安全漏洞</span><span class="err">，</span><span class="n">但是它的缺点是需要超级用户特权</span><span class="w"></span>
+<span class="n">daemon</span><span class="w"> </span><span class="n">chroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="n">此参数指定守护程序在开始与客户端通信之前将其更改为chroot的路径</span><span class="w"></span>
+<span class="nc">numeric</span><span class="w"> </span><span class="n">ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">启用此参数将禁用当前守护程序模块的按名称映射用户和组</span><span class="err">。</span><span class="n">这样可以防止守护程序尝试加载任何与用户</span><span class="o">/</span><span class="n">组相关的文件或库</span><span class="err">。</span><span class="w"></span>
+<span class="w">                  </span><span class="n">默认情况下</span><span class="err">，</span><span class="n">此参数对chroot模块启用</span><span class="err">，</span><span class="n">对非chroot模块禁用</span><span class="err">。</span><span class="n">启用chroot的模块不应启用此参数</span><span class="w"></span>
+<span class="n">charset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">指定了存储模块文件名的字符集</span><span class="err">。</span><span class="n">如果客户端使用</span><span class="c1">--iconv选项，则守护程序将使用“字符集”参数的值，而与客户端实际传递的字符集无关。</span>
+<span class="w">              </span><span class="n">这使守护进程rsync可以在chroot模块中支持字符集转换且还可以确保以一致的方式完成名称转换</span><span class="err">。</span><span class="n">如果未设置</span><span class="err">“</span><span class="w"> </span><span class="n">charset</span><span class="err">”</span><span class="n">参数</span><span class="err">，</span><span class="w"></span>
+<span class="w">              </span><span class="n">则</span><span class="c1">--iconv选项将被拒绝</span>
+<span class="nf">max</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">#</span><span class="w"> </span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nobody</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">gid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nobody</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="nf">max</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lost</span><span class="o">+</span><span class="k">found</span><span class="o">/</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">logging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">900</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="k">ignore</span><span class="w"> </span><span class="n">nonreadable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yes</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">dont</span><span class="w"> </span><span class="nf">compress</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">gz</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">tgz</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">zip</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">Z</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">rpm</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">deb</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">bz2</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="o">[</span><span class="n">ftp</span><span class="o">]</span><span class="w"></span>
+<span class="err">#</span><span class="w">        </span><span class="k">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ftp</span><span class="w"></span>
+<span class="err">#</span><span class="w">        </span><span class="n">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftp</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">area</span><span class="w"></span>
+<span class="err">#</span><span class="w"></span>
+<span class="err">#</span><span class="w"></span>
+</pre></div>
+
+<h3 id="inotify-tools">inotify-tools<a class="headerlink" href="#inotify-tools" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">rvoicilas</span><span class="o">/</span><span class="n">inotify</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">wiki</span>
+
+<span class="n">inotifywait</span> <span class="p">[</span><span class="o">-</span><span class="n">hcmrq</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">e</span> <span class="o">&lt;</span><span class="n">event</span><span class="o">&gt;</span> <span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">seconds</span><span class="o">&gt;</span> <span class="p">]</span> <span class="p">[</span><span class="c1">--format &lt;fmt&gt; ] [--timefmt &lt;fmt&gt; ] &lt;file&gt; [ ... ]</span>
 </pre></div>
 
 <h3 id="samba">samba<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h3>

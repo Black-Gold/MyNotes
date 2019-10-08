@@ -1572,7 +1572,17 @@
                 <h1 id="shell">shell笔记<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h1>
 <p>bash shell本身不支持正则表达式，使用正则的是shell命令和工具，如grep、sed等。bash shell可以使用正则表达式中的一些元字符实
 现通配(Globbing)功能。通配就是把一个包含通配符的非具体文件名扩展存储在计算机或网络上的一批具体文件名的过程</p>
+<p>注意事项：</p>
 <ul>
+<li>不要使用for循环读取文件的行。请改用while读取循环</li>
+<li>cat file | grep pattern   不要使用此方式，而应该使用grep 'pattern' file | sed 'expression'</li>
+<li>使用$(...)取代<code class="codehilite"><span class="p">...</span></code></li>
+<li>bash测试时使用[[]]代替[]更安全</li>
+<li>ls -l | awk '{ print $8 }' 不要解析ls命令的输出，ls输出并非很靠谱</li>
+<li>for number in $(seq 1 10); do 不要使用seq计数</li>
+<li>
+<p>i=<code class="codehilite"><span class="n">expr</span> <span class="err">$</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span></code> 不要使用expr，用i++代替</p>
+</li>
 <li>
 <p>Reference List</p>
 </li>
@@ -1666,7 +1676,7 @@ $0     # (常用)当前shell名(当前执行进程的进程名，如果执行脚
 双引号括住的内容将被视为单一字符串，可以防止通配符扩展，但是允许变量扩展。此处和单引号不同
 
 # `<span class="nv">command</span>`<span class="ss">(</span><span class="nv">backticks</span><span class="ss">)</span>倒引号
-倒引号内的<span class="nv">command</span>会被当做命令来执行
+倒引号内的<span class="nv">command</span>会被当做命令来执行,最好使用$<span class="ss">(</span><span class="nv">command</span><span class="ss">)</span>来代替
 
 # ,<span class="ss">(</span><span class="nv">comma</span><span class="ss">)</span>英文逗号
 此符号常用在运算中，用作区域隔离。例如：
@@ -1722,7 +1732,7 @@ $0     # (常用)当前shell名(当前执行进程的进程名，如果执行脚
 分割的顺序文件列表起拓展作用，如：<span class="nv">touch</span> {<span class="nv">a</span>..<span class="nv">d</span>}.<span class="nv">txt</span> 结果为<span class="nv">a</span>.<span class="nv">txt</span> <span class="nv">b</span>.<span class="nv">txt</span> <span class="nv">c</span>.<span class="nv">txt</span> <span class="nv">d</span>.<span class="nv">txt</span>
 还可以用在字符串组合上，如：<span class="nv">mkdir</span> {<span class="nv">a</span>,<span class="nv">b</span>}<span class="o">-</span>{<span class="mi">1</span>,<span class="mi">2</span>} 结果为：<span class="nv">a</span><span class="o">-</span><span class="mi">1</span> <span class="nv">a</span><span class="o">-</span><span class="mi">2</span> <span class="nv">b</span><span class="o">-</span><span class="mi">1</span> <span class="nv">b</span><span class="o">-</span><span class="mi">2</span>
 
-# [] 中括号
+# [] 中括号<span class="o">------</span>尽量使用[[]]替代[]
 与<span class="nv">test</span>等同，通常用作条件判断，参数作为比较表达式或文件测试，根据结果返回状态码
 <span class="nv">test</span>和[]中比较运算符只有<span class="o">==</span>和<span class="o">!=</span>，用于字符串比较，整数比较只能<span class="o">-</span><span class="nv">gt</span>,<span class="o">-</span><span class="nv">eq</span>等
 正则中表示一个字符范围
