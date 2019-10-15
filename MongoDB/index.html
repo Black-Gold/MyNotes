@@ -2044,17 +2044,18 @@
                 <h1 id="mongodb-4010">MongoDB-4.0.10<a class="headerlink" href="#mongodb-4010" title="Permanent link">&para;</a></h1>
 <h2 id="_1">基础<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>views是只读的且无法重新命名，对视图执行写操作会报错，视图支持的读操作有：</p>
-<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">find</span><span class="p">()</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">findOne</span><span class="p">()</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="k">aggregate</span><span class="p">()</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">countDocuments</span><span class="p">()</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">estimatedDocumentCount</span><span class="p">()</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="k">count</span><span class="p">()</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="k">distinct</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOne</span><span class="p">();</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">();</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">countDocuments</span><span class="p">();</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">estimatedDocumentCount</span><span class="p">();</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">count</span><span class="p">();</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">distinct</span><span class="p">();</span>
 </pre></div>
 
-<p>视图使用基础集合的索引。由于索引位于基础集合上，因此无法直接在视图上创建，删除或重新构建索引，也无法在视图上获取索引列表。无法在视图使用<span><span class="MathJax_Preview">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</span><script type="math/tex">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</script></span>lookup和$graphlookup操作指定分片视图
-创建视图是可以指定排序规则，默认规则是“简单”二进制比较排序规则，多个视图做聚合操作，排序规则必须相同</p>
+<p>视图使用基础集合的索引。由于索引位于基础集合上，因此无法直接在视图上创建，删除或重新构建索引，也无法在视图上获取索引列表。无法在视图使用
+<span><span class="MathJax_Preview">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</span><script type="math/tex">natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段</script></span>lookup和$graphlookup操作指定分片视图</p>
+<p>创建视图是可以指定排序规则，默认规则是“简单”二进制比较排序规则，多个视图做聚合操作，排序规则必须相同</p>
 <p>find()对视图的操作不支持以下Projection操作符：</p>
 <ul>
 <li>$</li>
@@ -2063,10 +2064,16 @@
 <li>$meta</li>
 </ul>
 <h3 id="capped-collections">Capped Collections<a class="headerlink" href="#capped-collections" title="Permanent link">&para;</a></h3>
-<p>Capped Collections是固定大小的集合，支持基于插入顺序插入和检索文档的高吞吐量操作。以类似于循环缓冲区的方式工作：一旦集合填充其分配的空间，它通过自动删除集合中最旧的文档为新文档腾出空间</p>
-<p>无法从capped集合删除文档，要从集合删除文档的方法，使用drop()方法删除集合并重新创建，capped集合无法分片。创建capped集合，必须以字节为单位指定集合的最大大小。如果size字段小于或等于4096，则集合的上限为4096字节。否则，MongoDB将提高提供的大小，使其成为256的整数倍；还可以使用该max字段为集合指定最大文档数。该size参数总是必需的，即使你指定max的文件数量。如果集合在达到最大文档计数之前达到最大大小限制，MongoDB将删除旧文档</p>
-<p>将集合转换为capped集合:db.runCommand({"convertToCapped": "collectionName", size: 10000});在操作期间保存数据库独占锁。锁定同一数据库的其他操作将被阻止，直到操作完成</p>
-<p>capped替代方案：使用TTL(生存时间)索引从集合删除过期数据；这些索引允许您根据日期类型字段的值和索引的TTL值使正常集合中的数据到期和删除。TTL索引与capped集合不兼容</p>
+<p>Capped Collections是固定大小的集合，支持基于插入顺序插入和检索文档的高吞吐量操作。以类似于循环缓冲区的方式工作：一旦集合填充其分配的空间，
+它通过自动删除集合中最旧的文档为新文档腾出空间</p>
+<p>无法从capped集合删除文档，要从集合删除文档的方法，使用drop()方法删除集合并重新创建，capped集合无法分片。创建capped集合，必须以字节为单位
+指定集合的最大大小。如果size字段小于或等于4096，则集合的上限为4096字节。否则，MongoDB将提高提供的大小，使其成为256的整数倍；还可以使用
+该max字段为集合指定最大文档数。该size参数总是必需的，即使你指定max的文件数量。如果集合在达到最大文档计数之前达到最大大小限制，MongoDB将
+删除旧文档</p>
+<p>将集合转换为capped集合:db.runCommand({"convertToCapped": "collectionName", size: 10000});在操作期间保存数据库独占锁。锁定同一
+数据库的其他操作将被阻止，直到操作完成</p>
+<p>capped替代方案：使用TTL(生存时间)索引从集合删除过期数据；这些索引允许您根据日期类型字段的值和索引的TTL值使正常集合中的数据到期和删除。
+TTL索引与capped集合不兼容</p>
 <p>每种BSON类型都有整数和字符串标识符，如下表所示
 | Type | Number | Alias | Notes |
 | :------: | :------: | :------: | :------: |
@@ -2145,8 +2152,10 @@
       <span class="nl">destination</span><span class="p">:</span> <span class="n">file</span> <span class="err">#</span><span class="nl">mogodb日志的产生方式</span><span class="p">:</span><span class="n">file</span><span class="o">=</span><span class="err">指定的文件</span><span class="p">,</span><span class="n">syslog系统日志</span><span class="err">，如果不指定，则指向标准输出流</span>
       <span class="nl">logAppend</span><span class="p">:</span> <span class="nb">true</span>   <span class="err">#在</span><span class="n">mongodb重启时</span><span class="p">,</span><span class="err">继续往已有的日志文件中追加内容，而不是新建一个文件</span><span class="p">.</span>
       <span class="nl">path</span><span class="p">:</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">mongod</span><span class="p">.</span><span class="n">log</span>    <span class="err">#日志文件的输出路径，</span><span class="n">mongo将在指定的位置创建日志文件</span><span class="p">.</span>
-      <span class="nl">logRotate</span><span class="p">:</span> <span class="n">reopen</span>   <span class="err">#</span><span class="mf">3.0.0</span><span class="p">,</span><span class="err">两个值</span><span class="o">:</span><span class="n">rename</span><span class="o">=</span><span class="err">重命名日志文件，</span><span class="n">reopen</span><span class="o">=</span><span class="err">关闭并重新打开日志文件</span><span class="p">.</span><span class="err">如果使用</span><span class="n">reopen则要使systemLog</span><span class="p">.</span><span class="n">logAppend</span><span class="o">=</span><span class="nb">true</span><span class="p">.</span>
-      <span class="nl">timeStampFormat</span><span class="p">:</span> <span class="n">iso8601</span><span class="o">-</span><span class="n">utc</span> <span class="err">#日志中时间戳的格式</span><span class="o">:</span><span class="n">ctime</span><span class="o">=</span><span class="n">Wed</span> <span class="n">Dec</span> <span class="mi">31</span> <span class="mi">18</span><span class="o">:</span><span class="mi">17</span><span class="o">:</span><span class="mf">54.811</span><span class="p">,</span><span class="n">iso8601</span><span class="o">-</span><span class="n">utc</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span><span class="nl">T00</span><span class="p">:</span><span class="mo">00</span><span class="o">:</span><span class="mf">00.000</span><span class="n">Z</span><span class="p">,</span><span class="err">#</span><span class="n">iso8601</span><span class="o">-</span><span class="n">local</span><span class="o">=</span><span class="err">本地时间格式</span>
+      <span class="nl">logRotate</span><span class="p">:</span> <span class="n">reopen</span>   <span class="err">#</span><span class="mf">3.0.0</span><span class="p">,</span><span class="err">两个值</span><span class="o">:</span><span class="n">rename</span><span class="o">=</span><span class="err">重命名日志文件，</span><span class="n">reopen</span><span class="o">=</span><span class="err">关闭并重新打开日志文件</span><span class="p">.</span>
+                          <span class="cp">#如果使用reopen则要使systemLog.logAppend=true</span>
+      <span class="nl">timeStampFormat</span><span class="p">:</span> <span class="n">iso8601</span><span class="o">-</span><span class="n">utc</span> <span class="err">#日志中时间戳的格式</span><span class="o">:</span><span class="n">ctime</span><span class="o">=</span><span class="n">Wed</span> <span class="n">Dec</span> <span class="mi">31</span> <span class="mi">18</span><span class="o">:</span><span class="mi">17</span><span class="o">:</span><span class="mf">54.811</span><span class="p">,</span><span class="n">iso8601</span><span class="o">-</span><span class="n">utc</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span><span class="nl">T00</span><span class="p">:</span><span class="mo">00</span><span class="o">:</span><span class="mf">00.000</span><span class="n">Z</span><span class="p">,</span>
+                                   <span class="cp">#iso8601-local=本地时间格式</span>
     <span class="cp">#日志组件的具体选项</span>
       <span class="nl">component</span><span class="p">:</span>
        <span class="cp">#索引操作相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0</span>
@@ -2241,7 +2250,8 @@
           <span class="cp">#compressors: snappy</span>
        <span class="cp">#指定传输层通知方式,默认asio，version:3.6</span>
        <span class="cp">#transportLayer: asio</span>
-       <span class="cp">#指定线程对客户端请求的执行模型：synchronous=使用同步网络并在每个链接的基础上管理其网络线程池.adaptive:使用新的实验性的异步网络模式.</span>
+       <span class="cp">#指定线程对客户端请求的执行模型：synchronous=使用同步网络并在每个链接的基础上管理其网络线程池.</span>
+       <span class="cp">#adaptive:使用新的实验性的异步网络模式.</span>
        <span class="cp">#其中当值为adaptive，要求#transportLayer的值为asio.</span>
        <span class="cp">#serviceExecutor: &lt;string&gt;</span>
     <span class="cp">#安全管理</span>
@@ -2315,17 +2325,17 @@
        <span class="nl">dbPath</span><span class="p">:</span>  <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">mongodb</span> <span class="err">#</span><span class="n">mongod实例存储数据的目录</span><span class="p">,</span><span class="err">默认值：</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">db</span><span class="p">.</span>
        <span class="nl">indexBuildRetry</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#指定</span><span class="n">mongodb在下次启动时是否重建不完整的索引</span><span class="p">,</span><span class="err">默认</span><span class="o">:</span><span class="nb">true</span><span class="p">.</span>
     <span class="cp">#   repairPath: &lt;string&gt;</span>
-    <span class="cp">#          MongoDB在--repair操作过程中将使用的工作目录 </span>
+    <span class="cp">#          MongoDB在--repair操作过程中将使用的工作目录</span>
     <span class="cp">#          当--repair完成后,storage.repairPath目录是空的,并且 dbPath包含了修复的文件</span>
     <span class="cp">#          该storage.repairPath设置仅适用于mongod</span>
     <span class="cp">#          仅适用于mongod使用MMAPv1存储引擎的实例</span>
        <span class="nl">journal</span><span class="p">:</span>
           <span class="nl">enabled</span><span class="p">:</span> <span class="nb">true</span> <span class="err">#启用或禁用耐久性日志以确保数据文件保持有效并可恢复。</span><span class="mi">64</span><span class="n">bit默认开启</span><span class="p">,</span><span class="mi">32</span><span class="n">bit默认关闭</span><span class="p">.</span>
-    <span class="cp">#                     不适用于mongod使用内存存储引擎的实例 </span>
+    <span class="cp">#                     不适用于mongod使用内存存储引擎的实例</span>
           <span class="nl">commitIntervalMs</span><span class="p">:</span> <span class="mi">100</span> <span class="err">#</span><span class="n">mongod日志操作之间进程允许的最大时间量</span><span class="p">(</span><span class="err">毫秒</span><span class="p">),</span><span class="err">范围是</span><span class="mi">1</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span><span class="err">默认值是</span><span class="mi">100</span>
     <span class="cp">#                                  该值太低会增加日志的持久性，但是会牺牲磁盘性能.</span>
     <span class="cp">#                                  该storage.journal.commitIntervalMs设置仅适用于mongod</span>
-    <span class="cp">#                                  不适用于mongod使用内存存储引擎的实例 </span>
+    <span class="cp">#                                  不适用于mongod使用内存存储引擎的实例</span>
     <span class="cp">#   directoryPerDB: &lt;boolean&gt;    #MongoDB使用单独的目录来存储每个数据库的数据</span>
     <span class="cp">#                                  目录位于storage.dbPath目录下，并且每个子目录名称都与数据库名称相对应</span>
     <span class="cp">#                                  3.0版本有变更.</span>
@@ -2410,7 +2420,7 @@
     <span class="cp">#   destination: file  #设置后，auditLog.destination启用使用指定格式往指定目标发送所有审核事件</span>
     <span class="cp">##                             - syslog=以JSON格式输出审计事件到系统日志.</span>
     <span class="cp">##                             - console=以stdoutJSON格式输出审计事件</span>
-    <span class="cp">##                             - file=将审核事件输出到以中指定auditLog.path格式auditLog.format指定的文件 </span>
+    <span class="cp">##                             - file=将审核事件输出到以中指定auditLog.path格式auditLog.format指定的文件</span>
     <span class="cp">#   format: JSON   #用于审计的输出文件的格式,当auditLog.destination=file时,可以指定该值(JSON/BSON).</span>
     <span class="cp">#   path: &lt;string&gt; #输出文件的绝对或相对路径,当auditLog.destination=file时,可以指定该值.</span>
     <span class="cp">#   filter: &lt;string&gt; #过滤指定类型的操作的记录</span>
@@ -2460,46 +2470,44 @@
 </tr>
 <tr>
 <td align="center">show log &lt;[logname]&gt;</td>
-<td align="center">db.adminCommand({ 'getLog' : '&lt;[logname]&gt;' })</td>
+<td align="center">db.adminCommand({ 'getLog' : '&lt;[logname]&gt;' });</td>
 </tr>
 <tr>
 <td align="center">show logs</td>
-<td align="center">db.adminCommand({ 'getLog' : '*' })</td>
+<td align="center">db.adminCommand({ 'getLog' : '*' });</td>
 </tr>
 <tr>
 <td align="center">it</td>
-<td align="center">cursor = db.collection.find() if ( cursor.hasNext() ){ cursor.next(); }</td>
+<td align="center">cursor = db.collection.find(); if ( cursor.hasNext(); );{ cursor.next();; }</td>
 </tr>
 </tbody>
 </table>
 <h2 id="mongodb-crud">MongoDB CRUD 操作<a class="headerlink" href="#mongodb-crud" title="Permanent link">&para;</a></h2>
 <h3 id="_2">插入文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">insertOne</span><span class="p">()</span>           <span class="o">//</span> <span class="err">插入一个文档</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">insertMany</span><span class="p">()</span>          <span class="o">//</span> <span class="err">插入多个文档</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="k">insert</span><span class="p">()</span>              <span class="o">//</span> <span class="err">插入一个或多个文档</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="k">update</span><span class="p">()</span>              <span class="o">//</span> <span class="k">when</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="o">**</span><span class="n">upsert</span><span class="p">:</span> <span class="k">true</span><span class="o">**</span> <span class="k">option</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">updateOne</span><span class="p">()</span>           <span class="o">//</span> <span class="k">when</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="o">**</span><span class="n">upsert</span><span class="p">:</span> <span class="k">true</span><span class="o">**</span> <span class="k">option</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">updateMany</span><span class="p">()</span>          <span class="o">//</span> <span class="k">when</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="o">**</span><span class="n">upsert</span><span class="p">:</span> <span class="k">true</span><span class="o">**</span> <span class="k">option</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">findAndModify</span><span class="p">()</span>       <span class="o">//</span> <span class="k">when</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="o">**</span><span class="n">upsert</span><span class="p">:</span> <span class="k">true</span><span class="o">**</span> <span class="k">option</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">findOneAndUpdate</span><span class="p">()</span>    <span class="o">//</span> <span class="k">when</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="o">**</span><span class="n">upsert</span><span class="p">:</span> <span class="k">true</span><span class="o">**</span> <span class="k">option</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">findOneAndReplace</span><span class="p">()</span>   <span class="o">//</span> <span class="k">when</span> <span class="n">used</span> <span class="k">with</span> <span class="n">the</span> <span class="o">**</span><span class="n">upsert</span><span class="p">:</span> <span class="k">true</span><span class="o">**</span> <span class="k">option</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
-<span class="n">db</span><span class="p">.</span><span class="n">collection</span><span class="p">.</span><span class="n">bulkWrite</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">();</span>           <span class="c1">// 插入一个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">();</span>          <span class="c1">// 插入多个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">();</span>              <span class="c1">// 插入一个或多个文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>              <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">();</span>           <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">updateMany</span><span class="p">();</span>          <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findAndModify</span><span class="p">();</span>       <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndUpdate</span><span class="p">();</span>    <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">findOneAndReplace</span><span class="p">();</span>   <span class="c1">// when used with the **upsert: true** option</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">bulkWrite</span><span class="p">();</span>
 </pre></div>
 
 <h3 id="_3">查询文档<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">person</span><span class="o">:</span><span class="p">{</span><span class="nx">age</span><span class="o">:</span><span class="mi">21</span><span class="p">,</span><span class="nx">sex</span><span class="o">:</span><span class="s2">&quot;male&quot;</span><span class="p">}});</span>  <span class="c1">// 查询嵌入/嵌套式文档</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;person.sex&quot;</span><span class="o">:</span><span class="s2">&quot;male&quot;</span><span class="p">});</span>  <span class="c1">// 匹配嵌入式文档某个字段</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">tags</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">]});</span>   <span class="c1">// 按顺序匹配数组中的两个元素</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">tags</span><span class="o">:</span> <span class="p">{</span><span class="nx">$all</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;blank&quot;</span><span class="p">]}});</span>  <span class="c1">// 不按顺序匹配数组中两个元素(查询只要包含这两个元素的所有结果)</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">age</span><span class="o">:</span> <span class="p">{</span><span class="nx">$gt</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">2</span><span class="p">}});</span>   <span class="c1">// 集合中age数组中一个元素满足大于1，另一个元素满足小于2，或者单个元素满足两个条件</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">age</span><span class="o">:</span> <span class="p">{</span><span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span><span class="nx">$gt</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">2</span><span class="p">}}});</span>   <span class="c1">// 使用$elemMatch运算符在数组的元素上指定多个条件，以便至少一个数组元素满足所有指定的条件。此查询条件表示age数组包含至少一个大于1且小于2的元素</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$size</span><span class="o">:</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">}</span> <span class="p">);</span>  <span class="c1">// 查询条件为tags数组中元素长度为3</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;tags.2&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;$exists&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">}</span> <span class="p">}</span> <span class="p">);</span> <span class="c1">// 查询条件为tags数组中元素数量大于2(实际利用数组索引来实现的)</span>
 
-<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">tags</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">]});</span>   <span class="c1">// 匹配数组</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">tags</span><span class="o">:</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blank&quot;</span><span class="p">});</span>  <span class="c1">// 按顺序匹配数组中的两个元素</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">tags</span><span class="o">:</span> <span class="p">{</span><span class="nx">$all</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;blank&quot;</span><span class="p">]}})</span>  <span class="c1">// 不按顺序匹配数组中两个元素(查询只要包含这两个元素的所有结果)</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">age</span><span class="o">:</span> <span class="p">{</span><span class="nx">$gt</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">2</span><span class="p">}})</span>   <span class="c1">// 集合中age数组中一个元素满足大于1，另一个元素满足小于2，或者单个元素满足两个条件</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">age</span><span class="o">:</span> <span class="p">{</span><span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span><span class="nx">$gt</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">2</span><span class="p">}}})</span>   <span class="c1">// 使用$elemMatch运算符在数组的元素上指定多个条件，以便至少一个数组元素满足所有指定的条件。此查询条件表示age数组包含至少一个大于1且小于2的元素</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$size</span><span class="o">:</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询条件为tags数组中元素长度为3</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;tags.2&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;$exists&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">}</span> <span class="p">}</span> <span class="p">)</span> <span class="c1">// 查询条件为tags数组中元素数量大于2(实际利用数组索引来实现的)</span>
-
-<span class="nx">查询嵌套在数组中的文档示例</span><span class="err">：</span>
+<span class="c1">// 查询嵌套在数组中的文档示例：</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">(</span> <span class="p">[</span>
    <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;journal&quot;</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">15</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
    <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
@@ -2508,21 +2516,21 @@
    <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="s2">&quot;postcard&quot;</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">15</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">35</span> <span class="p">}</span> <span class="p">]</span> <span class="p">}</span>
 <span class="p">]);</span>
 
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 匹配在invertory集合中instock数组元素与指定文档匹配的文档，可以理解为一个文档作为数组的元素；注意：整个嵌入/嵌套文档上的等式匹配需要指定文档的完全匹配</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询嵌入文档数组instock，嵌入的到此数组的文档至少一个qty值为5，warehost值为A</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span> <span class="nx">qty</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">$lte</span><span class="o">:</span> <span class="mi">20</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询嵌入文档数组instock，嵌入的到此数组的文档qty值大于10且小于等于20</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>  <span class="nx">$lte</span><span class="o">:</span> <span class="mi">20</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询嵌套在instock数组中的任何文档的qty字段大于10并且数组中的任何文档（但不一定是相同的嵌入文档）的qty字段小于或等于20</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;instock.warehouse&quot;</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">}</span> <span class="p">)</span> <span class="c1">// 查询嵌套在instock数组中的至少一个嵌套文档包含字段qty值为5，且至少一个嵌套文档warehouse字段值为A(但不一定是相同的嵌套文档)</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span><span class="p">{</span><span class="nx">$lte</span><span class="o">:</span><span class="mi">20</span><span class="p">}})</span>  <span class="c1">// 查询嵌入到instock数组的文档qty字段值小于20的文档</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;instock.0.qty&quot;</span><span class="o">:</span><span class="p">{</span><span class="nx">$lte</span><span class="o">:</span><span class="mi">20</span><span class="p">}})</span>  <span class="c1">// 查询嵌入到instock数组的文档，索引为0且qty字段值小于20的文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">}</span> <span class="p">);</span>  <span class="c1">// 匹配在invertory集合中instock数组元素与指定文档匹配的文档，可以理解为一个文档作为数组的元素；注意：整个嵌入/嵌套文档上的等式匹配需要指定文档的完全匹配</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span> <span class="nx">qty</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">warehouse</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">);</span>  <span class="c1">// 查询嵌入文档数组instock，嵌入的到此数组的文档至少一个qty值为5，warehost值为A</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$elemMatch</span><span class="o">:</span> <span class="p">{</span> <span class="nx">qty</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">$lte</span><span class="o">:</span> <span class="mi">20</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span> <span class="p">);</span>  <span class="c1">// 查询嵌入文档数组instock，嵌入的到此数组的文档qty值大于10且小于等于20</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>  <span class="nx">$lte</span><span class="o">:</span> <span class="mi">20</span> <span class="p">}</span> <span class="p">}</span> <span class="p">);</span>  <span class="c1">// 查询嵌套在instock数组中的任何文档的qty字段大于10并且数组中的任何文档（但不一定是相同的嵌入文档）的qty字段小于或等于20</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;instock.warehouse&quot;</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">}</span> <span class="p">);</span> <span class="c1">// 查询嵌套在instock数组中的至少一个嵌套文档包含字段qty值为5，且至少一个嵌套文档warehouse字段值为A(但不一定是相同的嵌套文档);</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;instock.qty&quot;</span><span class="o">:</span><span class="p">{</span><span class="nx">$lte</span><span class="o">:</span><span class="mi">20</span><span class="p">}});</span>  <span class="c1">// 查询嵌入到instock数组的文档qty字段值小于20的文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;instock.0.qty&quot;</span><span class="o">:</span><span class="p">{</span><span class="nx">$lte</span><span class="o">:</span><span class="mi">20</span><span class="p">}});</span>  <span class="c1">// 查询嵌入到instock数组的文档，索引为0且qty字段值小于20的文档</span>
 
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">)</span>  <span class="c1">// 查询集合中status值为A，只返回item、status及_id字段</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">)</span> <span class="c1">// 查询集合中status值为A，结果排除status和instock字段</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;size.uom&quot;</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">)</span> <span class="c1">// 查询集合中status值为A，结果只包括item、status字段及嵌入文档size的uom字段</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$slice</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>   <span class="c1">// 查询集合中status为A，结果只包含item、status字段instock，$slice运算符返回instock数组最后一个元素</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">);</span>  <span class="c1">// 查询集合中status值为A，只返回item、status及_id字段</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">);</span> <span class="c1">// 查询集合中status值为A，结果排除status和instock字段</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;size.uom&quot;</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">);</span> <span class="c1">// 查询集合中status值为A，结果只包括item、status字段及嵌入文档size的uom字段</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">item</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">instock</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$slice</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span> <span class="p">);</span>   <span class="c1">// 查询集合中status为A，结果只包含item、status字段instock，$slice运算符返回instock数组最后一个元素</span>
 
 <span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span> <span class="kc">null</span><span class="p">});</span>  <span class="c1">// 查询item字段为null，或不包含item字段的文档</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span> <span class="p">{</span><span class="nx">$type</span><span class="o">:</span> <span class="mi">10</span><span class="p">}});</span>  <span class="c1">// 只查询item字段值类型是10(即null类型)的文档</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span> <span class="p">{</span><span class="nx">$type</span><span class="o">:</span> <span class="mi">10</span><span class="p">}});</span>  <span class="c1">// 只查询item字段值类型是10(即null类型);的文档</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">inventory</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span> <span class="p">{</span><span class="nx">$exists</span><span class="o">:</span> <span class="kc">false</span><span class="p">}})</span> <span class="c1">// 只查询不包含item字段的文档</span>
 </pre></div>
 
@@ -3528,7 +3536,7 @@
 </tbody>
 </table>
 <h3 id="_23">聚合表达式中的变量<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
-<p>聚合表达式可以使用用户自定义和系统变量，变量可以保存任何BSON类型的数据。要访问变量的值，使用带有前缀双dollar符(<span><span class="MathJax_Preview"><span><span class="MathJax_Preview">)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"</span><script type="math/tex">)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"</span><script type="math/tex">)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"</script></span></script></span><variable>.<field>"表示法</p>
+<p>聚合表达式可以使用用户自定义和系统变量，变量可以保存任何BSON类型的数据。要访问变量的值，使用带有前缀双dollar符(<span><span class="MathJax_Preview"><span><span class="MathJax_Preview">)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"</span><script type="math/tex">)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"</span><script type="math/tex">)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"</script></span></script></span>variable.field"表示法</p>
 <h4 id="_24">用户变量<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
 <p>用户变量名称可以包含ASCII字符[_a-zA-Z0-9]和任何非ASCII字符，用户变量名必须以小写的ASCII字符[a-z]或非ASCII字符开头</p>
 <h4 id="_25">系统变量<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
@@ -3550,7 +3558,7 @@
 </tr>
 <tr>
 <td align="center"></td>
-<td align="center">CURRENT是可以修改的。但是，由于<span><span class="MathJax_Preview">&lt;field&gt; 等同于</span><script type="math/tex"><field> 等同于</script></span><span><span class="MathJax_Preview">CURRENT.&lt;field&gt;，重新绑定会CURRENT改变</span><script type="math/tex">CURRENT.<field>，重新绑定会CURRENT改变</script></span>访问的含义</td>
+<td align="center">CURRENT是可以修改的。但是，由于<span><span class="MathJax_Preview">field等同于</span><script type="math/tex">field等同于</script></span><span><span class="MathJax_Preview">CURRENT.field，重新绑定会CURRENT改变</span><script type="math/tex">CURRENT.field，重新绑定会CURRENT改变</script></span>访问的含义</td>
 </tr>
 <tr>
 <td align="center">REMOVE</td>
@@ -3581,16 +3589,20 @@
 <h3 id="sqlaggregation">SQL和aggregation(聚合)的比较<a class="headerlink" href="#sqlaggregation" title="Permanent link">&para;</a></h3>
 <p><a href="http://docs.mongodb.com/manual/reference/sql-comparison/">sql-aggregation</a></p>
 <h2 id="_26">数据模型<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
-<p>创建索引应考虑以下：
-* 每个索引至少占用8kb的数据空间
-* 添加索引会对写入操作产生负面影响，因每个插入也必须更新索引
-* 具有高读写比率的集合通常受益于其他索引，索引不影响未创建索引的操作
-* 处于活动状态时，每个索引都会占用磁盘空间和内存</p>
+<p>创建索引应考虑以下：</p>
+<ul>
+<li>每个索引至少占用8kb的数据空间</li>
+<li>添加索引会对写入操作产生负面影响，因每个插入也必须更新索引</li>
+<li>具有高读写比率的集合通常受益于其他索引，索引不影响未创建索引的操作</li>
+<li>处于活动状态时，每个索引都会占用磁盘空间和内存</li>
+</ul>
 <h2 id="transactions">Transactions<a class="headerlink" href="#transactions" title="Permanent link">&para;</a></h2>
 <p>可以跨多个操作、集合、数据库和文档使用多文档事务</p>
-<p>多文档事务是原子性的：
-* 当事务提交时，事务中所有的数据更改都被保存并在事务外部可见，事务提交之前，事务中发生的数据更改事务外部不可见
-* 事务中止时，事务中所有的数据更改都会被丢弃但不会不可见</p>
+<p>多文档事务是原子性的：</p>
+<ul>
+<li>当事务提交时，事务中所有的数据更改都被保存并在事务外部可见，事务提交之前，事务中发生的数据更改事务外部不可见</li>
+<li>事务中止时，事务中所有的数据更改都会被丢弃但不会不可见</li>
+</ul>
 <h2 id="_27">索引<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
 <p>索引的排序支持有效的等式匹配和基于范围的查询操作，mongodb还可以使用索引中的顺序返回排序结果</p>
 <p>分片集群中，如果不将_id字段作为片键，则应用程序必须确保_id字段值的唯一性以防出错</p>
@@ -3624,7 +3636,6 @@ db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weig
 <span class="err">{</span> <span class="n">_id</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="n">dept</span><span class="p">:</span> <span class="ss">&quot;food&quot;</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="ss">&quot;red potato&quot;</span> <span class="err">}</span>
 </pre></div>
 
-<p>db.in</p>
 <h2 id="_31">安全<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
 <h2 id="change-streams">Change Streams<a class="headerlink" href="#change-streams" title="Permanent link">&para;</a></h2>
 <h2 id="replication">复制(Replication)<a class="headerlink" href="#replication" title="Permanent link">&para;</a></h2>
@@ -3818,40 +3829,49 @@ db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weig
 | connect.backoff.max.delay.ms | 1000 | 正整数值，指定在重复失败的连接尝试后或没有主节点可用时尝试重新连接到主节点时的最大延迟。默认为120秒（120,000毫秒）。 |
 | connect.max.attempts | 16 | 正整数值，指定在发生异常并且任务中止之前，对副本集主要连接尝试失败的最大次数。缺省值为16，其与默认值connect.backoff.initial.delay.ms和connect.backoff.max.delay.ms失效之前导致仅有20多分钟的尝试。 |
 | mongodb.members.auto.discover | true | 布尔值，指定'mongodb.hosts'中的地址是否应该用于发现集群或副本集（true）的所有成员的种子，或者是否mongodb.hosts应该按原样使用地址（false）。默认值是true并且应该在所有情况下使用，除非MongoDB 由代理提供 |</p>
-<p>安装debezium-connector-mongodb
-启动zookeeper   zookeeper-server-start zookeeper.properties</p>
-<p>启动kafka       kafka-server-start    server.properties</p>
-<p>启动schema-registry-start schema-registry.properties</p>
-<p>export CLASSPATH=/path/to/my/connectors/*
-启动connect-standalone  /schema-registry/
-connect-avro-standalone.properties kafka/connect-mongo-source.properties</p>
-<p>启动kafka consumer  kafka-console-consumer --zookeeper localhost:2181 --topic test.test.test --from-beginning</p>
-<p>schema-registry/connect-avro-distributed.properties添加debezium-connector-mongodb的plugin.path=</p>
-<p>配置Debezium MongoDB connector
-connect.json
-{
-  "name": "inventory-connector",  (1)
-  "config": {
-    "connector.class": "io.debezium.connector.mongodb.MongoDbConnector", (2)
-    "mongodb.hosts": "rs0/192.168.99.100:27017", (3)
-    "mongodb.name": "fullfillment", (4)
-    "collection.whitelist": "inventory[.]*", (5)
-  }
-}
-1 我们使用Kafka Connect服务注册时的连接器名称
-2 MongoDB连接器类的名称
-3 用于连接MongoDB副本集的主机地址
-4 该MongoDB的副本集逻辑名称，形成一个命名空间产生的事件，并在kafka的topics，kafka连接架构名称中的所有名称使用，以及相应的Avro架构的命名空间时的Avro使用
-5 与要监视的所有集合的集合名称空间（例如，dbName collectionName）匹配的正则表达式列表。这是可选的</p>
-<p>加载连接就是配置connect-mongo-source.properties
-curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json" <a href="http://localhost:8084/connectors/">http://localhost:8084/connectors/</a> -d @/etc/kafka/mongodb.json</p>
-<p>查看kafka的topics
-kafka-topics --zookeeper localhost:2181 --list</p>
-<p>db.getCollection("rent_houses").find({ 
-    "price": { "<span><span class="MathJax_Preview">lte": 2000 },
-    "title": { "</span><script type="math/tex">lte": 2000 },
-    "title": { "</script></span>in": [ /转租/,/整租/ ] }
-     })</p>
+<div class="codehilite"><pre><span></span>安装<span class="nv">debezium</span><span class="o">-</span><span class="nv">connector</span><span class="o">-</span><span class="nv">mongodb</span>
+启动<span class="nv">zookeeper</span>   <span class="nv">zookeeper</span><span class="o">-</span><span class="nv">server</span><span class="o">-</span><span class="nv">start</span> <span class="nv">zookeeper</span>.<span class="nv">properties</span>
+
+启动<span class="nv">kafka</span>       <span class="nv">kafka</span><span class="o">-</span><span class="nv">server</span><span class="o">-</span><span class="nv">start</span>    <span class="nv">server</span>.<span class="nv">properties</span>
+
+启动<span class="nv">schema</span><span class="o">-</span><span class="nv">registry</span><span class="o">-</span><span class="nv">start</span> <span class="nv">schema</span><span class="o">-</span><span class="nv">registry</span>.<span class="nv">properties</span>
+
+<span class="nv">export</span> <span class="nv">CLASSPATH</span><span class="o">=/</span><span class="nv">path</span><span class="o">/</span><span class="nv">to</span><span class="o">/</span><span class="nv">my</span><span class="o">/</span><span class="nv">connectors</span><span class="cm">/*</span>
+<span class="cm">启动connect-standalone  /schema-registry/</span>
+<span class="cm">connect-avro-standalone.properties kafka/connect-mongo-source.properties</span>
+
+<span class="cm">启动kafka consumer  kafka-console-consumer --zookeeper localhost:2181 --topic test.test.test --from-beginning</span>
+
+<span class="cm">schema-registry/connect-avro-distributed.properties添加debezium-connector-mongodb的plugin.path=</span>
+
+<span class="cm">配置Debezium MongoDB connector</span>
+<span class="cm">connect.json</span>
+<span class="cm">{</span>
+<span class="cm">  &quot;name&quot;: &quot;inventory-connector&quot;,  (1)</span>
+<span class="cm">  &quot;config&quot;: {</span>
+<span class="cm">    &quot;connector.class&quot;: &quot;io.debezium.connector.mongodb.MongoDbConnector&quot;, (2)</span>
+<span class="cm">    &quot;mongodb.hosts&quot;: &quot;rs0/192.168.99.100:27017&quot;, (3)</span>
+<span class="cm">    &quot;mongodb.name&quot;: &quot;fullfillment&quot;, (4)</span>
+<span class="cm">    &quot;collection.whitelist&quot;: &quot;inventory[.]*&quot;, (5)</span>
+<span class="cm">  }</span>
+<span class="cm">}</span>
+<span class="cm">1 我们使用Kafka Connect服务注册时的连接器名称</span>
+<span class="cm">2 MongoDB连接器类的名称</span>
+<span class="cm">3 用于连接MongoDB副本集的主机地址</span>
+<span class="cm">4 该MongoDB的副本集逻辑名称，形成一个命名空间产生的事件，并在kafka的topics，kafka连接架构名称中的所有名称使用，以及相应的Avro架构的命名空间时的Avro使用</span>
+<span class="cm">5 与要监视的所有集合的集合名称空间（例如，dbName collectionName）匹配的正则表达式列表。这是可选的</span>
+
+<span class="cm">加载连接就是配置connect-mongo-source.properties</span>
+<span class="cm">curl -i -X POST -H &quot;Accept:application/json&quot; -H  &quot;Content-Type:application/json&quot; http://localhost:8084/connectors/ -d @/etc/kafka/mongodb.json</span>
+
+<span class="cm">查看kafka的topics</span>
+<span class="cm">kafka-topics --zookeeper localhost:2181 --list</span>
+
+<span class="cm">db.getCollection(&quot;rent_houses&quot;).find({</span>
+<span class="cm">    &quot;price&quot;: { &quot;$lte&quot;: 2000 },</span>
+<span class="cm">    &quot;title&quot;: { &quot;$in&quot;: [ /转租/,/整租/ ] }</span>
+<span class="cm">     })</span>
+</pre></div>
                 
                   
                 

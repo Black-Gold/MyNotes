@@ -501,14 +501,14 @@
         
           <li class="md-nav__item">
   <a href="#grub" class="md-nav__link">
-    GRUB配置文件讲解：
+    GRUB配置文件讲解
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#fstab" class="md-nav__link">
-    fstab文件含义如下：
+    fstab文件含义如下
   </a>
   
 </li>
@@ -575,7 +575,7 @@
       
         <li class="md-nav__item">
   <a href="#bash" class="md-nav__link">
-    BASH环境变量的设置方法：
+    BASH环境变量的设置方法
   </a>
   
 </li>
@@ -1602,14 +1602,14 @@
         
           <li class="md-nav__item">
   <a href="#grub" class="md-nav__link">
-    GRUB配置文件讲解：
+    GRUB配置文件讲解
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#fstab" class="md-nav__link">
-    fstab文件含义如下：
+    fstab文件含义如下
   </a>
   
 </li>
@@ -1676,7 +1676,7 @@
       
         <li class="md-nav__item">
   <a href="#bash" class="md-nav__link">
-    BASH环境变量的设置方法：
+    BASH环境变量的设置方法
   </a>
   
 </li>
@@ -2176,7 +2176,7 @@ fdisk /dev/sdb      <span class="c1"># 对硬盘进行分区操作，默认时ex
 <span class="s">Command action</span>
 <span class="s">   e   extended</span>
 <span class="s">   p   primary partition (1-4)</span>
-<span class="s">p </span>
+<span class="s">p</span>
 <span class="s">Partition number (1-4): 2  //分区号为2</span>
 <span class="s">First cylinder (101-391, default 101):</span>
 <span class="s">Using default value 101</span>
@@ -2208,7 +2208,7 @@ fdisk /dev/sdb      <span class="c1"># 对硬盘进行分区操作，默认时ex
 <span class="s">l //选择逻辑分区</span>
 <span class="s">First cylinder (126-391, default 126):</span>
 <span class="s">Using default value 126</span>
-<span class="s">Last cylinder or +size or +sizeM or +sizeK (126-391, default 391): +400M    </span>
+<span class="s">Last cylinder or +size or +sizeM or +sizeK (126-391, default 391): +400M</span>
 
 <span class="s">Command (m for help): n</span>
 <span class="s">Command action</span>
@@ -2564,7 +2564,7 @@ fdisk /dev/sdb      <span class="c1"># 对硬盘进行分区操作，默认时ex
 <span class="cm">/usr目录的重要性是和windows系统上的windows目录的重要性是一样的，都是核心文件存放的位置</span>
 </pre></div>
 
-<h3 id="grub">GRUB配置文件讲解：<a class="headerlink" href="#grub" title="Permanent link">&para;</a></h3>
+<h3 id="grub">GRUB配置文件讲解<a class="headerlink" href="#grub" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="err">配置文件位置：</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">grub</span><span class="p">.</span><span class="n">conf是个软连接文件</span>
 <span class="err">原始文件</span><span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">grub</span><span class="o">/</span><span class="n">grub</span><span class="p">.</span><span class="n">conf</span>
 <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="ss">&quot;^#&quot;</span> <span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="n">grub</span><span class="o">/</span><span class="n">grub</span><span class="p">.</span><span class="n">conf</span> <span class="o">|</span> <span class="k">more</span>
@@ -2617,7 +2617,7 @@ fdisk /dev/sdb      <span class="c1"># 对硬盘进行分区操作，默认时ex
 <span class="err">案例</span><span class="mi">2</span><span class="err">：如果忘记了管理员密码，同时也忘记了</span><span class="n">GRUB的保护密码的话</span><span class="err">，我们可以使用</span><span class="n">GRUB的系统修复或者使用光盘的引导修复来解决此问题</span>
 </pre></div>
 
-<h3 id="fstab">fstab文件含义如下：<a class="headerlink" href="#fstab" title="Permanent link">&para;</a></h3>
+<h3 id="fstab">fstab文件含义如下<a class="headerlink" href="#fstab" title="Permanent link">&para;</a></h3>
 <ul>
 <li>物理分区/卷标；可以使用UUID、设备路径/dev/、协议/文件系统类型或网络共享名称表示</li>
 <li>挂载点(注意：swap没有挂载点)</li>
@@ -2881,9 +2881,9 @@ rm ~/.local/share/applications/gnome-terminal.desktop
 gsettings <span class="nb">set</span> org.gnome.desktop.default-applications.terminal <span class="nb">exec</span> <span class="s1">&#39;gnome-terminal&#39;</span>
 </pre></div>
 
-<h2 id="bash">BASH环境变量的设置方法：<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h2>
+<h2 id="bash">BASH环境变量的设置方法<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="c1"># 方法一：修改用户主目录下的.profile或.bashrc文件(推荐)，在文件末尾加入PATH的设置如下：该方式添加的变量只对当前用户有效</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:your path1:your path2&quot;</span> 
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:your path1:your path2&quot;</span>
 
 <span class="c1"># 方法二：修改编辑系统目录下的profile文件(谨慎)：在最后加入PATH的设置如下：该方式添加的变量对所有的用户都有效</span>
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:your path1:your path2&quot;</span>
@@ -2954,8 +2954,8 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 
 # <span class="nv">HostKey</span>
 # 主机私钥文件的位置。如果权限不对，<span class="nv">sshd</span>可能会拒绝启动
-# <span class="nv">SSH</span><span class="o">-</span><span class="mi">1</span>默认是 <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ssh</span><span class="o">/</span><span class="nv">ssh_host_key</span> 
-# <span class="nv">SSH</span><span class="o">-</span><span class="mi">2</span>默认是 <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ssh</span><span class="o">/</span><span class="nv">ssh_host_rsa_key</span> 和 <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ssh</span><span class="o">/</span><span class="nv">ssh_host_dsa_key</span> 
+# <span class="nv">SSH</span><span class="o">-</span><span class="mi">1</span>默认是 <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ssh</span><span class="o">/</span><span class="nv">ssh_host_key</span>
+# <span class="nv">SSH</span><span class="o">-</span><span class="mi">2</span>默认是 <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ssh</span><span class="o">/</span><span class="nv">ssh_host_rsa_key</span> 和 <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ssh</span><span class="o">/</span><span class="nv">ssh_host_dsa_key</span>
 # 一台主机可以拥有多个不同的私钥。<span class="s2">&quot;</span><span class="s">rsa1</span><span class="s2">&quot;</span>仅用于<span class="nv">SSH</span><span class="o">-</span><span class="mi">1</span>，<span class="s2">&quot;</span><span class="s">dsa</span><span class="s2">&quot;</span>和<span class="s2">&quot;</span><span class="s">rsa</span><span class="s2">&quot;</span>仅用于<span class="nv">SSH</span><span class="o">-</span><span class="mi">2</span>
 #<span class="nv">HostKey</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ssh</span><span class="o">/</span><span class="nv">ssh_host_rsa_key</span>
 #<span class="nv">HostKey</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ssh</span><span class="o">/</span><span class="nv">ssh_host_ecdsa_key</span>
@@ -2968,7 +2968,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 # <span class="nv">Ciphers</span> <span class="nv">and</span> <span class="nv">keying</span>
 #<span class="nv">RekeyLimit</span> <span class="nv">default</span> <span class="nv">none</span>
 
-# 指定<span class="nv">sshd</span>将日志消息通过哪个日志子系统<span class="ss">(</span><span class="nv">facility</span><span class="ss">)</span>发送。有效值是：<span class="nv">DAEMON</span>, <span class="nv">USER</span>, <span class="nv">AUTH</span><span class="ss">(</span>默认<span class="ss">)</span>, <span class="nv">LOCAL0</span>, <span class="nv">LOCAL1</span>, <span class="nv">LOCAL2</span>, <span class="nv">LOCAL3</span>, 
+# 指定<span class="nv">sshd</span>将日志消息通过哪个日志子系统<span class="ss">(</span><span class="nv">facility</span><span class="ss">)</span>发送。有效值是：<span class="nv">DAEMON</span>, <span class="nv">USER</span>, <span class="nv">AUTH</span><span class="ss">(</span>默认<span class="ss">)</span>, <span class="nv">LOCAL0</span>, <span class="nv">LOCAL1</span>, <span class="nv">LOCAL2</span>, <span class="nv">LOCAL3</span>,
 # <span class="nv">LOCAL4</span>, <span class="nv">LOCAL5</span>, <span class="nv">LOCAL6</span>, <span class="nv">LOCAL7</span>
 # <span class="nv">Logging</span>
 #<span class="nv">SyslogFacility</span> <span class="nv">AUTH</span>
@@ -2993,7 +2993,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 # 指定是否要求<span class="nv">sshd</span>在接受连接请求前对用户主目录和相关的配置文件进行宿主和权限检查。强烈建议使用默认值<span class="s2">&quot;</span><span class="s">yes</span><span class="s2">&quot;</span>来预防可能出现的低级错误
 #<span class="nv">StrictModes</span> <span class="nv">yes</span>
 
-# 指定每个连接最大允许的认证次数。默认值是 <span class="mi">6</span> 
+# 指定每个连接最大允许的认证次数。默认值是 <span class="mi">6</span>
 # 如果失败认证的次数超过这个数值的一半，连接将被强制断开，且会生成额外的失败日志消息
 #<span class="nv">MaxAuthTries</span> <span class="mi">6</span>
 
@@ -3104,17 +3104,16 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 
 # 是否允许<span class="nv">TCP</span>转发，默认值为<span class="s2">&quot;</span><span class="s">yes</span><span class="s2">&quot;</span>
 # 禁止<span class="nv">TCP</span>转发并不能增强安全性，除非禁止了用户对<span class="nv">shell</span>的访问，因为用户可以安装他们自己的转发器
-#<span class="nv">AllowTcpForwarding</span> <span class="nv">yes</span>
+<span class="nv">AllowTcpForwarding</span> <span class="nv">yes</span>
 
 ######################################################################################################################
 
-# <span class="nv">GatewayPorts</span>
 # 是否允许远程主机连接本地的转发端口。默认值是<span class="s2">&quot;</span><span class="s">no</span><span class="s2">&quot;</span>
 # <span class="nv">sshd</span><span class="ss">(</span><span class="mi">8</span><span class="ss">)</span> 默认将远程端口转发绑定到<span class="nv">loopback</span>地址。这样将阻止其它远程主机连接到转发端口
 # <span class="nv">GatewayPorts</span> 指令可以让 <span class="nv">sshd</span> 将远程端口转发绑定到非<span class="nv">loopback</span>地址，这样就可以允许远程主机连接了
 # <span class="s2">&quot;</span><span class="s">no</span><span class="s2">&quot;</span>表示仅允许本地连接，<span class="s2">&quot;</span><span class="s">yes</span><span class="s2">&quot;</span>表示强制将远程端口转发绑定到统配地址<span class="ss">(</span><span class="nv">wildcard</span> <span class="nv">address</span><span class="ss">)</span>
 # <span class="s2">&quot;</span><span class="s">clientspecified</span><span class="s2">&quot;</span>表示允许客户端选择将远程端口转发绑定到哪个地址
-#<span class="nv">GatewayPorts</span> <span class="nv">no</span>
+<span class="nv">GatewayPorts</span> <span class="nv">yes</span>
 
 ######################################################################################################################
 
@@ -3125,7 +3124,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 # 如果启用了 <span class="nv">UseLogin</span> ，那么<span class="nv">X11</span>转发将被自动禁止
 <span class="nv">X11Forwarding</span> <span class="nv">yes</span>
 
-# 指定<span class="nv">sshdX11</span> 转发的第一个可用的显示区<span class="ss">(</span><span class="nv">display</span><span class="ss">)</span>数字。默认值是 <span class="mi">10</span> 
+# 指定<span class="nv">sshdX11</span> 转发的第一个可用的显示区<span class="ss">(</span><span class="nv">display</span><span class="ss">)</span>数字。默认值是 <span class="mi">10</span>
 # 这个可以用于防止 <span class="nv">sshd</span> 占用了真实的 <span class="nv">X11</span> 服务器显示区，从而发生混淆
 #<span class="nv">X11DisplayOffset</span> <span class="mi">10</span>
 
@@ -3146,7 +3145,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 #<span class="nv">TCPKeepAlive</span> <span class="nv">yes</span>
 
 # 是否在交互式会话的登录过程中使用 <span class="nv">login</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> 。默认值是<span class="s2">&quot;</span><span class="s">no</span><span class="s2">&quot;</span>
-# 如果开启此指令，那么 <span class="nv">X11Forwarding</span> 将会被禁止，因为 <span class="nv">login</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> 不知道如何处理 <span class="nv">xauth</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">cookies</span> 
+# 如果开启此指令，那么 <span class="nv">X11Forwarding</span> 将会被禁止，因为 <span class="nv">login</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> 不知道如何处理 <span class="nv">xauth</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">cookies</span>
 # 需要注意的是，<span class="nv">login</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> 是禁止用于远程执行命令的
 # 如果指定了 <span class="nv">UsePrivilegeSeparation</span> ，那么它将在认证完成后被禁用
 #<span class="nv">UseLogin</span> <span class="nv">no</span>
@@ -3172,7 +3171,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 
 ######################################################################################################################
 
-# <span class="nv">sshd</span>在未收到任何客户端回应前最多允许发送多少个<span class="s2">&quot;</span><span class="s">alive</span><span class="s2">&quot;</span>消息。默认值是 <span class="mi">3</span> 
+# <span class="nv">sshd</span>在未收到任何客户端回应前最多允许发送多少个<span class="s2">&quot;</span><span class="s">alive</span><span class="s2">&quot;</span>消息。默认值是 <span class="mi">3</span>
 # 到达这个上限后，<span class="nv">sshd</span><span class="ss">(</span><span class="mi">8</span><span class="ss">)</span> 将强制断开连接、关闭会话
 # 需要注意的是，<span class="s2">&quot;</span><span class="s">alive</span><span class="s2">&quot;</span>消息与 <span class="nv">TCPKeepAlive</span> 有很大差异
 # <span class="s2">&quot;</span><span class="s">alive</span><span class="s2">&quot;</span>消息是通过加密连接发送的，因此不会被欺骗；而 <span class="nv">TCPKeepAlive</span> 却是可以被欺骗的
@@ -3188,7 +3187,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 # 指定在哪个文件中存放<span class="nv">SSH</span>守护进程的进程号，默认为 <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">run</span><span class="o">/</span><span class="nv">sshd</span>.<span class="nv">pid</span> 文件
 #<span class="nv">PidFile</span> <span class="o">/</span><span class="nv">var</span><span class="o">/</span><span class="nv">run</span><span class="o">/</span><span class="nv">sshd</span>.<span class="nv">pid</span>
 
-# 最大允许保持多少个未认证的连接。默认值是 <span class="mi">10</span> 
+# 最大允许保持多少个未认证的连接。默认值是 <span class="mi">10</span>
 # 到达限制后，将不再接受新连接，除非先前的连接认证成功或超出 <span class="nv">LoginGraceTime</span> 的限制
 #<span class="nv">MaxStartups</span> <span class="mi">10</span>:<span class="mi">30</span>:<span class="mi">100</span>
 
@@ -3264,7 +3263,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 # <span class="nv">Match</span>
 # 引入一个条件块。块的结尾标志是另一个 <span class="nv">Match</span> 指令或者文件结尾
 # 如果 <span class="nv">Match</span> 行上指定的条件都满足，那么随后的指令将覆盖全局配置中的指令
-# <span class="nv">Match</span> 的值是一个或多个<span class="s2">&quot;</span><span class="s">条件-模式</span><span class="s2">&quot;</span>对。可用的<span class="s2">&quot;</span><span class="s">条件</span><span class="s2">&quot;</span>是：<span class="nv">User</span>, <span class="nv">Group</span>, <span class="nv">Host</span>, <span class="nv">Address</span> 
+# <span class="nv">Match</span> 的值是一个或多个<span class="s2">&quot;</span><span class="s">条件-模式</span><span class="s2">&quot;</span>对。可用的<span class="s2">&quot;</span><span class="s">条件</span><span class="s2">&quot;</span>是：<span class="nv">User</span>, <span class="nv">Group</span>, <span class="nv">Host</span>, <span class="nv">Address</span>
 # 只有下列指令可以在 <span class="nv">Match</span> 块中使用：<span class="nv">AllowTcpForwarding</span>, <span class="nv">Banner</span>,
 # <span class="nv">ForceCommand</span>, <span class="nv">GatewayPorts</span>, <span class="nv">GSSApiAuthentication</span>,
 # <span class="nv">KbdInteractiveAuthentication</span>, <span class="nv">KerberosAuthentication</span>,
@@ -3336,7 +3335,9 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
 <span class="o">#</span> <span class="err">命令格式：</span>
 <span class="n">ssh</span> <span class="o">-</span><span class="n">R</span> <span class="o">&lt;</span><span class="k">local</span> <span class="n">port</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">remote</span> <span class="k">host</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">remote</span> <span class="n">port</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">SSH</span> <span class="n">hostname</span><span class="o">&gt;</span>
 <span class="o">#</span> <span class="err">在</span><span class="n">LDAP服务器</span><span class="err">（</span><span class="n">LdapServertHost</span><span class="err">）端执行如下命令：</span>
-<span class="n">ssh</span> <span class="o">-</span><span class="n">R</span> <span class="mi">7001</span><span class="p">:</span><span class="n">localhost</span><span class="p">:</span><span class="mi">389</span> <span class="n">LdapClientHost</span>
+<span class="o">#</span> <span class="o">-</span><span class="n">n阻止从stdin读取</span><span class="err">，因为您不想从命令行使用隧道</span>
+<span class="o">#</span> <span class="o">-</span><span class="n">N表示您不想执行远程命令</span><span class="err">，只需执行端口转发</span>
+<span class="n">ssh</span> <span class="o">-</span><span class="n">nN</span> <span class="o">-</span><span class="n">R</span> <span class="mi">7001</span><span class="p">:</span><span class="n">localhost</span><span class="p">:</span><span class="mi">389</span> <span class="n">LdapClientHost</span>
 
 <span class="p">......................</span><span class="o">|||</span><span class="p">.........................</span>
 <span class="p">......</span><span class="n">LDAP</span> <span class="n">Client</span><span class="p">.....</span><span class="o">|||</span><span class="p">......</span><span class="n">LDAP</span> <span class="n">Server</span><span class="p">........</span>
@@ -3609,7 +3610,7 @@ sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_con
                                             建议使用<span class="mi">16</span><span class="nv">M</span>字节或更高的最大值（取决于内核级别），尤其是<span class="mi">10</span>千兆位适配器
 
 # 增加可分配的最大总缓冲区空间,此为以<span class="nv">page</span>为单位（<span class="mi">4096</span>字节）测量
-<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">udp_mem</span> <span class="o">=</span> <span class="mi">65536</span> <span class="mi">131072</span> <span class="mi">262144</span>  
+<span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">udp_mem</span> <span class="o">=</span> <span class="mi">65536</span> <span class="mi">131072</span> <span class="mi">262144</span>
 <span class="nv">net</span>.<span class="nv">ipv4</span>.<span class="nv">tcp_mem</span> <span class="o">=</span> <span class="mi">65536</span> <span class="mi">131072</span> <span class="mi">262144</span>  # 第一次低于此值,<span class="nv">TCP</span>没有内存压力,第二次进入内存压力阶段,
                                         第三次<span class="nv">TCP</span>拒绝分配<span class="nv">socket</span><span class="ss">(</span>默认：<span class="mi">5814</span> <span class="mi">7754</span> <span class="mi">11628</span><span class="ss">)</span>
 
@@ -3793,8 +3794,8 @@ yum --enablerepo<span class="o">=</span>elrepo-kernel install  kernel-ml-devel k
 yum --enablerepo<span class="o">=</span>elrepo-kernel  install  kernel-lt -y   <span class="c1"># 安装long term的内核</span>
 
 <span class="c1"># 配置Grub使用新内核，配置完后重启启用新内核</span>
-<span class="c1">## CentOS 6配置，修改/boot/grub/grub.conf </span>
-  <span class="nv">default</span><span class="o">=</span><span class="m">0</span> <span class="c1"># 更改为 0 </span>
+<span class="c1">## CentOS 6配置，修改/boot/grub/grub.conf</span>
+  <span class="nv">default</span><span class="o">=</span><span class="m">0</span> <span class="c1"># 更改为 0</span>
   <span class="nv">fallback</span><span class="o">=</span><span class="m">1</span> <span class="c1"># 添加此项</span>
 
 <span class="c1">## CentOS 7</span>
@@ -3813,7 +3814,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 vim /etc/sysconfig/grub     <span class="c1"># 编辑 grub 配置文件,实际是/etc/default/grub的软连接</span>
 <span class="c1"># 为GRUB_CMDLINE_LINUX变量增加2个参数，具体内容如下(加粗)：</span>
 <span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;crashkernel=auto rd.lvm.lv=cl/root rd.lvm.lv=cl/swap net.ifnames=0 biosdevname=0 rhgb quiet&quot;</span>
-<span class="c1"># 重新生成 grub 配置文件，然后重新启动 Linux 操作系统，通过 ip addr 可以看到网卡名称已经变为 eth0 </span>
+<span class="c1"># 重新生成 grub 配置文件，然后重新启动 Linux 操作系统，通过 ip addr 可以看到网卡名称已经变为 eth0</span>
 grub2-mkconfig -o /boot/grub2/grub.cfg
 <span class="c1"># 修改网卡配置文件，原网卡配置文件名称为 ifcfg-ens33，这里需要修改为ethx的格式，并适当调整网卡配置文件</span>
 mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0
@@ -3954,7 +3955,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="nv">includefile</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ntp</span><span class="o">/</span><span class="nv">crypto</span><span class="o">/</span><span class="nv">pw</span>
 
 # <span class="nv">Key</span> <span class="nv">file</span> <span class="nv">containing</span> <span class="nv">the</span> <span class="nv">keys</span> <span class="nv">and</span> <span class="nv">key</span> <span class="nv">identifiers</span> <span class="nv">used</span> <span class="nv">when</span> <span class="nv">operating</span>
-# <span class="nv">with</span> <span class="nv">symmetric</span> <span class="nv">key</span> <span class="nv">cryptography</span>. 
+# <span class="nv">with</span> <span class="nv">symmetric</span> <span class="nv">key</span> <span class="nv">cryptography</span>.
 <span class="nv">keys</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">ntp</span><span class="o">/</span><span class="nv">keys</span>
 
 # <span class="nv">Specify</span> <span class="nv">the</span> <span class="nv">key</span> <span class="nv">identifiers</span> <span class="nv">which</span> <span class="nv">are</span> <span class="nv">trusted</span>.
@@ -4124,7 +4125,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 
 <span class="n">chroot_list_enable</span>
 <span class="err">设为</span><span class="n">yes可以在登录时提供放置在其主目录中的chroot</span><span class="err">（）</span><span class="n">jail中的本地用户列表</span><span class="err">。如果</span><span class="n">chroot_local_user设置为YES</span><span class="err">，则含义略有不同。在这种情况下</span>
-<span class="err">列表不被放置在</span><span class="n">chroot</span><span class="err">（）</span><span class="n">jail中的用户列表</span><span class="err">。默认情况下，包含此列表文件是</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">vsftpd</span><span class="p">.</span><span class="n">chroot_list</span><span class="err">，但可使用</span><span class="n">chroot_list_file设置覆盖它</span> 
+<span class="err">列表不被放置在</span><span class="n">chroot</span><span class="err">（）</span><span class="n">jail中的用户列表</span><span class="err">。默认情况下，包含此列表文件是</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">vsftpd</span><span class="p">.</span><span class="n">chroot_list</span><span class="err">，但可使用</span><span class="n">chroot_list_file设置覆盖它</span>
 <span class="err">默认值：</span><span class="k">NO</span>
 
 <span class="n">chroot_local_user</span>
@@ -4156,7 +4157,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="err">默认值：是</span>
 
 <span class="n">dirmessage_enable</span>
-<span class="err">如果启用，</span><span class="n">FTP服务器的用户首次进入新目录时可以显示消息</span><span class="err">。默认情况下，会扫描目录以查找文件</span><span class="p">.</span><span class="n">message</span><span class="err">，但可以使用配置设置</span><span class="n">message_file覆盖该目录</span> 
+<span class="err">如果启用，</span><span class="n">FTP服务器的用户首次进入新目录时可以显示消息</span><span class="err">。默认情况下，会扫描目录以查找文件</span><span class="p">.</span><span class="n">message</span><span class="err">，但可以使用配置设置</span><span class="n">message_file覆盖该目录</span>
 <span class="err">默认值：</span><span class="k">NO</span><span class="err">（但是示例配置文件启用它）</span>
 
 <span class="n">download_enable</span>
@@ -4189,7 +4190,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="err">默认值：是</span>
 
 <span class="n">guest_enable</span>
-<span class="err">如果启用，则所有非匿名登录都被归类为“访客”登录。</span><span class="n">guest</span> <span class="err">虚拟机登录将重新映射到</span><span class="n">guest_username</span> <span class="err">设置中指定的用户</span> 
+<span class="err">如果启用，则所有非匿名登录都被归类为“访客”登录。</span><span class="n">guest</span> <span class="err">虚拟机登录将重新映射到</span><span class="n">guest_username</span> <span class="err">设置中指定的用户</span>
 <span class="err">默认值：</span><span class="k">NO</span>
 
 <span class="n">hide_ids</span>
@@ -4251,7 +4252,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="err">默认值：</span><span class="k">NO</span>
 
 <span class="n">pasv_addr_resolve</span>
-<span class="err">如果要在</span><span class="n">pasv_address</span> <span class="err">选项中使用主机名（而不是</span><span class="n">IP地址</span><span class="err">），请设置为</span><span class="n">YES</span> 
+<span class="err">如果要在</span><span class="n">pasv_address</span> <span class="err">选项中使用主机名（而不是</span><span class="n">IP地址</span><span class="err">），请设置为</span><span class="n">YES</span>
 <span class="err">默认值：</span><span class="k">NO</span>
 
 <span class="n">pasv_enable</span>
@@ -4352,7 +4353,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 
 <span class="cm">tilde_user_enable</span>
 <span class="cm">如果启用，vsftpd将尝试解析路径名，例如~chris / pics，即代字号后跟用户名。请注意，vsftpd将始终解析路径名〜和〜/ something</span>
-<span class="cm">（在这种情况下，〜解析为初始登录目录）。请注意，只有 在_current_ chroot（）jail中找到文件/ etc / passwd时，〜用户路径才会解析 </span>
+<span class="cm">（在这种情况下，〜解析为初始登录目录）。请注意，只有 在_current_ chroot（）jail中找到文件/ etc / passwd时，〜用户路径才会解析</span>
 <span class="cm">默认值：NO</span>
 
 <span class="cm">use_localtime</span>
@@ -4364,7 +4365,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="cm">默认值：是</span>
 
 <span class="cm">userlist_deny</span>
-<span class="cm">如果 激活userlist_enable，则检查此选项 。如果将此设置设置为NO，则将拒绝用户登录，除非它们明确列在userlist_file指定的文件中 </span>
+<span class="cm">如果 激活userlist_enable，则检查此选项 。如果将此设置设置为NO，则将拒绝用户登录，除非它们明确列在userlist_file指定的文件中</span>
 <span class="cm">拒绝登录时，将在要求用户输入密码之前发出拒绝</span>
 <span class="cm">默认值：是</span>
 
@@ -4386,7 +4387,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="cm">默认值：NO</span>
 
 <span class="cm">xferlog_enable</span>
-<span class="cm">如果启用，将保留日志文件，详细说明上载和下载。默认情况下，此文件将放在/var/log/vsftpd.log中，但可以使用配置设置vsftpd_log_file覆盖此位置 </span>
+<span class="cm">如果启用，将保留日志文件，详细说明上载和下载。默认情况下，此文件将放在/var/log/vsftpd.log中，但可以使用配置设置vsftpd_log_file覆盖此位置</span>
 <span class="cm">默认值：NO（但是示例配置文件启用它）</span>
 
 <span class="cm">xferlog_std_format</span>
@@ -4483,11 +4484,11 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="cm">默认值:(无）</span>
 
 <span class="cm">banned_email_file</span>
-<span class="cm">此选项是包含不允许的匿名电子邮件密码列表的文件的名称。如果 启用了选项deny_email_enable，则会查询此文件 </span>
+<span class="cm">此选项是包含不允许的匿名电子邮件密码列表的文件的名称。如果 启用了选项deny_email_enable，则会查询此文件</span>
 <span class="cm">默认值：/etc/vsftpd.banned_emails</span>
 
 <span class="cm">banner_file</span>
-<span class="cm">此选项是包含要在有人连接到服务器时显示的文本的文件的名称。如果设置，它将覆盖ftpd_banner 选项提供的标题字符串 </span>
+<span class="cm">此选项是包含要在有人连接到服务器时显示的文本的文件的名称。如果设置，它将覆盖ftpd_banner 选项提供的标题字符串</span>
 <span class="cm">默认值:(无）</span>
 
 <span class="cm">ca_certs_file</span>
@@ -4496,7 +4497,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="cm">默认值:(无）</span>
 
 <span class="cm">chown_username</span>
-<span class="cm">这是获得匿名上传文件所有权的用户的名称。仅当设置了另一个选项chown_uploads时，此选项才有意义 </span>
+<span class="cm">这是获得匿名上传文件所有权的用户的名称。仅当设置了另一个选项chown_uploads时，此选项才有意义</span>
 <span class="cm">默认值：root</span>
 
 <span class="cm">chroot_list_file</span>
@@ -4524,9 +4525,9 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="cm">拒绝访问所有名称。如果项目的名称包含hide_file给出的字符串，或者它们与hide_file指定的正则表达式匹配，则将拒绝访问项目</span>
 <span class="cm">注意vsftpd正则表达式匹配代码是一个简单的实现，它是完整正则表达式功能的子集。因此，您需要仔细而详尽地测试此选项的任何应用程序</span>
 <span class="cm">并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符</span>
-<span class="cm">仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private} </span>
+<span class="cm">仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private}</span>
 <span class="cm">并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符</span>
-<span class="cm">仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private} </span>
+<span class="cm">仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private}</span>
 <span class="cm">并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符</span>
 <span class="cm">仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private}</span>
 <span class="cm">默认值:(无）</span>
@@ -4540,7 +4541,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="cm">默认值:(无）</span>
 
 <span class="cm">email_password_file</span>
-<span class="cm">此选项可用于提供secure_email_list_enable 设置使用的备用文件 </span>
+<span class="cm">此选项可用于提供secure_email_list_enable 设置使用的备用文件</span>
 <span class="cm">默认值：/etc/vsftpd.email_passwords</span>
 
 <span class="cm">ftp_username</span>
@@ -4575,7 +4576,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="cm">默认值:(无）</span>
 
 <span class="cm">message_file</span>
-<span class="cm">此选项是输入新目录时我们查找的文件的名称。内容显示给远程用户。仅当 启用了选项dirmessage_enable时，此选项才有意义 </span>
+<span class="cm">此选项是输入新目录时我们查找的文件的名称。内容显示给远程用户。仅当 启用了选项dirmessage_enable时，此选项才有意义</span>
 <span class="cm">默认值：.message</span>
 
 <span class="cm">nopriv_user</span>
@@ -4617,22 +4618,22 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 
 <span class="cm">user_sub_token</span>
 <span class="cm">此选项与虚拟用户结合使用非常有用。它用于根据模板为每个虚拟用户自动生成主目录。例如，如果通过guest_username指定的真实用户的主目录 是</span>
-<span class="cm"> / home / virtual / $ USER，并且 user_sub_token 设置为 $ USER，那么当虚拟用户fred登录时，他将结束通常是在目录 </span>
+<span class="cm"> / home / virtual / $ USER，并且 user_sub_token 设置为 $ USER，那么当虚拟用户fred登录时，他将结束通常是在目录</span>
 <span class="cm"> / home / virtual / fred中。如果local_root 包含 user_sub_token，则此选项也会 生效</span>
 <span class="cm">默认值:(无）</span>
 
 <span class="cm">userlist_file</span>
-<span class="cm">此选项是userlist_enable 选项处于活动状态时加载的文件的名称 </span>
+<span class="cm">此选项是userlist_enable 选项处于活动状态时加载的文件的名称</span>
 <span class="cm">默认值：/etc/vsftpd.user_list</span>
 
 <span class="cm">vsftpd_log_file</span>
-<span class="cm">此选项是我们编写vsftpd样式日志文件的文件的名称。仅当 设置了选项xferlog_enable并且未设置xferlog_std_format时， 才会写入此日志 </span>
+<span class="cm">此选项是我们编写vsftpd样式日志文件的文件的名称。仅当 设置了选项xferlog_enable并且未设置xferlog_std_format时， 才会写入此日志</span>
 <span class="cm">或者，如果已设置选项dual_log_enable，则会写入 。另一个复杂因素 - 如果您设置了 syslog_enable，则不会写入此文件，而是将输出发送到系统日志</span>
 <span class="cm">默认值：/var/log/vsftpd.log</span>
 
 <span class="cm">xferlog_file</span>
-<span class="cm">此选项是我们编写wu-ftpd样式传输日志的文件的名称。仅当 设置了 xferlog_enable选项以及xferlog_std_format时才会写入传输日志 </span>
-<span class="cm">或者，如果已设置选项dual_log_enable，则会写入 </span>
+<span class="cm">此选项是我们编写wu-ftpd样式传输日志的文件的名称。仅当 设置了 xferlog_enable选项以及xferlog_std_format时才会写入传输日志</span>
+<span class="cm">或者，如果已设置选项dual_log_enable，则会写入</span>
 <span class="cm">默认值：/var/log/xferlog</span>
 </pre></div>
 
@@ -4846,7 +4847,7 @@ rsync -vzrtopg --progress -e ssh --delete work@172.16.78.192:/www/* /databack/ex
 <span class="n">charset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">指定了存储模块文件名的字符集</span><span class="err">。</span><span class="n">如果客户端使用</span><span class="c1">--iconv选项，则守护程序将使用“字符集”参数的值，而与客户端实际传递的字符集无关。</span>
 <span class="w">              </span><span class="n">这使守护进程rsync可以在chroot模块中支持字符集转换且还可以确保以一致的方式完成名称转换</span><span class="err">。</span><span class="n">如果未设置</span><span class="err">“</span><span class="w"> </span><span class="n">charset</span><span class="err">”</span><span class="n">参数</span><span class="err">，</span><span class="w"></span>
 <span class="w">              </span><span class="n">则</span><span class="c1">--iconv选项将被拒绝</span>
-<span class="nf">max</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">#</span><span class="w"> </span>
+<span class="nf">max</span><span class="w"> </span><span class="n">connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">#</span><span class="w"></span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nobody</span><span class="w"></span>
 <span class="err">#</span><span class="w"> </span><span class="n">gid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nobody</span><span class="w"></span>
