@@ -7,7 +7,7 @@
 "" 双引号
 - 排除字符
 好: baidu.com 使用冒号搜索特定的网站
-am*zing 使用星号通配符 
+am*zing 使用星号通配符
 related:amazon.com 找到与其他网站类似的网站
 Black or red 合并搜索
 filetype:pdf 找到特定文件
@@ -19,6 +19,7 @@ cache:  查看Google的网站缓存版本
 google.com/history 搜索历史
 inurl:  搜索的关键字在url链接中
 intitle:    搜索的关键字在网页标题中
+inauthor:"作者名"  根据作者名搜索相关书籍及信息
 
 AND：返回查询两端的结果。例：growth hacks AND youtube
 NOT：返回除NOT之后的所有结果。例：monty python NOT bbc
@@ -50,7 +51,7 @@ inurl:ftp:// -inurl:http:// -inurl:https://
 | To search for Google+ pages or blood types | Place an addition sign (+) in front of the Google+ user or after the blood type Ex: +Chrome and AB+ |
 | To search for social tags | Place the at symbol (@) before the social tag you’d like to search Ex: @digitaltrends |
 | To search for prices | Place a dollar sign ($) before the value Ex: canon $400 |
-| To search for a phrase with missing words | Place an asterisk (*) within the search as a placeholder for any unknown terms Ex: if you give a * a * |
+| To search for a phrase with missing words | Place an asterisk \* within the search as a placeholder for any unknown terms Ex: if you give a * a * |
 | To search for a range of numbers, usually pertaining to prices and measurements | Place two periods between the designated numbers you want to search between Ex: $75..$200 |
 | To search popular hashtags for trending topics | Place a hashtag in front of the desired topicEx: #throwbackthursday |
 
@@ -90,7 +91,6 @@ inurl:ftp:// -inurl:http:// -inurl:https://
 
 ## Security
 
-
 ## Shadowsocks
 
 ```bash
@@ -100,15 +100,15 @@ PyPI
 $ python --version
 Python 2.6.8
 接着用pip安装
-$ pip install shadowsocks
+pip install shadowsocks
 ```
 
 ```bash
 GitHub
 Checkout源代码并直接运行脚本
-$ git clone https://github.com/shadowsocks/shadowsocks.git
-$ cd shadowsocks
-$ python setup.py
+git clone https://github.com/shadowsocks/shadowsocks.git
+cd shadowsocks
+python setup.py
 ```
 
 ```sh
@@ -124,7 +124,7 @@ $ go get github.com/shadowsocks/shadowsocks-go/cmd/shadowsocks-server
 shadowsocks-go is licensed under the MIT license.
 ```
 
-```sh
+```bash
 C with libev[shadowsocks-libev],shadowsocks-libev是一个轻量级的、功能齐全的嵌入式设备端口和低端的终端盒。这是一个纯粹的C实现，它占用了数千个连接的占用空间很小(几兆字节)。这个端口由madeye维护
 
 Debian/Ubuntu:
@@ -141,14 +141,14 @@ sudo apt-get -t jessie-backports install shadowsocks-libev
 GitHub
 Build and install the project from source codes.
 
-$ sudo apt-get install --no-install-recommends build-essential autoconf libtool \
+sudo apt-get install --no-install-recommends build-essential autoconf libtool \
         libssl-dev gawk debhelper dh-systemd init-system-helpers pkg-config asciidoc \
         xmlto apg libpcre3-dev zlib1g-dev libev-dev libudns-dev libsodium-dev libmbedtls-dev libc-ares-dev automake
-$ git clone https://github.com/shadowsocks/shadowsocks-libev.git
-$ cd shadowsocks-libev
-$ git submodule update --init
-$ ./autogen.sh && ./configure && make
-$ sudo make install
+git clone https://github.com/shadowsocks/shadowsocks-libev.git
+cd shadowsocks-libev
+git submodule update --init
+./autogen.sh && ./configure && make
+sudo make install
 ```
 
 ```sh
@@ -158,11 +158,11 @@ Prebuilt binaries
 Download pre-built binaries from https://github.com/shadowsocks/libQtShadowsocks/releases
 
 GitHub
-$ git clone https://github.com/shadowsocks/libQtShadowsocks.git
-$ cd libQtShadowsocks
-$ qmake
-$ make -j4
-$ sudo make install
+git clone https://github.com/shadowsocks/libQtShadowsocks.git
+cd libQtShadowsocks
+qmake
+make -j4
+sudo make install
 libQtShadowsocks is licensed under the GNU Lesser General Public License, version 3.0
 ```
 
@@ -175,16 +175,16 @@ You need a Perl interpreter to execute Perl program. Any Unix like system , incl
 Installing
 On Unix like systems,either
 
-$ perl Build.PL
-$ ./Build
-$ ./Build test
-$ ./Build install
+perl Build.PL
+./Build
+./Build test
+./Build install
 or
 
-$ perl Makefile.PL
-$ make
-$ make test
-$ make install
+perl Makefile.PL
+make
+make test
+make install
 You might need to change make to dmake or nmake depending on the compiler toolchain used on Windows. If You have cpan, you can also install using this command
 
 $ cpan Net::Shadowsocks
@@ -575,7 +575,7 @@ vi /etc/openvpn/server.conf
 
 ```markdown
 1xx（临时响应）表示临时响应并需要请求者继续执行操作的状态代码
-100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。  
+100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。
 
 101（切换协议）请求者已要求服务器切换协议，服务器已确认并准备切换
 
@@ -1005,45 +1005,45 @@ sysctl -P
 
 
 
-#include <stdio.h>  
+#include <stdio.h>
 #include <stdlib.h>
 
-//导入文件控制函数库  
-#include <sys/types.h>  
-#include <sys/stat.h>  
-#include <fcntl.h>  
-  
-#define TEMP_PATH "/sys/class/thermal/thermal_zone0/temp"  
-#define MAX_SIZE 20  
-int main(void)
-{  
-    int fd;  
-    double temp = 0;  
-    char buf[MAX_SIZE];  
+//导入文件控制函数库
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
-    // 以只读方式打开/sys/class/thermal/thermal_zone0/temp  
+#define TEMP_PATH "/sys/class/thermal/thermal_zone0/temp"
+#define MAX_SIZE 20
+int main(void)
+{
+    int fd;
+    double temp = 0;
+    char buf[MAX_SIZE];
+
+    // 以只读方式打开/sys/class/thermal/thermal_zone0/temp
     fd = open(TEMP_PATH, O_RDONLY);
 
         //判断文件是否正常被打开
     if (fd < 0)
-{  
-        fprintf(stderr, "failed to open thermal_zone0/temp\n");  
-        return -1;  
-    }  
+{
+        fprintf(stderr, "failed to open thermal_zone0/temp\n");
+        return -1;
+    }
 
-    // 读取内容  
+    // 读取内容
     if (read(fd, buf, MAX_SIZE) < 0)
-    {  
-        fprintf(stderr, "failed to read temp\n");  
-        return -1;  
-    }  
+    {
+        fprintf(stderr, "failed to read temp\n");
+        return -1;
+    }
 
-    // 转换为浮点数打印  
-    temp = atoi(buf) / 1000.0;  
-    printf("temp: %.3f\n", temp);  
+    // 转换为浮点数打印
+    temp = atoi(buf) / 1000.0;
+    printf("temp: %.3f\n", temp);
 
-    // 关闭文件  
-    close(fd);  
+    // 关闭文件
+    close(fd);
 }
 
 #编译C代码，输入以下指令：
@@ -1112,7 +1112,7 @@ popen的效率不高，但是配合shell相当灵活～～
 
 CF战绩查询
 http://apps.game.qq.com/cf/a20131114fhcx_mobile/getUserAct.php?action=getuseract&iUin=1376081701&sArea=325&r=1564199514663&_=1564199514663
-        
+
 "http://apps.game.qq.com/cf/a20131114fhcx_mobile/getUserAct.php?action=getuseract&iUin="+iUin+"&sArea="+sArea+ "&r="+new Date().getTime();
 
 
@@ -1130,17 +1130,16 @@ https://xueqiu.com/hq/screener
 http://baostock.com
 https://tushare.pro
 
-
-```
-
-kickasstorrent
-thepiratebay
-
 https://www.canva.com/
 https://www.pexels.com/
 http://alpha.wallhaven.cc/
 
 http://www.swsindex.com/
+
+```
+
+kickasstorrent
+thepiratebay
 
 ```bash
 # 获取公网ip
@@ -1164,7 +1163,7 @@ curl cip.cc
 /usr/bin/wget -q -O - http://icanhazip.com/ | /usr/bin/tail
 ```
 
-
+```api
 聚合的免费API接口数据：
 手机号码归属地API接口：https://www.juhe.cn/docs/api/id/11
 历史上的今天API接口：https://www.juhe.cn/docs/api/id/63
@@ -1248,3 +1247,6 @@ https://www.tianqiapi.com
 https://www.free-api.com/
 
 https://www.mumble.info/
+
+http://zjjcmspublic.oss-cn-hangzhou.aliyuncs.com
+```

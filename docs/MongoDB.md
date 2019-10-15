@@ -4,17 +4,19 @@
 
 views是只读的且无法重新命名，对视图执行写操作会报错，视图支持的读操作有：
 
-```markdown
-db.collection.find()
-db.collection.findOne()
-db.collection.aggregate()
-db.collection.countDocuments()
-db.collection.estimatedDocumentCount()
-db.collection.count()
-db.collection.distinct()
+```javascript
+db.collection.find();
+db.collection.findOne();
+db.collection.aggregate();
+db.collection.countDocuments();
+db.collection.estimatedDocumentCount();
+db.collection.count();
+db.collection.distinct();
 ```
 
-视图使用基础集合的索引。由于索引位于基础集合上，因此无法直接在视图上创建，删除或重新构建索引，也无法在视图上获取索引列表。无法在视图使用$natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段$lookup和$graphlookup操作指定分片视图
+视图使用基础集合的索引。由于索引位于基础集合上，因此无法直接在视图上创建，删除或重新构建索引，也无法在视图上获取索引列表。无法在视图使用
+$natural排序,如果视图是基于分片创建，则视图也被视为分片，无法为from字段$lookup和$graphlookup操作指定分片视图
+
 创建视图是可以指定排序规则，默认规则是“简单”二进制比较排序规则，多个视图做聚合操作，排序规则必须相同
 
 find()对视图的操作不支持以下Projection操作符：
@@ -26,13 +28,19 @@ find()对视图的操作不支持以下Projection操作符：
 
 ### Capped Collections
 
-Capped Collections是固定大小的集合，支持基于插入顺序插入和检索文档的高吞吐量操作。以类似于循环缓冲区的方式工作：一旦集合填充其分配的空间，它通过自动删除集合中最旧的文档为新文档腾出空间
+Capped Collections是固定大小的集合，支持基于插入顺序插入和检索文档的高吞吐量操作。以类似于循环缓冲区的方式工作：一旦集合填充其分配的空间，
+它通过自动删除集合中最旧的文档为新文档腾出空间
 
-无法从capped集合删除文档，要从集合删除文档的方法，使用drop()方法删除集合并重新创建，capped集合无法分片。创建capped集合，必须以字节为单位指定集合的最大大小。如果size字段小于或等于4096，则集合的上限为4096字节。否则，MongoDB将提高提供的大小，使其成为256的整数倍；还可以使用该max字段为集合指定最大文档数。该size参数总是必需的，即使你指定max的文件数量。如果集合在达到最大文档计数之前达到最大大小限制，MongoDB将删除旧文档
+无法从capped集合删除文档，要从集合删除文档的方法，使用drop()方法删除集合并重新创建，capped集合无法分片。创建capped集合，必须以字节为单位
+指定集合的最大大小。如果size字段小于或等于4096，则集合的上限为4096字节。否则，MongoDB将提高提供的大小，使其成为256的整数倍；还可以使用
+该max字段为集合指定最大文档数。该size参数总是必需的，即使你指定max的文件数量。如果集合在达到最大文档计数之前达到最大大小限制，MongoDB将
+删除旧文档
 
-将集合转换为capped集合:db.runCommand({"convertToCapped": "collectionName", size: 10000});在操作期间保存数据库独占锁。锁定同一数据库的其他操作将被阻止，直到操作完成
+将集合转换为capped集合:db.runCommand({"convertToCapped": "collectionName", size: 10000});在操作期间保存数据库独占锁。锁定同一
+数据库的其他操作将被阻止，直到操作完成
 
-capped替代方案：使用TTL(生存时间)索引从集合删除过期数据；这些索引允许您根据日期类型字段的值和索引的TTL值使正常集合中的数据到期和删除。TTL索引与capped集合不兼容
+capped替代方案：使用TTL(生存时间)索引从集合删除过期数据；这些索引允许您根据日期类型字段的值和索引的TTL值使正常集合中的数据到期和删除。
+TTL索引与capped集合不兼容
 
 每种BSON类型都有整数和字符串标识符，如下表所示
 | Type | Number | Alias | Notes |
@@ -114,8 +122,10 @@ BinData排序顺序为：
       destination: file #mogodb日志的产生方式:file=指定的文件,syslog系统日志，如果不指定，则指向标准输出流
       logAppend: true   #在mongodb重启时,继续往已有的日志文件中追加内容，而不是新建一个文件.
       path: /data/mongodb/mongod.log    #日志文件的输出路径，mongo将在指定的位置创建日志文件.
-      logRotate: reopen   #3.0.0,两个值:rename=重命名日志文件，reopen=关闭并重新打开日志文件.如果使用reopen则要使systemLog.logAppend=true.
-      timeStampFormat: iso8601-utc #日志中时间戳的格式:ctime=Wed Dec 31 18:17:54.811,iso8601-utc=1970-01-01T00:00:00.000Z,#iso8601-local=本地时间格式
+      logRotate: reopen   #3.0.0,两个值:rename=重命名日志文件，reopen=关闭并重新打开日志文件.
+                          #如果使用reopen则要使systemLog.logAppend=true
+      timeStampFormat: iso8601-utc #日志中时间戳的格式:ctime=Wed Dec 31 18:17:54.811,iso8601-utc=1970-01-01T00:00:00.000Z,
+                                   #iso8601-local=本地时间格式
     #日志组件的具体选项
       component:
        #索引操作相关的日志消息级别，分为0-5，0表示info级别的日志，依次增加，5表示包含debug信息.version:3.0
@@ -210,7 +220,8 @@ BinData排序顺序为：
           #compressors: snappy
        #指定传输层通知方式,默认asio，version:3.6
        #transportLayer: asio
-       #指定线程对客户端请求的执行模型：synchronous=使用同步网络并在每个链接的基础上管理其网络线程池.adaptive:使用新的实验性的异步网络模式.
+       #指定线程对客户端请求的执行模型：synchronous=使用同步网络并在每个链接的基础上管理其网络线程池.
+       #adaptive:使用新的实验性的异步网络模式.
        #其中当值为adaptive，要求#transportLayer的值为asio.
        #serviceExecutor: <string>
     #安全管理
@@ -284,17 +295,17 @@ BinData排序顺序为：
        dbPath:  /data/mongodb #mongod实例存储数据的目录,默认值：/data/db.
        indexBuildRetry: true #指定mongodb在下次启动时是否重建不完整的索引,默认:true.
     #   repairPath: <string>
-    #          MongoDB在--repair操作过程中将使用的工作目录 
+    #          MongoDB在--repair操作过程中将使用的工作目录
     #          当--repair完成后,storage.repairPath目录是空的,并且 dbPath包含了修复的文件
     #          该storage.repairPath设置仅适用于mongod
     #          仅适用于mongod使用MMAPv1存储引擎的实例
        journal:
           enabled: true #启用或禁用耐久性日志以确保数据文件保持有效并可恢复。64bit默认开启,32bit默认关闭.
-    #                     不适用于mongod使用内存存储引擎的实例 
+    #                     不适用于mongod使用内存存储引擎的实例
           commitIntervalMs: 100 #mongod日志操作之间进程允许的最大时间量(毫秒),范围是1-500,默认值是100
     #                                  该值太低会增加日志的持久性，但是会牺牲磁盘性能.
     #                                  该storage.journal.commitIntervalMs设置仅适用于mongod
-    #                                  不适用于mongod使用内存存储引擎的实例 
+    #                                  不适用于mongod使用内存存储引擎的实例
     #   directoryPerDB: <boolean>    #MongoDB使用单独的目录来存储每个数据库的数据
     #                                  目录位于storage.dbPath目录下，并且每个子目录名称都与数据库名称相对应
     #                                  3.0版本有变更.
@@ -379,7 +390,7 @@ BinData排序顺序为：
     #   destination: file  #设置后，auditLog.destination启用使用指定格式往指定目标发送所有审核事件
     ##                             - syslog=以JSON格式输出审计事件到系统日志.
     ##                             - console=以stdoutJSON格式输出审计事件
-    ##                             - file=将审核事件输出到以中指定auditLog.path格式auditLog.format指定的文件 
+    ##                             - file=将审核事件输出到以中指定auditLog.path格式auditLog.format指定的文件
     #   format: JSON   #用于审计的输出文件的格式,当auditLog.destination=file时,可以指定该值(JSON/BSON).
     #   path: <string> #输出文件的绝对或相对路径,当auditLog.destination=file时,可以指定该值.
     #   filter: <string> #过滤指定类型的操作的记录
@@ -409,26 +420,26 @@ BinData排序顺序为：
 | show collections | db.getCollectionNames() |
 | show users | db.getUsers() |
 | show roles | db.getRoles({showBuiltinRoles: true}) |
-| show log <[logname]> | db.adminCommand({ 'getLog' : '<[logname]>' }) |
-| show logs | db.adminCommand({ 'getLog' : '*' }) |
-| it | cursor = db.collection.find() if ( cursor.hasNext() ){ cursor.next(); } |
+| show log <[logname]> | db.adminCommand({ 'getLog' : '<[logname]>' }); |
+| show logs | db.adminCommand({ 'getLog' : '*' }); |
+| it | cursor = db.collection.find(); if ( cursor.hasNext(); );{ cursor.next();; } |
 
 ## MongoDB CRUD 操作
 
 ### 插入文件
 
-```markdown
-db.collection.insertOne()           // 插入一个文档
-db.collection.insertMany()          // 插入多个文档
-db.collection.insert()              // 插入一个或多个文档
-db.collection.update()              // when used with the **upsert: true** option
-db.collection.updateOne()           // when used with the **upsert: true** option
-db.collection.updateMany()          // when used with the **upsert: true** option
-db.collection.findAndModify()       // when used with the **upsert: true** option
-db.collection.findOneAndUpdate()    // when used with the **upsert: true** option
-db.collection.findOneAndReplace()   // when used with the **upsert: true** option
-db.collection.save()
-db.collection.bulkWrite()
+```javascript
+db.collection.insertOne();           // 插入一个文档
+db.collection.insertMany();          // 插入多个文档
+db.collection.insert();              // 插入一个或多个文档
+db.collection.update();              // when used with the **upsert: true** option
+db.collection.updateOne();           // when used with the **upsert: true** option
+db.collection.updateMany();          // when used with the **upsert: true** option
+db.collection.findAndModify();       // when used with the **upsert: true** option
+db.collection.findOneAndUpdate();    // when used with the **upsert: true** option
+db.collection.findOneAndReplace();   // when used with the **upsert: true** option
+db.collection.save();
+db.collection.bulkWrite();
 ```
 
 ### 查询文档
@@ -436,16 +447,14 @@ db.collection.bulkWrite()
 ```javascript
 db.collection.find({person:{age:21,sex:"male"}});  // 查询嵌入/嵌套式文档
 db.collection.find({"person.sex":"male"});  // 匹配嵌入式文档某个字段
+db.collection.find({tags: ["blue", "red"]});   // 按顺序匹配数组中的两个元素
+db.collection.find({tags: {$all:["red","blank"]}});  // 不按顺序匹配数组中两个元素(查询只要包含这两个元素的所有结果)
+db.collection.find({age: {$gt: 1, $lt: 2}});   // 集合中age数组中一个元素满足大于1，另一个元素满足小于2，或者单个元素满足两个条件
+db.collection.find({age: {$elemMatch: {$gt: 1, $lt: 2}}});   // 使用$elemMatch运算符在数组的元素上指定多个条件，以便至少一个数组元素满足所有指定的条件。此查询条件表示age数组包含至少一个大于1且小于2的元素
+db.collection.find( { "tags": { $size: 3 } } );  // 查询条件为tags数组中元素长度为3
+db.collection.find( { "tags.2": { "$exists": 1} } ); // 查询条件为tags数组中元素数量大于2(实际利用数组索引来实现的)
 
-db.collection.find({tags:["blue", "red"]});   // 匹配数组
-db.collection.find({tags:"red", "blank"});  // 按顺序匹配数组中的两个元素
-db.collection.find({tags: {$all:["red","blank"]}})  // 不按顺序匹配数组中两个元素(查询只要包含这两个元素的所有结果)
-db.collection.find({age: {$gt: 1, $lt: 2}})   // 集合中age数组中一个元素满足大于1，另一个元素满足小于2，或者单个元素满足两个条件
-db.collection.find({age: {$elemMatch: {$gt: 1, $lt: 2}}})   // 使用$elemMatch运算符在数组的元素上指定多个条件，以便至少一个数组元素满足所有指定的条件。此查询条件表示age数组包含至少一个大于1且小于2的元素
-db.collection.find( { "tags": { $size: 3 } } )  // 查询条件为tags数组中元素长度为3
-db.collection.find( { "tags.2": { "$exists": 1} } ) // 查询条件为tags数组中元素数量大于2(实际利用数组索引来实现的)
-
-查询嵌套在数组中的文档示例：
+// 查询嵌套在数组中的文档示例：
 db.inventory.insertMany( [
    { item: "journal", instock: [ { warehouse: "A", qty: 5 }, { warehouse: "C", qty: 15 } ] },
    { item: "notebook", instock: [ { warehouse: "C", qty: 5 } ] },
@@ -454,21 +463,21 @@ db.inventory.insertMany( [
    { item: "postcard", instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
 ]);
 
-db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )  // 匹配在invertory集合中instock数组元素与指定文档匹配的文档，可以理解为一个文档作为数组的元素；注意：整个嵌入/嵌套文档上的等式匹配需要指定文档的完全匹配
-db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } )  // 查询嵌入文档数组instock，嵌入的到此数组的文档至少一个qty值为5，warehost值为A
-db.inventory.find( { "instock": { $elemMatch: { qty: { $gt: 10, $lte: 20 } } } } )  // 查询嵌入文档数组instock，嵌入的到此数组的文档qty值大于10且小于等于20
-db.inventory.find( { "instock.qty": { $gt: 10,  $lte: 20 } } )  // 查询嵌套在instock数组中的任何文档的qty字段大于10并且数组中的任何文档（但不一定是相同的嵌入文档）的qty字段小于或等于20
-db.inventory.find( { "instock.qty": 5, "instock.warehouse": "A" } ) // 查询嵌套在instock数组中的至少一个嵌套文档包含字段qty值为5，且至少一个嵌套文档warehouse字段值为A(但不一定是相同的嵌套文档)
-db.inventory.find({"instock.qty":{$lte:20}})  // 查询嵌入到instock数组的文档qty字段值小于20的文档
-db.inventory.find({"instock.0.qty":{$lte:20}})  // 查询嵌入到instock数组的文档，索引为0且qty字段值小于20的文档
+db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } );  // 匹配在invertory集合中instock数组元素与指定文档匹配的文档，可以理解为一个文档作为数组的元素；注意：整个嵌入/嵌套文档上的等式匹配需要指定文档的完全匹配
+db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } );  // 查询嵌入文档数组instock，嵌入的到此数组的文档至少一个qty值为5，warehost值为A
+db.inventory.find( { "instock": { $elemMatch: { qty: { $gt: 10, $lte: 20 } } } } );  // 查询嵌入文档数组instock，嵌入的到此数组的文档qty值大于10且小于等于20
+db.inventory.find( { "instock.qty": { $gt: 10,  $lte: 20 } } );  // 查询嵌套在instock数组中的任何文档的qty字段大于10并且数组中的任何文档（但不一定是相同的嵌入文档）的qty字段小于或等于20
+db.inventory.find( { "instock.qty": 5, "instock.warehouse": "A" } ); // 查询嵌套在instock数组中的至少一个嵌套文档包含字段qty值为5，且至少一个嵌套文档warehouse字段值为A(但不一定是相同的嵌套文档);
+db.inventory.find({"instock.qty":{$lte:20}});  // 查询嵌入到instock数组的文档qty字段值小于20的文档
+db.inventory.find({"instock.0.qty":{$lte:20}});  // 查询嵌入到instock数组的文档，索引为0且qty字段值小于20的文档
 
-db.inventory.find( { status: "A" }, { item: 1, status: 1 } )  // 查询集合中status值为A，只返回item、status及_id字段
-db.inventory.find( { status: "A" }, { status: 0, instock: 0 } ) // 查询集合中status值为A，结果排除status和instock字段
-db.inventory.find( { status: "A" }, { item: 1, status: 1, "size.uom": 1 } ) // 查询集合中status值为A，结果只包括item、status字段及嵌入文档size的uom字段
-db.inventory.find( { status: "A" }, { item: 1, status: 1, instock: { $slice: -1 } } )   // 查询集合中status为A，结果只包含item、status字段instock，$slice运算符返回instock数组最后一个元素
+db.inventory.find( { status: "A" }, { item: 1, status: 1 } );  // 查询集合中status值为A，只返回item、status及_id字段
+db.inventory.find( { status: "A" }, { status: 0, instock: 0 } ); // 查询集合中status值为A，结果排除status和instock字段
+db.inventory.find( { status: "A" }, { item: 1, status: 1, "size.uom": 1 } ); // 查询集合中status值为A，结果只包括item、status字段及嵌入文档size的uom字段
+db.inventory.find( { status: "A" }, { item: 1, status: 1, instock: { $slice: -1 } } );   // 查询集合中status为A，结果只包含item、status字段instock，$slice运算符返回instock数组最后一个元素
 
 db.inventory.find({item: null});  // 查询item字段为null，或不包含item字段的文档
-db.inventory.find({item: {$type: 10}});  // 只查询item字段值类型是10(即null类型)的文档
+db.inventory.find({item: {$type: 10}});  // 只查询item字段值类型是10(即null类型);的文档
 db.inventory.find({item: {$exists: false}}) // 只查询不包含item字段的文档
 ```
 
@@ -968,7 +977,6 @@ Set表达式对数组执行set操作，将数组视为集合。Set表达式忽�
 | :------: | :------: |
 | $meta | 访问文本搜索元数据 |
 
-
 #### Type表达式运算符
 
 | 名称 | 描述 |
@@ -1026,6 +1034,7 @@ Set表达式对数组执行set操作，将数组视为集合。Set表达式忽�
 ### aggregation-commands(聚合命令)
 
 #### 聚合命令
+
 | 名称 | 描述 |
 | :------: | :------: |
 | aggregate | 使用聚合框架执行聚合任务，例如组 |
@@ -1045,7 +1054,7 @@ Set表达式对数组执行set操作，将数组视为集合。Set表达式忽�
 
 ### 聚合表达式中的变量
 
-聚合表达式可以使用用户自定义和系统变量，变量可以保存任何BSON类型的数据。要访问变量的值，使用带有前缀双dollar符($$)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"$$<variable>.<field>"表示法
+聚合表达式可以使用用户自定义和系统变量，变量可以保存任何BSON类型的数据。要访问变量的值，使用带有前缀双dollar符($$)的变量名称的字符串。如果变量引用了一个对象，要访问该对象中特定字段，要使用"$$variable.field"表示法
 
 #### 用户变量
 
@@ -1057,7 +1066,7 @@ Set表达式对数组执行set操作，将数组视为集合。Set表达式忽�
 | :------: | :------: |
 | ROOT | 引用当前正在聚合管道阶段处理的根文档，即顶级文档 |
 | CURRENT | 引用聚合管道阶段中正在处理的字段路径的开始。除非另有说明，否则所有阶段都以CURRENT相同的 方式开头ROOT |
-|  | CURRENT是可以修改的。但是，由于$<field> 等同于$$CURRENT.<field>，重新绑定会CURRENT改变$访问的含义 |
+|  | CURRENT是可以修改的。但是，由于$field等同于$$CURRENT.field，重新绑定会CURRENT改变$访问的含义 |
 | REMOVE | 一个计算缺失值的变量。允许条件排除字段。在a中$projection，REMOVE从输出中排除设置为变量的字段 |
 |  | 有关其用法的示例，请参阅有条件排除字段 |
 |  | 版本3.6中的新功能 |
@@ -1072,6 +1081,7 @@ Set表达式对数组执行set操作，将数组视为集合。Set表达式忽�
 ## 数据模型
 
 创建索引应考虑以下：
+
 * 每个索引至少占用8kb的数据空间
 * 添加索引会对写入操作产生负面影响，因每个插入也必须更新索引
 * 具有高读写比率的集合通常受益于其他索引，索引不影响未创建索引的操作
@@ -1082,6 +1092,7 @@ Set表达式对数组执行set操作，将数组视为集合。Set表达式忽�
 可以跨多个操作、集合、数据库和文档使用多文档事务
 
 多文档事务是原子性的：
+
 * 当事务提交时，事务中所有的数据更改都被保存并在事务外部可见，事务提交之前，事务中发生的数据更改事务外部不可见
 * 事务中止时，事务中所有的数据更改都会被丢弃但不会不可见
 
@@ -1138,7 +1149,6 @@ db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weig
 { _id: 6, dept: "food", description: "red potato" }
 ```
 
-db.in
 ## 安全
 
 ## Change Streams
@@ -1147,7 +1157,7 @@ db.in
 
 ## 分片(Sharding)
 
-## 管理(Administration) 
+## 管理(Administration)
 
 ## 存储引擎(Storage)
 
@@ -1241,6 +1251,7 @@ MongoDB不可用时，重新尝试连接由三个属性控制：
 | connect.max.attempts | 16 | 正整数值，指定在发生异常并且任务中止之前，对副本集主要连接尝试失败的最大次数。缺省值为16，其与默认值connect.backoff.initial.delay.ms和connect.backoff.max.delay.ms失效之前导致仅有20多分钟的尝试。 |
 | mongodb.members.auto.discover | true | 布尔值，指定'mongodb.hosts'中的地址是否应该用于发现集群或副本集（true）的所有成员的种子，或者是否mongodb.hosts应该按原样使用地址（false）。默认值是true并且应该在所有情况下使用，除非MongoDB 由代理提供 |
 
+```markdown
 安装debezium-connector-mongodb
 启动zookeeper   zookeeper-server-start zookeeper.properties
 
@@ -1279,7 +1290,8 @@ curl -i -X POST -H "Accept:application/json" -H  "Content-Type:application/json"
 查看kafka的topics
 kafka-topics --zookeeper localhost:2181 --list
 
-db.getCollection("rent_houses").find({ 
+db.getCollection("rent_houses").find({
     "price": { "$lte": 2000 },
     "title": { "$in": [ /转租/,/整租/ ] }
      })
+```

@@ -167,7 +167,7 @@ Command (m for help): n  //再建立一个分区
 Command action
    e   extended
    p   primary partition (1-4)
-p 
+p
 Partition number (1-4): 2  //分区号为2
 First cylinder (101-391, default 101):
 Using default value 101
@@ -199,7 +199,7 @@ Command action
 l //选择逻辑分区
 First cylinder (126-391, default 126):
 Using default value 126
-Last cylinder or +size or +sizeM or +sizeK (126-391, default 391): +400M    
+Last cylinder or +size or +sizeM or +sizeK (126-391, default 391): +400M
 
 Command (m for help): n
 Command action
@@ -558,7 +558,7 @@ comment
 
 ```
 
-### GRUB配置文件讲解：
+### GRUB配置文件讲解
 
 ```markdown
 配置文件位置：/etc/grub.conf是个软连接文件
@@ -613,7 +613,7 @@ rm -rf /etc/inittab
 案例2：如果忘记了管理员密码，同时也忘记了GRUB的保护密码的话，我们可以使用GRUB的系统修复或者使用光盘的引导修复来解决此问题
 ```
 
-### fstab文件含义如下：
+### fstab文件含义如下
 
 * 物理分区/卷标；可以使用UUID、设备路径/dev/、协议/文件系统类型或网络共享名称表示
 * 挂载点(注意：swap没有挂载点)
@@ -891,11 +891,11 @@ gsettings set org.gnome.desktop.default-applications.terminal exec 'gnome-termin
 
 ```
 
-## BASH环境变量的设置方法：
+## BASH环境变量的设置方法
 
 ```bash
 # 方法一：修改用户主目录下的.profile或.bashrc文件(推荐)，在文件末尾加入PATH的设置如下：该方式添加的变量只对当前用户有效
-export PATH="$PATH:your path1:your path2" 
+export PATH="$PATH:your path1:your path2"
 
 # 方法二：修改编辑系统目录下的profile文件(谨慎)：在最后加入PATH的设置如下：该方式添加的变量对所有的用户都有效
 export PATH="$PATH:your path1:your path2"
@@ -976,8 +976,8 @@ sed -i 's/#Port 22/Port 2121/' /etc/ssh/sshd_config     # 修改sshd_config文�
 
 # HostKey
 # 主机私钥文件的位置。如果权限不对，sshd可能会拒绝启动
-# SSH-1默认是 /etc/ssh/ssh_host_key 
-# SSH-2默认是 /etc/ssh/ssh_host_rsa_key 和 /etc/ssh/ssh_host_dsa_key 
+# SSH-1默认是 /etc/ssh/ssh_host_key
+# SSH-2默认是 /etc/ssh/ssh_host_rsa_key 和 /etc/ssh/ssh_host_dsa_key
 # 一台主机可以拥有多个不同的私钥。"rsa1"仅用于SSH-1，"dsa"和"rsa"仅用于SSH-2
 #HostKey /etc/ssh/ssh_host_rsa_key
 #HostKey /etc/ssh/ssh_host_ecdsa_key
@@ -990,7 +990,7 @@ sed -i 's/#Port 22/Port 2121/' /etc/ssh/sshd_config     # 修改sshd_config文�
 # Ciphers and keying
 #RekeyLimit default none
 
-# 指定sshd将日志消息通过哪个日志子系统(facility)发送。有效值是：DAEMON, USER, AUTH(默认), LOCAL0, LOCAL1, LOCAL2, LOCAL3, 
+# 指定sshd将日志消息通过哪个日志子系统(facility)发送。有效值是：DAEMON, USER, AUTH(默认), LOCAL0, LOCAL1, LOCAL2, LOCAL3,
 # LOCAL4, LOCAL5, LOCAL6, LOCAL7
 # Logging
 #SyslogFacility AUTH
@@ -1015,7 +1015,7 @@ sed -i 's/#Port 22/Port 2121/' /etc/ssh/sshd_config     # 修改sshd_config文�
 # 指定是否要求sshd在接受连接请求前对用户主目录和相关的配置文件进行宿主和权限检查。强烈建议使用默认值"yes"来预防可能出现的低级错误
 #StrictModes yes
 
-# 指定每个连接最大允许的认证次数。默认值是 6 
+# 指定每个连接最大允许的认证次数。默认值是 6
 # 如果失败认证的次数超过这个数值的一半，连接将被强制断开，且会生成额外的失败日志消息
 #MaxAuthTries 6
 
@@ -1126,17 +1126,16 @@ UsePAM yes
 
 # 是否允许TCP转发，默认值为"yes"
 # 禁止TCP转发并不能增强安全性，除非禁止了用户对shell的访问，因为用户可以安装他们自己的转发器
-#AllowTcpForwarding yes
+AllowTcpForwarding yes
 
 ######################################################################################################################
 
-# GatewayPorts
 # 是否允许远程主机连接本地的转发端口。默认值是"no"
 # sshd(8) 默认将远程端口转发绑定到loopback地址。这样将阻止其它远程主机连接到转发端口
 # GatewayPorts 指令可以让 sshd 将远程端口转发绑定到非loopback地址，这样就可以允许远程主机连接了
 # "no"表示仅允许本地连接，"yes"表示强制将远程端口转发绑定到统配地址(wildcard address)
 # "clientspecified"表示允许客户端选择将远程端口转发绑定到哪个地址
-#GatewayPorts no
+GatewayPorts yes
 
 ######################################################################################################################
 
@@ -1147,7 +1146,7 @@ UsePAM yes
 # 如果启用了 UseLogin ，那么X11转发将被自动禁止
 X11Forwarding yes
 
-# 指定sshdX11 转发的第一个可用的显示区(display)数字。默认值是 10 
+# 指定sshdX11 转发的第一个可用的显示区(display)数字。默认值是 10
 # 这个可以用于防止 sshd 占用了真实的 X11 服务器显示区，从而发生混淆
 #X11DisplayOffset 10
 
@@ -1168,7 +1167,7 @@ PrintMotd no
 #TCPKeepAlive yes
 
 # 是否在交互式会话的登录过程中使用 login(1) 。默认值是"no"
-# 如果开启此指令，那么 X11Forwarding 将会被禁止，因为 login(1) 不知道如何处理 xauth(1) cookies 
+# 如果开启此指令，那么 X11Forwarding 将会被禁止，因为 login(1) 不知道如何处理 xauth(1) cookies
 # 需要注意的是，login(1) 是禁止用于远程执行命令的
 # 如果指定了 UsePrivilegeSeparation ，那么它将在认证完成后被禁用
 #UseLogin no
@@ -1194,7 +1193,7 @@ PrintMotd no
 
 ######################################################################################################################
 
-# sshd在未收到任何客户端回应前最多允许发送多少个"alive"消息。默认值是 3 
+# sshd在未收到任何客户端回应前最多允许发送多少个"alive"消息。默认值是 3
 # 到达这个上限后，sshd(8) 将强制断开连接、关闭会话
 # 需要注意的是，"alive"消息与 TCPKeepAlive 有很大差异
 # "alive"消息是通过加密连接发送的，因此不会被欺骗；而 TCPKeepAlive 却是可以被欺骗的
@@ -1210,7 +1209,7 @@ PrintMotd no
 # 指定在哪个文件中存放SSH守护进程的进程号，默认为 /var/run/sshd.pid 文件
 #PidFile /var/run/sshd.pid
 
-# 最大允许保持多少个未认证的连接。默认值是 10 
+# 最大允许保持多少个未认证的连接。默认值是 10
 # 到达限制后，将不再接受新连接，除非先前的连接认证成功或超出 LoginGraceTime 的限制
 #MaxStartups 10:30:100
 
@@ -1286,7 +1285,7 @@ Subsystem   sftp    /usr/lib/openssh/sftp-server
 # Match
 # 引入一个条件块。块的结尾标志是另一个 Match 指令或者文件结尾
 # 如果 Match 行上指定的条件都满足，那么随后的指令将覆盖全局配置中的指令
-# Match 的值是一个或多个"条件-模式"对。可用的"条件"是：User, Group, Host, Address 
+# Match 的值是一个或多个"条件-模式"对。可用的"条件"是：User, Group, Host, Address
 # 只有下列指令可以在 Match 块中使用：AllowTcpForwarding, Banner,
 # ForceCommand, GatewayPorts, GSSApiAuthentication,
 # KbdInteractiveAuthentication, KerberosAuthentication,
@@ -1365,7 +1364,9 @@ ssh -g -L <local port>:<remote host>:<remote port> <SSH hostname>
 # 命令格式：
 ssh -R <local port>:<remote host>:<remote port> <SSH hostname>
 # 在LDAP服务器（LdapServertHost）端执行如下命令：
-ssh -R 7001:localhost:389 LdapClientHost
+# -n阻止从stdin读取，因为您不想从命令行使用隧道
+# -N表示您不想执行远程命令，只需执行端口转发
+ssh -nN -R 7001:localhost:389 LdapClientHost
 
 ......................|||.........................
 ......LDAP Client.....|||......LDAP Server........
@@ -1573,7 +1574,7 @@ net.core.netdev_max_backlog = 16384 # 当接口接收数据包的速度超过内
                                     在INPUT端排队的最大数据包数,高负载可以增加该值(默认：1000)
 net.core.somaxconn = 1024  # 增加incoming连接数,somaxconn定义每个listen调用分配的request_sock结构的数量。此队列在监听套接字的
                            生命周期中是持久性的,web应用环境非常有必要调整此值
-                          
+
 net.core.default_qdisc = fq     # 推荐用于Centos7、Debian8主机
                                 在centos5或6主机需要在/etc/rc.local添加：/sbin/ifconfig ethN txqueuelen 10000
                                 (N代表10G NIC的编号，即万兆网卡的系统编号)
@@ -1653,7 +1654,7 @@ net.ipv4.tcp_wmem = 4096 65536 25165824 # 三个参数依次为：最小值，�
                                             建议使用16M字节或更高的最大值（取决于内核级别），尤其是10千兆位适配器
 
 # 增加可分配的最大总缓冲区空间,此为以page为单位（4096字节）测量
-net.ipv4.udp_mem = 65536 131072 262144  
+net.ipv4.udp_mem = 65536 131072 262144
 net.ipv4.tcp_mem = 65536 131072 262144  # 第一次低于此值,TCP没有内存压力,第二次进入内存压力阶段,
                                         第三次TCP拒绝分配socket(默认：5814 7754 11628)
 
@@ -1849,8 +1850,8 @@ yum --enablerepo=elrepo-kernel install  kernel-ml-devel kernel-ml -y
 yum --enablerepo=elrepo-kernel  install  kernel-lt -y   # 安装long term的内核
 
 # 配置Grub使用新内核，配置完后重启启用新内核
-## CentOS 6配置，修改/boot/grub/grub.conf 
-  default=0 # 更改为 0 
+## CentOS 6配置，修改/boot/grub/grub.conf
+  default=0 # 更改为 0
   fallback=1 # 添加此项
 
 ## CentOS 7
@@ -1869,7 +1870,7 @@ DNS1=192.168.7.1 #DNS 配置
 vim /etc/sysconfig/grub     # 编辑 grub 配置文件,实际是/etc/default/grub的软连接
 # 为GRUB_CMDLINE_LINUX变量增加2个参数，具体内容如下(加粗)：
 GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=cl/root rd.lvm.lv=cl/swap net.ifnames=0 biosdevname=0 rhgb quiet"
-# 重新生成 grub 配置文件，然后重新启动 Linux 操作系统，通过 ip addr 可以看到网卡名称已经变为 eth0 
+# 重新生成 grub 配置文件，然后重新启动 Linux 操作系统，通过 ip addr 可以看到网卡名称已经变为 eth0
 grub2-mkconfig -o /boot/grub2/grub.cfg
 # 修改网卡配置文件，原网卡配置文件名称为 ifcfg-ens33，这里需要修改为ethx的格式，并适当调整网卡配置文件
 mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0
@@ -2020,7 +2021,7 @@ server 3.centos.pool.ntp.org iburst
 includefile /etc/ntp/crypto/pw
 
 # Key file containing the keys and key identifiers used when operating
-# with symmetric key cryptography. 
+# with symmetric key cryptography.
 keys /etc/ntp/keys
 
 # Specify the key identifiers which are trusted.
@@ -2193,7 +2194,7 @@ chown_uploads
 
 chroot_list_enable
 设为yes可以在登录时提供放置在其主目录中的chroot（）jail中的本地用户列表。如果chroot_local_user设置为YES，则含义略有不同。在这种情况下
-列表不被放置在chroot（）jail中的用户列表。默认情况下，包含此列表文件是/etc/vsftpd.chroot_list，但可使用chroot_list_file设置覆盖它 
+列表不被放置在chroot（）jail中的用户列表。默认情况下，包含此列表文件是/etc/vsftpd.chroot_list，但可使用chroot_list_file设置覆盖它
 默认值：NO
 
 chroot_local_user
@@ -2225,7 +2226,7 @@ dirlist_enable
 默认值：是
 
 dirmessage_enable
-如果启用，FTP服务器的用户首次进入新目录时可以显示消息。默认情况下，会扫描目录以查找文件.message，但可以使用配置设置message_file覆盖该目录 
+如果启用，FTP服务器的用户首次进入新目录时可以显示消息。默认情况下，会扫描目录以查找文件.message，但可以使用配置设置message_file覆盖该目录
 默认值：NO（但是示例配置文件启用它）
 
 download_enable
@@ -2258,7 +2259,7 @@ force_local_logins_ssl
 默认值：是
 
 guest_enable
-如果启用，则所有非匿名登录都被归类为“访客”登录。guest 虚拟机登录将重新映射到guest_username 设置中指定的用户 
+如果启用，则所有非匿名登录都被归类为“访客”登录。guest 虚拟机登录将重新映射到guest_username 设置中指定的用户
 默认值：NO
 
 hide_ids
@@ -2320,7 +2321,7 @@ passwd_chroot_enable
 默认值：NO
 
 pasv_addr_resolve
-如果要在pasv_address 选项中使用主机名（而不是IP地址），请设置为YES 
+如果要在pasv_address 选项中使用主机名（而不是IP地址），请设置为YES
 默认值：NO
 
 pasv_enable
@@ -2421,7 +2422,7 @@ text_userdb_names
 
 tilde_user_enable
 如果启用，vsftpd将尝试解析路径名，例如~chris / pics，即代字号后跟用户名。请注意，vsftpd将始终解析路径名〜和〜/ something
-（在这种情况下，〜解析为初始登录目录）。请注意，只有 在_current_ chroot（）jail中找到文件/ etc / passwd时，〜用户路径才会解析 
+（在这种情况下，〜解析为初始登录目录）。请注意，只有 在_current_ chroot（）jail中找到文件/ etc / passwd时，〜用户路径才会解析
 默认值：NO
 
 use_localtime
@@ -2433,7 +2434,7 @@ use_sendfile
 默认值：是
 
 userlist_deny
-如果 激活userlist_enable，则检查此选项 。如果将此设置设置为NO，则将拒绝用户登录，除非它们明确列在userlist_file指定的文件中 
+如果 激活userlist_enable，则检查此选项 。如果将此设置设置为NO，则将拒绝用户登录，除非它们明确列在userlist_file指定的文件中
 拒绝登录时，将在要求用户输入密码之前发出拒绝
 默认值：是
 
@@ -2455,7 +2456,7 @@ WRITE_ENABLE
 默认值：NO
 
 xferlog_enable
-如果启用，将保留日志文件，详细说明上载和下载。默认情况下，此文件将放在/var/log/vsftpd.log中，但可以使用配置设置vsftpd_log_file覆盖此位置 
+如果启用，将保留日志文件，详细说明上载和下载。默认情况下，此文件将放在/var/log/vsftpd.log中，但可以使用配置设置vsftpd_log_file覆盖此位置
 默认值：NO（但是示例配置文件启用它）
 
 xferlog_std_format
@@ -2552,11 +2553,11 @@ anon_root
 默认值:(无）
 
 banned_email_file
-此选项是包含不允许的匿名电子邮件密码列表的文件的名称。如果 启用了选项deny_email_enable，则会查询此文件 
+此选项是包含不允许的匿名电子邮件密码列表的文件的名称。如果 启用了选项deny_email_enable，则会查询此文件
 默认值：/etc/vsftpd.banned_emails
 
 banner_file
-此选项是包含要在有人连接到服务器时显示的文本的文件的名称。如果设置，它将覆盖ftpd_banner 选项提供的标题字符串 
+此选项是包含要在有人连接到服务器时显示的文本的文件的名称。如果设置，它将覆盖ftpd_banner 选项提供的标题字符串
 默认值:(无）
 
 ca_certs_file
@@ -2565,7 +2566,7 @@ ca_certs_file
 默认值:(无）
 
 chown_username
-这是获得匿名上传文件所有权的用户的名称。仅当设置了另一个选项chown_uploads时，此选项才有意义 
+这是获得匿名上传文件所有权的用户的名称。仅当设置了另一个选项chown_uploads时，此选项才有意义
 默认值：root
 
 chroot_list_file
@@ -2593,9 +2594,9 @@ deny_file
 拒绝访问所有名称。如果项目的名称包含hide_file给出的字符串，或者它们与hide_file指定的正则表达式匹配，则将拒绝访问项目
 注意vsftpd正则表达式匹配代码是一个简单的实现，它是完整正则表达式功能的子集。因此，您需要仔细而详尽地测试此选项的任何应用程序
 并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符
-仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private} 
+仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private}
 并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符
-仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private} 
+仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private}
 并且由于其更高的可靠性，建议您对任何重要的安全策略使用文件系统权限。支持的正则表达式语法是任意数量的* ,? 和unnested {，}运算符
 仅在路径的最后一个组件上支持正则表达式匹配，例如a / b /？支持，但/？/ c不支持。示例：deny_file = {*。mp3，*。mov，.private}
 默认值:(无）
@@ -2609,7 +2610,7 @@ dsa_private_key_file
 默认值:(无）
 
 email_password_file
-此选项可用于提供secure_email_list_enable 设置使用的备用文件 
+此选项可用于提供secure_email_list_enable 设置使用的备用文件
 默认值：/etc/vsftpd.email_passwords
 
 ftp_username
@@ -2644,7 +2645,7 @@ local_root
 默认值:(无）
 
 message_file
-此选项是输入新目录时我们查找的文件的名称。内容显示给远程用户。仅当 启用了选项dirmessage_enable时，此选项才有意义 
+此选项是输入新目录时我们查找的文件的名称。内容显示给远程用户。仅当 启用了选项dirmessage_enable时，此选项才有意义
 默认值：.message
 
 nopriv_user
@@ -2686,22 +2687,22 @@ user_config_dir
 
 user_sub_token
 此选项与虚拟用户结合使用非常有用。它用于根据模板为每个虚拟用户自动生成主目录。例如，如果通过guest_username指定的真实用户的主目录 是
- / home / virtual / $ USER，并且 user_sub_token 设置为 $ USER，那么当虚拟用户fred登录时，他将结束通常是在目录 
+ / home / virtual / $ USER，并且 user_sub_token 设置为 $ USER，那么当虚拟用户fred登录时，他将结束通常是在目录
  / home / virtual / fred中。如果local_root 包含 user_sub_token，则此选项也会 生效
 默认值:(无）
 
 userlist_file
-此选项是userlist_enable 选项处于活动状态时加载的文件的名称 
+此选项是userlist_enable 选项处于活动状态时加载的文件的名称
 默认值：/etc/vsftpd.user_list
 
 vsftpd_log_file
-此选项是我们编写vsftpd样式日志文件的文件的名称。仅当 设置了选项xferlog_enable并且未设置xferlog_std_format时， 才会写入此日志 
+此选项是我们编写vsftpd样式日志文件的文件的名称。仅当 设置了选项xferlog_enable并且未设置xferlog_std_format时， 才会写入此日志
 或者，如果已设置选项dual_log_enable，则会写入 。另一个复杂因素 - 如果您设置了 syslog_enable，则不会写入此文件，而是将输出发送到系统日志
 默认值：/var/log/vsftpd.log
 
 xferlog_file
-此选项是我们编写wu-ftpd样式传输日志的文件的名称。仅当 设置了 xferlog_enable选项以及xferlog_std_format时才会写入传输日志 
-或者，如果已设置选项dual_log_enable，则会写入 
+此选项是我们编写wu-ftpd样式传输日志的文件的名称。仅当 设置了 xferlog_enable选项以及xferlog_std_format时才会写入传输日志
+或者，如果已设置选项dual_log_enable，则会写入
 默认值：/var/log/xferlog
 ```
 
@@ -2924,7 +2925,7 @@ numeric ids = x # 启用此参数将禁用当前守护程序模块的按名称�
 charset = x # 指定了存储模块文件名的字符集。如果客户端使用--iconv选项，则守护程序将使用“字符集”参数的值，而与客户端实际传递的字符集无关。
               这使守护进程rsync可以在chroot模块中支持字符集转换且还可以确保以一致的方式完成名称转换。如果未设置“ charset”参数，
               则--iconv选项将被拒绝
-max connections = x # 
+max connections = x #
 
 # uid = nobody
 # gid = nobody
@@ -3005,7 +3006,6 @@ https://www.isc.org/kea/
 dovecot.org
 postfix.org
 ```
-
 
 #### email安装过程相关问题和配置
 

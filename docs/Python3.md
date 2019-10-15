@@ -15,7 +15,7 @@
     调用：
         函数名（参数1，参数2……）
         变量名 = 函数名（参数1，参数2……）
- 
+
 # 类：
 用来描述具有相同属性和方法的对象的集合，定义了该集合中每个对象所共有的属性和方法，对象是类的实例
 方法：类中定义的函数
@@ -66,6 +66,7 @@ __pow__: 乘方
 可能有多个实现并且实现是隐藏的。通俗的讲，将自行定义或已经存在的方法和变量存放在文件中，为一些脚本或交互式解释器实例使用
 这样的文件被称之为模块；模块是一个包含Python定义函数、变量和语句的文件。模块可以被别的程序引入，以使用该模块中的函数的
 功能和属性，这也是使用python标准库的方法,如果自定义的有和标准库相同的模块，则会覆盖标准库
+每个模块在每个解释器中只能导入一遍，修改模块后需重启解释器，想要进行交互式不重启测试一个模块，可以利用imp.raload()方法重载
 
     以下划线开头的标识符是有特殊意义的
     • 以单下划线开头（_foo）的代表不能直接访问的类属性，需通过类提供的接口进行访问
@@ -230,7 +231,7 @@ python3中常用的内置数据类型：
 * Dictionaries (字典)
   * 示例：dict1 = {'Alice': '21', 'Beth': '12', 'Cecil': '19'}
   * 空字典:dict1 = {}
- 
+
 python可变数据类型：list、dict
 python不可变数据类型：int、str、tuple
 
@@ -266,6 +267,7 @@ python内置函数列表：具体用法见help(函数)
 ### 逻辑值检测：任何对象都可以进行逻辑值检测
 
 下面基本完整罗列出会被视为假值的内置对象：
+
 * 被定义为假值的常量: None 和 False
 * 任何数值类型的零: 0, 0.0, 0j, Decimal(0), Fraction(0, 1)
 * 空的序列和多项集: '', (), [], {}, set(), range(0)
@@ -278,7 +280,7 @@ python内置函数列表：具体用法见help(函数)
 | x and y | if x is false, then x, else y | not 的优先级比非布尔运算符低，因此 not a == b 会被解读为 not (a == b) 而<br> a == not b 会引发语法错误 |
 | not x | if x is false, then True, else False | not 的优先级比非布尔运算符低，因此 not a == b 会被解读为 not (a == b)<br> 而 a == not b 会引发语法错误 |
 
-### 比较运算：
+### 比较运算
 
 八种比较运算符，优先级相同(比布尔运算优先级高)。比较运算可以任意串连。is和is not运算符无法自定义并且可以被应用于任意两个
 对象而不会引发异常；还有两种具有相同语法优先级的运算in和not in，它们被iterable或实现了__contains__()方法的类型所支持
@@ -487,13 +489,13 @@ Python的生成器提供了一种实现迭代器协议的便捷方式。如果�
 | 方法 | 描述 |
 | :------: | :------: |
 | list.append(elem) | (elem表示element)把一个元素添加到列表的结尾，相当于 a[len(a):] = [elem]|
-| list.insert(index, elem) | 在指定位置插入一个元素。第一个参数是准备插入到其前面的那个元素的索引，例如 a.insert(0, x) 会插入到整个列表之前，而 a.insert(len(a), x) 相当于 a.append(x) |
 | list.extend(list2) | 在列表list2最后添加元素，相当于 a[len(a):] = list2;在一个列表使用+或+=和extend()类似;extend()方法只接受一个列表作为参数 |
+| list.insert(index, elem) | 在指定位置插入一个元素。第一个参数是准备插入到其前面的那个元素的索引，例如 a.insert(0, x) 会插入到整个列表之前，而 a.insert(len(a), x) 相当于 a.append(x) |
 | list.index(elem) | 从列表的开头搜索给定元素并返回其索引。如果没有匹配的元素就会返回一个错误 |
 | list.remove(elem) | 搜索给定元素的第一个实例并将其删除,如果不存在则抛出ValueError |
+| list.pop([i]) | 从列表的指定位置删除元素，并将其返回。如果没有指定索引，a.pop()返回最右边一个元素,并返回所删除的值。方法中 i 两边的方括号表示这个参数是可选的，而不是要求你输入一对方括号，你会经常在Python库参考手册中遇到这样的标记 |
 | list.sort() | 对列表中的元素进行永久排序,不要直接返回结果,后面使用sorted()函数临时排序显示更好 |
 | list.reverse() | 倒序排列列表中的元素 |
-| list.pop([i]) | 从列表的指定位置删除元素，并将其返回。如果没有指定索引，a.pop()返回最右边一个元素,并返回所删除的值。方法中 i 两边的方括号表示这个参数是可选的，而不是要求你输入一对方括号，你会经常在Python库参考手册中遇到这样的标记 |
 | list.clear() | 移除列表中的所有项，等于del a[:] |
 | list.count(x) | 返回 x 在列表中出现的次数 |
 | list.copy() | 返回列表的浅复制，等于a[:] |
@@ -523,6 +525,103 @@ deque被设计用于快速从两端操作
 
 *del语句*：使用del语句可以从一个列表中依索引而不是值来删除一个元素。这与使用 pop() 返回一个值不同。可以用 del 语句从列表
 中移除切片，或清空整个列表（我们以前介绍的方法是空列表赋值给一个指定的切片)，del也可以用来删除整个变量
+
+##### python高级特性：切片、迭代、列表推导式、生成器、迭代器
+
+```python
+
+"""
+切片在列表上就像字符串一样，可以用来改变列表的子部分
+给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，这种遍历我们称为迭代(Iteration)
+迭代是访问集合元素的一种方式，迭代器可以记住遍历位置的对象。迭代器对象从集合的第一个元素开始访问，知道所有元素结束，迭代
+器只能往前，迭代器有两个方法iter()和next()。字符串、列表和元组对象都可用于创建迭代器
+"""
+
+list = [1, 2, 3, 4]  # 创建列表list
+it = iter(list)  # 创建迭代器对象it
+print(next(it))  # 输出迭代器下一个元素
+
+# 迭代器对象可以用for语句进行遍历
+list = [1, 2, 3, 4]  # 创建列表list
+it = iter(list)  # 创建迭代器对象it
+for x in it:
+    print(x, end=" ")
+
+
+# 列表推导式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式
+# for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：
+print([x * x for x in range(1, 11) if x % 2 == 0])
+
+# 运用列表推导式，可以写出非常简洁的代码。例如，列出当前目录下的所有文件和目录名，可以通过一行代码实现
+import os   # 导入os模块
+print([dir for dir in os.listdir('.')]) # 列出当前目录下文件和目录名(包含隐藏文件或目录)
+```
+
+```python
+
+"""
+使用了yield的函数称为生成器(generator)，生成器是一个返回迭代器的函数，简单的理解就是生成器就是一个迭代器。在调用生成器
+运行的过程中，每次遇到yield函数会暂停并保存当前所有的运行信息，返回yield的值，并在下一次next()方法从当前位置继续运行
+"""
+
+# 使用生成器生成斐波那契数列,斐波那契数列：即两个元素的和确定下一个数
+import sys
+def fibonacci(x):
+    a, b, count = 0, 1, 0
+    while True:
+        if (count > x):
+            return
+        yield a # 将fibonacci函数变成generator，print(a)改成yield a
+        a, b = b, a + b
+        count += 1
+f = fibonacci(21)   # f是一个迭代器，由生成器返回生成
+
+while True:
+    try:
+        print(next(f), end="")
+    except StopIteration:
+        sys.exit()
+
+# 可以直接作用于for循环的数据类型有以下几种：
+# 一是集合数据类型，如list、tuple、dict、set、str等
+# 二是generator，包括生成器和带yield的generator function
+# 这些可以直接作用于for循环的对象统称为可迭代对象：Iterable
+
+# 可以使用isinstance()判断一个对象是否是Iterable对象
+# 生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。把list、dict、str等Iterable变成Iterator可以使用iter()函数
+```
+
+```python
+
+"""
+为什么list、dict、str等数据类型不是Iterator?
+这是因为Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不断返回下一个数据，直到没有数据时抛出
+StopIteration错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算
+下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算
+Iterator甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的
+"""
+
+# 总结：
+# 凡是可作用于for循环的对象都是Iterable类型
+# 凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列
+# 集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象
+
+# Python的for循环本质上就是通过不断调用next()函数实现的，例如：
+for x in [1, 2, 3, 4, 5]:
+    pass
+
+# 实际上完全等价于：
+# 首先获得Iterator对象:
+it = iter([1, 2, 3, 4, 5])
+# 循环:
+while True:
+    try:
+        # 获得下一个值:
+        x = next(it)
+    except StopIteration:
+        # 遇到StopIteration就退出循环
+        break
+```
 
 #### Tuple（元组）
 
@@ -559,7 +658,7 @@ tup2 = (20,) # 单元组，需要在元素后添加逗号
 
 range类型是不可变的数字序列，通常用于在for循环中循环特定的次数
 
-### 文本序列类型
+### 文本序列类型 -- String
 
 Python中的文本数据由str对象或字符串处理，字符串是Unicode的不可变序列，字符串文字由多种方式编写
 
@@ -684,6 +783,7 @@ Python中的文本数据由str对象或字符串处理，字符串是Unicode的�
 ```
 
 除了文字形式之外，还可通过其他方式创建字节对象：
+
 * 指定长度的零填充字节对象：types(10)
 * 从可迭代的整数：bytes(range(10))
 * 通过buffer protocol协议复制现有二进制数据：bytes(obj)
@@ -693,6 +793,7 @@ Python中的文本数据由str对象或字符串处理，字符串是Unicode的�
 bytearray对象是bytes对象的可变副本，由于bytearray是可变的，还支持可变序列操作
 
 bytearray对象没有专用的文字语法，而是始终通过调用构造函数来创建：
+
 * 创建一个空实例：bytearray()
 * 创建具有给定长度的零填充实例：bytearray(10)
 * 从可迭代的整数：bytearray(range(10))
@@ -716,7 +817,7 @@ memoryview对象允许Python代码访问支持buffer protocol的对象的内部�
 
 #### Set（集合）
 
-集合是一个无序不重复元素的集。set对象是由具有唯一性的hashable对象组成的无序多项集合。基本功能包括成员关系检测和消除重复
+集合是一个`无序不重复元素`的集。set对象是由具有唯一性的hashable对象组成的无序多项集合。基本功能包括成员关系检测和消除重复
 元素。集合对象还支持数学集合类运算，如并集，交集，差集和对称差集等;作为无序集合，不记录元素位置和插入顺序，集合不支持
 索引、切片或其他类似序列的行为
 
@@ -758,13 +859,13 @@ memoryview对象允许Python代码访问支持buffer protocol的对象的内部�
 2、字典的关键字必须为不可变类型，且不能重复
 3、创建空字典使用{}
 
-# 字典遍历技巧，在字典中遍历时，关键字和对应的值可以使用 items() 方法同时解读出来。在序列中遍历时，索引位置和对应值可以
-# 使用 enumerate() 函数同时得到。同时遍历两个或更多的序列，可以使用 zip() 组合。要反向遍历一个序列，首先指定这个序列
-# 然后调用 reversesd() 函数。要按顺序遍历一个序列，使用 sorted() 函数返回一个已排序的序列，并不修改原值
+字典遍历技巧，在字典中遍历时，关键字和对应的值可以使用 items() 方法同时解读出来。在序列中遍历时，索引位置和对应值可以
+使用 enumerate() 函数同时得到。同时遍历两个或更多的序列，可以使用 zip() 组合。要反向遍历一个序列，首先指定这个序列
+然后调用 reversesd() 函数。要按顺序遍历一个序列，使用 sorted() 函数返回一个已排序的序列，并不修改原值
 
 ```
 
-##### python字典常用方法：
+##### python字典常用方法
 
 | 方法 | 描述 |
 | :------: | :------: |
@@ -875,7 +976,7 @@ while guess != number:
 
 ### 函数的参数
 
-#### 默认参数：
+#### 默认参数
 
 ```python
 # 新的power(x, n)函数定义没有问题，但是，旧的调用代码失败了，原因是我们增加了一个参数，导致旧的代码因为缺少一个参数而无法
@@ -892,7 +993,7 @@ def power(x, n=2):
 # 定义默认参数要牢记一点：默认参数必须指向不变对象,x是形参，调用power(3, n=2),3就是实参
 ```
 
-#### 位置参数：
+#### 位置参数
 
 ```python
 def power(x, n):   # x就是一个位置参数
@@ -945,6 +1046,7 @@ function_1(*list, **dic)
 ```
 
 #### 关键字参数，函数也可以使用kwarg=value的关键字参数形式被调用
+
 ```python
 # 可变参数列表：一个最不常用的选择是可以让函数调用可变个数的参数.这些参数被包装进一个元组tuple(查看元组和序列).在这些可
 # 变个数的参数之前,可以有零到多个含参数名的参数:
@@ -1002,6 +1104,21 @@ def make_incrementor(n):
 pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
 pairs.sort(key=lambda pair: pair[1])
 print(pairs)
+
+# 将列表所有元素传递给函数并输出
+# map函数和lambda
+num = [1, 2]
+square = list(map(lambda x: x**2, num)) # 将num列表每个元素求其平方后组成一个新的列表
+
+# filter函数和lambda
+num = range(0, 10)
+list_range = list(filter(lambda x: x > 5, num)) # filter函数过滤并返回符合条件的元素组成的迭代器
+
+# reduce函数和lambda
+# 利用reduce求列表元素乘积，也可使用循环来处理
+from functools import reduce
+result = reduce((lambda x, y: x * y), [1, 2])
+
 ```
 
 #### 参数组合
@@ -1033,104 +1150,6 @@ def f2(a, b, c=0, *, d, **kw):
 """
 ```
 
-#### python高级特性：切片、迭代、列表推导式、生成器、迭代器
-
-```python
-
-"""
-切片在列表上就像字符串一样，可以用来改变列表的子部分
-给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，这种遍历我们称为迭代(Iteration)
-迭代是访问集合元素的一种方式，迭代器可以记住遍历位置的对象。迭代器对象从集合的第一个元素开始访问，知道所有元素结束，迭代
-器只能往前，迭代器有两个方法iter()和next()。字符串、列表和元组对象都可用于创建迭代器
-"""
-
-list = [1, 2, 3, 4]  # 创建列表list
-it = iter(list)  # 创建迭代器对象it
-print(next(it))  # 输出迭代器下一个元素
-
-# 迭代器对象可以用for语句进行遍历
-list = [1, 2, 3, 4]  # 创建列表list
-it = iter(list)  # 创建迭代器对象it
-for x in it:
-    print(x, end=" ")
-
-
-# 列表推导式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式
-# for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：
-print([x * x for x in range(1, 11) if x % 2 == 0])
-
-# 运用列表推导式，可以写出非常简洁的代码。例如，列出当前目录下的所有文件和目录名，可以通过一行代码实现
-import os   # 导入os模块
-print([dir for dir in os.listdir('.')]) # 列出当前目录下文件和目录名(包含隐藏文件或目录)
-```
-
-```python
-
-"""
-使用了yield的函数称为生成器(generator)，生成器是一个返回迭代器的函数，简单的理解就是生成器就是一个迭代器。在调用生成器
-运行的过程中，每次遇到yield函数会暂停并保存当前所有的运行信息，返回yield的值，并在下一次next()方法从当前位置继续运行
-"""
-
-# 使用生成器生成斐波那契数列,斐波那契数列：即两个元素的和确定下一个数
-import sys
-def fibonacci(x):
-    a, b, count = 0, 1, 0
-    while True:
-        if (count > x):
-            return
-        yield a # 将fibonacci函数变成generator，print(a)改成yield a
-        a, b = b, a + b
-        count += 1
-f = fibonacci(21)   # f是一个迭代器，由生成器返回生成
-
-while True:
-    try:
-        print(next(f), end="")
-    except StopIteration:
-        sys.exit()
-
-# 可以直接作用于for循环的数据类型有以下几种：
-# 一是集合数据类型，如list、tuple、dict、set、str等
-# 二是generator，包括生成器和带yield的generator function
-# 这些可以直接作用于for循环的对象统称为可迭代对象：Iterable
-
-# 可以使用isinstance()判断一个对象是否是Iterable对象
-# 生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。把list、dict、str等Iterable变成Iterator可以使用iter()函数
-```
-
-```python
-
-"""
-为什么list、dict、str等数据类型不是Iterator?
-这是因为Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不断返回下一个数据，直到没有数据时抛出
-StopIteration错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算
-下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算
-"""
-
-# Iterator甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的
-
-# 总结：
-# 凡是可作用于for循环的对象都是Iterable类型
-# 凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列
-# 集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象
-
-# Python的for循环本质上就是通过不断调用next()函数实现的，例如：
-for x in [1, 2, 3, 4, 5]:
-    pass
-
-# 实际上完全等价于：
-# 首先获得Iterator对象:
-it = iter([1, 2, 3, 4, 5])
-# 循环:
-while True:
-    try:
-        # 获得下一个值:
-        x = next(it)
-    except StopIteration:
-        # 遇到StopIteration就退出循环
-        break
-```
-
 ## 面向对象
 
 ### 类(Class)
@@ -1139,9 +1158,7 @@ while True:
 
 ### 继承(Inheritance)
 
-
 ### 多重继承(Multiple Inheritance)
-
 
 ## 内置异常
 
@@ -1308,8 +1325,6 @@ re模块与Perl语言类似的正则表达式匹配操作，模式和被搜索�
 8位字节串不能混用。因反斜杠\在Python中和在正则表达式中，都具有将把特殊字符转换为普通字符串的作用。所以在正则表达式模式
 要写成`\\\\`。解决办法是对于正则表达式样式用带有r前缀的表示Python原始字符的方法
 
-常用正则表达式匹配：[详细点击此处了解](https://devdocs.io/python~3.7/library/re)
-
 |  |  |
 | :------: | :------: |
 | re.search(pattern, string, flags=0) | 查找在string中与pattern匹配的第一个位置字符，并返回匹配对象和位置。<br>如果string中没有与模式匹配，则返回None |
@@ -1317,10 +1332,6 @@ re模块与Perl语言类似的正则表达式匹配操作，模式和被搜索�
 | re.findall() | 以string列表形式返回string中所有非重复的匹配项 |
 | re.finditer() | 返回一个迭代器，该迭代器生成match对象 |
 | re.fullmatch() | 如果整个字符串和正则表达式模式匹配，返回一个对应match对象，否则返回None |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
 
 正则表达式转义码：反斜杠本身在python中具有转义含义，使用前缀r消除此问题
 
@@ -1366,14 +1377,6 @@ Differ delta的每一行都以两个字母的代码开头
 | '+ ' | 匹配带有+前缀的行在第二个序列中但不在第一个序列中 |
 | '  ' | 如果没有更改则在左列打印出多余的一个空白，以便于和其他有差异的输出对齐 |
 | '? ' | 如果比较的行内容有所差异则使用?来突出显示更改 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-
-[详细点击此处了解](https://devdocs.io/python~3.7/library/difflib)
 
 ### textwrap
 
@@ -1397,14 +1400,6 @@ Differ delta的每一行都以两个字母的代码开头
 struct — Interpret bytes as packed binary data
 codecs — Codec registry and base classes
 
-
-
-
-
-
-
-
-
 ## 开发者工具
 
 ### unittest
@@ -1421,4 +1416,3 @@ unittest类的断言方法
 | assertFalse(x)  | 核实x为False |
 | assertIn(item, list)  | 核实item在list中 |
 | assertNotIn(item, list) | 核实item不在list中 |
-

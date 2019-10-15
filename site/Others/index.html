@@ -1424,7 +1424,7 @@
 <div class="codehilite"><pre><span></span><span class="ss">&quot;&quot;</span><span class="w"> </span><span class="n">双引号</span><span class="w"></span>
 <span class="o">-</span><span class="w"> </span><span class="n">排除字符</span><span class="w"></span>
 <span class="nl">好</span><span class="p">:</span><span class="w"> </span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="n">使用冒号搜索特定的网站</span><span class="w"></span>
-<span class="n">am</span><span class="o">*</span><span class="n">zing</span><span class="w"> </span><span class="n">使用星号通配符</span><span class="w"> </span>
+<span class="n">am</span><span class="o">*</span><span class="n">zing</span><span class="w"> </span><span class="n">使用星号通配符</span><span class="w"></span>
 <span class="nl">related</span><span class="p">:</span><span class="n">amazon</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="n">找到与其他网站类似的网站</span><span class="w"></span>
 <span class="n">Black</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">red</span><span class="w"> </span><span class="n">合并搜索</span><span class="w"></span>
 <span class="nl">filetype</span><span class="p">:</span><span class="n">pdf</span><span class="w"> </span><span class="n">找到特定文件</span><span class="w"></span>
@@ -1436,6 +1436,7 @@
 <span class="n">google</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">history</span><span class="w"> </span><span class="n">搜索历史</span><span class="w"></span>
 <span class="nl">inurl</span><span class="p">:</span><span class="w">  </span><span class="n">搜索的关键字在url链接中</span><span class="w"></span>
 <span class="nl">intitle</span><span class="p">:</span><span class="w">    </span><span class="n">搜索的关键字在网页标题中</span><span class="w"></span>
+<span class="nl">inauthor</span><span class="p">:</span><span class="ss">&quot;作者名&quot;</span><span class="w">  </span><span class="n">根据作者名搜索相关书籍及信息</span><span class="w"></span>
 
 <span class="ow">AND</span><span class="err">：</span><span class="n">返回查询两端的结果</span><span class="err">。</span><span class="n">例</span><span class="err">：</span><span class="n">growth</span><span class="w"> </span><span class="n">hacks</span><span class="w"> </span><span class="ow">AND</span><span class="w"> </span><span class="n">youtube</span><span class="w"></span>
 <span class="ow">NOT</span><span class="err">：</span><span class="n">返回除NOT之后的所有结果</span><span class="err">。</span><span class="n">例</span><span class="err">：</span><span class="n">monty</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="ow">NOT</span><span class="w"> </span><span class="n">bbc</span><span class="w"></span>
@@ -1489,7 +1490,7 @@
 </tr>
 <tr>
 <td align="center">To search for a phrase with missing words</td>
-<td align="center">Place an asterisk (*) within the search as a placeholder for any unknown terms Ex: if you give a * a *</td>
+<td align="center">Place an asterisk * within the search as a placeholder for any unknown terms Ex: if you give a * a *</td>
 </tr>
 <tr>
 <td align="center">To search for a range of numbers, usually pertaining to prices and measurements</td>
@@ -1641,14 +1642,14 @@ PyPI
 $ python --version
 Python <span class="m">2</span>.6.8
 接着用pip安装
-$ pip install shadowsocks
+pip install shadowsocks
 </pre></div>
 
 <div class="codehilite"><pre><span></span>GitHub
 Checkout源代码并直接运行脚本
-$ git clone https://github.com/shadowsocks/shadowsocks.git
-$ <span class="nb">cd</span> shadowsocks
-$ python setup.py
+git clone https://github.com/shadowsocks/shadowsocks.git
+<span class="nb">cd</span> shadowsocks
+python setup.py
 </pre></div>
 
 <div class="codehilite"><pre><span></span>Go,shadowsocks-go是用Go语言编写的最先进的端口，专为大型系统设计。它实现了多端口-多密码特性，适用于有用户管理和流量统计支持的付费服务提供商。该端口由cyfdecyf维护
@@ -1679,14 +1680,14 @@ sudo apt-get -t jessie-backports install shadowsocks-libev
 GitHub
 Build and install the project from <span class="nb">source</span> codes.
 
-$ sudo apt-get install --no-install-recommends build-essential autoconf libtool <span class="se">\</span>
+sudo apt-get install --no-install-recommends build-essential autoconf libtool <span class="se">\</span>
         libssl-dev gawk debhelper dh-systemd init-system-helpers pkg-config asciidoc <span class="se">\</span>
         xmlto apg libpcre3-dev zlib1g-dev libev-dev libudns-dev libsodium-dev libmbedtls-dev libc-ares-dev automake
-$ git clone https://github.com/shadowsocks/shadowsocks-libev.git
-$ <span class="nb">cd</span> shadowsocks-libev
-$ git submodule update --init
-$ ./autogen.sh <span class="o">&amp;&amp;</span> ./configure <span class="o">&amp;&amp;</span> make
-$ sudo make install
+git clone https://github.com/shadowsocks/shadowsocks-libev.git
+<span class="nb">cd</span> shadowsocks-libev
+git submodule update --init
+./autogen.sh <span class="o">&amp;&amp;</span> ./configure <span class="o">&amp;&amp;</span> make
+sudo make install
 </pre></div>
 
 <div class="codehilite"><pre><span></span>C++ with Qt,libQtShadowsocks是一个轻量级的、超快的shadowsocks库，它是用c++编写的qt5。客户机shadowsocks-libqss可以在客户端和服务器端使用。该端口由librehat维护
@@ -1695,11 +1696,11 @@ Prebuilt binaries
 Download pre-built binaries from https://github.com/shadowsocks/libQtShadowsocks/releases
 
 GitHub
-$ git clone https://github.com/shadowsocks/libQtShadowsocks.git
-$ <span class="nb">cd</span> libQtShadowsocks
-$ qmake
-$ make -j4
-$ sudo make install
+git clone https://github.com/shadowsocks/libQtShadowsocks.git
+<span class="nb">cd</span> libQtShadowsocks
+qmake
+make -j4
+sudo make install
 libQtShadowsocks is licensed under the GNU Lesser General Public License, version <span class="m">3</span>.0
 </pre></div>
 
@@ -1711,16 +1712,16 @@ You need a Perl interpreter to execute Perl program. Any Unix like system , incl
 Installing
 On Unix like systems,either
 
-$ perl Build.PL
-$ ./Build
-$ ./Build <span class="nb">test</span>
-$ ./Build install
+perl Build.PL
+./Build
+./Build <span class="nb">test</span>
+./Build install
 or
 
-$ perl Makefile.PL
-$ make
-$ make <span class="nb">test</span>
-$ make install
+perl Makefile.PL
+make
+make <span class="nb">test</span>
+make install
 You might need to change make to dmake or nmake depending on the compiler toolchain used on Windows. If You have cpan, you can also install using this <span class="nb">command</span>
 
 $ cpan Net::Shadowsocks
@@ -2091,7 +2092,7 @@ vi /etc/openvpn/server.conf
 
 <span class="sb">```</span>markdown
 1xx（临时响应）表示临时响应并需要请求者继续执行操作的状态代码
-<span class="m">100</span>（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。  
+<span class="m">100</span>（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。
 
 <span class="m">101</span>（切换协议）请求者已要求服务器切换协议，服务器已确认并准备切换
 
@@ -2506,45 +2507,45 @@ sysctl -P
 
 
 
-<span class="c1">#include &lt;stdio.h&gt;  </span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
 <span class="c1">#include &lt;stdlib.h&gt;</span>
 
-//导入文件控制函数库  
-<span class="c1">#include &lt;sys/types.h&gt;  </span>
-<span class="c1">#include &lt;sys/stat.h&gt;  </span>
-<span class="c1">#include &lt;fcntl.h&gt;  </span>
+//导入文件控制函数库
+<span class="c1">#include &lt;sys/types.h&gt;</span>
+<span class="c1">#include &lt;sys/stat.h&gt;</span>
+<span class="c1">#include &lt;fcntl.h&gt;</span>
 
-<span class="c1">#define TEMP_PATH &quot;/sys/class/thermal/thermal_zone0/temp&quot;  </span>
-<span class="c1">#define MAX_SIZE 20  </span>
+<span class="c1">#define TEMP_PATH &quot;/sys/class/thermal/thermal_zone0/temp&quot;</span>
+<span class="c1">#define MAX_SIZE 20</span>
 int main<span class="o">(</span>void<span class="o">)</span>
-<span class="o">{</span>  
-    int fd<span class="p">;</span>  
-    double <span class="nv">temp</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>  
-    char buf<span class="o">[</span>MAX_SIZE<span class="o">]</span><span class="p">;</span>  
+<span class="o">{</span>
+    int fd<span class="p">;</span>
+    double <span class="nv">temp</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+    char buf<span class="o">[</span>MAX_SIZE<span class="o">]</span><span class="p">;</span>
 
-    // 以只读方式打开/sys/class/thermal/thermal_zone0/temp  
+    // 以只读方式打开/sys/class/thermal/thermal_zone0/temp
     <span class="nv">fd</span> <span class="o">=</span> open<span class="o">(</span>TEMP_PATH, O_RDONLY<span class="o">)</span><span class="p">;</span>
 
         //判断文件是否正常被打开
     <span class="k">if</span> <span class="o">(</span>fd &lt; <span class="m">0</span><span class="o">)</span>
-<span class="o">{</span>  
-        fprintf<span class="o">(</span>stderr, <span class="s2">&quot;failed to open thermal_zone0/temp\n&quot;</span><span class="o">)</span><span class="p">;</span>  
-        <span class="k">return</span> -1<span class="p">;</span>  
-    <span class="o">}</span>  
+<span class="o">{</span>
+        fprintf<span class="o">(</span>stderr, <span class="s2">&quot;failed to open thermal_zone0/temp\n&quot;</span><span class="o">)</span><span class="p">;</span>
+        <span class="k">return</span> -1<span class="p">;</span>
+    <span class="o">}</span>
 
-    // 读取内容  
+    // 读取内容
     <span class="k">if</span> <span class="o">(</span>read<span class="o">(</span>fd, buf, MAX_SIZE<span class="o">)</span> &lt; <span class="m">0</span><span class="o">)</span>
-    <span class="o">{</span>  
-        fprintf<span class="o">(</span>stderr, <span class="s2">&quot;failed to read temp\n&quot;</span><span class="o">)</span><span class="p">;</span>  
-        <span class="k">return</span> -1<span class="p">;</span>  
-    <span class="o">}</span>  
+    <span class="o">{</span>
+        fprintf<span class="o">(</span>stderr, <span class="s2">&quot;failed to read temp\n&quot;</span><span class="o">)</span><span class="p">;</span>
+        <span class="k">return</span> -1<span class="p">;</span>
+    <span class="o">}</span>
 
-    // 转换为浮点数打印  
-    <span class="nv">temp</span> <span class="o">=</span> atoi<span class="o">(</span>buf<span class="o">)</span> / <span class="m">1000</span>.0<span class="p">;</span>  
-    printf<span class="o">(</span><span class="s2">&quot;temp: %.3f\n&quot;</span>, temp<span class="o">)</span><span class="p">;</span>  
+    // 转换为浮点数打印
+    <span class="nv">temp</span> <span class="o">=</span> atoi<span class="o">(</span>buf<span class="o">)</span> / <span class="m">1000</span>.0<span class="p">;</span>
+    printf<span class="o">(</span><span class="s2">&quot;temp: %.3f\n&quot;</span>, temp<span class="o">)</span><span class="p">;</span>
 
-    // 关闭文件  
-    close<span class="o">(</span>fd<span class="o">)</span><span class="p">;</span>  
+    // 关闭文件
+    close<span class="o">(</span>fd<span class="o">)</span><span class="p">;</span>
 <span class="o">}</span>
 
 <span class="c1">#编译C代码，输入以下指令：</span>
@@ -2627,14 +2628,16 @@ popen的效率不高，但是配合shell相当灵活～～
 <span class="nv">https</span>:<span class="o">//</span><span class="nv">xueqiu</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">hq</span><span class="o">/</span><span class="nv">screener</span>
 <span class="nv">http</span>:<span class="o">//</span><span class="nv">baostock</span>.<span class="nv">com</span>
 <span class="nv">https</span>:<span class="o">//</span><span class="nv">tushare</span>.<span class="nv">pro</span>
+
+<span class="nv">https</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">canva</span>.<span class="nv">com</span><span class="o">/</span>
+<span class="nv">https</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">pexels</span>.<span class="nv">com</span><span class="o">/</span>
+<span class="nv">http</span>:<span class="o">//</span><span class="nv">alpha</span>.<span class="nv">wallhaven</span>.<span class="nv">cc</span><span class="o">/</span>
+
+<span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">swsindex</span>.<span class="nv">com</span><span class="o">/</span>
 </pre></div>
 
 <p>kickasstorrent
 thepiratebay</p>
-<p><a href="https://www.canva.com/">https://www.canva.com/</a>
-<a href="https://www.pexels.com/">https://www.pexels.com/</a>
-<a href="http://alpha.wallhaven.cc/">http://alpha.wallhaven.cc/</a></p>
-<p><a href="http://www.swsindex.com/">http://www.swsindex.com/</a></p>
 <div class="codehilite"><pre><span></span><span class="c1"># 获取公网ip</span>
 <span class="c1"># 普通文本格式</span>
 curl icanhazip.com
@@ -2656,86 +2659,92 @@ curl cip.cc
 /usr/bin/wget -q -O - http://icanhazip.com/ <span class="p">|</span> /usr/bin/tail
 </pre></div>
 
-<p>聚合的免费API接口数据：
-手机号码归属地API接口：<a href="https://www.juhe.cn/docs/api/id/11">https://www.juhe.cn/docs/api/id/11</a>
-历史上的今天API接口：<a href="https://www.juhe.cn/docs/api/id/63">https://www.juhe.cn/docs/api/id/63</a>
-股票数据API接口：<a href="https://www.juhe.cn/docs/api/id/21">https://www.juhe.cn/docs/api/id/21</a>
-全国WIFI接口：<a href="https://www.juhe.cn/docs/api/id/18">https://www.juhe.cn/docs/api/id/18</a>
-星座运势接口：<a href="https://www.juhe.cn/docs/api/id/58">https://www.juhe.cn/docs/api/id/58</a>
-黄金数据接口：<a href="https://www.juhe.cn/docs/api/id/29">https://www.juhe.cn/docs/api/id/29</a>
-语音识别接口：<a href="https://www.juhe.cn/docs/api/id/134">https://www.juhe.cn/docs/api/id/134</a>
-周公解梦接口：<a href="https://www.juhe.cn/docs/api/id/64">https://www.juhe.cn/docs/api/id/64</a>
-天气预报API接口：<a href="https://www.juhe.cn/docs/api/id/73">https://www.juhe.cn/docs/api/id/73</a>
-身份证查询API接口：<a href="https://www.juhe.cn/docs/api/id/38">https://www.juhe.cn/docs/api/id/38</a>
-笑话大全API接口：<a href="https://www.juhe.cn/docs/api/id/95">https://www.juhe.cn/docs/api/id/95</a>
-邮编查询接口：<a href="https://www.juhe.cn/docs/api/id/66">https://www.juhe.cn/docs/api/id/66</a>
-老黄历接口：<a href="https://www.juhe.cn/docs/api/id/65">https://www.juhe.cn/docs/api/id/65</a>
-网站安全检测接口：<a href="https://www.juhe.cn/docs/api/id/19">https://www.juhe.cn/docs/api/id/19</a>
-手机固话来电显示接口：<a href="https://www.juhe.cn/docs/api/id/72">https://www.juhe.cn/docs/api/id/72</a>
-基金财务数据接口：<a href="https://www.juhe.cn/docs/api/id/28">https://www.juhe.cn/docs/api/id/28</a>
-成语词典接口：<a href="https://www.juhe.cn/docs/api/id/157">https://www.juhe.cn/docs/api/id/157</a>
-新闻头条接口：<a href="https://www.juhe.cn/docs/api/id/235">https://www.juhe.cn/docs/api/id/235</a>
-IP地址接口：<a href="https://www.juhe.cn/docs/api/id/1">https://www.juhe.cn/docs/api/id/1</a>
-问答机器人接口：<a href="https://www.juhe.cn/docs/api/id/112">https://www.juhe.cn/docs/api/id/112</a>
-汇率API接口：<a href="https://www.juhe.cn/docs/api/id/80">https://www.juhe.cn/docs/api/id/80</a>
-电影票房接口：<a href="https://www.juhe.cn/docs/api/id/44">https://www.juhe.cn/docs/api/id/44</a>
-万年历API接口：<a href="https://www.juhe.cn/docs/api/id/177">https://www.juhe.cn/docs/api/id/177</a>
-NBA赛事接口：<a href="https://www.juhe.cn/docs/api/id/92">https://www.juhe.cn/docs/api/id/92</a></p>
-<p>百度 api集市免费接口
-IP地址查询 <a href="http://apistore.baidu.com/apiworks/servicedetail/114.html">http://apistore.baidu.com/apiworks/servicedetail/114.html</a>
-频道新闻API_易源 <a href="http://apistore.baidu.com/apiworks/servicedetail/688.html">http://apistore.baidu.com/apiworks/servicedetail/688.html</a>
-微信热门精选 <a href="http://apistore.baidu.com/apiworks/servicedetail/632.html">http://apistore.baidu.com/apiworks/servicedetail/632.html</a>
-天气查询 <a href="http://apistore.baidu.com/apiworks/servicedetail/112.html">http://apistore.baidu.com/apiworks/servicedetail/112.html</a>
-中国和世界天气预报 <a href="http://apistore.baidu.com/apiworks/servicedetail/478.html">http://apistore.baidu.com/apiworks/servicedetail/478.html</a>
-股票查询 <a href="http://apistore.baidu.com/apiworks/servicedetail/115.html">http://apistore.baidu.com/apiworks/servicedetail/115.html</a>
-身份证查询http://apistore.baidu.com/apiworks/servicedetail/113.html
-美女图片 <a href="http://apistore.baidu.com/apiworks/servicedetail/720.html">http://apistore.baidu.com/apiworks/servicedetail/720.html</a>
-音乐搜索 <a href="http://apistore.baidu.com/apiworks/servicedetail/1020.html">http://apistore.baidu.com/apiworks/servicedetail/1020.html</a>
-图灵机器人 <a href="http://apistore.baidu.com/apiworks/servicedetail/736.html">http://apistore.baidu.com/apiworks/servicedetail/736.html</a>
-汇率转换 <a href="http://apistore.baidu.com/apiworks/servicedetail/119.html">http://apistore.baidu.com/apiworks/servicedetail/119.html</a>
-节假日 <a href="http://apistore.baidu.com/apiworks/servicedetail/1116.html">http://apistore.baidu.com/apiworks/servicedetail/1116.html</a>
-pullword在线分词服务 <a href="http://apistore.baidu.com/apiworks/servicedetail/143.html">http://apistore.baidu.com/apiworks/servicedetail/143.html</a>
-去哪儿网火车票 <a href="http://apistore.baidu.com/apiworks/servicedetail/697.html">http://apistore.baidu.com/apiworks/servicedetail/697.html</a>
-笑话大全 <a href="http://apistore.baidu.com/apiworks/servicedetail/864.html">http://apistore.baidu.com/apiworks/servicedetail/864.html</a>
-银行卡查询服务http://apistore.baidu.com/apiworks/servicedetail/735.html
-语音合成 <a href="http://apistore.baidu.com/apiworks/servicedetail/867.html">http://apistore.baidu.com/apiworks/servicedetail/867.html</a>
-宅言API-动漫台词接口 <a href="http://apistore.baidu.com/apiworks/servicedetail/446.html">http://apistore.baidu.com/apiworks/servicedetail/446.html</a>
-去哪儿景点门票查询 <a href="http://apistore.baidu.com/apiworks/servicedetail/140.html">http://apistore.baidu.com/apiworks/servicedetail/140.html</a>
-手机号码归属地 <a href="http://apistore.baidu.com/apiworks/servicedetail/794.html">http://apistore.baidu.com/apiworks/servicedetail/794.html</a>
-体育新闻 <a href="http://apistore.baidu.com/apiworks/servicedetail/711.html">http://apistore.baidu.com/apiworks/servicedetail/711.html</a>
-手机归属地查询http://apistore.baidu.com/apiworks/servicedetail/709.html
-科技新闻 <a href="http://apistore.baidu.com/apiworks/servicedetail/1061.html">http://apistore.baidu.com/apiworks/servicedetail/1061.html</a>
-空气质量指数 <a href="http://apistore.baidu.com/apiworks/servicedetail/116.html">http://apistore.baidu.com/apiworks/servicedetail/116.html</a>
-天狗健康菜谱 <a href="http://apistore.baidu.com/apiworks/servicedetail/987.html">http://apistore.baidu.com/apiworks/servicedetail/987.html</a>
-热门游记列表 <a href="http://apistore.baidu.com/apiworks/servicedetail/520.html">http://apistore.baidu.com/apiworks/servicedetail/520.html</a>
-天狗药品查询 <a href="http://apistore.baidu.com/apiworks/servicedetail/916.html">http://apistore.baidu.com/apiworks/servicedetail/916.html</a>
-汉字转拼音 <a href="http://apistore.baidu.com/apiworks/servicedetail/1124.html">http://apistore.baidu.com/apiworks/servicedetail/1124.html</a>
-国际新闻 <a href="http://apistore.baidu.com/apiworks/servicedetail/823.html">http://apistore.baidu.com/apiworks/servicedetail/823.html</a>
-彩票 <a href="http://apistore.baidu.com/apiworks/servicedetail/164.html">http://apistore.baidu.com/apiworks/servicedetail/164.html</a>
-微信精选 <a href="http://apistore.baidu.com/apiworks/servicedetail/863.html">http://apistore.baidu.com/apiworks/servicedetail/863.html</a>
-天狗健康资讯 <a href="http://apistore.baidu.com/apiworks/servicedetail/888.html">http://apistore.baidu.com/apiworks/servicedetail/888.html</a>
-兴趣点检索 <a href="http://apistore.baidu.com/apiworks/servicedetail/182.html">http://apistore.baidu.com/apiworks/servicedetail/182.html</a>
-用药参考 <a href="http://apistore.baidu.com/apiworks/servicedetail/754.html">http://apistore.baidu.com/apiworks/servicedetail/754.html</a>
-天狗健康知识 <a href="http://apistore.baidu.com/apiworks/servicedetail/899.html">http://apistore.baidu.com/apiworks/servicedetail/899.html</a>
-奇闻趣事 <a href="http://apistore.baidu.com/apiworks/servicedetail/633.html">http://apistore.baidu.com/apiworks/servicedetail/633.html</a>
-花边新闻 <a href="http://apistore.baidu.com/apiworks/servicedetail/768.html">http://apistore.baidu.com/apiworks/servicedetail/768.html</a>
-天狗医院大全 <a href="http://apistore.baidu.com/apiworks/servicedetail/988.html">http://apistore.baidu.com/apiworks/servicedetail/988.html</a>
-生活健康 <a href="http://apistore.baidu.com/apiworks/servicedetail/989.html">http://apistore.baidu.com/apiworks/servicedetail/989.html</a></p>
-<p>一些其他的API接口：
-豆瓣开放 <a href="https://developers.douban.com/wiki/?title=guide">https://developers.douban.com/wiki/?title=guide</a>
-淘宝开放平台 <a href="http://open.taobao.com/?spm=a219a.7395905.1.1.YdFDV6">http://open.taobao.com/?spm=a219a.7395905.1.1.YdFDV6</a>
-图灵语音 <a href="http://www.tuling123.com/help/h_cent_andriodsdk.jhtml?nav=doc">http://www.tuling123.com/help/h_cent_andriodsdk.jhtml?nav=doc</a>
-讯飞语音http://<a href="http://www.xfyun.cn/robots/solution">www.xfyun.cn/robots/solution</a>
-马化腾的微信开放平台（对应的还有腾讯开放平台）<a href="https://open.weixin.qq.com/">https://open.weixin.qq.com/</a>
-融云IMhttps://developer.rongcloud.cn/signin?returnUrl=%2Fapp%2Fappkey%2FPv4vYQwaxSZdfpLX5AI%3D
-百度开发者中心http://developer.baidu.com/
-人脸识别http://<a href="http://www.faceplusplus.com.cn/">www.faceplusplus.com.cn/</a>
-高德地图http://lbs.amap.com/
-蜻蜓FMhttp://open.qingting.fm
-<a href="https://www.yesapi.cn/">https://www.yesapi.cn/</a>
-<a href="https://www.tianqiapi.com">https://www.tianqiapi.com</a>
-<a href="https://www.free-api.com/">https://www.free-api.com/</a></p>
-<p><a href="https://www.mumble.info/">https://www.mumble.info/</a></p>
+<div class="codehilite"><pre><span></span><span class="err">聚合的免费</span><span class="n">API接口数据</span><span class="err">：</span>
+<span class="err">手机号码归属地</span><span class="n">API接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">11</span>
+<span class="err">历史上的今天</span><span class="n">API接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">63</span>
+<span class="err">股票数据</span><span class="n">API接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">21</span>
+<span class="err">全国</span><span class="n">WIFI接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">18</span>
+<span class="err">星座运势接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">58</span>
+<span class="err">黄金数据接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">29</span>
+<span class="err">语音识别接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">134</span>
+<span class="err">周公解梦接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">64</span>
+<span class="err">天气预报</span><span class="n">API接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">73</span>
+<span class="err">身份证查询</span><span class="n">API接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">38</span>
+<span class="err">笑话大全</span><span class="n">API接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">95</span>
+<span class="err">邮编查询接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">66</span>
+<span class="err">老黄历接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">65</span>
+<span class="err">网站安全检测接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">19</span>
+<span class="err">手机固话来电显示接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">72</span>
+<span class="err">基金财务数据接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">28</span>
+<span class="err">成语词典接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">157</span>
+<span class="err">新闻头条接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">235</span>
+<span class="n">IP地址接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">1</span>
+<span class="err">问答机器人接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">112</span>
+<span class="err">汇率</span><span class="n">API接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">80</span>
+<span class="err">电影票房接口：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">44</span>
+<span class="err">万年历</span><span class="n">API接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">177</span>
+<span class="n">NBA赛事接口</span><span class="err">：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">juhe</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="mi">92</span>
+
+<span class="err">百度</span> <span class="n">api集市免费接口</span>
+<span class="n">IP地址查询</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">114</span><span class="p">.</span><span class="n">html</span>
+<span class="err">频道新闻</span><span class="n">API_易源</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">688</span><span class="p">.</span><span class="n">html</span>
+<span class="err">微信热门精选</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">632</span><span class="p">.</span><span class="n">html</span>
+<span class="err">天气查询</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">112</span><span class="p">.</span><span class="n">html</span>
+<span class="err">中国和世界天气预报</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">478</span><span class="p">.</span><span class="n">html</span>
+<span class="err">股票查询</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">115</span><span class="p">.</span><span class="n">html</span>
+<span class="err">身份证查询</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">113</span><span class="p">.</span><span class="n">html</span>
+<span class="err">美女图片</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">720</span><span class="p">.</span><span class="n">html</span>
+<span class="err">音乐搜索</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">1020</span><span class="p">.</span><span class="n">html</span>
+<span class="err">图灵机器人</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">736</span><span class="p">.</span><span class="n">html</span>
+<span class="err">汇率转换</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">119</span><span class="p">.</span><span class="n">html</span>
+<span class="err">节假日</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">1116</span><span class="p">.</span><span class="n">html</span>
+<span class="n">pullword在线分词服务</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">143</span><span class="p">.</span><span class="n">html</span>
+<span class="err">去哪儿网火车票</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">697</span><span class="p">.</span><span class="n">html</span>
+<span class="err">笑话大全</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">864</span><span class="p">.</span><span class="n">html</span>
+<span class="err">银行卡查询服务</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">735</span><span class="p">.</span><span class="n">html</span>
+<span class="err">语音合成</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">867</span><span class="p">.</span><span class="n">html</span>
+<span class="err">宅言</span><span class="n">API</span><span class="o">-</span><span class="err">动漫台词接口</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">446</span><span class="p">.</span><span class="n">html</span>
+<span class="err">去哪儿景点门票查询</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">140</span><span class="p">.</span><span class="n">html</span>
+<span class="err">手机号码归属地</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">794</span><span class="p">.</span><span class="n">html</span>
+<span class="err">体育新闻</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">711</span><span class="p">.</span><span class="n">html</span>
+<span class="err">手机归属地查询</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">709</span><span class="p">.</span><span class="n">html</span>
+<span class="err">科技新闻</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">1061</span><span class="p">.</span><span class="n">html</span>
+<span class="err">空气质量指数</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">116</span><span class="p">.</span><span class="n">html</span>
+<span class="err">天狗健康菜谱</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">987</span><span class="p">.</span><span class="n">html</span>
+<span class="err">热门游记列表</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">520</span><span class="p">.</span><span class="n">html</span>
+<span class="err">天狗药品查询</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">916</span><span class="p">.</span><span class="n">html</span>
+<span class="err">汉字转拼音</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">1124</span><span class="p">.</span><span class="n">html</span>
+<span class="err">国际新闻</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">823</span><span class="p">.</span><span class="n">html</span>
+<span class="err">彩票</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">164</span><span class="p">.</span><span class="n">html</span>
+<span class="err">微信精选</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">863</span><span class="p">.</span><span class="n">html</span>
+<span class="err">天狗健康资讯</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">888</span><span class="p">.</span><span class="n">html</span>
+<span class="err">兴趣点检索</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">182</span><span class="p">.</span><span class="n">html</span>
+<span class="err">用药参考</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">754</span><span class="p">.</span><span class="n">html</span>
+<span class="err">天狗健康知识</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">899</span><span class="p">.</span><span class="n">html</span>
+<span class="err">奇闻趣事</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">633</span><span class="p">.</span><span class="n">html</span>
+<span class="err">花边新闻</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">768</span><span class="p">.</span><span class="n">html</span>
+<span class="err">天狗医院大全</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">988</span><span class="p">.</span><span class="n">html</span>
+<span class="err">生活健康</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">apistore</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apiworks</span><span class="o">/</span><span class="n">servicedetail</span><span class="o">/</span><span class="mi">989</span><span class="p">.</span><span class="n">html</span>
+
+<span class="err">一些其他的</span><span class="n">API接口</span><span class="err">：</span>
+<span class="err">豆瓣开放</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developers</span><span class="p">.</span><span class="n">douban</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">wiki</span><span class="o">/?</span><span class="n">title</span><span class="o">=</span><span class="n">guide</span>
+<span class="err">淘宝开放平台</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="k">open</span><span class="p">.</span><span class="n">taobao</span><span class="p">.</span><span class="n">com</span><span class="o">/?</span><span class="n">spm</span><span class="o">=</span><span class="n">a219a</span><span class="p">.</span><span class="mi">7395905</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="n">YdFDV6</span>
+<span class="err">图灵语音</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">tuling123</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">help</span><span class="o">/</span><span class="n">h_cent_andriodsdk</span><span class="p">.</span><span class="n">jhtml</span><span class="o">?</span><span class="n">nav</span><span class="o">=</span><span class="n">doc</span>
+<span class="err">讯飞语音</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">xfyun</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">robots</span><span class="o">/</span><span class="n">solution</span>
+<span class="err">马化腾的微信开放平台（对应的还有腾讯开放平台）</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="k">open</span><span class="p">.</span><span class="n">weixin</span><span class="p">.</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>
+<span class="err">融云</span><span class="n">IMhttps</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="p">.</span><span class="n">rongcloud</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span><span class="n">signin</span><span class="o">?</span><span class="n">returnUrl</span><span class="o">=%</span><span class="mi">2</span><span class="n">Fapp</span><span class="o">%</span><span class="mi">2</span><span class="n">Fappkey</span><span class="o">%</span><span class="mi">2</span><span class="n">FPv4vYQwaxSZdfpLX5AI</span><span class="o">%</span><span class="mi">3</span><span class="n">D</span>
+<span class="err">百度开发者中心</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">developer</span><span class="p">.</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>
+<span class="err">人脸识别</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">faceplusplus</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span>
+<span class="err">高德地图</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">lbs</span><span class="p">.</span><span class="n">amap</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>
+<span class="err">蜻蜓</span><span class="n">FMhttp</span><span class="p">:</span><span class="o">//</span><span class="k">open</span><span class="p">.</span><span class="n">qingting</span><span class="p">.</span><span class="n">fm</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">yesapi</span><span class="p">.</span><span class="n">cn</span><span class="o">/</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">tianqiapi</span><span class="p">.</span><span class="n">com</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="k">free</span><span class="o">-</span><span class="n">api</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>
+
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">mumble</span><span class="p">.</span><span class="n">info</span><span class="o">/</span>
+
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">zjjcmspublic</span><span class="p">.</span><span class="n">oss</span><span class="o">-</span><span class="n">cn</span><span class="o">-</span><span class="n">hangzhou</span><span class="p">.</span><span class="n">aliyuncs</span><span class="p">.</span><span class="n">com</span>
+</pre></div>
                 
                   
                 
