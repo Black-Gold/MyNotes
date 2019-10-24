@@ -78,7 +78,7 @@ netdom.exe remove %computername% /domain:Domainname /UserD:DomainName\UserName /
 rem 根据当前日期获取，年月日串
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
-set day=%date:~8,2% 
+set day=%date:~8,2%
 set "Ymd=%yyyy%-%mm%-%day%"
 
 rem 把年月日串中末尾空格替换掉
@@ -166,11 +166,9 @@ nslookup -vc github.com 8.8.8.8
 
 choice /t 5 /d y /n >nul    # 批处理命令延迟方法
 
-
 https://www.jsdelivr.com/package/gh/Black-Gold/MyNotes
 
 ## Windows Commands详解大全
-
 
 远程桌面服务有2种工作模式，Administration Mode和Application Mode。这两种工作模式分别适应不同的场景需求
 
@@ -182,4 +180,14 @@ Application Mode
 
 此时，服务器默认有120天的Grace Period，允许不限制用户数的远程连接。在120天后，您必须指定一台已经安装Remote Desktop License的远程桌面授权服务器才可以多用户继续连接，否则会提示“由于没有远程桌面授权服务器可以提供许可证，远程会话被中断“的报错。但是此时您还可以通过mstsc /admin命令连接到远程桌面
 
+1.纯cmdlet命令
+Get-Process -Name notepad | Stop-Process
 
+2.cmdlet+遍历
+Get-Process -Name notepad | foreach-object{$_.Kill()}
+
+3.WMI 对象 + 遍历 + 对象方法
+Get-WmiObject Win32_Process -Filter "name = 'notepad.exe'" | ForEach-Object{$_.Terminate()  | Out-Null }
+
+4.WMI 对象 + 遍历 + cmdlet方法
+Get-WmiObject Win32_Process -Filter "name = 'notepad.exe'" | Invoke-WmiMethod -Name Terminate | Out-Null

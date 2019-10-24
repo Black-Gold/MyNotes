@@ -61,26 +61,54 @@ __pow__: 乘方
 
 # 框架：控制反转
 
-# 模块：
+# 模块（modules）：
+模块(module)是python最高级别的程序组织单位。它可以打包程序代码和数据以备重用
+模块采用python程序的文件形式（或者C扩展程序的形式）存储，客户导入模块并对使用他们定义的名字
+
 模块即普通的python文件，可以自定义并导入，模块名称即文件名称，具有显式导出和导入的抽象接口，实现和接口是分开的
 可能有多个实现并且实现是隐藏的。通俗的讲，将自行定义或已经存在的方法和变量存放在文件中，为一些脚本或交互式解释器实例使用
 这样的文件被称之为模块；模块是一个包含Python定义函数、变量和语句的文件。模块可以被别的程序引入，以使用该模块中的函数的
 功能和属性，这也是使用python标准库的方法,如果自定义的有和标准库相同的模块，则会覆盖标准库
+
 每个模块在每个解释器中只能导入一遍，修改模块后需重启解释器，想要进行交互式不重启测试一个模块，可以利用imp.raload()方法重载
 
     以下划线开头的标识符是有特殊意义的
     • 以单下划线开头（_foo）的代表不能直接访问的类属性，需通过类提供的接口进行访问
     • 以双下划线开头的（__foo）代表类的私有成员
     • 以双下划线开头和结尾的（__foo__）代表python里特殊方法专用的标识，如__init__（）代表类的构造函数
-# 模块（modules）：
-    模块(module)是python最高级别的程序组织单位。它可以打包程序代码和数据以备重用
-    模块采用python程序的文件形式（或者C扩展程序的形式）存储，客户导入模块并对使用他们定义的名字
 
 ## 标准模块
 
 Python附带一个标准模块库，变量sys.ps1 和sys.ps2 定义用作主要和辅助提示的字符串；这两个变量只有在编译器交互模式下才被定义
 
 sys.path变量是一个字符串列表，用于确定解释器的模块搜索，可以使用标准列表操作对其进行修改
+
+理解__name__=="__main__"：
+python每个模块都有一个名为__name__的特殊属性，当模块作为主程序运行时，__name__属性的值即为'__main__'，否则__name__的值将设置为包含模块的名称
+
+```python
+# 示例:创建module.py文件如下
+foo = 100
+
+
+def hello():
+    print("i am from my_module.py")
+
+
+if __name__ == "__main__":
+    print("Executing as main program")
+    print("Value of __name__ is: ", __name__)
+    hello()
+
+# 紧随其上，创建test.py文件如下，module.__name__是module而不是__main__，此处未输出if.....__main__的内容
+import module
+
+
+print(module.foo)
+module.hello()
+
+print(module.__name__)
+```
 
 ## 包(packages)
 
@@ -96,7 +124,7 @@ import 语句首先测试是否在包中定义了item；如果没有，它假定
 * 字符串的str.format()方法
 * 使用字符串切片和连接操作自行完成对所有字符串的处理
 
-# import语句:
+## import语句
 
 出于效率的考虑，每个模块在每个解释器会话中只被导入一次。因此，如果你更改了你的模块，则必须重新启动解释器， 或者，如果它只
 是一个要交互式地测试的模块，请使用 importlib.reload()，例如 import importlib; importlib.reload(modulename)
@@ -124,16 +152,13 @@ else:
 一个从.pyc文件读出的程序并不会比它从.py读出时运行的更快。区别在于.pyc文件载入速度更快
 compileall模块可以为一个目录下的所有模块创建.pyc文件
 
-# 导入模块
-import math
+### 导入模块
 
-# 从一个模块导入特定的函数ceil,floor
-from math import ceil, floor
+import math # 导入math模块
 
-# 导入并简化一个模块的名称
-import math as m
+from math import ceil, floor    # 从一个模块导入特定的函数ceil,floor
 
-```
+import math as m    ### 导入并简化一个模块的名称
 
 ## Python开发环境最佳实践
 
@@ -237,26 +262,154 @@ python不可变数据类型：int、str、tuple
 
 ```
 
-## 内置标准库
+## 内置函数列表 -- 非全面性
 
-python内置函数列表：具体用法见help(函数)
+### abs(x)
 
-|  |  | 内置函数 |  |  |
-| :------: | :------: | :------: | :------: | :------: |
-| abs() | delattr() | hash() | memoryview() | set() |
-| all() | dict() | help() | min() | setattr() |
-| any() | dir() | hex() | next() | slice() |
-| ascii() | divmod() | id() | object() | sorted() |
-| bin() | enumerate() | input() | oct() | staticmethod() |
-| bool() | eval() | int() | open() | str() |
-| breakpoint() | exec() | isinstance() | ord() | sum() |
-| bytearray() | filter() | issubclass() | pow() | super() |
-| bytes() | float() | iter() | print() | tuple() |
-| callable() | format() | len() | property() | type() |
-| chr() | frozenset() | list() | range() | vars() |
-| classmethod() | getattr() | locals() | repr() | zip() |
-| compile() | globals() | map() | reversed() | \_\_import__() |
-| complex() | hasattr() | max() | round() |  |
+返回数字的绝对值，参数x必须是整数或浮点数，如果参数为复数，则返回其大小
+
+### all(iterable)
+
+如果所有元素的迭代都是true(或iterable为空)，则返回True，相当于：
+
+```python
+def all(iterable):
+    for element in iterable:
+        if not element:
+            return False
+    return True
+
+```
+
+### any(iterable)
+
+如果iterable的任何元素为true，即有一个为真时，则返回True，否则False，相当于：
+
+```python
+def any(iterable):
+    for element in iterable:
+        if element:
+            return True
+    return False
+
+```
+
+### bin(x)
+
+```python
+# 将整数转换为前缀带有'0b'的二进制字符串，结果为有效的python表达式
+# 去除前缀ob的方法有两种
+print(format(14, '#b'), format(14, 'b'))   # 方法一
+
+print(f'{14:#b}', f'{14:b}')    # 方法二
+
+```
+
+### chr(i)
+
+返回一个字符的unicode代码点的整数，例：chr(97)返回字符串'a'，与其相反是ord()
+
+### enumerate(iterable, start=0)
+
+返回一个枚举对象，iterable必须为序列，迭代器或其他支持迭代的对象，__next__()是由enumerate()返回的迭代器的方法返回一个元组，
+该元组包括一个计数(start为开始，默认为0)以及通过对iterable进行迭代获得的值
+
+### eval(expression[, globals[, locals]])
+
+```markdown
+eval()能够执行任意的字符串作为python代码，其接受源字符串并返回一个对象，expression可以是任何有效的python表达式
+globals：执行源时要使用的全局名称空间。它必须是字典。如果未提供，则将使用当前的全局名称空间
+locals：执行源时要使用的本地名称空间。它可以是任何映射对象。如果省略，则默认为全局字典
+
+防止不受信任的源直接传递给eval()，导致对系统造成破坏，那么使eval()安全的参考方法如下
+指定名称空间：eval()可选的接受两个映射充当要被执行用于表达的全局和局部的命名空间，如果未提供映射，则使用全局和局部名称空间的当前值
+print('abs(-10)', {'__builtins__':None}, {})    # 删除对内置函数的访问
+以上方法仍然不够安全，如果传递的expression本身就具有强打的攻击性，也会出现安全问题，所以关键点就是仅对受信任的源使用eval()
+
+```
+
+### filter(function, iterable)
+
+当function返回true时，为这些iterable的元素构造一个迭代器，iterable可以为序列、支持迭代的容器和迭代器，
+如果function是None，则假定为身份函数，即删除所有false的iterable的元素
+
+### globals()
+
+返回表示当前全局符号表的字典，始终是当前模块的字典(在函数或方法内部，这是定义它的模块，而不是从中调用它的模块)
+
+### id(object)
+
+返回object的”身份“，这是个整数，用以保证在此对象的生存期内唯一且恒定，但具有不重叠生命周期的两个对象可能具有相同的id()值
+
+### len(s)
+
+返回对象的长度(项目数),参数可以是序列或集合
+
+### locals()
+
+更新并返回一个包含在本地名称空间中定义的变量的字典，locals()在功能块中调用自由变量会返回自由变量，而在类块中则不会，
+在模块级别(全局名称空间)locals()和globals()是相同的字典
+
+注意：该字典的内容不得修改；更改可能不会影响解释器使用的局部变量和自由变量的值
+
+### map(function, iterable, ...)
+
+返回一个迭代器，该迭代器将函数应用于iterable的每个项目并返回结果，如果传递了其他可迭代参数则函数必须采用那么多参数，并且并行地将
+其应用于所有可迭代对象的项
+
+### max()
+
+返回可迭代的最大项目或两个或多个参数中最大的项目，如果提供了一个位置参数，则应该是可迭代的，返回iterable中最大的项目，如果提供了两个
+或多个位置参数，则返回嘴的位置参数。多个最大项时，返回第一个
+
+### min()
+
+返回可迭代的最小项或两个或多个参数中的最小项
+
+### ord(c)
+
+给定一个表示unicode字符的字符串返回一个整数表示该字符的unicode代码点，对于ASCII字符，返回值是7位ASCII代码,与其相反的函数为chr()
+
+### range(stop) -- range(start, stop[,step])
+
+range实际上是一个不可变的序列类型，而不是一个函数
+
+### reversed(seq)
+
+返回一个反向迭代器，seq必须具有__reversed__()方法或支持序列协议的对象
+
+### sorted(iterable, *, key=None, reverse=False)
+
+从iterable中的项目返回一个新的排序列表，有两个可选参数，必须将其指定为关键字参数，key指定一个参数的功能，该参数用于从iterable中
+的每个元素中提取一个比较键(例如：key=str.lower)，默认为None直接比较元素，reverse是一个布尔值，True表示对列表进行反转排序
+
+### sum(iterable, /, start=0)
+
+从左到右开始求和迭代的项目然后返回总数，该迭代的项目通常为整数，起始值不允许为字符串。
+连接字符串序列的首选快速方法是调用''.join(sequence)，要串联一系列可迭代对象，推荐使用itertools.chain()
+
+### zip(*iterables)
+
+创建一个迭代器以聚合每个可迭代对象中的元素
+
+返回一个元组的迭代器，其中第i个元组包含每个参数序列或可迭代对象中的第i个元素。当最短的可迭代输入耗尽时，迭代器将停止。
+使用单个可迭代参数，它将返回1元组的迭代器。没有参数，它将返回一个空的迭代器。相当于以下示例：
+
+```python
+def zip(*iterables):
+    # zip('ABCD', 'xy') --> Ax By
+    sentinel = object()
+    iterators = [iter(it) for it in iterables]
+    while iterators:
+        result = []
+        for it in iterators:
+            elem = next(it, sentinel)
+            if elem is sentinel:
+                return
+            result.append(elem)
+        yield tuple(result)
+
+```
 
 ## 内置常量
 
@@ -272,7 +425,7 @@ python内置函数列表：具体用法见help(函数)
 * 任何数值类型的零: 0, 0.0, 0j, Decimal(0), Fraction(0, 1)
 * 空的序列和多项集: '', (), [], {}, set(), range(0)
 
-### 布尔类型运算：and、or、not
+### 布尔类型运算 -- and、or、not
 
 | 运算 | 结果 | 注释 |
 | :------: | :------: | :------: |
@@ -296,7 +449,7 @@ python内置函数列表：具体用法见help(函数)
 | is | 对象标识 |
 | is not | 否定对象标识 |
 
-### 数字类型运算：int、float、complex
+### 数字类型运算 -- int、float、complex
 
 Python有三种不同的数字类型：整数、浮点数和复数。(python2中才有long类型)布尔值属于整数的子类型。整数有无限精度，浮点数通常以C语言中
 double实现复数具有实部和虚部，每个都是浮点数
@@ -373,6 +526,25 @@ Python支持迭代容器的概念。这是使用两种不同的方法实现的; 
 
 Python的生成器提供了一种实现迭代器协议的便捷方式。如果容器对象的__iter__()方法被实现为生成器，它将自动返回提供__iter__()
 和__next__()方法的迭代器对象（技术上，生成器对象）
+
+```python
+def my_range(start, stop, step = 1):
+    if stop <= start:
+        raise RuntimeError("start must be smaller than stop")
+    i = start
+    while i < stop:
+        yield i
+        i += step
+
+try:
+    for k in my_range(10, 50, 3):
+        print(k)
+except RuntimeError as ex:
+    print(ex)
+except TypeError:
+    print("Unknown error occurred")
+
+```
 
 ### 序列类型 -- list、tuple、range
 
@@ -483,27 +655,36 @@ Python的生成器提供了一种实现迭代器协议的便捷方式。如果�
 4、List中的元素是可以改变的
 ```
 
-##### 示例列表的大部分方法
+##### 列表对象的方法
 
-以下方法是作用在list对象上的。而len()是将list、string或其他类型作为参数的函数
+以下方法是作用在list对象上的。而len()是将list、string或其他类型作为参数的函数，
+insert，remove或者sort只修改列表没有返回值，默认返回None，这是Python中所有可变数据结构的设计原则
+
 | 方法 | 描述 |
 | :------: | :------: |
 | list.append(elem) | (elem表示element)把一个元素添加到列表的结尾，相当于 a[len(a):] = [elem]|
 | list.extend(list2) | 在列表list2最后添加元素，相当于 a[len(a):] = list2;在一个列表使用+或+=和extend()类似;extend()方法只接受一个列表作为参数 |
 | list.insert(index, elem) | 在指定位置插入一个元素。第一个参数是准备插入到其前面的那个元素的索引，例如 a.insert(0, x) 会插入到整个列表之前，而 a.insert(len(a), x) 相当于 a.append(x) |
-| list.index(elem) | 从列表的开头搜索给定元素并返回其索引。如果没有匹配的元素就会返回一个错误 |
 | list.remove(elem) | 搜索给定元素的第一个实例并将其删除,如果不存在则抛出ValueError |
 | list.pop([i]) | 从列表的指定位置删除元素，并将其返回。如果没有指定索引，a.pop()返回最右边一个元素,并返回所删除的值。方法中 i 两边的方括号表示这个参数是可选的，而不是要求你输入一对方括号，你会经常在Python库参考手册中遇到这样的标记 |
+| list.clear() | 移除列表中的所有项，等于del a[:] |
+| list.index(elem) | 从列表的开头搜索给定元素并返回其索引。如果没有匹配的元素就会返回一个错误 |
+| list.count(x) | 返回 x 在列表中出现的次数 |
 | list.sort() | 对列表中的元素进行永久排序,不要直接返回结果,后面使用sorted()函数临时排序显示更好 |
 | list.reverse() | 倒序排列列表中的元素 |
-| list.clear() | 移除列表中的所有项，等于del a[:] |
-| list.count(x) | 返回 x 在列表中出现的次数 |
 | list.copy() | 返回列表的浅复制，等于a[:] |
 
 ##### 将列表当做堆栈使用
 
-列表方法使得列表可以很方便的作为一个堆栈来使用，堆栈作为特定的数据结构，最后一个插入，最先取出（后进先出）。用 append()
-方法可以把一个元素添加到堆栈顶。用不指定索引的 pop() 方法可以把一个元素从堆栈顶取出来
+列表方法使得列表可以很方便的作为一个堆栈来使用，堆栈作为特定的数据结构，最后一个插入，最先取出（后进先出）。
+用 append()方法可以把一个元素添加到堆栈顶。用不指定索引的 pop() 方法可以把一个元素从堆栈顶取出来
+
+```python
+stack = [3, 4, 5]
+stack.append(7)
+stack.pop()
+
+```
 
 ##### 将列表当作队列使用
 
@@ -516,7 +697,7 @@ deque被设计用于快速从两端操作
 列表推导式提供了从序列创建列表的简单途径。常见的用法是把某种操作应用于序列或可迭代对象的每个元素上，然后使用其结果来创建
 列表，或者通过满足某些特定条件元素来创建子序列
 
-每个列表推导式都在 for 之后跟一个表达式，然后有零到多个 for 或 if 子句。返回结果是一个根据表达从其后的 for 和 if 上下文环
+每个列表推导式都在for之后跟一个表达式，然后有零到多个 for 或 if 子句。返回结果是一个根据表达从其后的 for 和 if 上下文环
 境中生成出来的列表。如果希望表达式推导出一个元组，就必须使用括号
 
 ##### 嵌套列表推导式和del语句
@@ -526,7 +707,7 @@ deque被设计用于快速从两端操作
 *del语句*：使用del语句可以从一个列表中依索引而不是值来删除一个元素。这与使用 pop() 返回一个值不同。可以用 del 语句从列表
 中移除切片，或清空整个列表（我们以前介绍的方法是空列表赋值给一个指定的切片)，del也可以用来删除整个变量
 
-##### python高级特性：切片、迭代、列表推导式、生成器、迭代器
+##### python高级特性：切片、迭代、推导式、生成器、迭代器
 
 ```python
 
@@ -537,13 +718,13 @@ deque被设计用于快速从两端操作
 器只能往前，迭代器有两个方法iter()和next()。字符串、列表和元组对象都可用于创建迭代器
 """
 
-list = [1, 2, 3, 4]  # 创建列表list
-it = iter(list)  # 创建迭代器对象it
+list1 = [1, 2, 3, 4]  # 创建列表list1
+it = iter(list1)  # 创建迭代器对象it
 print(next(it))  # 输出迭代器下一个元素
 
 # 迭代器对象可以用for语句进行遍历
-list = [1, 2, 3, 4]  # 创建列表list
-it = iter(list)  # 创建迭代器对象it
+list2 = [1, 2, 3, 4]  # 创建列表list2
+it = iter(list1)  # 创建迭代器对象it
 for x in it:
     print(x, end=" ")
 
@@ -554,7 +735,14 @@ print([x * x for x in range(1, 11) if x % 2 == 0])
 
 # 运用列表推导式，可以写出非常简洁的代码。例如，列出当前目录下的所有文件和目录名，可以通过一行代码实现
 import os   # 导入os模块
-print([dir for dir in os.listdir('.')]) # 列出当前目录下文件和目录名(包含隐藏文件或目录)
+print([d for d in os.listdir('.')]) # 列出当前目录下文件和目录名(包含隐藏文件或目录)
+
+# 使用itertools包中itertools.chain.from_iterable()快速碾平一个内嵌列表
+import itertools
+list_1 = [[1, 2], [3, 4]]
+print(list(itertools.chain(*list_1)))   # 第一种方式
+print(list(itertools.chain.from_iterable(list_1)))  # 第二种方式
+
 ```
 
 ```python
@@ -569,7 +757,7 @@ import sys
 def fibonacci(x):
     a, b, count = 0, 1, 0
     while True:
-        if (count > x):
+        if count > x:
             return
         yield a # 将fibonacci函数变成generator，print(a)改成yield a
         a, b = b, a + b
@@ -863,6 +1051,9 @@ memoryview对象允许Python代码访问支持buffer protocol的对象的内部�
 使用 enumerate() 函数同时得到。同时遍历两个或更多的序列，可以使用 zip() 组合。要反向遍历一个序列，首先指定这个序列
 然后调用 reversesd() 函数。要按顺序遍历一个序列，使用 sorted() 函数返回一个已排序的序列，并不修改原值
 
+collections.OrderedDict([items])    返回dict子类的实例，该实例具有专门用于重新排列字典顺序的方法
+
+
 ```
 
 ##### python字典常用方法
@@ -898,6 +1089,103 @@ Python的生成器和contextlib.contextmanager装饰器提供了一种实现这�
 请注意，Python / C API中Python对象的类型结构中没有针对这些方法的特定插槽。想要定义这些方法的扩展类型必须将它们作为普通的
 Python可访问方法提供。与设置运行时上下文的开销相比，单个类字典查找的开销可以忽略不计
 
+### python读写json
+
+```markdown
+序列化：将对象转换为适合通过网络传输或存储在文件或数据库中的特殊格式的过程称为序列化
+反序列化：与序列化相反。它将序列化返回的特殊格式转换回可用的对象
+
+例如处理JSON格式时，当我们序列化对象时，实际上是将Python对象转换为JSON字符串(dump()进行序列化)，
+反序列化则通过其JSON字符串表示形式构建Python对象(load()反序列化)
+
+```
+
+#### dump()序列化
+
+```python
+"""
+dump()函数用于序列化数据，它接受一个python对象，对其进行序列化然后输出json字符串
+语法：dump(obj, fp)
+obj：要进行序列化的对象
+fp：类似文件的对象，将把序列化数据写入到此对象
+"""
+import json
+
+
+# 创建python字典类型变量person
+person = {
+    "first_name": "John",
+    "isAlive": True,
+    "age": 27,
+    "address": {
+        "streetAddress": "21 2nd Street",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": "10021-3100"
+    },
+    "hasMortgage": None
+}
+
+# 注意事项：在序列化对象时，Python的类型None将转换为JSON的null类型
+with open('person.json', 'w') as f:     # 将json对象person写入到person.json文件
+    json.dump(person, f)
+
+open('person.json', 'r').read()     # 以字符串形式读取JSON对象
+
+```
+
+序列化数据时类型之间的转换：
+
+| PYTHON TYPE | JSON TYPE |
+| :------: | :------: |
+| dict | object |
+| list, tuple | array |
+| int | number |
+| float | number |
+| str | string |
+| TRUE | TRUE |
+| FALSE | FALSE |
+| None | null |
+
+反序列化数据时类型之间的转换：
+
+| JSON TYPE | PYTHON TYPE |
+| :------: | :------: |
+| object | dict |
+| array | list |
+| string | str |
+| number (int) | int |
+| number (real) | float |
+| TRUE | TRUE |
+| FALSE | FALSE |
+| null | None |
+
+#### load()反序列化
+
+```python
+import json
+# load()函数从类似于object的文件中反序列化JSON对象并返回
+with open('person.json', 'r') as f:
+    person = json.load(f)
+```
+
+#### dumps()和loads()
+
+```python
+# dumps()和dump()函数工作方式相同，但不是将输出发送到类文件的对象，而是将输出作为字符串返回
+# loads()和load()函数也一样，但不是从文件中反序列化json字符串，而是从反序列化一个字符串
+
+```
+
+#### pickle
+
+```python
+# pickle模块以二进制格式序列化数据，提供接口和json模块相同，load和dump
+# 语法：dump(obj, file)
+# obj：需要序列化的数据对象
+# file：将序列化的数据对象写入到文件对象
+```
+
 ## 循环
 
 ```python
@@ -913,6 +1201,8 @@ while count <= 100:
 print("1~100和是:", num_sum)
 
 # for循环可以遍历任何序列的项目，如列表或字符串,for实例使用break语句，break语句用于跳出当前循环体
+# continue语句继续循环的下一个迭代
+# pass语句不执行任何操作。当在语法上需要一条语句但该程序不需要任何操作时，可以使用它
 
 foods = ["apple", "beef", "fish"]
 for egg in foods:
@@ -936,7 +1226,7 @@ for i in range(len(a)):
 
 ```
 
-## Python条件判断语句
+## 判断语句
 
 ```markdown
 # if语句基本格式
@@ -978,10 +1268,12 @@ while guess != number:
 
 #### 默认参数
 
-```python
-# 新的power(x, n)函数定义没有问题，但是，旧的调用代码失败了，原因是我们增加了一个参数，导致旧的代码因为缺少一个参数而无法
-# 正常调用，这时候可以用默认参数
+为一个或多个参数指定默认值。这将创建一个函数，该函数可以使用比其定义所允许的参数更少的参数来调用
 
+新的power(x, n)函数定义没有问题，但是，旧的调用代码失败了，原因是我们增加了一个参数，
+导致旧的代码因为缺少一个参数而无法正常调用，这时候可以用默认参数
+
+```python
 def power(x, n=2):
     s = 1
     while n > 0:
@@ -1007,22 +1299,21 @@ def power(x, n):   # x就是一个位置参数
 #### 可变参数
 
 ```python
-# 可变参数就是传入的参数个数是可变的，可以是0个到任意个
-# 例：给定一组数字a，b，c……，请计算a2 + b2 + c2 + ……
+# 可变参数就是传入的参数个数是可变的，可以是0个到任意个例：给定一组数字a，b，c……，请计算a2 + b2 + c2 + ……
 # 定义一个list或tuple参数
 def calc(numbers):
-    sum = 0
+    sum1 = 0
     for n in numbers:
-        sum = sum + n * n
-    return sum
+        sum1 = sum1 + n * n
+    return sum1
 # 定义可变参数和定义一个list或tuple参数相比，仅仅在参数前面加了一个* 号。在函数内部，参数numbers接收到的是一个tuple，因此
 # 函数代码完全不变。但是，调用该函数时，可以传入任意个参数，包括0个参数。Python允许你在list或tuple前面加一个*号，把list或
 # tuple的元素变成可变参数传进去。*numbers表示把numbers这个list或tuple的所有元素作为可变参数传进去
-def calc(*numbers):
-    sum = 0
+def calc2(*numbers):
+    sum2 = 0
     for n in numbers:
-        sum = sum + n * n
-    return sum
+        sum2 = sum2 + n * n
+    return sum2
 
 """
 python中*和**含义:
@@ -1037,24 +1328,27 @@ function_1(1, 2, 3, x=1, y=2, z=3) # 传参给函数function_1，返回值为(1,
 """
 当其在一个函数调用中
 当参数已经在列表或元组中但需要为需要单独位置参数的函数调用解包时,与*运算符一起编写函数调用以从列表或元组中解压缩参数
-*   将列表或元组解包到位置参数中
-**  将字典解压缩为关键字参数
+*   将列表或元组解包到位置参数中，即将可迭代变量中的元素作为参数传递给函数(仅当参数数量与可迭代变量中的元素数量相同时，此方法才有效)
+**  将字典解压缩为关键字参数，允许传递可变数量的关键字参数给函数(函数中的参数名称必须与字典中的键名称匹配；参数数量应与字典中的键数相同)
 """
-list = [1, 2, 3]
+list1 = [1, 2, 3]
 dic = {'x': 1, 'y': 2, 'z': 3}
-function_1(*list, **dic)
+function_1(*list1, **dic)
 ```
 
 #### 关键字参数，函数也可以使用kwarg=value的关键字参数形式被调用
 
+可变参数列表：一个最不常用的选择是可以让函数调用可变个数的参数.这些参数被包装进一个元组tuple(查看元组和序列).在这些可
+变个数的参数之前,可以有零到多个含参数名的参数:
+
+在函数调用中，关键字参数必须位于位置参数之后,传递的所有关键字参数都必须与函数接受的参数之一匹配,并且它们的顺序并不重要
+
 ```python
-# 可变参数列表：一个最不常用的选择是可以让函数调用可变个数的参数.这些参数被包装进一个元组tuple(查看元组和序列).在这些可
-# 变个数的参数之前,可以有零到多个含参数名的参数:
 def arithmetic_mean(*args):
-    sum = 0
+    sum1 = 0
     for x in args:
-        sum += x
-    return sum
+        sum1 += x
+    return sum1
 
 print(arithmetic_mean(45,32,89,78))
 print(arithmetic_mean(8989.8,78787.78,3453,78778.73))
@@ -1083,16 +1377,17 @@ def person(name, age, **kw):
     print('name:', name, 'age:', age, 'other:', kw)
 
 # 命名关键字参数必须传入参数名，这和位置参数不同。如果没有传入参数名，调用将报错
-# 使用命名关键字参数时，要特别注意，如果没有可变参数，就必须加一个*作为特殊分隔符。如果缺少*，Python解释器将无法识别位置参数和命名关键字参数：
+# 使用命名关键字参数时，如果没有可变参数，就必须加一个*作为特殊分隔符。如果缺少*，Python解释器将无法识别位置参数和命名关键字参数：
 def person(name, age, city, job):
     # 缺少 *，city和job被视为位置参数
     pass
+
 ```
 
 #### Lambda表达式
 
 可以使用lambda关键字创建小的匿名函数。此函数返回其两个参数的总和：。Lambda函数可以在需要函数对象的任何地方使用。它们在语
-法上限于单个表达式。从语义上讲，它们只是正常函数定义的语法糖。与嵌套函数定义一样，lambda函数可以引用包含范围的变量：lamb
+法上限于单个表达式,不能包含多个表达式。从语义上讲，它们只是正常函数定义的语法糖。与嵌套函数定义一样，lambda函数可以引用包含范围的变量：lamb
 da a, b: a+b
 
 ```python
@@ -1105,6 +1400,7 @@ pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
 pairs.sort(key=lambda pair: pair[1])
 print(pairs)
 
+# 尽量使用列表推导, for循环取代filter(), map()以及reduce()
 # 将列表所有元素传递给函数并输出
 # map函数和lambda
 num = [1, 2]
@@ -1118,6 +1414,18 @@ list_range = list(filter(lambda x: x > 5, num)) # filter函数过滤并返回符
 # 利用reduce求列表元素乘积，也可使用循环来处理
 from functools import reduce
 result = reduce((lambda x, y: x * y), [1, 2])
+
+```
+
+#### map函数
+
+```python
+# map函数使用一个函数和一个迭代器作为输入，然后将该函数应用与迭代器的每个值并返回结果列表
+list5 = [1, 2, 3, 4, 5]
+def square(num):
+    return num ** 2
+
+print(list(map(square, list5)))
 
 ```
 
@@ -1143,11 +1451,26 @@ def f2(a, b, c=0, *, d, **kw):
 
 ```python
 """
-如果一个函数在内部调用自身本身，这个函数就是递归函数.理论上，所有的递归函数都可以写成循环的方式，但循环的逻辑不如递归清晰
-使用递归函数需要注意防止栈溢出。在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出
+如果一个函数在内部调用自身本身，这个函数就是递归函数.理论上，任何循环都可以转换为递归，使用递归函数需要注意防止栈溢出。在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出
 解决递归调用栈溢出的方法是通过尾递归优化，事实上尾递归和循环的效果是一样的，所以，把循环看成是一种特殊的尾递归函数也是可以的
 尾递归是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况
 """
+
+# 示例计算阶乘的递归函数
+# 注意：python默认只能调用1000次，固n要小于等于997
+import sys
+sys.setrecursionlimit(2000)     # 设置递归调用次数为2000
+
+
+def fact(n):
+    if n == 0:
+        return 1
+    else:
+        return n * fact(n-1)
+
+
+print(fact(1000))
+
 ```
 
 ## 面向对象
@@ -1254,22 +1577,33 @@ BaseException
            +-- ResourceWarning
 ```
 
-## 文本处理服务
+## 文本处理服务(text processing services)
 
-### 常见字符串操作
+### 常见字符串常量
 
 | 字符串 | 描述 |
 | :------: | :------: |
-| string.capwords(s, sep) | 将以sep分割的字符首字母大写，没有sep默认是首字母 |
 | string.ascii_letters | 以下lowercase和uppercase两个常量的串联 |
 | string.ascii_lowercase | 小写字母abcdefghijklmnopqrstuvwxyz |
 | string.ascii_uppercase | 大写字母ABCDEFGHIJKLMNOPQRSTUVWXYZ |
 | string.digits | 字符串0123456789 |
 | string.hexdigits | 字符串0123456789abcdefABCDEF |
 | string.octdigits | 字符串01234567 |
-| string.punctuation | ASCII字符的字符串,在C语言环境中被视为标点字符 |
+| string.punctuation | ASCII字符的字符串,在C语言环境中被视为标点字符!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ |
 | string.printable | 被视为可打印的ASCII字符串，这是一个组合digits、ascii_letters、punctuation、whitespace |
-| string.whitespace | 包含所有被视为空格的ASCII字符的字符串，包括字符间隔,tab, linefeed, return, formfeed, and vertical tab |
+| string.whitespace | 包含所有被视为空格的ASCII字符的字符串，包括字符间隔，制表符，换行符，返回符，换页符和垂直制表符 |
+
+```python
+"""
+辅助函数：string.capwords(s, sep=None)
+使用str.split()将参数分解为单词，使用str.capitalize()将单词首字母大写，然后使用str.join()连接大写单词，如果sep不存在或为None
+则将空格字符的行替换为单个空格，并删除开头和结尾的空格，否则使用sep分隔和连接单词，即当sep匹配到单词的字符时，开始capwords处理字符
+"""
+import string
+
+s = 'street road'
+print(string.capwords(s, sep='r'))  # 输出：StrEet rOad
+```
 
 ### 格式化字符串语法
 
@@ -1328,6 +1662,7 @@ re模块与Perl语言类似的正则表达式匹配操作，模式和被搜索�
 |  |  |
 | :------: | :------: |
 | re.search(pattern, string, flags=0) | 查找在string中与pattern匹配的第一个位置字符，并返回匹配对象和位置。<br>如果string中没有与模式匹配，则返回None |
+| re.match() | 与re.search()相似，区别在于re.match在字符串的开头开始寻找匹配项。 |
 | re.compile(pattern, flags=0) | 将正则表达式模式编译为正则表达式对象，可使用match()，search()以及下面所述的其他方法将其用于匹配<br>可以通过指定flags值来修改表达式的行为。可以使用`按位运算、或运算`组合 |
 | re.findall() | 以string列表形式返回string中所有非重复的匹配项 |
 | re.finditer() | 返回一个迭代器，该迭代器生成match对象 |
@@ -1365,6 +1700,23 @@ re模块与Perl语言类似的正则表达式匹配操作，模式和被搜索�
 | DOTALL | s |
 | VERBOSE | x |
 
+```python
+# re.match()和re.search()对比
+import re
+
+
+s = "python tuts"
+match = re.match(r'py', s)
+if match:
+    print(match.group())
+
+s2 = "python tuts"
+match = re.search(r'^py', s2)   # re.search()添加^符号与上面re.match()相同
+if match:
+    print(match.group())
+
+```
+
 ### difflib -- helpers for computing deltas
 
 difflib.Differ用于比较文本行序列并s生成人类可读的差异或增量的类。Differ使用SequenceMatcher来比较行的序列并比较相似(近匹配)行中字符序列
@@ -1378,7 +1730,7 @@ Differ delta的每一行都以两个字母的代码开头
 | '  ' | 如果没有更改则在左列打印出多余的一个空白，以便于和其他有差异的输出对齐 |
 | '? ' | 如果比较的行内容有所差异则使用?来突出显示更改 |
 
-### textwrap
+### textwrap -- Text wrapping and filling
 
 通过调整段落中出现换行符的位置来格式化文本。TextWrapper构造函数接受许多可选的关键字参数。每个关键字参数对应一个实例属性
 
@@ -1390,15 +1742,144 @@ Differ delta的每一行都以两个字母的代码开头
 | textwrap.dedent(text) | 从文本的每一行中删除任何常见的前导空格、制表符 |
 | textwrap.indent(text, prefix, predicate=None) | 在文本中选定行的开头添加前缀 |
 
-[unicodedata](https://devdocs.io/python~3.7/library/unicodedata)
-[stringprep](https://devdocs.io/python~3.7/library/stringprep)
-[readline](https://devdocs.io/python~3.7/library/readline)
-[rlcompleter](https://devdocs.io/python~3.7/library/rlcompleter)
+### unicodedata -- Unicode Database
+
+提供对unicode字符数据的访问，该数据库定义了所有unicode字符的字符属性
+
+
 
 ## Binary Data Services
 
 struct — Interpret bytes as packed binary data
 codecs — Codec registry and base classes
+
+## File & Directory access
+
+open()函数打开文件并返回相应的文件对象
+语法格式为：open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+
+* file: 必需，文件路径（相对或者绝对路径）
+* mode: 可选，决定了打开文件的模式：只读，写入，追加等。可选参数，默认模式只读(r)
+* buffering: 用于设置缓冲策略的可选整数，传递0来关闭缓冲（仅在二进制模式下允许），传递1来选择行缓冲（仅在文本模式下可用），<br>传递一个大于1的整数以指示固定大小的块缓冲区的字节大小
+* encoding: 用于解码或编码文件的编码的名称，仅在文本模式下使用
+* errors: 可选字符串，指定处理编码和编码错误的方式，不能在二进制模式下使用
+* newline: 控制换行，仅用于文本模式
+* closefd: 若closefd是False并且给出了文件描述符而不是文件名，则在关闭文件时，底层文件描述符将保持打开状态。<br>如果给定文件名，closefd必须为True（默认），否则将引发错误
+* opener:可以通过传递可调用的opener来使用自定义opener。然后通过使用（file,flags）调用opener获得文件对象的基础文件描述符。<br>opener必须返回一个打开的文件描述符
+
+mode可用模式有：
+
+| 模式 | 描述 |
+| :------: | :------: |
+| r | 以只读方式打开文件(默认模式) |
+| rb | 以二进制格式打开一个文件用于只读 |
+| r+ | 打开一个文件用于读写 |
+| rb+ | 以二进制格式打开一个文件用于读写 |
+| w | 打开文件用于写入。首先截断文件，即有内容会被清除覆盖 |
+| wb | 以二进制格式打开文件用于写入。首先截断文件，即有内容会被清除覆盖 |
+| w+ | 打开文件用于读写。首先截断文件，即有内容会被清除覆件 |
+| a | 打开文件用于追加。如果该文件不存在，创建新文件进行写入 |
+| ab | 以二进制格式打开文件用于追加。新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入 |
+| a+ | 打开文件用于读写。文件已存在是追加模式。如果该文件不存在，创建新文件用于读写 |
+| ab+ | 以二进制格式打开文件用于追加。如果该文件已存在则追加，如果该文件不存在，创建新文件用于读写 |
+
+mode模式及对应支持操作表：
+
+| 模式 | r | r+ | w | w+ | a | a+ |
+| :------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| 读 | yes | yes |  | yes |  | yes |
+| 写 |  | yes | yes | yes | yes | yes |
+| 创建 |  |  | yes | yes | yes | yes |
+| 覆盖 |  |  | yes | yes |  |  |
+| 从文件开头读写 | yes | yes | yes | yes |  |  |
+| 从文件结尾读写 |  |  |  |  | yes | yes |
+
+文件对象常用方法
+
+|  |  |
+| :------: | :------: |
+| file.close() | 关闭文件。关闭后文件不能再进行读写操作 |
+| file.flush() | 刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入 |
+| file.fileno() | 返回一个整型的文件描述符(file descriptor FD 整型, 可以用在如os模块的read方法等一些底层操作上 |
+| file.isatty() | 如果文件连接到一个终端设备返回 True，否则返回 False |
+| file.next() | 返回文件下一行 |
+| file.read([size]) | 从文件读取指定的字节数，如果未给定或为负则读取所有 |
+| file.readline([size]) | 读取整行，包括 "\n" 字符 |
+| file.readlines([sizehint]) | 读取所有行并返回列表，若给定sizeint>0，返回总和大约为sizeint字节的行,<br>实际读取值可能比sizeint较大, 因为需要填充缓冲区 |
+| file.seek(offset[, whence]) | 设置文件当前位置 |
+| file.tell() | 返回文件当前位置 |
+| file.truncate([size]) | 截取文件，截取的字节通过size指定，默认为当前文件位置 |
+| file.write(str) | 将字符串写入文件，返回的是写入的字符长度 |
+| file.writelines(sequence) | 向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符 |
+
+OS文件或目录方法
+
+| 方法 | 描述 |
+| :------: | :------: |
+| os.access(path, mode) | 检验权限模式 |
+| os.chdir(path) | 改变当前工作目录 |
+| os.chflags(path, flags) | 设置路径的标记为数字标记 |
+| os.chmod(path, mode) | 更改权限 |
+| os.chown(path, uid, gid) | 更改文件所有者 |
+| os.chroot(path) | 改变当前进程的根目录 |
+| os.close(fd) | 关闭文件描述符 fd |
+| os.closerange(fd_low, fd_high) | 关闭所有文件描述符，从 fd_low (包含）到 fd_high (不包含）错误会忽略 |
+| os.dup(fd) | 复制文件描述符 fd |
+| os.dup2(fd, fd2) | 将一个文件描述符 fd 复制到另一个 fd2 |
+| os.fchdir(fd) | 通过文件描述符改变当前工作目录 |
+| os.fchmod(fd, mode) | 改变一个文件的访问权限，该文件由参数fd指定，参数mode是Unix下的文件访问权限 |
+| os.fchown(fd, uid, gid) | 修改一个文件的所有权，这个函数修改一个文件的用户ID和用户组ID，该文件由文件描述符fd指定 |
+| os.fdatasync(fd) | 强制将文件写入磁盘，该文件由文件描述符fd指定，但是不强制更新文件的状态信息 |
+| os.fdopen(fd[, mode[, bufsize]]) | 通过文件描述符 fd 创建一个文件对象，并返回这个文件对象 |
+| os.fpathconf(fd, name) | 返回一个打开的文件的系统配置信息。name为检索的系统配置的值，它也许是一个定义系统值的字符串，<br>这些名字在很多标准中指定（POSIX.1, Unix 95, Unix 98, 和其它） |
+| os.fstat(fd) | 返回文件描述符fd的状态，像stat( |
+| os.fstatvfs(fd) | 返回包含文件描述符fd的文件的文件系统的信息，像 statvfs( |
+| os.fsync(fd) | 强制将文件描述符为fd的文件写入硬盘 |
+| os.ftruncate(fd, length) | 裁剪文件描述符fd对应的文件, 所以它最大不能超过文件大小 |
+| os.getcwd() | 返回当前工作目录 |
+| os.getcwdu() | 返回一个当前工作目录的Unicode对象 |
+| os.isatty(fd) | 如果文件描述符fd是打开的，同时与tty(-like)设备相连，则返回true, 否则False |
+| os.lchflags(path, flags) | 设置路径的标记为数字标记，类似 chflags()，但是没有软链接 |
+| os.lchmod(path, mode) | 修改连接文件权限 |
+| os.lchown(path, uid, gid) | 更改文件所有者，类似 chown，但是不追踪链接 |
+| os.link(src, dst) | 创建硬链接，名为参数 dst，指向参数 src |
+| os.listdir(path) | 返回path指定的文件夹包含的文件或文件夹的名字的列表 |
+| os.lseek(fd, pos, how) | 设置文件描述符 fd当前位置为pos, how方式修改: SEEK_SET 或者 0 设置从文件开始的计算的pos;<br>SEEK_CUR或者 1 则从当前位置计算; os.SEEK_END或者2则从文件尾部开始. 在unix，Windows中有效 |
+| os.lstat(path) | 像stat() |
+| os.major(device) | 从原始的设备号中提取设备major号码,使用stat中的st_dev或者st_rdev field),但是没有软链接 |
+| os.makedev(major, minor) | 以major和minor设备号组成一个原始设备号 |
+| os.makedirs(path[, mode]) | 递归文件夹创建函数。像mkdir(), 但创建的所有intermediate-level文件夹需要包含子文件夹 |
+| os.minor(device) | 从原始的设备号中提取设备minor号码,使用stat中的st_dev或者st_rdev field |
+| os.mkdir(path[, mode]) | 以数字mode的mode创建一个名为path的文件夹.默认的 mode 是 0777 (八进制) |
+| os.mkfifo(path[, mode]) | 创建命名管道，mode 为数字，默认为 0666 (八进制 |
+| os.mknod(filename[, mode=0600, device]) | 创建一个名为filename文件系统节点（文件，设备特别文件或者命名pipe） |
+| os.open(file, flags[, mode]) | 打开一个文件，并且设置需要的打开选项，mode参数是可选的 |
+| os.openpty() | 打开一个新的伪终端对。返回 pty 和 tty的文件描述符 |
+| os.pathconf(path, name) | 返回相关文件的系统配置信息 |
+| os.pipe() | 创建一个管道. 返回一对文件描述符(r, w)分别为读和写 |
+| os.popen(command[, mode[, bufsize]]) | 从一个 command 打开一个管道 |
+| os.read(fd, n) | 从文件描述符 fd 中读取最多 n 个字节，返回包含读取字节的字符串，文件描述符 fd对应文件已达到结尾, 返回一个空字符串 |
+| os.readlink(path) | 返回软链接所指向的文件 |
+| os.remove(path) | 删除路径为path的文件。如果path 是一个文件夹，将抛出OSError; 查看下面的rmdir()删除一个 directory |
+| os.removedirs(path) | 递归删除目录 |
+| os.rename(src, dst) | 重命名文件或目录，从 src 到 dst |
+| os.renames(old, new) | 递归地对目录进行更名，也可以对文件进行更名 |
+| os.rmdir(path) | 删除path指定的空目录，如果目录非空，则抛出一个OSError异常 |
+| os.stat(path) | 获取path指定的路径的信息，功能等同于C API中的stat()系统调用 |
+| os.stat_float_times([newvalue]) | 决定stat_result是否以float对象显示时间戳 |
+| os.statvfs(path) | 获取指定路径的文件系统统计信息 |
+| os.symlink(src, dst) | 创建一个软链接 |
+| os.tcgetpgrp(fd) | 返回与终端fd（一个由os.open()返回的打开的文件描述符）关联的进程组 |
+| os.tcsetpgrp(fd, pg) | 设置与终端fd（一个由os.open()返回的打开的文件描述符）关联的进程组为pg |
+| os.tempnam([dir[, prefix]]) | Python3 中已删除。返回唯一的路径名用于创建临时文件 |
+| os.tmpfile() | Python3 中已删除。返回一个打开的模式为(w+b)的文件对象 .这文件对象没有文件夹入口，没有文件描述符，将会自动删除 |
+| os.tmpnam() | Python3 中已删除。为创建一个临时文件返回一个唯一的路径 |
+| os.ttyname(fd) | 返回一个字符串，它表示与文件描述符fd 关联的终端设备。如果fd 没有与终端设备关联，则引发一个异常 |
+| os.unlink(path) | 删除文件路径 |
+| os.utime(path, times) | 返回指定的path文件的访问和修改的时间 |
+| os.walk(top[, topdown=True[, onerror=None[, followlinks=False]]]) | 输出在文件夹中的文件名通过在树中游走，向上或者向下 |
+| os.write(fd, str) | 写入字符串到文件描述符 fd中. 返回实际写入的字符串长度 |
+| os.path 模块) | 获取文件的属性信息 |
 
 ## 开发者工具
 

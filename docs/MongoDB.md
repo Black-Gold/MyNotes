@@ -1,5 +1,109 @@
 # MongoDB-4.0.10
 
+## 慢查询分析
+
+```javascript
+show profile; # 显示最后几条慢查询
+
+// sort by natural order (time in)
+db.system.profile.find({}).sort({$natural:-1})
+
+// sort by slow queries first
+db.system.profile.find({}).sort({$millis:-1}).limit(10);
+
+// anything > 20ms
+db.system.profile.find({"millis":{$gt:20}})
+
+// single coll order by response time
+db.system.profile.find({"ns":"test.foo"}).sort({"millis":-1})
+
+// regular expression on namespace
+db.system.profile.find( { "ns": /test.foo/ } ).sort({millis:-1,$ts:-1})
+
+// anything thats moved
+db.system.profile.find({"moved":true})
+
+// large scans
+db.system.profile.find({"nscanned":{$gt:10000}})
+
+// anything doing range or full scans
+db.system.profile.find({"nreturned":{$gt:1}})
+
+
+// using the agg framework
+// response time by operation type
+db.system.profile.aggregate(
+{ $group : {
+   _id :"$op",
+   count:{$sum:1},
+   "max response time":{$max:"$millis"},
+   "avg response time":{$avg:"$millis"}
+}});
+
+// slowest by namespace
+db.system.profile.aggregate(
+{ $group : {
+  _id :"$ns",
+  count:{$sum:1},
+  "max response time":{$max:"$millis"},
+  "avg response time":{$avg:"$millis"}
+}},
+{$sort: {
+ "max response time":-1}
+});
+
+
+// slowest by client
+db.system.profile.aggregate(
+{$group : {
+  _id :"$client",
+  count:{$sum:1},
+  "max response time":{$max:"$millis"},
+  "avg response time":{$avg:"$millis"}
+}},
+{$sort: {
+  "max response time":-1}
+});
+
+// summary moved vs non-moved
+db.system.profile.aggregate(
+ { $group : {
+   _id :"$moved",
+   count:{$sum:1},
+   "max response time":{$max:"$millis"},
+   "avg response time":{$avg:"$millis"}
+ }});
+
+db.system.profile.aggregate([
+  { $project : {
+      "op" : "$op",
+      "millis" : "$millis",
+      "timeAcquiringMicrosrMS" : { $divide : [ "$lockStats.timeAcquiringMicros.r", 1000 ] },
+      "timeAcquiringMicroswMS" : { $divide : [ "$lockStats.timeAcquiringMicros.w", 1000 ] },
+      "timeLockedMicrosrMS" : { $divide : [ "$lockStats.timeLockedMicros.r", 1000 ] },
+      "timeLockedMicroswMS" : { $divide : [ "$lockStats.timeLockedMicros.w", 1000 ] } }
+  },
+  { $project : {
+      "op" : "$op",
+      "millis" : "$millis",
+      "total_time" : { $add : [ "$millis", "$timeAcquiringMicrosrMS", "$timeAcquiringMicroswMS" ] },
+      "timeAcquiringMicrosrMS" : "$timeAcquiringMicrosrMS",
+      "timeAcquiringMicroswMS" : "$timeAcquiringMicroswMS",
+      "timeLockedMicrosrMS" : "$timeLockedMicrosrMS",
+      "timeLockedMicroswMS" : "$timeLockedMicroswMS" }
+  },
+  { $group : {
+      _id : "$op",
+      "average response time" : { $avg : "$millis" },
+      "average response time + acquire time": { $avg: "$total_time"},
+      "average acquire time reads" : { $avg : "$timeAcquiringMicrosrMS" },
+      "average acquire time writes" : { $avg : "$timeAcquiringMicroswMS" },
+      "average lock time reads" : { $avg : "$timeLockedMicrosrMS" },
+      "average lock time writes" : { $avg : "$timeLockedMicroswMS" } }
+  }
+]);
+```
+
 ## 基础
 
 views是只读的且无法重新命名，对视图执行写操作会报错，视图支持的读操作有：
@@ -101,6 +205,8 @@ BinData排序顺序为：
 1. 首先，数据的长度或大小
 2. 然后，通过BSON一字节子类型
 3. 最后，通过数据，执行逐字节比较
+
+## 配置文件参考
 
 ```conf
   # 配置日志
