@@ -9,7 +9,7 @@ repo_name: 'Black-Gold/MyNotes'
 repo_url: 'https://github.com/Black-Gold/MyNotes'
 
 nav:
-  - Home: 'index.md'
+  - Home: 'index.html'
   - Vim: 'Vim.md' 
   - Languages: 
     - 'Regex': 'Regex.md'

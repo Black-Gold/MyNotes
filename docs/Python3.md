@@ -62,15 +62,13 @@ __pow__: 乘方
 # 框架：控制反转
 
 # 模块（modules）：
-模块(module)是python最高级别的程序组织单位。它可以打包程序代码和数据以备重用
-模块采用python程序的文件形式（或者C扩展程序的形式）存储，客户导入模块并对使用他们定义的名字
+模块(module)是一种将定义放入文件中并在脚本或解释器的交互式实例中使用它们的方法。这样的文件称为模块
 
-模块即普通的python文件，可以自定义并导入，模块名称即文件名称，具有显式导出和导入的抽象接口，实现和接口是分开的
-可能有多个实现并且实现是隐藏的。通俗的讲，将自行定义或已经存在的方法和变量存放在文件中，为一些脚本或交互式解释器实例使用
-这样的文件被称之为模块；模块是一个包含Python定义函数、变量和语句的文件。模块可以被别的程序引入，以使用该模块中的函数的
-功能和属性，这也是使用python标准库的方法,如果自定义的有和标准库相同的模块，则会覆盖标准库
+模块名称即文件名称，具有显式导出和导入的抽象接口，实现和接口是分开的，可能有多个实现并且实现是隐藏的。
+模块可以包含可执行语句以及函数定义。模块可以被别的程序引入，以使用该模块中的函数的功能和属性，
+这也是使用python标准库的方法,如果自定义的有和标准库相同的模块，则会覆盖标准库
 
-每个模块在每个解释器中只能导入一遍，修改模块后需重启解释器，想要进行交互式不重启测试一个模块，可以利用imp.raload()方法重载
+出于效率原因，每个模块在每个解释器中只能导入一遍，修改模块后需重启解释器，想要进行交互式不重启测试一个模块，可以利用imp.raload()方法重载
 
     以下划线开头的标识符是有特殊意义的
     • 以单下划线开头（_foo）的代表不能直接访问的类属性，需通过类提供的接口进行访问
@@ -392,8 +390,8 @@ range实际上是一个不可变的序列类型，而不是一个函数
 
 创建一个迭代器以聚合每个可迭代对象中的元素
 
-返回一个元组的迭代器，其中第i个元组包含每个参数序列或可迭代对象中的第i个元素。当最短的可迭代输入耗尽时，迭代器将停止。
-使用单个可迭代参数，它将返回1元组的迭代器。没有参数，它将返回一个空的迭代器。相当于以下示例：
+返回元组的一个迭代器，其中第i个元组包含每个参数序列或可迭代对象中的第i个元素。当最短的可迭代输入耗尽时，迭代器将停止。
+使用单个可迭代参数，它将返回第一个元组的迭代器。没有参数，它将返回一个空的迭代器。相当于以下示例：
 
 ```python
 def zip(*iterables):
@@ -653,6 +651,8 @@ except TypeError:
 2、和字符串一样，list可以被索引和切片
 3、List可以使用+操作符进行拼接
 4、List中的元素是可以改变的
+5、遍历列表时，有时很想更改列表。但是创建新列表通常更简单，更安全
+
 ```
 
 ##### 列表对象的方法
@@ -663,10 +663,10 @@ insert，remove或者sort只修改列表没有返回值，默认返回None，这
 | 方法 | 描述 |
 | :------: | :------: |
 | list.append(elem) | (elem表示element)把一个元素添加到列表的结尾，相当于 a[len(a):] = [elem]|
-| list.extend(list2) | 在列表list2最后添加元素，相当于 a[len(a):] = list2;在一个列表使用+或+=和extend()类似;extend()方法只接受一个列表作为参数 |
-| list.insert(index, elem) | 在指定位置插入一个元素。第一个参数是准备插入到其前面的那个元素的索引，例如 a.insert(0, x) 会插入到整个列表之前，而 a.insert(len(a), x) 相当于 a.append(x) |
+| list.extend(iterable) | 通过附加来自iterable的所有项来扩展列表。等同于 a[len(a):] = iterable |
+| list.insert(index, elem) | 在指定位置插入一个元素。第一个参数是准备插入到其前面的那个元素的索引，<br>例如 a.insert(0, x) 会插入到整个列表之前，而 a.insert(len(a), x) 相当于 a.append(x) |
 | list.remove(elem) | 搜索给定元素的第一个实例并将其删除,如果不存在则抛出ValueError |
-| list.pop([i]) | 从列表的指定位置删除元素，并将其返回。如果没有指定索引，a.pop()返回最右边一个元素,并返回所删除的值。方法中 i 两边的方括号表示这个参数是可选的，而不是要求你输入一对方括号，你会经常在Python库参考手册中遇到这样的标记 |
+| list.pop([i]) | 从列表的指定位置删除元素，并将其返回。如果没有指定索引，a.pop()返回最后一个元素,<br>并返回所删除的值。方法中i两边的方括号表示这个参数是可选的，而不是要求你输入一对方括号 |
 | list.clear() | 移除列表中的所有项，等于del a[:] |
 | list.index(elem) | 从列表的开头搜索给定元素并返回其索引。如果没有匹配的元素就会返回一个错误 |
 | list.count(x) | 返回 x 在列表中出现的次数 |
@@ -692,6 +692,14 @@ stack.pop()
 弹出元素速度快，然而在列表里插入或者从头部弹出速度却很慢（因为所有其他的元素都必须移动一位）;要实现一个队列，collections.
 deque被设计用于快速从两端操作
 
+```python
+from collections import deque
+queue = deque(["bob", "John", "michael"])
+queue.append("Tom")
+queue.popleft()
+
+```
+
 ##### 列表推导式
 
 列表推导式提供了从序列创建列表的简单途径。常见的用法是把某种操作应用于序列或可迭代对象的每个元素上，然后使用其结果来创建
@@ -700,12 +708,28 @@ deque被设计用于快速从两端操作
 每个列表推导式都在for之后跟一个表达式，然后有零到多个 for 或 if 子句。返回结果是一个根据表达从其后的 for 和 if 上下文环
 境中生成出来的列表。如果希望表达式推导出一个元组，就必须使用括号
 
+```python
+# 计算正方形，方法一和方法二等效
+squares1 = list(map(lambda x: x**2, range(10)))  # 方法一：lambda表达式法
+squares2 = [x**2 for x in range(10)]    # 方法二:列表推导式
+
+```
+
 ##### 嵌套列表推导式和del语句
 
 列表推导式中的初始表达式可以是任何表达式，包括另一个列表推导式
 
 *del语句*：使用del语句可以从一个列表中依索引而不是值来删除一个元素。这与使用 pop() 返回一个值不同。可以用 del 语句从列表
 中移除切片，或清空整个列表（我们以前介绍的方法是空列表赋值给一个指定的切片)，del也可以用来删除整个变量
+
+```python
+# 将matrix列表的行和列转置，内置函数方法，返回结果列表中每个元素不变仍为列表
+matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+print([[row[i] for row in matrix] for i in range(4)])
+
+print(list(zip(*matrix)))  # zip()方法，返回结果列表中每个元素为元组tuple
+
+```
 
 ##### python高级特性：切片、迭代、推导式、生成器、迭代器
 
@@ -817,6 +841,7 @@ while True:
 以不相同，并且通过解包或索引来访问，而列表通过迭代访问
 
 元组是不可变序列，给元祖的单独一个元素赋值是不允许的，空元祖由一对空圆括号创建，含有一个元素的元祖可以通过再此元祖之后添加一个逗号创建
+(将一个值括在括号中是不够的)
 
 ```markdown
 # 元组与字符串类似，可以被索引且下标索引从0开始，也可以进行截取/切片。其实，可以把字符串看作一种特殊的元组。改元组元素的操作是非法的,元组
@@ -874,12 +899,12 @@ Python中的文本数据由str对象或字符串处理，字符串是Unicode的�
 | :------: | :------: |
 | str.capitalize() | 返回字符串的副本，其首字符大写，其余字符小写 |
 | str.lower(),str.upper() | 返回字符串的副本，并将所有套接字符转换为小写或大写 |
-| str.strip([chars]) | 返回删除了开头和结尾字符的字符串副本。 chars参数是一个字符串，指定要删除的字符集。如果省略或None，则chars参数<br>默认为删除空格 |
+| str.strip([chars]) | 返回删除了开头和结尾字符的字符串副本。 chars参数是一个字符串，<br>指定要删除的字符集。如果省略或None，则chars参数默认为删除空格 |
 | str.isalpha()/str.isdigit()/str.isspace()...  | 测试所有字符串字符是否在各种字符类中 |
-| str.find() | 检测字符串中是否包含子字符串str，如果指定start和end范围，则检查是否包含在指定范围内，如果包含子字符串返回最低的索引值，<br>否则返回-1 |
-| str.format(*args, **kwargs) | 执行字符串格式化操作。调用此方法的字符串可以包含由大括号{}分隔的文字文本或替换字段。每个替换字段都<br>包含位置参数的数字索引或关键字参数的名称。返回字符串的副本，其中每个替换字段都替换为相应参数的字符串值 |
+| str.find() | 检测字符串中是否包含子字符串str，如果指定start和end范围，则检查是否包含在指定范围内，<br>如果包含子字符串返回最低的索引值，否则返回-1 |
+| str.format(*args, **kwargs) | 执行字符串格式化操作。调用此方法的字符串可以包含由大括号{}分隔的文字文本或替换字段。<br>每个替换字段都包含位置参数的数字索引或关键字参数的名称。返回字符串的副本，其中每个替换字段都替换为相应参数的字符串值 |
 | str.split(sep=None, maxsplit=-1) | 返回字符串中的单词组成的列表，使用sep作为分割的字符，若给出sep，则连续的分隔字符不会组合在一起，<br>并被视为划分空字符串,如果给出maxsplit，列表最多只有maxsplit + 1个元素,如果maxsplit没有给出或者是-1，则没有分割数量限制
-| str.splitlines([keepends]) | 返回字符串中的行作为列表，在行边界处断开。除非给出keepends且为true，否则换行符不包括在结果列表中;此方法<br>在以下边界处进行分割 |
+| str.splitlines([keepends]) | 返回字符串中的行作为列表，在行边界处断开。除非给出keepends且为true，<br>否则换行符不包括在结果列表中;此方法在以下边界处进行分割 |
 
 | 表示 | 描述 |
 | :------: | :------: |
@@ -1005,6 +1030,7 @@ memoryview对象允许Python代码访问支持buffer protocol的对象的内部�
 
 #### Set（集合）
 
+```markdown
 集合是一个`无序不重复元素`的集。set对象是由具有唯一性的hashable对象组成的无序多项集合。基本功能包括成员关系检测和消除重复
 元素。集合对象还支持数学集合类运算，如并集，交集，差集和对称差集等;作为无序集合，不记录元素位置和插入顺序，集合不支持
 索引、切片或其他类似序列的行为
@@ -1012,9 +1038,9 @@ memoryview对象允许Python代码访问支持buffer protocol的对象的内部�
 目前有两种内置集合类型，set和frozenset，set类型是可变的，其元素可以用add()和remove()方法改变，所以不具有哈希值且不能被用
 作字典的键或其他集合的元素。frozenset类型是不可变的并且为hashable，其内容在被创建后不能再改变，因此可以用作字典的键和其他集合的元素
 
-可以用大括号`{}`创建集合。注意：如果要创建一个空集合，你必须用 set() 而不是 {} ；后者创建一个空的字典，集合也支持推导式形式
+可以用大括号`{}`创建集合。注意：如果要创建一个空集合，你必须用 set() 而不是 {} ；后者创建一个空的字典，集合也支持set推导
+a = {x for x in 'abracadabra' if x not in 'abc'}    # set推导
 
-```markdown
 # 注意：
 1、从列表创建集合,可使用set()函数
 2、集合可以包含任何数据类型的值;但如果添加集合已有的值，不会发生任何事情，也不会报错
@@ -1034,25 +1060,27 @@ memoryview对象允许Python代码访问支持buffer protocol的对象的内部�
 
 #### Dict（字典）
 
+```markdown
 一个mapping对象映射可哈希值到任意对象，mapping是可变对象；目前只有一种标准的mapping类型,即字典。字典以关键字作为索引
 关键字可以是任意不可变类型，通常是字符串和数字。如果一个元组中只包含数字、字符串和元组，那么这个元组也可以作为关键字
 如果元组直接或间接的包含了可变对象，那么就不能作为关键字。关键字必须使用不可变类型，也就是说list和包含可变类型的tuple
 不能做关键字。在同一个字典中，关键字还必须互不相同。可以将字典看作是一个键值对应的集合，在一个字典中键必须是唯一的
 字典主要操作是关键字存储和解析值
 
-```markdown
 # 注意：
 
 1、字典是一种映射类型，它的元素是键值对。构造函数dict()直接从键值对sequence中构建字典，也可以进行推导
 2、字典的关键字必须为不可变类型，且不能重复
 3、创建空字典使用{}
 
-字典遍历技巧，在字典中遍历时，关键字和对应的值可以使用 items() 方法同时解读出来。在序列中遍历时，索引位置和对应值可以
-使用 enumerate() 函数同时得到。同时遍历两个或更多的序列，可以使用 zip() 组合。要反向遍历一个序列，首先指定这个序列
-然后调用 reversesd() 函数。要按顺序遍历一个序列，使用 sorted() 函数返回一个已排序的序列，并不修改原值
+字典遍历技巧：
+* 在字典中遍历时，关键字和对应的值可以使用 items() 方法同时解读出来
+* 在序列中遍历时，索引位置和对应值可以使用 enumerate() 函数同时得到
+* 同时遍历两个或更多的序列，可以使用 zip() 组合
+* 要反向遍历一个序列，首先指定这个序列然后调用 reversesd() 函数
+* 要按顺序遍历一个序列，使用 sorted() 函数返回一个已排序的序列，并不修改原值
 
 collections.OrderedDict([items])    返回dict子类的实例，该实例具有专门用于重新排列字典顺序的方法
-
 
 ```
 
@@ -1088,103 +1116,6 @@ Python的生成器和contextlib.contextmanager装饰器提供了一种实现这�
 
 请注意，Python / C API中Python对象的类型结构中没有针对这些方法的特定插槽。想要定义这些方法的扩展类型必须将它们作为普通的
 Python可访问方法提供。与设置运行时上下文的开销相比，单个类字典查找的开销可以忽略不计
-
-### python读写json
-
-```markdown
-序列化：将对象转换为适合通过网络传输或存储在文件或数据库中的特殊格式的过程称为序列化
-反序列化：与序列化相反。它将序列化返回的特殊格式转换回可用的对象
-
-例如处理JSON格式时，当我们序列化对象时，实际上是将Python对象转换为JSON字符串(dump()进行序列化)，
-反序列化则通过其JSON字符串表示形式构建Python对象(load()反序列化)
-
-```
-
-#### dump()序列化
-
-```python
-"""
-dump()函数用于序列化数据，它接受一个python对象，对其进行序列化然后输出json字符串
-语法：dump(obj, fp)
-obj：要进行序列化的对象
-fp：类似文件的对象，将把序列化数据写入到此对象
-"""
-import json
-
-
-# 创建python字典类型变量person
-person = {
-    "first_name": "John",
-    "isAlive": True,
-    "age": 27,
-    "address": {
-        "streetAddress": "21 2nd Street",
-        "city": "New York",
-        "state": "NY",
-        "postalCode": "10021-3100"
-    },
-    "hasMortgage": None
-}
-
-# 注意事项：在序列化对象时，Python的类型None将转换为JSON的null类型
-with open('person.json', 'w') as f:     # 将json对象person写入到person.json文件
-    json.dump(person, f)
-
-open('person.json', 'r').read()     # 以字符串形式读取JSON对象
-
-```
-
-序列化数据时类型之间的转换：
-
-| PYTHON TYPE | JSON TYPE |
-| :------: | :------: |
-| dict | object |
-| list, tuple | array |
-| int | number |
-| float | number |
-| str | string |
-| TRUE | TRUE |
-| FALSE | FALSE |
-| None | null |
-
-反序列化数据时类型之间的转换：
-
-| JSON TYPE | PYTHON TYPE |
-| :------: | :------: |
-| object | dict |
-| array | list |
-| string | str |
-| number (int) | int |
-| number (real) | float |
-| TRUE | TRUE |
-| FALSE | FALSE |
-| null | None |
-
-#### load()反序列化
-
-```python
-import json
-# load()函数从类似于object的文件中反序列化JSON对象并返回
-with open('person.json', 'r') as f:
-    person = json.load(f)
-```
-
-#### dumps()和loads()
-
-```python
-# dumps()和dump()函数工作方式相同，但不是将输出发送到类文件的对象，而是将输出作为字符串返回
-# loads()和load()函数也一样，但不是从文件中反序列化json字符串，而是从反序列化一个字符串
-
-```
-
-#### pickle
-
-```python
-# pickle模块以二进制格式序列化数据，提供接口和json模块相同，load和dump
-# 语法：dump(obj, file)
-# obj：需要序列化的数据对象
-# file：将序列化的数据对象写入到文件对象
-```
 
 ## 循环
 
@@ -1315,25 +1246,6 @@ def calc2(*numbers):
         sum2 = sum2 + n * n
     return sum2
 
-"""
-python中*和**含义:
-当其在函数头内(function header)时
-*   收集元组中的所有位置参数
-**  收集字典中的所有关键字参数
-"""
-def function_1(*a, **kw):
-    print(a, kw)
-function_1(1, 2, 3, x=1, y=2, z=3) # 传参给函数function_1，返回值为(1, 2, 3) {'x': 1, 'y': 2, 'z': 3}
-
-"""
-当其在一个函数调用中
-当参数已经在列表或元组中但需要为需要单独位置参数的函数调用解包时,与*运算符一起编写函数调用以从列表或元组中解压缩参数
-*   将列表或元组解包到位置参数中，即将可迭代变量中的元素作为参数传递给函数(仅当参数数量与可迭代变量中的元素数量相同时，此方法才有效)
-**  将字典解压缩为关键字参数，允许传递可变数量的关键字参数给函数(函数中的参数名称必须与字典中的键名称匹配；参数数量应与字典中的键数相同)
-"""
-list1 = [1, 2, 3]
-dic = {'x': 1, 'y': 2, 'z': 3}
-function_1(*list1, **dic)
 ```
 
 #### 关键字参数，函数也可以使用kwarg=value的关键字参数形式被调用
@@ -1384,11 +1296,91 @@ def person(name, age, city, job):
 
 ```
 
-#### Lambda表达式
+#### 参数组合
 
-可以使用lambda关键字创建小的匿名函数。此函数返回其两个参数的总和：。Lambda函数可以在需要函数对象的任何地方使用。它们在语
-法上限于单个表达式,不能包含多个表达式。从语义上讲，它们只是正常函数定义的语法糖。与嵌套函数定义一样，lambda函数可以引用包含范围的变量：lamb
-da a, b: a+b
+```python
+# Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意
+# 参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数
+# 如果函数接受不同类型的实参，必须在函数定义中将接纳任意数量实参的形参放在最后
+
+# 定义一个函数，包含上述若干种参数：在函数调用的时候，Python解释器自动按照参数位置和参数名把对应的参数传进去
+def f1(a, b, c=0, *args, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+
+def f2(a, b, c=0, *, d, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+
+# 所以，对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的
+```
+
+#### 概括
+
+python官方指导意见：
+
+* 如果您不希望用户使用参数名称，请使用仅位置。当参数名称没有实际含义时，如果要在调用函数时强制执行参数的顺序，
+或者需要使用一些位置参数和任意关键字，此功能将非常有用
+* 仅当名称具有含义且通过使用名称显式使函数定义更易于理解时，或者要防止用户依赖传递的参数的位置时，才应使用关键字
+* 对于API，如果将来要修改参数的名称，请仅使用位置参数以防止破坏API更改
+
+### 递归函数
+
+```python
+"""
+如果一个函数在内部调用自身本身，这个函数就是递归函数.理论上，任何循环都可以转换为递归，使用递归函数需要注意防止栈溢出。在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出
+解决递归调用栈溢出的方法是通过尾递归优化，事实上尾递归和循环的效果是一样的，所以，把循环看成是一种特殊的尾递归函数也是可以的
+尾递归是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况
+"""
+
+# 示例计算阶乘的递归函数
+# 注意：python默认只能调用1000次，固n要小于等于997
+import sys
+sys.setrecursionlimit(2000)     # 设置递归调用次数为2000
+
+
+def fact(n):
+    if n == 0:
+        return 1
+    else:
+        return n * fact(n-1)
+
+
+print(fact(1000))
+
+```
+
+### 解压缩参数列表
+
+当参数已经在列表或元组中，但需要为单独的位置参数的函数调用拆包时，则情况相反。
+使用*-operator编写函数调用，以将参数从列表或元组中解包。而字典可以以相同方式**-operator传递关键字参数
+
+```python
+"""
+python中*和**含义:
+当其在函数头内(function header)时
+*   收集元组中的所有位置参数
+**  收集字典中的所有关键字参数
+"""
+def function_1(*a, **kw):
+    print(a, kw)
+function_1(1, 2, 3, x=1, y=2, z=3) # 传参给函数function_1，返回值为(1, 2, 3) {'x': 1, 'y': 2, 'z': 3}
+
+"""
+当其在一个函数调用中
+当参数已经在列表或元组中但需要为需要单独位置参数的函数调用解包时,与*运算符一起编写函数调用以从列表或元组中解压缩参数
+*   将列表或元组解包到位置参数中，即将可迭代变量中的元素作为参数传递给函数(仅当参数数量与可迭代变量中的元素数量相同时，此方法才有效)
+**  将字典解压缩为关键字参数，允许传递可变数量的关键字参数给函数(函数中的参数名称必须与字典中的键名称匹配；参数数量应与字典中的键数相同)
+"""
+list1 = [1, 2, 3]
+dic = {'x': 1, 'y': 2, 'z': 3}
+function_1(*list1, **dic)
+
+```
+
+### Lambda表达式
+
+可以使用lambda关键字创建小的匿名函数。此函数返回其两个参数的总和：。Lambda函数可以在需要函数对象的任何地方使用。
+它们在语法上限于单个表达式,不能包含多个表达式。从语义上讲，它们只是正常函数定义的语法糖。与嵌套函数定义一样，
+lambda函数可以引用包含范围的变量：lambda a, b: a+b
 
 ```python
 # 用途一：使用lambda表达式返回一个函数
@@ -1417,7 +1409,7 @@ result = reduce((lambda x, y: x * y), [1, 2])
 
 ```
 
-#### map函数
+### map函数
 
 ```python
 # map函数使用一个函数和一个迭代器作为输入，然后将该函数应用与迭代器的每个值并返回结果列表
@@ -1429,59 +1421,131 @@ print(list(map(square, list5)))
 
 ```
 
-#### 参数组合
-
-```python
-# Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意
-# 参数定义的顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数
-# 如果函数接受不同类型的实参，必须在函数定义中将接纳任意数量实参的形参放在最后
-
-# 定义一个函数，包含上述若干种参数：在函数调用的时候，Python解释器自动按照参数位置和参数名把对应的参数传进去
-
-def f1(a, b, c=0, *args, **kw):
-    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
-
-def f2(a, b, c=0, *, d, **kw):
-    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
-
-# 所以，对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的
-```
-
-### 递归函数
-
-```python
-"""
-如果一个函数在内部调用自身本身，这个函数就是递归函数.理论上，任何循环都可以转换为递归，使用递归函数需要注意防止栈溢出。在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出
-解决递归调用栈溢出的方法是通过尾递归优化，事实上尾递归和循环的效果是一样的，所以，把循环看成是一种特殊的尾递归函数也是可以的
-尾递归是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况
-"""
-
-# 示例计算阶乘的递归函数
-# 注意：python默认只能调用1000次，固n要小于等于997
-import sys
-sys.setrecursionlimit(2000)     # 设置递归调用次数为2000
-
-
-def fact(n):
-    if n == 0:
-        return 1
-    else:
-        return n * fact(n-1)
-
-
-print(fact(1000))
-
-```
-
 ## 面向对象
 
 ### 类(Class)
 
-当Python解释器读取源文件时，它会执行所有代码。此__name__检查确保仅在此模块是主程序(main)时才执行此代码块
+类提供了一种将数据和功能捆绑在一起的方法，创建一个新类将创建一种新的对象类型，从而允许创建该类型的新实例。每个类实例可以具有附加的属性
+以维护其状态。类实例还可以具有用于修改其状态的方法（由其类定义），继承机制允许多个基类，派生类可以覆盖其一个或多个基类的任何方法，
+一个方法可以调用具有相同名称的基类的方法。对象可以包含任意数量和种类的数据。就像模块一样，类具有Python的动态特性：它们在运行时创建，
+并且可以在创建后进行进一步修改
+
+#### 类对象
+
+```markdown
+类对象支持两种操作：属性引用和实例化
+属性引用使用Python中所有属性引用使用的标准语法obj.name。有效属性名称是创建类对象时在类名称空间中的所有名称，示例：
+class MyClass:
+    """A simple example class"""
+    i = 12345
+
+    def f(self):
+        return 'hello world'
+
+MyClass.i和MyClass.f是有效的属性引用，分别返回整数和函数对象。类属性也可以分配给它，因此您可以MyClass.i通过赋值来更改其值。 __doc__也是有效的属性，返回属于类的文档字符串。"A simple example class"
+
+类实例化使用函数表示法。只是假装类对象是一个无参数函数，它将返回该类的新实例
+x = MyClass()   # 创建类的新实例并将该对象分配给局部变量x
+
+```
+
+#### 实例对象
+
+```markdown
+实例对象只能理解的操作是属性引用。有效属性名称有两种，数据属性和方法
+数据属性无需声明；像局部变量一样，它们在首次分配时就存在
+另一种实例属性引用是一种方法。方法是“属于”对象的功能
+实例对象的有效方法名称取决于其类。根据定义，作为函数对象的类的所有属性都定义了其实例的相应方法。
+因此，在我们的示例中，x.f是一个有效的方法引用，因为MyClass.f是一个函数，但是x.i不是，因为 MyClass.i不是。
+但这x.f与方法不同，MyClass.f它是方法对象，而不是函数对象
+
+```
+
+#### 方法对象
+
+```markdown
+通常方法在绑定之后立即被调用
+例如：x.f()
+在MyClass示例中，这将返回字符串。但是，不必立即调用方法：方法是一个方法对象，可以立即存储并在以后调用。如下示例：
+xf = x.f
+while True:
+    print(xf()) # 将继续打印直到时间结束
+
+方法的特殊之处在于实例对象作为函数的第一个参数传递。在我们的示例中，该调用x.f()与完全等效MyClass.f(x)。通常，
+调用具有n个参数列表的方法等效于调用带有参数列表的函数，该参数列表是通过在第一个参数之前插入方法的实例对象而创建的。
+
+如果您仍然不了解方法的工作方式，那么看一下实现也许可以澄清问题。当引用实例的非数据属性时，将搜索实例的类。
+如果名称表示作为函数对象的有效类属性，则通过将实例对象和刚在抽象对象中一起找到的函数对象打包（指向）来创建方法对象：这是方法对象。
+当使用实参列表调用方法对象时，将从实例对象和实参列表构造一个新的实参列表，并使用该新的实参列表来调用函数对象
+```
+
+#### 类和实例变量
+
+```markdown
+一般来说，实例变量用于每个实例唯一的数据，类变量用于类的所有实例共享的属性和方法
+
+其他备注：
+如果在实例和类中都出现相同的属性名称，则属性查找将优先考虑该实例
+
+数据属性可以由对象的方法以及普通用户（“客户端”）引用。换句话说，类不能用于实现纯抽象数据类型。实际上，Python中没有任何东西可以强制执行
+数据隐藏-它们全都基于约定。（另一方面，用C编写的Python实现可以完全隐藏实现细节，并在必要时控制对对象的访问；这可以由C编写的Python扩展使用
+
+客户应谨慎使用数据属性-客户可能会在数据属性上加盖戳记，从而弄乱了方法维护的不变性。请注意，只要避免名称冲突，客户端就可以将自己的数据属性
+添加到实例对象，而不会影响方法的有效性-再次，命名约定可以在这里节省很多麻烦。
+
+没有从方法内部引用数据属性（或其他方法！）的捷径。我发现这实际上提高了方法的可读性：浏览方法时，不会混淆局部变量和实例变量
+
+通常，方法的第一个参数称为self。这只不过是一个约定：该名称self对Python绝对没有特殊含义。但是请注意，如果不遵循该约定，您的代码对于其他
+Python程序员来说可能就不太可读，并且还可以想到可能会编写依赖于这种约定的 类浏览器程序。
+
+任何作为类属性的函数对象都为该类的实例定义方法。不必在文本上将函数定义包含在类定义中：将函数对象分配给类中的局部变量也是可以的
+
+方法可以以与普通函数相同的方式引用全局名称。与方法关联的全局范围是包含其定义的模块。（永远不要将类用作全局范围。）虽然很少有人遇到在
+方法中使用全局数据的充分理由，但是有很多合法的用途来使用全局范围：一方面，导入全局范围的函数和模块可以由方法以及其中定义的函数和类使用。
+通常，包含该方法的类本身是在此全局范围内定义的
+
+每个值都是一个对象，因此具有一个类（也称为其类型）。它存储为object.__class__
+
+```
 
 ### 继承(Inheritance)
 
+Python具有两个可用于继承的内置函数：
+
+* 使用isinstance()检查实例的类型：仅当obj.__class__是int或一些类派生自int时，isinstance(obj, int)是True
+
+* 使用issubclass()检查类继承：因为bool是int的子类，issubclass(bool, int)是True，
+但是，由于float不是int的子类，所以issubclass(float, int)为False。
+
 ### 多重继承(Multiple Inheritance)
+
+### 私有变量
+
+```markdown
+Python中不存在只能从对象内部访问的“私有”实例变量。但是，大多数Python代码遵循一个约定：
+以下划线开头的名称（例如_spam）应被视为API的非公开部分（无论是函数，方法还是数据成员）
+
+名称修饰有助于让子类覆盖方法而又不中断类内方法调用。例如：
+class Mapping:
+    def __init__(self, iterable):
+        self.items_list = []
+        self.__update(iterable)
+
+    def update(self, iterable):
+        for item in iterable:
+            self.items_list.append(item)
+
+    __update = update   # private copy of original update() method
+
+class MappingSubclass(Mapping):
+
+    def update(self, keys, values):
+        # provides new signature for update()
+        # but does not break __init__()
+        for item in zip(keys, values):
+            self.items_list.append(item)
+
+```
 
 ## 内置异常
 
@@ -1494,19 +1558,19 @@ try...except语句有一个可选的else字句，使用时必须放在所有exce
 
 以下异常主要被用作其他异常的基类
 
-[详情请点击此处查看](https://devdocs.io/python~3.7/library/exceptions#base-classes)
+[点击此处查看](https://docs.python.org/3/library/exceptions.html#base-classes)
 
 ### Concrete exceptions
 
-[点击此处查看](https://devdocs.io/python~3.7/library/exceptions#concrete-exceptions)
+[点击此处查看](https://docs.python.org/3/library/exceptions.html#concrete-exceptions)
 
 #### OS 异常
 
-[点击此处查看](https://devdocs.io/python~3.7/library/exceptions#concrete-exceptions)
+[点击此处查看](https://docs.python.org/3/library/exceptions.html#os-exceptions)
 
 ### 警告
 
-[详情点击此处查看](https://devdocs.io/python~3.7/library/exceptions#warnings)
+[点击此处查看](https://docs.python.org/3/library/exceptions.html#warnings)
 
 ### 异常层次结构
 
@@ -1745,15 +1809,33 @@ Differ delta的每一行都以两个字母的代码开头
 ### unicodedata -- Unicode Database
 
 提供对unicode字符数据的访问，该数据库定义了所有unicode字符的字符属性
+https://docs.python.org/3/library/unicodedata.html
 
+### readline -- GNU readline interface
 
+https://docs.python.org/3/library/readline.html
+
+### rlcompleter -- Completion function for GNU readline
+
+https://docs.python.org/3/library/rlcompleter.html
 
 ## Binary Data Services
 
-struct — Interpret bytes as packed binary data
-codecs — Codec registry and base classes
+### struct -- Interpret bytes as packed binary data
+
+https://docs.python.org/3/library/struct.html
+
+### codecs -- Codec registry and base classes
+
+https://docs.python.org/3/library/codecs.html
+
+## Data Types
+
+
 
 ## File & Directory access
+
+### 文件对象的方法
 
 open()函数打开文件并返回相应的文件对象
 语法格式为：open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
@@ -1881,6 +1963,103 @@ OS文件或目录方法
 | os.write(fd, str) | 写入字符串到文件描述符 fd中. 返回实际写入的字符串长度 |
 | os.path 模块) | 获取文件的属性信息 |
 
+### python读写json
+
+```markdown
+序列化：将对象转换为适合通过网络传输或存储在文件或数据库中的特殊格式的过程称为序列化
+反序列化：与序列化相反。它将序列化返回的特殊格式转换回可用的对象
+
+例如处理JSON格式时，当我们序列化对象时，实际上是将Python对象转换为JSON字符串(dump()进行序列化)，
+反序列化则通过其JSON字符串表示形式构建Python对象(load()反序列化)
+
+```
+
+#### dump()序列化
+
+```python
+"""
+dump()函数用于序列化数据，它接受一个python对象，对其进行序列化然后输出json字符串
+语法：dump(obj, fp)
+obj：要进行序列化的对象
+fp：类似文件的对象，将把序列化数据写入到此对象
+"""
+import json
+
+
+# 创建python字典类型变量person
+person = {
+    "first_name": "John",
+    "isAlive": True,
+    "age": 27,
+    "address": {
+        "streetAddress": "21 2nd Street",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": "10021-3100"
+    },
+    "hasMortgage": None
+}
+
+# 注意事项：在序列化对象时，Python的类型None将转换为JSON的null类型
+with open('person.json', 'w') as f:     # 将json对象person写入到person.json文件
+    json.dump(person, f)
+
+open('person.json', 'r').read()     # 以字符串形式读取JSON对象
+
+```
+
+序列化数据时类型之间的转换：
+
+| PYTHON TYPE | JSON TYPE |
+| :------: | :------: |
+| dict | object |
+| list, tuple | array |
+| int | number |
+| float | number |
+| str | string |
+| TRUE | TRUE |
+| FALSE | FALSE |
+| None | null |
+
+反序列化数据时类型之间的转换：
+
+| JSON TYPE | PYTHON TYPE |
+| :------: | :------: |
+| object | dict |
+| array | list |
+| string | str |
+| number (int) | int |
+| number (real) | float |
+| TRUE | TRUE |
+| FALSE | FALSE |
+| null | None |
+
+#### load()反序列化
+
+```python
+import json
+# load()函数从类似于object的文件中反序列化JSON对象并返回
+with open('person.json', 'r') as f:
+    person = json.load(f)
+```
+
+#### dumps()和loads()
+
+```python
+# dumps()和dump()函数工作方式相同，但不是将输出发送到类文件的对象，而是将输出作为字符串返回
+# loads()和load()函数也一样，但不是从文件中反序列化json字符串，而是从反序列化一个字符串
+
+```
+
+#### pickle
+
+```python
+# pickle模块以二进制格式序列化数据，提供接口和json模块相同，load和dump
+# 语法：dump(obj, file)
+# obj：需要序列化的数据对象
+# file：将序列化的数据对象写入到文件对象
+```
+
 ## 开发者工具
 
 ### unittest
@@ -1897,3 +2076,38 @@ unittest类的断言方法
 | assertFalse(x)  | 核实x为False |
 | assertIn(item, list)  | 核实item在list中 |
 | assertNotIn(item, list) | 核实item不在list中 |
+
+## 多线程
+
+```markdown
+线程是一种用于解耦与顺序无关的任务的技术。线程可用于提高在后台运行其他任务时接受用户输入的应用程序的响应能力。
+一个相关的用例是与另一个线程中的计算并行运行I/O
+
+以下代码显示了高级threading模块如何在主程序继续运行的同时在后台运行任务：
+
+import threading, zipfile
+
+class AsyncZip(threading.Thread):
+    def __init__(self, infile, outfile):
+        threading.Thread.__init__(self)
+        self.infile = infile
+        self.outfile = outfile
+
+    def run(self):
+        f = zipfile.ZipFile(self.outfile, 'w', zipfile.ZIP_DEFLATED)
+        f.write(self.infile)
+        f.close()
+        print('Finished background zip of:', self.infile)
+
+background = AsyncZip('mydata.txt', 'myarchive.zip')
+background.start()
+print('The main program continues to run in foreground.')
+
+background.join()    # Wait for the background task to finish
+print('Main program waited until background was done.')
+
+多线程应用程序的主要挑战是协调共享数据或其他资源的线程。为此，线程模块提供了许多同步原语，包括锁，事件，条件变量和信号量。
+
+尽管这些工具功能强大，但是较小的设计错误可能会导致难以重现的问题。因此，任务协调的首选方法是将所有对资源的访问集中在单个线程中，
+然后使用该queue模块为该线程提供来自其他线程的请求。使用Queue对象进行线程间通信和协调的应用程序更易于设计，更具可读性和可靠性
+```
