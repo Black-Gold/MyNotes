@@ -40,6 +40,10 @@ III. nginx (for HTTP compression) –> Varnish cache (for caching) –> HTTP lev
 * 系统的第一块SCSI接口的硬盘第一个分区名称为/dev/sdb1
 
 注意：
+磁盘分区格式化文件系统后，会分为inode和block两部分
+inode存放文件的属性和执行文件实体的指针，文件名不在inode内一般在上级目录的block中
+df -i查看inode数量和情况，一个文件至少占用一个inode和一个block
+格式化时，可以改变inode和block
 分区数字编号1-4留给主分区或者扩展分区使用，逻辑分区是在扩展分区的基础上编号从5开始
 SCSI/SAS/SATA/USB接口的硬盘的设备名均以/dev/sd开头，不同硬盘编号依次是/dev/sda、/dev/sdb
 SAS/SATA是主流硬盘接口，SSD固态硬盘，速度性能SSD>SAS>SATA
@@ -2391,6 +2395,7 @@ rsync [OPTION]... rsync://[USER@]HOST[:PORT]/SRC [DEST]
 
 * 推送：从本地机器拷贝文件到远程rsync服务器中。当DST路径信息包含"::"分隔符时启动该模式
   如：`rsync -av /databack root@192.168.78.192::www`
+  rsync -av --exclude={one,two} /data root@xxxx::www    排除one和two目录
 
 * 列远程机的文件列表。这类似于rsync传输，不过只要在命令中省略掉本地机信息即可
   如：`rsync -v rsync://192.168.78.192/www`

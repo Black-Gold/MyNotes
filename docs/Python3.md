@@ -1813,7 +1813,13 @@ https://docs.python.org/3/library/unicodedata.html
 
 ### readline -- GNU readline interface
 
-https://docs.python.org/3/library/readline.html
+readline模块定义多种功能以帮助完成从python解释器读取或写入历史文件，可以直接使用也可以通过rlcompleter支持交互式提示下的python标识符完成
+的模块使用，使用此模块会影响程序的交互式提示和内置input()功能提供的提示行为
+
+init文件：以下功能与初始化文件和用户配置有关
+
+readline.parse_and_bind(string) 
+[未完待续]
 
 ### rlcompleter -- Completion function for GNU readline
 
@@ -1831,7 +1837,35 @@ https://docs.python.org/3/library/codecs.html
 
 ## Data Types
 
+datetime模块提供操纵日期和时间的类，但实现的重点是针对输出格式和提取操作的有效属性
 
+datetime模块具有的常量
+
+|  |  |
+| :------: | :------: |
+| datetime.MINYEAR | date或datetime对象中允许的最小年份,MINYEAR值为1 |
+| datetime.MAXYEAR | date或datetime对象中允许的最大年份，MAXYEAR值为9999 |
+
+datetime模块可用类型，这些类型的对象是不可变的
+
+| datetime.date | 假设当前公历始终有效并且永远有效，属性：year,month,day |
+| datetime.time | 一个理想的时间，独立于特定一天，假设每天正好24*60*60秒，属性：hour,minute,second,microsecond,tzinfo |
+| datetime.datetime | 日期和时间的组合，属性：year,month,day,hour,minute,second,microsecond,tzinfo |
+| datetime.timedalta | 表达在date,time或datetime实例之间的差异的持续时间 |
+| datetime.tzinfo | 时区信息对象的抽象基类，通过datetime和time类来提供时间调整 |
+| datetime.timezone | 将tzinfo抽象基类实现为相对于UTC的固定偏移量的类 |
+
+```markdown
+对应子类关系：
+Object
+    timedelta
+    tzinfo
+        timezone
+    time
+    date
+        datetime
+
+```
 
 ## File & Directory access
 

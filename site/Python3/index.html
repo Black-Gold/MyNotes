@@ -5548,7 +5548,11 @@ try...except语句有一个可选的else字句，使用时必须放在所有exce
 <p>提供对unicode字符数据的访问，该数据库定义了所有unicode字符的字符属性
 <a href="https://docs.python.org/3/library/unicodedata.html">https://docs.python.org/3/library/unicodedata.html</a></p>
 <h3 id="readline-gnu-readline-interface">readline -- GNU readline interface<a class="headerlink" href="#readline-gnu-readline-interface" title="Permanent link">&para;</a></h3>
-<p><a href="https://docs.python.org/3/library/readline.html">https://docs.python.org/3/library/readline.html</a></p>
+<p>readline模块定义多种功能以帮助完成从python解释器读取或写入历史文件，可以直接使用也可以通过rlcompleter支持交互式提示下的python标识符完成
+的模块使用，使用此模块会影响程序的交互式提示和内置input()功能提供的提示行为</p>
+<p>init文件：以下功能与初始化文件和用户配置有关</p>
+<p>readline.parse_and_bind(string) 
+[未完待续]</p>
 <h3 id="rlcompleter-completion-function-for-gnu-readline">rlcompleter -- Completion function for GNU readline<a class="headerlink" href="#rlcompleter-completion-function-for-gnu-readline" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.python.org/3/library/rlcompleter.html">https://docs.python.org/3/library/rlcompleter.html</a></p>
 <h2 id="binary-data-services">Binary Data Services<a class="headerlink" href="#binary-data-services" title="Permanent link">&para;</a></h2>
@@ -5557,6 +5561,43 @@ try...except语句有一个可选的else字句，使用时必须放在所有exce
 <h3 id="codecs-codec-registry-and-base-classes">codecs -- Codec registry and base classes<a class="headerlink" href="#codecs-codec-registry-and-base-classes" title="Permanent link">&para;</a></h3>
 <p><a href="https://docs.python.org/3/library/codecs.html">https://docs.python.org/3/library/codecs.html</a></p>
 <h2 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permanent link">&para;</a></h2>
+<p>datetime模块提供操纵日期和时间的类，但实现的重点是针对输出格式和提取操作的有效属性</p>
+<p>datetime模块具有的常量</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">datetime.MINYEAR</td>
+<td align="center">date或datetime对象中允许的最小年份,MINYEAR值为1</td>
+</tr>
+<tr>
+<td align="center">datetime.MAXYEAR</td>
+<td align="center">date或datetime对象中允许的最大年份，MAXYEAR值为9999</td>
+</tr>
+</tbody>
+</table>
+<p>datetime模块可用类型，这些类型的对象是不可变的</p>
+<p>| datetime.date | 假设当前公历始终有效并且永远有效，属性：year,month,day |
+| datetime.time | 一个理想的时间，独立于特定一天，假设每天正好24*60*60秒，属性：hour,minute,second,microsecond,tzinfo |
+| datetime.datetime | 日期和时间的组合，属性：year,month,day,hour,minute,second,microsecond,tzinfo |
+| datetime.timedalta | 表达在date,time或datetime实例之间的差异的持续时间 |
+| datetime.tzinfo | 时区信息对象的抽象基类，通过datetime和time类来提供时间调整 |
+| datetime.timezone | 将tzinfo抽象基类实现为相对于UTC的固定偏移量的类 |</p>
+<div class="codehilite"><pre><span></span><span class="err">对应子类关系：</span>
+<span class="k">Object</span>
+    <span class="n">timedelta</span>
+    <span class="n">tzinfo</span>
+        <span class="n">timezone</span>
+    <span class="n">time</span>
+    <span class="nb">date</span>
+        <span class="n">datetime</span>
+</pre></div>
+
 <h2 id="file-directory-access">File &amp; Directory access<a class="headerlink" href="#file-directory-access" title="Permanent link">&para;</a></h2>
 <h3 id="_42">文件对象的方法<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
 <p>open()函数打开文件并返回相应的文件对象
