@@ -2055,6 +2055,10 @@
 <span class="o">*</span> <span class="err">系统的第一块</span><span class="n">SCSI接口的硬盘第一个分区名称为</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb1</span>
 
 <span class="err">注意：</span>
+<span class="err">磁盘分区格式化文件系统后，会分为</span><span class="n">inode和block两部分</span>
+<span class="n">inode存放文件的属性和执行文件实体的指针</span><span class="err">，文件名不在</span><span class="n">inode内一般在上级目录的block中</span>
+<span class="n">df</span> <span class="o">-</span><span class="n">i查看inode数量和情况</span><span class="err">，一个文件至少占用一个</span><span class="n">inode和一个block</span>
+<span class="err">格式化时，可以改变</span><span class="n">inode和block</span>
 <span class="err">分区数字编号</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="err">留给主分区或者扩展分区使用，逻辑分区是在扩展分区的基础上编号从</span><span class="mi">5</span><span class="err">开始</span>
 <span class="n">SCSI</span><span class="o">/</span><span class="n">SAS</span><span class="o">/</span><span class="n">SATA</span><span class="o">/</span><span class="n">USB接口的硬盘的设备名均以</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sd开头</span><span class="err">，不同硬盘编号依次是</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda</span><span class="err">、</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb</span>
 <span class="n">SAS</span><span class="o">/</span><span class="n">SATA是主流硬盘接口</span><span class="err">，</span><span class="n">SSD固态硬盘</span><span class="err">，速度性能</span><span class="n">SSD</span><span class="o">&gt;</span><span class="n">SAS</span><span class="o">&gt;</span><span class="n">SATA</span>
@@ -4319,6 +4323,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 
 <span class="o">*</span> <span class="err">推送：从本地机器拷贝文件到远程</span><span class="n">rsync服务器中</span><span class="err">。当</span><span class="n">DST路径信息包含</span><span class="s">&quot;::&quot;</span><span class="err">分隔符时启动该模式</span>
   <span class="err">如：`</span><span class="n">rsync</span> <span class="o">-</span><span class="n">av</span> <span class="o">/</span><span class="n">databack</span> <span class="n">root</span><span class="mf">@192.168.78.192</span><span class="o">::</span><span class="n">www</span><span class="err">`</span>
+  <span class="n">rsync</span> <span class="o">-</span><span class="n">av</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=</span><span class="p">{</span><span class="n">one</span><span class="p">,</span><span class="n">two</span><span class="p">}</span> <span class="o">/</span><span class="n">data</span> <span class="n">root</span><span class="p">@</span><span class="n">xxxx</span><span class="o">::</span><span class="n">www</span>    <span class="err">排除</span><span class="n">one和two目录</span>
 
 <span class="o">*</span> <span class="err">列远程机的文件列表。这类似于</span><span class="n">rsync传输</span><span class="err">，不过只要在命令中省略掉本地机信息即可</span>
   <span class="err">如：`</span><span class="n">rsync</span> <span class="o">-</span><span class="n">v</span> <span class="nl">rsync</span><span class="p">:</span><span class="c1">//192.168.78.192/www`</span>
