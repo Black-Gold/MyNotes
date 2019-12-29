@@ -1982,6 +1982,40 @@ server <span class="o">{</span>
 # <span class="nv">openssl</span> <span class="nv">x509</span> <span class="o">-</span><span class="nv">req</span> <span class="o">-</span><span class="nv">days</span> <span class="mi">365</span> <span class="o">-</span><span class="nv">in</span> <span class="nv">server</span>.<span class="nv">csr</span> <span class="o">-</span><span class="nv">signkey</span> <span class="nv">server</span>.<span class="nv">key</span> <span class="o">-</span><span class="nv">out</span> <span class="nv">server</span>.<span class="nv">crt</span>
 </pre></div>
 
+<div class="codehilite"><pre><span></span><span class="err">#</span> <span class="nt">多路径多站点同一个端口</span>
+<span class="nt">server</span> <span class="p">{</span>
+    <span class="err">listen</span> <span class="err">8080</span><span class="p">;</span>
+    <span class="err">server_name</span> <span class="err">localhost</span><span class="p">;</span>  
+    <span class="err">root</span> <span class="err">/home/ajit/git/univisior</span><span class="p">;</span>
+
+<span class="err">location</span> <span class="err">/</span> <span class="err">{</span>
+    <span class="err">alias</span> <span class="err">/home/ajit/git/project-x/buyer/dist/</span><span class="p">;</span>
+    <span class="err">index</span> <span class="err">index.html</span><span class="p">;</span>
+    <span class="err">try_files</span> <span class="err">$uri</span> <span class="err">$uri/</span> <span class="err">/index.html</span><span class="p">;</span>
+
+<span class="p">}</span>
+<span class="nt">location</span> <span class="o">/</span><span class="nt">admin</span><span class="p">{</span>
+    <span class="err">alias</span> <span class="err">/home/ajit/git/project-x/admin/dist/</span><span class="p">;</span>
+    <span class="err">index</span> <span class="err">index.html</span><span class="p">;</span>
+    <span class="err">try_files</span> <span class="err">$uri</span> <span class="err">$uri/</span> <span class="err">index.html</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="nt">location</span> <span class="o">/</span><span class="nt">seller</span> <span class="p">{</span>
+    <span class="err">alias</span> <span class="err">/home/ajit/git/project-x/seller/dist/</span><span class="p">;</span>
+    <span class="err">index</span> <span class="err">index.html</span><span class="p">;</span>
+    <span class="err">try_files</span> <span class="err">$uri</span> <span class="err">$uri/</span> <span class="err">/index.html</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="nt">location</span> <span class="o">/</span><span class="nt">api</span> <span class="p">{</span>
+    <span class="err">proxy_pass</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">:</span><span class="mi">3000</span><span class="o">/</span><span class="n">api</span><span class="p">;</span>
+
+ <span class="p">}</span>
+
+<span class="err">}</span>
+</pre></div>
+
 <h2 id="nginx_1">nginx日志相关命令<a class="headerlink" href="#nginx_1" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>nginx日志最好实现每天定时切割下，特别是在访问量比较大的时候，方便查看与处理，如果没切割，可以用sed直接切割
 
