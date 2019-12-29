@@ -2913,7 +2913,7 @@ gsettings <span class="nb">set</span> org.gnome.desktop.default-applications.ter
 <span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="err">$</span><span class="n">JAVA_HOME</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
 <span class="n">export</span> <span class="n">CLASSPATH</span><span class="o">=</span><span class="p">.:</span><span class="err">$</span><span class="n">JAVA_HOME</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">dt</span><span class="p">.</span><span class="n">jar</span><span class="p">:</span><span class="err">$</span><span class="n">JAVA_HOME</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">tools</span><span class="p">.</span><span class="n">jar</span>
 <span class="o">#</span> <span class="err">配置生效并验证</span>
-<span class="k">source</span> <span class="p">.</span><span class="n">bashrc</span> <span class="o">&amp;&amp;</span> <span class="n">java</span> <span class="c1">--version</span>
+<span class="k">source</span> <span class="p">.</span><span class="n">bashrc</span> <span class="o">&amp;&amp;</span> <span class="n">java</span> <span class="o">-</span><span class="k">version</span>
 </pre></div>
 
 <h2 id="ssh">SSH相关命令和配置<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h2>
@@ -2935,6 +2935,8 @@ iptables save
 service iptables restart
 
 sed -i <span class="s1">&#39;s/#Port 22/Port 2121/&#39;</span> /etc/ssh/sshd_config     <span class="c1"># 修改sshd_config文件，将#Port 22直接替换成Port 2121</span>
+sed -i <span class="s1">&#39;s/#PermitRootLogin prohibit-password/PermitRootLogin yes/g&#39;</span> /etc/ssh/sshd_config   <span class="c1"># 允许root用户远程ssh登录</span>
+sed -i <span class="s1">&#39;s/PasswordAuthentication no/PasswordAuthentication yes/g&#39;</span> /etc/ssh/sshd_config <span class="c1"># 允许使用密码连接ssh服务</span>
 </pre></div>
 
 <h3 id="sshd_configetcsshsshd_config">sshd_config配置详解（/etc/ssh/sshd_config）<a class="headerlink" href="#sshd_configetcsshsshd_config" title="Permanent link">&para;</a></h3>
@@ -4474,7 +4476,7 @@ systemctl restart network.service    <span class="c1"># 重启网络服务，注
 <span class="s">echo &quot;work:abc123&quot; &gt; /etc/rsyncd.passwd</span>
 <span class="s">chmod 600 /etc/rsyncd.passwd</span>
 
-<span class="s">windows下rsync权限注意事项：密码文件执行：chmod 600 rsync.passwd,用当前用户执行chown 用户名 rsync.passwd</span>
+<span class="s">windows下rsync权限注意事项：密码文件执行：chmod 600 rsync.passwd,用当前用户执行：chown 用户名 rsync.passwd</span>
 
 <span class="s">将文件发送到Microsoft文件系统：如果文件的修改时间是一个奇数值，但是接收文件系统只能存储偶数值，</span>
 <span class="s">那么rsync将重新传输太多文件。您可以通过指定--modify-window = 1选项来避免这种情况</span>
