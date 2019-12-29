@@ -93,7 +93,7 @@ $0     # (常用)当前shell名(当前执行进程的进程名，如果执行脚
 !       # 逻辑否
 ```
 
-## 在shell中常用的符号一般用法：
+## 在shell中常用的符号一般用法
 
 ```markdown
 # ;(Command separator)分号

@@ -10,7 +10,7 @@
 
 ```markdown
 MySQL 5.7.6 and later:
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '857f946d1cb5d3c5bab78cddeac22dbc7879a813';
 
 MySQL 5.7.5 and earlier:
 SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MyNewPass');

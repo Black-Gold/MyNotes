@@ -3,74 +3,20 @@
 ## Python相关说明
 
 ```markdown
-# 库：相关功能的合集
-
- 函数：
-    定义：
-
-    def 函数名（参数1，参数2……）：
-        语句块
-        return 返回值
-
-    调用：
-        函数名（参数1，参数2……）
-        变量名 = 函数名（参数1，参数2……）
-
-# 类：
-用来描述具有相同属性和方法的对象的集合，定义了该集合中每个对象所共有的属性和方法，对象是类的实例
-方法：类中定义的函数
-类变量：类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用
-数据成员：类变量或者实例变量用于处理类及其实例对象的相关的数据
-方法重写：如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重写
-实例变量：定义在方法中的变量，只作用于当前实例的类
-继承：即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待
-例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟"是一个（is-a）"关系（例图，Dog是一个Animal）
-实例化：创建一个类的实例，类的具体对象
-对象：通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。使用is检查对象标识是否相同
-
-类的专有方法：
-__init__ : 构造函数，在生成对象时调用
-__del__ : 析构函数，释放对象时使用
-__repr__ : 打印，转换
-__setitem__ : 按照索引赋值
-__getitem__: 按照索引获取值
-__len__: 获得长度
-__cmp__: 比较运算
-__call__: 函数调用
-__add__: 加运算
-__sub__: 减运算
-__mul__: 乘运算
-__div__: 除运算
-__mod__: 求余运算
-__pow__: 乘方
-
-提供了一种组合数据和功能的方法。创建一个新类意味着创建一个新 类型 的对象，从而允许创建一个该类型的新实例 。每个类的实
-例可以拥有保存自己状态的属性。一个类的实例也可以有改变自己状态的（定义在类中的）方法。Python 的类提供了面向对象编程的所有
-标准特性：类继承机制允许多个基类，派生类可以覆盖它基类的任何方法，一个方法可以调用基类中相同名称的的方法。对象可以包含任
-意数量和类型的数据。和模块一样，类也拥有Python的动态特性：它们在运行时创建，可以在创建后修改
- 类：
-    定义：
-    class 类名()：
-        def __init__(self,参数……):
-        def 函数名1(self,参数……):
-        def 函数名2(self,参数……):
-
-    调用：
-        实例名 = 类名()
-        实例名.方法名(参数)
-
-# 框架：控制反转
 
 # 模块（modules）：
-模块(module)是一种将定义放入文件中并在脚本或解释器的交互式实例中使用它们的方法。这样的文件称为模块
 
-模块名称即文件名称，具有显式导出和导入的抽象接口，实现和接口是分开的，可能有多个实现并且实现是隐藏的。
-模块可以包含可执行语句以及函数定义。模块可以被别的程序引入，以使用该模块中的函数的功能和属性，
-这也是使用python标准库的方法,如果自定义的有和标准库相同的模块，则会覆盖标准库
+模块是Python代码的基本组织单元。
 
-出于效率原因，每个模块在每个解释器中只能导入一遍，修改模块后需重启解释器，想要进行交互式不重启测试一个模块，可以利用imp.raload()方法重载
+模块唯一的特殊操作是属性访问: m.name，这里m为一个模块而name访问定义在m的符号表中的一个名称。模块属性可以被赋值。
+（注意：import 语句严格来说也是对模块对象的一种操作；import foo 不要求存在一个名为 foo 的模块对象，
+而是要求存在一个对于名为foo的模块的(永久性) 定义）
 
-    以下划线开头的标识符是有特殊意义的
+每个模块都有一个特殊属性 __dict__。 这是包含模块的符号表的字典。 修改此字典将实际改变模块的符号表，
+但是无法直接对 __dict__ 赋值 (你可以写 m.__dict__['a'] = 1，这会将 m.a 定义为 1，
+但是不能写 m.__dict__ = {})。也不建议直接修改__dict__
+
+以下划线开头的标识符是有特殊意义的
     • 以单下划线开头（_foo）的代表不能直接访问的类属性，需通过类提供的接口进行访问
     • 以双下划线开头的（__foo）代表类的私有成员
     • 以双下划线开头和结尾的（__foo__）代表python里特殊方法专用的标识，如__init__（）代表类的构造函数
@@ -81,46 +27,28 @@ Python附带一个标准模块库，变量sys.ps1 和sys.ps2 定义用作主要�
 
 sys.path变量是一个字符串列表，用于确定解释器的模块搜索，可以使用标准列表操作对其进行修改
 
-理解__name__=="__main__"：
-python每个模块都有一个名为__name__的特殊属性，当模块作为主程序运行时，__name__属性的值即为'__main__'，否则__name__的值将设置为包含模块的名称
+如何理解__name__=="__main__"：
+python每个模块都有一个名为__name__的特殊属性，当模块作为主程序运行时，__name__属性的值即为'__main__'，
+否则__name__的值将设置为包含模块的名称
 
-```python
-# 示例:创建module.py文件如下
+### 示例:创建module.py文件如下
 foo = 100
-
 
 def hello():
     print("i am from my_module.py")
-
 
 if __name__ == "__main__":
     print("Executing as main program")
     print("Value of __name__ is: ", __name__)
     hello()
 
-# 紧随其上，创建test.py文件如下，module.__name__是module而不是__main__，此处未输出if.....__main__的内容
+### 紧随其上，创建test.py文件如下，module.__name__是module而不是__main__，此处未输出if.....__main__的内容
 import module
-
 
 print(module.foo)
 module.hello()
 
 print(module.__name__)
-```
-
-## 包(packages)
-
-包是一种通过用"带点号的模块名"来构造Python模块命名空间的形式
-
-请注意，当使用 from package import item 时，item可以是包的子模块（或子包），也可以是包中定义的其他名称，如函数，类或变量
-import 语句首先测试是否在包中定义了item；如果没有，它假定它是一个模块并尝试加载它。如果找不到它，则引发 ImportError 异常
-
-相反，当使用 import item.subitem.subsubitem 这样的语法时，除了最后一项之外的每一项都必须是一个包；最后一项可以是模块或包
-但不能是前一项中定义的类或函数或变量
-
-* 要使用格式化字符串字面值，在字符串开始引号或三引号之前加上一个f或F，在此字符串中，可以在{}字符之间引用变量或字面值的Python表达式
-* 字符串的str.format()方法
-* 使用字符串切片和连接操作自行完成对所有字符串的处理
 
 ## import语句
 
@@ -149,6 +77,101 @@ else:
 可以在Python命令中使用-O或-OO开关,以减小编译后模块的大小。-O开关去除断言语句，-OO开关同时去除断言语句和__doc__字符串
 一个从.pyc文件读出的程序并不会比它从.py读出时运行的更快。区别在于.pyc文件载入速度更快
 compileall模块可以为一个目录下的所有模块创建.pyc文件
+
+## 类：
+
+类定义就是对类对象的定义(参考[标准类型层级结构]https://docs.python.org/zh-cn/3/reference/datamodel.html#types)
+
+类定义是一条可执行语句。 其中继承列表通常给出基类的列表
+(进阶用法请参见[元类]https://docs.python.org/zh-cn/3/reference/datamodel.html#metaclasses)，
+列表中的每一项都应当被求值为一个允许子类的类对象。没有继承列表的类默认继承自基类 object
+
+随后类体将在一个新的执行帧 (参见 命名与绑定) 中被执行，使用新创建的局部命名空间和原有的全局命名空间。（通常，类体主要包含函数定义）
+当类体结束执行时，其执行帧将被丢弃而其局部命名空间会被保存。 3 一个类对象随后会被创建，其基类使用给定的继承列表，
+属性字典使用保存的局部命名空间。 类名称将在原有的全局命名空间中绑定到该类对象
+
+类的创建可使用元类进行重度定制。类也可以被装饰：就像装饰函数一样
+
+注意事项: 在类定义内定义的变量是类属性；它们将被类实例所共享。 实例属性可通过 self.name = value 在方法中设定。
+类和实例属性均可通过 "self.name" 表示法来访问，当通过此方式访问时实例属性会隐藏同名的类属性。
+类属性可被用作实例属性的默认值，但在此场景下使用可变值可能导致未预期的结果。 可以使用 描述器 来创建具有不同实现细节的实例变量
+
+类的专有方法：
+__init__ : 构造函数，在生成对象时调用
+__del__ : 析构函数，释放对象时使用
+__repr__ : 打印，转换
+__setitem__ : 按照索引赋值
+__getitem__: 按照索引获取值
+__len__: 获得长度
+__cmp__: 比较运算
+__call__: 函数调用
+__add__: 加运算
+__sub__: 减运算
+__mul__: 乘运算
+__div__: 除运算
+__mod__: 求余运算
+__pow__: 乘方
+
+类提供了一种组合数据和功能的方法。创建一个新类意味着创建一个新类型的对象，从而允许创建一个该类型的新实例。每个类的实例可以拥有保存
+自己状态的属性。一个类的实例也可以有改变自己状态的（定义在类中的）方法。Python的类提供了面向对象编程的所有标准特性：类继承机制
+允许多个基类，派生类可以覆盖它基类的任何方法，一个方法可以调用基类中相同名称的的方法。对象可以包含任
+意数量和类型的数据。和模块一样，类也拥有Python的动态特性：它们在运行时创建，可以在创建后修改
+
+类：
+    定义：
+    class 类名()：
+        def __init__(self,参数……):
+        def 函数名1(self,参数……):
+        def 函数名2(self,参数……):
+    调用：
+        实例名 = 类名()
+        实例名.方法名(参数)
+
+# 对象
+
+对象是Python对数据的抽象。Python程序中的所有数据都由对象或对象之间的关系表示
+
+每个对象都有一个编号，类型和值。一旦创建了对象，其编号就不会改变，可以理解为该对象在内存中的地址，type()函数返回对象的类型（对象本身）。
+类似编号一样，对象的类型也是不可更改的，某些对象的值是可以改变的
+
+注意：使用实现的跟踪或调试功能可能令正常情况下会被回收的对象继续存活。还要注意通过 'try...except' 语句捕捉异常也可能令对象保持存活
+
+实例方法用于结合类、类实例和任何可调用对象(通常为用户自定义函数)。特殊的只读属性: __self__ 为类实例对象本身，__func__ 为函数对象；
+__doc__ 为方法的文档 (与 __func__.__doc__ 作用相同)；__name__ 为方法名称 (与 __func__.__name__ 作用相同)；
+__module__ 为方法所属模块的名称，没有则为 None
+
+当一个实例方法对象被调用时，会调用对应的下层函数 (__func__)，并将类实例 (__self__) 插入参数列表的开头。
+例如，当 C 是一个包含了 f() 函数定义的类，而 x 是 C 的一个实例，则调用 x.f(1) 就等同于调用 C.f(x, 1)
+
+## 函数
+
+函数对象是通过函数定义创建的。 对函数对象的唯一操作是调用它: func(argument-list)
+
+实际上存在两种不同的函数对象：内置函数和用户自定义函数。 两者支持同样的操作（调用函数），但实现方式不同，因此对象类型也不同
+
+函数：
+   定义：
+   def 函数名（参数1，参数2……）：
+       语句块
+       return 返回值
+   调用：
+       函数名（参数1，参数2……）
+       变量名 = 函数名（参数1，参数2……）
+
+## 方法
+
+方法是使用属性表示法来调用的函数。存在两种形式：内置方法（例如列表的append()方法）和类实例方法。内置方法由支持它们的类型来描述
+
+## 包(packages)
+
+可以把包看成是文件系统中的目录，并把模块看成是目录中的文件，但不要对这个类似做过于字面的理解，因为包和模块不是必须来自于文件系统
+
+要注意的一个重点概念是所有包都是模块，但并非所有模块都是包。或者换句话说，包只是一种特殊的模块。
+特别地，任何具有 __path__ 属性的模块都会被当作是包
+
+* 要使用格式化字符串字面值，在字符串开始引号或三引号之前加上一个f或F，在此字符串中，可以在{}字符之间引用变量或字面值的Python表达式
+* 字符串的str.format()方法
+* 使用字符串切片和连接操作自行完成对所有字符串的处理
 
 ### 导入模块
 
@@ -415,7 +438,15 @@ def zip(*iterables):
 
 ## 内置类型
 
-### 逻辑值检测：任何对象都可以进行逻辑值检测
+主要内置类型有数字、序列、映射、类、实例和异常，实际上所有对象都可以比较是否相等、检测逻辑值，以及转换为字符串(使用repr()函数或略有差异的str()函数)
+后一个函数是在对象由 print() 函数输出时被隐式地调用的
+
+### 逻辑值检测
+
+任何对象都可以进行逻辑值检测，以便于在if或while中作为条件或作为下文布尔值运算的操作数来使用
+
+一个对象默认情况下均被视为真值，除非该对象被调用时其所属类定义了__bool__()方法且返回False或者定义了__len__()方法且返回0
+以下基本列出会被视为假值的内置对象：
 
 下面基本完整罗列出会被视为假值的内置对象：
 
@@ -486,7 +517,7 @@ python可以同时为多个变量赋值，如：a,b=1,2
 | int(x) | 将 x 转换为整数 |  |
 | float(x) | 将 x 转换为浮点数 |  |
 | complex(re, im) | 一个带有实部 re 和虚部 im 的复数。im 默认为0 |  |
-| c.conjugate() | 复数 c 的结合(共轭) |  |
+| c.conjugate() | 复数c的结合(共轭) |  |
 | divmod(x, y) | (x // y, x % y) | 不可用于复数 |
 | pow(x, y) | x 的 y 次幂 | Python将pow(0, 0)和0**0定义为1，这是编程语言普遍做法 |
 | ** | 幂 |  |
@@ -515,6 +546,20 @@ python可以同时为多个变量赋值，如：a,b=1,2
 | x << n | x的各二进位全部左移n位，高位丢弃，低位补0 | 负的移位数是非法的会导致引发ValueError,左移n位等价于不带溢出检测乘以pow(2, n) |
 | x >> n | x的各二进位全部右移n位 | 负的移位数是非法的，会导致引发 ValueError；右移 n 位等价于不带溢出检测地除以 pow(2, n) |
 | ~x | x 逐位取反 |  |
+
+整数int类型的附加方法：
+
+int.bit_length()    返回以二进制表示一个整数所需的位数，不包括符号位和前面的0
+int.to_bytes()      返回表示一个整数的字节数组，整数会使用length个字节来表示。 如果整数不能用给定的字节数来表示则会引发 OverflowError
+int.from_tytes()    返回由给定字节数组表达的整数
+int.as_integer_ratio() 返回一对整数，其比率正好等于原整数且分母为正数，整数的比率总是用这个整数本身作为分子，1作为分母
+
+浮点类型的附加方法：
+
+float.as_integer_ratio()    返回一对整数，其比率正好等于原浮点数且分母为正数,无穷大会引发OverflowError而NaN会引发ValueError
+float.is_integer()  若float实例可用有限位整数表示则返回True，否则返回False
+float.hex() 以十六进制字符串形式表示一个浮点数，此为实例方法
+float.fromhex() 返回以十六进制字符串表示的浮点数，此为类方法
 
 ### 迭代器类型
 
@@ -555,6 +600,8 @@ except TypeError:
 相同类型的序列也支持比较。 特别地，tuple 和 list 的比较是通过比较对应元素的字典顺序。 这意味着想要比较结果相等，则每个元
 素比较结果都必须相等，并且两个序列长度必须相同
 
+大多数序列类型，包括可变类型和不可变类型都支持下表中的操作
+
 | 运算符 | 结果 | 注释 |
 | :------: | :------: | :------: |
 | x in s | 如果 s 中的某项等于 x 则结果为 True，否则为 False | 1 |
@@ -567,7 +614,7 @@ except TypeError:
 | len(s) | s 的长度 |  |
 | min(s) | s 的最小项 |  |
 | max(s) | s 的最大项 |  |
-| s.index(x[, i[, j]]) | x 在 s 中首次出现项的索引号（索引号在 i 或其后且在 j 之前） | 8 |
+| s.index(x[, i[, j]]) | x在s中首次出现项的索引号(索引和在i或其后且在j之前) | 8 |
 | s.count(x) | x 在 s 中出现的总次数 |  |
 
 注释:
@@ -595,6 +642,7 @@ except TypeError:
 #### 不可变序列类型
 
 不可变序列类型通常实现的唯一操作是可变序列类型未实现对hash()内置函数的支持，例如：tuple实例被用作dict键以及存储在set和frozenset实例中
+尝试对包含有不可哈希值的不可变序列进行哈希运算将会导致 TypeError
 
 #### 可变序列类型
 
@@ -622,23 +670,25 @@ except TypeError:
 
 #### Python运算符优先级
 
-以下表格列出了从最高到最低优先级的所有运算符：
+以下表格列出了从最高到最低优先级的常用运算符,同一框中运算符具有相同优先级，除非明确给出语法，否则运算符为二进制：负几次方其实就是它的正几次方分之一
 
 | 运算符 | 描述 |
 | :------: | :------: |
 | ** | 指数 (最高优先级) |
-| ~ + - | 按位翻转, 一元加号和减号 (最后两个的方法名为 +@ 和 -@) |
-| * / % // | 乘，除，取模和取整除 |
-| + - | 加法减法 |
-| >> << | 右移，左移位运算符 |
-| & | AND |
-| \| ^ | 或 异或--位运算 |
-| <= < > >= | 比较运算符 |
-| <> == != | 等于运算符 |
-| = %= /= //= -= += *= **= | 赋值运算符 |
-| is is not | 身份运算符 |
-| in not in | 成员运算符 |
-| not or and | 逻辑运算符 |
+| + - ~ | 正、负、按位非 (最后两个的方法名为 +@ 和 -@) |
+| * @ / // % | 乘法、矩阵乘法、除法、底数除法(取整除)、余数(取模)；%运算符还用于字符串格式化，适用于相同的优先级 |
+| + - | 加法、减法 |
+| << >> | 左移,右移位运算符 |
+| & | 按位与 |
+| ^ | 按位异或 |
+| \| | 按位或 |
+| in, not in, is, is not, <, <=, >, >=, !=, == | 比较,包括成员资格测试和身份测试 |
+| not x | NOT 布尔类型 x |
+| and | 布尔类型 AND |
+| or | 布尔类型 OR |
+| if - else | if条件表达式 |
+| lambda | Lambda表达式 |
+| := | Assignment expression |
 
 #### List(列表)
 
@@ -1114,7 +1164,7 @@ ython定义了几个上下文管理器，以支持简单的线程同步，文件
 Python的生成器和contextlib.contextmanager装饰器提供了一种实现这些协议的便捷方式。如果使用contextlib.contextmanager装饰器
 修饰生成器函数，它将返回实现必要__enter__()和__exit__()方法的上下文管理器，而不是由未修饰的生成器函数生成的迭代器
 
-请注意，Python / C API中Python对象的类型结构中没有针对这些方法的特定插槽。想要定义这些方法的扩展类型必须将它们作为普通的
+请注意，Python/C API中Python对象的类型结构中没有针对这些方法的特定插槽。想要定义这些方法的扩展类型必须将它们作为普通的
 Python可访问方法提供。与设置运行时上下文的开销相比，单个类字典查找的开销可以忽略不计
 
 ## 循环
@@ -1192,8 +1242,6 @@ while guess != number:
 ```
 
 ## 函数
-
-函数对象是通过函数定义创建，对函数唯一的操作就是调用它
 
 ### 函数的参数
 
@@ -1442,7 +1490,8 @@ class MyClass:
     def f(self):
         return 'hello world'
 
-MyClass.i和MyClass.f是有效的属性引用，分别返回整数和函数对象。类属性也可以分配给它，因此您可以MyClass.i通过赋值来更改其值。 __doc__也是有效的属性，返回属于类的文档字符串。"A simple example class"
+MyClass.i和MyClass.f是有效的属性引用，分别返回整数和函数对象。类属性也可以分配给它，因此您可以MyClass.i通过赋值来更改其值。
+__doc__也是有效的属性，返回属于类的文档字符串。"A simple example class"
 
 类实例化使用函数表示法。只是假装类对象是一个无参数函数，它将返回该类的新实例
 x = MyClass()   # 创建类的新实例并将该对象分配给局部变量x
@@ -1808,8 +1857,15 @@ Differ delta的每一行都以两个字母的代码开头
 
 ### unicodedata -- Unicode Database
 
-提供对unicode字符数据的访问，该数据库定义了所有unicode字符的字符属性
-https://docs.python.org/3/library/unicodedata.html
+提供对unicode字符数据库的访问，该数据库定义了所有unicode字符的字符属性
+
+|  |  |
+| :------: | :------: |
+| unicodedata.lookup() | 按名称查找字符，若找到给定名称字符则返回相应的字符，若未找到则引发KeyError |
+| unicodedata.name() | 返回分配给字符chr的名称作为字符串，若没有定义名称则返回default，若没有则引发ValueError |
+| unicodedata.category() | 返回分配给字符chr的常规类别为字符串 |
+| unicodedata.combining | 返回分配给字符chr的规范组合类作为整数，若未定义组合类则返回0 |
+| unicodedata.normalize() | 返回unicode字符串的正常形式form，form有效值为：NFC、NFKC、NFD、NFKD |
 
 ### readline -- GNU readline interface
 
@@ -1818,26 +1874,77 @@ readline模块定义多种功能以帮助完成从python解释器读取或写入
 
 init文件：以下功能与初始化文件和用户配置有关
 
-readline.parse_and_bind(string) 
-[未完待续]
+readline.parse_and_bind(string)     执行在string参数中提供的初始化行
+readline.read_init_file([filename]) 执行一个readline初始化文件。默认文件名为最近所使用的文件名
+
+https://docs.python.org/zh-cn/3/library/readline.html
 
 ### rlcompleter -- Completion function for GNU readline
 
-https://docs.python.org/3/library/rlcompleter.html
+rlcompeleter 通过补全有效的Python标识符和关键字定义了一个适用于readline模块的补全函数
+其Completer对象，此对象具有以下方法：
+
+Completer.complete(text, state)    为text返回第state项补全
 
 ## Binary Data Services
 
 ### struct -- Interpret bytes as packed binary data
 
-https://docs.python.org/3/library/struct.html
+此模块可以执行 Python 值和以 Python bytes 对象表示的 C 结构之间的转换。
+这可以被用来处理存储在文件中或是从网络连接等其他来源获取的二进制数据。
+它使用格式字符串作为 C 结构布局的精简描述以及与 Python 值的双向转换
+
+struct定义的函数
+
+|  |  |
+| :------: | :------: |
+| struct.pack() | 返回一个 bytes 对象，其中包含根据格式字符串format打包的<br>值v1, v2, ...参数个数必须与格式字符串所要求的值完全匹配 |
+| struct.unpack() | 根据格式字符串format从缓冲区buffer解包（假定是由pack(format, ...)打包），<br>结果为一个元组，即使其只包含一个条目。 缓冲区的字节大小必须匹配格式所要求的大小 |
+| struct.unpack_from() | 对 buffer 从位置 offset 开始根据格式字符串 format 进行解包。 结果为一个元组，<br>即使其中只包含一个条目。 缓冲区的字节大小从位置 offset 开始必须至少为 calcsize() 显示的格式所要求的大小 |
+| struct.calcsize() | 返回与格式字符串format相对应的结构的大小(即pack()方法所产生的字节串对象的大小)  |
+
+struct模块还定义以下类型：
+class struct.Struct(format)类返回一个新的Struct对象，其根据格式字符串format写入和读取二进制数据
+一次性创建Struct对象并调用其方法，相比使用同样格式调用struct函数更高效，因为字符串只需被编译一次
+
+注解：传递给Struct和模块层级函数的已编译版最新格式字符串会被缓存，
+因此只使用少量格式字符串的程序无需担心重用单独的Struct实例
+
+已编译的Struct对象支持以下方法和属性：
+
+方法：
+
+|  |  |
+| :------: | :------: |
+| pack() | 等价于pack()函数，len(result)将等于size |
+| pack_into() | 等价于pack_into()函数 |
+| unpack(buffer) | 等价于unpack()函数，缓冲区的字节大小必须等于size |
+| unpack_from(buffer, offset=0) | 等价于unpack_from()函数，缓冲区的字节大小<br>从位置offset开始且必须至少为size大小 |
+| iter_unpack(buffer) | 等价于iter_unpack()函数，缓冲区的字节大小必须为size的整数倍 |
+
+属性：
+
+format  用于构造此 Struct 对象的格式字符串。3.7版更改: 格式字符串类型现在是str而不再是 bytes
+
+size    计算出对应于format的结构大小（即pack()方法所产生的字节串对象的大小）
 
 ### codecs -- Codec registry and base classes
 
-https://docs.python.org/3/library/codecs.html
+模块定义了标准 Python 编解码器（编码器和解码器）的基类，并提供接口用来访问内部的 Python 编解码器注册表，该注册表负责管理编解码器和错误处理的查找过程。 大多数标准编解码器都属于 文本编码，它们可将文本编码为字节串，但也提供了一些编解码器可将文本编码为文本，以及字节串编码为字节串。 自定义编解码器可以在任意类型间进行编码和解码，但某些模块特性仅适用于 文本编码 或将数据编码为 字节串 的编解码器
+
+以下用于使用任何编解码器进行编码和解码的函数:
+
+|  |  |
+| :------: | :------: |
+| codecs.encode() | 使用encoding注册的编解码器对obj进行编码 |
+| codecs.decode() | 使用encoding注册的编解码器对obj进行解码 |
+| codecs.lookup() | 在python编解码器注册表中查找编解码器信息并返回一个CodecInfo对象 |
+| codecs.getwriter() | 查找给定编码的编解码器并返回其StreamWriter类或factory函数 |
+| codecs.open() | 使用给定的mode打开已编码文件并返回一个SteamReaderWriter的实例，默认文件模式为r |
 
 ## Data Types
 
-datetime模块提供操纵日期和时间的类，但实现的重点是针对输出格式和提取操作的有效属性
+datetime模块提供操纵日期和时间的类，但实现的重点是针对输出格式化和提取操作的有效属性
 
 datetime模块具有的常量
 
@@ -1846,12 +1953,14 @@ datetime模块具有的常量
 | datetime.MINYEAR | date或datetime对象中允许的最小年份,MINYEAR值为1 |
 | datetime.MAXYEAR | date或datetime对象中允许的最大年份，MAXYEAR值为9999 |
 
-datetime模块可用类型，这些类型的对象是不可变的
+datetime模块具有的类，这些类型的对象都是不可变的
 
-| datetime.date | 假设当前公历始终有效并且永远有效，属性：year,month,day |
+|  |  |
+| :------: | :------: |
+| datetime.date | 假设当前公历始终有效并且永远有效，参数：year,month,day,参数都是必须的且必须是整数 |
 | datetime.time | 一个理想的时间，独立于特定一天，假设每天正好24*60*60秒，属性：hour,minute,second,microsecond,tzinfo |
 | datetime.datetime | 日期和时间的组合，属性：year,month,day,hour,minute,second,microsecond,tzinfo |
-| datetime.timedalta | 表达在date,time或datetime实例之间的差异的持续时间 |
+| datetime.timedalta | 表达在date,time或datetime实例之间的差异的持续时间，所有参数默认值为0 |
 | datetime.tzinfo | 时区信息对象的抽象基类，通过datetime和time类来提供时间调整 |
 | datetime.timezone | 将tzinfo抽象基类实现为相对于UTC的固定偏移量的类 |
 
@@ -1865,7 +1974,198 @@ Object
     date
         datetime
 
+公共特性：date、datetime、time和timezone类型共享这些特性
+* 这些类型的对象是不可变的
+* 这些类型的对象可哈希的，意味着可以用作字典的key
+* 这些类型的对象通过pickle模块支持高效的序列化。
+
+确定对象是Aware或Naive
+* date类型的对象都是naive
+* time或datetime类型的对象可能为aware或naive
+    当以下两个条件满足时，datetime类型的对象d是aware，否则d为naive
+    1. d.tzinfo不能为None
+    2. d.tzinfo.utcoffset(d)不会返回None
+    当以下两个条件满足时，time类型对象t是aware，否则为naive
+    1. t.tzinfo不为None
+    2. t.tzinfo.utcoffset(None)不返回None
+
 ```
+
+### timedelta对象
+
+表示两个date或者time的时间间隔
+
+### date对象
+
+一个date对象表示理想化日历中的日期(年月日)
+
+|  |  |
+| :------: | :------: |
+| date.today() | 返回当前的本地日期，等同于date.fromtimestamp(time.time()) |
+| date.fromtimestamp(timestamp) | 返回与POSIX时间戳相对应的本地日期，非POSIX系统，时间戳包含leap秒概念会被忽略 |
+| date.fromordinal(ordinal) | 返回对应于多格勒公历序号的日期，其中第一年的一月一日为序号1 |
+| date.fromisoformat(date_string) | 返回date与date_string相对应的格式，格式为:YYYY-MM-DD，此为date.isofromat函数的反函数 |
+| date.fromisocalendar(year,week,day) | 返回date与按年，周和日指定的iso日历日期，此为date.isocalendar函数的反函数 |
+
+date类属性：
+
+|  |  |
+| :------: | :------: |
+| date.min | 最早的日期 |
+| date.max | 最大的日期 |
+| date.resolution | 非相等日期对象之间的最小差异 |
+
+实例属性(只读)：
+
+|  |  |
+| :------: | :------: |
+| date.year  date.month  date.day | 分别对应年月日 |
+
+实例方法：
+|  |  |
+| :------: | :------: |
+| date.replace() | 返回一个具有相同值的日期，但通过指定关键字参数给定新值的参数除外 |
+| date.timetuple() | 返回带有time.localtime()的元组类型时间 |
+| date.toordinal() |  |
+| date.weekday() | 以整数形式返回星期几，星期一为0,星期日为6，例如：date(2019, 11, 23).weekday() |
+| date.isoweekday() | 以整数形式返回星期几，星期一为1，星期日为7 |
+| date.isocalendar() | 返回一个三元组(iso年，iso周号，iso工作日) |
+| date.isoformat() | 返回以iso8601格式表示的日期的字符串YYY-MM-DD |
+| date.__str__() | 例如：对于日期d，str(d)等同于d.isoformat() |
+| date.ctime() | 返回表示日期的字符串，等效于time.ctime(time.mktime(d.timetuple())) |
+| date.strftime() | 返回表示日期的字符串，由明确的格式控制 |
+| date.__format__() | 与date.strftime()相同，这样date在格式化字符串以及为对象指定格式字符串 |
+
+### datetime对象
+
+datetime是包含从date对象和time对象的所有信息的单独对象,注意此datetime是由datetime类产生的datetime实例对象
+
+类方法：
+
+|  |  |
+| :------: | :------: |
+| datetime.datetime() | 年月日为必须参数，tzinfo可以是None或tzinfo子类的实例，fold参数范围在[0, 1]列表中 |
+| datetime.today() | 通过返回当前本地日期时间 |
+| datetime.now(tz=None) | 返回当前的本地日期和时间，tz值不是none时，必须为tzinfo子类的实例且当前日期和时间将转换为tz的时区 |
+| datetime.utcnow() | 返回当前utc日期和时间 |
+| datetime.fromtimestamp() | 返回与POSIX时间戳相对应的本地日期和时间 |
+| datetime.utcfromtimestamp() | 返回与datetimePOSIX时间戳相对应的UTC时间 |
+| datetime.fromordinal() |  |
+| datetime.combine() | 返回一个新datetime对象，其日期分量等于给定date对象的日期，并且其时间分量等于给定time对象的日期。<br>如果提供了tzinfo 参数，则使用其值设置tzinfo结果的tzinfo属性，否则使用time参数的属性 |
+| datetime.fromisoformat() | 返回datetime与date_string对应的格式 |
+| datetime.fromisocalendar() | 返回datetime与按年，周和日指定的ISO日历日期相对应的日期。datetime的非日期部分将使用其默认值填充 |
+| datetime.strptime() | 返回datetime与date_string相对应的内容，并根据format进行解析 |
+
+### time对象
+
+time对象表示一天中的（本地）时间，与任何特定的日期无关，并且可以通过tzinfo对象进行调整
+
+time实例方法：
+
+|  |  |
+| :------: | :------: |
+| time.isoformat() | 以ISO 8601格式返回代表时间的字符串 |
+| time.strftime() | 返回表示时间的字符串，由明确的格式字符串控制,参考以下strftime和strptime行为 |
+
+下表提供了strftime()与strptime()的高级比较
+
+|  | strftime | strftime |
+| :------: | :------: | :------: |
+| 用法 | 根据给定的格式将对象转换为字符串 | 将字符串解析为给定相应格式的 datetime 对象 |
+| 方法类型 | 实例方法 | 类方法 |
+| 方法 | date、datetime、time | datetime |
+| Signature | strftime(format) | strptime(date_string, format) |
+
+strftime()和strptime()格式代码
+
+|  |  |
+| :------: | :------: |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
+### tzinfo对象
+
+|  |  |
+| :------: | :------: |
+|  |  |
+
+### timezone对象
+
+|  |  |
+| :------: | :------: |
+|  |  |
+
+### strftime()和strptime()
+
+|  |  |
+| :------: | :------: |
+|  |  |
+
+## calendar与日历相关功能
+
+calendar.Calendar(firstweekday=0),创建一个Calendar对象，firstweekday是一个整数，指定一周第一天，默认为0代表周一
+
+Calendar实例具有以下方法
+
+|  |  |
+| :------: | :------: |
+| iterweekdays() | 返回用于一周星期几的迭代器，迭代器的第一个值和firstweekday属性值相同 |
+| itermonthdates() | 返回一年1-12月的迭代器，该迭代器将返回datetime.date该月的所有天（作为对象），<br>以及返回一个完整星期所需的月初或月末之后的所有天 |
+| itermonthdays() | 返回天数为月份中的天数，对于月份以外的日期，天数为0 |
+| itermonthdays2() | 返回天数为元组，它由一个月中的一号和一个工作日号(星期几)组成 |
+| itermonthdays3() | 返回天数为元组，它由一年，一个月和一个月中的第几天组成 |
+| itermonthdays4() | 返回天数为元组，它由一年，一个月，一个月中的第几天以及一个工作日号(星期几)的组成 |
+| monthdatescalendar() | 以列表形式返回每月的星期列表，每周列表是七个datetime.date对象的列表 |
+| monthdayscalendar() | 返回该月的周列表，周列表是工作日号组成 |
+| mongthdays2calendar() | 返回该月的周列表，周列表由日期和工作日组成的七个元组组成 |
+| yeardatescalendar() | 返回指定年份准备格式化的数据。返回值是月份行的列表。每个月行最多包含宽度月,每周包含1-7天。天是datetime.date对象 |
+| yeardays2calendar() | 返回周列表，周列表为天数和工作日的元组，该月以外的天数为0 |
+| yeardayscalendar() | 周列表为天数，该月以外的天数为0 |
+
+此类用于生成纯文本日历TextCalendar实例具有以下方法
+
+|  |  |
+| :------: | :------: |
+| formatmonth() | 以多行字符串返回一个月日历，w为宽度，l为行数 |
+| prmonth() | 以formatmonth()返回值直接打印一个月的日历 |
+| formatyear() | 以多行字符串返回一年的日历 |
+| pryear() | 以formatyear()返回值直接打印一年的日历 |
+
+此类用于生成html日历，HTMLCalendar实例方法
+
+|  |  |
+| :------: | :------: |
+| formatmonth() | 以html表格返回一个月的日历 |
+| formatyear() | 以html表格返回一年的日历 |
+| formatyearpage() | 以完整的html页面返回一年的日历，css参数为要使用的级联样式表的名称，None则不使用样式表 |
+
+TextCalendar子类LocaleTextCalendar()可以在构造函数中传递一个语言环境名称，将在指定的语言环境中返回月份和工作日
+HTMLCalendar子类LocaleHtmlCalendar()可以在构造函数中传递一个语言环境名称，将在指定的语言环境中返回月份和工作日
+
+calendar类的方法
+
+|  |  |
+| :------: | :------: |
+| setfirstweekday() | 将某工作日设置为一周的开始 |
+| firstweekday() | 返回每个星期开始的工作日设置 |
+| isleap() | 判断是否为闰年，是则为True，否则为False |
+| leapdays(y1, y2) | 返回y1至y2(不包括y2)的年数 |
+| weekday() | 返回指定年月日对应的工作日号 |
+| weekheader() | 返回包含工作日名称缩写的头,n表示返回头的宽度 |
+| monthrange() | 返回指定年月中第一天的工作日号和月份的天数 |
+| monthcalendar() | 返回代表一个月日历的周列表，月份以外的用0表示，默认以每个星期星期一开始，除非setfirstweekday()指定星期 |
+| prmonth |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
 
 ## File & Directory access
 

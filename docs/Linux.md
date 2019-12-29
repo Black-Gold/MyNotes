@@ -927,7 +927,7 @@ export JAVA_HOME=/usr/java/jdk-$version
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 # 配置生效并验证
-source .bashrc && java --version
+source .bashrc && java -version
 ```
 
 ## SSH相关命令和配置
@@ -954,6 +954,8 @@ iptables save
 service iptables restart
 
 sed -i 's/#Port 22/Port 2121/' /etc/ssh/sshd_config     # 修改sshd_config文件，将#Port 22直接替换成Port 2121
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config   # 允许root用户远程ssh登录
+sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config # 允许使用密码连接ssh服务
 
 ```
 
@@ -2550,7 +2552,7 @@ https://rsync.samba.org/examples.html
 echo "work:abc123" > /etc/rsyncd.passwd
 chmod 600 /etc/rsyncd.passwd
 
-windows下rsync权限注意事项：密码文件执行：chmod 600 rsync.passwd,用当前用户执行chown 用户名 rsync.passwd
+windows下rsync权限注意事项：密码文件执行：chmod 600 rsync.passwd,用当前用户执行：chown 用户名 rsync.passwd
 
 将文件发送到Microsoft文件系统：如果文件的修改时间是一个奇数值，但是接收文件系统只能存储偶数值，
 那么rsync将重新传输太多文件。您可以通过指定--modify-window = 1选项来避免这种情况

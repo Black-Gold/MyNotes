@@ -986,4 +986,12 @@ https://pv.sohu.com/cityjson?ie=utf-8
 
 # 动态dns
 https://github.com/NewFuture/DDNS
+
+# vagrant box下载链接，以此类推
+https://app.vagrantup.com/ansible/boxes/tower/versions/3.5.1/providers/virtualbox.box
+https://vagrantcloud.com/centos/boxes/7/versions/1905.1/providers/virtualbox.box
+
+技术点梳理
+https://docs.bk.tencent.com/technology/
+
 ```

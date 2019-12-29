@@ -680,6 +680,41 @@ Create an SSL Certificate
 # openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 ```
 
+```markdown
+# 多路径多站点同一个端口
+server {
+    listen 8080;
+    server_name localhost;  
+    root /home/ajit/git/univisior;
+
+location / {
+    alias /home/ajit/git/project-x/buyer/dist/;
+    index index.html;
+    try_files $uri $uri/ /index.html;
+
+}
+location /admin{
+    alias /home/ajit/git/project-x/admin/dist/;
+    index index.html;
+    try_files $uri $uri/ index.html;
+
+}
+
+location /seller {
+    alias /home/ajit/git/project-x/seller/dist/;
+    index index.html;
+    try_files $uri $uri/ /index.html;
+
+}
+
+location /api {
+    proxy_pass http://localhost:3000/api;
+
+ }
+
+}
+```
+
 ## nginx日志相关命令
 
 ```sh
