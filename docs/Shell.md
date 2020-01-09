@@ -20,7 +20,7 @@ bash shell本身不支持正则表达式，使用正则的是shell命令和工�
 
 ## shell多行注释实现方式
 
-```sh
+```bash
 
 方法一：
 : << 字符(一般使用comment便于识别)

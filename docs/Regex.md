@@ -202,19 +202,19 @@ sql语句：^(select|drop|delete|create|update|insert).*$
 
 对比如下：
 
-```sh
+```bash
 
-line="cat dog sky"  
+line="cat dog sky"
 echo "$line" | sed -n "s/\(.*\)\b\(.*\)/# |\1|\2|/p"
 echo "$line" | sed -n "s/\(.*\)\>\(.*\)/# |\1|\2|/p"
 echo "$line" | sed -n "s/\(.*\)\<\(.*\)/# |\1|\2|/p"
 echo
-line="cat  dog  sky"  
+line="cat  dog  sky"
 echo "$line" | sed -n "s/\(.*\)\b\(.*\)/# |\1|\2|/p"
 echo "$line" | sed -n "s/\(.*\)\>\(.*\)/# |\1|\2|/p"
 echo "$line" | sed -n "s/\(.*\)\<\(.*\)/# |\1|\2|/p"
 echo
-line="cat  dog  sky  "  
+line="cat  dog  sky  "
 echo "$line" | sed -n "s/\(.*\)\b\(.*\)/# |\1|\2|/p"
 echo "$line" | sed -n "s/\(.*\)\>\(.*\)/# |\1|\2|/p"
 echo "$line" | sed -n "s/\(.*\)\<\(.*\)/# |\1|\2|/p"
@@ -234,4 +234,3 @@ echo
 # |cat  dog  |sky  |
 
 ```
-

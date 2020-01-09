@@ -791,7 +791,7 @@ setcap CAP_SYS_NICE+ep /opt/app/freeswitch/bin/freeswitch
 
 ## Raspberrypi
 
-```sh
+```bash
 关于HDMI设置
 /opt/vc/bin/tvservice
 tvservice [OPTION]...

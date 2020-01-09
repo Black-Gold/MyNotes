@@ -22,7 +22,7 @@ Elasticsearch近乎实时(NRT)的搜索平台，从索引文档到可搜索文�
 
 默认情况下，Elasticsearch中的每个索引都分配了5个主分片和1个副本，这意味着如果群集中至少有两个节点，则索引将包含5个主分片和另外5个副本分片（1个完整副本），总计为每个索引10个分片
 
-```sh
+```bash
 
 curl -X PUT "localhost:9200/customer?pretty"    #创建名为customer的索引
 

@@ -3,7 +3,7 @@
 ## Coreos介绍
 
 
-```sh
+```bash
 生成安全哈希的几种方法：
 
 # On Debian/Ubuntu (via the package "whois")
@@ -352,7 +352,7 @@ storage:
 
 ```
 
-```sh
+```bash
 #!/bin/bash
 
 echo "Installing coreos-install..."

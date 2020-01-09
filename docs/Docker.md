@@ -1,18 +1,18 @@
 # docker笔记
 
-```sh
+```bash
 Offical:一条命令安装最新稳定版docker：curl -fsSl https://get.docker.com | sh
 ```
 
 运行这个命令下载最新版本的Docker Compose:
 
-```sh
+```bash
 sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 ```
 
 ## centos7下docker安装与卸载
 
-```sh
+```bash
 yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum list docker-ce --showduplicates | sort -r
@@ -23,7 +23,7 @@ systemctl enable docker
 
 ## Ubuntu (使用apt-get进行安装)
 
-```sh
+```bash
 # step 1: 安装必要的一些系统工具
 sudo apt-get update
 sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
@@ -46,7 +46,7 @@ sudo apt-get -y install docker-ce
 
 ## 卸载docker
 
-```sh
+```bash
 yum remove docker-ce
 rm -rf /var/lib/docker
 ```
@@ -60,7 +60,7 @@ $ sudo chmod g+rwx "$HOME/.docker" -R
 
 ## centos6安装docker依赖出错解决
 
-```sh
+```bash
 yum remove docker-io
 rm -rf /var/lib/docker
 rm /etc/yum.repos.d/docker.repo
@@ -71,7 +71,7 @@ service docker status
 
 ## 更改docker镜像安装目录(新版本通过配置文件参数自定义指定)
 
-```sh
+```bash
 方法一：
 停止docker进程
 Ubuntu/Debian：使用-g选项编辑/etc/default/docker文件：DOCKER_OPTS =“ - dns 8.8.8.8 -dns 8.8.4.4 -g /mnt”
@@ -90,7 +90,7 @@ tar -zcC /var/lib docker > /mnt/pd0/var_lib_docker-backup-$(date +%s).tar.gz
 
 ## Docker 中国官方镜像加速
 
-```sh
+```bash
 通过 Docker 官方镜像加速，中国区用户能够快速访问最流行的 Docker 镜像。该镜像托管于中国大陆，本地用户现在将会享受到更快的下载速度和更强的稳定性，从而能够更敏捷地开发和交付 Docker 化应用
 
 Docker 中国官方镜像加速可通过 registry.docker-cn.com 访问。该镜像库只包含流行的公有镜像。私有镜像仍需要从美国镜像库中拉取
@@ -325,7 +325,7 @@ Run 'docker COMMAND --help' for more information on a command.
 
 ```
 
-```sh
+```bash
 
 
 docker run -dt -p 127.0.0.1:9980:9980 -e "domain=192\.168\.124\.3" -e "username=admin" -e "password=admin" --restart always --cap-add MKNOD docker.io/thedarkknight/libreoffice-online-unlimited
@@ -356,13 +356,13 @@ docker images
 
 ### 删除images，通过image的id来指定删除谁
 
-```sh
+```bash
 docker rmi <image id>
 ```
 
 ### 想要删除untagged images，也就是那些id为None的image的话可以用
 
-```sh
+```bash
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 ```
 
@@ -398,7 +398,7 @@ docker run -i -t ubuntu /bin/bash # drops you into new container as root
 
 容器操作命令
 
-```sh
+```bash
 docker ps <选项>
 
 -a,--all=false 列出所有容器，不加-a输出running状态容器

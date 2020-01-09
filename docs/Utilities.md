@@ -96,8 +96,8 @@ time ss
 # 匹配远程地址和端口号
 # ss dst ADDRESS_PATTERN
 ss dst 192.168.1.5
-ss dst 192.168.119.113:http 
-ss dst 192.168.119.113:smtp 
+ss dst 192.168.119.113:http
+ss dst 192.168.119.113:smtp
 ss dst 192.168.119.113:443
 
 # 匹配本地地址和端口号
@@ -114,22 +114,22 @@ ss src 192.168.119.103:25
 ```bash
 # ss dport OP PORT 远程端口和一个数比较
 # ss sport OP PORT 本地端口和一个数比较
-# OP 可以代表以下任意一个: 
+# OP 可以代表以下任意一个:
 # <= or le : 小于或等于端口号
 # >= or ge : 大于或等于端口号
 # == or eq : 等于端口号
 # != or ne : 不等于端口号
 # < or gt : 小于端口号
 # > or lt : 大于端口号
-ss  sport = :http 
-ss  dport = :http 
-ss  dport \> :1024 
-ss  sport \> :1024 
-ss sport \< :32000 
-ss  sport eq :22 
-ss  dport != :22 
-ss  state connected sport = :http 
-ss \( sport = :http or sport = :https \) 
+ss  sport = :http
+ss  dport = :http
+ss  dport \> :1024
+ss  sport \> :1024
+ss sport \< :32000
+ss  sport eq :22
+ss  dport != :22
+ss  state connected sport = :http
+ss \( sport = :http or sport = :https \)
 ss -o state fin-wait-1 \( sport = :http or sport = :https \) dst 192.168.1/24
 ```
 
@@ -137,8 +137,8 @@ ss -o state fin-wait-1 \( sport = :http or sport = :https \) dst 192.168.1/24
 
 ```bash
 ss -4 state closing
-# ss -4 state FILTER-NAME-HERE   
-# ss -6 state FILTER-NAME-HERE  
+# ss -4 state FILTER-NAME-HERE
+# ss -6 state FILTER-NAME-HERE
 # FILTER-NAME-HERE 可以代表以下任何一个：
 # established、 syn-sent、 syn-recv、 fin-wait-1、 fin-wait-2、 time-wait、 closed、 close-wait、 last-ack、 listen、 closing、
 # all : 所有以上状态
@@ -148,13 +148,13 @@ ss -4 state closing
 # big : 和bucket相反.
 ```
 
- **显示ICP连接** 
+ **显示ICP连接**
 
 ```
 [root@localhost ~]# ss -t -a
 
 
- **显示 Sockets 摘要** 
+ **显示 Sockets 摘要**
 
 ```
 [root@localhost ~]# ss -s
@@ -162,25 +162,25 @@ ss -4 state closing
 
 列出当前的established, closed, orphaned and waiting TCP sockets
 
- **列出所有打开的网络连接端口** 
+ **列出所有打开的网络连接端口**
 
 ```
 [root@localhost ~]# ss -l
 
 
- **查看进程使用的socket** 
+ **查看进程使用的socket**
 
 ```
 [root@localhost ~]# ss -pl
 
- **找出打开套接字/端口应用程序** 
+ **找出打开套接字/端口应用程序**
 
 ```
 [root@localhost ~]# ss -pl | grep 3306
 0      0                            *:3306                          *:*        users:(("mysqld",1718,10))
 ```
 
- **显示所有UDP Sockets** 
+ **显示所有UDP Sockets**
 
 ```
 [root@localhost ~]# ss -u -a
@@ -193,7 +193,7 @@ ss -4 state closing
 ss state all sport = :ssh
 
 ```
-```sh
+```bash
 OBJECT # 网络对象
 link # 指网络设备，通过此对象命令，我们可以查看及更改网络设备的属性
 addr # 地址管理
@@ -235,10 +235,10 @@ ip route del 192.168.1.0/24 via 192.168.0.1  # 删除静态路由
 那个比较快的cable modem 的IP地址是 212.64.94.251，PPP 链路，对端IP是212.64.94.1。而那个比较慢的cable modem的IP地址是212.64.78.148，对端是195.96.98.253
 local 表：
 	#ip route list table local
-	
+
 查看“main”路由表：
 	#ip route list table main
-	
+
 我们现在为我们的朋友创建了一个叫做“John”的规则。其实我们完全可以使用纯数字表示规则，但是不方便。我们可以向/etc/iproute2/rt_tables文件中添加数字与名字的关联：
 # echo 200 John >> /etc/iproute2/rt_tables
 # ip rule add from 10.0.0.10 table John
@@ -263,7 +263,7 @@ iproute2 ip 常用命令备忘
 	ip addr del 192.0.2.2/24 dev eth0
 3.显示接口统计
 	ip -s link ls eth0
-	
+
 网卡和链路配置
 4.显示链路
 	ip link show
@@ -317,7 +317,7 @@ socket统计
 ip地址显示
 所有show命令都可以与-4或-6选项一起使用，以仅显示IPv4或IPv6地址
 显示单个界面的地址
-IP地址显示$ {接口名称} 
+IP地址显示$ {接口名称}
 例子：
 ip地址显示eth0
 仅显示正在运行的接口的地址
@@ -339,7 +339,7 @@ ip address add 2001：db8：1 :: / 48 dev tun10
 您设置的所有其他地址都将成为次要地址
 
 添加具有人类可读描述的地址
-ip address add $ {address} / $ {mask} dev $ {interface name} label $ {interface name}：$ {description} 
+ip address add $ {address} / $ {mask} dev $ {interface name} label $ {interface name}：$ {description}
 例子：
 ip address add 192.0.2.1/24 dev eth0 label eth0：WANaddress
 由于一些向后兼容性问题，标签必须以接口名称开头，后跟冒号，否则会出错。 保持标签短于十六个字符，否则你会得到这个错误：
@@ -402,7 +402,7 @@ ip neighbor delete 192.0.2.1 lladdr 22：ce：e0：99：63：6f dev eth0
 
 请注意，使用“ip link add”和“ip link set”命令的“name $ {name}”参数设置的接口名称可能是任意的，甚至可能包含unicode字符。但是，最好坚持使用ASCII，因为其他程序可能无法正确处理unicode
 
-另请注意，其他程序（如iptables）可能有自己的链接名称格式和长度限制，所以最好使用短的字母数字名称，并在链接别名中提供其他信息 
+另请注意，其他程序（如iptables）可能有自己的链接名称格式和长度限制，所以最好使用短的字母数字名称，并在链接别名中提供其他信息
 
 显示有关所有链接的信息
 IP链接显示
@@ -430,7 +430,7 @@ ip link set dev eth0别名“LAN接口”
 2：eth0：<BROADCAST，MULTICAST，UP，LOWER_UP> mtu 1500 qdisc mq状态UP模式DEFAULT qlen 1000
     link / ether 22：ce：e0：99：63：6f brd ff：ff：ff：ff：ff：ff
     别名LAN接口
-          
+
 重命名一个接口
 ip link set dev $ {old interface name} name $ {new interface name}
 例子：
@@ -750,9 +750,9 @@ ip隧道更改tun10密钥23456
 IP隧道表演
 ip tunnel show $ {interface name}
 例子：
-$ ip tun show tun99 
-tun99：gre / ip remote 10.46.1.20 local 10.91.19.110 ttl inherit 
-          
+$ ip tun show tun99
+tun99：gre / ip remote 10.46.1.20 local 10.91.19.110 ttl inherit
+
 L2TPv3伪线管理
 L2TPv3是L2伪线通常使用的隧道协议
 
@@ -776,9 +776,9 @@ ip l2tp添加隧道\
 tunnel_id 1 \
 peer_tunnel_id 1 \
 udp_sport 5000 \
-udp_dport 5000 \ 
+udp_dport 5000 \
 encap udp \
-本地192.0.2.1 \ 
+本地192.0.2.1 \
 远程203.0.113.2
 注意：两个端点上的隧道标识符和其他设置必须匹配
 
@@ -789,19 +789,19 @@ peer_tunnel_id {远程隧道数字标识符} \
 encap ip \
 本地192.0.2.1 \
 远程203.0.113.2
-          
+
 直接封装成IP的L2TPv3提供较少的开销，一般无法通过NAT
 
 创建一个L2TPv3会话
 ip l2tp add session tunnel_id $ {local tunnel identifier} \
 session_id $ {本地会话数字标识符} \
 peer_session_id $ {远程会话数字标识符}
-          
+
 例子：
-ip l2tp add session tunnel_id 1 \ 
+ip l2tp add session tunnel_id 1 \
 session_id 10 \
 peer_session_id 10
-       	  
+
 注意： tunnel_id值必须匹配先前创建的隧道的值。两个端点上的会话标识符必须匹配
 
 一旦你创建了一个隧道和一个会话，l2tpethX界面就会出现，处于关闭状态。将状态更改为启动并将其与另一个界面桥接或分配地址
@@ -809,7 +809,7 @@ peer_session_id 10
 删除一个L2TPv3会话
 ip l2tp del session tunnel_id $ {tunnel identifier} \
 session_id $ {会话标识符}
-          
+
 例子
 ip l2tp del session tunnel_id 1 session_id 1
 删除L2TPv3隧道
@@ -827,7 +827,7 @@ ip l2tp show tunnel tunnel_id 12
 ip l2tp显示会话
 ip l2tp show session session_id $ {session identifier} \
 tunnel_id $ {隧道标识符}
-          
+
 例子：
 ip l2tp show session session_id 1 tunnel_id 12
 VXLAN管理
@@ -840,26 +840,26 @@ VXLAN是第2层隧道协议，通常与虚拟化系统（如KVM）结合使用�
 VXLAN的底层封装协议是UDP
 
 创建单播VXLAN链路
-ip link add name $ {interface name}键入vxlan \ 
-   id <0-16777215> \ 
-   dev $ {source interface} \ 
-   远程$ {远程端点地址} \ 
-   本地$ {本地端点地址} \ 
-   dstport $ {VXLAN目标端口} 
+ip link add name $ {interface name}键入vxlan \
+   id <0-16777215> \
+   dev $ {source interface} \
+   远程$ {远程端点地址} \
+   本地$ {本地端点地址} \
+   dstport $ {VXLAN目标端口}
 例：
-ip link add name vxlan0 type vxlan \ 
-   ID 42 dev eth0远程203.0.113.6本地192.0.2.1 dstport 4789 
+ip link add name vxlan0 type vxlan \
+   ID 42 dev eth0远程203.0.113.6本地192.0.2.1 dstport 4789
 注意： id选项表示VXLAN网络标识符（VNI）
 
 创建组播VXLAN链路
-ip link add name $ {interface name}键入vxlan \ 
-   id <0-16777215> \ 
-   dev $ {source interface} \ 
-   组$ {多播地址} \ 
-   dstport $ {VXLAN目标端口} 
+ip link add name $ {interface name}键入vxlan \
+   id <0-16777215> \
+   dev $ {source interface} \
+   组$ {多播地址} \
+   dstport $ {VXLAN目标端口}
 例：
-ip link add name vxlan0 type vxlan \ 
-   id 42 dev eth0组239.0.0.1 dstport 4789 
+ip link add name vxlan0 type vxlan \
+   id 42 dev eth0组239.0.0.1 dstport 4789
 之后，您需要将链接与其他接口桥接或分配地址
 
 路由管理
@@ -1081,13 +1081,13 @@ ip-6规则刷新
 注：此操作具有高度破坏性。即使您没有配置任何规则，默认情况下也会初始化“从所有主查找”规则。在未配置的机器上，您可以看到：
 
 $ ip规则显示
-0：从所有查找本地 
-32766：从所有查找主要 
-32767：从所有查找默认 
+0：从所有查找本地
+32766：从所有查找主要
+32767：从所有查找默认
 
 $ ip -6规则显示
-0：从所有查找本地 
-32766：从所有查找主要 
+0：从所有查找本地
+32766：从所有查找主要
 “从所有查找本地”规则是特殊的，不能被删除。“从所有查找主要”不是，可能有没有它的正当理由，例如，如果你只想路由你创建显式规则的流量。作为一个副作用，如果你做“ip rule flush”，这个规则将被删除，这将使系统停止路由任何流量，直到你恢复你的规则
 
 网络命名空间管理
@@ -1291,7 +1291,7 @@ netstat -pt     # 在netstat输出中显示 PID 和进程名称
 
 ## 在netstat输出中不显示主机，端口和用户名(host, port or user)
 
-```sh
+```bash
 # 当你不想让主机，端口和用户名显示，使用`netstat -n`。将会使用数字代替那些名称。同样可以加速输出，因为不用进行比对查询
 netstat -an
 

@@ -72,11 +72,11 @@ wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
 
 --with-http_ssl_module - 可以构建一个模块，将HTTPS协议支持添加到HTTP服务器。该模块不是默认生成的。OpenSSL库需要构建和运行这个模块
 
---with-pcre=path - 设置PCRE库源的路径。图书馆发行（版本4.4 - 8.41）需要从PCRE网站下载 并提取。其余的是由nginx的./configure和 make。在位置指令和 ngx_http_rewrite_module 模块中，该库是正则表达式支持所必需的 
+--with-pcre=path - 设置PCRE库源的路径。图书馆发行（版本4.4 - 8.41）需要从PCRE网站下载 并提取。其余的是由nginx的./configure和 make。在位置指令和 ngx_http_rewrite_module 模块中，该库是正则表达式支持所必需的
 
---with-pcre-jit - 用“即时编译”支持（1.1.12，pcre_jit指令）构建PCRE库 
+--with-pcre-jit - 用“即时编译”支持（1.1.12，pcre_jit指令）构建PCRE库
 
---with-zlib=path - 设置zlib库的源的路径。库发行版（版本1.1.3 - 1.2.11）需要从zlib站点下载 并提取。其余的是由nginx的./configure和 make。该库是ngx_http_gzip_module模块所必需的 
+--with-zlib=path - 设置zlib库的源的路径。库发行版（版本1.1.3 - 1.2.11）需要从zlib站点下载 并提取。其余的是由nginx的./configure和 make。该库是ngx_http_gzip_module模块所必需的
 
 --with-cc-opt=parameters - 设置将被添加到CFLAGS变量的附加参数。在FreeBSD下使用系统PCRE库时， --with-cc-opt="-I /usr/local/include" 应该指定。如果select()需要增加支持的文件数量，也可以在这里指定如下： --with-cc-opt="-D FD_SETSIZE=2048"
 
@@ -92,7 +92,7 @@ wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
 
 ## 关于构建模块
 
-```sh
+```bash
 默认情况下不包括的模块以及第三方模块必须在configure脚本中与其他构建选项一起显式指定。这些模块可以静态链接到NGINX二进制文件（每次NGINX启动时加载它们）或动态加载（只有在NGINX配置文件中包含相关指令时才加载它们
 
 默认构建的模块
@@ -185,41 +185,41 @@ wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
 # /etc/sysctl.conf
 # Avoid a smurf attack
 net.ipv4.icmp_echo_ignore_broadcasts = 1
- 
+
 # Turn on protection for bad icmp error messages
 net.ipv4.icmp_ignore_bogus_error_responses = 1
- 
+
 # Turn on syncookies for SYN flood attack protection
 net.ipv4.tcp_syncookies = 1
- 
+
 # Turn on and log spoofed, source routed, and redirect packets
 net.ipv4.conf.all.log_martians = 1
 net.ipv4.conf.default.log_martians = 1
- 
+
 # No source routed packets here
 net.ipv4.conf.all.accept_source_route = 0
 net.ipv4.conf.default.accept_source_route = 0
- 
+
 # Turn on reverse path filtering
 net.ipv4.conf.all.rp_filter = 1
 net.ipv4.conf.default.rp_filter = 1
- 
+
 # Make sure no one can alter the routing tables
 net.ipv4.conf.all.accept_redirects = 0
 net.ipv4.conf.default.accept_redirects = 0
 net.ipv4.conf.all.secure_redirects = 0
 net.ipv4.conf.default.secure_redirects = 0
- 
+
 # Don't act as a router
 net.ipv4.ip_forward = 0
 net.ipv4.conf.all.send_redirects = 0
 net.ipv4.conf.default.send_redirects = 0
- 
- 
+
+
 # Turn on execshild
 kernel.exec-shield = 1
 kernel.randomize_va_space = 1
- 
+
 # Tuen IPv6
 net.ipv6.conf.default.router_solicitations = 0
 net.ipv6.conf.default.accept_ra_rtr_pref = 0
@@ -228,21 +228,21 @@ net.ipv6.conf.default.accept_ra_defrtr = 0
 net.ipv6.conf.default.autoconf = 0
 net.ipv6.conf.default.dad_transmits = 0
 net.ipv6.conf.default.max_addresses = 1
- 
+
 # Optimization for port usefor LBs
 # Increase system file descriptor limit
 fs.file-max = 65535
- 
+
 # Allow for more PIDs (to reduce rollover problems); may break some programs 32768
 kernel.pid_max = 65536
- 
+
 # Increase system IP port limits
 net.ipv4.ip_local_port_range = 2000 65000
- 
+
 # Increase TCP max buffer size setable using setsockopt()
 net.ipv4.tcp_rmem = 4096 87380 8388608
 net.ipv4.tcp_wmem = 4096 87380 8388608
- 
+
 # Increase Linux auto tuning TCP buffer limits
 # min, default, and max number of bytes to use
 # set max to at least 4MB, or higher if you use very high BDP paths
@@ -255,7 +255,7 @@ net.ipv4.tcp_window_scaling = 1
 
 ## 初学者指南
 
-```sh
+```bash
 要启动nginx，请运行可执行文件。启动nginx后，可以通过使用-s参数调用可执行文件来控制它。使用以下语法：
 nginx -s signal
 signal可以是下列之一：
@@ -274,7 +274,7 @@ nginx由模块组成，模块由配置文件指定的指令控制，指令分为
 
 ## 静态内容
 
-```sh
+```bash
 从/data/www目录提供文件，编辑配置文件并使用两个location块在http块内设置server块
 将html等静态文件放入/data/www，打开配置文件，默认已包含几个server块实例
 http {
@@ -308,7 +308,7 @@ server {
 
 ## 设置简单的代理服务器
 
-```sh
+```bash
 nginx可以用作代理服务器，即服务器接受请求，将这些请求传递给代理服务器，从中检索响应，然后返回给客户端
 我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。在此示例中，将在单个nginx实例上定义两个服务器
 
@@ -355,7 +355,7 @@ server {
 
 ## 设置FastCGI代理
 
-```sh
+```bash
 nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序
 
 使用FastCGI服务器的最基本的nginx配置包括使用 fastcgi_pass 指令而不是proxy_pass指令，以及fastcgi_param 指令来设置传递给FastCGI服务器的参数。假设可以访问FastCGI服务器localhost:9000。以上一节中的代理配置为基础，将proxy_pass指令替换为指令 fastcgi_pass并将参数更改为 localhost:9000。在PHP中，该SCRIPT_FILENAME参数用于确定脚本名称，该QUERY_STRING 参数用于传递请求参数。结果配置为：
@@ -403,7 +403,7 @@ events {
 }
 
 http {
-    # Configuration specific to HTTP and affecting all virtual servers  
+    # Configuration specific to HTTP and affecting all virtual servers
 
     server {
         # configuration of HTTP virtual server 1
@@ -664,7 +664,7 @@ valid_referers blocked www.example.com example.com;
  if ($invalid_referer) {
   rewrite ^/images/uploads.*\.(gif|jpg|jpeg|png)$ http://www.examples.com/banned.jpg last
  }
- 
+
 ### Password Protect /personal-images/ and /delta/ directories ###
 location ~ /(personal-images/.*|delta/.*) {
   auth_basic  "Restricted";
@@ -684,7 +684,7 @@ Create an SSL Certificate
 # 多路径多站点同一个端口
 server {
     listen 8080;
-    server_name localhost;  
+    server_name localhost;
     root /home/ajit/git/univisior;
 
 location / {
@@ -717,7 +717,7 @@ location /api {
 
 ## nginx日志相关命令
 
-```sh
+```bash
 
 nginx日志最好实现每天定时切割下，特别是在访问量比较大的时候，方便查看与处理，如果没切割，可以用sed直接切割
 
@@ -753,7 +753,7 @@ cat gelin_web_access.log | sed -n '/17\/Jul\/2017:12/,/17\/Jul\/2017:13/p' | mor
 
 ## Unit1.8.0
 
-```sh
+```bash
 # Control socket位置：/var/run/control.unit.sock
 cat << EOF > /etc/yum.repos.d/unit.repo
 [unit]

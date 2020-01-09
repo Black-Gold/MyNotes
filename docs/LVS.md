@@ -115,7 +115,7 @@ C j / W j = min {C i / W i }（i = 1，..，n）
 源哈希调度算法通过按源IP地址查找静态分配的哈希表来为服务器分配网络连接
 
 最短的预期延迟调度
-最短的预期延迟调度算法以最短的预期延迟将网络连接分配给服务器。如果发送到第i个服务器，作业将经历的预期延迟是（Ci + 1）/ Ui，其中Ci是第i个服务器上的连接数，Ui是第i个服务器的固定服务速率（权重） 
+最短的预期延迟调度算法以最短的预期延迟将网络连接分配给服务器。如果发送到第i个服务器，作业将经历的预期延迟是（Ci + 1）/ Ui，其中Ci是第i个服务器上的连接数，Ui是第i个服务器的固定服务速率（权重）
 
 从不排队调度
 永不排队调度算法采用双速模型。当有空闲服务器可用时，作业将被发送到空闲服务器，而不是等待快速服务器。当没有可用的空闲服务器时，作业将被发送到服务器，以最小化其预期延迟（最短预期延迟调度算法）
@@ -679,7 +679,7 @@ LVS-DR修改virtual_server下lb_kind NAT参数为lb_kind DR(LVS-DR为常用方�
 内网浮动IP：192.168.1.1
 
 eth0:1.1.1.10   ___________            ___________
-VIP            |           |         \|           |  
+VIP            |           |         \|           |
                | LVS-Master|—— —— —— —| Web-node1 |192.168.1.100
                |___________|       __/|___________|
 eth1:192.168.1.10  |         \      /|
@@ -698,7 +698,7 @@ eth1:192.168.1.20
 
 ## LVS服务器上配置IP
 
-```sh
+```bash
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 vim /etc/sysconfig/network-scripts/ifcfg-eth1
 
@@ -739,7 +739,7 @@ virtual_ipaddress
 
 # 单个实例必须不相同的配置项
 router_id id1
-state MASTER  
+state MASTER
 priority 100
 
 # 上述简化设置--在realserver创建脚本rs.sh
@@ -779,7 +779,7 @@ esac
 
 ### 主LVS配置keepalived.conf
 
-```sh
+```bash
 global_defs {
     notification_email {
          your_email@qq.com   # 邮件发生目的人
@@ -853,7 +853,7 @@ protocol TCP
 
 ### 从LVS配置
 
-```sh
+```bash
 global_defs {
 router_id LVS_R1
 }
@@ -921,7 +921,7 @@ protocol TCP
 
 ## 创建通用单独的检查邮件提醒脚本lvs_notify.sh
 
-```sh
+```bash
 #!/bin/bash
 contact='your_email_address'
 

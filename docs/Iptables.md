@@ -32,7 +32,7 @@
 **iptables** 表是按照对数据包的操作区分的，链也被称为钩子函数(hook functions)是按照不同的Hook函数来区分的
 
 |  |  |
-| :--: | :--: |
+| :------: | :------: |
 | **表** |  |
 | filter | 负责包过滤，用于防火墙规则 |
 | nat | nat功能(端口映射，地址映射,网关路由等） |
@@ -59,7 +59,7 @@
 下表为：从左到右每个表(Table)可用的链(Chains),当从上到下显示在触发关联的netfilter挂钩时调用每个链的顺序
 
 | Tables↓/Chains→ | PREROUTING | INPUT | FORWARD | OUTPUT | POSTROUTING |
-| :--: | :--: | :--: | :--: | :--: | :--: |
+| :------: | :------: | :------: | :------: | :------: | :------: |
 | (routing decision) |  |  |  | ✓ |  |
 | **raw** | ✓ |  |  | ✓ |  |
 | (connection tracking enabled) | ✓ |  |  | ✓ |  |
@@ -76,68 +76,68 @@
 
 ```md
 # 以下为简易流程；大多数使用情况下都不会用到raw，mangle和security表；注意：IPv6没有nat
-                                      ┏╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┓
+                                      ┏╍╍╍╍╍╍╍╍╍┓
                                       ┃    Network    ┃
                                       ┗━━━━━━━┳━━━━━━━┛
                                               |
                                               |
                                               ▼
                             ┌────────────────────────────────────┐
-                            │ table: raw,mangle,nat(destination) │
-                            │ chain: PREROUTING                  │
+                            │ table: raw,mangle,nat(destination)        │
+                            │ chain: PREROUTING                         │
                             └─────────────────┬──────────────────┘
                                               |
                                               ▼
                                     ——————————————————————
                                     route outing decision
                 ┌───────────────────判断当前数据包目的IP地址────────────────────┐
-                |                   是否为本机网口的IP地址                      |
-                |                   ——————————————————————                    │目的IP非本机网口IP
-                |                                                             │如果本机开启IP_forward
-                │ 目的IP为本地网口IP                                           |则数据包进入转发流程
-                │ 进入本机处理INPUT                                            │
-                │                                                             │
-                ▼                                                             ▼
-┌──────────────────────────────────┐                               ┌──────────────────────┐
-│   Table:mangle,filter，security  |                               │table: mangle,filter  |
-│   Chain:INPUT                    │                               │chain: FORWARD        │
-└───────────────┬──────────────────┘                               └──────────┬───────────┘
-                |                                                             |
-                |                                                             |
-                ▼                                                             |
-         ┌             ┐                                                      |
-         │local process│                                                      |
-         └             ┘                                                      |
-                │                                                             |
-                ▼                                                             |
-        ——————————————————                                                    |
-         Routing decision  判断数据包发往哪个网口                               |
-        ——————————————————                                                    |
-                │                                                             |
-                ▼                                                             |
-┌────────────────────────────────────────────────────┐                        |
-│ table: raw,mangle,nat(destination),filter,security │                        |
-│ chain: OUTPUT                                      │                        |
-└───────────────┬────────────────────────────────────┘                        |
-                │                                                             |
-                |                                                             |
-                |                                                             |
-                |                       ——————————————————                    |
-                +─────────────────────▶ routing decision  ◀──────────────────┘
-                                        ——————————————————
-                                                 │
-                                                 │
-                                                 ▼
-                                    ┌───────────────────────────┐
-                                    │ table: mangle,nat(source) │
-                                    │ chain: PREROUTING         │
-                                    └─────────────┬─────────────┘
-                                                  │数据链路层封装，发送到网络
-                                                  |
-                                                  ▼
-                                          ┏╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┓
-                                          ┃    Network    ┃
-                                          ┗━━━━━━━━━━━━━━━┛
+                |                   是否为本机网口的IP地址                             |
+                |                   ——————————————————————                          │目的IP非本机网口IP
+                |                                                                   │如果本机开启IP_forward
+                │ 目的IP为本地网口IP                                                  |则数据包进入转发流程
+                │ 进入本机处理INPUT                                                   │
+                │                                                                   │
+                ▼                                                                  ▼
+┌──────────────────────────────────┐                            ┌──────────────────────┐
+│   Table:mangle,filter，security         |                            │table: mangle,filter      |
+│   Chain:INPUT                          │                             │chain: FORWARD            │
+└───────────────┬──────────────────┘                            └──────────┬───────────┘
+                |                                                                   |
+                |                                                                   |
+                ▼                                                                  |
+         ┌             ┐                                                            |
+         │local process│                                                            |
+         └             ┘                                                            |
+                │                                                                   |
+                ▼                                                                   |
+        ——————————————————                                                          |
+         Routing decision  判断数据包发往哪个网口                                       |
+        ——————————————————                                                           |
+                │                                                                    |
+                ▼                                                                   |
+┌────────────────────────────────────────────────────┐                     |
+│ table: raw,mangle,nat(destination),filter,security          │                      |
+│ chain: OUTPUT                                               │                      |
+└───────────────┬────────────────────────────────────┘                     |
+                   │                                                                 |
+                   |                                                                 |
+                   |                                                                 |
+                   |                          ——————————————————                     |
+                   +─────────────────────▶ routing decision  ◀────────────────┘
+                                              ——————————————————
+                                                       │
+                                                       │
+                                                       ▼
+                                        ┌───────────────────────────┐
+                                        │ table: mangle,nat(source)      │
+                                        │ chain: PREROUTING              │
+                                        └─────────────┬─────────────┘
+                                                         │数据链路层封装，发送到网络
+                                                         |
+                                                         ▼
+                                                  ┏╍╍╍╍╍╍╍╍╍┓
+                                                  ┃    Network    ┃
+                                                  ┗━━━━━━━━━━━━━━━┛
 
 
 补充：`-A` 代表追加，`-I` 代表插入，`-D` 代表删掉，`-R` 代表替换，`-L` 代表列表，`-p` 代表协议，`-s` 代表源地址，必须是 IP ，`-j` 代表动作，`-d` 代表目标地址，`-i` 网卡进入是数据，`-o` 代表网卡输出的数据
@@ -149,7 +149,7 @@ iptables注意事项：
 
 ## iptables命令输入顺序
 
-```sh
+```bash
 iptables -t 表名 <-A/I/D/R> 规则链名 [规则号] <-i/o 网卡名> -p 协议名 <-s 源IP/源子网> --sport 源端口 <-d 目标IP/目标子网> --dport 目标端口 -j 动作
 ```
 
@@ -171,9 +171,7 @@ iptables -t 表名 <-A/I/D/R> 规则链名 [规则号] <-i/o 网卡名> -p 协�
 | --dport num | 匹配目标端口号 |
 | --sport num | 匹配来源端口号 |
 
-
-
-```sh
+```bash
 # 通用匹配：源地址目标地址的匹配
 -t,--table table --->：对指定的表 table 进行操作， table 必须是 raw， nat，filter，mangle 中的一个。如果不指定此选项，默认的是 filter 表
 
@@ -345,13 +343,13 @@ iptables -D INPUT 8
 
 #### 开放指定的端口
 
-```sh
+```bash
 
 ```
 
 #### 屏蔽IP
 
-```sh
+```bash
 iptables -A INPUT -p tcp -m tcp -s 192.168.0.8 -j DROP  # 屏蔽恶意主机（比如，192.168.0.8
 iptables -I INPUT -s 123.45.6.7 -j DROP       #屏蔽单个IP的命令
 iptables -I INPUT -s 123.0.0.0/8 -j DROP      #封整个段即从123.0.0.1到123.255.255.254的命令
@@ -369,7 +367,7 @@ iptables -A FORWARD -o eth0
 
 #### 查看已添加的规则
 
-```sh
+```bash
 iptables -L -n -v
 Chain INPUT (policy DROP 48106 packets, 2690K bytes)
  pkts bytes target     prot opt in     out     source               destination
@@ -436,7 +434,7 @@ iptables -A INPUT -p tcp --syn -m limit --limit 5/second -j ACCEPT
 
 ## 更多实例
 
-```sh
+```bash
 # 用iptables搭建一套强大的安全防护盾 http://www.imooc.com/learn/389
 
 iptables: linux 下应用层防火墙工具
@@ -560,7 +558,7 @@ iptables -I INPUT -m limit --limit 3/hour --limit-burst 10 -j ACCEPT # limit模�
 
 ## 单服务器防护
 
-```sh
+```bash
 # 思路：确定对外服务对象，对网络接口处理，状态检测处理，协议和端口处理。例如：普通WEB服务器
 iptables -A INPUT -i lo -j ACCEPT   # 开放本地访问
 iptables -A INPUT -p tcp -m multiport --dports 22,80,8080 -j ACCEPT   # 开放22,80,8080tcp端口
@@ -572,7 +570,7 @@ iptables -P INPUT DROP  # 关掉全部input链
 
 ## 关于网关
 
-```sh
+```bash
 # 思路：搞清网络拓扑，本机上网，设置nat启用路由转发，地址伪装SNAT/MASQUERADE
 # ADSL拨号上网的拓扑实例如下
 echo "1" > /proc/sys/net/ipv4/ip_forward    # 开启转发
@@ -581,7 +579,7 @@ iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j MASQUERADE
 
 ## 限制内网用户
 
-```sh
+```bash
 # 思路：过滤位置filter表FORWARD链，匹配条件-s -d -p --s/dport;处理动作ACCEPT DROP
 iptables -A FORWARD -s 192.168.0.3 -j DROP
 iptables -A FORWARD -m mac --mac-source 11:22:33:44:55:66 -j DROP
@@ -590,13 +588,13 @@ iptables -A FORWARD -d www.baidu.com -j DROP
 
 ## 内网做对外服务器
 
-```sh
+```bash
 # 思路：服务协议(TCP/UDP)；对外服务端口，内部服务器私网IP；内部真正服务端口
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to 192.168.1.1
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 81 -j DNAT --to 192.168.1.2:80
 ```
 
-```sh
+```bash
 iptables -I INPUT -s ip -j DROP   #屏蔽指定 ip 访问
 iptables -A INPUT -p tcp --dport 2222 -j ACCEPT    #允许 2222 端口访问
 iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP #屏蔽 icmp 协议，即关闭 ping 服务

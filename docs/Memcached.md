@@ -86,7 +86,7 @@ exit $?
 
 ```
 
-```sh
+```bash
 清空memcache缓存
 默认memcache会监听11221端口，如果想清空服务器上memecache的缓存，大家一般使用的是：
 
@@ -108,5 +108,3 @@ echo “flush_all” | nc -q localhost 11211
 
 
 ```
-
-
