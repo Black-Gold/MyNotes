@@ -1396,11 +1396,11 @@ systemctl <span class="nb">enable</span> nginx <span class="o">&amp;&amp;</span>
 
 <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">http_ssl_module</span> <span class="o">-</span> 可以构建一个模块，将<span class="nv">HTTPS</span>协议支持添加到<span class="nv">HTTP</span>服务器。该模块不是默认生成的。<span class="nv">OpenSSL</span>库需要构建和运行这个模块
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">PCRE</span>库源的路径。图书馆发行（版本<span class="mi">4</span>.<span class="mi">4</span> <span class="o">-</span> <span class="mi">8</span>.<span class="mi">41</span>）需要从<span class="nv">PCRE</span>网站下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。在位置指令和 <span class="nv">ngx_http_rewrite_module</span> 模块中，该库是正则表达式支持所必需的 
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">PCRE</span>库源的路径。图书馆发行（版本<span class="mi">4</span>.<span class="mi">4</span> <span class="o">-</span> <span class="mi">8</span>.<span class="mi">41</span>）需要从<span class="nv">PCRE</span>网站下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。在位置指令和 <span class="nv">ngx_http_rewrite_module</span> 模块中，该库是正则表达式支持所必需的
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">-</span><span class="nv">jit</span> <span class="o">-</span> 用“即时编译”支持（<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">12</span>，<span class="nv">pcre_jit</span>指令）构建<span class="nv">PCRE</span>库 
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">-</span><span class="nv">jit</span> <span class="o">-</span> 用“即时编译”支持（<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">12</span>，<span class="nv">pcre_jit</span>指令）构建<span class="nv">PCRE</span>库
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">zlib</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">zlib</span>库的源的路径。库发行版（版本<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span>.<span class="mi">2</span>.<span class="mi">11</span>）需要从<span class="nv">zlib</span>站点下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。该库是<span class="nv">ngx_http_gzip_module</span>模块所必需的 
+<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">zlib</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">zlib</span>库的源的路径。库发行版（版本<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span>.<span class="mi">2</span>.<span class="mi">11</span>）需要从<span class="nv">zlib</span>站点下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。该库是<span class="nv">ngx_http_gzip_module</span>模块所必需的
 
 <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="nv">parameters</span> <span class="o">-</span> 设置将被添加到<span class="nv">CFLAGS</span>变量的附加参数。在<span class="nv">FreeBSD</span>下使用系统<span class="nv">PCRE</span>库时， <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-I /usr/local/include</span><span class="s2">&quot;</span> 应该指定。如果<span class="nv">select</span><span class="ss">()</span>需要增加支持的文件数量，也可以在这里指定如下： <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-D FD_SETSIZE=2048</span><span class="s2">&quot;</span>
 
@@ -1711,7 +1711,7 @@ server <span class="o">{</span>
 <span class="p">}</span>
 
 <span class="k">http</span> <span class="p">{</span>
-    <span class="c1"># Configuration specific to HTTP and affecting all virtual servers  </span>
+    <span class="c1"># Configuration specific to HTTP and affecting all virtual servers</span>
 
     <span class="kn">server</span> <span class="p">{</span>
         <span class="c1"># configuration of HTTP virtual server 1</span>
@@ -1985,7 +1985,7 @@ server <span class="o">{</span>
 <div class="codehilite"><pre><span></span><span class="err">#</span> <span class="nt">多路径多站点同一个端口</span>
 <span class="nt">server</span> <span class="p">{</span>
     <span class="err">listen</span> <span class="err">8080</span><span class="p">;</span>
-    <span class="err">server_name</span> <span class="err">localhost</span><span class="p">;</span>  
+    <span class="err">server_name</span> <span class="err">localhost</span><span class="p">;</span>
     <span class="err">root</span> <span class="err">/home/ajit/git/univisior</span><span class="p">;</span>
 
 <span class="err">location</span> <span class="err">/</span> <span class="err">{</span>

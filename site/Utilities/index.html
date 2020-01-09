@@ -1495,8 +1495,8 @@ ss -o state fin-wait-1 <span class="s1">&#39;( sport = :http or sport = :https )
 <span class="c1"># 匹配远程地址和端口号</span>
 <span class="c1"># ss dst ADDRESS_PATTERN</span>
 ss dst <span class="m">192</span>.168.1.5
-ss dst <span class="m">192</span>.168.119.113:http 
-ss dst <span class="m">192</span>.168.119.113:smtp 
+ss dst <span class="m">192</span>.168.119.113:http
+ss dst <span class="m">192</span>.168.119.113:smtp
 ss dst <span class="m">192</span>.168.119.113:443
 
 <span class="c1"># 匹配本地地址和端口号</span>
@@ -1511,29 +1511,29 @@ ss src <span class="m">192</span>.168.119.103:25
 <p><strong>将本地或者远程端口和一个数比较</strong></p>
 <div class="codehilite"><pre><span></span><span class="c1"># ss dport OP PORT 远程端口和一个数比较</span>
 <span class="c1"># ss sport OP PORT 本地端口和一个数比较</span>
-<span class="c1"># OP 可以代表以下任意一个: </span>
+<span class="c1"># OP 可以代表以下任意一个:</span>
 <span class="c1"># &lt;= or le : 小于或等于端口号</span>
 <span class="c1"># &gt;= or ge : 大于或等于端口号</span>
 <span class="c1"># == or eq : 等于端口号</span>
 <span class="c1"># != or ne : 不等于端口号</span>
 <span class="c1"># &lt; or gt : 小于端口号</span>
 <span class="c1"># &gt; or lt : 大于端口号</span>
-ss  <span class="nv">sport</span> <span class="o">=</span> :http 
-ss  <span class="nv">dport</span> <span class="o">=</span> :http 
-ss  dport <span class="se">\&gt;</span> :1024 
-ss  sport <span class="se">\&gt;</span> :1024 
-ss sport <span class="se">\&lt;</span> :32000 
-ss  sport eq :22 
-ss  dport !<span class="o">=</span> :22 
-ss  state connected <span class="nv">sport</span> <span class="o">=</span> :http 
-ss <span class="se">\(</span> <span class="nv">sport</span> <span class="o">=</span> :http or <span class="nv">sport</span> <span class="o">=</span> :https <span class="se">\)</span> 
+ss  <span class="nv">sport</span> <span class="o">=</span> :http
+ss  <span class="nv">dport</span> <span class="o">=</span> :http
+ss  dport <span class="se">\&gt;</span> :1024
+ss  sport <span class="se">\&gt;</span> :1024
+ss sport <span class="se">\&lt;</span> :32000
+ss  sport eq :22
+ss  dport !<span class="o">=</span> :22
+ss  state connected <span class="nv">sport</span> <span class="o">=</span> :http
+ss <span class="se">\(</span> <span class="nv">sport</span> <span class="o">=</span> :http or <span class="nv">sport</span> <span class="o">=</span> :https <span class="se">\)</span>
 ss -o state fin-wait-1 <span class="se">\(</span> <span class="nv">sport</span> <span class="o">=</span> :http or <span class="nv">sport</span> <span class="o">=</span> :https <span class="se">\)</span> dst <span class="m">192</span>.168.1/24
 </pre></div>
 
 <p><strong>用TCP 状态过滤Sockets</strong></p>
 <div class="codehilite"><pre><span></span>ss -4 state closing
-<span class="c1"># ss -4 state FILTER-NAME-HERE   </span>
-<span class="c1"># ss -6 state FILTER-NAME-HERE  </span>
+<span class="c1"># ss -4 state FILTER-NAME-HERE</span>
+<span class="c1"># ss -6 state FILTER-NAME-HERE</span>
 <span class="c1"># FILTER-NAME-HERE 可以代表以下任何一个：</span>
 <span class="c1"># established、 syn-sent、 syn-recv、 fin-wait-1、 fin-wait-2、 time-wait、 closed、 close-wait、 last-ack、 listen、 closing、</span>
 <span class="c1"># all : 所有以上状态</span>
@@ -1543,27 +1543,27 @@ ss -o state fin-wait-1 <span class="se">\(</span> <span class="nv">sport</span> 
 <span class="c1"># big : 和bucket相反.</span>
 </pre></div>
 
-<p><strong>显示ICP连接</strong> </p>
+<p><strong>显示ICP连接</strong></p>
 <p><div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@localhost ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">ss</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"></span>
 
 
-<span class="w"> </span><span class="o">**</span><span class="n">显示</span><span class="w"> </span><span class="n">Sockets</span><span class="w"> </span><span class="n">摘要</span><span class="o">**</span><span class="w"> </span>
+<span class="w"> </span><span class="o">**</span><span class="n">显示</span><span class="w"> </span><span class="n">Sockets</span><span class="w"> </span><span class="n">摘要</span><span class="o">**</span><span class="w"></span>
 </pre></div>
 [root@localhost ~]# ss -s</p>
 <p>列出当前的established, closed, orphaned and waiting TCP sockets</p>
-<p><strong>列出所有打开的网络连接端口</strong> </p>
+<p><strong>列出所有打开的网络连接端口</strong></p>
 <p><div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@localhost ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">ss</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"></span>
 
 
-<span class="w"> </span><span class="o">**</span><span class="n">查看进程使用的socket</span><span class="o">**</span><span class="w"> </span>
+<span class="w"> </span><span class="o">**</span><span class="n">查看进程使用的socket</span><span class="o">**</span><span class="w"></span>
 </pre></div>
 [root@localhost ~]# ss -pl</p>
-<p><strong>找出打开套接字/端口应用程序</strong> </p>
+<p><strong>找出打开套接字/端口应用程序</strong></p>
 <div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@localhost ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">ss</span><span class="w"> </span><span class="o">-</span><span class="n">pl</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">grep</span><span class="w"> </span><span class="mi">3306</span><span class="w"></span>
 <span class="mi">0</span><span class="w">      </span><span class="mi">0</span><span class="w">                            </span><span class="o">*</span><span class="err">:</span><span class="mi">3306</span><span class="w">                          </span><span class="o">*</span><span class="err">:</span><span class="o">*</span><span class="w">        </span><span class="nl">users</span><span class="p">:((</span><span class="ss">&quot;mysqld&quot;</span><span class="p">,</span><span class="mi">1718</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 
-<p><strong>显示所有UDP Sockets</strong> </p>
+<p><strong>显示所有UDP Sockets</strong></p>
 <div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@localhost ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">ss</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="o">-</span><span class="n">a</span><span class="w"></span>
 </pre></div>
 
@@ -1689,7 +1689,7 @@ socket统计
 ip地址显示
 所有show命令都可以与-4或-6选项一起使用，以仅显示IPv4或IPv6地址
 显示单个界面的地址
-IP地址显示$ {接口名称} 
+IP地址显示$ {接口名称}
 例子：
 ip地址显示eth0
 仅显示正在运行的接口的地址
@@ -1708,7 +1708,7 @@ ip address add 2001：db8：1 :: / 48 dev tun10
 <p>如果您添加多个地址，则您的机器将接受所有数据包。默认情况下，您添加的第一个地址将用作传出流量的源地址，它被称为主地址</p>
 <p>您设置的所有其他地址都将成为次要地址</p>
 <p>添加具有人类可读描述的地址
-ip address add $ {address} / $ {mask} dev $ {interface name} label $ {interface name}：$ {description} 
+ip address add $ {address} / $ {mask} dev $ {interface name} label $ {interface name}：$ {description}
 例子：
 ip address add 192.0.2.1/24 dev eth0 label eth0：WANaddress
 由于一些向后兼容性问题，标签必须以接口名称开头，后跟冒号，否则会出错。 保持标签短于十六个字符，否则你会得到这个错误：
@@ -1758,7 +1758,7 @@ ip neighbor delete 192.0.2.1 lladdr 22：ce：e0：99：63：6f dev eth0
 链接是网络界面的另一个术语。来自“ip link”系列的命令执行所有接口类型通用的操作，例如查看链接信息或更改MTU</p>
 <p>从历史上看，“ip link”命令可以创建除隧道（IPIP，GRE等），L2TPv3和VXLAN接口（它们各自具有命令）之外的所有类型的接口。在较新的iproute2版本中（至少3.16），它们可以创建除L2TPv3以外的所有类型的接口，尽管使用特殊命令系列对其中的一些更加方便</p>
 <p>请注意，使用“ip link add”和“ip link set”命令的“name $ {name}”参数设置的接口名称可能是任意的，甚至可能包含unicode字符。但是，最好坚持使用ASCII，因为其他程序可能无法正确处理unicode</p>
-<p>另请注意，其他程序（如iptables）可能有自己的链接名称格式和长度限制，所以最好使用短的字母数字名称，并在链接别名中提供其他信息 </p>
+<p>另请注意，其他程序（如iptables）可能有自己的链接名称格式和长度限制，所以最好使用短的字母数字名称，并在链接别名中提供其他信息</p>
 <p>显示有关所有链接的信息
 IP链接显示
 IP链接列表
@@ -2032,8 +2032,8 @@ ip隧道更改tun10密钥23456
 IP隧道表演
 ip tunnel show $ {interface name}
 例子：
-$ ip tun show tun99 
-tun99：gre / ip remote 10.46.1.20 local 10.91.19.110 ttl inherit </p>
+$ ip tun show tun99
+tun99：gre / ip remote 10.46.1.20 local 10.91.19.110 ttl inherit</p>
 <p>L2TPv3伪线管理
 L2TPv3是L2伪线通常使用的隧道协议</p>
 <p>在许多发行版中，L2TPv3被编译为模块，并且可能不会默认加载。如果你得到一个“RTNETLINK答案：没有这样的文件或目录”和“错误的对内核”消息给任何“ip l2tp”命令，情况可能如此。加载l2tp_netlink和 l2tp_eth模块。如果你想通过IP而不是UDP使用L2TPv3，还需要加载 l2tp_ip</p>
@@ -2053,9 +2053,9 @@ ip l2tp添加隧道\
 tunnel_id 1 \
 peer_tunnel_id 1 \
 udp_sport 5000 \
-udp_dport 5000  
+udp_dport 5000 \
 encap udp \
-本地192.0.2.1  
+本地192.0.2.1 \
 远程203.0.113.2
 注意：两个端点上的隧道标识符和其他设置必须匹配</p>
 <p>通过IP创建L2TPv3隧道
@@ -2071,7 +2071,7 @@ ip l2tp add session tunnel_id $ {local tunnel identifier} \
 session_id $ {本地会话数字标识符} \
 peer_session_id $ {远程会话数字标识符}</p>
 <p>例子：
-ip l2tp add session tunnel_id 1  
+ip l2tp add session tunnel_id 1 \
 session_id 10 \
 peer_session_id 10</p>
 <p>注意： tunnel_id值必须匹配先前创建的隧道的值。两个端点上的会话标识符必须匹配</p>
@@ -2103,25 +2103,25 @@ VXLAN是第2层隧道协议，通常与虚拟化系统（如KVM）结合使用�
 <p>缺点是您需要使用多播路由协议（通常是PIM-SM）才能使其通过路由网络工作</p>
 <p>VXLAN的底层封装协议是UDP</p>
 <p>创建单播VXLAN链路
-ip link add name $ {interface name}键入vxlan  
-   id &lt;0-16777215&gt;  
-   dev $ {source interface}  
-   远程$ {远程端点地址}  
-   本地$ {本地端点地址}  
-   dstport $ {VXLAN目标端口} 
+ip link add name $ {interface name}键入vxlan \
+   id &lt;0-16777215&gt; \
+   dev $ {source interface} \
+   远程$ {远程端点地址} \
+   本地$ {本地端点地址} \
+   dstport $ {VXLAN目标端口}
 例：
-ip link add name vxlan0 type vxlan  
-   ID 42 dev eth0远程203.0.113.6本地192.0.2.1 dstport 4789 
+ip link add name vxlan0 type vxlan \
+   ID 42 dev eth0远程203.0.113.6本地192.0.2.1 dstport 4789
 注意： id选项表示VXLAN网络标识符（VNI）</p>
 <p>创建组播VXLAN链路
-ip link add name $ {interface name}键入vxlan  
-   id &lt;0-16777215&gt;  
-   dev $ {source interface}  
-   组$ {多播地址}  
-   dstport $ {VXLAN目标端口} 
+ip link add name $ {interface name}键入vxlan \
+   id &lt;0-16777215&gt; \
+   dev $ {source interface} \
+   组$ {多播地址} \
+   dstport $ {VXLAN目标端口}
 例：
-ip link add name vxlan0 type vxlan  
-   id 42 dev eth0组239.0.0.1 dstport 4789 
+ip link add name vxlan0 type vxlan \
+   id 42 dev eth0组239.0.0.1 dstport 4789
 之后，您需要将链接与其他接口桥接或分配地址</p>
 <p>路由管理
 对于IPv4路由，您可以使用前缀长度或点分十进制子网掩码。也就是说，192.0.2.0/24和192.0.2.0/255.255.255.0都可以接受</p>
@@ -2303,12 +2303,12 @@ ip规则刷新
 ip-6规则刷新
 注：此操作具有高度破坏性。即使您没有配置任何规则，默认情况下也会初始化“从所有主查找”规则。在未配置的机器上，您可以看到：</p>
 <p>$ ip规则显示
-0：从所有查找本地 
-32766：从所有查找主要 
-32767：从所有查找默认 </p>
+0：从所有查找本地
+32766：从所有查找主要
+32767：从所有查找默认</p>
 <p>$ ip -6规则显示
-0：从所有查找本地 
-32766：从所有查找主要 
+0：从所有查找本地
+32766：从所有查找主要
 “从所有查找本地”规则是特殊的，不能被删除。“从所有查找主要”不是，可能有没有它的正当理由，例如，如果你只想路由你创建显式规则的流量。作为一个副作用，如果你做“ip rule flush”，这个规则将被删除，这将使系统停止路由任何流量，直到你恢复你的规则</p>
 <p>网络命名空间管理
 网络名称空间是单个机器中隔离的网络堆栈实例。它们可用于安全域分离，管理虚拟机之间的流量等</p>
