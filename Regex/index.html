@@ -1699,17 +1699,17 @@
 <p>> 匹配词尾</p>
 <p>\b 匹配单词边界</p>
 <p>对比如下：</p>
-<div class="codehilite"><pre><span></span><span class="nv">line</span><span class="o">=</span><span class="s2">&quot;cat dog sky&quot;</span>  
+<div class="codehilite"><pre><span></span><span class="nv">line</span><span class="o">=</span><span class="s2">&quot;cat dog sky&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\b\(.*\)/# |\1|\2|/p&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\&gt;\(.*\)/# |\1|\2|/p&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\&lt;\(.*\)/# |\1|\2|/p&quot;</span>
 <span class="nb">echo</span>
-<span class="nv">line</span><span class="o">=</span><span class="s2">&quot;cat  dog  sky&quot;</span>  
+<span class="nv">line</span><span class="o">=</span><span class="s2">&quot;cat  dog  sky&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\b\(.*\)/# |\1|\2|/p&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\&gt;\(.*\)/# |\1|\2|/p&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\&lt;\(.*\)/# |\1|\2|/p&quot;</span>
 <span class="nb">echo</span>
-<span class="nv">line</span><span class="o">=</span><span class="s2">&quot;cat  dog  sky  &quot;</span>  
+<span class="nv">line</span><span class="o">=</span><span class="s2">&quot;cat  dog  sky  &quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\b\(.*\)/# |\1|\2|/p&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\&gt;\(.*\)/# |\1|\2|/p&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;s/\(.*\)\&lt;\(.*\)/# |\1|\2|/p&quot;</span>
