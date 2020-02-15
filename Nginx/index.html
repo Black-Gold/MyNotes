@@ -1361,57 +1361,57 @@ systemctl <span class="nb">enable</span> nginx <span class="o">&amp;&amp;</span>
 </pre></div>
 
 <p>2.从源代码构建nginx</p>
-<div class="codehilite"><pre><span></span><span class="nv">wget</span> <span class="o">-</span><span class="nv">c</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">nginx</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">download</span><span class="o">/</span><span class="nv">nginx</span><span class="o">-</span><span class="mi">1</span>.<span class="mi">12</span>.<span class="mi">2</span>.<span class="nv">tar</span>.<span class="nv">gz</span>
-# 构建使用<span class="nv">configure</span>命令进行配置。它定义了系统的各个方面，包括<span class="nv">nginx</span>允许用于连接处理的方法。最后它创建一个<span class="nv">Makefile</span>。该<span class="nv">configure</span>命令支持以下参数：
+<div class="codehilite"><pre><span></span>wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
+<span class="c1"># 构建使用configure命令进行配置。它定义了系统的各个方面，包括nginx允许用于连接处理的方法。最后它创建一个Makefile。该configure命令支持以下参数：</span>
 
-<span class="o">--</span><span class="nv">prefix</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 定义一个将保留服务器文件的目录。这个相同的目录也将被用于所有相关的路径 <span class="nv">configure</span>（除了源资源的路径）和<span class="nv">nginx</span>.<span class="nv">conf</span>配置文件。它<span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span>默认设置为目录
+--prefix<span class="o">=</span>path - 定义一个将保留服务器文件的目录。这个相同的目录也将被用于所有相关的路径 configure（除了源资源的路径）和nginx.conf配置文件。它/usr/local/nginx默认设置为目录
 
-<span class="o">--</span><span class="nv">sbin</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置一个<span class="nv">nginx</span>可执行文件的名字。该名称仅在安装过程中使用。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">nginx</span>
+--sbin-path<span class="o">=</span>path - 设置一个nginx可执行文件的名字。该名称仅在安装过程中使用。默认情况下，该文件被命名 prefix/sbin/nginx
 
-<span class="o">--</span><span class="nv">conf</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">nginx</span>.<span class="nv">conf</span>配置文件的名称。如果需要的话，<span class="nv">nginx</span>可以始终使用不同的配置文件启动，只要在命令行参数中指定即可 。默认情况下，该文件被命名 。 <span class="o">-</span><span class="nv">c</span> <span class="nv">fileprefix</span><span class="o">/</span><span class="nv">conf</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">conf</span>
+--conf-path<span class="o">=</span>path - 设置nginx.conf配置文件的名称。如果需要的话，nginx可以始终使用不同的配置文件启动，只要在命令行参数中指定即可 。默认情况下，该文件被命名 。 -c fileprefix/conf/nginx.conf
 
-<span class="o">--</span><span class="nv">pid</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置将存储主进程的进程<span class="nv">ID</span>的<span class="nv">nginx</span>.<span class="nv">pid</span>文件的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">pid</span>指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">pid</span>
+--pid-path<span class="o">=</span>path - 设置将存储主进程的进程ID的nginx.pid文件的名称。安装完成后，可以nginx.conf使用pid指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/nginx.pid
 
-<span class="o">--</span><span class="nv">error</span><span class="o">-</span><span class="nv">log</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置主要错误的名称，警告和诊断文件。安装之后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">error_log</span>指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">error</span>.<span class="nv">log</span>
+--error-log-path<span class="o">=</span>path - 设置主要错误的名称，警告和诊断文件。安装之后，可以nginx.conf使用error_log指令始终在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/error.log
 
-<span class="o">--</span><span class="nv">http</span><span class="o">-</span><span class="nv">log</span><span class="o">-</span><span class="nv">path</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">HTTP</span>服务器的主要请求日志文件的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">access_log</span>指令随时在配置文件中 更改文件名 。默认情况下，该文件被命名 <span class="nv">prefix</span><span class="o">/</span><span class="nv">logs</span><span class="o">/</span><span class="nv">access</span>.<span class="nv">log</span>
+--http-log-path<span class="o">=</span>path - 设置HTTP服务器的主要请求日志文件的名称。安装完成后，可以nginx.conf使用access_log指令随时在配置文件中 更改文件名 。默认情况下，该文件被命名 prefix/logs/access.log
 
-<span class="o">--</span><span class="nv">build</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置一个可选的<span class="nv">nginx</span>构建名称
+--build<span class="o">=</span>name - 设置一个可选的nginx构建名称
 
-<span class="o">--</span><span class="nv">user</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置工作进程将使用其凭据的非特权用户的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">user</span>指令始终在配置文件中 更改名称 。默认的用户名是<span class="nv">nobody</span>
+--user<span class="o">=</span>name - 设置工作进程将使用其凭据的非特权用户的名称。安装完成后，可以nginx.conf使用user指令始终在配置文件中 更改名称 。默认的用户名是nobody
 
-<span class="o">--</span><span class="nv">group</span><span class="o">=</span><span class="nv">name</span> <span class="o">-</span> 设置工作进程将使用其凭据的组的名称。安装完成后，可以<span class="nv">nginx</span>.<span class="nv">conf</span>使用<span class="nv">user</span>指令始终在配置文件中 更改名称 。默认情况下，组名称设置为非特权用户的名称
+--group<span class="o">=</span>name - 设置工作进程将使用其凭据的组的名称。安装完成后，可以nginx.conf使用user指令始终在配置文件中 更改名称 。默认情况下，组名称设置为非特权用户的名称
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">select_module</span>
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">select_module</span> <span class="o">-</span> 启用或禁用构建允许服务器使用该<span class="nv">select</span><span class="ss">()</span>方法的模块 。如果平台不支持更合适的方法（如<span class="nv">kqueue</span>，<span class="nv">epoll</span>或<span class="o">/</span> <span class="nv">dev</span> <span class="o">/</span> <span class="nv">poll</span>），则自动构建此模块
+--with-select_module
+--without-select_module - 启用或禁用构建允许服务器使用该select<span class="o">()</span>方法的模块 。如果平台不支持更合适的方法（如kqueue，epoll或/ dev / poll），则自动构建此模块
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">poll_module</span>
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">poll_module</span> <span class="o">-</span> 启用或禁用构建允许服务器使用该<span class="nv">poll</span><span class="ss">()</span>方法的模块 。如果平台不支持更合适的方法（如<span class="nv">kqueue</span>，<span class="nv">epoll</span>或<span class="o">/</span> <span class="nv">dev</span> <span class="o">/</span> <span class="nv">poll</span>），则自动构建此模块
+--with-poll_module
+--without-poll_module - 启用或禁用构建允许服务器使用该poll<span class="o">()</span>方法的模块 。如果平台不支持更合适的方法（如kqueue，epoll或/ dev / poll），则自动构建此模块
 
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_gzip_module</span> <span class="o">-</span> 禁用构建压缩 <span class="nv">HTTP</span>服务器响应的模块。<span class="nv">zlib</span>库是建立和运行这个模块所必需的
+--without-http_gzip_module - 禁用构建压缩 HTTP服务器响应的模块。zlib库是建立和运行这个模块所必需的
 
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_rewrite_module</span> <span class="o">-</span> 禁用构建允许<span class="nv">HTTP</span>服务器 重定向请求并更改请求<span class="nv">URI</span>的模块。<span class="nv">PCRE</span>库需要构建和运行这个模块
+--without-http_rewrite_module - 禁用构建允许HTTP服务器 重定向请求并更改请求URI的模块。PCRE库需要构建和运行这个模块
 
-<span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">http_proxy_module</span> <span class="o">-</span> 禁用构建<span class="nv">HTTP</span>服务器代理模块
+--without-http_proxy_module - 禁用构建HTTP服务器代理模块
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">http_ssl_module</span> <span class="o">-</span> 可以构建一个模块，将<span class="nv">HTTPS</span>协议支持添加到<span class="nv">HTTP</span>服务器。该模块不是默认生成的。<span class="nv">OpenSSL</span>库需要构建和运行这个模块
+--with-http_ssl_module - 可以构建一个模块，将HTTPS协议支持添加到HTTP服务器。该模块不是默认生成的。OpenSSL库需要构建和运行这个模块
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">PCRE</span>库源的路径。图书馆发行（版本<span class="mi">4</span>.<span class="mi">4</span> <span class="o">-</span> <span class="mi">8</span>.<span class="mi">41</span>）需要从<span class="nv">PCRE</span>网站下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。在位置指令和 <span class="nv">ngx_http_rewrite_module</span> 模块中，该库是正则表达式支持所必需的
+--with-pcre<span class="o">=</span>path - 设置PCRE库源的路径。图书馆发行（版本4.4 - <span class="m">8</span>.41）需要从PCRE网站下载 并提取。其余的是由nginx的./configure和 make。在位置指令和 ngx_http_rewrite_module 模块中，该库是正则表达式支持所必需的
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">-</span><span class="nv">jit</span> <span class="o">-</span> 用“即时编译”支持（<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">12</span>，<span class="nv">pcre_jit</span>指令）构建<span class="nv">PCRE</span>库
+--with-pcre-jit - 用“即时编译”支持（1.1.12，pcre_jit指令）构建PCRE库
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">zlib</span><span class="o">=</span><span class="nv">path</span> <span class="o">-</span> 设置<span class="nv">zlib</span>库的源的路径。库发行版（版本<span class="mi">1</span>.<span class="mi">1</span>.<span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span>.<span class="mi">2</span>.<span class="mi">11</span>）需要从<span class="nv">zlib</span>站点下载 并提取。其余的是由<span class="nv">nginx</span>的.<span class="o">/</span><span class="nv">configure</span>和 <span class="nv">make</span>。该库是<span class="nv">ngx_http_gzip_module</span>模块所必需的
+--with-zlib<span class="o">=</span>path - 设置zlib库的源的路径。库发行版（版本1.1.3 - <span class="m">1</span>.2.11）需要从zlib站点下载 并提取。其余的是由nginx的./configure和 make。该库是ngx_http_gzip_module模块所必需的
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="nv">parameters</span> <span class="o">-</span> 设置将被添加到<span class="nv">CFLAGS</span>变量的附加参数。在<span class="nv">FreeBSD</span>下使用系统<span class="nv">PCRE</span>库时， <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-I /usr/local/include</span><span class="s2">&quot;</span> 应该指定。如果<span class="nv">select</span><span class="ss">()</span>需要增加支持的文件数量，也可以在这里指定如下： <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">cc</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-D FD_SETSIZE=2048</span><span class="s2">&quot;</span>
+--with-cc-opt<span class="o">=</span>parameters - 设置将被添加到CFLAGS变量的附加参数。在FreeBSD下使用系统PCRE库时， --with-cc-opt<span class="o">=</span><span class="s2">&quot;-I /usr/local/include&quot;</span> 应该指定。如果select<span class="o">()</span>需要增加支持的文件数量，也可以在这里指定如下： --with-cc-opt<span class="o">=</span><span class="s2">&quot;-D FD_SETSIZE=2048&quot;</span>
 
-<span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">ld</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="nv">parameters</span> <span class="o">-</span> 设置将在链接期间使用的其他参数。在<span class="nv">FreeBSD</span>下使用系统<span class="nv">PCRE</span>库时， <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">ld</span><span class="o">-</span><span class="nv">opt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">-L /usr/local/lib</span><span class="s2">&quot;</span> 应该指定
+--with-ld-opt<span class="o">=</span>parameters - 设置将在链接期间使用的其他参数。在FreeBSD下使用系统PCRE库时， --with-ld-opt<span class="o">=</span><span class="s2">&quot;-L /usr/local/lib&quot;</span> 应该指定
 
 参数使用示例（所有这些都需要输入一行）：
 
-.<span class="o">/</span><span class="nv">configure</span> <span class="o">--</span><span class="nv">sbin</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">nginx</span> <span class="o">--</span><span class="nv">conf</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">conf</span> <span class="o">--</span><span class="nv">pid</span><span class="o">-</span><span class="nv">path</span><span class="o">=/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">nginx</span><span class="o">/</span><span class="nv">nginx</span>.<span class="nv">pid</span> <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">http_ssl_module</span> <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">pcre</span><span class="o">=</span>..<span class="o">/</span><span class="nv">pcre</span><span class="o">-</span><span class="mi">8</span>.<span class="mi">41</span> <span class="o">--</span><span class="nv">with</span><span class="o">-</span><span class="nv">zlib</span><span class="o">=</span>..<span class="o">/</span><span class="nv">zlib</span><span class="o">-</span><span class="mi">1</span>.<span class="mi">2</span>.<span class="mi">11</span>
-配置完成后，<span class="nv">make</span> <span class="o">&amp;&amp;</span> <span class="nv">make</span> <span class="nv">install</span>安装
+./configure --sbin-path<span class="o">=</span>/usr/local/nginx/nginx --conf-path<span class="o">=</span>/usr/local/nginx/nginx.conf --pid-path<span class="o">=</span>/usr/local/nginx/nginx.pid --with-http_ssl_module --with-pcre<span class="o">=</span>../pcre-8.41 --with-zlib<span class="o">=</span>../zlib-1.2.11
+配置完成后，make <span class="o">&amp;&amp;</span> make install安装
 
-验证<span class="nv">nginx</span>是否运行：<span class="nv">curl</span> <span class="o">-</span><span class="nv">I</span> <span class="mi">127</span>.<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">1</span>
+验证nginx是否运行：curl -I <span class="m">127</span>.0.0.1
 </pre></div>
 
 <h2 id="_1">关于构建模块<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>

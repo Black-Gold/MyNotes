@@ -3786,25 +3786,25 @@ db.blog.createIndex(  content: "text", keywords: "text", about: "text" }, { weig
 </pre></div>
 
 <h2 id="topics-name">topics name<a class="headerlink" href="#topics-name" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">Connector对于每个集合的insert</span><span class="err">、</span><span class="k">update</span><span class="err">、</span><span class="n">delete文档操作写入事件到每个kafka</span> <span class="n">topic</span><span class="err">。</span><span class="n">kafka</span> <span class="n">topic的名字规则logicalName</span><span class="p">.</span><span class="n">databaseName</span><span class="p">.</span><span class="n">collectionName</span><span class="err">，</span><span class="n">logicalName是配置属性mongodb</span><span class="p">.</span><span class="n">name指定的连接器的名称</span><span class="p">,</span><span class="n">databaseName是发生操作数据库的名称</span><span class="p">,</span><span class="n">collectionName是受影响文档所在的MongoDB集合的名称</span><span class="err">。例如：</span>
+<div class="codehilite"><pre><span></span>Connector对于每个集合的insert、update、delete文档操作写入事件到每个kafka topic。kafka topic的名字规则logicalName.databaseName.collectionName，logicalName是配置属性mongodb.name指定的连接器的名称,databaseName是发生操作数据库的名称,collectionName是受影响文档所在的MongoDB集合的名称。例如：
 
-<span class="n">MongoDB数据库inventory包含四个集合</span><span class="err">：</span><span class="n">products</span><span class="p">,</span><span class="n">product_on_hand</span><span class="p">,</span><span class="n">customers</span><span class="p">,</span><span class="n">orders</span><span class="err">。假设监视此数据库的连接器逻辑名称是</span><span class="n">fulfillment</span><span class="err">，则连接器生成的四个</span><span class="n">kafka</span> <span class="n">topic事件为</span><span class="err">：</span>
-<span class="n">fulfillment</span><span class="p">.</span><span class="n">inventory</span><span class="p">.</span><span class="n">products</span>
-<span class="n">fulfillment</span><span class="p">.</span><span class="n">inventory</span><span class="p">.</span><span class="n">products_on_hand</span>
-<span class="n">fulfillment</span><span class="p">.</span><span class="n">inventory</span><span class="p">.</span><span class="n">customers</span>
-<span class="n">fulfillment</span><span class="p">.</span><span class="n">inventory</span><span class="p">.</span><span class="n">orders</span>
+MongoDB数据库inventory包含四个集合：products,product_on_hand,customers,orders。假设监视此数据库的连接器逻辑名称是fulfillment，则连接器生成的四个kafka topic事件为：
+fulfillment.inventory.products
+fulfillment.inventory.products_on_hand
+fulfillment.inventory.customers
+fulfillment.inventory.orders
 </pre></div>
 
 <h2 id="partitions">Partitions<a class="headerlink" href="#partitions" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">MongoDB连接器不会明确确定事件的topic分区</span><span class="p">,</span><span class="err">相反，它允许</span><span class="n">Kafka根据密钥确定分区</span><span class="err">。您可以通过在</span><span class="n">Kafka</span> <span class="n">Connect工作程序配置中定义Partitioner实现的名称来更改Kafka的分区逻辑</span>
+<div class="codehilite"><pre><span></span>MongoDB连接器不会明确确定事件的topic分区,相反，它允许Kafka根据密钥确定分区。您可以通过在Kafka Connect工作程序配置中定义Partitioner实现的名称来更改Kafka的分区逻辑
 </pre></div>
 
 <h2 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="n">MongoDB连接器生成的数据更改事件都有一个key和value</span><span class="err">。下面概述了这些</span><span class="n">key和value的结构</span>
-<span class="err">从</span><span class="n">kafka0</span><span class="p">.</span><span class="mi">10</span><span class="err">开始，可以使用消息密钥进行记录并创建消息的时间戳</span><span class="p">(</span><span class="err">由生产者记录</span><span class="p">)</span><span class="err">或由</span><span class="n">kafka写入日志的值进行评估</span>
-<span class="err">如果事件的来源在结构上发生变化或连接器改变，事件的结构可能会随着时间推移而发生变化。对于消费者可能很难处理。因此</span><span class="n">kafka每个事件都自成一体</span><span class="err">，每个消息键值都有两部分</span><span class="p">:</span><span class="n">a</span> <span class="n">schema和payload</span><span class="err">。当</span><span class="n">payload包含数据时</span><span class="err">，</span><span class="n">schema描述payload的结构</span>
+<div class="codehilite"><pre><span></span>MongoDB连接器生成的数据更改事件都有一个key和value。下面概述了这些key和value的结构
+从kafka0.10开始，可以使用消息密钥进行记录并创建消息的时间戳<span class="o">(</span>由生产者记录<span class="o">)</span>或由kafka写入日志的值进行评估
+如果事件的来源在结构上发生变化或连接器改变，事件的结构可能会随着时间推移而发生变化。对于消费者可能很难处理。因此kafka每个事件都自成一体，每个消息键值都有两部分:a schema和payload。当payload包含数据时，schema描述payload的结构
 
-<span class="err">更改事件的</span><span class="k">key</span><span class="err">：对于给定集合，更改事件的</span><span class="n">key将是包含单个id字段的结构</span><span class="err">。它的值是文档的标识符表示为字符串</span>
+更改事件的key：对于给定集合，更改事件的key将是包含单个id字段的结构。它的值是文档的标识符表示为字符串
 </pre></div>
 
 <p>MongoDB不可用时，重新尝试连接由三个属性控制：</p>
