@@ -247,7 +247,7 @@ $ docker --registry-mirror=https://registry.docker-cn.com daemon
 
 ## Docker命令
 
-```info
+```bash
 用法:docker [OPTIONS] COMMAND
 
 Options:

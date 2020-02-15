@@ -1283,7 +1283,7 @@ mongodb.name，它充当MongoDB副本集或分片集群的逻辑名称,连接器
 
 ## topics name
 
-```info
+```bash
 Connector对于每个集合的insert、update、delete文档操作写入事件到每个kafka topic。kafka topic的名字规则logicalName.databaseName.collectionName，logicalName是配置属性mongodb.name指定的连接器的名称,databaseName是发生操作数据库的名称,collectionName是受影响文档所在的MongoDB集合的名称。例如：
 
 MongoDB数据库inventory包含四个集合：products,product_on_hand,customers,orders。假设监视此数据库的连接器逻辑名称是fulfillment，则连接器生成的四个kafka topic事件为：
@@ -1295,13 +1295,13 @@ fulfillment.inventory.orders
 
 ## Partitions
 
-```info
+```bash
 MongoDB连接器不会明确确定事件的topic分区,相反，它允许Kafka根据密钥确定分区。您可以通过在Kafka Connect工作程序配置中定义Partitioner实现的名称来更改Kafka的分区逻辑
 ```
 
 ## Events
 
-```info
+```bash
 MongoDB连接器生成的数据更改事件都有一个key和value。下面概述了这些key和value的结构
 从kafka0.10开始，可以使用消息密钥进行记录并创建消息的时间戳(由生产者记录)或由kafka写入日志的值进行评估
 如果事件的来源在结构上发生变化或连接器改变，事件的结构可能会随着时间推移而发生变化。对于消费者可能很难处理。因此kafka每个事件都自成一体，每个消息键值都有两部分:a schema和payload。当payload包含数据时，schema描述payload的结构

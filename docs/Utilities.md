@@ -26,7 +26,7 @@ NET-TOOLS VS IPROUTE对照
 
 ## 选型
 
-```info
+```bash
 ip [ OPTIONS ] OBJECT { COMMAND | help }
 ip [ -force ] -batch filename
 where  OBJECT := { link | address | addrlabel | route | rule | neigh | ntable |

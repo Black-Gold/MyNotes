@@ -2771,12 +2771,12 @@ fdisk /dev/sdb      <span class="c1"># 对硬盘进行分区操作，默认时ex
 <span class="n">Ctrl</span> <span class="o">-</span> <span class="err">左右键</span>  <span class="o">#</span> <span class="err">在单词之间跳转</span>
 <span class="n">Ctrl</span> <span class="err">–</span> <span class="n">a</span>      <span class="o">#</span> <span class="err">移到行首</span>
 <span class="n">Ctrl</span> <span class="err">–</span> <span class="n">e</span>      <span class="o">#</span> <span class="err">移到行尾</span>
-<span class="n">Ctrl</span> <span class="err">–</span> <span class="n">b</span>      <span class="o">#</span> <span class="err">往回</span><span class="p">(</span><span class="err">左</span><span class="p">)</span><span class="err">移动一个字符</span>
-<span class="n">Ctrl</span> <span class="err">–</span> <span class="n">f</span>      <span class="o">#</span> <span class="err">往后</span><span class="p">(</span><span class="err">右</span><span class="p">)</span><span class="err">移动一个字符</span>
-<span class="n">Alt</span> <span class="err">–</span> <span class="n">b</span>       <span class="o">#</span> <span class="err">往回</span><span class="p">(</span><span class="err">左</span><span class="p">)</span><span class="err">移动一个单词</span>
-<span class="n">Alt</span> <span class="err">–</span> <span class="n">f</span>       <span class="o">#</span> <span class="err">往后</span><span class="p">(</span><span class="err">右</span><span class="p">)</span><span class="err">移动一个单词</span>
 <span class="n">Ctrl</span> <span class="err">–</span> <span class="n">xx</span>     <span class="o">#</span> <span class="err">在命令行尾和光标之间移动</span>
-<span class="n">M</span><span class="o">-</span><span class="n">b</span>           <span class="o">#</span> <span class="err">往回</span><span class="p">(</span><span class="err">左</span><span class="p">)</span><span class="err">移动一个单词</span>
+<span class="n">Ctrl</span> <span class="err">–</span> <span class="n">b</span>      <span class="o">#</span> <span class="err">往前</span><span class="p">(</span><span class="err">左</span><span class="p">)</span><span class="err">移动一个字符</span>
+<span class="n">Ctrl</span> <span class="err">–</span> <span class="n">f</span>      <span class="o">#</span> <span class="err">往后</span><span class="p">(</span><span class="err">右</span><span class="p">)</span><span class="err">移动一个字符</span>
+<span class="n">Alt</span> <span class="err">–</span> <span class="n">b</span>       <span class="o">#</span> <span class="err">往前</span><span class="p">(</span><span class="err">左</span><span class="p">)</span><span class="err">移动一个单词</span>
+<span class="n">Alt</span> <span class="err">–</span> <span class="n">f</span>       <span class="o">#</span> <span class="err">往后</span><span class="p">(</span><span class="err">右</span><span class="p">)</span><span class="err">移动一个单词</span>
+<span class="n">M</span><span class="o">-</span><span class="n">b</span>           <span class="o">#</span> <span class="err">往前</span><span class="p">(</span><span class="err">左</span><span class="p">)</span><span class="err">移动一个单词</span>
 <span class="n">M</span><span class="o">-</span><span class="n">f</span>           <span class="o">#</span> <span class="err">往后</span><span class="p">(</span><span class="err">右</span><span class="p">)</span><span class="err">移动一个单词</span>
 
 <span class="o">#</span> <span class="err">编辑命令</span>
@@ -2815,10 +2815,10 @@ fdisk /dev/sdb      <span class="c1"># 对硬盘进行分区操作，默认时ex
 <span class="o">!-</span><span class="n">n</span>           <span class="o">#</span> <span class="err">执行前</span><span class="n">n条命令</span><span class="err">，执行上一条命令</span>      <span class="o">!-</span><span class="mi">1</span><span class="err">，</span> <span class="err">执行前</span><span class="mi">5</span><span class="err">条命令的格式是</span><span class="o">!-</span><span class="mi">5</span>
 
 <span class="o">#</span> <span class="err">查找历史命令</span>
-<span class="n">Ctrl</span> <span class="err">–</span> <span class="n">p</span>      <span class="o">#</span> <span class="err">显示当前命令的上一条历史命令</span>
-<span class="n">Ctrl</span> <span class="err">–</span> <span class="n">n</span>      <span class="o">#</span> <span class="err">显示当前命令的下一条历史命令</span>
 <span class="n">Ctrl</span> <span class="err">–</span> <span class="n">r</span>      <span class="o">#</span> <span class="err">搜索历史命令，输入后显示历史命令中一条匹配命令，</span><span class="n">Enter键执行匹配命令</span><span class="err">；</span><span class="n">ESC键在命令行显示而不执行匹配命令</span>
 <span class="n">Ctrl</span> <span class="err">–</span> <span class="k">g</span>      <span class="o">#</span> <span class="err">从历史搜索模式（</span><span class="n">Ctrl</span> <span class="err">–</span> <span class="n">r</span><span class="err">）退出</span>
+<span class="n">Ctrl</span> <span class="err">–</span> <span class="n">p</span>      <span class="o">#</span> <span class="err">显示当前命令的上一条历史命令</span>
+<span class="n">Ctrl</span> <span class="err">–</span> <span class="n">n</span>      <span class="o">#</span> <span class="err">显示当前命令的下一条历史命令</span>
 
 <span class="o">#</span> <span class="err">重复执行操作动作</span>
 <span class="n">M</span> <span class="err">–</span> <span class="err">操作次数</span> <span class="err">操作动作</span>   <span class="o">#</span> <span class="err">指定操作次数，重复执行指定的操作</span>

@@ -13,10 +13,10 @@ bash shell本身不支持正则表达式，使用正则的是shell命令和工�
 * for number in $(seq 1 10); do 不要使用seq计数
 * i=`expr $i + 1` 不要使用expr，用i++代替
 
-- Reference List
+* Reference List
 
-  - Bash Guide for Beginners
-  - Advanced Bash-Scripting Guide
+  * Bash Guide for Beginners
+  * Advanced Bash-Scripting Guide
 
 ## shell多行注释实现方式
 

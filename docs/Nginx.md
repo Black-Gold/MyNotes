@@ -36,7 +36,7 @@ systemctl enable nginx && systemctl start nginx
 
 2.从源代码构建nginx
 
-```info
+```bash
 wget -c http://nginx.org/download/nginx-1.12.2.tar.gz
 # 构建使用configure命令进行配置。它定义了系统的各个方面，包括nginx允许用于连接处理的方法。最后它创建一个Makefile。该configure命令支持以下参数：
 
