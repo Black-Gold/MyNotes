@@ -10,17 +10,18 @@ repo_url: 'https://github.com/Black-Gold/MyNotes'
 
 nav:
   - Home: 'index.md'
-  - Vim: 'Vim.md' 
-  - Languages: 
+  - Vim: 'Vim.md'
+  - Languages:
     - 'Regex': 'Regex.md'
     - 'Shell': 'Shell.md'
     - 'Python3': 'Python3.md'
     - 'Go': 'Go.md'
+    - 'Enterprise-class': 'Enterprise.md'
   - CloudNative:
       - 'Docker': 'Docker.md'
       - 'Kubernetes': 'Kubernetes.md'
       - 'ContainerOS': 'Coreos.md'
-  - Servers: 
+  - Servers:
     - 'Linux': 'Linux.md'
     - 'Iproute2&Net-tools': 'Utilities.md'
     - 'Iptables': 'Iptables.md'
@@ -32,20 +33,20 @@ nav:
     - 'Apache': 'Apache.md'
     - 'Tomcat': 'Tomcat.md'
     - 'Caddy': 'Caddy.md'
-  - Database: 
+  - Database:
     - 'MySQL': 'MySQL.md'
     - 'MariaDB': 'MySQL.md'
     - 'Oracle': 'Oracle.md'
     - 'MongoDB': 'MongoDB.md'
     - 'Redis': 'Redis.md'
     - 'Memcached': 'Memcached.md'
-  - Monitor: 
+  - Monitor:
     - 'Zabbix': 'Zabbix.md'
     - 'ELKStack': 'Elk.md'
     - 'Prometheus': 'Prometheus.md'
     - 'Grafana': 'Grafana.md'
     - 'Nagios': 'Nagios.md'
-  - CI/CD: 
+  - CI/CD:
     - 'Git&GitLab': 'Git.md'
     - 'Jenkins': 'Jenkins.md'
   - Cache:
@@ -53,10 +54,10 @@ nav:
     - 'Varnish': 'Varnish.md'
     - 'Stunnel': 'Stunnel.md'
     - 'ApacheTraffic': 'TrafficServer.md'
-  - LB&HA: 
+  - LB&HA:
     - 'LVS': 'LVS.md'
     - 'HAProxy': 'Haproxy.md'
-  - MessageQueue: 
+  - MessageQueue:
     - 'Kafka': 'Kafka.md'
     - 'ActiveMQ': 'ActiveMQ.md'
     - 'RabbitMQ': 'RabbitMQ.md'
@@ -89,7 +90,7 @@ extra:
     - type: 'instagram'
       link: 'https://www.instagram.com/black0gold/'
 
-google_analytics: 
+google_analytics:
   - 'UA-131093963-1'
   - 'auto'
 

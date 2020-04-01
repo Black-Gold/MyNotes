@@ -973,6 +973,7 @@ curl ifconfig.me
 curl myip.dnsomatic.com
 curl ifconfig.co
 curl http://ipv4.ip.sb
+curl http://ip-api.com/json
 
 # json格式
 curl ipinfo.io

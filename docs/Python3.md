@@ -394,6 +394,7 @@ print('abs(-10)', {'__builtins__':None}, {})    # 删除对内置函数的访问
 ### range(stop) -- range(start, stop[,step])
 
 range实际上是一个不可变的序列类型，而不是一个函数
+xrange()返回一个迭代器而不是列表中的列表，在内存中占用更小
 
 ### reversed(seq)
 
