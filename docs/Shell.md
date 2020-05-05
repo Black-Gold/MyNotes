@@ -200,23 +200,22 @@ test和[]中比较运算符只有==和!=，用于字符串比较，整数比较�
     2        标准错误输出      stderr     屏幕
 简单使用<或>时，相当于0<或1>
 
-command > file  # command命令输出重定向到file
-command >> file # command命令输出重定向追加到file
-command < file  # command命令从file读取
-command << file # 从命令行读取输入，知道与file匹配的行结束，除非使用引号将输入括起来，此模式将对输入内容进行shell变量
-                  替换如果使用<<-   则忽略接下来输入行首的tab
+command > file      # command命令输出重定向到file
+command >> file     # command命令输出重定向追加到file
+command < file      # command命令从file读取
+command << file     # 从命令行读取输入，知道与file匹配的行结束，除非使用引号将输入括起来，此模式将对输入内容进行shell变量替换如果使用<<-则忽略接下来输入行首的tab
 command <<< word    # 把字符word和后面的换行作为输入提供给command
 command <> file     # 以读写模式将file重定向到输入，file不会被破坏
 command >| file     # 和>功能相同,强迫重定向，会强制覆盖一个已存在文件
-: > file     # 将file截断为0长度
-command >&n     # 把输出送到文件描述符n，注意： >&实际上复制了文件描述符，使cmd > file 2>&1与cmd 2>&1 >file的效果不一样
-command m>&n    # 把输出到文件符m的信息重定向到文件描述符n
-command >&-     # 关闭标准输出
-command <&n     # 输入来自文件描述符n
-command m<&n    # m来自文件描述各个n
-command <&-     # 关闭标准输入
-command <&n-    # 移动输入文件描述符n而非复制它（需要解释）
-&> file和 > file 2>&1相同
+: > file            # 将file截断为0长度
+command >&n         # 把输出送到文件描述符n，注意： >&实际上复制了文件描述符，使cmd > file 2>&1与cmd 2>&1 >file的效果不一样
+command m>&n        # 把输出到文件符m的信息重定向到文件描述符n
+command >&-         # 关闭标准输出
+command <&n         # 输入来自文件描述符n
+command m<&n        # m来自文件描述各个n
+command <&-         # 关闭标准输入
+command <&n-        # 移动输入文件描述符n而非复制它（需要解释）
+&> file和 > file 2>&1相同 # 将stdout和stderr组合覆盖到file
 
 # ~+
 表示当前工作路径，与变量$PWD一致

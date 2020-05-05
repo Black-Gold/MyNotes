@@ -953,7 +953,7 @@ Python中的文本数据由str对象或字符串处理，字符串是Unicode的�
 | str.strip([chars]) | 返回删除了开头和结尾字符的字符串副本。 chars参数是一个字符串，<br>指定要删除的字符集。如果省略或None，则chars参数默认为删除空格 |
 | str.isalpha()/str.isdigit()/str.isspace()...  | 测试所有字符串字符是否在各种字符类中 |
 | str.find() | 检测字符串中是否包含子字符串str，如果指定start和end范围，则检查是否包含在指定范围内，<br>如果包含子字符串返回最低的索引值，否则返回-1 |
-| str.format(*args, **kwargs) | 执行字符串格式化操作。调用此方法的字符串可以包含由大括号{}分隔的文字文本或替换字段。<br>每个替换字段都包含位置参数的数字索引或关键字参数的名称。返回字符串的副本，其中每个替换字段都替换为相应参数的字符串值 |
+| str.format(*args, **kwargs) | 执行字符串格式化操作。调用此方法的字符串可以包含字符串字面值或者以花括号{}括起来的替换域<br>每个替换字段都包含位置参数的数字索引或关键字参数的名称。返回字符串的副本，其中每个替换字段都替换为相应参数的字符串值 |
 | str.split(sep=None, maxsplit=-1) | 返回字符串中的单词组成的列表，使用sep作为分割的字符，若给出sep，则连续的分隔字符不会组合在一起，<br>并被视为划分空字符串,如果给出maxsplit，列表最多只有maxsplit + 1个元素,如果maxsplit没有给出或者是-1，则没有分割数量限制
 | str.splitlines([keepends]) | 返回字符串中的行作为列表，在行边界处断开。除非给出keepends且为true，<br>否则换行符不包括在结果列表中;此方法在以下边界处进行分割 |
 
@@ -970,6 +970,11 @@ Python中的文本数据由str对象或字符串处理，字符串是Unicode的�
 | \x85 | 下一行（C1控制代码） |
 | \u2028 | 行分隔符 |
 | \u2029 | 段落分隔符 |
+
+```python
+print(b'\xe5\x85\x83'.decode('utf-8'))  # 将bytes解码为utf-8字符串，语法更加Pythonic
+print(str(b'\xe5\x85\x83', 'utf-8'))    # 将bytes解码为utf-8字符串，可用性范围更广
+```
 
 ##### printf风格的字符串格式化
 
@@ -1454,7 +1459,8 @@ list_range = list(filter(lambda x: x > 5, num)) # filter函数过滤并返回符
 # reduce函数和lambda
 # 利用reduce求列表元素乘积，也可使用循环来处理
 from functools import reduce
-result = reduce((lambda x, y: x * y), [1, 2])
+data_list = [2, 4, 5]
+result = reduce(lambda x, y: x * y, data_list)
 
 ```
 
@@ -1945,16 +1951,18 @@ size    计算出对应于format的结构大小（即pack()方法所产生的字
 
 ## Data Types
 
+### datetime基本的日期和时间类型
+
 datetime模块提供操纵日期和时间的类，但实现的重点是针对输出格式化和提取操作的有效属性
 
-datetime模块具有的常量
+#### datetime模块具有的常量
 
 |  |  |
 | :------: | :------: |
 | datetime.MINYEAR | date或datetime对象中允许的最小年份,MINYEAR值为1 |
 | datetime.MAXYEAR | date或datetime对象中允许的最大年份，MAXYEAR值为9999 |
 
-datetime模块具有的类，这些类型的对象都是不可变的
+#### datetime模块具有的类，这些类的对象都是不可变的
 
 |  |  |
 | :------: | :------: |
@@ -1992,11 +2000,24 @@ Object
 
 ```
 
-### timedelta对象
+#### timedelta类对象
 
 表示两个date或者time的时间间隔
 
-### date对象
+datetime.timedalta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
+所有参数都是可选的并且默认为 0。 这些参数可以是整数或者浮点数，也可以是正数或者负数
+
+类属性：
+timedelta.min
+The most negative timedelta object, timedelta(-999999999)
+
+timedelta.max
+The most positive timedelta object, timedelta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999)
+
+timedelta.resolution
+两个不相等的timedelta类对象最小的间隔为timedelta(microseconds=1)
+
+#### date对象
 
 一个date对象表示理想化日历中的日期(年月日)
 
@@ -2037,7 +2058,7 @@ date类属性：
 | date.strftime() | 返回表示日期的字符串，由明确的格式控制 |
 | date.__format__() | 与date.strftime()相同，这样date在格式化字符串以及为对象指定格式字符串 |
 
-### datetime对象
+#### datetime对象
 
 datetime是包含从date对象和time对象的所有信息的单独对象,注意此datetime是由datetime类产生的datetime实例对象
 
@@ -2057,7 +2078,7 @@ datetime是包含从date对象和time对象的所有信息的单独对象,注意
 | datetime.fromisocalendar() | 返回datetime与按年，周和日指定的ISO日历日期相对应的日期。datetime的非日期部分将使用其默认值填充 |
 | datetime.strptime() | 返回datetime与date_string相对应的内容，并根据format进行解析 |
 
-### time对象
+#### time对象
 
 time对象表示一天中的（本地）时间，与任何特定的日期无关，并且可以通过tzinfo对象进行调整
 
@@ -2079,34 +2100,19 @@ time实例方法：
 
 strftime()和strptime()格式代码
 
-|  |  |
-| :------: | :------: |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+date,datetime,time对象都支持strftime()方法用于以字符串格式化时间，相反，striptime()方法从日期或时间的字符串返回一个datetime对象
 
-### tzinfo对象
+|  | strftime | strptime |
+| :------: | :------: | :------: |
+| 用法 | strftime(format) | strptime(date_string, format) |
 
-|  |  |
-| :------: | :------: |
-|  |  |
+| 方法类型 |  |  |
+| method of |  |  |
+| signature |  |  |
+|  |  |  |
+|  |  |  |
 
-### timezone对象
-
-|  |  |
-| :------: | :------: |
-|  |  |
-
-### strftime()和strptime()
-
-|  |  |
-| :------: | :------: |
-|  |  |
-
-## calendar与日历相关功能
+### calendar与日历相关功能
 
 calendar.Calendar(firstweekday=0),创建一个Calendar对象，firstweekday是一个整数，指定一周第一天，默认为0代表周一
 
@@ -2159,7 +2165,7 @@ calendar类的方法
 | weekheader() | 返回包含工作日名称缩写的头,n表示返回头的宽度 |
 | monthrange() | 返回指定年月中第一天的工作日号和月份的天数 |
 | monthcalendar() | 返回代表一个月日历的周列表，月份以外的用0表示，默认以每个星期星期一开始，除非setfirstweekday()指定星期 |
-| prmonth |  |
+| prmonth() | 通过formatmonth()返回月份日历 |
 |  |  |
 |  |  |
 |  |  |
@@ -2167,6 +2173,115 @@ calendar类的方法
 |  |  |
 |  |  |
 
+### collections容器数据类型
+
+标准内建容器有dict、list、set、tuple，collections实现特定的容器
+
+|  |  |
+| :------: | :------: |
+| namedtuple() | 创建命名元组子类的工厂函数 |
+| deque | 类似列表(list)的容器，实现了在两端快速添加(append)和弹出(pop) |
+| ChainMap | 类似字典(dict)的容器类，将多个映射集合到一个视图里面 |
+| Counter | 字典的子类，提供了可哈希对象的计数功能 |
+| OrderedDict | 字典的子类，保存了他们被添加的顺序 |
+| defaultdict | 字典的子类，提供了一个工厂函数，为字典查询提供一个默认值 |
+| UserDict | 封装了字典对象，简化了字典子类化 |
+| UserList | 封装了列表对象，简化了列表子类化 |
+| UserString | 封装了列表对象，简化了字符串子类化 |
+
+Counter对象
+一个Counter是一个dict的子类，用于计数可哈希对象；它是一个集合，元素像字典键(key)一样存储，计数可以是任何整数值，包括0和负数
+
+```python
+# 记录单词在列表中出现的次数
+cnt = collections.Counter()
+for word in ['red', 'blue', 'red', 'green', 'blue', 'blue']:
+    cnt[word] += 1
+print(cnt)  # 输出Counter({'blue': 3, 'red': 2, 'green': 1})
+
+# 找出《哈姆雷特》中最常见的两个单词
+import re
+words = re.findall(r'\w+', open('hamlet.txt').read().lower())
+print(collections.Counter(words).most_common(2))  # 输出[('the', 34545), ('and', 22226)]
+```
+
+collections.abc --- 容器的抽象基类
+heapq --- 堆队列算法
+bisect --- 数组二分查找算法
+array --- 高效的数值数组
+weakref --- 弱引用
+types --- 动态类型创建和内置类型名称
+
+### copy浅层(shallow)和深层(deep)复制
+
+浅层复制和深层复制之间的区别仅与复合对象 (即包含其他对象的对象，如列表或类的实例) 相关
+
+1. 一个 浅层复制 会构造一个新的复合对象，然后（在可能的范围内）将原对象中找到的 引用 插入其中
+2. 一个 深层复制 会构造一个新的复合对象，然后递归地将原始对象中所找到的对象的 副本 插入
+
+深度复制操作通常存在两个问题, 而浅层复制操作并不存在这些问题：
+
+1. 递归对象 (直接或间接包含对自身引用的复合对象) 可能会导致递归循环。
+2. 由于深层复制会复制所有内容，因此可能会过多复制（例如本应该在副本之间共享的数据）
+
+深层复制避免以上问题方法：保留在当前复制过程中已复制的对象的 "备忘录"(memo)字典；以及允许用户定义的类重载复制操作或复制的组件集合
+
+该模块不复制模块、方法、栈追踪（stack trace）、栈帧（stack frame）、文件、套接字、窗口、数组以及任何类似的类型。它通过不改变地返回原始对象来（浅层或深层地）“复制”函数和类；这与 pickle 模块处理这类问题的方式是相似的
+
+### pprint数据输出美化
+
+## math和math模块
+
+### numbers数字的抽象基类
+
+### math数学函数
+
+### cmath --- 关于复数的数学函数
+
+### decimal --- 十进制定点和浮点运算
+
+### fractions --- 分数
+
+### random --- 生成伪随机数
+
+#### bookkeeping函数
+
+|  |  |
+| :------: | :------: |
+| seed() | 随机数生成器的种子 |
+| getstate() | 返回捕获到的生成器当前内部状态的对象，此对象可传递给setstate()来恢复状态 |
+| setstate() | 将生成器内部状态恢复到被getstate()调用时的状态 |
+| getrandbits(k) | 返回带有k位的随机python整数，可用randrange()来处理任意大范围 |
+
+```python
+random.seed(42)
+print(random.sample(range(20), k=10))
+st = random.getstate()  # remeber this state
+print(random.sample(range(20), k=20))  # print 20
+random.setstate(st)     # restore state
+print(random.sample(range(20), k=12))  # print same first 10
+```
+
+#### 用于整数的函数
+
+|  |  |
+| :------: | :------: |
+| randrange() | 从 range(start, stop, step) 返回一个随机选择的元素<br>相当于choice(range(start, stop, step)) ，但实际上并没有构建一个 range 对象 |
+| randint() | 返回随机整数 N 满足 a <= N <= b。相当于 randrange(a, b+1) |
+
+#### 用于序列的函数
+
+|  |  |
+| :------: | :------: |
+| choice(seq) | 从非空序列 seq 返回一个随机元素。 如果 seq 为空，则引发 IndexError |
+| choices(population, weights=None, \*, cum_weights=None, k=1) | 从*population*中选择替换，返回大小为 k 的元素列表。 如果 population 为空，则引发 IndexError |
+| shuffe(x[, random]) | 将序列 x 随机打乱位置 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
+### statistics --- 数学统计函数
 
 ## File & Directory access
 
