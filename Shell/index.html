@@ -643,6 +643,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Enterprise/" title="Enterprise-class" class="md-nav__link">
+      Enterprise-class
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1896,23 +1908,22 @@ $0     # (常用)当前shell名(当前执行进程的进程名，如果执行脚
     <span class="mi">2</span>        标准错误输出      <span class="nv">stderr</span>     屏幕
 简单使用<span class="o">&lt;</span>或<span class="o">&gt;</span>时，相当于<span class="mi">0</span><span class="o">&lt;</span>或<span class="mi">1</span><span class="o">&gt;</span>
 
-<span class="nv">command</span> <span class="o">&gt;</span> <span class="nv">file</span>  # <span class="nv">command</span>命令输出重定向到<span class="nv">file</span>
-<span class="nv">command</span> <span class="o">&gt;&gt;</span> <span class="nv">file</span> # <span class="nv">command</span>命令输出重定向追加到<span class="nv">file</span>
-<span class="nv">command</span> <span class="o">&lt;</span> <span class="nv">file</span>  # <span class="nv">command</span>命令从<span class="nv">file</span>读取
-<span class="nv">command</span> <span class="o">&lt;&lt;</span> <span class="nv">file</span> # 从命令行读取输入，知道与<span class="nv">file</span>匹配的行结束，除非使用引号将输入括起来，此模式将对输入内容进行<span class="nv">shell</span>变量
-                  替换如果使用<span class="o">&lt;&lt;-</span>   则忽略接下来输入行首的<span class="nv">tab</span>
+<span class="nv">command</span> <span class="o">&gt;</span> <span class="nv">file</span>      # <span class="nv">command</span>命令输出重定向到<span class="nv">file</span>
+<span class="nv">command</span> <span class="o">&gt;&gt;</span> <span class="nv">file</span>     # <span class="nv">command</span>命令输出重定向追加到<span class="nv">file</span>
+<span class="nv">command</span> <span class="o">&lt;</span> <span class="nv">file</span>      # <span class="nv">command</span>命令从<span class="nv">file</span>读取
+<span class="nv">command</span> <span class="o">&lt;&lt;</span> <span class="nv">file</span>     # 从命令行读取输入，知道与<span class="nv">file</span>匹配的行结束，除非使用引号将输入括起来，此模式将对输入内容进行<span class="nv">shell</span>变量替换如果使用<span class="o">&lt;&lt;-</span>则忽略接下来输入行首的<span class="nv">tab</span>
 <span class="nv">command</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">word</span>    # 把字符<span class="nv">word</span>和后面的换行作为输入提供给<span class="nv">command</span>
 <span class="nv">command</span> <span class="o">&lt;&gt;</span> <span class="nv">file</span>     # 以读写模式将<span class="nv">file</span>重定向到输入，<span class="nv">file</span>不会被破坏
 <span class="nv">command</span> <span class="o">&gt;|</span> <span class="nv">file</span>     # 和<span class="o">&gt;</span>功能相同,强迫重定向，会强制覆盖一个已存在文件
-: <span class="o">&gt;</span> <span class="nv">file</span>     # 将<span class="nv">file</span>截断为<span class="mi">0</span>长度
-<span class="nv">command</span> <span class="o">&gt;&amp;</span><span class="nv">n</span>     # 把输出送到文件描述符<span class="nv">n</span>，注意： <span class="o">&gt;&amp;</span>实际上复制了文件描述符，使<span class="nv">cmd</span> <span class="o">&gt;</span> <span class="nv">file</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>与<span class="nv">cmd</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="o">&gt;</span><span class="nv">file</span>的效果不一样
-<span class="nv">command</span> <span class="nv">m</span><span class="o">&gt;&amp;</span><span class="nv">n</span>    # 把输出到文件符<span class="nv">m</span>的信息重定向到文件描述符<span class="nv">n</span>
-<span class="nv">command</span> <span class="o">&gt;&amp;-</span>     # 关闭标准输出
-<span class="nv">command</span> <span class="o">&lt;&amp;</span><span class="nv">n</span>     # 输入来自文件描述符<span class="nv">n</span>
-<span class="nv">command</span> <span class="nv">m</span><span class="o">&lt;&amp;</span><span class="nv">n</span>    # <span class="nv">m</span>来自文件描述各个<span class="nv">n</span>
-<span class="nv">command</span> <span class="o">&lt;&amp;-</span>     # 关闭标准输入
-<span class="nv">command</span> <span class="o">&lt;&amp;</span><span class="nv">n</span><span class="o">-</span>    # 移动输入文件描述符<span class="nv">n</span>而非复制它（需要解释）
-<span class="o">&amp;&gt;</span> <span class="nv">file</span>和 <span class="o">&gt;</span> <span class="nv">file</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>相同
+: <span class="o">&gt;</span> <span class="nv">file</span>            # 将<span class="nv">file</span>截断为<span class="mi">0</span>长度
+<span class="nv">command</span> <span class="o">&gt;&amp;</span><span class="nv">n</span>         # 把输出送到文件描述符<span class="nv">n</span>，注意： <span class="o">&gt;&amp;</span>实际上复制了文件描述符，使<span class="nv">cmd</span> <span class="o">&gt;</span> <span class="nv">file</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>与<span class="nv">cmd</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="o">&gt;</span><span class="nv">file</span>的效果不一样
+<span class="nv">command</span> <span class="nv">m</span><span class="o">&gt;&amp;</span><span class="nv">n</span>        # 把输出到文件符<span class="nv">m</span>的信息重定向到文件描述符<span class="nv">n</span>
+<span class="nv">command</span> <span class="o">&gt;&amp;-</span>         # 关闭标准输出
+<span class="nv">command</span> <span class="o">&lt;&amp;</span><span class="nv">n</span>         # 输入来自文件描述符<span class="nv">n</span>
+<span class="nv">command</span> <span class="nv">m</span><span class="o">&lt;&amp;</span><span class="nv">n</span>        # <span class="nv">m</span>来自文件描述各个<span class="nv">n</span>
+<span class="nv">command</span> <span class="o">&lt;&amp;-</span>         # 关闭标准输入
+<span class="nv">command</span> <span class="o">&lt;&amp;</span><span class="nv">n</span><span class="o">-</span>        # 移动输入文件描述符<span class="nv">n</span>而非复制它（需要解释）
+<span class="o">&amp;&gt;</span> <span class="nv">file</span>和 <span class="o">&gt;</span> <span class="nv">file</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>相同 # 将<span class="nv">stdout</span>和<span class="nv">stderr</span>组合覆盖到<span class="nv">file</span>
 
 # <span class="o">~+</span>
 表示当前工作路径，与变量$<span class="nv">PWD</span>一致
