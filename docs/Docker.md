@@ -1,7 +1,10 @@
 # docker笔记
 
-```bash
+```markdown
 Offical:一条命令安装最新稳定版docker：curl -fsSl https://get.docker.com | sh
+
+![Docker Captains撰写的学习资源](https://docs.docker.com/get-started/resources)
+![docker-desktop安装参考链接](https://github.com/AliyunContainerService/k8s-for-docker-desktop/blob/master/README.md)
 ```
 
 运行这个命令下载最新版本的Docker Compose:
@@ -118,132 +121,52 @@ $ docker --registry-mirror=https://registry.docker-cn.com daemon
 修改保存后重启 Docker 以使配置生效
 
 注: 您也可以使用适用于 Mac 的 Docker 和适用于 Windows 的 Docker 来进行设置
+
+使用TLS(https)保护docker守护进程套接字安全参考链接：
+https://docs.docker.com/engine/security/protect-access/
+```
+
+## ![docker网络](https://docs.docker.com/network)
+
+```markdown
+Docker的网络子系统可使用驱动程序插入。默认情况下，有几个驱动程序，它们提供核心联网功能：
+
+1. bridge：默认的网络驱动程序。如果您未指定驱动程序，则这是您正在创建的网络类型。当您的应用程序在需要通信的独立容器中运行时，通常会使用网桥网络
+    详解：网桥是在网段之间转发流量的链路层设备，其可以是主机内核中运行的硬件设备和软件设备，docker中使用软件网桥来允许同一网桥网络的容器通信，bridge网络
+    用于同一个docker守护进程主机中运行的容器，为了让不同docker守护进程主机上的容器之间通信，可以在OS级别设置路由，也可以使用overlay网络，用户可以自定义
+    创建网桥网络，且用户定义的网桥网络优先于默认bridge网络
+
+2. host：对于独立容器，请删除容器与Docker主机之间的网络隔离，然后直接使用主机的网络
+  详解：对容器使用host网络模式，则该容器的网络堆栈不会与Docker主机隔离（该容器共享主机的网络名称空间，并且该容器不会分配自己的IP地址
+  主机模式网络对于优化性能以及在容器需要处理大量端口的情况下很有用，因为它不需要网络地址转换（NAT），并且不会为每个端口创建“ userland-proxy”
+
+3. overlay：覆盖网络将多个Docker守护程序连接在一起，并使群集服务能够相互通信。您还可以使用覆盖网络来促进群集服务和独立容器之间或不同Docker守护程序上的两个独立容器之间的通信。这种策略消除了在这些容器之间进行操作系统级路由的需要
+  详解：overlay网络驱动程序创建多个主机docker守护进程之间的分布式网络，其位于特定主机网络之上(覆盖特定主机的网络)，从而在启用加密后允许与其连接的容器(包括群集服务容器)进行安全通信
+
+  初始化群集或将Docker主机加入现有群集时，将在该Docker主机上创建两个新网络：
+  1. 一个称为的覆盖网络ingress，用于处理与群体服务有关的控制和数据流量。创建群集服务并且不将其连接到用户定义的覆盖网络时，ingress 默认情况下它将连接到网络
+  2.  一个名为的桥接网络docker_gwbridge，它将各个Docker守护程序连接到该集群中的其他守护程序
+  可以overlay使用docker network create来创建自定义网络，就像创建自定义的bridge网络一样。服务或容器可以一次连接到多个网络。但服务或容器只能在它们各自连接的网络之间进行通信
+
+4. macvlan：Macvlan网络允许您为容器分配MAC地址，使其在网络上显示为物理设备。Docker守护程序通过其MAC地址将流量路由到容器。macvlan 在处理希望直接连接到物理网络而不是通过Docker主机的网络堆栈进行路由的旧应用程序时，使用驱动程序有时是最佳选择
+
+5. none：对于此容器，请禁用所有联网。通常与自定义网络驱动程序一起使用。none不适用于群体服务
+
+6. 网络插件：例如：Weave Net、flannel、calico等
+```
+
+## Docker支持以下存储驱动程序
+
+```markdown
+overlay2 是当前所有受支持的Linux发行版的首选存储驱动程序，并且不需要任何额外的配置
+aufs是在内核3.13上的Ubuntu 14.04上运行的Docker 18.06及更早版本的首选存储驱动程序，而该内核不支持overlay2
+fuse-overlayfs仅在不提供对rootless的支持的主机上运行Rootless Docker时才首选overlay2。在Ubuntu和Debian 10上，即使在无根模式下fuse-overlayfs也不需要使用该驱动程序overlay2。请参阅无根模式文档
+devicemapper支持，但是direct-lvm对于生产环境是必需的，因为loopback-lvm零配置虽然性能很差。devicemapper是CentOS和RHEL的推荐存储驱动程序，因为它们的内核版本不支持overlay2。但是，当前版本的CentOS和RHEL现在支持overlay2，这是推荐的驱动程序
+如果btrfs和zfs驱动程序是后备文件系统（安装了Docker的主机的文件系统），则使用它们。这些文件系统允许使用高级选项，例如创建“快照”，但需要更多的维护和设置。这些中的每一个都依赖于正确配置的后备文件系统
+该vfs存储驱动程序的目的是为了进行测试，并在那里不能使用任何写入时复制文件系统的情况。此存储驱动程序的性能很差，通常不建议在生产中使用
 ```
 
 ## 官方示例的daemon.json文件配置
-
-在Linux上官方示例的daemon.json文件配置
-
-```json
-{
-    "authorization-plugins": [],
-    "data-root": "",
-    "dns": [],
-    "dns-opts": [],
-    "dns-search": [],
-    "exec-opts": [],
-    "exec-root": "",
-    "experimental": false,
-    "storage-driver": "",
-    "storage-opts": [],
-    "labels": [],
-    "live-restore": true,
-    "log-driver": "",
-    "log-opts": {},
-    "mtu": 0,
-    "pidfile": "",
-    "cluster-store": "",
-    "cluster-store-opts": {},
-    "cluster-advertise": "",
-    "max-concurrent-downloads": 3,
-    "max-concurrent-uploads": 5,
-    "default-shm-size": "64M",
-    "shutdown-timeout": 15,
-    "debug": true,
-    "hosts": [],
-    "log-level": "",
-    "tls": true,
-    "tlsverify": true,
-    "tlscacert": "",
-    "tlscert": "",
-    "tlskey": "",
-    "swarm-default-advertise-addr": "",
-    "api-cors-header": "",
-    "selinux-enabled": false,
-    "userns-remap": "",
-    "group": "",
-    "cgroup-parent": "",
-    "default-ulimits": {},
-    "init": false,
-    "init-path": "/usr/libexec/docker-init",
-    "ipv6": false,
-    "iptables": false,
-    "ip-forward": false,
-    "ip-masq": false,
-    "userland-proxy": false,
-    "userland-proxy-path": "/usr/libexec/docker-proxy",
-    "ip": "0.0.0.0",
-    "bridge": "",
-    "bip": "",
-    "fixed-cidr": "",
-    "fixed-cidr-v6": "",
-    "default-gateway": "",
-    "default-gateway-v6": "",
-    "icc": false,
-    "raw-logs": false,
-    "allow-nondistributable-artifacts": [],
-    "registry-mirrors": [],
-    "seccomp-profile": "",
-    "insecure-registries": [],
-    "no-new-privileges": false,
-    "default-runtime": "runc",
-    "oom-score-adjust": -500,
-    "node-generic-resources": ["NVIDIA-GPU=UUID1", "NVIDIA-GPU=UUID2"],
-    "runtimes": {
-        "cc-runtime": {
-            "path": "/usr/bin/cc-runtime"
-        },
-        "custom": {
-            "path": "/usr/local/bin/my-runc-replacement",
-            "runtimeArgs": [
-                "--debug"
-            ]
-        }
-    }
-}
-
-```
-
-## 在Windows上官方示例的daemon.json文件配置
-
-```json
-
-{
-    "authorization-plugins": [],
-    "data-root": "",
-    "dns": [],
-    "dns-opts": [],
-    "dns-search": [],
-    "exec-opts": [],
-    "experimental": false,
-    "storage-driver": "",
-    "storage-opts": [],
-    "labels": [],
-    "log-driver": "",
-    "mtu": 0,
-    "pidfile": "",
-    "cluster-store": "",
-    "cluster-advertise": "",
-    "max-concurrent-downloads": 3,
-    "max-concurrent-uploads": 5,
-    "shutdown-timeout": 15,
-    "debug": true,
-    "hosts": [],
-    "log-level": "",
-    "tlsverify": true,
-    "tlscacert": "",
-    "tlscert": "",
-    "tlskey": "",
-    "swarm-default-advertise-addr": "",
-    "group": "",
-    "default-ulimits": {},
-    "bridge": "",
-    "fixed-cidr": "",
-    "raw-logs": false,
-    "allow-nondistributable-artifacts": [],
-    "registry-mirrors": [],
-    "insecure-registries": []
-}
 
 ## Docker命令
 
@@ -325,6 +248,8 @@ Run 'docker COMMAND --help' for more information on a command.
 
 ```
 
+## 实例
+
 ```bash
 
 
@@ -350,70 +275,33 @@ docker rm -f $(sudo docker ps --before="container_id_here" -q)
 
 docker rm $(docker ps -q -f status=exited)
 
-### 查看当前有些什么images
-
-docker images
-
-### 删除images，通过image的id来指定删除谁
-
-```bash
-docker rmi <image id>
-```
-
-### 想要删除untagged images，也就是那些id为None的image的话可以用
-
-```bash
+# 想要删除untagged images，也就是那些id为None的image的话可以用
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
-```
 
-### 要删除全部image的话
-
+# 要删除全部image的话
 docker rmi $(docker images -q)
 
-### 同时删除container和images
-
-\# stop and remove containers and associated images with common grep search term
+# 同时删除container和images
 docker ps -a --no-trunc  | grep "search_term_here" | awk "{print $1}" | xargs -r --no-run-if-empty docker stop && \
 docker ps -a --no-trunc  | grep "search_term_here" | awk "{print $1}" | xargs -r --no-run-if-empty docker rm && \
 docker images --no-trunc | grep "search_term_here" | awk "{print $3}" | xargs -r --no-run-if-empty docker rmi
 
-\# stops only exited containers and delete only non-tagged images
+# 删除exited状态和non-tagged的容器
 docker ps --filter 'status=Exited' -a | xargs docker stop docker images --filter "dangling=true" -q | xargs docker rmi
 
-## DELETE NETWORKS AND VOLUMES
+docker volume inspect {container}   # 查看容器数据存储位置
+docker volume rm $(docker volume ls -qf dangling=true)  # 清理orphaned volumes
 
-\# clean up orphaned volumes
-docker volume rm $(docker volume ls -qf dangling=true)
-
-\# clean up orphaned networks
-docker network rm $(docker network ls -q)
+docker network rm $(docker network ls -q)   # clean up orphaned networks
 
 ## NEW IMAGES/CONTAINERS
 
 \# create new docker container, ie. ubuntu
 docker pull ubuntu:latest # 1x pull down image
 docker run -i -t ubuntu /bin/bash # drops you into new container as root
-
-### Docker命令：
-
-容器操作命令
-
-```bash
-docker ps <选项>
-
--a,--all=false 列出所有容器，不加-a输出running状态容器
---before="" 列出在特定容器创建之前的容器，包含停止的容器
-
--f,--filter filter 设置输出过滤，如：“exited=0”
-   --format string 更
--l,--lastest=false 列
-出最后创建的容器，包含停止的容器
-
--q,--quiet=false 只输出容器的id
-
 ```
 
-## 问题及故障解决办法：
+## 问题及故障解决办法
 
 1.question：Cannot connect to the Docker daemon. Is 'docker -d' running on this host?
 

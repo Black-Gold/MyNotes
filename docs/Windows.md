@@ -110,7 +110,7 @@ java 环境
 新建变量名：JAVA_HOME
 变量值：D:\jdk1.8.0_111（这里是jdk的安装目录）
 新建变量名：CLASSPATH
-变量值：.;%JAVA_HOME%\lib
+变量值：.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
 
 ```txt
 VMware Workstation 15.x

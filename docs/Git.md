@@ -65,7 +65,7 @@ git add -p  # 增加每个变化到缓存区时都要求确认
 git remore add origin [远程仓库路径]
 
 git commit --vervose # 参数vervose会列出diff的结果,等同于-v
-git commit -a --allow-empty-message -m " " # 以空消息commit，即不写commit message
+git commit -a --allow-empty-message -m "" # 以空消息commit，即不写commit message
 git commit --amend -m message   # 重做上一次提交信息
 
 # 与主干同步-分支开发过程应经常与主干保持同步

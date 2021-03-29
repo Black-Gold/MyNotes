@@ -951,7 +951,7 @@ return res
 同理，getRaminfo()可以写成： return os.popen(‘free|tail -n +2’).readline().split()[1:4]
 getDiskSpace()可以写成：return os.popen(‘df -h /|tail -n +2’).readline().split()[1:5]
 
-popen的效率不高，但是配合shell相当灵活～～
+popen的效率不高，但是配合shell相当灵活
 
 ```
 
@@ -981,7 +981,7 @@ curl ipinfo.io
 # 返回ip和地区
 curl ip.6655.com/ip.aspx?area=1
 curl cip.cc
-/usr/bin/wget -q -O - http://icanhazip.com/ | /usr/bin/tail
+wget -q -O - http://icanhazip.com | /usr/bin/tail
 
 https://pv.sohu.com/cityjson?ie=utf-8
 
@@ -991,8 +991,4 @@ https://github.com/NewFuture/DDNS
 # vagrant box下载链接，以此类推
 https://app.vagrantup.com/ansible/boxes/tower/versions/3.5.1/providers/virtualbox.box
 https://vagrantcloud.com/centos/boxes/7/versions/1905.1/providers/virtualbox.box
-
-技术点梳理
-https://docs.bk.tencent.com/technology/
-
 ```
