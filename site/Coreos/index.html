@@ -1,0 +1,1683 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Material Design theme for MyNotes">
+      
+      
+      
+        <meta name="author" content="Anonymous">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>ContainerOS - Material Design for MyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4cae4f">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="light-green">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#coreos" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Material Design for MyNotes" class="md-header__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Material Design for MyNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ContainerOS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Material Design for MyNotes" class="md-nav__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Material Design for MyNotes
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vim/" class="md-nav__link">
+        Vim
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Languages
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Languages" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Languages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Regex/" class="md-nav__link">
+        Regex
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell/" class="md-nav__link">
+        Shell
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/" class="md-nav__link">
+        Python3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Go/" class="md-nav__link">
+        Go
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enterprise/" class="md-nav__link">
+        Enterprise-class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CloudNative
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CloudNative" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CloudNative
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ContainerOS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ContainerOS
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coreos_1" class="md-nav__link">
+    Coreos介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    配置文件示例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Servers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Servers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Servers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Utilities/" class="md-nav__link">
+        Iproute2&Net-tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Iptables/" class="md-nav__link">
+        Iptables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewalld/" class="md-nav__link">
+        Firewalld
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        Ansible
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        WindowsServer
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        WebServer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="WebServer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          WebServer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Apache/" class="md-nav__link">
+        Apache
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tomcat/" class="md-nav__link">
+        Tomcat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Caddy/" class="md-nav__link">
+        Caddy
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Database
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Database" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Database
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL/" class="md-nav__link">
+        MariaDB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Oracle/" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MongoDB/" class="md-nav__link">
+        MongoDB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Memcached/" class="md-nav__link">
+        Memcached
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Monitor
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Monitor" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Monitor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Zabbix/" class="md-nav__link">
+        Zabbix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Elk/" class="md-nav__link">
+        ELKStack
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prometheus/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grafana/" class="md-nav__link">
+        Grafana
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        Nagios
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        CI/CD
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CI/CD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          CI/CD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        Git&GitLab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Jenkins/" class="md-nav__link">
+        Jenkins
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Cache
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cache" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Cache
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Squid/" class="md-nav__link">
+        Squid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Varnish/" class="md-nav__link">
+        Varnish
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stunnel/" class="md-nav__link">
+        Stunnel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TrafficServer/" class="md-nav__link">
+        ApacheTraffic
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        LB&HA
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="LB&HA" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          LB&HA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LVS/" class="md-nav__link">
+        LVS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Haproxy/" class="md-nav__link">
+        HAProxy
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        MessageQueue
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="MessageQueue" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          MessageQueue
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kafka/" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ActiveMQ/" class="md-nav__link">
+        ActiveMQ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      <label class="md-nav__link" for="__nav_13">
+        FileSystem
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="FileSystem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          FileSystem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ceph/" class="md-nav__link">
+        Ceph
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlusterFS/" class="md-nav__link">
+        GlusterFS
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      <label class="md-nav__link" for="__nav_14">
+        Network
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Network" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          Network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cisco/" class="md-nav__link">
+        Cisco
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Monitors/" class="md-nav__link">
+        Monitors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Others/" class="md-nav__link">
+        Others
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coreos_1" class="md-nav__link">
+    Coreos介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    配置文件示例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/Coreos.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="coreos"><strong>CoreOS</strong><a class="headerlink" href="#coreos" title="Permanent link">&para;</a></h1>
+<h2 id="coreos_1">Coreos介绍<a class="headerlink" href="#coreos_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>生成安全哈希的几种方法：
+
+<span class="c1"># On Debian/Ubuntu (via the package &quot;whois&quot;)</span>
+mkpasswd --method<span class="o">=</span>SHA-512 --rounds<span class="o">=</span><span class="m">4096</span>
+
+<span class="c1"># OpenSSL (note: this will only make md5crypt.  While better than plantext it should not be considered fully secure)</span>
+openssl passwd -1
+
+<span class="c1"># Python</span>
+python -c <span class="s2">&quot;import crypt,random,string; print(crypt.crypt(input(&#39;clear-text password: &#39;), &#39;\$6\$&#39; + &#39;&#39;.join([random.choice(string.ascii_letters + string.digits) for _ in range(16)])))&quot;</span>
+
+<span class="c1"># Perl (change password and salt values)</span>
+perl -e <span class="s1">&#39;print crypt(&quot;password&quot;,&quot;\$6\$SALT\$&quot;) . &quot;\n&quot;&#39;</span>
+
+<span class="c1"># Set the disk size to 20GB</span>
+vmware-vdiskmanager -x 20Gb coreos_developer_vmware_insecure.vmx
+</code></pre></div>
+<h2 id="_1">配置文件示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nt">passwd</span><span class="p">:</span>
+  <span class="nt">users</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">core</span>
+      <span class="nt">ssh_authorized_keys</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ssh-rsa &lt;REST OF SSH KEY&gt; user@somewhere.com</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ssh-rsa &lt;REST OF ANOTHER SSH KEY&gt; user@somewhere.com</span>
+
+<span class="nt">systemd</span><span class="p">:</span>
+  <span class="nt">units</span><span class="p">:</span>
+    <span class="c1"># Docker will be configured initially but we&#39;ll be using containerd exclusively and will disable it after containerd setup</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker.service</span>
+      <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+    <span class="c1"># containerd without docker as a shim, thanks to containerd.service.d/ overrides</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">containerd.service</span>
+      <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">k8s-install.service</span>
+      <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">contents</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">[Install]</span>
+        <span class="no">WantedBy=multi-user.target</span>
+
+        <span class="no">[Unit]</span>
+        <span class="no">Description=k8s installation script</span>
+        <span class="no">Wants=network-online.target</span>
+        <span class="no">After=network.target network-online.target</span>
+
+        <span class="no">[Service]</span>
+        <span class="no">Type=oneshot</span>
+        <span class="no">ExecStart=/ignition/init/k8s/install.sh</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cni-install.service</span>
+      <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">contents</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">[Install]</span>
+        <span class="no">WantedBy=multi-user.target</span>
+
+        <span class="no">[Unit]</span>
+        <span class="no">Description=cni plugin installation script</span>
+        <span class="no">Requires=k8s-install.service</span>
+        <span class="no">After=k8s-install.service</span>
+
+        <span class="no">[Service]</span>
+        <span class="no">Type=oneshot</span>
+        <span class="no">ExecStart=/ignition/init/cni/install.sh</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">containerd-install.service</span>
+      <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">contents</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">[Install]</span>
+        <span class="no">WantedBy=multi-user.target</span>
+
+        <span class="no">[Unit]</span>
+        <span class="no">Description=containerd installation script</span>
+        <span class="no">Requires=cni-install.service</span>
+        <span class="no">After=cni-install.service</span>
+
+        <span class="no">[Service]</span>
+        <span class="no">Type=oneshot</span>
+        <span class="no">ExecStart=/ignition/init/cri-containerd/install.sh</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kubeadm-install.service</span>
+      <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">contents</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">[Install]</span>
+        <span class="no">WantedBy=multi-user.target</span>
+
+        <span class="no">[Unit]</span>
+        <span class="no">Description=kubeadm installation script</span>
+        <span class="no">Requires=containerd-install.service</span>
+        <span class="no">After=containerd-install.service</span>
+
+        <span class="no">[Service]</span>
+        <span class="no">Type=oneshot</span>
+        <span class="no">Environment=&quot;PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin&quot;</span>
+        <span class="no">ExecStart=/ignition/init/kubeadm/kubeadm-install.sh</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">k8s-setup.service</span>
+      <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">contents</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">[Install]</span>
+        <span class="no">WantedBy=multi-user.target</span>
+
+        <span class="no">[Unit]</span>
+        <span class="no">Description=kubernetes setup script</span>
+        <span class="no">Requires=kubeadm-install.service</span>
+        <span class="no">After=kubeadm-install.service</span>
+
+        <span class="no">[Service]</span>
+        <span class="no">Type=oneshot</span>
+        <span class="no">User=core</span>
+        <span class="no">Environment=&quot;PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/bin&quot;</span>
+        <span class="no">ExecStart=/ignition/init/k8s/setup.sh</span>
+
+<span class="nt">storage</span><span class="p">:</span>
+  <span class="nt">filesystems</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">mount</span><span class="p">:</span>
+        <span class="nt">device</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/dev/disk/by-label/ROOT</span>
+        <span class="nt">format</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xfs</span>
+        <span class="nt">wipe_filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">label</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ROOT</span>
+
+  <span class="nt">files</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/opt/bin/kubeadm</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">493</span> <span class="c1"># 0755</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://storage.googleapis.com/kubernetes-release/release/v1.10.2/bin/linux/amd64/kubeadm</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fc96e821fd593a212c632a6c9093143fab5817f6833ba1df1ced2ce4fb82f1ebefde71d9a898e8f9574515e9ba19e40f6ab09a907f6b1b908d7adfcf57b3bf8b</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/opt/bin/kubelet</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">493</span> <span class="c1"># 0755</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://storage.googleapis.com/kubernetes-release/release/v1.10.2/bin/linux/amd64/kubelet</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5cf4bde886d832d1cc48c47aeb43768050f67fe0458a330e4702b8071567665c975ed1fe2296cba5aea95a6de0bec4b731a32525837cac24646fb0158e2c2f64</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/opt/bin/kubectl</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">511</span> <span class="c1"># 0777</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://storage.googleapis.com/kubernetes-release/release/v1.10.2/bin/linux/amd64/kubectl</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">38a2746ac7b87cf7969cf33ccac177e63a6a0020ac593b7d272d751889ab568ad46a60e436d2f44f3654e2b4b5b196eabf8860b3eb87368f0861e2b3eb545a80</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/systemd/system/kubelet.service</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">420</span> <span class="c1"># 0644</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.2/build/debs/kubelet.service</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">b9ca0db34fea67dfd0654e65d3898a72997b1360c1e802cab5adc4288199c1a08423f90751757af4a7f1ff5932bfd81d3e215ce9b9d3f4efa1c04a202228adc8</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/systemd/system/kubelet.service.d/10-kubeadm.conf</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">420</span> <span class="c1"># 0644</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.2/build/debs/10-kubeadm.conf</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">32cfc8e56ec6e5ba93219852a68ec5eb25938a39c3e360ea4728fc71a14710b6ff85d0d84c2663eb5297d5dc21e1fad6914d6c0a8ce3357283f0b98ad4280ef7</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/cri-containerd/cri-containerd-1.1.0.linux-amd64.tar.gz</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">420</span> <span class="c1"># 0644</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://storage.googleapis.com/cri-containerd-release/cri-containerd-1.1.0.linux-amd64.tar.gz</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">c5db1b99e1155ed0dfe945bc1d53842fd015cb891f8b773c60fea73f9fe7c3e0bda755133765aa618c08765eb13dbf244affb5a1572d5a888ff4298ba3d790cf</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/cni/cni-plugins-v0.7.1.tgz</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">420</span> <span class="c1"># 0644</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/containernetworking/plugins/releases/download/v0.7.1/cni-plugins-amd64-v0.7.1.tgz</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">b3b0c1cc7b65cea619bddae4c17b8b488e7e13796345c7f75e069af93d1146b90a66322be6334c4c107e8a0ccd7c6d0b859a44a6745f9b85a0239d1be9ad4ccd</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/canal/rbac.yaml</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">493</span> <span class="c1"># 0755</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/canal/rbac.yaml</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">e045645a1f37b4974890c3e4f8505a10bbb138ed0723869d7a7bc399c449072dfd2c8c2c482d3baac9bf700b7b0cfdca122cb260e70b437fb495eb86f9f6cccc</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/canal/canal.yaml</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">493</span> <span class="c1"># 0755</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">remote</span><span class="p">:</span>
+          <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/canal/canal.yaml</span>
+          <span class="nt">verification</span><span class="p">:</span>
+            <span class="nt">hash</span><span class="p">:</span>
+              <span class="nt">function</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sha512</span>
+              <span class="nt">sum</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5c4953d74680a2ff84349c730bba48d0d43e28b70217c59cdf736f65e198f362c25b534b686c10ed5370dbb1bca4a1326e42039ddee7eb7b0dd314cc08523b67</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/k8s/install.sh</span>
+      <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">480</span> <span class="c1"># 740</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">inline</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+          <span class="no">#!/bin/bash</span>
+
+          <span class="no"># Unzip the kubernetes binaries if not already present</span>
+          <span class="no">test -d /opt/bin/kubeadm &amp;&amp; echo &quot;k8s binaries (kubeadm) already installed&quot; &amp;&amp; exit 0</span>
+
+          <span class="no"># NOTE: If RELEASE is updated, the SHA512 SUMs will need to be as well</span>
+          <span class="no">echo -e &quot;=&gt; Installing k8s v1.10.2&quot;</span>
+
+          <span class="no">echo &quot;=&gt; Cusomizing kubelet.service...&quot;</span>
+          <span class="no">sed -i &quot;s:/usr/bin:/opt/bin:g&quot; /etc/systemd/system/kubelet.service</span>
+          <span class="no">sed -i &quot;s:/usr/bin:/opt/bin:g&quot; /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</span>
+
+          <span class="no">systemctl daemon-reload</span>
+          <span class="no">systemctl enable kubelet</span>
+          <span class="no">systemctl start kubelet</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/cri-containerd/install.sh</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">480</span> <span class="c1"># 740</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">inline</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+          <span class="no">#!/bin/bash</span>
+
+          <span class="no"># Unzip the kubernetes binaries if not already present</span>
+          <span class="no">test -d /opt/containerd &amp;&amp; echo &quot;containerd binaries already installed&quot; &amp;&amp; exit 0</span>
+
+          <span class="no">VERSION=1.1.0</span>
+          <span class="no">echo -e &quot;=&gt; Installing containerd v${VERSION}&quot;</span>
+
+          <span class="no">echo &quot;=&gt; Installing containerd....&quot;</span>
+          <span class="no">cd /ignition/init/cri-containerd</span>
+          <span class="no">tar -C / -k -xzf cri-containerd-${VERSION}.linux-amd64.tar.gz</span>
+
+          <span class="no">echo &quot;=&gt; Copying /usr/local binaries to /opt/bin ....&quot;</span>
+          <span class="no">mkdir -p /ignition/init/cri-containerd/unzipped</span>
+          <span class="no">tar -C unzipped -k -xzf cri-containerd-${VERSION}.linux-amd64.tar.gz</span>
+          <span class="no">cp -r unzipped/usr/local/bin/* /opt/bin</span>
+          <span class="no">systemctl start containerd</span>
+
+          <span class="no">echo &quot;=&gt; Adding dropins....&quot;</span>
+          <span class="no">cat &gt; /etc/systemd/system/kubelet.service.d/0-containerd.conf &lt;&lt;EOF</span>
+          <span class="no">[Service]</span>
+          <span class="no">Environment=&quot;KUBELET_EXTRA_ARGS=--container-runtime=remote --runtime-request-timeout=15m --container-runtime-endpoint=unix:///run/containerd/containerd.sock --volume-plugin-dir=/var/lib/kubelet/volumeplugins&quot;</span>
+          <span class="no">EOF</span>
+
+          <span class="no">mkdir -p /etc/systemd/system/containerd.service.d/</span>
+          <span class="no">cat &gt; /etc/systemd/system/containerd.service.d/0-direct-containerd.conf &lt;&lt;EOF</span>
+          <span class="no">[Service]</span>
+          <span class="no">ExecStart=</span>
+          <span class="no">ExecStart=/opt/bin/containerd</span>
+          <span class="no">EOF</span>
+
+          <span class="no">echo &quot;=&gt; Triggering systemctl daemon-reload....&quot;</span>
+          <span class="no">systemctl daemon-reload</span>
+          <span class="no">systemctl restart containerd</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/cni/install.sh</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">480</span> <span class="c1"># 740</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">inline</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+          <span class="no">#!/bin/bash</span>
+
+          <span class="no"># Unzip the kubernetes binaries if not already present</span>
+          <span class="no">test -d /opt/cni/bin &amp;&amp; echo &quot;CNI binaries already installed&quot; &amp;&amp; exit 0</span>
+
+          <span class="no">VERSION=0.7.1</span>
+          <span class="no">echo -e &quot;=&gt; Installing CNI (v${VERSION}) binaries to /opt/cni/bin&quot;</span>
+          <span class="no">cd /ignition/init/cni</span>
+          <span class="no">mkdir -p /opt/cni/bin</span>
+          <span class="no">tar -C /opt/cni/bin -k -xzf cni-plugins-v${VERSION}.tgz</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/kubeadm/kubeadm-install.sh</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">480</span> <span class="c1"># 740</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">inline</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+          <span class="no">#!/bin/bash</span>
+
+          <span class="no"># Ensure kubeadm binary is present</span>
+          <span class="no">test -f /opt/bin/kubeadm || (echo &quot;Failed to find kubeadm binary&quot; &amp;&amp; exit 1)</span>
+
+          <span class="no"># Exit if kubeadm has already been run (/etc/kubernetes folder would have been created)</span>
+          <span class="no">test -d /etc/kubernetes &amp;&amp; echo &quot;/etc/kubernetes is present, kubeadm should have already been run once&quot; &amp;&amp; exit 0</span>
+
+          <span class="no">echo &quot;=&gt; Running kubeadm init...&quot;</span>
+          <span class="no">/opt/bin/kubeadm init --cri-socket &quot;/run/containerd/containerd.sock&quot; --pod-network-cidr &quot;10.244.0.0/16&quot;</span>
+
+          <span class="no"># Disable docker (kubelet will use containerd runtime directly)</span>
+          <span class="no">sudo systemctl stop docker</span>
+          <span class="no">sudo systemctl disable docker</span>
+
+          <span class="no">echo &quot;=&gt; Running kubeadm post-install set up for user &#39;core&#39;&quot;</span>
+          <span class="no">mkdir -p /home/core/.kube</span>
+          <span class="no">cp -i /etc/kubernetes/admin.conf /home/core/.kube/config</span>
+          <span class="no">chown $(id -u core):$(id -g core) /home/core/.kube/config</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">filesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ignition/init/k8s/setup.sh</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">493</span> <span class="c1"># 0755</span>
+      <span class="nt">contents</span><span class="p">:</span>
+        <span class="nt">inline</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+          <span class="no">#!/bin/bash</span>
+
+          <span class="no"># Ensure /etc/kubernetes is present (created by kubeadm)</span>
+          <span class="no">test -d /etc/kubernetes || (echo &quot;/etc/kubernetes not present, ensure kubeadm has run properly&quot; &amp;&amp; exit 1)</span>
+
+          <span class="no">echo &quot;=&gt; Enabling workload running on the master node&quot;</span>
+          <span class="no">kubectl taint nodes --all node-role.kubernetes.io/master-</span>
+
+          <span class="no">echo &quot;=&gt; Installing canal&quot;</span>
+          <span class="no">kubectl apply -f /ignition/init/canal/rbac.yaml</span>
+          <span class="no">kubectl apply -f /ignition/init/canal/canal.yaml</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Installing coreos-install...&quot;</span>
+curl -sSL https://raw.githubusercontent.com/coreos/init/master/bin/coreos-install &gt; /bin/coreos-install
+chmod +x /bin/coreos-install
+
+<span class="nb">echo</span> <span class="s2">&quot;Installing ct...&quot;</span>
+curl -sSL https://github.com/coreos/container-linux-config-transpiler/releases/download/v0.8.0/ct-v0.8.0-x86_64-unknown-linux-gnu &gt; /bin/ct
+<span class="nb">echo</span> <span class="s2">&quot;9f9d9d9c802a6dc875067295aa9d7f44f1e66914cc992cf215dd459ee2b719fde4ebfa036bb8488cfd87ae2efafc5d767de776fe11a4661fc45e8d54385953a4  ct&quot;</span> <span class="p">|</span> sha512sum -c <span class="o">||</span> <span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;ERROR: SHA512 Hash does not match for ct v0.8.0&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">1</span><span class="o">)</span>
+chmod +x /bin/ct
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../Kubernetes/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Kubernetes
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../Linux/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              Linux
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/Black-Gold" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.instagram.com/black0gold/" target="_blank" rel="noopener" title="www.instagram.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "search.suggest"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"default": "stable"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>

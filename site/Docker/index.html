@@ -1,0 +1,1737 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Material Design theme for MyNotes">
+      
+      
+      
+        <meta name="author" content="Anonymous">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>Docker - Material Design for MyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4cae4f">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-131093963-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="light-green">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Material Design for MyNotes" class="md-header__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Material Design for MyNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Material Design for MyNotes" class="md-nav__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Material Design for MyNotes
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Black-Gold/MyNotes/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vim/" class="md-nav__link">
+        Vim
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Languages
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Languages" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Languages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Regex/" class="md-nav__link">
+        Regex
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shell/" class="md-nav__link">
+        Shell
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/" class="md-nav__link">
+        Python3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Go/" class="md-nav__link">
+        Go
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enterprise/" class="md-nav__link">
+        Enterprise-class
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        CloudNative
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CloudNative" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          CloudNative
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Docker
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#centos7docker" class="md-nav__link">
+    centos7下docker安装与卸载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu-apt-get" class="md-nav__link">
+    Ubuntu (使用apt-get进行安装)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    卸载docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#centos6docker" class="md-nav__link">
+    centos6安装docker依赖出错解决
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_2" class="md-nav__link">
+    更改docker镜像安装目录(新版本通过配置文件参数自定义指定)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_3" class="md-nav__link">
+    Docker 中国官方镜像加速
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_4" class="md-nav__link">
+    Docker支持以下存储驱动程序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daemonjson" class="md-nav__link">
+    官方示例的daemon.json文件配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_5" class="md-nav__link">
+    Docker命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    问题及故障解决办法
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Coreos/" class="md-nav__link">
+        ContainerOS
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Servers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Servers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Servers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Utilities/" class="md-nav__link">
+        Iproute2&Net-tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Iptables/" class="md-nav__link">
+        Iptables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewalld/" class="md-nav__link">
+        Firewalld
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        Ansible
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        WindowsServer
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        WebServer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="WebServer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          WebServer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Apache/" class="md-nav__link">
+        Apache
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tomcat/" class="md-nav__link">
+        Tomcat
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Caddy/" class="md-nav__link">
+        Caddy
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Database
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Database" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Database
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL/" class="md-nav__link">
+        MariaDB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Oracle/" class="md-nav__link">
+        Oracle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MongoDB/" class="md-nav__link">
+        MongoDB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Memcached/" class="md-nav__link">
+        Memcached
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Monitor
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Monitor" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Monitor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Zabbix/" class="md-nav__link">
+        Zabbix
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Elk/" class="md-nav__link">
+        ELKStack
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prometheus/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Grafana/" class="md-nav__link">
+        Grafana
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        Nagios
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        CI/CD
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CI/CD" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          CI/CD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        Git&GitLab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Jenkins/" class="md-nav__link">
+        Jenkins
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        Cache
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cache" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Cache
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Squid/" class="md-nav__link">
+        Squid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Varnish/" class="md-nav__link">
+        Varnish
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stunnel/" class="md-nav__link">
+        Stunnel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TrafficServer/" class="md-nav__link">
+        ApacheTraffic
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        LB&HA
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="LB&HA" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          LB&HA
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LVS/" class="md-nav__link">
+        LVS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Haproxy/" class="md-nav__link">
+        HAProxy
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        MessageQueue
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="MessageQueue" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          MessageQueue
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kafka/" class="md-nav__link">
+        Kafka
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ActiveMQ/" class="md-nav__link">
+        ActiveMQ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RabbitMQ/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      <label class="md-nav__link" for="__nav_13">
+        FileSystem
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="FileSystem" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          FileSystem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ceph/" class="md-nav__link">
+        Ceph
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GlusterFS/" class="md-nav__link">
+        GlusterFS
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
+      
+      <label class="md-nav__link" for="__nav_14">
+        Network
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Network" data-md-level="1">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          Network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cisco/" class="md-nav__link">
+        Cisco
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Monitors/" class="md-nav__link">
+        Monitors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Others/" class="md-nav__link">
+        Others
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#centos7docker" class="md-nav__link">
+    centos7下docker安装与卸载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu-apt-get" class="md-nav__link">
+    Ubuntu (使用apt-get进行安装)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    卸载docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#centos6docker" class="md-nav__link">
+    centos6安装docker依赖出错解决
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_2" class="md-nav__link">
+    更改docker镜像安装目录(新版本通过配置文件参数自定义指定)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_3" class="md-nav__link">
+    Docker 中国官方镜像加速
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_4" class="md-nav__link">
+    Docker支持以下存储驱动程序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daemonjson" class="md-nav__link">
+    官方示例的daemon.json文件配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker_5" class="md-nav__link">
+    Docker命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    问题及故障解决办法
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Black-Gold/MyNotes/edit/master/docs/Docker.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="docker">docker笔记<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code>Offical:一条命令安装最新稳定版docker：curl -fsSl https://get.docker.com | sh
+
+![<span class="nt">Docker Captains撰写的学习资源</span>](<span class="na">https://docs.docker.com/get-started/resources</span>)
+![<span class="nt">docker-desktop安装参考链接</span>](<span class="na">https://github.com/AliyunContainerService/k8s-for-docker-desktop/blob/master/README.md</span>)
+</code></pre></div>
+<p>运行这个命令下载最新版本的Docker Compose:</p>
+<div class="highlight"><pre><span></span><code>sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-<span class="sb">`</span>uname -s<span class="sb">`</span>-<span class="sb">`</span>uname -m<span class="sb">`</span> -o /usr/local/bin/docker-compose
+</code></pre></div>
+<h2 id="centos7docker">centos7下docker安装与卸载<a class="headerlink" href="#centos7docker" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum list docker-ce --showduplicates <span class="p">|</span> sort -r
+yum install &lt;FULLY-QUALIFIED-PACKAGE-NAME&gt;  <span class="c1"># 根据docker-ce-18.09.5-3.el7.x86_64</span>
+systemctl start docker
+systemctl <span class="nb">enable</span> docker
+</code></pre></div>
+<h2 id="ubuntu-apt-get">Ubuntu (使用apt-get进行安装)<a class="headerlink" href="#ubuntu-apt-get" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># step 1: 安装必要的一些系统工具</span>
+sudo apt-get update
+sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+<span class="c1"># step 2: 安装GPG证书</span>
+curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key add -
+<span class="c1"># Step 3: 写入软件源信息</span>
+sudo add-apt-repository <span class="s2">&quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span>
+<span class="c1"># Step 4: 更新并安装 Docker-CE</span>
+sudo apt-get -y update
+sudo apt-get -y install docker-ce
+
+<span class="c1"># 安装指定版本的Docker-CE:</span>
+<span class="c1"># Step 1: 查找Docker-CE的版本:</span>
+<span class="c1"># apt-cache madison docker-ce</span>
+<span class="c1">#   docker-ce | 17.03.1~ce-0~ubuntu-xenial | http://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages</span>
+<span class="c1">#   docker-ce | 17.03.0~ce-0~ubuntu-xenial | http://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages</span>
+<span class="c1"># Step 2: 安装指定版本的Docker-CE: (VERSION 例如上面的 17.03.1~ce-0~ubuntu-xenial)</span>
+<span class="c1"># sudo apt-get -y install docker-ce=[VERSION]</span>
+</code></pre></div>
+<h2 id="docker_1">卸载docker<a class="headerlink" href="#docker_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>yum remove docker-ce
+rm -rf /var/lib/docker
+</code></pre></div>
+<p>WARNING: Error loading config file: /home/user/.docker/config.json -
+stat /home/user/.docker/config.json: permission denied
+To fix this problem, either remove the ~/.docker/ directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:</p>
+<p>$ sudo chown "<span><span class="MathJax_Preview">USER":"</span><script type="math/tex">USER":"</script></span>USER" /home/"$USER"/.docker -R
+$ sudo chmod g+rwx "$HOME/.docker" -R</p>
+<h2 id="centos6docker">centos6安装docker依赖出错解决<a class="headerlink" href="#centos6docker" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>yum remove docker-io
+rm -rf /var/lib/docker
+rm /etc/yum.repos.d/docker.repo
+yum install docker-io或者yum install the docker-engine-1.7.1 rpm
+yum install http://yum.dockerproject.org/repo/main/centos/6/Packages/docker-engine-1.7.1-1.el6.x86_64.rpm
+service docker status
+</code></pre></div>
+<h2 id="docker_2">更改docker镜像安装目录(新版本通过配置文件参数自定义指定)<a class="headerlink" href="#docker_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>方法一：
+停止docker进程
+Ubuntu/Debian：使用-g选项编辑/etc/default/docker文件：DOCKER_OPTS <span class="o">=</span>“ - dns <span class="m">8</span>.8.8.8 -dns <span class="m">8</span>.8.4.4 -g /mnt”
+Fedora/Centos：编辑/etc/sysconfig/docker，并在other_args变量中添加-g选项：ex。 <span class="nv">other_args</span> <span class="o">=</span>“ -g /var/lib/testdir”。如果有多个选项，请确保将它们括在“”中。重启后，（服务docker重启）Docker应该使用新目录
+
+方法二：
+使用符号链接是另一种更改图像存储的方法，注意 - 这些步骤取决于您当前的/var/lib/docker是否为实际目录（不是指向其他位置的符号链接）
+停止docker进程
+备份/var/lib/docker/目录
+tar -zcC /var/lib docker &gt; /mnt/pd0/var_lib_docker-backup-<span class="k">$(</span>date +%s<span class="k">)</span>.tar.gz
+移动/var/lib/docker目录到新分区: mv /var/lib/docker /mnt/pd0/docker
+添加符号链接: ln -s /mnt/pd0/docker /var/lib/docker
+看一下目录结构，确保它看起来像是在mv之前的一样: ls /var/lib/docker/ <span class="o">(</span>请注意用于解析符号链接的尾部斜杠<span class="o">)</span>
+</code></pre></div>
+<h2 id="docker_3">Docker 中国官方镜像加速<a class="headerlink" href="#docker_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>通过 Docker 官方镜像加速，中国区用户能够快速访问最流行的 Docker 镜像。该镜像托管于中国大陆，本地用户现在将会享受到更快的下载速度和更强的稳定性，从而能够更敏捷地开发和交付 Docker 化应用
+
+Docker 中国官方镜像加速可通过 registry.docker-cn.com 访问。该镜像库只包含流行的公有镜像。私有镜像仍需要从美国镜像库中拉取
+
+您可以使用以下命令直接从该镜像加速地址进行拉取：
+
+$ docker pull registry.docker-cn.com/myname/myrepo:mytag
+例如:
+
+$ docker pull registry.docker-cn.com/library/ubuntu:16.04
+注: 除非您修改了 Docker 守护进程的 <span class="sb">`</span>--registry-mirror<span class="sb">`</span> 参数 <span class="o">(</span>见下文<span class="o">)</span>, 否则您将需要完整地指定官方镜像的名称。例如，library/ubuntu、library/redis、library/nginx
+
+使用 --registry-mirror 配置 Docker 守护进程
+您可以配置 Docker 守护进程默认使用 Docker 官方镜像加速。这样您可以默认通过官方镜像加速拉取镜像，而无需在每次拉取时指定 registry.docker-cn.com
+
+您可以在 Docker 守护进程启动时传入 --registry-mirror 参数：
+
+$ docker --registry-mirror<span class="o">=</span>https://registry.docker-cn.com daemon
+为了永久性保留更改，您可以修改 /etc/docker/daemon.json 文件并添加上 registry-mirrors 键值
+
+<span class="o">{</span>
+  <span class="s2">&quot;registry-mirrors&quot;</span>: <span class="o">[</span><span class="s2">&quot;https://registry.docker-cn.com&quot;</span><span class="o">]</span>
+<span class="o">}</span>
+
+修改保存后重启 Docker 以使配置生效
+
+注: 您也可以使用适用于 Mac 的 Docker 和适用于 Windows 的 Docker 来进行设置
+
+使用TLS<span class="o">(</span>https<span class="o">)</span>保护docker守护进程套接字安全参考链接：
+https://docs.docker.com/engine/security/protect-access/
+</code></pre></div>
+<h2 id="_1"><img alt="docker网络" src="https://docs.docker.com/network" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Docker的网络子系统可使用驱动程序插入。默认情况下，有几个驱动程序，它们提供核心联网功能：
+
+<span class="k">1.</span> bridge：默认的网络驱动程序。如果您未指定驱动程序，则这是您正在创建的网络类型。当您的应用程序在需要通信的独立容器中运行时，通常会使用网桥网络
+    详解：网桥是在网段之间转发流量的链路层设备，其可以是主机内核中运行的硬件设备和软件设备，docker中使用软件网桥来允许同一网桥网络的容器通信，bridge网络
+    用于同一个docker守护进程主机中运行的容器，为了让不同docker守护进程主机上的容器之间通信，可以在OS级别设置路由，也可以使用overlay网络，用户可以自定义
+    创建网桥网络，且用户定义的网桥网络优先于默认bridge网络
+
+<span class="k">2.</span> host：对于独立容器，请删除容器与Docker主机之间的网络隔离，然后直接使用主机的网络
+  详解：对容器使用host网络模式，则该容器的网络堆栈不会与Docker主机隔离（该容器共享主机的网络名称空间，并且该容器不会分配自己的IP地址
+  主机模式网络对于优化性能以及在容器需要处理大量端口的情况下很有用，因为它不需要网络地址转换（NAT），并且不会为每个端口创建“ userland-proxy”
+
+<span class="k">3.</span> overlay：覆盖网络将多个Docker守护程序连接在一起，并使群集服务能够相互通信。您还可以使用覆盖网络来促进群集服务和独立容器之间或不同Docker守护程序上的两个独立容器之间的通信。这种策略消除了在这些容器之间进行操作系统级路由的需要
+  详解：overlay网络驱动程序创建多个主机docker守护进程之间的分布式网络，其位于特定主机网络之上(覆盖特定主机的网络)，从而在启用加密后允许与其连接的容器(包括群集服务容器)进行安全通信
+
+  初始化群集或将Docker主机加入现有群集时，将在该Docker主机上创建两个新网络：
+  <span class="k">1.</span> 一个称为的覆盖网络ingress，用于处理与群体服务有关的控制和数据流量。创建群集服务并且不将其连接到用户定义的覆盖网络时，ingress 默认情况下它将连接到网络
+  <span class="k">2.</span>  一个名为的桥接网络docker_gwbridge，它将各个Docker守护程序连接到该集群中的其他守护程序
+  可以overlay使用docker network create来创建自定义网络，就像创建自定义的bridge网络一样。服务或容器可以一次连接到多个网络。但服务或容器只能在它们各自连接的网络之间进行通信
+
+<span class="k">4.</span> macvlan：Macvlan网络允许您为容器分配MAC地址，使其在网络上显示为物理设备。Docker守护程序通过其MAC地址将流量路由到容器。macvlan 在处理希望直接连接到物理网络而不是通过Docker主机的网络堆栈进行路由的旧应用程序时，使用驱动程序有时是最佳选择
+
+<span class="k">5.</span> none：对于此容器，请禁用所有联网。通常与自定义网络驱动程序一起使用。none不适用于群体服务
+
+<span class="k">6.</span> 网络插件：例如：Weave Net、flannel、calico等
+</code></pre></div>
+<h2 id="docker_4">Docker支持以下存储驱动程序<a class="headerlink" href="#docker_4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>overlay2 是当前所有受支持的Linux发行版的首选存储驱动程序，并且不需要任何额外的配置
+aufs是在内核3.13上的Ubuntu 14.04上运行的Docker 18.06及更早版本的首选存储驱动程序，而该内核不支持overlay2
+fuse-overlayfs仅在不提供对rootless的支持的主机上运行Rootless Docker时才首选overlay2。在Ubuntu和Debian 10上，即使在无根模式下fuse-overlayfs也不需要使用该驱动程序overlay2。请参阅无根模式文档
+devicemapper支持，但是direct-lvm对于生产环境是必需的，因为loopback-lvm零配置虽然性能很差。devicemapper是CentOS和RHEL的推荐存储驱动程序，因为它们的内核版本不支持overlay2。但是，当前版本的CentOS和RHEL现在支持overlay2，这是推荐的驱动程序
+如果btrfs和zfs驱动程序是后备文件系统（安装了Docker的主机的文件系统），则使用它们。这些文件系统允许使用高级选项，例如创建“快照”，但需要更多的维护和设置。这些中的每一个都依赖于正确配置的后备文件系统
+该vfs存储驱动程序的目的是为了进行测试，并在那里不能使用任何写入时复制文件系统的情况。此存储驱动程序的性能很差，通常不建议在生产中使用
+</code></pre></div>
+<h2 id="daemonjson">官方示例的daemon.json文件配置<a class="headerlink" href="#daemonjson" title="Permanent link">&para;</a></h2>
+<h2 id="docker_5">Docker命令<a class="headerlink" href="#docker_5" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>用法:docker <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND
+
+Options:
+      --config string      Location of client config files <span class="o">(</span>default <span class="s2">&quot;/root/.docker&quot;</span><span class="o">)</span>
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket<span class="o">(</span>s<span class="o">)</span> to connect to
+  -l, --log-level string   Set the logging level <span class="o">(</span><span class="s2">&quot;debug&quot;</span><span class="p">|</span><span class="s2">&quot;info&quot;</span><span class="p">|</span><span class="s2">&quot;warn&quot;</span><span class="p">|</span><span class="s2">&quot;error&quot;</span><span class="p">|</span><span class="s2">&quot;fatal&quot;</span><span class="o">)</span> <span class="o">(</span>default <span class="s2">&quot;info&quot;</span><span class="o">)</span>
+      --tls                Use TLS<span class="p">;</span> implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA <span class="o">(</span>default <span class="s2">&quot;/root/.docker/ca.pem&quot;</span><span class="o">)</span>
+      --tlscert string     Path to TLS certificate file <span class="o">(</span>default <span class="s2">&quot;/root/.docker/cert.pem&quot;</span><span class="o">)</span>
+      --tlskey string      Path to TLS key file <span class="o">(</span>default <span class="s2">&quot;/root/.docker/key.pem&quot;</span><span class="o">)</span>
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+  builder     Manage builds
+  config      Manage Docker configs
+  container   Manage containers
+  engine      Manage the docker engine
+  image       Manage images
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach <span class="nb">local</span> standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container<span class="s1">&#39;s changes</span>
+<span class="s1">  cp          Copy files/folders between a container and the local filesystem</span>
+<span class="s1">  create      Create a new container</span>
+<span class="s1">  diff        Inspect changes to files or directories on a container&#39;</span>s filesystem
+  events      Get real <span class="nb">time</span> events from the server
+  <span class="nb">exec</span>        Run a <span class="nb">command</span> <span class="k">in</span> a running container
+  <span class="nb">export</span>      Export a container<span class="s1">&#39;s filesystem as a tar archive</span>
+<span class="s1">  history     Show the history of an image</span>
+<span class="s1">  images      List images</span>
+<span class="s1">  import      Import the contents from a tarball to create a filesystem image</span>
+<span class="s1">  info        Display system-wide information</span>
+<span class="s1">  inspect     Return low-level information on Docker objects</span>
+<span class="s1">  kill        Kill one or more running containers</span>
+<span class="s1">  load        Load an image from a tar archive or STDIN</span>
+<span class="s1">  login       Log in to a Docker registry</span>
+<span class="s1">  logout      Log out from a Docker registry</span>
+<span class="s1">  logs        Fetch the logs of a container</span>
+<span class="s1">  pause       Pause all processes within one or more containers</span>
+<span class="s1">  port        List port mappings or a specific mapping for the container</span>
+<span class="s1">  ps          List containers</span>
+<span class="s1">  pull        Pull an image or a repository from a registry</span>
+<span class="s1">  push        Push an image or a repository to a registry</span>
+<span class="s1">  rename      Rename a container</span>
+<span class="s1">  restart     Restart one or more containers</span>
+<span class="s1">  rm          Remove one or more containers</span>
+<span class="s1">  rmi         Remove one or more images</span>
+<span class="s1">  run         Run a command in a new container</span>
+<span class="s1">  save        Save one or more images to a tar archive (streamed to STDOUT by default)</span>
+<span class="s1">  search      Search the Docker Hub for images</span>
+<span class="s1">  start       Start one or more stopped containers</span>
+<span class="s1">  stats       Display a live stream of container(s) resource usage statistics</span>
+<span class="s1">  stop        Stop one or more running containers</span>
+<span class="s1">  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE</span>
+<span class="s1">  top         Display the running processes of a container</span>
+<span class="s1">  unpause     Unpause all processes within one or more containers</span>
+<span class="s1">  update      Update configuration of one or more containers</span>
+<span class="s1">  version     Show the Docker version information</span>
+<span class="s1">  wait        Block until one or more containers stop, then print their exit codes</span>
+
+<span class="s1">Run &#39;</span>docker COMMAND --help<span class="err">&#39;</span> <span class="k">for</span> more information on a command.
+</code></pre></div>
+<h2 id="_2">实例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>docker run -dt -p <span class="m">127</span>.0.0.1:9980:9980 -e <span class="s2">&quot;domain=192\.168\.124\.3&quot;</span> -e <span class="s2">&quot;username=admin&quot;</span> -e <span class="s2">&quot;password=admin&quot;</span> --restart always --cap-add MKNOD docker.io/thedarkknight/libreoffice-online-unlimited
+
+
+
+<span class="c1">## 清理冗余container和image，可采用以下方法：</span>
+
+<span class="c1">### 停止所有的container，这样才能够删除其中的images：</span>
+
+docker stop <span class="k">$(</span>docker ps -a -q<span class="k">)</span>
+
+<span class="c1">### 如果想要删除所有container的话再加一个指令：</span>
+
+docker rm -f <span class="k">$(</span>docker ps -a -q<span class="k">)</span>
+
+<span class="c1">### 根据过滤条件删除container，例如：删除某container之前的container</span>
+
+docker rm -f <span class="k">$(</span>sudo docker ps --before<span class="o">=</span><span class="s2">&quot;container_id_here&quot;</span> -q<span class="k">)</span>
+
+<span class="c1">### 删除所有退出状态的container</span>
+
+docker rm <span class="k">$(</span>docker ps -q -f <span class="nv">status</span><span class="o">=</span>exited<span class="k">)</span>
+
+<span class="c1"># 想要删除untagged images，也就是那些id为None的image的话可以用</span>
+docker rmi <span class="k">$(</span>docker images <span class="p">|</span> grep <span class="s2">&quot;^&lt;none&gt;&quot;</span> <span class="p">|</span> awk <span class="s2">&quot;{print </span><span class="nv">$3</span><span class="s2">}&quot;</span><span class="k">)</span>
+
+<span class="c1"># 要删除全部image的话</span>
+docker rmi <span class="k">$(</span>docker images -q<span class="k">)</span>
+
+<span class="c1"># 同时删除container和images</span>
+docker ps -a --no-trunc  <span class="p">|</span> grep <span class="s2">&quot;search_term_here&quot;</span> <span class="p">|</span> awk <span class="s2">&quot;{print </span><span class="nv">$1</span><span class="s2">}&quot;</span> <span class="p">|</span> xargs -r --no-run-if-empty docker stop <span class="o">&amp;&amp;</span> <span class="se">\</span>
+docker ps -a --no-trunc  <span class="p">|</span> grep <span class="s2">&quot;search_term_here&quot;</span> <span class="p">|</span> awk <span class="s2">&quot;{print </span><span class="nv">$1</span><span class="s2">}&quot;</span> <span class="p">|</span> xargs -r --no-run-if-empty docker rm <span class="o">&amp;&amp;</span> <span class="se">\</span>
+docker images --no-trunc <span class="p">|</span> grep <span class="s2">&quot;search_term_here&quot;</span> <span class="p">|</span> awk <span class="s2">&quot;{print </span><span class="nv">$3</span><span class="s2">}&quot;</span> <span class="p">|</span> xargs -r --no-run-if-empty docker rmi
+
+<span class="c1"># 删除exited状态和non-tagged的容器</span>
+docker ps --filter <span class="s1">&#39;status=Exited&#39;</span> -a <span class="p">|</span> xargs docker stop docker images --filter <span class="s2">&quot;dangling=true&quot;</span> -q <span class="p">|</span> xargs docker rmi
+
+docker volume inspect <span class="o">{</span>container<span class="o">}</span>   <span class="c1"># 查看容器数据存储位置</span>
+docker volume rm <span class="k">$(</span>docker volume ls -qf <span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span><span class="k">)</span>  <span class="c1"># 清理orphaned volumes</span>
+
+docker network rm <span class="k">$(</span>docker network ls -q<span class="k">)</span>   <span class="c1"># clean up orphaned networks</span>
+
+<span class="c1">## NEW IMAGES/CONTAINERS</span>
+
+<span class="se">\#</span> create new docker container, ie. ubuntu
+docker pull ubuntu:latest <span class="c1"># 1x pull down image</span>
+docker run -i -t ubuntu /bin/bash <span class="c1"># drops you into new container as root</span>
+</code></pre></div>
+<h2 id="_3">问题及故障解决办法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>1.question：Cannot connect to the Docker daemon. Is 'docker -d' running on this host?</p>
+<p>yum install -y device-mapper-libs device-mapper</p>
+<p>2.helps whit error:'unexpected end of JON input'</p>
+<p>docker rm -f $(docker ps -a -q)</p>
+<p>#go to container command line
+docker exec -it "container_name_here" bash</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../Enterprise/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Enterprise-class
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../Kubernetes/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              Kubernetes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/Black-Gold" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.instagram.com/black0gold/" target="_blank" rel="noopener" title="www.instagram.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "search.suggest"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"default": "stable"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>

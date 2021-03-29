@@ -70,25 +70,25 @@ nav:
       - 'Others': 'Others.md'
 
 theme:
-  name: 'material'
-  language: 'zh'
+  name: material
+  language: zh
   palette:
     primary: 'green'
     accent: 'light green'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  favicon: 'images/favicon.ico'
+  features:
+    - search.highlight
+    - search.suggest
 
-extra:
-  search:
-    language:'zh,en,de,ru,jp'
-  manifest: 'manifest.webmanifest'
-  social:
-    - type: 'github'
-      link: 'https://github.com/Black-Gold'
-    - type: 'instagram'
-      link: 'https://www.instagram.com/black0gold/'
+plugins:
+  - search:
+      prebuild_index: true
+      lang:
+        - en
+        - ru
+        - de
 
 google_analytics:
   - 'UA-131093963-1'
@@ -111,10 +111,20 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+extra:
+  version:
+    default: stable
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Black-Gold
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/black0gold/
 
 #extra_css:
 #  - 'stylesheets/extra.css'
