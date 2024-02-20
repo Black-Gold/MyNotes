@@ -1,0 +1,2269 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Material Design theme for MyNotes">
+      
+      
+        <meta name="author" content="Anonymous">
+      
+      
+        <link rel="canonical" href="https://19950128.com/database/Redis/">
+      
+      
+        <link rel="prev" href="../MariaDB/">
+      
+      
+        <link rel="next" href="../MongoDB/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>Redis - Material Design for MyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="lime">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#redis" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Material Design for MyNotes" class="md-header__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Material Design for MyNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Redis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="lime"  aria-label="切换到夜晚模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到夜晚模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="light-green"  aria-label="切换到白天模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到白天模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21 12-7-7v4C7 10 4 15 3 20c2.5-3.5 6-5.1 11-5.1V19l7-7Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 16.74 7.76 12 3 7.26 7.26 3 12 7.76 16.74 3 21 7.26 16.24 12 21 16.74 16.74 21 12 16.24 7.26 21 3 16.74m9-3.33 4.74 4.75 1.42-1.42L13.41 12l4.75-4.74-1.42-1.42L12 10.59 7.26 5.84 5.84 7.26 10.59 12l-4.75 4.74 1.42 1.42L12 13.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Black-Gold/MyNotes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Windows/" class="md-tabs__link">
+          
+  
+    
+  
+  Coding
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../linux/" class="md-tabs__link">
+          
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../web/" class="md-tabs__link">
+          
+  
+    
+  
+  Web
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Database
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cloud-native/" class="md-tabs__link">
+          
+  
+    
+  
+  CloudNative
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pipeline/" class="md-tabs__link">
+          
+  
+    
+  
+  CI/CD
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../monitor/" class="md-tabs__link">
+          
+  
+    
+  
+  Monitor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cache/" class="md-tabs__link">
+          
+  
+    
+  
+  Cache
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../stream/" class="md-tabs__link">
+          
+  
+    
+  
+  Stream
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../storage/" class="md-tabs__link">
+          
+  
+    
+  
+  Storage
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../network/" class="md-tabs__link">
+          
+  
+    
+  
+  Network
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Material Design for MyNotes" class="md-nav__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Material Design for MyNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Black-Gold/MyNotes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Windows/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Coding
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../linux/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../web/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Web
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MySQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MariaDB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MariaDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Redis
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MongoDB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../cloud-native/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CloudNative
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../pipeline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CI/CD
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../monitor/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Monitor
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../cache/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Cache
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stream/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stream
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../storage/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../network/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="redis">Redis<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h1>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Markdown</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-0-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-0-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-0-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-0-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-0-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-0-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-0-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-0-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-0-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-0-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-0-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-0-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-0-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-0-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-0-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-0-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-0-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-0-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-0-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-0-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-0-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-0-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-0-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-0-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-0-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-0-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-0-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-0-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-0-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-0-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-0-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-0-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-0-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-0-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-0-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-0-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-0-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-0-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-0-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-0-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-0-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-0-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-0-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-0-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-0-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-0-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-0-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-0-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-0-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-0-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-0-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-0-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-0-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-0-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-0-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-0-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-0-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-0-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-0-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-0-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-0-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-0-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-0-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-0-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-0-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-0-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-0-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-0-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-0-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-0-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-0-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-0-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-0-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-0-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-0-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-0-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-0-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-0-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-0-100">100</a></span>
+<span class="normal"><a href="#__codelineno-0-101">101</a></span>
+<span class="normal"><a href="#__codelineno-0-102">102</a></span>
+<span class="normal"><a href="#__codelineno-0-103">103</a></span>
+<span class="normal"><a href="#__codelineno-0-104">104</a></span>
+<span class="normal"><a href="#__codelineno-0-105">105</a></span>
+<span class="normal"><a href="#__codelineno-0-106">106</a></span>
+<span class="normal"><a href="#__codelineno-0-107">107</a></span>
+<span class="normal"><a href="#__codelineno-0-108">108</a></span>
+<span class="normal"><a href="#__codelineno-0-109">109</a></span>
+<span class="normal"><a href="#__codelineno-0-110">110</a></span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span>
+<span class="normal"><a href="#__codelineno-0-113">113</a></span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span>
+<span class="normal"><a href="#__codelineno-0-115">115</a></span>
+<span class="normal"><a href="#__codelineno-0-116">116</a></span>
+<span class="normal"><a href="#__codelineno-0-117">117</a></span>
+<span class="normal"><a href="#__codelineno-0-118">118</a></span>
+<span class="normal"><a href="#__codelineno-0-119">119</a></span>
+<span class="normal"><a href="#__codelineno-0-120">120</a></span>
+<span class="normal"><a href="#__codelineno-0-121">121</a></span>
+<span class="normal"><a href="#__codelineno-0-122">122</a></span>
+<span class="normal"><a href="#__codelineno-0-123">123</a></span>
+<span class="normal"><a href="#__codelineno-0-124">124</a></span>
+<span class="normal"><a href="#__codelineno-0-125">125</a></span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span>
+<span class="normal"><a href="#__codelineno-0-128">128</a></span>
+<span class="normal"><a href="#__codelineno-0-129">129</a></span>
+<span class="normal"><a href="#__codelineno-0-130">130</a></span>
+<span class="normal"><a href="#__codelineno-0-131">131</a></span>
+<span class="normal"><a href="#__codelineno-0-132">132</a></span>
+<span class="normal"><a href="#__codelineno-0-133">133</a></span>
+<span class="normal"><a href="#__codelineno-0-134">134</a></span>
+<span class="normal"><a href="#__codelineno-0-135">135</a></span>
+<span class="normal"><a href="#__codelineno-0-136">136</a></span>
+<span class="normal"><a href="#__codelineno-0-137">137</a></span>
+<span class="normal"><a href="#__codelineno-0-138">138</a></span>
+<span class="normal"><a href="#__codelineno-0-139">139</a></span>
+<span class="normal"><a href="#__codelineno-0-140">140</a></span>
+<span class="normal"><a href="#__codelineno-0-141">141</a></span>
+<span class="normal"><a href="#__codelineno-0-142">142</a></span>
+<span class="normal"><a href="#__codelineno-0-143">143</a></span>
+<span class="normal"><a href="#__codelineno-0-144">144</a></span>
+<span class="normal"><a href="#__codelineno-0-145">145</a></span>
+<span class="normal"><a href="#__codelineno-0-146">146</a></span>
+<span class="normal"><a href="#__codelineno-0-147">147</a></span>
+<span class="normal"><a href="#__codelineno-0-148">148</a></span>
+<span class="normal"><a href="#__codelineno-0-149">149</a></span>
+<span class="normal"><a href="#__codelineno-0-150">150</a></span>
+<span class="normal"><a href="#__codelineno-0-151">151</a></span>
+<span class="normal"><a href="#__codelineno-0-152">152</a></span>
+<span class="normal"><a href="#__codelineno-0-153">153</a></span>
+<span class="normal"><a href="#__codelineno-0-154">154</a></span>
+<span class="normal"><a href="#__codelineno-0-155">155</a></span>
+<span class="normal"><a href="#__codelineno-0-156">156</a></span>
+<span class="normal"><a href="#__codelineno-0-157">157</a></span>
+<span class="normal"><a href="#__codelineno-0-158">158</a></span>
+<span class="normal"><a href="#__codelineno-0-159">159</a></span>
+<span class="normal"><a href="#__codelineno-0-160">160</a></span>
+<span class="normal"><a href="#__codelineno-0-161">161</a></span>
+<span class="normal"><a href="#__codelineno-0-162">162</a></span>
+<span class="normal"><a href="#__codelineno-0-163">163</a></span>
+<span class="normal"><a href="#__codelineno-0-164">164</a></span>
+<span class="normal"><a href="#__codelineno-0-165">165</a></span>
+<span class="normal"><a href="#__codelineno-0-166">166</a></span>
+<span class="normal"><a href="#__codelineno-0-167">167</a></span>
+<span class="normal"><a href="#__codelineno-0-168">168</a></span>
+<span class="normal"><a href="#__codelineno-0-169">169</a></span>
+<span class="normal"><a href="#__codelineno-0-170">170</a></span>
+<span class="normal"><a href="#__codelineno-0-171">171</a></span>
+<span class="normal"><a href="#__codelineno-0-172">172</a></span>
+<span class="normal"><a href="#__codelineno-0-173">173</a></span>
+<span class="normal"><a href="#__codelineno-0-174">174</a></span>
+<span class="normal"><a href="#__codelineno-0-175">175</a></span>
+<span class="normal"><a href="#__codelineno-0-176">176</a></span>
+<span class="normal"><a href="#__codelineno-0-177">177</a></span>
+<span class="normal"><a href="#__codelineno-0-178">178</a></span>
+<span class="normal"><a href="#__codelineno-0-179">179</a></span>
+<span class="normal"><a href="#__codelineno-0-180">180</a></span>
+<span class="normal"><a href="#__codelineno-0-181">181</a></span>
+<span class="normal"><a href="#__codelineno-0-182">182</a></span>
+<span class="normal"><a href="#__codelineno-0-183">183</a></span>
+<span class="normal"><a href="#__codelineno-0-184">184</a></span>
+<span class="normal"><a href="#__codelineno-0-185">185</a></span>
+<span class="normal"><a href="#__codelineno-0-186">186</a></span>
+<span class="normal"><a href="#__codelineno-0-187">187</a></span>
+<span class="normal"><a href="#__codelineno-0-188">188</a></span>
+<span class="normal"><a href="#__codelineno-0-189">189</a></span>
+<span class="normal"><a href="#__codelineno-0-190">190</a></span>
+<span class="normal"><a href="#__codelineno-0-191">191</a></span>
+<span class="normal"><a href="#__codelineno-0-192">192</a></span>
+<span class="normal"><a href="#__codelineno-0-193">193</a></span>
+<span class="normal"><a href="#__codelineno-0-194">194</a></span>
+<span class="normal"><a href="#__codelineno-0-195">195</a></span>
+<span class="normal"><a href="#__codelineno-0-196">196</a></span>
+<span class="normal"><a href="#__codelineno-0-197">197</a></span>
+<span class="normal"><a href="#__codelineno-0-198">198</a></span>
+<span class="normal"><a href="#__codelineno-0-199">199</a></span>
+<span class="normal"><a href="#__codelineno-0-200">200</a></span>
+<span class="normal"><a href="#__codelineno-0-201">201</a></span>
+<span class="normal"><a href="#__codelineno-0-202">202</a></span>
+<span class="normal"><a href="#__codelineno-0-203">203</a></span>
+<span class="normal"><a href="#__codelineno-0-204">204</a></span>
+<span class="normal"><a href="#__codelineno-0-205">205</a></span>
+<span class="normal"><a href="#__codelineno-0-206">206</a></span>
+<span class="normal"><a href="#__codelineno-0-207">207</a></span>
+<span class="normal"><a href="#__codelineno-0-208">208</a></span>
+<span class="normal"><a href="#__codelineno-0-209">209</a></span>
+<span class="normal"><a href="#__codelineno-0-210">210</a></span>
+<span class="normal"><a href="#__codelineno-0-211">211</a></span>
+<span class="normal"><a href="#__codelineno-0-212">212</a></span>
+<span class="normal"><a href="#__codelineno-0-213">213</a></span>
+<span class="normal"><a href="#__codelineno-0-214">214</a></span>
+<span class="normal"><a href="#__codelineno-0-215">215</a></span>
+<span class="normal"><a href="#__codelineno-0-216">216</a></span>
+<span class="normal"><a href="#__codelineno-0-217">217</a></span>
+<span class="normal"><a href="#__codelineno-0-218">218</a></span>
+<span class="normal"><a href="#__codelineno-0-219">219</a></span>
+<span class="normal"><a href="#__codelineno-0-220">220</a></span>
+<span class="normal"><a href="#__codelineno-0-221">221</a></span>
+<span class="normal"><a href="#__codelineno-0-222">222</a></span>
+<span class="normal"><a href="#__codelineno-0-223">223</a></span>
+<span class="normal"><a href="#__codelineno-0-224">224</a></span>
+<span class="normal"><a href="#__codelineno-0-225">225</a></span>
+<span class="normal"><a href="#__codelineno-0-226">226</a></span>
+<span class="normal"><a href="#__codelineno-0-227">227</a></span>
+<span class="normal"><a href="#__codelineno-0-228">228</a></span>
+<span class="normal"><a href="#__codelineno-0-229">229</a></span>
+<span class="normal"><a href="#__codelineno-0-230">230</a></span>
+<span class="normal"><a href="#__codelineno-0-231">231</a></span>
+<span class="normal"><a href="#__codelineno-0-232">232</a></span>
+<span class="normal"><a href="#__codelineno-0-233">233</a></span>
+<span class="normal"><a href="#__codelineno-0-234">234</a></span>
+<span class="normal"><a href="#__codelineno-0-235">235</a></span>
+<span class="normal"><a href="#__codelineno-0-236">236</a></span>
+<span class="normal"><a href="#__codelineno-0-237">237</a></span>
+<span class="normal"><a href="#__codelineno-0-238">238</a></span>
+<span class="normal"><a href="#__codelineno-0-239">239</a></span>
+<span class="normal"><a href="#__codelineno-0-240">240</a></span>
+<span class="normal"><a href="#__codelineno-0-241">241</a></span>
+<span class="normal"><a href="#__codelineno-0-242">242</a></span>
+<span class="normal"><a href="#__codelineno-0-243">243</a></span>
+<span class="normal"><a href="#__codelineno-0-244">244</a></span>
+<span class="normal"><a href="#__codelineno-0-245">245</a></span>
+<span class="normal"><a href="#__codelineno-0-246">246</a></span>
+<span class="normal"><a href="#__codelineno-0-247">247</a></span>
+<span class="normal"><a href="#__codelineno-0-248">248</a></span>
+<span class="normal"><a href="#__codelineno-0-249">249</a></span>
+<span class="normal"><a href="#__codelineno-0-250">250</a></span>
+<span class="normal"><a href="#__codelineno-0-251">251</a></span>
+<span class="normal"><a href="#__codelineno-0-252">252</a></span>
+<span class="normal"><a href="#__codelineno-0-253">253</a></span>
+<span class="normal"><a href="#__codelineno-0-254">254</a></span>
+<span class="normal"><a href="#__codelineno-0-255">255</a></span>
+<span class="normal"><a href="#__codelineno-0-256">256</a></span>
+<span class="normal"><a href="#__codelineno-0-257">257</a></span>
+<span class="normal"><a href="#__codelineno-0-258">258</a></span>
+<span class="normal"><a href="#__codelineno-0-259">259</a></span>
+<span class="normal"><a href="#__codelineno-0-260">260</a></span>
+<span class="normal"><a href="#__codelineno-0-261">261</a></span>
+<span class="normal"><a href="#__codelineno-0-262">262</a></span>
+<span class="normal"><a href="#__codelineno-0-263">263</a></span>
+<span class="normal"><a href="#__codelineno-0-264">264</a></span>
+<span class="normal"><a href="#__codelineno-0-265">265</a></span>
+<span class="normal"><a href="#__codelineno-0-266">266</a></span>
+<span class="normal"><a href="#__codelineno-0-267">267</a></span>
+<span class="normal"><a href="#__codelineno-0-268">268</a></span>
+<span class="normal"><a href="#__codelineno-0-269">269</a></span>
+<span class="normal"><a href="#__codelineno-0-270">270</a></span>
+<span class="normal"><a href="#__codelineno-0-271">271</a></span>
+<span class="normal"><a href="#__codelineno-0-272">272</a></span>
+<span class="normal"><a href="#__codelineno-0-273">273</a></span>
+<span class="normal"><a href="#__codelineno-0-274">274</a></span>
+<span class="normal"><a href="#__codelineno-0-275">275</a></span>
+<span class="normal"><a href="#__codelineno-0-276">276</a></span>
+<span class="normal"><a href="#__codelineno-0-277">277</a></span>
+<span class="normal"><a href="#__codelineno-0-278">278</a></span>
+<span class="normal"><a href="#__codelineno-0-279">279</a></span>
+<span class="normal"><a href="#__codelineno-0-280">280</a></span>
+<span class="normal"><a href="#__codelineno-0-281">281</a></span>
+<span class="normal"><a href="#__codelineno-0-282">282</a></span>
+<span class="normal"><a href="#__codelineno-0-283">283</a></span>
+<span class="normal"><a href="#__codelineno-0-284">284</a></span>
+<span class="normal"><a href="#__codelineno-0-285">285</a></span>
+<span class="normal"><a href="#__codelineno-0-286">286</a></span>
+<span class="normal"><a href="#__codelineno-0-287">287</a></span>
+<span class="normal"><a href="#__codelineno-0-288">288</a></span>
+<span class="normal"><a href="#__codelineno-0-289">289</a></span>
+<span class="normal"><a href="#__codelineno-0-290">290</a></span>
+<span class="normal"><a href="#__codelineno-0-291">291</a></span>
+<span class="normal"><a href="#__codelineno-0-292">292</a></span>
+<span class="normal"><a href="#__codelineno-0-293">293</a></span>
+<span class="normal"><a href="#__codelineno-0-294">294</a></span>
+<span class="normal"><a href="#__codelineno-0-295">295</a></span>
+<span class="normal"><a href="#__codelineno-0-296">296</a></span>
+<span class="normal"><a href="#__codelineno-0-297">297</a></span>
+<span class="normal"><a href="#__codelineno-0-298">298</a></span>
+<span class="normal"><a href="#__codelineno-0-299">299</a></span>
+<span class="normal"><a href="#__codelineno-0-300">300</a></span>
+<span class="normal"><a href="#__codelineno-0-301">301</a></span>
+<span class="normal"><a href="#__codelineno-0-302">302</a></span>
+<span class="normal"><a href="#__codelineno-0-303">303</a></span>
+<span class="normal"><a href="#__codelineno-0-304">304</a></span>
+<span class="normal"><a href="#__codelineno-0-305">305</a></span>
+<span class="normal"><a href="#__codelineno-0-306">306</a></span>
+<span class="normal"><a href="#__codelineno-0-307">307</a></span>
+<span class="normal"><a href="#__codelineno-0-308">308</a></span>
+<span class="normal"><a href="#__codelineno-0-309">309</a></span>
+<span class="normal"><a href="#__codelineno-0-310">310</a></span>
+<span class="normal"><a href="#__codelineno-0-311">311</a></span>
+<span class="normal"><a href="#__codelineno-0-312">312</a></span>
+<span class="normal"><a href="#__codelineno-0-313">313</a></span>
+<span class="normal"><a href="#__codelineno-0-314">314</a></span>
+<span class="normal"><a href="#__codelineno-0-315">315</a></span>
+<span class="normal"><a href="#__codelineno-0-316">316</a></span>
+<span class="normal"><a href="#__codelineno-0-317">317</a></span>
+<span class="normal"><a href="#__codelineno-0-318">318</a></span>
+<span class="normal"><a href="#__codelineno-0-319">319</a></span>
+<span class="normal"><a href="#__codelineno-0-320">320</a></span>
+<span class="normal"><a href="#__codelineno-0-321">321</a></span>
+<span class="normal"><a href="#__codelineno-0-322">322</a></span>
+<span class="normal"><a href="#__codelineno-0-323">323</a></span>
+<span class="normal"><a href="#__codelineno-0-324">324</a></span>
+<span class="normal"><a href="#__codelineno-0-325">325</a></span>
+<span class="normal"><a href="#__codelineno-0-326">326</a></span>
+<span class="normal"><a href="#__codelineno-0-327">327</a></span>
+<span class="normal"><a href="#__codelineno-0-328">328</a></span>
+<span class="normal"><a href="#__codelineno-0-329">329</a></span>
+<span class="normal"><a href="#__codelineno-0-330">330</a></span>
+<span class="normal"><a href="#__codelineno-0-331">331</a></span>
+<span class="normal"><a href="#__codelineno-0-332">332</a></span>
+<span class="normal"><a href="#__codelineno-0-333">333</a></span>
+<span class="normal"><a href="#__codelineno-0-334">334</a></span>
+<span class="normal"><a href="#__codelineno-0-335">335</a></span>
+<span class="normal"><a href="#__codelineno-0-336">336</a></span>
+<span class="normal"><a href="#__codelineno-0-337">337</a></span>
+<span class="normal"><a href="#__codelineno-0-338">338</a></span>
+<span class="normal"><a href="#__codelineno-0-339">339</a></span>
+<span class="normal"><a href="#__codelineno-0-340">340</a></span>
+<span class="normal"><a href="#__codelineno-0-341">341</a></span>
+<span class="normal"><a href="#__codelineno-0-342">342</a></span>
+<span class="normal"><a href="#__codelineno-0-343">343</a></span>
+<span class="normal"><a href="#__codelineno-0-344">344</a></span>
+<span class="normal"><a href="#__codelineno-0-345">345</a></span>
+<span class="normal"><a href="#__codelineno-0-346">346</a></span>
+<span class="normal"><a href="#__codelineno-0-347">347</a></span>
+<span class="normal"><a href="#__codelineno-0-348">348</a></span>
+<span class="normal"><a href="#__codelineno-0-349">349</a></span>
+<span class="normal"><a href="#__codelineno-0-350">350</a></span>
+<span class="normal"><a href="#__codelineno-0-351">351</a></span>
+<span class="normal"><a href="#__codelineno-0-352">352</a></span>
+<span class="normal"><a href="#__codelineno-0-353">353</a></span>
+<span class="normal"><a href="#__codelineno-0-354">354</a></span>
+<span class="normal"><a href="#__codelineno-0-355">355</a></span>
+<span class="normal"><a href="#__codelineno-0-356">356</a></span>
+<span class="normal"><a href="#__codelineno-0-357">357</a></span>
+<span class="normal"><a href="#__codelineno-0-358">358</a></span>
+<span class="normal"><a href="#__codelineno-0-359">359</a></span>
+<span class="normal"><a href="#__codelineno-0-360">360</a></span>
+<span class="normal"><a href="#__codelineno-0-361">361</a></span>
+<span class="normal"><a href="#__codelineno-0-362">362</a></span>
+<span class="normal"><a href="#__codelineno-0-363">363</a></span>
+<span class="normal"><a href="#__codelineno-0-364">364</a></span>
+<span class="normal"><a href="#__codelineno-0-365">365</a></span>
+<span class="normal"><a href="#__codelineno-0-366">366</a></span>
+<span class="normal"><a href="#__codelineno-0-367">367</a></span>
+<span class="normal"><a href="#__codelineno-0-368">368</a></span>
+<span class="normal"><a href="#__codelineno-0-369">369</a></span>
+<span class="normal"><a href="#__codelineno-0-370">370</a></span>
+<span class="normal"><a href="#__codelineno-0-371">371</a></span>
+<span class="normal"><a href="#__codelineno-0-372">372</a></span>
+<span class="normal"><a href="#__codelineno-0-373">373</a></span>
+<span class="normal"><a href="#__codelineno-0-374">374</a></span>
+<span class="normal"><a href="#__codelineno-0-375">375</a></span>
+<span class="normal"><a href="#__codelineno-0-376">376</a></span>
+<span class="normal"><a href="#__codelineno-0-377">377</a></span>
+<span class="normal"><a href="#__codelineno-0-378">378</a></span>
+<span class="normal"><a href="#__codelineno-0-379">379</a></span>
+<span class="normal"><a href="#__codelineno-0-380">380</a></span>
+<span class="normal"><a href="#__codelineno-0-381">381</a></span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span>
+<span class="normal"><a href="#__codelineno-0-383">383</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>Redis提供了不同范围的持久性选项：
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>RDB（Redis数据库）：RDB持久性按指定的时间间隔执行数据集的时间点快照。
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>AOF（仅附加文件）：AOF持久性记录服务器接收的每个写入操作，这些操作将在服务器启动时再次播放，以重建原始数据集。使用与Redis协议本身相同的格式记录命令，并且采用仅追加方式。当日志太大时，Redis可以在后台重写日志。
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>无持久性：如果希望，只要服务器正在运行，数据就一直存在，则可以完全禁用持久性。
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>RDB + AOF：可以在同一实例中同时合并AOF和RDB。请注意，在这种情况下，当Redis重新启动时，AOF文件将用于重建原始数据集，因为它可以保证是最完整的
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>redis sentinel哨兵模式主从复制机制
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>1.一个 master 实例和一个 slave 实例连接正常时， master 会发送一连串的命令流来保持对 slave 的更新，以便于将自身数据集的改变复制给 slave ， ：包括客户端的写入、key 的过期或被逐出等等
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>2.master 和 slave 之间的连接断开之后，因为网络问题、或者是主从意识到连接超时， slave 重新连接上 master 并会尝试进行部分重同步：这意味着它会尝试只获取在断开连接期间内丢失的命令流
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>3.无法进行部分重同步时， slave 会请求进行全量重同步。这会涉及到一个更复杂的过程，例如 master 需要创建所有数据的快照，将之发送给 slave ，之后在数据集更改时持续发送命令流到 slave
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>RDB持久化方式能够在指定的时间间隔能对你的数据进行快照存储.
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>AOF持久化方式记录每次对服务器写的操作,当服务器重启的时候会重新执行这些命令来恢复原始的数据,AOF命令以redis协议追加保存每次写的操作到文件末尾.Redis还能对AOF文件进行后台重写,使得AOF文件的体积不至于过大.
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>如果你只希望你的数据在服务器运行的时候存在,你也可以不使用任何持久化方式.
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>你也可以同时开启两种持久化方式, 在这种情况下, 当redis重启的时候会优先载入AOF文件来恢复原始的数据,因为在通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>RDB的优点
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>RDB是一个非常紧凑的文件,它保存了某个时间点得数据集,非常适用于数据集的备份,比如你可以在每个小时报保存一下过去24小时内的数据,同时每天保存过去30天的数据,这样即使出了问题你也可以根据需求恢复到不同版本的数据集.
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>RDB是一个紧凑的单一文件,很方便传送到另一个远端数据中心或者亚马逊的S3（可能加密），非常适用于灾难恢复.
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>RDB在保存RDB文件时父进程唯一需要做的就是fork出一个子进程,接下来的工作全部由子进程来做，父进程不需要再做其他IO操作，所以RDB持久化方式可以最大化redis的性能.
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>与AOF相比,在恢复大的数据集的时候，RDB方式会更快一些.
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>RDB的缺点
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>如果你希望在redis意外停止工作（例如电源中断）的情况下丢失的数据最少的话，那么RDB不适合你.虽然你可以配置不同的save时间点(例如每隔5分钟并且对数据集有100个写的操作),是Redis要完整的保存整个数据集是一个比较繁重的工作,你通常会每隔5分钟或者更久做一次完整的保存,万一在Redis意外宕机,你可能会丢失几分钟的数据.
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>RDB 需要经常fork子进程来保存数据集到硬盘上,当数据集比较大的时候,fork的过程是非常耗时的,可能会导致Redis在一些毫秒级内不能响应客户端的请求.如果数据集巨大并且CPU性能不是很好的情况下,这种情况会持续1秒,AOF也需要fork,但是你可以调节重写日志文件的频率来提高数据集的耐久度.
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>AOF 优点
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>使用AOF 会让你的Redis更加耐久: 你可以使用不同的fsync策略：无fsync,每秒fsync,每次写的时候fsync.使用默认的每秒fsync策略,Redis的性能依然很好(fsync是由后台线程进行处理的,主线程会尽力处理客户端请求),一旦出现故障，你最多丢失1秒的数据.
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>AOF文件是一个只进行追加的日志文件,所以不需要写入seek,即使由于某些原因(磁盘空间已满，写的过程中宕机等等)未执行完整的写入命令,你也也可使用redis-check-aof工具修复这些问题.
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>Redis 可以在 AOF 文件体积变得过大时，自动地在后台对 AOF 进行重写： 重写后的新 AOF 文件包含了恢复当前数据集所需的最小命令集合。 整个重写操作是绝对安全的，因为 Redis 在创建新 AOF 文件的过程中，会继续将命令追加到现有的 AOF 文件里面，即使重写过程中发生停机，现有的 AOF 文件也不会丢失。 而一旦新 AOF 文件创建完毕，Redis 就会从旧 AOF 文件切换到新 AOF 文件，并开始对新 AOF 文件进行追加操作。
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>AOF 文件有序地保存了对数据库执行的所有写入操作， 这些写入操作以 Redis 协议的格式保存， 因此 AOF 文件的内容非常容易被人读懂， 对文件进行分析（parse）也很轻松。 导出（export） AOF 文件也非常简单： 举个例子， 如果你不小心执行了 FLUSHALL 命令， 但只要 AOF 文件未被重写， 那么只要停止服务器， 移除 AOF 文件末尾的 FLUSHALL 命令， 并重启 Redis ， 就可以将数据集恢复到 FLUSHALL 执行之前的状态。
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>AOF 缺点
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>对于相同的数据集来说，AOF 文件的体积通常要大于 RDB 文件的体积。
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>根据所使用的 fsync 策略，AOF 的速度可能会慢于 RDB 。 在一般情况下， 每秒 fsync 的性能依然非常高， 而关闭 fsync 可以让 AOF 的速度和 RDB 一样快， 即使在高负荷之下也是如此。 不过在处理巨大的写入载入时，RDB 可以提供更有保证的最大延迟时间（latency）
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>优化
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>使用以下 redis.conf 指令调整特殊编码类型的最大元素数和最大元素大小
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>hash-max-ziplist-entries 512
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>hash-max-ziplist-value 64
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>zset-max-ziplist-entries 128
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>zset-max-ziplist-value 64
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>set-max-intset-entries 512
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>确保添加vm.overcommit_memory = 1到/etc/sysctl.conf
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>fs.file-max=100000
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>确保Redis不会受到Linux内核透明大页面特性的影响，否则会对内存使用和延迟产生负面影响。
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>通过以下命令完成的：echo madvise &gt; /sys/kernel/mm/transparent_hugepage/enabled
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>如果您使用复制，请确保您的 master 启用了持久性，或者它不会在崩溃时自动重新启动：副本将尝试成为 master 的精确副本，因此如果 master 以空数据集重新启动，副本也会被抹掉
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>驱逐政策
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>当maxmemory达到限制时，Redis 的确切行为是使用maxmemory-policy配置指令配置的。
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>可以使用以下政策：
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>noeviction：当达到内存限制并且客户端尝试执行可能导致使用更多内存的命令时返回错误（大多数写命令，但DEL和一些例外）。
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>allkeys-lru：通过首先尝试删除最近较少使用的 (LRU) 键来驱逐键，以便为添加的新数据腾出空间。
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>volatile-lru：通过首先尝试删除最近使用的 (LRU) 键来驱逐键，但仅限于设置了过期时间的键，以便为添加的新数据腾出空间。
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>allkeys-random：随机驱逐密钥以便为添加的新数据腾出空间。
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>volatile-random：随机驱逐密钥以便为添加的新数据腾出空间，但仅驱逐具有过期设置的密钥。
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>volatile-ttl：驱逐设置了过期时间的键，并尝试首先驱逐具有较短生存时间（TTL）的键，以便为添加的新数据腾出空间
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>Redis LRU 算法的重要之处在于，您可以通过更改样本数量来调整算法的精度，以检查每次驱逐。此参数由以下配置指令控制：
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>maxmemory-samples 5
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>DISCARD可用于中止事务。在这种情况下，不执行任何命令，连接状态恢复正常
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>客户端缓存的Redis实现
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>Redis 客户端缓存支持称为Tracking，有两种模式：
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>在默认模式下，服务器记住给定客户端访问了哪些键，并在修改相同键时发送无效消息。这会消耗服务器端的内存，但只会为客户端可能在内存中拥有的一组密钥发送失效消息。
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>相反，在广播模式下，服务器不会尝试记住给定客户端访问了哪些键，因此这种模式在服务器端根本不消耗任何内存。相反，客户端订阅诸如object:或 之类的键前缀user:，并且每次触摸匹配此类前缀的键时都会收到通知消息
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>redis-cli实用程序支持一种称为管道模式的新模式，该模式旨在执行批量插入，redis-cli 实用程序还将确保仅将从 Redis 实例收到的错误重定向到标准输出
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>(data.txt内容如：
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>set key0 value0
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>......
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>set keyN value)
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>命令：cat data.txt | redis-cli --pipe
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>Redis 中的分区有两个主要目标：
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>它允许使用多台计算机内存的总和来创建更大的数据库。如果不进行分区，您将受到单个计算机可以支持的内存量的限制。
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>它允许将计算能力扩展到多核和多台计算机，并将网络带宽扩展到多台计算机和网络适配器
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>分区方法：范围分区和散列分区
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>尽管 Redis 中的分区在概念上是相同的，无论是将 Redis 用作数据存储还是缓存，但将其用作数据存储时存在重大限制。当 Redis 用作数据存储时，给定的键必须始终映射到同一个 Redis 实例。当Redis用作缓存时，如果给定节点不可用，使用不同的节点也不是大问题，改变key-instance映射，因为我们希望提高系统的可用性（即提高系统可用性的能力）系统回复我们的查询）。
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>如果给定键的首选节点不可用，则一致的散列实现通常能够切换到其他节点。同样，如果添加新节点，部分新密钥将开始存储在新节点上。
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>这里的主要概念如下：
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>如果将 Redis 用作缓存，则使用一致散列扩展和缩减是很容易的。
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>如果使用Redis作为存储，则使用固定的key-to-nodes映射，因此节点数必须是固定的，不能变化。否则，需要一个能够在添加或删除节点时在节点之间重新平衡键的系统，目前只有 Redis Cluster 能够做到这一点
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>为什么 Redis 与其他键值存储不同？
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>有两个主要原因。
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>Redis 是键值数据库中不同的进化路径，其中值可以包含更复杂的数据类型，并在这些数据类型上定义原子操作。Redis 数据类型与基本数据结构密切相关，因此向程序员公开，无需额外的抽象层。
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>Redis 是一个内存中但持久化在磁盘上的数据库，因此它代表了一种不同的权衡，在无法大于内存的数据集的限制下实现了非常高的写入和读取速度。内存数据库的另一个优点是，与磁盘上的相同数据结构相比，复杂数据结构的内存表示更易于操作，因此 Redis 可以做很多事情，而内部复杂性很小。同时这两种磁盘存储格式（RDB 和 AOF）不需要适合随机访问，所以它们很紧凑并且总是以 append-only 的方式生成（即使 AOF 日志轮换也是一个 append-唯一的操作，因为新版本是从内存中的数据副本生成的）。然而，与传统的磁盘存储相比，这种设计也涉及不同的挑战。作为内存上的主要数据表示，Redis 操作必须小心处理，以确保磁盘上始终有数据集的更新版本
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>可以在不停止和重新启动服务的情况下动态重新配置 Redis，或者使用特殊命令CONFIG SET和 CONFIG GET 以编程方式查询当前配置
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>并非所有配置指令都以这种方式支持，但大多数都按预期支持，此修改对redis.conf文件没影响，重启恢复旧配置，CONFIG REWRITE命令可以修改redis.conf文件配置
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>复制
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>在 Redis 复制的基础上（不包括由 Redis Cluster 或 Redis Sentinel 作为附加层提供的高可用性功能），有一个非常易于使用和配置的领导者跟随者（主从）复制：它允许副本 Redis 实例精确主实例的副本。每次链接断开时，副本都会自动重新连接到主服务器，并且无论主服务器发生什么情况，都将尝试成为它的精确副本。
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>该系统使用三种主要机制工作：
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>当主实例和副本实例连接良好时，主实例通过向副本发送命令流来保持副本更新，以复制由于以下原因在主端发生的对数据集的影响：客户端写入、密钥过期或驱逐，任何其他更改主数据集的操作。
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>当 master 和副本之间的链接断开时，由于网络问题或因为在 master 或副本中检测到超时，副本将重新连接并尝试进行部分重新同步：这意味着它将尝试仅获取部分它在断开连接期间错过的命令流。
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>当部分重新同步不可能时，副本将要求完全重新同步。这将涉及一个更复杂的过程，其中主节点需要为其所有数据创建快照，将其发送到副本，然后随着数据集的变化继续发送命令流
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>Redis 复制的一些非常重要的事实：
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>Redis 使用异步复制，异步复制到主节点确认处理的数据量。
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>一个主节点可以有多个副本。
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>副本能够接受来自其他副本的连接。除了将多个副本连接到同一个主节点之外，副本还可以以类似级联的结构连接到其他副本。从 Redis 4.0 开始，所有子副本都将从主副本接收完全相同的复制流。
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>Redis 复制在主端是非阻塞的。这意味着当一个或多个副本执行初始同步或部分重新同步时，主节点将继续处理查询。
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>复制在副本端也很大程度上是非阻塞的。当副本执行初始同步时，它可以使用旧版本的数据集处理查询，假设您在 redis.conf 中将 Redis 配置为这样做。否则，您可以将 Redis 副本配置为在复制流关闭时向客户端返回错误。但是，在初始同步后，必须删除旧数据集并加载新数据集。副本将在此短暂窗口期间阻止传入连接（对于非常大的数据集可能长达数秒）。从 Redis 4.0 开始，可以配置 Redis 使旧数据集的删除发生在不同的线程中，但是加载新的初始数据集仍将发生在主线程中并阻塞副本。
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>复制既可以用于可扩展性，以便为只读查询提供多个副本（例如，可以将慢速O(N)操作卸载到副本），也可以仅用于提高数据安全性和高可用性。
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>可以使用复制来避免让 master 将完整数据集写入磁盘的成本：一个典型的技术包括配置你的 masterredis.conf来完全避免持久化到磁盘，然后连接一个配置为不时保存的副本，或者使用启用 AOF。但是，必须小心处理此设置，因为重新启动的主服务器将从一个空数据集开始：如果副本尝试与其同步，副本也将被清空
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>Redis 复制的工作原理
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>每个 Redis 主节点都有一个复制 ID：它是一个大型伪随机字符串，用于标记数据集的给定故事。每个 master 还采用一个偏移量，该偏移量随着它生成的复制流的每个字节而增加以发送到副本，以便使用修改数据集的新更改来更新副本的状态。即使实际上没有连接副本，复制偏移也会增加，所以基本上每个给定的对：
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a>Replication ID, offset
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a>标识主数据集的确切版本。
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a>当副本连接到主节点时，它们使用PSYNC命令来发送它们的旧主副本 ID 和它们到目前为止处理的偏移量。通过这种方式，master 可以只发送所需的增量部分。但是，如果主缓冲区中没有足够的积压，或者如果副本引用不再已知的历史记录（复制 ID），则会发生完全重新同步：在这种情况下，副本将获得数据集的完整副本，从头开始​​。
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a>这是完整同步的详细工作方式：
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a>主机启动后台保存过程以生成 RDB 文件。同时，它开始缓冲从客户端接收到的所有新写命令。当后台保存完成后，master 将数据库文件传输到副本，副本将其保存在磁盘上，然后将其加载到内存中。主服务器然后将所有缓冲的命令发送到副本。这是作为命令流完成的，并且与 Redis 协议本身的格式相同。
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a>您可以通过 telnet 自己尝试。当服务器正在做一些工作时连接到 Redis 端口并发出SYNC命令。您将看到批量传输，然后主机收到的每个命令都将在 telnet 会话中重新发出。实际上SYNC是一个旧协议，不再被较新的 Redis 实例使用，但为了向后兼容，它仍然存在：它不允许部分重新同步，所以现在使用PSYNC。
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a>如前所述，当主副本链接由于某种原因出现故障时，副本能够自动重新连接。如果 master 收到多个并发副本同步请求，它会执​​行单个后台保存以服务所有这些请求
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a>配置基本的 Redis 复制很简单：只需在副本配置文件中添加以下行：
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>replicaof 192.168.1.1 6379
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a>副本支持默认启用的只读模式。此行为由redis.conf文件中的replica-read-only选项控制，可以在运行时使用CONFIG SET启用和禁用
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a>如果您的主服务器通过 设置了密码requirepass，那么将副本配置为在所有同步操作中使用该密码就很简单了。
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a>要在正在运行的实例上执行此操作，请使用redis-cli并键入：
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a>config set masterauth &lt;password&gt;
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a>要永久设置它，请将其添加到您的配置文件中：
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a>masterauth &lt;password&gt;
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a>Redis 过期允许密钥具有有限的生存时间 (TTL)。这样的功能取决于实例计算时间的能力，但是 Redis 副本会正确复制过期的键，即使使用 Lua 脚本更改了这些键。
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a>为了实现这样的特性，Redis 不能依赖主从同步时钟的能力，因为这是一个无法解决的问题，会导致竞争条件和数据集发散，因此 Redis 使用了三种主要技术来实现使过期密钥的复制能够工作：
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a>副本不会使密钥过期，而是等待主服务器使密钥过期。当 master 使密钥过期（或由于 LRU 将其驱逐）时，它会合成一个DEL命令，并将其传输到所有副本。
+<a id="__codelineno-0-137" name="__codelineno-0-137"></a>然而，由于 master-driven expire，有时副本可能仍然在内存中存在逻辑上已经过期的键，因为 master 无法及时提供DEL命令。为了解决这个问题，副本使用其逻辑时钟来报告密钥不存在，仅用于不违反数据集一致性的读取操作（因为来自主服务器的新命令将到达）。通过这种方式，副本避免报告逻辑上过期的键仍然存在。实际上，使用副本进行缩放的 HTML 片段缓存将避免返回已经比预期生存时间早的项目。
+<a id="__codelineno-0-138" name="__codelineno-0-138"></a>在 Lua 脚本执行期间，不会执行密钥到期。当 Lua 脚本运行时，从概念上讲，master 中的时间是冻结的，因此在脚本运行的所有时间里，给定的键要么存在要么不存在。这可以防止密钥在脚本中间过期，并且需要以保证在数据集中具有相同效果的方式将相同的脚本发送到副本。
+<a id="__codelineno-0-139" name="__codelineno-0-139"></a>一旦一个副本被提升为一个主节点，它就会开始独立地使密钥过期，并且不需要旧主节点的任何帮助
+<a id="__codelineno-0-140" name="__codelineno-0-140"></a>
+<a id="__codelineno-0-141" name="__codelineno-0-141"></a>appendonly的持久性如何
+<a id="__codelineno-0-142" name="__codelineno-0-142"></a>可以配置 Redis 将 fsync数据存储在磁盘上的次数。共有三个选项：
+<a id="__codelineno-0-143" name="__codelineno-0-143"></a>appendfsync always：fsync每次将新命令附加到 AOF 时。非常非常缓慢，非常安全。请注意，在执行来自多个客户端或管道的一批命令之后，这些命令会附加到 AOF，因此这意味着单个写入和单个 fsync（在发送回复之前）
+<a id="__codelineno-0-144" name="__codelineno-0-144"></a>appendfsync everysec:fsync每一秒。足够快（在 2.4 中可能和快照一样快），如果发生灾难，您可能会丢失 1 秒的数据。
+<a id="__codelineno-0-145" name="__codelineno-0-145"></a>appendfsync no：永远不要fsync，只需将您的数据交到操作系统的手中。更快、更不安全的方法。通常 Linux 会使用这种配置每 30 秒刷新一次数据，但这取决于内核的精确调整。
+<a id="__codelineno-0-146" name="__codelineno-0-146"></a>建议（和默认）策略是fsync每秒。它既非常快又非常安全。该always策略在实践中很慢，但它支持组提交，因此如果有多个并行写入，Redis 会尝试执行单个fsync操作
+<a id="__codelineno-0-147" name="__codelineno-0-147"></a>
+<a id="__codelineno-0-148" name="__codelineno-0-148"></a>AOF文件被截断，尝试redis-check-aof --fix修复，文件损坏，尝试redis-check-aof命令了解问题或手动修复
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a>日志重写使用已用于快照的相同的写时复制技巧。这是它的工作原理：
+<a id="__codelineno-0-151" name="__codelineno-0-151"></a>Redis fork，所以现在我们有一个子进程和一个父进程。
+<a id="__codelineno-0-152" name="__codelineno-0-152"></a>孩子开始在临时文件中写入新的 AOF。
+<a id="__codelineno-0-153" name="__codelineno-0-153"></a>父级在内存缓冲区中累积所有新更改（但同时它将新更改写入旧的仅附加文件中，因此如果重写失败，我们是安全的）。
+<a id="__codelineno-0-154" name="__codelineno-0-154"></a>当子进程完成重写文件时，父进程收到一个信号，并将内存缓冲区附加到子进程生成的文件的末尾。
+<a id="__codelineno-0-155" name="__codelineno-0-155"></a>现在 Redis 原子地将旧文件重命名为新文件，并开始将新数据附加到新文件中
+<a id="__codelineno-0-156" name="__codelineno-0-156"></a>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a>安全
+<a id="__codelineno-0-158" name="__codelineno-0-158"></a>从 3.2.0 版本开始，当 Redis 使用默认配置（绑定所有接口）并且没有任何密码访问它时，它会进入一种称为保护模式的特殊 模式。在这种模式下，Redis 只回复来自环回接口的查询，并回复从其他地址连接的其他客户端有错误，但是系统管理员仍然可以忽略 Redis 给出的错误，只需禁用保护模式或手动绑定所有接口即可
+<a id="__codelineno-0-159" name="__codelineno-0-159"></a>
+<a id="__codelineno-0-160" name="__codelineno-0-160"></a>1、配置requirepass
+<a id="__codelineno-0-161" name="__codelineno-0-161"></a>2、添加tls认证(安装openssl开发库，需要编译时make BUILD_TLS=yes，TLS 目前不支持 I/O 线程)
+<a id="__codelineno-0-162" name="__codelineno-0-162"></a>使用 Redis Cluster 时，用于tls-cluster yes为集群总线和跨节点连接启用 TLS
+<a id="__codelineno-0-163" name="__codelineno-0-163"></a>Sentinel主从模式时，连接到主服务器时，Sentinel 将使用该tls-replication 指令来确定是否需要 TLS 或非 TLS 连接
+<a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="w">    </span><span class="k">*</span><span class="w"> </span>运行./utils/gen-test-certs.sh以生成根 CA 和服务器证书。
+<a id="__codelineno-0-165" name="__codelineno-0-165"></a><span class="w">    </span><span class="k">*</span><span class="w"> </span>运行./runtest --tls或./runtest-cluster --tls在 TLS 模式下运行 Redis 和 Redis 集群测试
+<a id="__codelineno-0-166" name="__codelineno-0-166"></a>3、禁用特定命令
+<a id="__codelineno-0-167" name="__codelineno-0-167"></a>例如重命名CONFIG命令：rename-command CONFIG b840fc02d524045429941cc15f59e41cb7be6c52
+<a id="__codelineno-0-168" name="__codelineno-0-168"></a>禁用CONFIG命令：rename-command CONFIG &quot;&quot;
+<a id="__codelineno-0-169" name="__codelineno-0-169"></a>
+<a id="__codelineno-0-170" name="__codelineno-0-170"></a>访问控制
+<a id="__codelineno-0-171" name="__codelineno-0-171"></a>Redis AUTH命令在 Redis 6 中得到了扩展，所以现在可以以两个参数的形式使用它：
+<a id="__codelineno-0-172" name="__codelineno-0-172"></a>AUTH &lt;username&gt; &lt;password&gt;
+<a id="__codelineno-0-173" name="__codelineno-0-173"></a>按旧形式使用时，即：
+<a id="__codelineno-0-174" name="__codelineno-0-174"></a>AUTH &lt;password&gt;
+<a id="__codelineno-0-175" name="__codelineno-0-175"></a>
+<a id="__codelineno-0-176" name="__codelineno-0-176"></a>ACL规则
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a>以下是有效 ACL 规则的列表。某些规则只是单个单词，用于激活或删除标志，或对用户 ACL 执行给定的更改。其他规则是与命令或类别名称或键模式等连接的字符前缀
+<a id="__codelineno-0-178" name="__codelineno-0-178"></a>启用和禁用用户：
+<a id="__codelineno-0-179" name="__codelineno-0-179"></a>on：启用用户：可以作为该用户进行身份验证。
+<a id="__codelineno-0-180" name="__codelineno-0-180"></a>off: 禁用用户：不再可以使用此用户进行身份验证，但是已经过身份验证的连接仍然有效。请注意，如果默认用户被标记为off，则新连接将不通过身份验证启动，并且将要求用户发送带有 AUTH 选项的AUTH或HELLO以便以某种方式进行身份验证，无论默认用户配置如何。
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a>允许和禁止命令：
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a>+&lt;command&gt;：将命令添加到用户可以调用的命令列表中。
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a>-&lt;command&gt;：将命令移到用户可以调用的命令列表中。
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a>+@&lt;category&gt;：添加该类别中所有用户调用的命令，有效类别如@admin、@set、@sortedset、...等，通过调用ACL CAT命令查看完整列表。特殊类别@all 表示所有命令，包括当前存在于服务器中的命令，以及将来通过模块加载的命令。
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a>-@&lt;category&gt;: 喜欢+@&lt;category&gt;但从客户端可以调用的命令列表中删除命令。
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a>+&lt;command&gt;|subcommand：允许其他禁用命令的特定子命令。请注意，这种形式不允许像 一样否定-DEBUG|SEGFAULT，而只能以“+”开头。如果该命令作为一个整体已经处于活动状态，则此 ACL 将导致错误。
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a>allcommands: +@all 的别名。请注意，它意味着能够执行通过模块系统加载的所有未来命令。
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a>nocommands: -@all 的别名。
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a>允许和禁止某些键：
+<a id="__codelineno-0-191" name="__codelineno-0-191"></a>
+<a id="__codelineno-0-192" name="__codelineno-0-192"></a>~&lt;pattern&gt;：添加可以作为命令的一部分提及的键模式。例如~*允许所有键。该模式是一种类似于KEYS的全局样式模式。可以指定多个模式。
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a>allkeys: 别名~*。
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a>resetkeys：刷新允许的键模式列表。例如 ACL ~foo:* ~bar:* resetkeys ~objects:*，将导致客户端只能访问匹配模式的密钥objects:*。
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a>允许和禁止发布/订阅频道：
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a>&amp;&lt;pattern&gt;：添加可供用户访问的 Pub/Sub 频道的 glob 样式模式。可以指定多个通道模式。请注意，模式匹配仅针对PUBLISH和SUBSCRIBE提到的频道进行，而PSUBSCRIBE需要其频道模式与用户允许的频道模式之间的文字匹配。
+<a id="__codelineno-0-198" name="__codelineno-0-198"></a>allchannels：别名&amp;*允许用户访问所有发布/订阅频道。
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a>resetchannels：如果用户的 Pub/Sub 客户端不再能够访问其各自的频道和/或频道模式，则刷新允许的频道模式列表并断开它们的连接。
+<a id="__codelineno-0-200" name="__codelineno-0-200"></a>为用户配置有效密码：
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a>&gt;&lt;password&gt;：将此密码添加到用户的有效密码列表中。例如，&gt;mypass将“mypass”添加到有效密码列表中。该指令清除nopass标志（见下文）。每个用户可以有任意数量的密码。
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a>&lt;&lt;password&gt;：从有效密码列表中删除此密码。如果您尝试删除的密码实际上未设置，则会发出错误。
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="gh">#&lt;hash&gt;：将此 SHA-256 哈希值添加到用户的有效密码列表中。该散列值将与为 ACL 用户输入的密码的散列进行比较。这允许用户在acl.conf文件中存储哈希值，而不是存储明文密码。只接受 SHA-256 哈希值，因为密码哈希必须是 64 个字符，并且只能是容器小写十六进制字符。</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a>!&lt;hash&gt;：从有效密码列表中删除此哈希值。当您不知道哈希值指定的密码但想要从用户中删除密码时，这很有用。
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a>nopass：用户设置的所有密码都被删除，并且用户被标记为不需要密码：这意味着每个密码都将对该用户起作用。如果此指令用于默认用户，则每个新连接将立即使用默认用户进行身份验证，而无需任何明确的 AUTH 命令。请注意，resetpass指令将清除此条件。
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a>resetpass：刷新允许的密码列表。此外，还删除了nopass状态。在resetpass之后，用户没有关联的密码，如果不添加一些密码（或稍后将其设置为nopass），就无法进行身份验证。
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a>注意：没有用 nopass 标记并且没有有效密码列表的使用实际上是不可能使用的，因为将无法以这样的用户身份登录。
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a>重置用户：
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a>reset执行以下操作：resetpass、resetkeys、resetchannels、off、-@all。用户在创建后立即返回到相同的状态
+<a id="__codelineno-0-211" name="__codelineno-0-211"></a>
+<a id="__codelineno-0-212" name="__codelineno-0-212"></a>可以通过两种主要方式创建和修改用户：
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a>使用 ACL 命令及其ACL SETUSER子命令。
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a>修改服务器配置，在那里可以定义用户，并重新启动服务器，或者如果我们使用外部 ACL 文件，只需发出ACL LOAD
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a>定义用户(用户名是区分大小写的)，使其处于活动状态，具有密码，并且可以仅使用GET命令访问以字符串“cached:”开头的键名：
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a>ACL SETUSER alice on &gt;p1pp0 ~cached:* +get
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a>ACL GENPASS使用系统加密伪随机生成器生成密码
+<a id="__codelineno-0-220" name="__codelineno-0-220"></a>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a>两种方法存储用户在redis配置中。
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a><span class="k">1.</span> user &lt;username&gt; ... acl rules ...
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>例如：
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>user worker +@list +@connection ~jobs:* on &gt;ffa9203c493aa99
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a><span class="k">2.</span> 使用外部 ACL 文件时，如下所示：
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a>aclfile /etc/redis/users.acl
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a>哨兵和副本的 ACL 规则
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a>如果您不想提供 Redis 副本和 Redis Sentinel 实例对您的 Redis 实例的完全访问权限，以下是必须允许的一组命令，以便一切正常工作
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a>对于 Sentinel，允许用户在主实例和副本实例中访问以下命令：
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a>AUTH、CLIENT、SUBSCRIBE、SCRIPT、PUBLISH、PING、INFO、MULTI、SLAVEOF、CONFIG、CLIENT、EXEC。
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a>Sentinel 不需要访问数据库中的任何键，但会使用 Pub/Sub，因此 ACL 规则如下（注意：AUTH 不需要，因为总是允许的）：
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a>ACL SETUSER sentinel-user on &gt;somepassword allchannels +multi +slaveof +ping +exec +subscribe +config|rewrite +role +publish +info +client|setname +client|kill +script|kill
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a>Redis 副本需要在主实例上将以下命令列入白名单：
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a>PSYNC、REPLCONF、PING
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a>不需要访问密钥，因此这转化为以下规则：
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a>ACL setuser replica-user on &gt;somepassword +psync +replconf +ping
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a>Redis Sentinel
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a>Sentinel功能的完整列表：
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a>监控。Sentinel 会不断检查您的主实例和副本实例是否按预期工作。
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a>通知。Sentinel 可以通过 API 通知系统管理员或其他计算机程序，其中一个受监控的 Redis 实例出现问题。
+<a id="__codelineno-0-245" name="__codelineno-0-245"></a>自动故障转移。如果 master 没有按预期工作，Sentinel 可以启动一个故障转移过程，其中一个副本被提升为 master，其他额外的副本被重新配置为使用新的 master，并且使用 Redis 服务器的应用程序会被告知要使用的新地址连接时。
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>配置提供程序。Sentinel 充当客户端服务发现的权威来源：客户端连接到 Sentinel 以请求负责给定服务的当前 Redis 主节点的地址。如果发生故障转移，Sentinels 将报告新地址
+<a id="__codelineno-0-247" name="__codelineno-0-247"></a>
+<a id="__codelineno-0-248" name="__codelineno-0-248"></a>Sentinel 本身旨在运行在多个 Sentinel 进程协同工作的配置中。多个 Sentinel 进程协作的优势如下：
+<a id="__codelineno-0-249" name="__codelineno-0-249"></a>当多个 Sentinel 同意给定主服务器不再可用的事实时，将执行故障检测。这降低了误报的可能性。
+<a id="__codelineno-0-250" name="__codelineno-0-250"></a>即使并非所有 Sentinel 进程都在工作，Sentinel 也能正常工作，从而使系统能够抵御故障
+<a id="__codelineno-0-251" name="__codelineno-0-251"></a>
+<a id="__codelineno-0-252" name="__codelineno-0-252"></a>Sentinel 的基本知识
+<a id="__codelineno-0-253" name="__codelineno-0-253"></a>您至少需要三个 Sentinel 实例才能进行稳健的部署。
+<a id="__codelineno-0-254" name="__codelineno-0-254"></a>应该将三个 Sentinel 实例放置在被认为以独立方式发生故障的计算机或虚拟机中。例如，在不同的可用区域上执行的不同物理服务器或虚拟机。
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a>Sentinel + Redis 分布式系统不保证在故障期间保留已确认的写入，因为 Redis 使用异步复制。然而，有一些方法可以部署 Sentinel，使丢失写入的窗口限于某些时刻，而还有其他不太安全的部署方法。
+<a id="__codelineno-0-256" name="__codelineno-0-256"></a>您的客户需要 Sentinel 支持。流行的客户端库有 Sentinel 支持，但不是全部。
+<a id="__codelineno-0-257" name="__codelineno-0-257"></a>如果您不在开发环境中不时进行测试，则没有安全的 HA 设置，或者如果可以的话，在生产环境中，如果它们可以工作，则更好。您可能有一个错误配置，只有在为时已晚（在您的主人停止工作的凌晨 3 点）时才会变得明显。
+<a id="__codelineno-0-258" name="__codelineno-0-258"></a>Sentinel、Docker 或其他形式的网络地址转换或端口映射应小心混合：Docker 执行端口重新映射，破坏其他 Sentinel 进程的 Sentinel 自动发现以及主服务器的副本列表。查看本文档后面有关 Sentinel 和 Docker 的部分以获取更多信息
+<a id="__codelineno-0-259" name="__codelineno-0-259"></a>
+<a id="__codelineno-0-260" name="__codelineno-0-260"></a>典型的最小配置文件sentinel.conf如下所示：
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a>sentinel monitor mymaster 127.0.0.1 6379 2
+<a id="__codelineno-0-262" name="__codelineno-0-262"></a>sentinel down-after-milliseconds mymaster 60000
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a>sentinel failover-timeout mymaster 180000
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a>sentinel parallel-syncs mymaster 1
+<a id="__codelineno-0-265" name="__codelineno-0-265"></a>
+<a id="__codelineno-0-266" name="__codelineno-0-266"></a>sentinel monitor resque 192.168.1.3 6380 4
+<a id="__codelineno-0-267" name="__codelineno-0-267"></a>sentinel down-after-milliseconds resque 10000
+<a id="__codelineno-0-268" name="__codelineno-0-268"></a>sentinel failover-timeout resque 180000
+<a id="__codelineno-0-269" name="__codelineno-0-269"></a>sentinel parallel-syncs resque 5
+<a id="__codelineno-0-270" name="__codelineno-0-270"></a>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>逐行检查配置选项的含义：
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>第一行用于告诉 Redis 监视名为mymaster的主节点，该主节点位于地址 127.0.0.1 和端口 6379，仲裁为 2。一切都很明显，但仲裁参数：
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>该仲裁是需要同意的事实主人是不可达的，这样才能真正纪念主为失败，并在可能最终开始故障转移过程哨兵的数量。
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>然而，仲裁仅用于检测故障。为了实际执行故障转移，其中一个哨兵需要被选为故障转移的领导者并被授权继续。这只发生在大多数 Sentinel 进程的投票中。
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>因此，例如，如果您有 5 个 Sentinel 进程，并且给定 master 的仲裁设置为值 2，则会发生以下情况：
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>如果两个 Sentinel 同时同意 master 无法访问，则两者之一将尝试启动故障转移。
+<a id="__codelineno-0-277" name="__codelineno-0-277"></a>如果总共至少有三个 Sentinel 可访问，则故障转移将被授权并实际开始。
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>实际上，这意味着在故障期间，如果大多数 Sentinel 进程无法通信（也就是少数分区中没有故障转移），则Sentinel 永远不会启动故障转移
+<a id="__codelineno-0-279" name="__codelineno-0-279"></a>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>down-after-milliseconds 是 Sentinel 开始认为它已关闭的实例不应该可达的时间（以毫秒为单位）（要么不回复我们的 PING，要么回复错误）。
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>parallel-syncs设置可以在故障转移后同时重新配置为使用新主服务器的副本数。数字越小，完成故障转移过程所需的时间就越长，但是如果将副本配置为提供旧数据，您可能不希望所有副本同时与主服务器重新同步。虽然复制过程对于副本来说大多是非阻塞的，但有时它会停止从主服务器加载批量数据。您可能希望通过将此选项设置为值 1 来确保一次只能访问一个副本
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>可以在运行时修改配置参数：
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>使用SENTINEL SET
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>全局配置参数使用SENTINEL CONFIG SET
+<a id="__codelineno-0-286" name="__codelineno-0-286"></a>
+<a id="__codelineno-0-287" name="__codelineno-0-287"></a>将新 Sentinel 添加到您的部署中是一个简单的过程。您需要做的就是启动配置为监视当前活动主站的新 Sentinel。在 10 秒内，Sentinel 将获取其他 Sentinel 的列表以及附加到 master 的副本集
+<a id="__codelineno-0-288" name="__codelineno-0-288"></a>
+<a id="__codelineno-0-289" name="__codelineno-0-289"></a>移除 Sentinel 有点复杂：Sentinels 永远不会忘记已经见过的 Sentinels，即使它们很长时间无法访问，因为我们不想动态更改授权故障转移和创建新配置所需的多数数字。因此，为了删除 Sentinel，应在没有网络分区的情况下执行以下步骤：
+<a id="__codelineno-0-290" name="__codelineno-0-290"></a>停止要删除的 Sentinel 的 Sentinel 进程。
+<a id="__codelineno-0-291" name="__codelineno-0-291"></a>SENTINEL RESET <span class="ge">*向所有其他 Sentinel 实例发送命令（*</span>如果您只想重置一个主服务器，则可以使用确切的主服务器名称）。一个接一个，实例之间至少等待 30 秒。
+<a id="__codelineno-0-292" name="__codelineno-0-292"></a>通过检查SENTINEL MASTER mastername每个 Sentinel的输出，检查所有 Sentinel 是否同意当前活动的 Sentinel 数量
+<a id="__codelineno-0-293" name="__codelineno-0-293"></a>
+<a id="__codelineno-0-294" name="__codelineno-0-294"></a>删除旧的 master 或无法访问的副本
+<a id="__codelineno-0-295" name="__codelineno-0-295"></a>Sentinel 永远不会忘记给定 master 的副本，即使它们很长一段时间都无法访问。这很有用，因为哨兵应该能够在网络分区或故障事件后正确地重新配置返回的副本。
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a>此外，在故障转移之后，故障转移的主服务器实际上被添加为新主服务器的副本，这样一旦新主服务器再次可用，它将被重新配置为与新主服务器进行复制。
+<a id="__codelineno-0-297" name="__codelineno-0-297"></a>但是，有时您希望从 Sentinels 监控的副本列表中永远删除一个副本（可能是旧的 master）。
+<a id="__codelineno-0-298" name="__codelineno-0-298"></a>为此，您需要向SENTINEL RESET mastername所有 Sentinel发送一个命令：它们将在接下来的 10 秒内刷新副本列表，只添加从当前主INFO输出中列为正确复制的副本
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a>
+<a id="__codelineno-0-300" name="__codelineno-0-300"></a>Redis 实例有一个名为replica-priority. 此信息由 Redis 副本实例在其INFO输出中公开，Sentinel 使用它从可用于故障转移主服务器的副本中选择一个副本：
+<a id="__codelineno-0-301" name="__codelineno-0-301"></a>如果副本优先级设置为 0，则副本永远不会提升为主服务器。
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a>Sentinel 首选具有较低优先级编号的副本
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a>
+<a id="__codelineno-0-304" name="__codelineno-0-304"></a>从 Redis 6 开始，用户身份验证和权限由访问控制列表 (ACL) 管理。
+<a id="__codelineno-0-305" name="__codelineno-0-305"></a>为了让 Sentinel 在配置了 ACL 时连接到 Redis 服务器实例，Sentinel 配置必须包含以下指令：
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>sentinel auth-user &lt;master-group-name&gt; &lt;username&gt;
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a>sentinel auth-pass &lt;master-group-name&gt; &lt;password&gt;
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a>
+<a id="__codelineno-0-309" name="__codelineno-0-309"></a>启用延迟监控，记录所有阻塞服务器的时间等于或大于 100 毫秒的事件
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a>CONFIG SET latency-monitor-threshold 100
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a>LATENCY LATEST - 返回所有事件的最新延迟样本。
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a>LATENCY HISTORY - 返回给定事件的延迟时间序列。
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a>LATENCY RESET - 重置一个或多个事件的延迟时间序列数据。
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a>LATENCY GRAPH - 呈现事件延迟样本的 ASCII 艺术图。
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a>LATENCY DOCTOR - 回复人类可读的延迟分析报告
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a>Redis Cluster
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a>Redis Cluster数据 在多个 Redis 节点之间自动分片，当部分节点出现故障或无法与集群的其余部分通信时继续操作的能力
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a>Redis Cluster 不支持像 Redis 的独立版本那样支持多个数据库。只有数据库 0 并且不允许使用SELECT命令
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a>为了使 Docker 兼容 Redis Cluster，需要使用Docker的主机组网方式
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a>Redis Cluster 不使用一致性散列，而是一种不同形式的分片，其中每个键在概念上都是我们所谓的散列槽的一部分，集群中有 16384 个哈希槽
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a>
+<a id="__codelineno-0-325" name="__codelineno-0-325"></a>Redis Cluster在redis.conf文件中引入的配置参数
+<a id="__codelineno-0-326" name="__codelineno-0-326"></a>cluster-enabled&lt;yes/no&gt;：如果是，则在特定 Redis 实例中启用 Redis Cluster 支持。否则，该实例像往常一样作为独立实例启动。
+<a id="__codelineno-0-327" name="__codelineno-0-327"></a>cluster-config-file&lt;filename&gt;：注意，尽管这个选项的名称，这不是一个用户可编辑的配置文件，而是一个Redis Cluster节点在每次有变化时自动持久化集群配置（状态，基本上）的文件，以便能够在启动时重新读取它。该文件列出了集群中的其他节点、它们的状态、持久变量等内容。由于某些消息接收，此文件通常会被重写并刷新到磁盘上。
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a>cluster-node-timeout&lt;milliseconds&gt;：Redis 集群节点不可用的最长时间，而不被视为失败。如果主节点在指定的时间内无法访问，它将由其从属节点进行故障转移。该参数控制Redis Cluster中其他重要的事情。值得注意的是，在指定的时间内无法访问大多数主节点的每个节点都将停止接受查询。
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a>cluster-slave-validity-factor&lt;factor&gt;：如果设置为零，则从站将始终认为自己有效，因此将始终尝试对主站进行故障转移，无论主站和从站之间的链接保持断开连接的时间长短。如果值为正，则计算最大断开时间为节点超时值乘以此选项提供的因子，如果节点是从节点，如果主链接断开的时间超过指定的时间，它将不会尝试启动故障转移。例如，如果节点超时设置为 5 秒，并且有效性因子设置为 10，则从站与主站断开连接超过 50 秒的从站将不会尝试对其主站进行故障转移。请注意，如果没有能够对其进行故障转移的从属服务器，则任何非零值都可能导致 Redis 集群在主服务器故障后不可用。在这种情况下，只有当原始主节点重新加入集群时，集群才会恢复可用。
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a>cluster-migration-barrier&lt;count&gt;：一个主站将保持连接的最小从站数量，以便另一个从站迁移到不再被任何从站覆盖的主站。有关更多信息，请参阅本教程中有关副本迁移的相应部分。
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a>cluster-require-full-coverage&lt;yes/no&gt;：如果将其设置为 yes，默认情况下，如果任何节点未覆盖一定百分比的密钥空间，则集群将停止接受写入。如果该选项设置为 no，即使只能处理有关密钥子集的请求，集群仍将提供查询服务。
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a>cluster-allow-reads-when-down&lt;yes/no&gt;：如果设置为 no，默认情况下，当集群被标记为失败时，Redis 集群中的节点将停止为所有流量提供服务，或者当节点无法访问时达到法定人数或未达到完全覆盖时。这可以防止从不知道集群变化的节点读取潜在的不一致数据。可以将此选项设置为 yes 以允许在失败状态期间从节点读取，这对于希望优先考虑读取可用性但仍希望防止不一致写入的应用程序非常有用。它也可以用于使用只有一个或两个分片的 Redis Cluster 时，因为它允许节点在主节点发生故障但无法自动故障转移时继续提供写入服务
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a>快速方法可使用 create-cluster 脚本创建 Redis 集群
+<a id="__codelineno-0-335" name="__codelineno-0-335"></a>只需键入以下命令
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a>1、create-cluster start
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a>2、create-cluster create
+<a id="__codelineno-0-338" name="__codelineno-0-338"></a>完成后，使用以下命令停止集群：
+<a id="__codelineno-0-339" name="__codelineno-0-339"></a>create-cluster stop
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a>以下手动创建集群简单示例
+<a id="__codelineno-0-342" name="__codelineno-0-342"></a>最小的Redis集群配置文件：
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a>port 7000
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a>cluster-enabled yes
+<a id="__codelineno-0-345" name="__codelineno-0-345"></a>cluster-config-file nodes.conf
+<a id="__codelineno-0-346" name="__codelineno-0-346"></a>cluster-node-timeout 5000
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a>appendonly yes
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a>启用集群模式的只是cluster-enabled 指令。每个实例还包含存储此节点配置的文件的路径，默认情况下为nodes.conf. 这个文件永远不会被人类触及；它只是在 Redis 集群实例启动时生成，并在每次需要时更新
+<a id="__codelineno-0-349" name="__codelineno-0-349"></a>
+<a id="__codelineno-0-350" name="__codelineno-0-350"></a>按预期工作的最小集群需要包含至少三个主节点。对于您的第一次测试，强烈建议启动一个具有三个主节点和三个从节点的六节点集群
+<a id="__codelineno-0-351" name="__codelineno-0-351"></a>要为 Redis 5版本创建集群，redis-cli只需键入：
+<a id="__codelineno-0-352" name="__codelineno-0-352"></a>redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 \
+<a id="__codelineno-0-353" name="__codelineno-0-353"></a>127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 \
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a>--cluster-replicas 1
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a>使用redis-trib.rb用于Redis的4或3版本：
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>./redis-trib.rb create --replicas 1 127.0.0.1:7000 127.0.0.1:7001 \
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a>Redis Cluster 使用CLUSTER FAILOVER 命令支持手动故障转移，该命令必须在要进行故障转移的主站的从站之一中执行
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a>使用redis-cli将节点添加到现有集群中
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a>redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a>添加新节点作为副本
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a>redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave
+<a id="__codelineno-0-367" name="__codelineno-0-367"></a>此处的命令行与我们用于添加新主服务器的命令行完全相同，因此我们没有指定要将副本添加到哪个主服务器。在这种情况下，redis-cli 会在副本较少的主节点中添加新节点作为随机主节点的副本。
+<a id="__codelineno-0-368" name="__codelineno-0-368"></a>但是，您可以使用以下命令行准确指定要使用新副本定位的主服务器
+<a id="__codelineno-0-369" name="__codelineno-0-369"></a>redis-cli --cluster add-node 127.0.0.1:7006 127.0.0.1:7000 --cluster-slave --cluster-master-id 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a>将副本添加到特定主节点的更手动方法是将新节点添加为空主节点，然后使用CLUSTER REPLICATE命令将其转换为副本
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a>redis 127.0.0.1:7006&gt; cluster replicate 3c3a0c74aae0b56170ccb03a76b60cfe7dc1912e
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a>删除节点
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a>redis-cli --cluster del-node 127.0.0.1:7000 <span class="sb">`&lt;node-id&gt;`</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>升级Redis集群中的节点
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a>升级从节点很容易，因为您只需要停止节点并使用更新版本的 Redis 重新启动它。如果有客户端使用从节点扩展读取，如果给定的从节点不可用，它们应该能够重新连接到不同的从节点。
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>升级masters有点复杂，建议的程序是：
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a>使用 CLUSTER FAILOVER 触发主从手动故障转移到其从属之一（请参阅本文档的“手动故障转移”部分）。
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a>等待主人变成奴隶。
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>最后像升级从节点一样升级节点。
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a>如果您希望 master 成为您刚刚升级的节点，请触发新的手动故障转移，以便将升级后的节点恢复为 master
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+
+  <aside class="md-source-file">
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="贡献者">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+      
+    </span>
+    <nav>
+      
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        此页面是否有帮助?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="有帮助" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="没帮助" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              感谢您的点赞!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              感谢您真诚的反馈! Help me improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.25 6a3.25 3.25 0 0 1 3.25-3.25A3.25 3.25 0 0 1 17.75 6c0 .42.33.75.75.75s.75-.33.75-.75v-.75h1.5V6a2.25 2.25 0 0 1-2.25 2.25A2.25 2.25 0 0 1 16.25 6a1.75 1.75 0 0 0-1.75-1.75A1.75 1.75 0 0 0 12.75 6H14v1.29c2.89.86 5 3.54 5 6.71a7 7 0 0 1-7 7 7 7 0 0 1-7-7c0-3.17 2.11-5.85 5-6.71V6h1.25M22 6h2v1h-2V6m-3-2V2h1v2h-1m1.91.38 1.42-1.42.71.71-1.42 1.42-.71-.71Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../MariaDB/" class="md-footer__link md-footer__link--prev" aria-label="上一页: MariaDB">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                MariaDB
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../MongoDB/" class="md-footer__link md-footer__link--next" aria-label="下一页: MongoDB">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                MongoDB
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Black-Gold" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/black0gold/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>

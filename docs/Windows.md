@@ -1,4 +1,59 @@
-﻿# Windows
+# Windows
+
+# Powershell
+
+```txt
+oh-my-posh --init --shell pwsh --config D:/paradox.omp.json | Invoke-Expression
+oh-my-posh --init --shell pwsh --config D:/ohmyposhv3-2.json | Invoke-Expression
+. $PROFILE
+notpad $PROFILE
+code $PROFILE
+Get-PoshThemes
+Set-PoshPrompt -Theme nu4a
+Export-PoshTheme -FilePath ~/.mytheme.omp.json -Format json
+C:\Users\Administrator\AppData\Local\oh-my-posh\themes
+C:\Users\Administrator\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+
+Get-Command -list
+Get-Command -Module PowerShellGet
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+Get-Module -Name PowerShellGet -ListAvailable
+
+```
+
+## docker-desktop
+
+```markdown
+start /w "" "Docker Desktop Installer.exe" install --no-windows-containers --backend=wsl-2 --installation-dir=D:\Docker
+
+自定义docker-desktop和docker-desktop-data数据目录
+wsl --shutdown
+wsl --export docker-desktop "E:\dockerwsl\distro\docker-desktop.tar"
+wsl --export docker-desktop-data "E:\dockerwsl\data\docker-desktop-data.tar"
+wsl --unregister docker-desktop
+wsl --unregister docker-desktop-data
+wsl --import docker-desktop "E:\dockerwsl\distro" "E:\dockerwsl\distro\docker-desktop.tar" --version 2
+wsl --import docker-desktop-data "E:\dockerwsl\data" "E:\dockerwsl\data\docker-desktop-data.tar" --version 2
+```
+
+## wsl
+
+```markdown
+官方教程链接：https://learn.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions
+Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+手动下载发行包
+https://learn.microsoft.com/zh-cn/windows/wsl/install-manual
+将WSL发行版安装到自定义位置
+1. dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+2. Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
+3. move .\Ubuntu.appx .\Ubuntu.zip
+4. Expand-Archive .\Ubuntu.zip
+5. 进入解压后的目录，执行对应版本的exe进行初始化
+6. wsl.exe --import Debian D:\Debian .\install.tar.gz
+7. 将"D:\Debian"路径添加到Path中以从任何地方调用它
+
+一般出错处理执行命令：netsh winsock reset
+```
 
 ## 自动关机
 
@@ -109,8 +164,6 @@ java 环境
 变量值：%java_home%\bin
 新建变量名：JAVA_HOME
 变量值：D:\jdk1.8.0_111（这里是jdk的安装目录）
-新建变量名：CLASSPATH
-变量值：.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
 
 ```txt
 VMware Workstation 15.x
@@ -151,7 +204,7 @@ cmdkey /add:"%~1" /user:"%~3" /pass:"%~4"
 start /wait mstsc /v:"%~1:%~2"
 cmdkey /delete:"%~1"
 
-:: 刷新组策略
+rem 刷新组策略
 gpupdate/force
 gpupdate /target:computer
 
@@ -161,12 +214,7 @@ windows服务绑定IP问题
 netsh-->>http-->>show iplisten
 delete iplisten ipaddress=x.x.x.x
 
-网易云：[27493175.mp3]
-nslookup -vc github.com 8.8.8.8
-
 choice /t 5 /d y /n >nul    # 批处理命令延迟方法
-
-https://www.jsdelivr.com/package/gh/Black-Gold/MyNotes
 
 ## Windows Commands详解大全
 

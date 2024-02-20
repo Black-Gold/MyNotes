@@ -158,7 +158,7 @@ inurl:ftp:// -inurl:http:// -inurl:https://
 | To search for Google+ pages or blood types | Place an addition sign (+) in front of the Google+ user or after the blood type Ex: +Chrome and AB+ |
 | To search for social tags | Place the at symbol (@) before the social tag you’d like to search Ex: @digitaltrends |
 | To search for prices | Place a dollar sign ($) before the value Ex: canon $400 |
-| To search for a phrase with missing words | Place an asterisk \* within the search as a placeholder for any unknown terms Ex: if you give a * a * |
+| To search for a phrase with missing words | Place an asterisk \* within the search as a placeholder for any unknown terms Ex: if you give a *a* |
 | To search for a range of numbers, usually pertaining to prices and measurements | Place two periods between the designated numbers you want to search between Ex: $75..$200 |
 | To search popular hashtags for trending topics | Place a hashtag in front of the desired topicEx: #throwbackthursday |
 

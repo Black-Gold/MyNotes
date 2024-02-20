@@ -1,5 +1,5 @@
 # Welcome to MyWebSite
 
-![zootopia](http://cdn.jsdelivr.net/gh/Black-Gold/MyNotes@master/docs/images/come_on_partner.jpg)
+![zootopia](https://cdn.jsdelivr.net/gh/Black-Gold/MyNotes@gh-pages/images/come_on_partner.jpg)
 
 ## DevOps Wiki

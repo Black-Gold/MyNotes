@@ -1,0 +1,2169 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Material Design theme for MyNotes">
+      
+      
+        <meta name="author" content="Anonymous">
+      
+      
+        <link rel="canonical" href="https://19950128.com/web/Haproxy/">
+      
+      
+        <link rel="prev" href="../LVS/">
+      
+      
+        <link rel="next" href="../../database/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>HAProxy - Material Design for MyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="lime">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#haproxy" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Material Design for MyNotes" class="md-header__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Material Design for MyNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HAProxy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="lime"  aria-label="切换到夜晚模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到夜晚模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="light-green"  aria-label="切换到白天模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到白天模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21 12-7-7v4C7 10 4 15 3 20c2.5-3.5 6-5.1 11-5.1V19l7-7Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 16.74 7.76 12 3 7.26 7.26 3 12 7.76 16.74 3 21 7.26 16.24 12 21 16.74 16.74 21 12 16.24 7.26 21 3 16.74m9-3.33 4.74 4.75 1.42-1.42L13.41 12l4.75-4.74-1.42-1.42L12 10.59 7.26 5.84 5.84 7.26 10.59 12l-4.75 4.74 1.42 1.42L12 13.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Black-Gold/MyNotes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Windows/" class="md-tabs__link">
+          
+  
+    
+  
+  Coding
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../linux/" class="md-tabs__link">
+          
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Web
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../database/" class="md-tabs__link">
+          
+  
+    
+  
+  Database
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cloud-native/" class="md-tabs__link">
+          
+  
+    
+  
+  CloudNative
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pipeline/" class="md-tabs__link">
+          
+  
+    
+  
+  CI/CD
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../monitor/" class="md-tabs__link">
+          
+  
+    
+  
+  Monitor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cache/" class="md-tabs__link">
+          
+  
+    
+  
+  Cache
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../stream/" class="md-tabs__link">
+          
+  
+    
+  
+  Stream
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../storage/" class="md-tabs__link">
+          
+  
+    
+  
+  Storage
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../network/" class="md-tabs__link">
+          
+  
+    
+  
+  Network
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Material Design for MyNotes" class="md-nav__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Material Design for MyNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Black-Gold/MyNotes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Windows/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Coding
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../linux/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Web
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nginx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nginx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Caddy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Apache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LVS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LVS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    HAProxy
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    HAProxy
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：代理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：SSL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：监控
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：高可用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：负载均衡
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stickiness" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本特征：粘性(Stickiness)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于HTTP的快速提醒
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../database/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../cloud-native/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CloudNative
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../pipeline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CI/CD
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../monitor/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Monitor
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../cache/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Cache
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stream/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stream
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../storage/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../network/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：代理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：SSL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：监控
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：高可用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本功能：负载均衡
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stickiness" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本特征：粘性(Stickiness)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于HTTP的快速提醒
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="haproxy"><em>Haproxy</em><a class="headerlink" href="#haproxy" title="Permanent link">&para;</a></h1>
+<h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h2>
+<p>介绍负载平衡的基础知识，HAProxy作为一种产品，用来做什么，不用来做什么，一些已知的陷阱避免，一些特定于操作系统的限制，获取、发展及更新它，如何确保您运行所有已知的修补程序，关于它的补充和替代品</p>
+<p>HAProxy是：</p>
+<ul>
+<li>TCP代理：它可以接受来自侦听套接字的TCP连接，连接到服务器并将这些插座连接在一起，允许流量两个方向流动;</li>
+<li>HTTP反向代理（在HTTP术语中称为“网关”）：它本身作为服务器，通过接受的连接接收HTTP请求侦听TCP套接字，并将来自这些连接的请求传递给使用不同连接的服务器</li>
+<li>SSL终结器/启动器/卸载器：来自客户端的连接可以使用SSL/TLS，连接到服务器，甚至双向连接</li>
+<li>TCP规范化器：由于操作在本地终止连接系统，双方没有关系，所以交通不正常等无效数据包，标志组合，窗口广告，序列号，不完整的连接（SYN floods），或者不会传递给另一个侧。这可以保护脆弱的TCP堆栈免受协议攻击允许与客户端优化连接参数而无需修改服务器的TCP堆栈设置</li>
+<li>HTTP规范化程序：配置为处理HTTP流量时，仅有效完成请求已通过。这可以防止许多基于协议的攻击。另外，存在容差的协议偏差在规范中是固定的，这样它们就不会引起问题服务器（例如多行标题）</li>
+<li>HTTP修复工具：它可以修改/修复/添加/删除/重写URL或任何请求或响应标头。这有助于解决互操作性问题在复杂的环境中</li>
+<li>基于内容的交换机：它可以考虑请求中的任何元素决定将请求或连接传递给哪个服务器。因此有可能通过同一端口处理多个协议（例如HTTP，HTTPS，SSH）</li>
+<li>服务器负载均衡器：它可以平衡TCP连接和HTTP要求。在TCP模式下，整体采用负载平衡决策连接。在HTTP模式下，根据请求做出决定</li>
+<li>交通监管机构：它可以在不同的点应用一些速率限制，保护服务器免受过载，根据需要调整流量优先级内容，甚至将这些信息传递给下层和外层网络组件通过标记数据包</li>
+<li>针对DDoS和服务滥用的保护：它可以保持广泛的数量每个IP地址，URL，cookie等的统计信息，并检测何时滥用发生，然后采取行动（减慢违法者，阻止他们，发送他们过时的内容等）</li>
+<li>网络故障排除的观察点：由于精度在日志中报告的信息，通常用于缩小一些与网络有关的问题</li>
+<li>HTTP压缩卸载程序：它可以压缩不是由服务器压缩的响应，从而减少客户端的页面加载时间连接不良或使用高延迟的移动网络</li>
+</ul>
+<p>HAProxy不是：</p>
+<ul>
+<li>一个显式的HTTP代理，即浏览器用来访问的代理互联网。有专门用于此任务的优秀开源软件，比如Squid。但是HAProxy可以安装在这样的代理前面提供负载平衡和高可用性</li>
+<li>缓存代理：它将按原样返回从服务器收到的内容并且不会干扰任何缓存策略。有优秀用于此任务的开源软件，如Varnish。可以安装HAProxy在这样的缓存前面提供SSL卸载，并通过可伸缩性智能负载平衡</li>
+<li>数据清理器：它不会修改请求体和响应体</li>
+<li>一个Web服务器：在启动期间，它将自己隔离在一个chroot jail和删除其权限，以便它不会执行任何单个文件系统访问一旦开始。因此，它无法转变为Web服务器。那里是非常好的开源软件，如Apache或Nginx，以及HAProxy可以安装在它们前面，以提供负载平衡和高可用性</li>
+<li>基于数据包的负载均衡器：它不会看到IP数据包，也不会看到UDP数据报，不会执行NAT甚至更少的DSR。这些是较低层的任务。一些基于内核的组件，如IPVS（Linux虚拟服务器）已经做到了非常好，与HAProxy完美搭配</li>
+</ul>
+<p>HAProxy是一个单线程，事件驱动，非阻塞引擎。可以使HAProxy在多个进程上运行，但它随之而来
+一些限制。通常，它在HTTP关闭或TCP模式下没有意义，因为内核端不能很好地扩展某些操作，例如connect()，它可以很好地扩展HTTP保持活动模式但性能可以通过单一流程实现的工作通常优于常见需求一个数量级。但是，当用作SSL时，它确实有意义offloader，在多进程模式下很好地支持此功能</p>
+<h2 id="_1">基本功能：代理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>为服务器提供干净的连接，防止客户端连接缺陷和攻击</li>
+<li>监听多个IP地址或端口，甚至端口范围</li>
+<li>Transparent accept：拦截任意IP地址流量，尽管不属于本地系统</li>
+<li>服务器端口不需要和侦听端口相关，甚至是由固定偏移量转换(对范围有用)</li>
+<li>为多站点LB中的服务器提供可靠的返回IP地址</li>
+<li>由于缓冲区和可能的短暂连接，下线服务器来减少并发连接数和内存占用量</li>
+<li>优化TCP堆栈(如:SACK)拥塞控制和减少RTT影响</li>
+<li>支持双方不同的协议系列(IPv4,IPv6,Unix)</li>
+<li>强制超时：在连接的不同阶段支持多级别的超时连接，以便于已死亡的客户端、服务器或攻击者占用资源时间太长</li>
+<li>协议验证：检查HTTP、SSL、Playload并拒绝无效协议成分，除非指定accept他们</li>
+<li>强制策略：确保只转发允许的内容</li>
+<li>传入和传出连接都可能限于某些网络名称空间（仅限Linux），可以轻松构建跨容器，多租户负载均衡器;</li>
+<li>Proxy协议将客户端IP地址呈现给服务器尽管非HTTP流量，这是haproxy扩展，目前第三方产品有：</li>
+<li>client : haproxy, hitch, stunnel, exaproxy, ELB, squid</li>
+<li>server : haproxy, hitch, postfix, exim, nginx, squid, node.js, varnish</li>
+</ul>
+<h2 id="ssl">基本功能：SSL<a class="headerlink" href="#ssl" title="Permanent link">&para;</a></h2>
+<ul>
+<li>基于SNI的专注于性能没有站点限制的多主机</li>
+<li>支持用正则通配符匹配证书</li>
+<li>具有可配置策略的基于证书的客户端身份验证未能出示有效证书，将允许不同的服务器重新生成客户端证书</li>
+<li>后端服务器身份验证确保后端服务器不是中间人</li>
+<li>使用后端服务器进行身份验证可以让后端服务器知道它连接的是预期的haproxy节点</li>
+<li>TLS NPN和ALPN扩展可以可靠的卸载SPDY/HTTP2连接并以明文形式传递给后端服务器</li>
+<li>当客户端发送以证书验证的请求时，OCSP装订通过内联来进一步减少首页加载时间</li>
+<li>动态记录大小调整提供高性能低延迟及通过让浏览器获取新object来显著减少页面加载</li>
+<li>永久访问所有相关的SSL/TLS层信息以进行日志记录、访问控制、报告等。这些元素可以嵌入到HTTP Header甚至作为Proxy协议扩展</li>
+<li>即使在易受攻击的SSL库中也能检测，记录和阻止某些已知攻击，例如影响OpenSSL某些版本的Heartbleed攻击</li>
+<li>支持无状态会话恢复，可以从CLI更新TLS凭证</li>
+</ul>
+<h2 id="_2">基本功能：监控<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>利用per-server参数持续监控服务器状态，这个确保服务器的路径是正常流量</li>
+<li>状态检查支持up或down滞后按顺序切换，防止状态错乱</li>
+<li>可以将检查发送到不同的地址/端口/协议:这样很容易被认为代表多个的单个服务，如：HTTP+HTTPS服务器的HTTPS端口</li>
+<li>服务器可以跟踪其他服务器并同时关闭，可以确保托管多个服务的服务器以原子方式失败而没有一个会发送到失败的服务器</li>
+<li>可以在服务器部署代理来监控负载和运行状态</li>
+<li>提供各种检查方法：TCP连接、HTTP请求、SMTP问候、SSL hello，LDAP、SQL、Redis、send/expect脚本，全部带或不带ssl连接</li>
+<li>状态更改将在日志和统计信息页面通知失败原因，也可发送到配置的电子邮件地址</li>
+<li>服务器状态也会在统计信息界面显示，并可用于执行路由决策，以便于将流量发送到不同的farms</li>
+<li>haproxy可以使用运行状况检查请求将信息传递给服务器，例如服务器name、weight、其他服务器在farm的number(数量)等。所以服务器可以根据这些来调整响应和决策(例如推迟备份保持更多的可用CPU)</li>
+<li>服务器可以用健康检查报告更详细的状态，不仅仅是on或off</li>
+<li>服务器自身可以报告状态给其他组件，如路由器或其他负载均衡器，允许构建非常完整的多路径和多层基础设施</li>
+</ul>
+<h2 id="_3">基本功能：高可用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>仅使用有效的服务器，其他自动驱逐出负载均衡农场</li>
+<li>支持正常关闭，以便于不影响有任何关系的农场</li>
+<li>当活动服务器关闭时，将自动使用备份服务器，便于在可能的情况下不丢失会话，这也允许构建多条路径到达同一个服务器(例如多个接口)</li>
+<li>当一个农场服务器太多时，能返回服务器失败状态，这和监控功能结合使用，让其为上游组件选择给定服务的不同LB节点</li>
+<li>无状态设计使构建集群变得容易，haproxy可以最好的确保服务连续性而无需存储在发生故障时可能丢失的信息</li>
+<li>与标准的VRRP守护进程良好的集成，haproxy可以轻松的对状态连接保持并于浮动虚拟IP很好的对应</li>
+</ul>
+<h2 id="_4">基本功能：负载均衡<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>支持不少于9钟负载均衡算法，其中一些适用于输入数据以提供无限的可能性列表。最普遍的是</li>
+<li>round-robin (对于短连接，依次选择每个服务器)</li>
+<li>leastconn (对于长连接选择最近很少使用、最低连接数的服务器)</li>
+<li>source (用于SSL farms或终端服务器farms)服务器直接依赖于客户端源地址</li>
+<li>URI (用于HTTP缓存，服务器直接依赖于HTTP　URI)</li>
+<li>HDR (服务器依赖于特定的HTTP hearder字段的内容)</li>
+<li>以上算法都支持per-server权重，以便适应农场中不同服务器，或者作用于流量比较小的特定服务器(debug,在下一个软件版本)</li>
+<li>动态权重支持round-robin leastconn 一致性hashing，这允许从CLI动态修改服务器权重甚至是服务器上运行的代理</li>
+<li>只要支持动态权重，就支持慢启动，这允许服务器逐步获取流量，这是个重要特征，对于需要在运行时编译类的脆弱应用程序服务器以及需要在完全运行之前填满冷缓存</li>
+<li>hashing(散列)可以用于各种元素，如客户端源地址，URL组件，查询字符串元素，header字符串值，POST参数，RDP cookie</li>
+<li>一致性散列可以保护服务器farm免受大量重新分发的影响，在服务器farm钟添加或删除服务器，这在大型缓存farm中非常重要，它允许慢启动用于补充cold caches</li>
+<li>许多内部指标，如每台服务器连接数、每个后端可用连接插槽的数量，可以构建非常先进的负载平衡策略</li>
+</ul>
+<h2 id="stickiness">基本特征：粘性(Stickiness)<a class="headerlink" href="#stickiness" title="Permanent link">&para;</a></h2>
+<p>haproxy提供相当全面的可能性保持访客访问相同服务器甚至跨越各种事件，如服务器添加/删除，down/up循环，并设计方法抵抗之间的距离多个负载均衡节点，因为它们并不需要任何复制</p>
+<ul>
+<li>粘性信息可以单独匹配和学习不同的地方，如：可以匹配JSESSIONID cookie 在cookie和URL都有，最多同一时间可学习8个并行源，每个可能指向不同的stick-table</li>
+<li>以多主方式在所有节点复制stick-tables</li>
+<li>常用的元素，如SSL-ID或RDP cookie(用于TSE farm)直接易于操作</li>
+<li>所有sticking rules可由ACL动态调节</li>
+<li>可以决定不stick某些服务器，例如备份服务器，以便于当规定的服务器返回时，可以自动进行load back，通常用于多路径环境</li>
+<li>在</li>
+</ul>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>详细介绍了所有配置关键字和他们的选择。它在需要更改配置时使用</p>
+<h3 id="http">关于HTTP的快速提醒<a class="headerlink" href="#http" title="Permanent link">&para;</a></h3>
+<p>当HAproxy在HTTP模式下运行时，请求和相应都是完全分析和索引，因此几乎在contents的任何内容都可以建立匹配。了解http请求和响应的形成的方式非常重要，及haproxy如何分解它们，然后就会变得更容易编写正确的规则和调试现有配置</p>
+<p>http事务模型：http协议是事务驱动的，意味着每个请求都领先一个回应</p>
+<p>HAProxy支持5种连接模式：</p>
+<ul>
+<li>保持活跃：处理所有请求和响应（默认）</li>
+<li>隧道：只处理第一个请求和响应，其他一切都没有分析转发</li>
+<li>被动关闭：在两个方向上添加“连接：关闭”的隧道</li>
+<li>服务器关闭：响应后关闭面向服务器的连接</li>
+<li>强制关闭：响应结束后，主动关闭连接</li>
+</ul>
+<p>对于HTTP/2，连接模式类似于“服务器关闭”模式：给定所有流的独立性，目前没有地方可以挂空闲响应后的服务器连接，因此在响应后关闭。HTTP/2仅支持传入连接，而不支持连接服务器</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>HAProxy的配置过程涉及3个主要参数来源
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>1.来自命令行的参数，它始终优先
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>2.“全局”部分，用于设置流程范围的参数
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>3.代理部分可以采取“默认”，“听”的形式，“前端”和“后端”
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>配置文件支持3钟类型：转义反斜杠、双引号弱引用、单引号强引用
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>如果必须在字符串输入空格，则必须通过反斜杠进行转义
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>\标记空格并将其与分隔符区分开来
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>\＃标记哈希并将其与注释区分开来
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>\\使用反斜杠
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>&#39;&#39;使用单引号并将其与强引用区分开来
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>&quot;&quot;使用双引号并将其与弱引用区分开来
+</code></pre></div></td></tr></table></div>
+<h2 id="management">Management<a class="headerlink" href="#management" title="Permanent link">&para;</a></h2>
+<p>如何启动haproxy，如何运行时管理它，如何在多个节点上管理它，以及如何无缝升级</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>
+</code></pre></div></td></tr></table></div>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<p>如何构建一个最好的负载均衡基础架构以及如何与第三方产品进行集成</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>
+</code></pre></div></td></tr></table></div>
+<p><algorithm>是用于在执行加载时选择服务器的算法
+            平衡。仅在没有持久性信息时适用
+            可用，或将连接重新分配给另一个连接时
+            服务器。<algorithm>可能是以下之一：</p>
+<p>roundrobin每个服务器根据其权重依次使用。
+              当服务器的
+              处理时间保持平均分配。这个算法
+              是动态的，这意味着可以调整服务器权重
+              例如，慢速启动。受限于
+              每个后端最多可设计4095个活动服务器。请注意，在某些情况下
+              大型服务器场，当服务器关闭后又启动时
+              在很短的时间内，有时可能需要数百
+              要求将其重新集成到服务器场中并开始
+              接收流量。这很正常，尽管非常罕见。这是
+              如果您有机会观察到，请在此处指示
+              它，这样您就不必担心。</p>
+<p>static-rr每个服务器根据其权重依次使用。
+              该算法与轮询算法相似，除了它是
+              静态，这意味着更改服务器在服务器上的权重
+              飞不会有任何效果。另一方面，它没有设计
+              服务器数量的限制，以及服务器何时运行
+              起来，一旦被立即重新引入农场
+              完整的地图将重新计算。它还使用更少的CPU
+              运行（大约-1％）。</p>
+<p>minimumconn连接数最少的服务器收到
+              联系。循环在服务器组内执行
+              具有相同的负载，以确保将使用所有服务器。用
+              如果会话时间很长，建议使用此算法
+              预期，例如LDAP，SQL，TSE等...，但不是很好
+              适用于使用简短会话（例如HTTP）的协议。这
+              算法是动态的，这意味着服务器权重可能是
+              例如，针对慢速启动进行了动态调整。它会
+              除了考虑排队连接的数量外
+              建立的，以最大程度地减少排队。</p>
+<p>首先，具有可用连接插槽的第一台服务器接收
+              联系。从最低的数字中选择服务器
+              最高的标识符（请参阅服务器参数“ id“）， 哪一个
+              默认为服务器在服务器场中的位置。一旦服务器
+              达到其maxconn值，则使用下一个服务器。确实
+              在不设置maxconn的情况下使用此算法没有任何意义。
+              该算法的目的是始终使用最小的
+              服务器数量，以便可以关闭额外的服务器
+              在非密集时间。该算法忽略服务器
+              重量，并为RDP等长期会议带来更多好处
+              或IMAP而不是HTTP，尽管它在这里也很有用。在
+              为了有效地使用此算法，建议
+              云控制器定期检查服务器使用情况以将
+              它们在不使用时关闭，并定期检查后端队列以
+              队列膨胀时打开新服务器。或者，
+              使用“ http-check send-state ”可能会通知服务器负载。</p>
+<p>source对源IP地址进行哈希处理并除以总数
+              正在运行的服务器的权重，以指定哪个服务器将
+              收到请求。这样可以确保相同的客户端IP
+              只要没有，地址将始终到达同一服务器
+              服务器关闭或启动。如果哈希结果由于
+              正在运行的服务器数量发生变化，许多客户端将
+              定向到另一台服务器。这个算法一般
+              在不插入Cookie的TCP模式下使用。也可能
+              在Internet上使用以提供最大努力的粘性
+              给拒绝会话cookie的客户。这个算法是
+              默认为静态，这意味着更改服务器的
+              飞行中的重量不会产生任何影响，但这可以是
+              使用“哈希类型”更改。</p>
+<p>uri此算法对URI的左侧部分进行哈希处理（
+              问号）或整个URI（如果是“ whole”参数）
+              存在），然后将哈希值除以
+              正在运行的服务器。结果指定哪个服务器将
+              收到请求。这样可以确保相同的URI将
+              只要没有服务器，始终将其定向到同一服务器
+              上升或下降。这与代理缓存一起使用，并且
+              防病毒代理，以最大程度地提高缓存命中率。
+              请注意，此算法只能在HTTP后端中使用。
+              默认情况下，此算法为静态算法，这意味着
+              即时更改服务器的权重将无效，
+              但这可以使用“ hash-type ”进行更改。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code>          该算法支持两个可选参数“ len”和
+          “深度”，均跟一个正整数。这些
+          当需要平衡服务器时，选项可能会有所帮助
+          仅基于URI的开头。“ len”参数
+          表示该算法只应考虑
+          URI开头的字符以计​​算哈希值。
+          请注意，将“ len”设置为1几乎没有道理，因为大多数
+          URI以“ /”开头。
+
+          “ depth”参数表示最大目录深度
+          用于计算哈希。每个级别计一次
+          在请求中斜杠。如果同时指定了两个参数，则
+          达到两者中的任何一个时，评估都将停止。
+
+          “仅路径”参数表示哈希密钥开始
+          在路径的第一个“ /”位置。这可以用来忽略
+          绝对URI的授权部分，并确保HTTP / 1
+          和HTTP / 2 URI将提供相同的哈希值。
+</code></pre></div></td></tr></table></div>
+<p>url_param参数中指定的URL参数将在
+              每个HTTP GET请求的查询字符串。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>          如果使用修饰符“ check_post”，则使用HTTP POST
+          将在请求实体中搜索参数实参，
+          在问号后的查询字符串中找不到该字符时
+          （&#39;？&#39;）在网址中。邮件正文只会开始是
+          一旦公布的数据量已被分析
+          收到或请求缓冲区已满。在极少数情况下
+          使用分块编码，只有第一个块是
+          扫描。由块边界分隔的参数值可以
+          完全随机地平衡。此关键字用于支持
+          可选的&lt;max_wait&gt;参数，现在将忽略它。
+
+          如果找到该参数，后跟一个等号（&#39;=&#39;），然后
+          一个值，然后将该值散列并除以总数
+          正在运行的服务器的重量。结果指定
+          服务器将收到请求。
+
+          这用于跟踪请求中的用户标识符并确保
+          相同的用户ID将始终发送到与
+          只要没有服务器出现故障即可。如果找不到值，或者
+          找不到参数，则循环算法为
+          应用。请注意，此算法只能在HTTP中使用
+          后端。默认情况下，此算法是静态的，这意味着
+          即时更改服务器的权重不会
+          效果，但是可以使用“ hash-type ”进行更改。
+</code></pre></div></td></tr></table></div>
+<p>hdr（<name>）将在每个HTTP中查找HTTP标头<name>
+              要求。就像等效的ACL'hdr（）'函数一样，
+              括号中的标题名称不区分大小写。如果
+              标头不存在，或者如果标头不包含任何值，则
+              而是使用roundrobin算法。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>          可选的&#39;use_domain_only&#39;参数可用，用于
+          将哈希算法减少到主域部分
+          特定的标头，例如“主机”。例如，在主机中
+          值“ haproxy.1wt.eu”，则仅考虑“ 1wt”。
+
+          默认情况下，此算法为静态算法，这意味着
+          即时更改服务器的权重将无效，
+          但这可以使用“ hash-type ”进行更改。
+</code></pre></div></td></tr></table></div>
+<p>随机的
+  随机（<draws>）
+              随机数将用作保持一致的键
+              哈希函数。这意味着服务器的权重是
+              受尊敬的是，动态体重变化立即生效，因为
+              以及新服务器的添加。可以进行随机负载平衡
+              在大型服务器场或频繁添加服务器时很有用
+              或将其移除，因为这样可以避免锤击作用，
+              在这种情况下由roundrobin或lessconn导致。这
+              hash-balance-factor指令可用于进一步改进
+              负载平衡的公平性，尤其是在某些情况下
+              服务器的响应时间变化很大。当一个
+              参数<draws>存在，必须为整数1
+              或更大，指示选择之前的抽奖次数
+              这些服务器中负载最少的服务器。确实证明了
+              选择两个服务器中负载最小的一个就足够了
+              通过显着提高算法的公平性
+              始终避免选择服务器场中负载最大的服务器
+              并摆脱由
+              分配不均的一致清单。较高的值N
+              将夺走N-1个负载最高的服务器
+              牺牲性能。具有非常高的值，该算法
+              会收敛到minimumconn的结果，但速度要慢得多。
+              默认值为2，通常显示非常好
+              分布和性能。此算法也称为
+              两种随机选择的力量，并在此处进行描述：
+              http://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf</p>
+<p>rdp cookie
+  rdp-cookie（&lt;名称&gt;）
+              RDP Cookie &lt;名称&gt;（如果省略，则为“ mstshash”）
+              查找并为每个传入的TCP请求进行哈希处理。就像
+              带有等效的ACL'req_rdp_cookie（）'函数的名称
+              不区分大小写。此机制可用作降级
+              持续性模式，因为它可以始终发送
+              同一用户（或同一会话ID）到同一服务器。如果
+              找不到cookie，正常的轮循算法是
+              代替。</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>          请注意，要使其正常工作，前端必须确保
+          RDP cookie已经存在于请求缓冲区中。为了这
+          您必须结合使用“ tcp-request内容接受”规则
+          一个“ req_rdp_cookie_cnt” ACL。
+
+          默认情况下，此算法为静态算法，这意味着
+          即时更改服务器的权重将无效，
+          但这可以使用“ hash-type ”进行更改。
+
+          另请参见rdp_cookie模式获取功能。
+</code></pre></div></td></tr></table></div>
+<p><arguments>是某些人可能需要的可选参数列表
+            算法。目前，只有“ url_param ”和“ uri”支持
+            可选参数。</p>
+
+
+
+
+
+
+
+
+  <aside class="md-source-file">
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="贡献者">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+      
+    </span>
+    <nav>
+      
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        此页面是否有帮助?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="有帮助" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="没帮助" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              感谢您的点赞!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              感谢您真诚的反馈! Help me improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.25 6a3.25 3.25 0 0 1 3.25-3.25A3.25 3.25 0 0 1 17.75 6c0 .42.33.75.75.75s.75-.33.75-.75v-.75h1.5V6a2.25 2.25 0 0 1-2.25 2.25A2.25 2.25 0 0 1 16.25 6a1.75 1.75 0 0 0-1.75-1.75A1.75 1.75 0 0 0 12.75 6H14v1.29c2.89.86 5 3.54 5 6.71a7 7 0 0 1-7 7 7 7 0 0 1-7-7c0-3.17 2.11-5.85 5-6.71V6h1.25M22 6h2v1h-2V6m-3-2V2h1v2h-1m1.91.38 1.42-1.42.71.71-1.42 1.42-.71-.71Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../LVS/" class="md-footer__link md-footer__link--prev" aria-label="上一页: LVS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                LVS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../database/" class="md-footer__link md-footer__link--next" aria-label="下一页: Index">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Index
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Black-Gold" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/black0gold/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>

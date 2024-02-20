@@ -1,6 +1,7 @@
 site_name: Material Design for MyNotes
 site_description: 'A Material Design theme for MyNotes'
 site_author: 'Anonymous'
+site_url: https://19950128.com/
 
 # Repository
 remote_branch: gh-pages
@@ -8,126 +9,199 @@ remote_name: origin
 repo_name: 'Black-Gold/MyNotes'
 repo_url: 'https://github.com/Black-Gold/MyNotes'
 
-nav:
-  - Home: 'index.md'
-  - Vim: 'Vim.md'
-  - Languages:
-    - 'Regex': 'Regex.md'
-    - 'Shell': 'Shell.md'
-    - 'Python3': 'Python3.md'
-    - 'Go': 'Go.md'
-    - 'Enterprise-class': 'Enterprise.md'
-  - CloudNative:
-      - 'Docker': 'Docker.md'
-      - 'Kubernetes': 'Kubernetes.md'
-      - 'ContainerOS': 'Coreos.md'
-  - Servers:
-    - 'Linux': 'Linux.md'
-    - 'Iproute2&Net-tools': 'Utilities.md'
-    - 'Iptables': 'Iptables.md'
-    - 'Firewalld': 'Firewalld.md'
-    - 'Ansible': 'Ansible.md'
-    - 'WindowsServer': 'Windows.md'
-  - WebServer:
-    - 'Nginx': 'Nginx.md'
-    - 'Apache': 'Apache.md'
-    - 'Tomcat': 'Tomcat.md'
-    - 'Caddy': 'Caddy.md'
-  - Database:
-    - 'MySQL': 'MySQL.md'
-    - 'MariaDB': 'MySQL.md'
-    - 'Oracle': 'Oracle.md'
-    - 'MongoDB': 'MongoDB.md'
-    - 'Redis': 'Redis.md'
-    - 'Memcached': 'Memcached.md'
-  - Monitor:
-    - 'Zabbix': 'Zabbix.md'
-    - 'ELKStack': 'Elk.md'
-    - 'Prometheus': 'Prometheus.md'
-    - 'Grafana': 'Grafana.md'
-    - 'Nagios': 'Nagios.md'
-  - CI/CD:
-    - 'Git&GitLab': 'Git.md'
-    - 'Jenkins': 'Jenkins.md'
-  - Cache:
-    - 'Squid': 'Squid.md'
-    - 'Varnish': 'Varnish.md'
-    - 'Stunnel': 'Stunnel.md'
-    - 'ApacheTraffic': 'TrafficServer.md'
-  - LB&HA:
-    - 'LVS': 'LVS.md'
-    - 'HAProxy': 'Haproxy.md'
-  - MessageQueue:
-    - 'Kafka': 'Kafka.md'
-    - 'ActiveMQ': 'ActiveMQ.md'
-    - 'RabbitMQ': 'RabbitMQ.md'
-  - FileSystem:
-    - 'Ceph': 'Ceph.md'
-    - 'GlusterFS': 'GlusterFS.md'
-  - Network:
-      - 'Cisco': 'Cisco.md'
-      - 'Monitors': 'Monitors.md'
-      - 'Others': 'Others.md'
-
+# Configuration
 theme:
   name: material
   language: zh
+  logo: images/logo.png
+  favicon: images/favicon.png
+  icon:
+    repo: fontawesome/brands/github-alt
+    menu: material/menu
+    search: material/text-search
+    share: material/share
+    close: material/close-outline
+    top: material/bomb
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
   palette:
-    primary: 'green'
-    accent: 'light green'
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: 'green'
+      accent: 'lime'
+      toggle:
+        icon: material/weather-night
+        name: 切换到夜晚模式
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: 'blue grey'
+      accent: 'light green'
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到白天模式
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
+    text: 'Open Sans'
+    code: 'Fira Code'
   features:
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.prune
+    - navigation.top
+    - navigation.footer
     - search.highlight
     - search.suggest
+    - search.share
 
 plugins:
   - search:
-      prebuild_index: true
       lang:
         - en
-        - ru
-        - de
-
-google_analytics:
-  - 'UA-131093963-1'
-  - 'auto'
+        - zh
+  - git-authors
+  - git-committers:
+      repository: Black-Gold/MyNotes
+      branch: gh-pages
 
 # Extensions
 markdown_extensions:
   - admonition
-  - codehilite:
-      guess_lang: true
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
   - toc:
       permalink: true
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.critic
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+      linenums: true
+  - pymdownx.superfences
   - pymdownx.inlinehilite
-  - pymdownx.magiclink
+  - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde
 
 extra:
-  version:
-    default: stable
+  analytics:
+  #   provider: google
+  #   property: 'G-xxx'
+    feedback:
+      title: 此页面是否有帮助?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: 有帮助
+          data: 1
+          note: >-
+            感谢您的点赞!
+        - icon: material/thumb-down-outline
+          name: 没帮助
+          data: 0
+          note: >-
+            感谢您真诚的反馈! Help me improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Black-Gold
     - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/black0gold/
 
-#extra_css:
-#  - 'stylesheets/extra.css'
+# extra_css:
+#   - stylesheets/extra.css'
 
-#extra_javascript:
-#  - 'javascripts/extra.js'
+# extra_javascript:
+#   - javascripts/extra.js'
+
+
+# Page tree
+nav:
+  - Home: index.md
+  - Coding:
+    - WindowsSetting: Windows.md
+    - Vim: Vim.md
+    - Regex: Regex.md
+    - Shell: Shell.md
+    - Python3: Python3.md
+    - Go: Go.md
+    - Others: Others.md
+  - Linux:
+    - linux/index.md
+    - Centos: linux/Centos.md
+    - DebianDistros:
+      - Debian: linux/Debian.md
+      - Ubuntu: linux/Ubuntu.md
+    - Iproute2&Net-tools: linux/Utilities.md
+    - Iptables: linux/Iptables.md
+    - Firewalld: linux/Firewalld.md
+  - Web:
+    - web/index.md
+    - Nginx: web/Nginx.md
+    - Caddy: web/Caddy.md
+    - Apache: web/Apache.md
+    - LVS: web/LVS.md
+    - HAProxy: web/Haproxy.md
+  - Database:
+    - database/index.md
+    - MySQL: database/MySQL.md
+    - MariaDB: database/MariaDB.md
+    - Redis: database/Redis.md
+    - MongoDB: database/MongoDB.md
+  - CloudNative:
+    - cloud-native/index.md
+    - IAM: cloud-native/IAM.md
+    - Ansible: cloud-native/Ansible.md
+    - Docker: cloud-native/Docker.md
+    - Kubernetes: cloud-native/Kubernetes.md
+    - Knative: cloud-native/Knative.md
+    - Serverless: cloud-native/Serverless.md
+  - CI/CD:
+    - pipeline/index.md
+    - Git&GitLab: pipeline/Git.md
+    - Jenkins: pipeline/Jenkins.md
+  - Monitor:
+    - monitor/index.md
+    - Prometheus: monitor/Prometheus.md
+    - Grafana: monitor/Grafana.md
+    - ELKStack: monitor/Elk.md
+    - Zabbix: monitor/Zabbix.md
+    - Monitors: monitor/Monitors.md
+  - Cache:
+    - cache/index.md
+    - Varnish: cache/Varnish.md
+    - Squid: cache/Squid.md
+    - Stunnel: cache/Stunnel.md
+    - ApacheTraffic: cache/TrafficServer.md
+  - Stream:
+    - stream/index.md
+    - Kafka: stream/Kafka.md
+    - RocketMQ: stream/RocketMQ.md
+  - Storage:
+    - storage/index.md
+    - Ceph: storage/Ceph.md
+    - GlusterFS: storage/GlusterFS.md
+  - Network:
+    - network/index.md
+    - Cisco: network/Cisco.md
