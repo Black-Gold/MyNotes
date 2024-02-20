@@ -1,0 +1,3349 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Material Design theme for MyNotes">
+      
+      
+        <meta name="author" content="Anonymous">
+      
+      
+        <link rel="canonical" href="https://19950128.com/web/Nginx/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../Caddy/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>Nginx - Material Design for MyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="lime">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nginxunit" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Material Design for MyNotes" class="md-header__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Material Design for MyNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Nginx
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="lime"  aria-label="切换到夜晚模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到夜晚模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="light-green"  aria-label="切换到白天模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到白天模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21 12-7-7v4C7 10 4 15 3 20c2.5-3.5 6-5.1 11-5.1V19l7-7Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 16.74 7.76 12 3 7.26 7.26 3 12 7.76 16.74 3 21 7.26 16.24 12 21 16.74 16.74 21 12 16.24 7.26 21 3 16.74m9-3.33 4.74 4.75 1.42-1.42L13.41 12l4.75-4.74-1.42-1.42L12 10.59 7.26 5.84 5.84 7.26 10.59 12l-4.75 4.74 1.42 1.42L12 13.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Black-Gold/MyNotes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Windows/" class="md-tabs__link">
+          
+  
+    
+  
+  Coding
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../linux/" class="md-tabs__link">
+          
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Web
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../database/" class="md-tabs__link">
+          
+  
+    
+  
+  Database
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cloud-native/" class="md-tabs__link">
+          
+  
+    
+  
+  CloudNative
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pipeline/" class="md-tabs__link">
+          
+  
+    
+  
+  CI/CD
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../monitor/" class="md-tabs__link">
+          
+  
+    
+  
+  Monitor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cache/" class="md-tabs__link">
+          
+  
+    
+  
+  Cache
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../stream/" class="md-tabs__link">
+          
+  
+    
+  
+  Stream
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../storage/" class="md-tabs__link">
+          
+  
+    
+  
+  Storage
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../network/" class="md-tabs__link">
+          
+  
+    
+  
+  Network
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Material Design for MyNotes" class="md-nav__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Material Design for MyNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Black-Gold/MyNotes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Windows/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Coding
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../linux/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Web
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Nginx
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Nginx
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#centos" class="md-nav__link">
+    <span class="md-ellipsis">
+      centos安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于构建模块
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      包括非默认构建的模块
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他模块
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      nginx内核相关参数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      初学者指南
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态内容
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置简单的代理服务器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastcgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置FastCGI代理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginxconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx的conf配置文件详解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      nginx日志相关命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unit180" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit1.8.0
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Caddy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Apache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apache
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LVS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LVS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Haproxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HAProxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../database/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../cloud-native/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CloudNative
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../pipeline/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    CI/CD
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../monitor/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Monitor
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../cache/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Cache
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../stream/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Stream
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../storage/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../network/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#centos" class="md-nav__link">
+    <span class="md-ellipsis">
+      centos安装
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于构建模块
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      包括非默认构建的模块
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他模块
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      nginx内核相关参数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      初学者指南
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态内容
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置简单的代理服务器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastcgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置FastCGI代理
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginxconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx的conf配置文件详解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      nginx日志相关命令
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unit180" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit1.8.0
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="nginxunit">Nginx&amp;&amp;Unit<a class="headerlink" href="#nginxunit" title="Permanent link">&para;</a></h1>
+<h2 id="centos">centos安装<a class="headerlink" href="#centos" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># To set up the yum repository for RHEL/CentOS, create the file named /etc/yum.repos.d/nginx.repo with the following contents:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># Replace “OS” with “rhel” or “centos”, depending on the distribution used, and “OSRELEASE” with “6” or “7”, for 6.x or 7.x versions, respectively.</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; /etc/yum.repos.d/nginx.repo</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="s">[nginx-stable]</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="s">name=nginx stable repo</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="s">baseurl=http://nginx.org/packages/OS/OSRELEASE/$basearch/</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="s">gpgcheck=1</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="s">enabled=1</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="s">gpgkey=https://nginx.org/keys/nginx_signing.key</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="s">EOF</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1"># 对于Debian / Ubuntu，为了验证nginx存储库签名并在安装nginx软件包时消除有关丢失PGP密钥的警告，有必要将用于签署nginx软件包和存储库的密钥添加到apt程序密钥环中。请从我们的网站下载此密钥，并apt 使用以下命令将其添加到程序密钥环：</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>wget<span class="w"> </span>-c<span class="w"> </span>http://nginx.org/keys/nginx_signing.key
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>nginx_signing.key
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="c1"># 对于Debian，用Debian分发代号取代codename</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; /etc/apt/sources.list</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="s">deb http://nginx.org/packages/debian/ codename nginx</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="s">deb-src http://nginx.org/packages/debian/ codename nginx</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="s">EOF</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nginx
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="c1"># Mainline版本的预构建包;利用rpm包安装</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>rpm<span class="w"> </span>--import<span class="w"> </span>nginx_signing.key
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>wget<span class="w"> </span>http://nginx.org/packages/mainline/centos/7/x86_64/RPMS/nginx-1.13.9-1.el7_4.ngx.x86_64.rpm
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>rpm<span class="w"> </span>-ivh<span class="w"> </span>nginx-1.13.9-1.el7_4.ngx.x86_64.rpm
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nginx
+</code></pre></div></td></tr></table></div>
+<p>2.从源代码构建nginx</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span>
+<span class="normal"><a href="#__codelineno-1-47">47</a></span>
+<span class="normal"><a href="#__codelineno-1-48">48</a></span>
+<span class="normal"><a href="#__codelineno-1-49">49</a></span>
+<span class="normal"><a href="#__codelineno-1-50">50</a></span>
+<span class="normal"><a href="#__codelineno-1-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>wget<span class="w"> </span>-c<span class="w"> </span>http://nginx.org/download/nginx-1.12.2.tar.gz
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># 构建使用configure命令进行配置。它定义了系统的各个方面，包括nginx允许用于连接处理的方法。最后它创建一个Makefile。该configure命令支持以下参数：</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>--prefix<span class="o">=</span>path<span class="w"> </span>-<span class="w"> </span>定义一个将保留服务器文件的目录。这个相同的目录也将被用于所有相关的路径<span class="w"> </span>configure（除了源资源的路径）和nginx.conf配置文件。它/usr/local/nginx默认设置为目录
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>--sbin-path<span class="o">=</span>path<span class="w"> </span>-<span class="w"> </span>设置一个nginx可执行文件的名字。该名称仅在安装过程中使用。默认情况下，该文件被命名<span class="w"> </span>prefix/sbin/nginx
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>--conf-path<span class="o">=</span>path<span class="w"> </span>-<span class="w"> </span>设置nginx.conf配置文件的名称。如果需要的话，nginx可以始终使用不同的配置文件启动，只要在命令行参数中指定即可<span class="w"> </span>。默认情况下，该文件被命名<span class="w"> </span>。<span class="w"> </span>-c<span class="w"> </span>fileprefix/conf/nginx.conf
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>--pid-path<span class="o">=</span>path<span class="w"> </span>-<span class="w"> </span>设置将存储主进程的进程ID的nginx.pid文件的名称。安装完成后，可以nginx.conf使用pid指令始终在配置文件中<span class="w"> </span>更改文件名<span class="w"> </span>。默认情况下，该文件被命名<span class="w"> </span>prefix/logs/nginx.pid
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>--error-log-path<span class="o">=</span>path<span class="w"> </span>-<span class="w"> </span>设置主要错误的名称，警告和诊断文件。安装之后，可以nginx.conf使用error_log指令始终在配置文件中<span class="w"> </span>更改文件名<span class="w"> </span>。默认情况下，该文件被命名<span class="w"> </span>prefix/logs/error.log
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>--http-log-path<span class="o">=</span>path<span class="w"> </span>-<span class="w"> </span>设置HTTP服务器的主要请求日志文件的名称。安装完成后，可以nginx.conf使用access_log指令随时在配置文件中<span class="w"> </span>更改文件名<span class="w"> </span>。默认情况下，该文件被命名<span class="w"> </span>prefix/logs/access.log
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>--build<span class="o">=</span>name<span class="w"> </span>-<span class="w"> </span>设置一个可选的nginx构建名称
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>--user<span class="o">=</span>name<span class="w"> </span>-<span class="w"> </span>设置工作进程将使用其凭据的非特权用户的名称。安装完成后，可以nginx.conf使用user指令始终在配置文件中<span class="w"> </span>更改名称<span class="w"> </span>。默认的用户名是nobody
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>--group<span class="o">=</span>name<span class="w"> </span>-<span class="w"> </span>设置工作进程将使用其凭据的组的名称。安装完成后，可以nginx.conf使用user指令始终在配置文件中<span class="w"> </span>更改名称<span class="w"> </span>。默认情况下，组名称设置为非特权用户的名称
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>--with-select_module
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>--without-select_module<span class="w"> </span>-<span class="w"> </span>启用或禁用构建允许服务器使用该select<span class="o">()</span>方法的模块<span class="w"> </span>。如果平台不支持更合适的方法（如kqueue，epoll或/<span class="w"> </span>dev<span class="w"> </span>/<span class="w"> </span>poll），则自动构建此模块
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>--with-poll_module
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>--without-poll_module<span class="w"> </span>-<span class="w"> </span>启用或禁用构建允许服务器使用该poll<span class="o">()</span>方法的模块<span class="w"> </span>。如果平台不支持更合适的方法（如kqueue，epoll或/<span class="w"> </span>dev<span class="w"> </span>/<span class="w"> </span>poll），则自动构建此模块
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>--without-http_gzip_module<span class="w"> </span>-<span class="w"> </span>禁用构建压缩<span class="w"> </span>HTTP服务器响应的模块。zlib库是建立和运行这个模块所必需的
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>--without-http_rewrite_module<span class="w"> </span>-<span class="w"> </span>禁用构建允许HTTP服务器<span class="w"> </span>重定向请求并更改请求URI的模块。PCRE库需要构建和运行这个模块
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a>--without-http_proxy_module<span class="w"> </span>-<span class="w"> </span>禁用构建HTTP服务器代理模块
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a>--with-http_ssl_module<span class="w"> </span>-<span class="w"> </span>可以构建一个模块，将HTTPS协议支持添加到HTTP服务器。该模块不是默认生成的。OpenSSL库需要构建和运行这个模块
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a>--with-pcre<span class="o">=</span>path<span class="w"> </span>-<span class="w"> </span>设置PCRE库源的路径。图书馆发行（版本4.4<span class="w"> </span>-<span class="w"> </span><span class="m">8</span>.41）需要从PCRE网站下载<span class="w"> </span>并提取。其余的是由nginx的./configure和<span class="w"> </span>make。在位置指令和<span class="w"> </span>ngx_http_rewrite_module<span class="w"> </span>模块中，该库是正则表达式支持所必需的
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a>--with-pcre-jit<span class="w"> </span>-<span class="w"> </span>用“即时编译”支持（1.1.12，pcre_jit指令）构建PCRE库
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a>--with-zlib<span class="o">=</span>path<span class="w"> </span>-<span class="w"> </span>设置zlib库的源的路径。库发行版（版本1.1.3<span class="w"> </span>-<span class="w"> </span><span class="m">1</span>.2.11）需要从zlib站点下载<span class="w"> </span>并提取。其余的是由nginx的./configure和<span class="w"> </span>make。该库是ngx_http_gzip_module模块所必需的
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a>--with-cc-opt<span class="o">=</span>parameters<span class="w"> </span>-<span class="w"> </span>设置将被添加到CFLAGS变量的附加参数。在FreeBSD下使用系统PCRE库时，<span class="w"> </span>--with-cc-opt<span class="o">=</span><span class="s2">&quot;-I /usr/local/include&quot;</span><span class="w"> </span>应该指定。如果select<span class="o">()</span>需要增加支持的文件数量，也可以在这里指定如下：<span class="w"> </span>--with-cc-opt<span class="o">=</span><span class="s2">&quot;-D FD_SETSIZE=2048&quot;</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a>--with-ld-opt<span class="o">=</span>parameters<span class="w"> </span>-<span class="w"> </span>设置将在链接期间使用的其他参数。在FreeBSD下使用系统PCRE库时，<span class="w"> </span>--with-ld-opt<span class="o">=</span><span class="s2">&quot;-L /usr/local/lib&quot;</span><span class="w"> </span>应该指定
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a>参数使用示例（所有这些都需要输入一行）：
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a>./configure<span class="w"> </span>--sbin-path<span class="o">=</span>/usr/local/nginx/nginx<span class="w"> </span>--conf-path<span class="o">=</span>/usr/local/nginx/nginx.conf<span class="w"> </span>--pid-path<span class="o">=</span>/usr/local/nginx/nginx.pid<span class="w"> </span>--with-http_ssl_module<span class="w"> </span>--with-pcre<span class="o">=</span>../pcre-8.41<span class="w"> </span>--with-zlib<span class="o">=</span>../zlib-1.2.11
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a>配置完成后，make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install安装
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a>验证nginx是否运行：curl<span class="w"> </span>-I<span class="w"> </span><span class="m">127</span>.0.0.1
+</code></pre></div></td></tr></table></div>
+<h2 id="_1">关于构建模块<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>默认情况下不包括的模块以及第三方模块必须在configure脚本中与其他构建选项一起显式指定。这些模块可以静态链接到NGINX二进制文件（每次NGINX启动时加载它们）或动态加载（只有在NGINX配置文件中包含相关指令时才加载它们
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>默认构建的模块
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>如果您不需要默认构建的模块，可以通过使用脚本--without-&lt;MODULE-NAME&gt;上的选项命名它来禁用它configure，如此示例中禁用Empty<span class="w"> </span>GIF模块（应该键入为单行）：
+</code></pre></div></td></tr></table></div>
+<p>默认构建的模块如下：
+| 模块名称 | 描述 |
+| :------: | :------: |
+| http_access_module | 接受或拒绝来自指定客户端地址的请求。 |
+| http_auth_basic_module | 通过使用HTTP基本身份验证协议验证用户名和密码来限制对资源的访问。 |
+| http_autoindex_module | 处理以正斜杠字符（/）结尾的请求，并生成目录列表。 |
+| http_browser_module | 创建其值取决于User-Agent请求标头值的变量。 |
+| http_charset_module | 将指定的字符集添加到Content-Type响应标头。可以将数据从一个字符集转换为另一个字符集 |
+| http_empty_gif_module | 发出单像素透明GIF。 |
+| http_fastcgi_module | 将请求传递给FastCGI服务器。 |
+| http_geo_module | 使用取决于客户端IP地址的值创建变量。 |
+| http_gzip_module | 使用gzip压缩响应，将传输数据量减少一半或更多。 |
+| http_limit_conn_module | 限制每个定义密钥的连接数，特别是来自单个IP地址的连接数。 |
+| http_limit_req_module | 限制每个定义密钥的请求处理速率，特别是来自单个IP地址的请求的处理速率。 |
+| http_map_module | 创建其值取决于其他变量值的变量。 |
+| http_memcached_module | 将请求传递给memcached服务器。 |
+| http_proxy_module | 将HTTP请求传递给另一台服务器。 |
+| http_referer_module | 在Referer标头中阻止具有无效值的请求。 |
+| http_rewrite_module | 使用正则表达式更改请求URI并返回重定向; 有条件地选择配置。需要PCRE库。 |
+| http_scgi_module | 将请求传递给SCGI服务器。 |
+| http_ssi_module | 在通过它的响应中处理SSI（服务器端包含）命令。 |
+| http_split_clients_module | 创建适合A / B测试的变量，也称为拆分测试。 |
+| http_upstream_hash_module | 启用通用哈希负载平衡方法。 |
+| http_upstream_ip_hash_module | 启用IP哈希负载平衡方法。 |
+| http_upstream_keepalive_module | 启用keepalive连接。 |
+| http_upstream_least_conn_module | 启用最少连接负载平衡方法。 |
+| http_upstream_zone_module | 启用共享内存区域。 |
+| http_userid_module | 设置适合客户识别的cookie。 |
+| http_uwsgi_module | 将请求传递给uwsgi服务器。 |</p>
+<h2 id="_2">包括非默认构建的模块<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>默认情况下不构建许多NGINX模块，必须在configure要构建的命令行中列出
+| 模块名称 | 描述 |
+| :------: | :------: |
+| --with-cpp_test_module | 测试头文件的C ++兼容性。 |
+| --with-debug | 启用调试日志。 |
+| --with-file-aio | 启用异步I / O. |
+| --with-google_perftools_module | 允许使用<a href="https://github.com/gperftools/gperftools">Google Performance</a>工具库 |
+| -- 与-http_addition_module | 在响应之前和之后添加文本。 |
+| -- 与-http_auth_request_module | 根据子请求的结果实现客户端授权。 |
+| -- 与-http_dav_module | 使用WebDAV协议启用文件管理自动化。 |
+| --with-http_degradation_module | 允许在内存大小超过定义的值时返回错误。 |
+| -- 与-http_flv_module | 为Flash Video（FLV）文件提供伪流服务器端支持。 |
+| -- 与-http_geoip_module | 允许创建其值取决于客户端IP地址的变量。该模块使用MaxMind GeoIP数据库。要编译为单独的动态模块，请将选项更改为-with-http_geoip_module = dynamic。 |
+| -- 与-http_gunzip_module | 使用Content-Encoding解压缩响应：gzip用于不支持_zip_ encoding方法的客户端。 |
+| -- 与-http_gzip_static_module | 允许使用.gz文件扩展名而不是常规文件发送预压缩文件。 |
+| -- 与-http_image_filter_module | 以JPEG，GIF和PNG格式转换图像。该模块需要LibGD库。要编译为单独的动态模块，请将选项更改为--with-http_image_filter_module=dynamic。 |
+| -- 与-http_mp4_module | 为MP4文件提供伪流服务器端支持。 |
+| -- 与-http_perl_module | 用于在Perl中实现位置和变量处理程序，并将Perl调用插入SSI。需要PERL库。要编译为单独的动态模块，请将选项更改为--with-http_perl_module=dynamic。 |
+| -- 与-http_random_index_module | 处理以斜杠字符（'/'）结尾的请求，并在目录中选择一个随机文件作为索引文件。 |
+| -- 与-http_realip_module | 将客户端地址更改为在指定的标头字段中发送的地址。 |
+| -- 与-http_secure_link_module | 用于检查请求的链接的真实性，保护资源免受未经授权的访问，并限制链接的生命周期。 |
+| -- 与-http_slice_module | 允许将请求拆分为子请求，每个子请求返回一定范围的响应。提供更有效的大文件缓存。 |
+| -- 与-http_ssl_module | 启用HTTPS支持。需要一个SSL库，如OpenSSL。 |
+| -- 与-http_stub_status_module | 提供对基本状态信息的访问。请注意，NGINX Plus客户不需要此模块，因为它们已经提供了扩展状态指标和交互式仪表板。 |
+| -- 与-http_sub_module | 通过将一个指定的字符串替换为另一个来修改响应。 |
+| -- 与-http_xslt_module | 使用一个或多个XSLT样式表转换XML响应。该模块需要Libxml2和XSLT库。要编译为单独的动态模块，请将选项更改为--with-http_xslt_module=dynamic。 |
+| -- 与-http_v2_module | 启用对HTTP / 2的支持。有关详细信息，请参阅NGINX博客上NGINX中的HTTP / 2模块。 |
+| -- 用邮件 | 启用邮件代理功能。要编译为单独的动态模块，请将选项更改为--with-mail=dynamic。 |
+| -- 与-mail_ssl_module | 为邮件代理服务器提供支持以使用SSL / TLS协议。需要一个SSL库，如OpenSSL。 |
+| -- 与流 | 启用TCP和UDP代理功能。要编译为单独的动态模块，请将选项更改为--with-stream=dynamic。 |
+| -- 与-stream_ssl_module | 为流代理服务器提供支持以使用SSL / TLS协议。需要一个SSL库，如OpenSSL。 |
+| --with-threads | 使NGINX能够使用线程池。有关详细信息，请参阅NGINX Boost Performance 9x中的线程池！在NGINX博客上。 |</p>
+<h2 id="_3">其他模块<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>静态链接模块
+NGINX开源中内置的大多数模块都是静态链接的：它们在编译时内置于NGINX开源中，并静态链接到NGINX二进制文件。 只能通过重新编译NGINX来禁用这些模块。[NGINX Wiki](https://nginx.com/resources/wiki/modules/)中   列出了一些第三方模块
+要使用静态链接的第三方模块编译NGINX Open Source，请--add-module=&lt;PATH&gt;在configure命令中包含选项，   其中&lt;PATH&gt;是源代码的路径（此示例适用于RTMP 模块）：
+./configure ... --add-module = / usr / build / nginx-rtmp-module
+
+动态链接模块
+NGINX模块也可以编译为共享对象（* .so文件），然后在运行时动态加载到NGINX Open Source中。这提供了更大的   灵活性，因为可以通过load_module在NGINX配置文件中添加或删除关联指令并重新加载配置来随时加载或卸载模块。 请注意，模块本身必须支持动态链接
+要使用动态加载的第三方模块编译NGINX Open Source，请--add-dynamic-module=&lt;PATH&gt;在configure命令中 包含选项，其中&lt;PATH&gt;是源代码的路径：
+./configure ... --add-dynamic-module = &lt;PATH&gt;
+生成的* .so文件将写入前缀/ modules /目录，其中前缀是服务器文件的目录，例如/ usr / local / nginx /
+要加载动态模块，请load_module在安装后将指令添加到NGINX配置：
+load_module modules / ngx_mail_module.so;
+</code></pre></div></td></tr></table></div>
+<h2 id="nginx">nginx内核相关参数<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Markdown</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span>
+<span class="normal"><a href="#__codelineno-3-44">44</a></span>
+<span class="normal"><a href="#__codelineno-3-45">45</a></span>
+<span class="normal"><a href="#__codelineno-3-46">46</a></span>
+<span class="normal"><a href="#__codelineno-3-47">47</a></span>
+<span class="normal"><a href="#__codelineno-3-48">48</a></span>
+<span class="normal"><a href="#__codelineno-3-49">49</a></span>
+<span class="normal"><a href="#__codelineno-3-50">50</a></span>
+<span class="normal"><a href="#__codelineno-3-51">51</a></span>
+<span class="normal"><a href="#__codelineno-3-52">52</a></span>
+<span class="normal"><a href="#__codelineno-3-53">53</a></span>
+<span class="normal"><a href="#__codelineno-3-54">54</a></span>
+<span class="normal"><a href="#__codelineno-3-55">55</a></span>
+<span class="normal"><a href="#__codelineno-3-56">56</a></span>
+<span class="normal"><a href="#__codelineno-3-57">57</a></span>
+<span class="normal"><a href="#__codelineno-3-58">58</a></span>
+<span class="normal"><a href="#__codelineno-3-59">59</a></span>
+<span class="normal"><a href="#__codelineno-3-60">60</a></span>
+<span class="normal"><a href="#__codelineno-3-61">61</a></span>
+<span class="normal"><a href="#__codelineno-3-62">62</a></span>
+<span class="normal"><a href="#__codelineno-3-63">63</a></span>
+<span class="normal"><a href="#__codelineno-3-64">64</a></span>
+<span class="normal"><a href="#__codelineno-3-65">65</a></span>
+<span class="normal"><a href="#__codelineno-3-66">66</a></span>
+<span class="normal"><a href="#__codelineno-3-67">67</a></span>
+<span class="normal"><a href="#__codelineno-3-68">68</a></span>
+<span class="normal"><a href="#__codelineno-3-69">69</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="gh"># /etc/sysctl.conf</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="gh"># Avoid a smurf attack</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>net.ipv4.icmp_echo_ignore_broadcasts = 1
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="gh"># Turn on protection for bad icmp error messages</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>net.ipv4.icmp_ignore_bogus_error_responses = 1
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="gh"># Turn on syncookies for SYN flood attack protection</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>net.ipv4.tcp_syncookies = 1
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="gh"># Turn on and log spoofed, source routed, and redirect packets</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>net.ipv4.conf.all.log_martians = 1
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>net.ipv4.conf.default.log_martians = 1
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="gh"># No source routed packets here</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>net.ipv4.conf.all.accept_source_route = 0
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>net.ipv4.conf.default.accept_source_route = 0
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="gh"># Turn on reverse path filtering</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>net.ipv4.conf.all.rp_filter = 1
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>net.ipv4.conf.default.rp_filter = 1
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="gh"># Make sure no one can alter the routing tables</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>net.ipv4.conf.all.accept_redirects = 0
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>net.ipv4.conf.default.accept_redirects = 0
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>net.ipv4.conf.all.secure_redirects = 0
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a>net.ipv4.conf.default.secure_redirects = 0
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="gh"># Don&#39;t act as a router</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>net.ipv4.ip_forward = 0
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a>net.ipv4.conf.all.send_redirects = 0
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a>net.ipv4.conf.default.send_redirects = 0
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="gh"># Turn on execshild</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a>kernel.exec-shield = 1
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a>kernel.randomize_va_space = 1
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="gh"># Tuen IPv6</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a>net.ipv6.conf.default.router_solicitations = 0
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a>net.ipv6.conf.default.accept_ra_rtr_pref = 0
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a>net.ipv6.conf.default.accept_ra_pinfo = 0
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a>net.ipv6.conf.default.accept_ra_defrtr = 0
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a>net.ipv6.conf.default.autoconf = 0
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a>net.ipv6.conf.default.dad_transmits = 0
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a>net.ipv6.conf.default.max_addresses = 1
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="gh"># Optimization for port usefor LBs</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="gh"># Increase system file descriptor limit</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a>fs.file-max = 65535
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a><span class="gh"># Allow for more PIDs (to reduce rollover problems); may break some programs 32768</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a>kernel.pid_max = 65536
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="gh"># Increase system IP port limits</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56"></a>net.ipv4.ip_local_port_range = 2000 65000
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a>
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a><span class="gh"># Increase TCP max buffer size setable using setsockopt()</span>
+<a id="__codelineno-3-59" name="__codelineno-3-59"></a>net.ipv4.tcp_rmem = 4096 87380 8388608
+<a id="__codelineno-3-60" name="__codelineno-3-60"></a>net.ipv4.tcp_wmem = 4096 87380 8388608
+<a id="__codelineno-3-61" name="__codelineno-3-61"></a>
+<a id="__codelineno-3-62" name="__codelineno-3-62"></a><span class="gh"># Increase Linux auto tuning TCP buffer limits</span>
+<a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="gh"># min, default, and max number of bytes to use</span>
+<a id="__codelineno-3-64" name="__codelineno-3-64"></a><span class="gh"># set max to at least 4MB, or higher if you use very high BDP paths</span>
+<a id="__codelineno-3-65" name="__codelineno-3-65"></a><span class="gh"># Tcp Windows etc</span>
+<a id="__codelineno-3-66" name="__codelineno-3-66"></a>net.core.rmem_max = 8388608
+<a id="__codelineno-3-67" name="__codelineno-3-67"></a>net.core.wmem_max = 8388608
+<a id="__codelineno-3-68" name="__codelineno-3-68"></a>net.core.netdev_max_backlog = 5000
+<a id="__codelineno-3-69" name="__codelineno-3-69"></a>net.ipv4.tcp_window_scaling = 1
+</code></pre></div></td></tr></table></div>
+<h2 id="_4">初学者指南<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>要启动nginx，请运行可执行文件。启动nginx后，可以通过使用-s参数调用可执行文件来控制它。使用以下语法：
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>nginx<span class="w"> </span>-s<span class="w"> </span>signal
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>signal可以是下列之一：
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>stop<span class="w"> </span>-<span class="w"> </span>快速关机
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>quit<span class="w"> </span>-<span class="w"> </span>优雅的关机
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>reload<span class="w"> </span>-<span class="w"> </span>重新加载配置文件
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>reopen<span class="w"> </span>-<span class="w"> </span>重新打开日志文件
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>例如，要在等待工作进程完成当前请求的服务时停止nginx进程，可以执行以下命令：
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>nginx<span class="w"> </span>-s<span class="w"> </span>quit
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>此命令应在启动nginx的同一用户下执行
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>nginx由模块组成，模块由配置文件指定的指令控制，指令分为简单指令和块指令，简单指令包括由空格分隔的名称和参数，以分号结尾，块指令和简单指令相同结构，但不以分号结尾，而是以大括号<span class="o">{}</span>包围的一组附加指令结束，若块指令可以在大括号包含其他指令，则称为上下文。如：events,http,server和location
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>放置在任何上下文之外的配置文件中的指令都被认为是在主上下文中。在events和http指令驻留在main上下文server中，http和location在server中
+</code></pre></div></td></tr></table></div>
+<h2 id="_5">静态内容<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>从/data/www目录提供文件，编辑配置文件并使用两个location块在http块内设置server块
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>将html等静态文件放入/data/www，打开配置文件，默认已包含几个server块实例
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>http<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">  </span>server<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">  </span><span class="o">}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="o">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>通常配置文件包括它监听的端口和服务器名称区分的若干个server块，一旦nginx决定对请求进行处理，它根据块的定义的指令参数测试请求头中指定的URI
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>将以下location块添加到server块中
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">  </span>root<span class="w"> </span>/data/ww<span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="o">}</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>此location块指定/与请求中的URI进行比较的“/”前缀。对于匹配请求，URI将添加到root<span class="w"> </span>指令中指定的路径<span class="w"> </span>，即to<span class="w"> </span>/data/www，以形成本地文件系统上所请求文件的路径。如果存在多个匹配location块，则nginx选择具有最长前缀的块。location上面的块提供长度为1的最短前缀，因此只有当所有其他location<span class="w"> </span>块都无法提供匹配时，才会使用此块
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>接着添加第二个location块：
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>location<span class="w"> </span>/images/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">  </span>root<span class="w"> </span>/data<span class="p">;</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="o">}</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>它将匹配以/images/开头的请求<span class="o">(</span>location<span class="w"> </span>/<span class="w"> </span>也匹配此类请求，但前缀更短<span class="o">)</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>server块<span class="w"> </span>的结果配置应如下所示：
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>server<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="w">    </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="w">        </span>root<span class="w"> </span>/data/www<span class="p">;</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="w">    </span>location<span class="w"> </span>/images/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="w">        </span>root<span class="w"> </span>/data<span class="p">;</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_6">设置简单的代理服务器<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span>
+<span class="normal"><a href="#__codelineno-6-29">29</a></span>
+<span class="normal"><a href="#__codelineno-6-30">30</a></span>
+<span class="normal"><a href="#__codelineno-6-31">31</a></span>
+<span class="normal"><a href="#__codelineno-6-32">32</a></span>
+<span class="normal"><a href="#__codelineno-6-33">33</a></span>
+<span class="normal"><a href="#__codelineno-6-34">34</a></span>
+<span class="normal"><a href="#__codelineno-6-35">35</a></span>
+<span class="normal"><a href="#__codelineno-6-36">36</a></span>
+<span class="normal"><a href="#__codelineno-6-37">37</a></span>
+<span class="normal"><a href="#__codelineno-6-38">38</a></span>
+<span class="normal"><a href="#__codelineno-6-39">39</a></span>
+<span class="normal"><a href="#__codelineno-6-40">40</a></span>
+<span class="normal"><a href="#__codelineno-6-41">41</a></span>
+<span class="normal"><a href="#__codelineno-6-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>nginx可以用作代理服务器，即服务器接受请求，将这些请求传递给代理服务器，从中检索响应，然后返回给客户端
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>我们将配置一个基本代理服务器，它使用来自本地目录的文件处理图像请求，并将所有其他请求发送到代理服务器。在此示例中，将在单个nginx实例上定义两个服务器
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>向server<span class="w"> </span>nginx的配置文件添加一个以上内容来定义代理服务器，其中包含以下内容：
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>server<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span>listen<span class="w"> </span><span class="m">8080</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span>root<span class="w"> </span>/data/up1<span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="o">}</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>这将是一个侦听端口8080的简单服务器（之前，listen自使用标准端口80以来未指定该指令）并将所有请求映射到/data/up1本地文件系统上的目录。创建此目录并将index.html文件放入其中。请注意，该root指令放在<span class="w"> </span>server上下文中，当location选择用于提供请求的块不包括自己的root指令时，使用这样的指令
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>接下来，使用上一节中的服务器配置并对其进行修改以使其成为代理服务器配置。在第一个location块中，将<span class="w"> </span>proxy_pass<span class="w"> </span>指令与参数中指定的代理服务器的协议，名称和端口放在一起（在我们的示例中，它是http://localhost:8080）：
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>server<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">    </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">        </span>proxy_pass<span class="w"> </span>http：//localhost：8080<span class="p">;</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">    </span>location<span class="w"> </span>/<span class="w"> </span>images<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">        </span>root<span class="w"> </span>/<span class="w"> </span>data<span class="p">;</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="o">}</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>我们将修改第二个location<span class="w"> </span>块，该块当前将带有/images/前缀的请求映射到目录下的/data/images文件，以使其与具有典型文件扩展名的图像请求相匹配。修改后的location块看起来像这样：
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>location<span class="w"> </span>~<span class="w"> </span><span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpg<span class="p">|</span>png<span class="o">)</span>$<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="w">    </span>root<span class="w"> </span>/data/images<span class="p">;</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="o">}</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>该参数是一个正则表达式匹配结尾的所有URI<span class="w"> </span>.gif，.jpg或.png。应该以正则表达式开头~。相应的请求将映射到该/data/images<span class="w"> </span>目录
+<a id="__codelineno-6-30" name="__codelineno-6-30"></a>
+<a id="__codelineno-6-31" name="__codelineno-6-31"></a>当nginx选择一个location块来提供请求时，它首先检查<span class="w"> </span>指定前缀的位置指令，记住location<span class="w"> </span>最长的前缀，然后检查正则表达式。如果与正则表达式匹配，则nginx选择此项<span class="w"> </span>location，否则，它会选择之前记住的那个
+<a id="__codelineno-6-32" name="__codelineno-6-32"></a>生成的代理服务器配置如下所示：
+<a id="__codelineno-6-33" name="__codelineno-6-33"></a>server<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="w">    </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35"></a><span class="w">        </span>proxy_pass<span class="w"> </span>http://localhost:8080/<span class="p">;</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37"></a>
+<a id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="w">    </span>location<span class="w"> </span>~<span class="w"> </span><span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpg<span class="p">|</span>png<span class="o">)</span>$<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="w">        </span>root<span class="w"> </span>/data/images<span class="p">;</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41"></a><span class="o">}</span>
+<a id="__codelineno-6-42" name="__codelineno-6-42"></a>此服务器将过滤以.gif.jpg或者.png<span class="w"> </span>将其映射到/data/images目录的请求（通过向root指令的参数添加URI<span class="w"> </span>）并将所有其他请求传递给上面配置的代理服务器
+</code></pre></div></td></tr></table></div>
+<h2 id="fastcgi">设置FastCGI代理<a class="headerlink" href="#fastcgi" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>nginx可用于将请求路由到FastCGI服务器，这些服务器运行使用各种框架和编程语言（如PHP）构建的应用程序
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>使用FastCGI服务器的最基本的nginx配置包括使用<span class="w"> </span>fastcgi_pass<span class="w"> </span>指令而不是proxy_pass指令，以及fastcgi_param<span class="w"> </span>指令来设置传递给FastCGI服务器的参数。假设可以访问FastCGI服务器localhost:9000。以上一节中的代理配置为基础，将proxy_pass指令替换为指令<span class="w"> </span>fastcgi_pass并将参数更改为<span class="w"> </span>localhost:9000。在PHP中，该SCRIPT_FILENAME参数用于确定脚本名称，该QUERY_STRING<span class="w"> </span>参数用于传递请求参数。结果配置为：
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>server<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">        </span>fastcgi_pass<span class="w">  </span>localhost:9000<span class="p">;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">        </span>fastcgi_param<span class="w"> </span>SCRIPT_FILENAME<span class="w"> </span><span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span>fastcgi_param<span class="w"> </span>QUERY_STRING<span class="w">    </span><span class="nv">$query_string</span><span class="p">;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">    </span>location<span class="w"> </span>~<span class="w"> </span><span class="se">\.</span><span class="o">(</span>gif<span class="p">|</span>jpg<span class="p">|</span>png<span class="o">)</span>$<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span>root<span class="w"> </span>/data/images<span class="p">;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="o">}</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>这将设置一个服务器，该服务器将除静态图像请求之外的所有请求路由到localhost:9000通过FastCGI协议操作的代理服务器
+</code></pre></div></td></tr></table></div>
+<h2 id="nginxconf">Nginx的conf配置文件详解<a class="headerlink" href="#nginxconf" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Nginx Configuration File</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span>
+<span class="normal"><a href="#__codelineno-8-26">26</a></span>
+<span class="normal"><a href="#__codelineno-8-27">27</a></span>
+<span class="normal"><a href="#__codelineno-8-28">28</a></span>
+<span class="normal"><a href="#__codelineno-8-29">29</a></span>
+<span class="normal"><a href="#__codelineno-8-30">30</a></span>
+<span class="normal"><a href="#__codelineno-8-31">31</a></span>
+<span class="normal"><a href="#__codelineno-8-32">32</a></span>
+<span class="normal"><a href="#__codelineno-8-33">33</a></span>
+<span class="normal"><a href="#__codelineno-8-34">34</a></span>
+<span class="normal"><a href="#__codelineno-8-35">35</a></span>
+<span class="normal"><a href="#__codelineno-8-36">36</a></span>
+<span class="normal"><a href="#__codelineno-8-37">37</a></span>
+<span class="normal"><a href="#__codelineno-8-38">38</a></span>
+<span class="normal"><a href="#__codelineno-8-39">39</a></span>
+<span class="normal"><a href="#__codelineno-8-40">40</a></span>
+<span class="normal"><a href="#__codelineno-8-41">41</a></span>
+<span class="normal"><a href="#__codelineno-8-42">42</a></span>
+<span class="normal"><a href="#__codelineno-8-43">43</a></span>
+<span class="normal"><a href="#__codelineno-8-44">44</a></span>
+<span class="normal"><a href="#__codelineno-8-45">45</a></span>
+<span class="normal"><a href="#__codelineno-8-46">46</a></span>
+<span class="normal"><a href="#__codelineno-8-47">47</a></span>
+<span class="normal"><a href="#__codelineno-8-48">48</a></span>
+<span class="normal"><a href="#__codelineno-8-49">49</a></span>
+<span class="normal"><a href="#__codelineno-8-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">nginx及其模块的工作方式在配置文件中确定。默认情况下，配置文件被命名nginx.conf</span><span class="w"> </span><span class="s">并放在目录</span><span class="w"> </span><span class="s">/usr/local/nginx/conf中</span><span class="w"> </span><span class="s">/etc/nginx，或</span><span class="w"> </span><span class="s">/usr/local/etc/nginx</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="s">特定于功能的配置文件</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="s">为了使配置更易于维护，我们建议您将其拆分为一组存储在/etc/nginx/conf.d目录中的特定于功能的文件，并使用include主nginx.conf文件中的指令来引用其中的内容</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="s">include</span><span class="w"> </span><span class="s">conf.d/http</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="k">include</span><span class="w"> </span><span class="n">conf.d/stream</span>;
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="k">include</span><span class="w"> </span><span class="n">conf.d/exchange-enhanced</span>;
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="k">一些顶级指令（称为Contexts）将适用于不同流量类型的指令组合在一起</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="s">events</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="s">一般连接处理</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="s">http</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="s">HTTP流量</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="s">mail</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="s">邮件流量</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="s">stream</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="s">TCP和UDP流量</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="s">在每个流量处理上下文中，您包含一个或多个server块来定义控制请求处理的虚拟服务器。您可以在server上下文中包含的指令因流量类型而异</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="s">对于HTTP流量（http上下文），每个server指令控制对特定域或IP地址的资源请求的处理。location上下文中的一个或多个server上下文定义了如何处理特定的URI集</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="s">对于邮件和TCP</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="s">UDP流量（mail和stream上下文），server指令各自控制到达特定TCP端口或UNIX套接字的流量的处理</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="s">例如：</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="s">user</span><span class="w"> </span><span class="s">nobody</span><span class="p">;</span><span class="w"> </span><span class="c1"># a directive in the &#39;main&#39; context</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a><span class="k">events</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="w">    </span><span class="c1"># configuration of connection processing</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="p">}</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a><span class="w">    </span><span class="c1"># Configuration specific to HTTP and affecting all virtual servers</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a><span class="w">        </span><span class="c1"># configuration of HTTP virtual server 1</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a><span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/one</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a><span class="w">            </span><span class="c1"># configuration for processing URIs starting with &#39;/one&#39;</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35"></a><span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/two</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36"></a><span class="w">            </span><span class="c1"># configuration for processing URIs starting with &#39;/two&#39;</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39"></a>
+<a id="__codelineno-8-40" name="__codelineno-8-40"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41"></a><span class="w">        </span><span class="c1"># configuration of HTTP virtual server 2</span>
+<a id="__codelineno-8-42" name="__codelineno-8-42"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43"></a><span class="p">}</span>
+<a id="__codelineno-8-44" name="__codelineno-8-44"></a>
+<a id="__codelineno-8-45" name="__codelineno-8-45"></a><span class="k">stream</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-46" name="__codelineno-8-46"></a><span class="w">    </span><span class="c1"># Configuration specific to TCP/UDP and affecting all virtual servers</span>
+<a id="__codelineno-8-47" name="__codelineno-8-47"></a><span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-48" name="__codelineno-8-48"></a><span class="w">        </span><span class="c1"># configuration of TCP virtual server 1</span>
+<a id="__codelineno-8-49" name="__codelineno-8-49"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-50" name="__codelineno-8-50"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-9-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-9-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-9-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-9-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-9-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-9-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-9-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-9-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-9-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-9-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-9-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-9-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-9-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-9-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-9-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-9-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-9-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-9-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-9-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-9-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-9-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-9-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-9-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-9-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-9-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-9-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-9-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-9-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-9-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-9-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-9-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-9-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-9-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-9-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-9-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-9-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-9-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-9-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-9-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-9-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-9-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-9-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-9-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-9-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-9-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-9-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-9-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-9-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-9-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-9-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-9-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-9-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-9-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-9-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-9-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-9-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-9-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-9-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-9-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-9-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-9-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-9-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-9-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-9-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-9-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-9-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-9-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-9-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-9-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-9-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-9-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-9-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-9-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-9-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-9-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-9-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-9-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-9-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-9-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-9-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-9-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-9-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-9-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-9-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-9-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-9-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-9-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-9-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-9-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-9-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-9-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-9-100">100</a></span>
+<span class="normal"><a href="#__codelineno-9-101">101</a></span>
+<span class="normal"><a href="#__codelineno-9-102">102</a></span>
+<span class="normal"><a href="#__codelineno-9-103">103</a></span>
+<span class="normal"><a href="#__codelineno-9-104">104</a></span>
+<span class="normal"><a href="#__codelineno-9-105">105</a></span>
+<span class="normal"><a href="#__codelineno-9-106">106</a></span>
+<span class="normal"><a href="#__codelineno-9-107">107</a></span>
+<span class="normal"><a href="#__codelineno-9-108">108</a></span>
+<span class="normal"><a href="#__codelineno-9-109">109</a></span>
+<span class="normal"><a href="#__codelineno-9-110">110</a></span>
+<span class="normal"><a href="#__codelineno-9-111">111</a></span>
+<span class="normal"><a href="#__codelineno-9-112">112</a></span>
+<span class="normal"><a href="#__codelineno-9-113">113</a></span>
+<span class="normal"><a href="#__codelineno-9-114">114</a></span>
+<span class="normal"><a href="#__codelineno-9-115">115</a></span>
+<span class="normal"><a href="#__codelineno-9-116">116</a></span>
+<span class="normal"><a href="#__codelineno-9-117">117</a></span>
+<span class="normal"><a href="#__codelineno-9-118">118</a></span>
+<span class="normal"><a href="#__codelineno-9-119">119</a></span>
+<span class="normal"><a href="#__codelineno-9-120">120</a></span>
+<span class="normal"><a href="#__codelineno-9-121">121</a></span>
+<span class="normal"><a href="#__codelineno-9-122">122</a></span>
+<span class="normal"><a href="#__codelineno-9-123">123</a></span>
+<span class="normal"><a href="#__codelineno-9-124">124</a></span>
+<span class="normal"><a href="#__codelineno-9-125">125</a></span>
+<span class="normal"><a href="#__codelineno-9-126">126</a></span>
+<span class="normal"><a href="#__codelineno-9-127">127</a></span>
+<span class="normal"><a href="#__codelineno-9-128">128</a></span>
+<span class="normal"><a href="#__codelineno-9-129">129</a></span>
+<span class="normal"><a href="#__codelineno-9-130">130</a></span>
+<span class="normal"><a href="#__codelineno-9-131">131</a></span>
+<span class="normal"><a href="#__codelineno-9-132">132</a></span>
+<span class="normal"><a href="#__codelineno-9-133">133</a></span>
+<span class="normal"><a href="#__codelineno-9-134">134</a></span>
+<span class="normal"><a href="#__codelineno-9-135">135</a></span>
+<span class="normal"><a href="#__codelineno-9-136">136</a></span>
+<span class="normal"><a href="#__codelineno-9-137">137</a></span>
+<span class="normal"><a href="#__codelineno-9-138">138</a></span>
+<span class="normal"><a href="#__codelineno-9-139">139</a></span>
+<span class="normal"><a href="#__codelineno-9-140">140</a></span>
+<span class="normal"><a href="#__codelineno-9-141">141</a></span>
+<span class="normal"><a href="#__codelineno-9-142">142</a></span>
+<span class="normal"><a href="#__codelineno-9-143">143</a></span>
+<span class="normal"><a href="#__codelineno-9-144">144</a></span>
+<span class="normal"><a href="#__codelineno-9-145">145</a></span>
+<span class="normal"><a href="#__codelineno-9-146">146</a></span>
+<span class="normal"><a href="#__codelineno-9-147">147</a></span>
+<span class="normal"><a href="#__codelineno-9-148">148</a></span>
+<span class="normal"><a href="#__codelineno-9-149">149</a></span>
+<span class="normal"><a href="#__codelineno-9-150">150</a></span>
+<span class="normal"><a href="#__codelineno-9-151">151</a></span>
+<span class="normal"><a href="#__codelineno-9-152">152</a></span>
+<span class="normal"><a href="#__codelineno-9-153">153</a></span>
+<span class="normal"><a href="#__codelineno-9-154">154</a></span>
+<span class="normal"><a href="#__codelineno-9-155">155</a></span>
+<span class="normal"><a href="#__codelineno-9-156">156</a></span>
+<span class="normal"><a href="#__codelineno-9-157">157</a></span>
+<span class="normal"><a href="#__codelineno-9-158">158</a></span>
+<span class="normal"><a href="#__codelineno-9-159">159</a></span>
+<span class="normal"><a href="#__codelineno-9-160">160</a></span>
+<span class="normal"><a href="#__codelineno-9-161">161</a></span>
+<span class="normal"><a href="#__codelineno-9-162">162</a></span>
+<span class="normal"><a href="#__codelineno-9-163">163</a></span>
+<span class="normal"><a href="#__codelineno-9-164">164</a></span>
+<span class="normal"><a href="#__codelineno-9-165">165</a></span>
+<span class="normal"><a href="#__codelineno-9-166">166</a></span>
+<span class="normal"><a href="#__codelineno-9-167">167</a></span>
+<span class="normal"><a href="#__codelineno-9-168">168</a></span>
+<span class="normal"><a href="#__codelineno-9-169">169</a></span>
+<span class="normal"><a href="#__codelineno-9-170">170</a></span>
+<span class="normal"><a href="#__codelineno-9-171">171</a></span>
+<span class="normal"><a href="#__codelineno-9-172">172</a></span>
+<span class="normal"><a href="#__codelineno-9-173">173</a></span>
+<span class="normal"><a href="#__codelineno-9-174">174</a></span>
+<span class="normal"><a href="#__codelineno-9-175">175</a></span>
+<span class="normal"><a href="#__codelineno-9-176">176</a></span>
+<span class="normal"><a href="#__codelineno-9-177">177</a></span>
+<span class="normal"><a href="#__codelineno-9-178">178</a></span>
+<span class="normal"><a href="#__codelineno-9-179">179</a></span>
+<span class="normal"><a href="#__codelineno-9-180">180</a></span>
+<span class="normal"><a href="#__codelineno-9-181">181</a></span>
+<span class="normal"><a href="#__codelineno-9-182">182</a></span>
+<span class="normal"><a href="#__codelineno-9-183">183</a></span>
+<span class="normal"><a href="#__codelineno-9-184">184</a></span>
+<span class="normal"><a href="#__codelineno-9-185">185</a></span>
+<span class="normal"><a href="#__codelineno-9-186">186</a></span>
+<span class="normal"><a href="#__codelineno-9-187">187</a></span>
+<span class="normal"><a href="#__codelineno-9-188">188</a></span>
+<span class="normal"><a href="#__codelineno-9-189">189</a></span>
+<span class="normal"><a href="#__codelineno-9-190">190</a></span>
+<span class="normal"><a href="#__codelineno-9-191">191</a></span>
+<span class="normal"><a href="#__codelineno-9-192">192</a></span>
+<span class="normal"><a href="#__codelineno-9-193">193</a></span>
+<span class="normal"><a href="#__codelineno-9-194">194</a></span>
+<span class="normal"><a href="#__codelineno-9-195">195</a></span>
+<span class="normal"><a href="#__codelineno-9-196">196</a></span>
+<span class="normal"><a href="#__codelineno-9-197">197</a></span>
+<span class="normal"><a href="#__codelineno-9-198">198</a></span>
+<span class="normal"><a href="#__codelineno-9-199">199</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>#定义Nginx运行的用户和用户组
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>user www www;
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>#nginx进程数，建议设置为等于CPU总核心数
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>worker_processes auto;
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>error_log /var/log/nginx/error.log crit;
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>#进程文件
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>pid /var/run/nginx.pid;
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>#一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（系统的值ulimit -n）与nginx进程数相除，但是nginx分配请求并不均匀，所以建议与ulimit -n的值保持一致
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>worker_rlimit_nofile 65535;
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>#工作模式与连接数上限
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>events
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>{
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>#参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的多路复用高性能网络I/O模型，如果跑在FreeBSD上面，就用kqueue模型
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>use epoll;
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>#单个进程最大并发连接数（最大连接数=连接数*进程数）
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a>worker_connections 65535;
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>
+<a id="__codelineno-9-24" name="__codelineno-9-24"></a># 并发总数是 worker_processes 和 worker_connections 的乘积,即 max_clients = worker_processes * worker_connections
+<a id="__codelineno-9-25" name="__codelineno-9-25"></a># 在设置了反向代理的情况下，max_clients = worker_processes *worker_connections / 4
+<a id="__codelineno-9-26" name="__codelineno-9-26"></a># 为什么上面反向代理要除以4，应该说是一个经验值
+<a id="__codelineno-9-27" name="__codelineno-9-27"></a># 根据以上条件，正常情况下的Nginx Server可以应付的最大连接数为：4* 8000 = 32000
+<a id="__codelineno-9-28" name="__codelineno-9-28"></a># worker_connections 值的设置跟物理内存大小有关
+<a id="__codelineno-9-29" name="__codelineno-9-29"></a># 因为并发受IO约束，max_clients的值须小于系统可以打开的最大文件数
+<a id="__codelineno-9-30" name="__codelineno-9-30"></a># 而系统可以打开的最大文件数和内存大小成正比，一般1GB内存的机器上以打开的文件数大约是10万左右
+<a id="__codelineno-9-31" name="__codelineno-9-31"></a># 我们来看看360M内存的VPS可以打开的文件句柄数是多少：
+<a id="__codelineno-9-32" name="__codelineno-9-32"></a># $ cat /proc/sys/fs/file-max
+<a id="__codelineno-9-33" name="__codelineno-9-33"></a># 输出 34336
+<a id="__codelineno-9-34" name="__codelineno-9-34"></a># 32000 &lt; 34336，即并发连接总数小于系统可以打开的文件句柄总数，样就在操作系统可以承受的范围之内
+<a id="__codelineno-9-35" name="__codelineno-9-35"></a># 所以，worker_connections 的值需根据 worker_processes 进程数和系统可以打开的最大文件总数进行适当地进行设置
+<a id="__codelineno-9-36" name="__codelineno-9-36"></a># 使得并发总数小于操作系统可以打开的最大文件数目
+<a id="__codelineno-9-37" name="__codelineno-9-37"></a># 其实质也就是根据主机的物理CPU和内存进行配置
+<a id="__codelineno-9-38" name="__codelineno-9-38"></a># 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的作进程需要消耗系统资源
+<a id="__codelineno-9-39" name="__codelineno-9-39"></a># ulimit -SHn 65535
+<a id="__codelineno-9-40" name="__codelineno-9-40"></a>
+<a id="__codelineno-9-41" name="__codelineno-9-41"></a>multi_accept on;
+<a id="__codelineno-9-42" name="__codelineno-9-42"></a>}
+<a id="__codelineno-9-43" name="__codelineno-9-43"></a>
+<a id="__codelineno-9-44" name="__codelineno-9-44"></a>#设定http服务器
+<a id="__codelineno-9-45" name="__codelineno-9-45"></a>http
+<a id="__codelineno-9-46" name="__codelineno-9-46"></a>{
+<a id="__codelineno-9-47" name="__codelineno-9-47"></a>include mime.types; #文件扩展名与文件类型映射表
+<a id="__codelineno-9-48" name="__codelineno-9-48"></a>default_type application/octet-stream; #默认文件类型
+<a id="__codelineno-9-49" name="__codelineno-9-49"></a>#charset utf-8; #默认编码
+<a id="__codelineno-9-50" name="__codelineno-9-50"></a>server_names_hash_bucket_size 128; #服务器名字的hash表大小
+<a id="__codelineno-9-51" name="__codelineno-9-51"></a>client_header_buffer_size 32k; #上传文件大小限制
+<a id="__codelineno-9-52" name="__codelineno-9-52"></a>large_client_header_buffers 4 64k; #设定请求缓存
+<a id="__codelineno-9-53" name="__codelineno-9-53"></a>client_max_body_size 8m; #设定请求缓存
+<a id="__codelineno-9-54" name="__codelineno-9-54"></a>sendfile on; #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数（zero copy 方式）来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off
+<a id="__codelineno-9-55" name="__codelineno-9-55"></a>autoindex on; #开启目录列表访问，合适下载服务器，默认关闭
+<a id="__codelineno-9-56" name="__codelineno-9-56"></a>tcp_nopush on; #防止网络阻塞
+<a id="__codelineno-9-57" name="__codelineno-9-57"></a>tcp_nodelay on; #防止网络阻塞
+<a id="__codelineno-9-58" name="__codelineno-9-58"></a>keepalive_timeout 120; #长连接超时时间，单位是秒
+<a id="__codelineno-9-59" name="__codelineno-9-59"></a>
+<a id="__codelineno-9-60" name="__codelineno-9-60"></a>#FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解
+<a id="__codelineno-9-61" name="__codelineno-9-61"></a>fastcgi_connect_timeout 60; # 默认60s，建立连接越多消耗资源越多
+<a id="__codelineno-9-62" name="__codelineno-9-62"></a>fastcgi_send_timeout 60;
+<a id="__codelineno-9-63" name="__codelineno-9-63"></a>fastcgi_read_timeout 60;
+<a id="__codelineno-9-64" name="__codelineno-9-64"></a>fastcgi_buffer_size 64k;
+<a id="__codelineno-9-65" name="__codelineno-9-65"></a>fastcgi_buffers 4 64k;
+<a id="__codelineno-9-66" name="__codelineno-9-66"></a>fastcgi_busy_buffers_size 128k;
+<a id="__codelineno-9-67" name="__codelineno-9-67"></a>fastcgi_temp_file_write_size 256k;
+<a id="__codelineno-9-68" name="__codelineno-9-68"></a>fastcgi_intercept_errors on;
+<a id="__codelineno-9-69" name="__codelineno-9-69"></a>fastcgi_cache_valid 200 302 1h; # 指定应答代码缓存时间
+<a id="__codelineno-9-70" name="__codelineno-9-70"></a>fastcgi_cache_min_uses 1; # 请求几次响应后将被缓存，1表示一次就缓存
+<a id="__codelineno-9-71" name="__codelineno-9-71"></a>fastcgi_cache_use_stale error timeout invalid_header http_500;  # 定义那种情况下使用过期缓存
+<a id="__codelineno-9-72" name="__codelineno-9-72"></a>fastcgi_cache_key $request_method://$host$request_uri;  # 此示例以请求的uri作为缓存的key值
+<a id="__codelineno-9-73" name="__codelineno-9-73"></a>
+<a id="__codelineno-9-74" name="__codelineno-9-74"></a>#gzip模块设置
+<a id="__codelineno-9-75" name="__codelineno-9-75"></a>gzip on; #开启gzip压缩输出
+<a id="__codelineno-9-76" name="__codelineno-9-76"></a>gzip_min_length 1k; #最小压缩文件大小
+<a id="__codelineno-9-77" name="__codelineno-9-77"></a>gzip_buffers 4 16k; #压缩缓冲区
+<a id="__codelineno-9-78" name="__codelineno-9-78"></a>gzip_http_version 1.1; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）
+<a id="__codelineno-9-79" name="__codelineno-9-79"></a>gzip_comp_level 2; #压缩等级
+<a id="__codelineno-9-80" name="__codelineno-9-80"></a>gzip_types text/plain application/x-javascript text/javascript text/css application/xml;
+<a id="__codelineno-9-81" name="__codelineno-9-81"></a>#压缩类型，默认就已经包含text/html，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn
+<a id="__codelineno-9-82" name="__codelineno-9-82"></a>gzip_vary on;
+<a id="__codelineno-9-83" name="__codelineno-9-83"></a>#limit_zone crawler $binary_remote_addr 10m; #开启限制IP连接数的时候需要使用
+<a id="__codelineno-9-84" name="__codelineno-9-84"></a>gzip_proxied   expired no-cache no-store private auth;
+<a id="__codelineno-9-85" name="__codelineno-9-85"></a>gzip_disable   &quot;MSIE [1-6]\.&quot;;
+<a id="__codelineno-9-86" name="__codelineno-9-86"></a>limit_conn_zone $binary_remote_addr zone=perip:10m;
+<a id="__codelineno-9-87" name="__codelineno-9-87"></a>limit_conn_zone $server_name zone=perserver:10m;
+<a id="__codelineno-9-88" name="__codelineno-9-88"></a>
+<a id="__codelineno-9-89" name="__codelineno-9-89"></a>server_tokens off;
+<a id="__codelineno-9-90" name="__codelineno-9-90"></a>access_log off;
+<a id="__codelineno-9-91" name="__codelineno-9-91"></a>
+<a id="__codelineno-9-92" name="__codelineno-9-92"></a>upstream www.19950128.com {
+<a id="__codelineno-9-93" name="__codelineno-9-93"></a>#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大
+<a id="__codelineno-9-94" name="__codelineno-9-94"></a>server 192.168.80.121:80 weight=3;
+<a id="__codelineno-9-95" name="__codelineno-9-95"></a>server 192.168.80.122:80 weight=2;
+<a id="__codelineno-9-96" name="__codelineno-9-96"></a>server 192.168.80.123:80 weight=3;
+<a id="__codelineno-9-97" name="__codelineno-9-97"></a>}
+<a id="__codelineno-9-98" name="__codelineno-9-98"></a>
+<a id="__codelineno-9-99" name="__codelineno-9-99"></a>#虚拟主机的配置
+<a id="__codelineno-9-100" name="__codelineno-9-100"></a>server
+<a id="__codelineno-9-101" name="__codelineno-9-101"></a>{
+<a id="__codelineno-9-102" name="__codelineno-9-102"></a>  #监听端口
+<a id="__codelineno-9-103" name="__codelineno-9-103"></a>  listen 80;
+<a id="__codelineno-9-104" name="__codelineno-9-104"></a>  #域名可以有多个，用空格隔开
+<a id="__codelineno-9-105" name="__codelineno-9-105"></a>  server_name www.19950128.com;
+<a id="__codelineno-9-106" name="__codelineno-9-106"></a>  index index.html index.htm index.php;
+<a id="__codelineno-9-107" name="__codelineno-9-107"></a>  root /data/www/;
+<a id="__codelineno-9-108" name="__codelineno-9-108"></a>
+<a id="__codelineno-9-109" name="__codelineno-9-109"></a>  #error_page   404   /404.html;
+<a id="__codelineno-9-110" name="__codelineno-9-110"></a>  include enable-php.conf;
+<a id="__codelineno-9-111" name="__codelineno-9-111"></a>
+<a id="__codelineno-9-112" name="__codelineno-9-112"></a>  location ~ .*\.(php|php5|)?$
+<a id="__codelineno-9-113" name="__codelineno-9-113"></a>  {
+<a id="__codelineno-9-114" name="__codelineno-9-114"></a>  fastcgi_pass 127.0.0.1:9000;
+<a id="__codelineno-9-115" name="__codelineno-9-115"></a>  fastcgi_index index.php;
+<a id="__codelineno-9-116" name="__codelineno-9-116"></a>  include fastcgi.conf;
+<a id="__codelineno-9-117" name="__codelineno-9-117"></a>  }
+<a id="__codelineno-9-118" name="__codelineno-9-118"></a>  #图片缓存时间设置
+<a id="__codelineno-9-119" name="__codelineno-9-119"></a>  location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+<a id="__codelineno-9-120" name="__codelineno-9-120"></a>  {
+<a id="__codelineno-9-121" name="__codelineno-9-121"></a>  expires 10d;
+<a id="__codelineno-9-122" name="__codelineno-9-122"></a>  }
+<a id="__codelineno-9-123" name="__codelineno-9-123"></a>  #JS和CSS缓存时间设置
+<a id="__codelineno-9-124" name="__codelineno-9-124"></a>  location ~ .*\.(js|css)?$
+<a id="__codelineno-9-125" name="__codelineno-9-125"></a>  {
+<a id="__codelineno-9-126" name="__codelineno-9-126"></a>  expires 1h;
+<a id="__codelineno-9-127" name="__codelineno-9-127"></a>  }
+<a id="__codelineno-9-128" name="__codelineno-9-128"></a>  # 定义错误提示页面
+<a id="__codelineno-9-129" name="__codelineno-9-129"></a>  error_page   500 502 503 504 /50x.html;
+<a id="__codelineno-9-130" name="__codelineno-9-130"></a>  location = /50x.html {
+<a id="__codelineno-9-131" name="__codelineno-9-131"></a>  }
+<a id="__codelineno-9-132" name="__codelineno-9-132"></a>  #日志格式1
+<a id="__codelineno-9-133" name="__codelineno-9-133"></a>  log_format access &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+<a id="__codelineno-9-134" name="__codelineno-9-134"></a>  &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+<a id="__codelineno-9-135" name="__codelineno-9-135"></a>  &#39;&quot;$http_user_agent&quot; $http_x_forwarded_for&#39;;
+<a id="__codelineno-9-136" name="__codelineno-9-136"></a># 日志格式2
+<a id="__codelineno-9-137" name="__codelineno-9-137"></a>log_format custom &#39;$remote_addr - $remote_user [$time_local] &#39;
+<a id="__codelineno-9-138" name="__codelineno-9-138"></a>&#39;&quot;$request&quot; $status $body_bytes_sent &#39;
+<a id="__codelineno-9-139" name="__codelineno-9-139"></a>&#39;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &#39;
+<a id="__codelineno-9-140" name="__codelineno-9-140"></a>&#39;&quot;$http_x_forwarded_for&quot; $request_id &#39;
+<a id="__codelineno-9-141" name="__codelineno-9-141"></a>&#39;$geoip_country_name $geoip_country_code &#39;
+<a id="__codelineno-9-142" name="__codelineno-9-142"></a>&#39;$geoip_region_name $geoip_city &#39;;
+<a id="__codelineno-9-143" name="__codelineno-9-143"></a>  #定义本虚拟主机的访问日志
+<a id="__codelineno-9-144" name="__codelineno-9-144"></a>  access_log /var/log/nginx/access.log;
+<a id="__codelineno-9-145" name="__codelineno-9-145"></a>
+<a id="__codelineno-9-146" name="__codelineno-9-146"></a>  #对 &quot;/&quot; 启用反向代理
+<a id="__codelineno-9-147" name="__codelineno-9-147"></a>  location / {
+<a id="__codelineno-9-148" name="__codelineno-9-148"></a>  proxy_pass http://127.0.0.1:88;
+<a id="__codelineno-9-149" name="__codelineno-9-149"></a>  proxy_redirect off;
+<a id="__codelineno-9-150" name="__codelineno-9-150"></a>  proxy_set_header X-Real-IP $remote_addr;
+<a id="__codelineno-9-151" name="__codelineno-9-151"></a>  #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
+<a id="__codelineno-9-152" name="__codelineno-9-152"></a>  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+<a id="__codelineno-9-153" name="__codelineno-9-153"></a>  #以下是一些反向代理的配置，可选
+<a id="__codelineno-9-154" name="__codelineno-9-154"></a>  proxy_set_header Host $host;
+<a id="__codelineno-9-155" name="__codelineno-9-155"></a>  client_max_body_size 10m; #允许客户端请求的最大单文件字节数
+<a id="__codelineno-9-156" name="__codelineno-9-156"></a>  client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数
+<a id="__codelineno-9-157" name="__codelineno-9-157"></a>  proxy_connect_timeout 90; #nginx跟后端服务器连接超时时间(代理连接超时)
+<a id="__codelineno-9-158" name="__codelineno-9-158"></a>  proxy_send_timeout 90; #后端服务器数据回传时间(代理发送超时)
+<a id="__codelineno-9-159" name="__codelineno-9-159"></a>  proxy_read_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)
+<a id="__codelineno-9-160" name="__codelineno-9-160"></a>  proxy_buffer_size 4k; #设置代理服务器（nginx）保存用户头信息的缓冲区大小
+<a id="__codelineno-9-161" name="__codelineno-9-161"></a>  proxy_buffers 4 32k; #proxy_buffers缓冲区，网页平均在32k以下的设置
+<a id="__codelineno-9-162" name="__codelineno-9-162"></a>  proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2）
+<a id="__codelineno-9-163" name="__codelineno-9-163"></a>  proxy_temp_file_write_size 64k;
+<a id="__codelineno-9-164" name="__codelineno-9-164"></a>  #设定缓存文件夹大小，大于这个值，将从upstream服务器传
+<a id="__codelineno-9-165" name="__codelineno-9-165"></a>  }
+<a id="__codelineno-9-166" name="__codelineno-9-166"></a>
+<a id="__codelineno-9-167" name="__codelineno-9-167"></a>  #设定查看Nginx状态的地址
+<a id="__codelineno-9-168" name="__codelineno-9-168"></a>  location /NginxStatus {
+<a id="__codelineno-9-169" name="__codelineno-9-169"></a>  stub_status on;
+<a id="__codelineno-9-170" name="__codelineno-9-170"></a>  access_log on;
+<a id="__codelineno-9-171" name="__codelineno-9-171"></a>  auth_basic &quot;NginxStatus&quot;;
+<a id="__codelineno-9-172" name="__codelineno-9-172"></a>  auth_basic_user_file conf/htpasswd;
+<a id="__codelineno-9-173" name="__codelineno-9-173"></a>  #htpasswd文件的内容可以用apache提供的htpasswd工具来产生
+<a id="__codelineno-9-174" name="__codelineno-9-174"></a>  }
+<a id="__codelineno-9-175" name="__codelineno-9-175"></a>
+<a id="__codelineno-9-176" name="__codelineno-9-176"></a>  #本地动静分离反向代理配置
+<a id="__codelineno-9-177" name="__codelineno-9-177"></a>  #所有jsp的页面均交由tomcat或resin处理
+<a id="__codelineno-9-178" name="__codelineno-9-178"></a>  location ~ .(jsp|jspx|do)?$ {
+<a id="__codelineno-9-179" name="__codelineno-9-179"></a>  proxy_set_header Host $host;
+<a id="__codelineno-9-180" name="__codelineno-9-180"></a>  proxy_set_header X-Real-IP $remote_addr;
+<a id="__codelineno-9-181" name="__codelineno-9-181"></a>  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+<a id="__codelineno-9-182" name="__codelineno-9-182"></a>  proxy_pass http://127.0.0.1:8080;
+<a id="__codelineno-9-183" name="__codelineno-9-183"></a>  }
+<a id="__codelineno-9-184" name="__codelineno-9-184"></a>  #所有静态文件由nginx直接读取不经过tomcat或resin
+<a id="__codelineno-9-185" name="__codelineno-9-185"></a>  location ~ .*.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma)$
+<a id="__codelineno-9-186" name="__codelineno-9-186"></a>  {
+<a id="__codelineno-9-187" name="__codelineno-9-187"></a>    expires 15d;
+<a id="__codelineno-9-188" name="__codelineno-9-188"></a>  }
+<a id="__codelineno-9-189" name="__codelineno-9-189"></a>  location ~ .*.(js|css)?$
+<a id="__codelineno-9-190" name="__codelineno-9-190"></a>  {
+<a id="__codelineno-9-191" name="__codelineno-9-191"></a>    expires 1h;
+<a id="__codelineno-9-192" name="__codelineno-9-192"></a>  }
+<a id="__codelineno-9-193" name="__codelineno-9-193"></a>
+<a id="__codelineno-9-194" name="__codelineno-9-194"></a>#禁止访问 .htxxx 文件
+<a id="__codelineno-9-195" name="__codelineno-9-195"></a>  location ~ /.ht {
+<a id="__codelineno-9-196" name="__codelineno-9-196"></a>  deny all;
+<a id="__codelineno-9-197" name="__codelineno-9-197"></a>  }
+<a id="__codelineno-9-198" name="__codelineno-9-198"></a>}
+<a id="__codelineno-9-199" name="__codelineno-9-199"></a>}
+</code></pre></div></td></tr></table></div>
+<p>nginx.conf配置补充扩展：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span>
+<span class="normal"><a href="#__codelineno-10-24">24</a></span>
+<span class="normal"><a href="#__codelineno-10-25">25</a></span>
+<span class="normal"><a href="#__codelineno-10-26">26</a></span>
+<span class="normal"><a href="#__codelineno-10-27">27</a></span>
+<span class="normal"><a href="#__codelineno-10-28">28</a></span>
+<span class="normal"><a href="#__codelineno-10-29">29</a></span>
+<span class="normal"><a href="#__codelineno-10-30">30</a></span>
+<span class="normal"><a href="#__codelineno-10-31">31</a></span>
+<span class="normal"><a href="#__codelineno-10-32">32</a></span>
+<span class="normal"><a href="#__codelineno-10-33">33</a></span>
+<span class="normal"><a href="#__codelineno-10-34">34</a></span>
+<span class="normal"><a href="#__codelineno-10-35">35</a></span>
+<span class="normal"><a href="#__codelineno-10-36">36</a></span>
+<span class="normal"><a href="#__codelineno-10-37">37</a></span>
+<span class="normal"><a href="#__codelineno-10-38">38</a></span>
+<span class="normal"><a href="#__codelineno-10-39">39</a></span>
+<span class="normal"><a href="#__codelineno-10-40">40</a></span>
+<span class="normal"><a href="#__codelineno-10-41">41</a></span>
+<span class="normal"><a href="#__codelineno-10-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>#静态文件，nginx自己处理
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>location ~ ^/(images|javascript|js|css|flash|media|static/ {
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    #过期30天，静态文件不怎么更新，过期可以设大一点
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    #如果频繁更新，则可以设置得小一点
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    expires 30d;
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>}
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>#PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>location ~* \.php$ {
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>    fastcgi_index   index.php;
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>    fastcgi_pass    127.0.0.1:9000;
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>    include         fastcgi_params;
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>    fastcgi_param   SCRIPT_FILENAME       $document_root$fastcgi_script_name;
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>    fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>  }
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a># 拒绝图片热链接
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>location /images/ {
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>  valid_referers none blocked www.example.com example.com;
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>   if ($invalid_referer) {
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>     return   403;
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a>   }
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a>}
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a>
+<a id="__codelineno-10-24" name="__codelineno-10-24"></a>另外一个方法可跳转到一个固定的图片链接或url
+<a id="__codelineno-10-25" name="__codelineno-10-25"></a>valid_referers blocked www.example.com example.com;
+<a id="__codelineno-10-26" name="__codelineno-10-26"></a> if ($invalid_referer) {
+<a id="__codelineno-10-27" name="__codelineno-10-27"></a>  rewrite ^/images/uploads.*\.(gif|jpg|jpeg|png)$ http://www.examples.com/banned.jpg last
+<a id="__codelineno-10-28" name="__codelineno-10-28"></a> }
+<a id="__codelineno-10-29" name="__codelineno-10-29"></a>
+<a id="__codelineno-10-30" name="__codelineno-10-30"></a>### Password Protect /personal-images/ and /delta/ directories ###
+<a id="__codelineno-10-31" name="__codelineno-10-31"></a>location ~ /(personal-images/.*|delta/.*) {
+<a id="__codelineno-10-32" name="__codelineno-10-32"></a>  auth_basic  &quot;Restricted&quot;;
+<a id="__codelineno-10-33" name="__codelineno-10-33"></a>  auth_basic_user_file   /usr/local/nginx/conf/.htpasswd/passwd;
+<a id="__codelineno-10-34" name="__codelineno-10-34"></a>}
+<a id="__codelineno-10-35" name="__codelineno-10-35"></a>
+<a id="__codelineno-10-36" name="__codelineno-10-36"></a>Create an SSL Certificate
+<a id="__codelineno-10-37" name="__codelineno-10-37"></a># cd /usr/local/nginx/conf
+<a id="__codelineno-10-38" name="__codelineno-10-38"></a># openssl genrsa -des3 -out server.key 1024
+<a id="__codelineno-10-39" name="__codelineno-10-39"></a># openssl req -new -key server.key -out server.csr
+<a id="__codelineno-10-40" name="__codelineno-10-40"></a># cp server.key server.key.org
+<a id="__codelineno-10-41" name="__codelineno-10-41"></a># openssl rsa -in server.key.org -out server.key
+<a id="__codelineno-10-42" name="__codelineno-10-42"></a># openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Markdown</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span>
+<span class="normal"><a href="#__codelineno-11-22">22</a></span>
+<span class="normal"><a href="#__codelineno-11-23">23</a></span>
+<span class="normal"><a href="#__codelineno-11-24">24</a></span>
+<span class="normal"><a href="#__codelineno-11-25">25</a></span>
+<span class="normal"><a href="#__codelineno-11-26">26</a></span>
+<span class="normal"><a href="#__codelineno-11-27">27</a></span>
+<span class="normal"><a href="#__codelineno-11-28">28</a></span>
+<span class="normal"><a href="#__codelineno-11-29">29</a></span>
+<span class="normal"><a href="#__codelineno-11-30">30</a></span>
+<span class="normal"><a href="#__codelineno-11-31">31</a></span>
+<span class="normal"><a href="#__codelineno-11-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="gh"># 多路径多站点同一个端口</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>server {
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>    listen 8080;
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>    server_name localhost;
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>    root /home/ajit/git/univisior;
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>location / {
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    alias /home/ajit/git/project-x/buyer/dist/;
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>    index index.html;
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>    try_files $uri $uri/ /index.html;
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>}
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>location /admin{
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a>    alias /home/ajit/git/project-x/admin/dist/;
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>    index index.html;
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a>    try_files $uri $uri/ index.html;
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a>}
+<a id="__codelineno-11-19" name="__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20"></a>location /seller {
+<a id="__codelineno-11-21" name="__codelineno-11-21"></a>    alias /home/ajit/git/project-x/seller/dist/;
+<a id="__codelineno-11-22" name="__codelineno-11-22"></a>    index index.html;
+<a id="__codelineno-11-23" name="__codelineno-11-23"></a>    try_files $uri $uri/ /index.html;
+<a id="__codelineno-11-24" name="__codelineno-11-24"></a>
+<a id="__codelineno-11-25" name="__codelineno-11-25"></a>}
+<a id="__codelineno-11-26" name="__codelineno-11-26"></a>
+<a id="__codelineno-11-27" name="__codelineno-11-27"></a>location /api {
+<a id="__codelineno-11-28" name="__codelineno-11-28"></a>    proxy_pass http://localhost:3000/api;
+<a id="__codelineno-11-29" name="__codelineno-11-29"></a>
+<a id="__codelineno-11-30" name="__codelineno-11-30"></a> }
+<a id="__codelineno-11-31" name="__codelineno-11-31"></a>
+<a id="__codelineno-11-32" name="__codelineno-11-32"></a>}
+</code></pre></div></td></tr></table></div>
+<h2 id="nginx_1">nginx日志相关命令<a class="headerlink" href="#nginx_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span>
+<span class="normal"><a href="#__codelineno-12-20">20</a></span>
+<span class="normal"><a href="#__codelineno-12-21">21</a></span>
+<span class="normal"><a href="#__codelineno-12-22">22</a></span>
+<span class="normal"><a href="#__codelineno-12-23">23</a></span>
+<span class="normal"><a href="#__codelineno-12-24">24</a></span>
+<span class="normal"><a href="#__codelineno-12-25">25</a></span>
+<span class="normal"><a href="#__codelineno-12-26">26</a></span>
+<span class="normal"><a href="#__codelineno-12-27">27</a></span>
+<span class="normal"><a href="#__codelineno-12-28">28</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>nginx日志最好实现每天定时切割下，特别是在访问量比较大的时候，方便查看与处理，如果没切割，可以用sed直接切割
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>切割日志
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>查找7月17日访问log导出到17.log文件中：
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>cat<span class="w"> </span>gelin_web_access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s2">&quot;17/Jul/2017&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w">  </span>-n<span class="w"> </span><span class="s1">&#39;/00:00:00/,/23:59:59/p&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/17.log
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>查看访问量前10的IP
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span><span class="m">17</span>.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>查看访问前10的URL
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>awk<span class="w"> </span><span class="s1">&#39;{print $11}&#39;</span><span class="w"> </span>gelin_web_access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>查询访问最频繁的URL
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a>awk<span class="w"> </span><span class="s1">&#39;{print $7}&#39;</span><span class="w"> </span>gelin_web_access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-k<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>more
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>查询访问最频繁的IP
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span>gelin_web_access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-k<span class="w"> </span><span class="m">1</span><span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>more
+<a id="__codelineno-12-20" name="__codelineno-12-20"></a>根据访问IP统计UV
+<a id="__codelineno-12-21" name="__codelineno-12-21"></a>
+<a id="__codelineno-12-22" name="__codelineno-12-22"></a>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span>gelin_web_access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+<a id="__codelineno-12-23" name="__codelineno-12-23"></a>统计访问URL统计PV
+<a id="__codelineno-12-24" name="__codelineno-12-24"></a>
+<a id="__codelineno-12-25" name="__codelineno-12-25"></a>awk<span class="w"> </span><span class="s1">&#39;{print $7}&#39;</span><span class="w"> </span>gelin_web_access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+<a id="__codelineno-12-26" name="__codelineno-12-26"></a>根据时间段统计查看日志
+<a id="__codelineno-12-27" name="__codelineno-12-27"></a>
+<a id="__codelineno-12-28" name="__codelineno-12-28"></a>cat<span class="w"> </span>gelin_web_access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;/17\/Jul\/2017:12/,/17\/Jul\/2017:13/p&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>more
+</code></pre></div></td></tr></table></div>
+<h2 id="unit180">Unit1.8.0<a class="headerlink" href="#unit180" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span>
+<span class="normal"><a href="#__codelineno-13-23">23</a></span>
+<span class="normal"><a href="#__codelineno-13-24">24</a></span>
+<span class="normal"><a href="#__codelineno-13-25">25</a></span>
+<span class="normal"><a href="#__codelineno-13-26">26</a></span>
+<span class="normal"><a href="#__codelineno-13-27">27</a></span>
+<span class="normal"><a href="#__codelineno-13-28">28</a></span>
+<span class="normal"><a href="#__codelineno-13-29">29</a></span>
+<span class="normal"><a href="#__codelineno-13-30">30</a></span>
+<span class="normal"><a href="#__codelineno-13-31">31</a></span>
+<span class="normal"><a href="#__codelineno-13-32">32</a></span>
+<span class="normal"><a href="#__codelineno-13-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># Control socket位置：/var/run/control.unit.sock</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOF &gt; /etc/yum.repos.d/unit.repo</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="s">[unit]</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="s">name=unit repo</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="s">baseurl=https://packages.nginx.org/unit/centos/7/$basearch/</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="s">gpgcheck=0</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="s">enabled=1</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="s">EOF</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="c1"># 设置一个application对象,利用json文件，将对象放入到config/applications下的blogs块中</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>--data-binary<span class="w"> </span>@config.json<span class="w"> </span>--unix-socket<span class="w"> </span>/var/run/control.unit.sock<span class="w"> </span>http://localhost/config/applications/blogs/
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="c1"># 从listeners对象引用application对象，其包括IP(或任何匹配IP的通配符)和端口号config/listeners</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>--data-binary<span class="w"> </span>@config.json<span class="w"> </span>--unix-socket<span class="w"> </span>/var/run/control.unit.sock<span class="w"> </span>http://localhost/config/listeners/127.0.0.1:8300
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="c1"># 检查目前的配置，也可以一次性上传上面的两步的全部配置</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a>curl<span class="w"> </span>--unix-socket<span class="w"> </span>/var/run/control.unit.sock<span class="w"> </span>http://localhost/config/
+<a id="__codelineno-13-16" name="__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="c1"># 创建对象</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18"></a>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-d<span class="w"> </span>@/path/to/start.json<span class="w"> </span>--unix-socket<span class="w"> </span>/var/run/control.unit.sock<span class="w"> </span>http://localhost/config/
+<a id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="c1"># 修改application对象blogs,将其listeners更改为*:8400</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20"></a>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;&quot;blogs&quot;&#39;</span><span class="w"> </span>--unix-socket<span class="w"> </span>/var/run/control.unit.sock<span class="w"> </span><span class="s1">&#39;http://localhost/config/listeners/*:8400/application&#39;</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="c1"># 将blogs的application对象中的root参数更改为/www/blogs-dev</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22"></a>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;&quot;/www/blogs-dev&quot;&#39;</span><span class="w">  </span>--unix-socket<span class="w"> </span>/var/run/control.unit.sock<span class="w"> </span>http://localhost/config/applications/blogs/root
+<a id="__codelineno-13-23" name="__codelineno-13-23"></a><span class="c1"># 删除对象，要删除对象，需要发出DELETE请求并将对象的路径附加到curl URL。如下：删除listener监听*:8400</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24"></a>curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span>--unix-socket<span class="w"> </span>/var/run/control.unit.sock<span class="w"> </span><span class="s1">&#39;http://localhost/config/listeners/*:8400&#39;</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25"></a>
+<a id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="c1"># listeners</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="p">|</span><span class="w"> </span>选项<span class="w"> </span><span class="p">|</span><span class="w"> </span>描述<span class="w"> </span><span class="p">|</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="p">|</span><span class="w"> </span>:------:<span class="w"> </span><span class="p">|</span><span class="w"> </span>:------:<span class="w"> </span><span class="p">|</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="p">|</span><span class="w"> </span>application<span class="o">(</span>已废弃<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>应用名称,与pass互斥<span class="w"> </span><span class="p">|</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="p">|</span><span class="w"> </span>pass<span class="o">(</span>required<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>应用或路由名称：<span class="s2">&quot;pass&quot;</span>:<span class="s2">&quot;routers/route66&quot;</span>,<span class="s2">&quot;pass&quot;</span>:<span class="s2">&quot;applications/smart&quot;</span><span class="w"> </span><span class="p">|</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="p">|</span><span class="w"> </span>tls<span class="w"> </span><span class="p">|</span><span class="w"> </span>SSL/TLS配置,添加certificate实现listener加密通信<span class="w"> </span><span class="p">|</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32"></a>
+<a id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="c1"># Routers,利用routers对象实现listeners和apps内部路由，listeners将请求传递给pass或直接传递给应用程序</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JSON</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span>
+<span class="normal"><a href="#__codelineno-14-14">14</a></span>
+<span class="normal"><a href="#__codelineno-14-15">15</a></span>
+<span class="normal"><a href="#__codelineno-14-16">16</a></span>
+<span class="normal"><a href="#__codelineno-14-17">17</a></span>
+<span class="normal"><a href="#__codelineno-14-18">18</a></span>
+<span class="normal"><a href="#__codelineno-14-19">19</a></span>
+<span class="normal"><a href="#__codelineno-14-20">20</a></span>
+<span class="normal"><a href="#__codelineno-14-21">21</a></span>
+<span class="normal"><a href="#__codelineno-14-22">22</a></span>
+<span class="normal"><a href="#__codelineno-14-23">23</a></span>
+<span class="normal"><a href="#__codelineno-14-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="err">#</span><span class="w"> </span><span class="err">rou</span><span class="kc">ters</span><span class="err">对象包含一个或多个rou</span><span class="kc">te</span><span class="err">参数.例如：</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">{</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">     </span><span class="nt">&quot;listeners&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">         </span><span class="nt">&quot;*:8300&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">             </span><span class="nt">&quot;pass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;routes&quot;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="w">     </span><span class="p">},</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">     </span><span class="nt">&quot;routes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;simply referred to as routes&quot;</span><span class="w"> </span><span class="p">]</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="p">}</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a>
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="err">#</span><span class="w"> </span><span class="err">多个</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="p">{</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="w">     </span><span class="nt">&quot;listeners&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="w">         </span><span class="nt">&quot;*:8300&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="w">             </span><span class="nt">&quot;pass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;routes/main&quot;</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18"></a><span class="w">     </span><span class="p">},</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19"></a>
+<a id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="w">     </span><span class="nt">&quot;routes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="w">         </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;named route, qualified name: routes/main&quot;</span><span class="w"> </span><span class="p">],</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22"></a><span class="w">         </span><span class="nt">&quot;route66&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;named route, qualified name: routes/route66&quot;</span><span class="w"> </span><span class="p">]</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23"></a><span class="w">     </span><span class="p">}</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>route参数包含匿名对象或steps。请求通过route去遍历，steps有如下选项
+| 选项 | 描述 |
+| :------: | :------: |
+| match | 定义步骤条件的对象，如果请求和match条件匹配，pass步骤将生效，如果不匹配，将继续进行route的下一步，如果都不匹配，返回404错误 |
+| action/pass(required) | route的目的地，如果忽略了match，请求直接通过，避免出错，每个route使用一个这样的步骤并放在最后 |</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JSON</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span>
+<span class="normal"><a href="#__codelineno-15-16">16</a></span>
+<span class="normal"><a href="#__codelineno-15-17">17</a></span>
+<span class="normal"><a href="#__codelineno-15-18">18</a></span>
+<span class="normal"><a href="#__codelineno-15-19">19</a></span>
+<span class="normal"><a href="#__codelineno-15-20">20</a></span>
+<span class="normal"><a href="#__codelineno-15-21">21</a></span>
+<span class="normal"><a href="#__codelineno-15-22">22</a></span>
+<span class="normal"><a href="#__codelineno-15-23">23</a></span>
+<span class="normal"><a href="#__codelineno-15-24">24</a></span>
+<span class="normal"><a href="#__codelineno-15-25">25</a></span>
+<span class="normal"><a href="#__codelineno-15-26">26</a></span>
+<span class="normal"><a href="#__codelineno-15-27">27</a></span>
+<span class="normal"><a href="#__codelineno-15-28">28</a></span>
+<span class="normal"><a href="#__codelineno-15-29">29</a></span>
+<span class="normal"><a href="#__codelineno-15-30">30</a></span>
+<span class="normal"><a href="#__codelineno-15-31">31</a></span>
+<span class="normal"><a href="#__codelineno-15-32">32</a></span>
+<span class="normal"><a href="#__codelineno-15-33">33</a></span>
+<span class="normal"><a href="#__codelineno-15-34">34</a></span>
+<span class="normal"><a href="#__codelineno-15-35">35</a></span>
+<span class="normal"><a href="#__codelineno-15-36">36</a></span>
+<span class="normal"><a href="#__codelineno-15-37">37</a></span>
+<span class="normal"><a href="#__codelineno-15-38">38</a></span>
+<span class="normal"><a href="#__codelineno-15-39">39</a></span>
+<span class="normal"><a href="#__codelineno-15-40">40</a></span>
+<span class="normal"><a href="#__codelineno-15-41">41</a></span>
+<span class="normal"><a href="#__codelineno-15-42">42</a></span>
+<span class="normal"><a href="#__codelineno-15-43">43</a></span>
+<span class="normal"><a href="#__codelineno-15-44">44</a></span>
+<span class="normal"><a href="#__codelineno-15-45">45</a></span>
+<span class="normal"><a href="#__codelineno-15-46">46</a></span>
+<span class="normal"><a href="#__codelineno-15-47">47</a></span>
+<span class="normal"><a href="#__codelineno-15-48">48</a></span>
+<span class="normal"><a href="#__codelineno-15-49">49</a></span>
+<span class="normal"><a href="#__codelineno-15-50">50</a></span>
+<span class="normal"><a href="#__codelineno-15-51">51</a></span>
+<span class="normal"><a href="#__codelineno-15-52">52</a></span>
+<span class="normal"><a href="#__codelineno-15-53">53</a></span>
+<span class="normal"><a href="#__codelineno-15-54">54</a></span>
+<span class="normal"><a href="#__codelineno-15-55">55</a></span>
+<span class="normal"><a href="#__codelineno-15-56">56</a></span>
+<span class="normal"><a href="#__codelineno-15-57">57</a></span>
+<span class="normal"><a href="#__codelineno-15-58">58</a></span>
+<span class="normal"><a href="#__codelineno-15-59">59</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="nt">&quot;routes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">            </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">                </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">                </span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/admin/*&quot;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">            </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="w">                </span><span class="nt">&quot;pass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;applications/php5_app&quot;</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">             </span><span class="p">}</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">            </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">                </span><span class="nt">&quot;pass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;applications/php7_app&quot;</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="w">             </span><span class="p">}</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="w">     </span><span class="p">]</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="p">}</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20"></a>
+<a id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="err">#</span><span class="w"> </span><span class="err">更详细的的示例</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="p">{</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="w">    </span><span class="nt">&quot;routes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="w">        </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="w">                </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-27" name="__codelineno-15-27"></a><span class="w">                    </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;www.example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;example.com&quot;</span><span class="w"> </span><span class="p">]</span>
+<a id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="w">                </span><span class="p">},</span>
+<a id="__codelineno-15-29" name="__codelineno-15-29"></a>
+<a id="__codelineno-15-30" name="__codelineno-15-30"></a><span class="w">                </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-31" name="__codelineno-15-31"></a><span class="w">                    </span><span class="nt">&quot;pass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;routes/site&quot;</span>
+<a id="__codelineno-15-32" name="__codelineno-15-32"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-15-33" name="__codelineno-15-33"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-15-34" name="__codelineno-15-34"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-15-35" name="__codelineno-15-35"></a><span class="w">                </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-36" name="__codelineno-15-36"></a><span class="w">                    </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;blog.example.com&quot;</span>
+<a id="__codelineno-15-37" name="__codelineno-15-37"></a><span class="w">                </span><span class="p">},</span>
+<a id="__codelineno-15-38" name="__codelineno-15-38"></a>
+<a id="__codelineno-15-39" name="__codelineno-15-39"></a><span class="w">                </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-40" name="__codelineno-15-40"></a><span class="w">                    </span><span class="nt">&quot;pass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;applications/blog&quot;</span>
+<a id="__codelineno-15-41" name="__codelineno-15-41"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-15-42" name="__codelineno-15-42"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-15-43" name="__codelineno-15-43"></a><span class="w">        </span><span class="p">],</span>
+<a id="__codelineno-15-44" name="__codelineno-15-44"></a>
+<a id="__codelineno-15-45" name="__codelineno-15-45"></a><span class="w">        </span><span class="nt">&quot;site&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span><span class="p">]</span>
+<a id="__codelineno-15-46" name="__codelineno-15-46"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-47" name="__codelineno-15-47"></a><span class="p">}</span>
+<a id="__codelineno-15-48" name="__codelineno-15-48"></a>
+<a id="__codelineno-15-49" name="__codelineno-15-49"></a><span class="err">#</span><span class="w"> </span><span class="err">条件匹配；步骤中的匹配条件包括请求属性名称和相应的pa</span><span class="kc">ttern</span>
+<a id="__codelineno-15-50" name="__codelineno-15-50"></a><span class="p">{</span>
+<a id="__codelineno-15-51" name="__codelineno-15-51"></a><span class="w">    </span><span class="nt">&quot;match&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-52" name="__codelineno-15-52"></a><span class="w">        </span><span class="nt">&quot;request_property1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pattern&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-53" name="__codelineno-15-53"></a><span class="w">        </span><span class="nt">&quot;request_property2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;pattern&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pattern&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span><span class="p">]</span>
+<a id="__codelineno-15-54" name="__codelineno-15-54"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-15-55" name="__codelineno-15-55"></a>
+<a id="__codelineno-15-56" name="__codelineno-15-56"></a><span class="w">    </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-57" name="__codelineno-15-57"></a><span class="w">        </span><span class="nt">&quot;pass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<a id="__codelineno-15-58" name="__codelineno-15-58"></a><span class="w">     </span><span class="p">}</span>
+<a id="__codelineno-15-59" name="__codelineno-15-59"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">选项</th>
+<th style="text-align: center;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">host</td>
+<td style="text-align: center;">请求主机从Host没有端口号的header字段，通过删除尾随句点（如果有的话）进行规范化;不区分大小写</td>
+</tr>
+<tr>
+<td style="text-align: center;">method</td>
+<td style="text-align: center;">来自请求行的请求方法;不区分大小写</td>
+</tr>
+<tr>
+<td style="text-align: center;">uri</td>
+<td style="text-align: center;">请求URI没有参数的路径，通过解码“%XX”序列，解析相对路径引用（“.”和“..”），并将相邻斜杠压缩为一个;区分大小写</td>
+</tr>
+<tr>
+<td style="text-align: center;">pattern必须完全匹配，支持*和!</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+  <aside class="md-source-file">
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="贡献者">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:crisis2015128@163.com">Black-Gold</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        此页面是否有帮助?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="有帮助" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="没帮助" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              感谢您的点赞!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              感谢您真诚的反馈! Help me improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.25 6a3.25 3.25 0 0 1 3.25-3.25A3.25 3.25 0 0 1 17.75 6c0 .42.33.75.75.75s.75-.33.75-.75v-.75h1.5V6a2.25 2.25 0 0 1-2.25 2.25A2.25 2.25 0 0 1 16.25 6a1.75 1.75 0 0 0-1.75-1.75A1.75 1.75 0 0 0 12.75 6H14v1.29c2.89.86 5 3.54 5 6.71a7 7 0 0 1-7 7 7 7 0 0 1-7-7c0-3.17 2.11-5.85 5-6.71V6h1.25M22 6h2v1h-2V6m-3-2V2h1v2h-1m1.91.38 1.42-1.42.71.71-1.42 1.42-.71-.71Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Index">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Index
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Caddy/" class="md-footer__link md-footer__link--next" aria-label="下一页: Caddy">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Caddy
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Black-Gold" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/black0gold/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
