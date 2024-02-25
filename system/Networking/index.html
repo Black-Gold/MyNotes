@@ -1,0 +1,2758 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Material Design theme for MyNotes">
+      
+      
+        <meta name="author" content="Black-Gold">
+      
+      
+        <link rel="canonical" href="https://19950128.com/system/Networking/">
+      
+      
+        <link rel="prev" href="../linux/Ubuntu/">
+      
+      
+        <link rel="next" href="../Firewall/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>Networking - Material Design for MyNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12v4c0 1.11-.89 2-2 2h-4.1l-3.7 3.71c-.2.18-.44.29-.7.29H9a1 1 0 0 1-1-1v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.5c-.55.67-1 1.42-1.36 2.25L7.85 7l.29.75C9.43 10.94 12.5 13 16 13c1.44 0 2.8-.37 4-1m-4-6c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c2.73 0 5.06 1.66 6 4-.94 2.34-3.27 4-6 4s-5.06-1.66-6-4c.94-2.34 3.27-4 6-4m0 1.5A2.5 2.5 0 0 0 13.5 7 2.5 2.5 0 0 0 16 9.5 2.5 2.5 0 0 0 18.5 7 2.5 2.5 0 0 0 16 4.5"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="lime">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iproute2net-tools" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Material Design for MyNotes" class="md-header__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Material Design for MyNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Networking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="lime"  aria-label="切换到夜晚模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到夜晚模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="light-green"  aria-label="切换到白天模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到白天模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.31 18.9 3.08 3.1L21 23.39l-3.12-3.07c-.69.43-1.51.68-2.38.68-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5c0 .88-.25 1.71-.69 2.4m-3.81.1a2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 0 0 5M21 4v2H3V4h18M3 16v-2h6v2H3m0-5V9h18v2h-2.03c-1.01-.63-2.2-1-3.47-1s-2.46.37-3.47 1H3Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21 12-7-7v4C7 10 4 15 3 20c2.5-3.5 6-5.1 11-5.1V19l7-7Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 16.74 7.76 12 3 7.26 7.26 3 12 7.76 16.74 3 21 7.26 16.24 12 21 16.74 16.74 21 12 16.24 7.26 21 3 16.74m9-3.33 4.74 4.75 1.42-1.42L13.41 12l4.75-4.74-1.42-1.42L12 10.59 7.26 5.84 5.84 7.26 10.59 12l-4.75 4.74 1.42 1.42L12 13.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Black-Gold/MyNotes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../reference-example/" class="md-tabs__link">
+        
+  
+    
+  
+  md语法中文参考
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../coding/" class="md-tabs__link">
+          
+  
+    
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../document/" class="md-tabs__link">
+          
+  
+    
+  
+  Document
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Material Design for MyNotes" class="md-nav__button md-logo" aria-label="Material Design for MyNotes" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Material Design for MyNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Black-Gold/MyNotes" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Black-Gold/MyNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference-example/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.029 18.772.777 1.166-5.417 2.709L0 16.451V4.063l5.417-2.709 5.298 7.948 7.867-5.24L24 1.354V16.84l-5.417 2.709zm2.023-13.827v13.253l3.949-1.975V2.97zM5.076 2.642 1.458 4.45 12.73 21.358l3.618-1.809z"/></svg>
+  
+  <span class="md-ellipsis">
+    md语法中文参考
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../blog/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/Centos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Centos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    DebianDistros
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            DebianDistros
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/Debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debian
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/Ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iproute2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iproute2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      选型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#22ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      出所有端口为 22（ssh）的连接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Net-tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Net-tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      netstat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netstat_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      netstat实例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netstathost-port-or-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      在netstat输出中不显示主机，端口和用户名(host, port or user)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iptcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      IP和TCP分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IP和TCP分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP状态说明
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcpnetstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      tcp连接状态的描述说明(netstat输出)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../coding/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../document/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Document
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iproute2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iproute2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      选型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      实例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#22ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      出所有端口为 22（ssh）的连接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Net-tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Net-tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      netstat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netstat_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      netstat实例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netstathost-port-or-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      在netstat输出中不显示主机，端口和用户名(host, port or user)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iptcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      IP和TCP分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IP和TCP分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP状态说明
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcpnetstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      tcp连接状态的描述说明(netstat输出)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="iproute2net-tools">Iproute2&amp;Net-tools<a class="headerlink" href="#iproute2net-tools" title="Permanent link">&para;</a></h1>
+<p>NET-TOOLS VS IPROUTE对照</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">NET-TOOLS COMMANDS</th>
+<th style="text-align: center;">IPROUTE COMMANDS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">arp -a</td>
+<td style="text-align: center;">ip neigh</td>
+</tr>
+<tr>
+<td style="text-align: center;">arp -v</td>
+<td style="text-align: center;">ip -s neigh</td>
+</tr>
+<tr>
+<td style="text-align: center;">arp -s 192.168.1.1 1:2:3:4:5:6</td>
+<td style="text-align: center;">ip neigh add 192.168.1.1 lladdr 1:2:3:4:5:6 dev eth1</td>
+</tr>
+<tr>
+<td style="text-align: center;">arp -i eth1 -d 192.168.1.1</td>
+<td style="text-align: center;">ip neigh del 192.168.1.1 dev eth1</td>
+</tr>
+<tr>
+<td style="text-align: center;">ifconfig -a</td>
+<td style="text-align: center;">ip addr</td>
+</tr>
+<tr>
+<td style="text-align: center;">ifconfig eth0 down</td>
+<td style="text-align: center;">ip link set eth0 down</td>
+</tr>
+<tr>
+<td style="text-align: center;">ifconfig eth0 up</td>
+<td style="text-align: center;">ip link set eth0 up</td>
+</tr>
+<tr>
+<td style="text-align: center;">ifconfig eth0 192.168.1.1</td>
+<td style="text-align: center;">ip addr add 192.168.1.1/24 dev eth0</td>
+</tr>
+<tr>
+<td style="text-align: center;">ifconfig eth0 netmask 255.255.255.0</td>
+<td style="text-align: center;">ip addr add 192.168.1.1/24 dev eth0</td>
+</tr>
+<tr>
+<td style="text-align: center;">ifconfig eth0 mtu 9000</td>
+<td style="text-align: center;">ip link set eth0 mtu 9000</td>
+</tr>
+<tr>
+<td style="text-align: center;">ifconfig eth0:0 192.168.1.2</td>
+<td style="text-align: center;">ip addr add 192.168.1.2/24 dev eth0</td>
+</tr>
+<tr>
+<td style="text-align: center;">netstat</td>
+<td style="text-align: center;">ss</td>
+</tr>
+<tr>
+<td style="text-align: center;">netstat -neopa</td>
+<td style="text-align: center;">ss -neopa</td>
+</tr>
+<tr>
+<td style="text-align: center;">netstat -g</td>
+<td style="text-align: center;">ip maddr</td>
+</tr>
+<tr>
+<td style="text-align: center;">route</td>
+<td style="text-align: center;">ip route</td>
+</tr>
+<tr>
+<td style="text-align: center;">route add -net 192.168.1.0 netmask 255.255.255.0 dev eth0</td>
+<td style="text-align: center;">ip route add 192.168.1.0/24 dev eth0</td>
+</tr>
+<tr>
+<td style="text-align: center;">route add default gw 192.168.1.1</td>
+<td style="text-align: center;">ip route add default via 192.168.1.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="iproute2">Iproute2<a class="headerlink" href="#iproute2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">选型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span><span class="o">[</span><span class="w"> </span>OPTIONS<span class="w"> </span><span class="o">]</span><span class="w"> </span>OBJECT<span class="w"> </span><span class="o">{</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nb">help</span><span class="w"> </span><span class="o">}</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ip<span class="w"> </span><span class="o">[</span><span class="w"> </span>-force<span class="w"> </span><span class="o">]</span><span class="w"> </span>-batch<span class="w"> </span>filename
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>where<span class="w">  </span>OBJECT<span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>link<span class="w"> </span><span class="p">|</span><span class="w"> </span>address<span class="w"> </span><span class="p">|</span><span class="w"> </span>addrlabel<span class="w"> </span><span class="p">|</span><span class="w"> </span>route<span class="w"> </span><span class="p">|</span><span class="w"> </span>rule<span class="w"> </span><span class="p">|</span><span class="w"> </span>neigh<span class="w"> </span><span class="p">|</span><span class="w"> </span>ntable<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">                   </span>tunnel<span class="w"> </span><span class="p">|</span><span class="w"> </span>tuntap<span class="w"> </span><span class="p">|</span><span class="w"> </span>maddress<span class="w"> </span><span class="p">|</span><span class="w"> </span>mroute<span class="w"> </span><span class="p">|</span><span class="w"> </span>mrule<span class="w"> </span><span class="p">|</span><span class="w"> </span>monitor<span class="w"> </span><span class="p">|</span><span class="w"> </span>xfrm<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">                   </span>netns<span class="w"> </span><span class="p">|</span><span class="w"> </span>l2tp<span class="w"> </span><span class="p">|</span><span class="w"> </span>fou<span class="w"> </span><span class="p">|</span><span class="w"> </span>macsec<span class="w"> </span><span class="p">|</span><span class="w"> </span>tcp_metrics<span class="w"> </span><span class="p">|</span><span class="w"> </span>token<span class="w"> </span><span class="p">|</span><span class="w"> </span>netconf<span class="w"> </span><span class="p">|</span><span class="w"> </span>ila<span class="w"> </span><span class="o">}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">       </span>OPTIONS<span class="w"> </span>:<span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>-V<span class="o">[</span>ersion<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-s<span class="o">[</span>tatistics<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-d<span class="o">[</span>etails<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-r<span class="o">[</span>esolve<span class="o">]</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">                    </span>-h<span class="o">[</span>uman-readable<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-iec<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">                    </span>-f<span class="o">[</span>amily<span class="o">]</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>inet<span class="w"> </span><span class="p">|</span><span class="w"> </span>inet6<span class="w"> </span><span class="p">|</span><span class="w"> </span>ipx<span class="w"> </span><span class="p">|</span><span class="w"> </span>dnet<span class="w"> </span><span class="p">|</span><span class="w"> </span>mpls<span class="w"> </span><span class="p">|</span><span class="w"> </span>bridge<span class="w"> </span><span class="p">|</span><span class="w"> </span>link<span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">                    </span>-4<span class="w"> </span><span class="p">|</span><span class="w"> </span>-6<span class="w"> </span><span class="p">|</span><span class="w"> </span>-I<span class="w"> </span><span class="p">|</span><span class="w"> </span>-D<span class="w"> </span><span class="p">|</span><span class="w"> </span>-B<span class="w"> </span><span class="p">|</span><span class="w"> </span>-0<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">                    </span>-l<span class="o">[</span>oops<span class="o">]</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>maximum-addr-flush-attempts<span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-br<span class="o">[</span>ief<span class="o">]</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">                    </span>-o<span class="o">[</span>neline<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-t<span class="o">[</span>imestamp<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-ts<span class="o">[</span>hort<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-b<span class="o">[</span>atch<span class="o">]</span><span class="w"> </span><span class="o">[</span>filename<span class="o">]</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">                    </span>-rc<span class="o">[</span>vbuf<span class="o">]</span><span class="w"> </span><span class="o">[</span>size<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>-n<span class="o">[</span>etns<span class="o">]</span><span class="w"> </span>name<span class="w"> </span><span class="p">|</span><span class="w"> </span>-a<span class="o">[</span>ll<span class="o">]</span><span class="w"> </span><span class="p">|</span>?-c<span class="o">[</span>olor<span class="o">]}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>-s：输出更详细的信息
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>-f：强制使用指定的协议族
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>-4：指定使用的网络层协议是IPv4协议
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>-6：指定使用的网络层协议是IPv6协议
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>-0：输出信息每条记录输出一行，即使内容较多也不换行显示
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>-r：显示主机时，不使用IP地址，而使用主机的域名
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-h, --help      帮助信息
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>-V, --version   程序版本信息
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>-n, --numeric   不解析服务名称
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>-r, --resolve   解析主机名
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>-a, --all       显示所有套接字（sockets）
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>-l, --listening 显示监听状态的套接字（sockets）
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>-o, --options   显示计时器信息
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>-e, --extended  显示详细的套接字（sockets）信息
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>-m, --memory    显示套接字（socket）的内存使用情况
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>-p, --processes 显示使用套接字（socket）的进程
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>-i, --info      显示 TCP内部信息
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>-s, --summary   显示套接字（socket）使用概况
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>-4, --ipv4      仅显示IPv4的套接字（sockets）
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>-6, --ipv6      仅显示IPv6的套接字（sockets）
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>-0, --packet    显示 PACKET 套接字（socket）
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>-t, --tcp       仅显示 TCP套接字（sockets）
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>-u, --udp       仅显示 UCP套接字（sockets）
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>-d, --dccp      仅显示 DCCP套接字（sockets）
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>-w, --raw       仅显示 RAW套接字（sockets）
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>-x, --unix      仅显示 Unix套接字（sockets）
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>-f, --family=FAMILY  显示 FAMILY类型的套接字（sockets），FAMILY可选，支持  unix, inet, inet6, link, netlink
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>-A, --query=QUERY, --socket=QUERY
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>      QUERY := {all|inet|tcp|udp|raw|unix|packet|netlink}[,QUERY]
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>-D, --diag=FILE     将原始TCP套接字（sockets）信息转储到文件
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a> -F, --filter=FILE  从文件中都去过滤器信息
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>       FILTER := [ state TCP-STATE ] [ EXPRESSION ]
+</span></code></pre></div></p>
+<h2 id="_2">实例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ss<span class="w"> </span>-t<span class="w"> </span>-a<span class="w">    </span><span class="c1"># 显示TCP连接</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ss<span class="w"> </span>-s<span class="w">       </span><span class="c1"># 显示 Sockets 摘要</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ss<span class="w"> </span>-l<span class="w">       </span><span class="c1"># 列出所有打开的网络连接端口</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>ss<span class="w"> </span>-pl<span class="w">      </span><span class="c1"># 查看进程使用的socket</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>ss<span class="w"> </span>-lp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">3306</span><span class="w">  </span><span class="c1"># 找出打开套接字/端口应用程序</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ss<span class="w"> </span>-u<span class="w"> </span>-a<span class="w">    </span>显示所有UDP<span class="w"> </span>Sockets
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>ss<span class="w"> </span>-o<span class="w"> </span>state<span class="w"> </span>established<span class="w"> </span><span class="s1">&#39;( dport = :smtp or sport = :smtp )&#39;</span><span class="w"> </span><span class="c1"># 显示所有状态为established的SMTP连接</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>ss<span class="w"> </span>-o<span class="w"> </span>state<span class="w"> </span>established<span class="w"> </span><span class="s1">&#39;( dport = :http or sport = :http )&#39;</span><span class="w"> </span><span class="c1"># 显示所有状态为Established的HTTP连接</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>ss<span class="w"> </span>-o<span class="w"> </span>state<span class="w"> </span>fin-wait-1<span class="w"> </span><span class="s1">&#39;( sport = :http or sport = :https )&#39;</span><span class="w"> </span>dst<span class="w"> </span><span class="m">193</span>.233.7/24<span class="w">  </span><span class="c1"># 列举出处于 FIN-WAIT-1状态的源端口为 80或者 443，目标网络为 193.233.7/24所有 tcp套接字</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># ss 和 netstat 效率对比</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">time</span><span class="w"> </span>netstat<span class="w"> </span>-at
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nb">time</span><span class="w"> </span>ss
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># 匹配远程地址和端口号</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1"># ss dst ADDRESS_PATTERN</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>ss<span class="w"> </span>dst<span class="w"> </span><span class="m">192</span>.168.1.5
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>ss<span class="w"> </span>dst<span class="w"> </span><span class="m">192</span>.168.119.113:http
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>ss<span class="w"> </span>dst<span class="w"> </span><span class="m">192</span>.168.119.113:smtp
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>ss<span class="w"> </span>dst<span class="w"> </span><span class="m">192</span>.168.119.113:443
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="c1"># 匹配本地地址和端口号</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="c1"># ss src ADDRESS_PATTERN</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>ss<span class="w"> </span>src<span class="w"> </span><span class="m">192</span>.168.119.103
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>ss<span class="w"> </span>src<span class="w"> </span><span class="m">192</span>.168.119.103:http
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>ss<span class="w"> </span>src<span class="w"> </span><span class="m">192</span>.168.119.103:80
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>ss<span class="w"> </span>src<span class="w"> </span><span class="m">192</span>.168.119.103:smtp
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>ss<span class="w"> </span>src<span class="w"> </span><span class="m">192</span>.168.119.103:25
+</span></code></pre></div>
+<p><strong>将本地或者远程端口和一个数比较</strong></p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># ss dport OP PORT 远程端口和一个数比较</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># ss sport OP PORT 本地端口和一个数比较</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># OP 可以代表以下任意一个:</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># &lt;= or le : 小于或等于端口号</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># &gt;= or ge : 大于或等于端口号</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># == or eq : 等于端口号</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># != or ne : 不等于端口号</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># &lt; or gt : 小于端口号</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># &gt; or lt : 大于端口号</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>ss<span class="w">  </span><span class="nv">sport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>:http
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>ss<span class="w">  </span><span class="nv">dport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>:http
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>ss<span class="w">  </span>dport<span class="w"> </span><span class="se">\&gt;</span><span class="w"> </span>:1024
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>ss<span class="w">  </span>sport<span class="w"> </span><span class="se">\&gt;</span><span class="w"> </span>:1024
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>ss<span class="w"> </span>sport<span class="w"> </span><span class="se">\&lt;</span><span class="w"> </span>:32000
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>ss<span class="w">  </span>sport<span class="w"> </span>eq<span class="w"> </span>:22
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>ss<span class="w">  </span>dport<span class="w"> </span>!<span class="o">=</span><span class="w"> </span>:22
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>ss<span class="w">  </span>state<span class="w"> </span>connected<span class="w"> </span><span class="nv">sport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>:http
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>ss<span class="w"> </span><span class="se">\(</span><span class="w"> </span><span class="nv">sport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>:http<span class="w"> </span>or<span class="w"> </span><span class="nv">sport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>:https<span class="w"> </span><span class="se">\)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>ss<span class="w"> </span>-o<span class="w"> </span>state<span class="w"> </span>fin-wait-1<span class="w"> </span><span class="se">\(</span><span class="w"> </span><span class="nv">sport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>:http<span class="w"> </span>or<span class="w"> </span><span class="nv">sport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>:https<span class="w"> </span><span class="se">\)</span><span class="w"> </span>dst<span class="w"> </span><span class="m">192</span>.168.1/24
+</span></code></pre></div>
+<p><strong>用TCP 状态过滤Sockets</strong></p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ss<span class="w"> </span>-4<span class="w"> </span>state<span class="w"> </span>closing
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># ss -4 state FILTER-NAME-HERE</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># ss -6 state FILTER-NAME-HERE</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># FILTER-NAME-HERE 可以代表以下任何一个：</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># established、 syn-sent、 syn-recv、 fin-wait-1、 fin-wait-2、 time-wait、 closed、 close-wait、 last-ack、 listen、 closing、</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># all : 所有以上状态</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># connected : 除了listen and closed的所有状态</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># synchronized :所有已连接的状态除了syn-sent</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># bucket : 显示状态为maintained as minisockets,如：time-wait和syn-recv.</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># big : 和bucket相反.</span>
+</span></code></pre></div>
+<p><strong>显示ICP连接</strong></p>
+<p><div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[root@localhost ~]# ss -t -a
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a> **显示 Sockets 摘要**
+</span></code></pre></div>
+[root@localhost ~]# ss -s</p>
+<p>列出当前的established, closed, orphaned and waiting TCP sockets</p>
+<p><strong>列出所有打开的网络连接端口</strong></p>
+<p><div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[root@localhost ~]# ss -l
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> **查看进程使用的socket**
+</span></code></pre></div>
+[root@localhost ~]# ss -pl</p>
+<p><strong>找出打开套接字/端口应用程序</strong></p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[root@localhost ~]# ss -pl | grep 3306
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>0      0                            *:3306                          *:*        users:((&quot;mysqld&quot;,1718,10))
+</span></code></pre></div>
+<p><strong>显示所有UDP Sockets</strong></p>
+<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[root@localhost ~]# ss -u -a
+</span></code></pre></div>
+<h4 id="22ssh">出所有端口为 22（ssh）的连接<a class="headerlink" href="#22ssh" title="Permanent link">&para;</a></h4>
+<p><div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ss<span class="w"> </span>state<span class="w"> </span>all<span class="w"> </span><span class="nv">sport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>:ssh
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>OBJECT<span class="w"> </span><span class="c1"># 网络对象</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>link<span class="w"> </span><span class="c1"># 指网络设备，通过此对象命令，我们可以查看及更改网络设备的属性</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>addr<span class="w"> </span><span class="c1"># 地址管理</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>neigh<span class="w"> </span><span class="c1"># arp表管理</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>route<span class="w"> </span><span class="c1"># 路由管理</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>rule<span class="w"> </span><span class="c1"># 路由策略</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>maddr<span class="w"> </span><span class="c1"># 多址广播地址</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>mroute<span class="w"> </span><span class="c1"># 多播路由缓存管理</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>tunnel<span class="w"> </span><span class="c1"># 通道管理</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>ip<span class="w"> </span>link<span class="w"> </span><span class="c1"># 显示链路信息</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>ip<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span><span class="c1"># 显示eth0接口链路信息</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1"># 显示路由ip route [类似route -n]</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>ip<span class="w"> </span>route<span class="w"> </span><span class="p">|</span><span class="w"> </span>column<span class="w"> </span>-t
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span><span class="m">192</span>.168.0.0/24<span class="w"> </span>dev<span class="w"> </span>eth1
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.0.0/24<span class="w"> </span>dev<span class="w"> </span>eth1
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span>via<span class="w"> </span><span class="m">10</span>.2.255.254<span class="w">  </span><span class="c1"># 删除默认路由</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>via<span class="w"> </span><span class="m">10</span>.2.255.254<span class="w">  </span><span class="c1"># 增加默认路由</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.0.1<span class="w">  </span><span class="c1"># 增加静态路由，192.168.0.1为下一跳地址</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.0.1<span class="w">  </span><span class="c1"># 删除静态路由</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>显示arp信息ip<span class="w"> </span>neigh<span class="w"> </span><span class="o">[</span>可以取代arp<span class="w"> </span>-n<span class="o">]</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>删除则是ip<span class="w"> </span>neigh<span class="w"> </span>del<span class="w"> </span>IP地址<span class="w"> </span>dev<span class="w"> </span>设备名
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>路由策略数据库:如果你有一个大规模的路由器，需要同时满足不同用户对于路由的不通需求，路由策略数据库可以帮你通过多路由表技术来实现。当内核需要做出路由选择时，它会找出应该参考哪一张路由表。除了ip外,route也可以修改main和local表
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>默认规则
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="w">    </span><span class="c1"># ip rule</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="w">    </span>上面列出了规则的优先顺序。ip<span class="w"> </span>route命令默认显示的就是main表。ip<span class="w"> </span>route<span class="w"> </span>show<span class="w"> </span>table<span class="w"> </span>all显示所有规则中的表
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="w">    </span><span class="c1"># ip route list table local</span>
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="w">    </span>broadcast<span class="w"> </span><span class="m">192</span>.168.0.255<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w">  </span>proto<span class="w"> </span>kernel<span class="w">  </span>scope<span class="w"> </span>link<span class="w">  </span>src<span class="w"> </span><span class="m">192</span>.168.0.10
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="w">    </span>broadcast<span class="w"> </span><span class="m">10</span>.2.0.0<span class="w"> </span>dev<span class="w"> </span>eth1<span class="w">  </span>proto<span class="w"> </span>kernel<span class="w">  </span>scope<span class="w"> </span>link<span class="w">  </span>src<span class="w"> </span><span class="m">10</span>.2.0.217
+</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a><span class="w">    </span>broadcast<span class="w"> </span><span class="m">127</span>.255.255.255<span class="w"> </span>dev<span class="w"> </span>lo<span class="w">  </span>proto<span class="w"> </span>kernel<span class="w">  </span>scope<span class="w"> </span>link<span class="w">  </span>src<span class="w"> </span><span class="m">127</span>.0.0.1
+</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="w">    </span>...<span class="w"> </span>...
+</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a><span class="w">    </span>default表为空
+</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>例<span class="w"> </span>简单策略路由添加<span class="w"> </span><span class="o">[</span>引用自Linux高级路由中文HOWTO<span class="o">]</span>
+</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>让我们再来一个真实的例子。我有两个Cable<span class="w"> </span>Modem，连接到了一个<span class="w"> </span>Linux的NAT<span class="w"> </span><span class="o">(</span>“伪装”<span class="o">)</span><span class="w"> </span>路由器上。这里的室友们向我付费使用Internet。假如我其中的一个室友因为只想访问<span class="w"> </span>hotmail<span class="w"> </span>而希望少付一些钱。对我来说这没有问题,他们肯定只能使用那个比较次的Cable<span class="w"> </span>Modem
+</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>那个比较快的cable<span class="w"> </span>modem<span class="w"> </span>的IP地址是<span class="w"> </span><span class="m">212</span>.64.94.251，PPP<span class="w"> </span>链路，对端IP是212.64.94.1。而那个比较慢的cable<span class="w"> </span>modem的IP地址是212.64.78.148，对端是195.96.98.253
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="nb">local</span><span class="w"> </span>表：
+</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a><span class="w">    </span><span class="c1">#ip route list table local</span>
+</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>
+</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>查看“main”路由表：
+</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a><span class="w">    </span><span class="c1">#ip route list table main</span>
+</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>
+</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>我们现在为我们的朋友创建了一个叫做“John”的规则。其实我们完全可以使用纯数字表示规则，但是不方便。我们可以向/etc/iproute2/rt_tables文件中添加数字与名字的关联：
+</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a><span class="c1"># echo 200 John &gt;&gt; /etc/iproute2/rt_tables</span>
+</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a><span class="c1"># ip rule add from 10.0.0.10 table John</span>
+</span><span id="__span-10-49"><a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a><span class="c1"># ip rule</span>
+</span><span id="__span-10-50"><a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a>
+</span><span id="__span-10-51"><a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a>现在，剩下的事情就是为<span class="w"> </span>John<span class="w"> </span>的路由表创建路由项了。别忘了刷新路由缓存：
+</span><span id="__span-10-52"><a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a><span class="c1"># ip route add default via 195.96.98.253 dev ppp2 table John</span>
+</span><span id="__span-10-53"><a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a><span class="c1"># ip route flush cache</span>
+</span><span id="__span-10-54"><a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a>总结主要是以下几步：
+</span><span id="__span-10-55"><a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="m">200</span><span class="w"> </span>John<span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/iproute2/rt_tables<span class="w"> </span><span class="c1">#方便表示，把规则名字和数字对应加入到/etc/iproute2/rt_tables文件</span>
+</span><span id="__span-10-56"><a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a><span class="w">    </span>ip<span class="w"> </span>rule<span class="w"> </span>add<span class="w"> </span>from<span class="w"> </span><span class="m">10</span>.0.0.10<span class="w"> </span>table<span class="w"> </span>John<span class="w"> </span><span class="c1">#新增规则</span>
+</span><span id="__span-10-57"><a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a><span class="w">    </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">195</span>.96.98.253<span class="w"> </span>dev<span class="w"> </span>ppp2<span class="w"> </span>table<span class="w"> </span>John<span class="w"> </span><span class="c1">#规则中添加路由表</span>
+</span><span id="__span-10-58"><a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a><span class="w">    </span>ip<span class="w"> </span>route<span class="w"> </span>flush<span class="w"> </span>cache<span class="w"> </span><span class="c1">#刷新路由表</span>
+</span><span id="__span-10-59"><a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a>iproute2<span class="w"> </span>ip<span class="w"> </span>常用命令备忘
+</span><span id="__span-10-60"><a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a><span class="m">1</span>.显示ip地址
+</span><span id="__span-10-61"><a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a><span class="w">    </span>ip<span class="w"> </span>a
+</span><span id="__span-10-62"><a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a><span class="w">    </span>ip<span class="w"> </span>address<span class="w"> </span>show
+</span><span id="__span-10-63"><a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a><span class="w">    </span>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>eth0
+</span><span id="__span-10-64"><a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a><span class="w">    </span>ip<span class="w"> </span>a<span class="w"> </span>sh<span class="w"> </span>eth0
+</span><span id="__span-10-65"><a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a><span class="m">2</span>.增加删除地址
+</span><span id="__span-10-66"><a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a><span class="w">    </span>ip<span class="w"> </span>address<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.0.2.1/24<span class="w"> </span>dev<span class="w"> </span>eth0
+</span><span id="__span-10-67"><a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a><span class="w">    </span>ip<span class="w"> </span>addr<span class="w"> </span>del<span class="w"> </span><span class="m">192</span>.0.2.2/24<span class="w"> </span>dev<span class="w"> </span>eth0
+</span><span id="__span-10-68"><a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a><span class="m">3</span>.显示接口统计
+</span><span id="__span-10-69"><a id="__codelineno-10-69" name="__codelineno-10-69" href="#__codelineno-10-69"></a><span class="w">    </span>ip<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>ls<span class="w"> </span>eth0
+</span><span id="__span-10-70"><a id="__codelineno-10-70" name="__codelineno-10-70" href="#__codelineno-10-70"></a>
+</span><span id="__span-10-71"><a id="__codelineno-10-71" name="__codelineno-10-71" href="#__codelineno-10-71"></a>网卡和链路配置
+</span><span id="__span-10-72"><a id="__codelineno-10-72" name="__codelineno-10-72" href="#__codelineno-10-72"></a><span class="m">4</span>.显示链路
+</span><span id="__span-10-73"><a id="__codelineno-10-73" name="__codelineno-10-73" href="#__codelineno-10-73"></a><span class="w">    </span>ip<span class="w"> </span>link<span class="w"> </span>show
+</span><span id="__span-10-74"><a id="__codelineno-10-74" name="__codelineno-10-74" href="#__codelineno-10-74"></a><span class="w">    </span>ip<span class="w"> </span>link<span class="w"> </span>sh<span class="w"> </span>eth0
+</span><span id="__span-10-75"><a id="__codelineno-10-75" name="__codelineno-10-75" href="#__codelineno-10-75"></a><span class="m">4</span>.修改接口状态
+</span><span id="__span-10-76"><a id="__codelineno-10-76" name="__codelineno-10-76" href="#__codelineno-10-76"></a><span class="w">    </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>up
+</span><span id="__span-10-77"><a id="__codelineno-10-77" name="__codelineno-10-77" href="#__codelineno-10-77"></a><span class="w">    </span>ip<span class="w"> </span>link<span class="w"> </span>s<span class="w"> </span>gre01<span class="w"> </span>down
+</span><span id="__span-10-78"><a id="__codelineno-10-78" name="__codelineno-10-78" href="#__codelineno-10-78"></a>路由表管理
+</span><span id="__span-10-79"><a id="__codelineno-10-79" name="__codelineno-10-79" href="#__codelineno-10-79"></a><span class="m">5</span>.显示路由表
+</span><span id="__span-10-80"><a id="__codelineno-10-80" name="__codelineno-10-80" href="#__codelineno-10-80"></a><span class="w">    </span>ip<span class="w"> </span>route
+</span><span id="__span-10-81"><a id="__codelineno-10-81" name="__codelineno-10-81" href="#__codelineno-10-81"></a><span class="w">    </span>ip<span class="w"> </span>ro<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>gre01
+</span><span id="__span-10-82"><a id="__codelineno-10-82" name="__codelineno-10-82" href="#__codelineno-10-82"></a><span class="m">6</span>.增加新路由
+</span><span id="__span-10-83"><a id="__codelineno-10-83" name="__codelineno-10-83" href="#__codelineno-10-83"></a><span class="w">    </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.2.2.128/27<span class="w"> </span>dev<span class="w"> </span>gre01
+</span><span id="__span-10-84"><a id="__codelineno-10-84" name="__codelineno-10-84" href="#__codelineno-10-84"></a><span class="m">7</span>.增加默认路由
+</span><span id="__span-10-85"><a id="__codelineno-10-85" name="__codelineno-10-85" href="#__codelineno-10-85"></a><span class="w">    </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.1.1
+</span><span id="__span-10-86"><a id="__codelineno-10-86" name="__codelineno-10-86" href="#__codelineno-10-86"></a><span class="m">8</span>.修改默认路由
+</span><span id="__span-10-87"><a id="__codelineno-10-87" name="__codelineno-10-87" href="#__codelineno-10-87"></a><span class="w">    </span>ip<span class="w"> </span>route<span class="w"> </span>chg<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.1.2
+</span><span id="__span-10-88"><a id="__codelineno-10-88" name="__codelineno-10-88" href="#__codelineno-10-88"></a><span class="m">9</span>.删除默认路由
+</span><span id="__span-10-89"><a id="__codelineno-10-89" name="__codelineno-10-89" href="#__codelineno-10-89"></a><span class="w">    </span>ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span>default
+</span><span id="__span-10-90"><a id="__codelineno-10-90" name="__codelineno-10-90" href="#__codelineno-10-90"></a>隧道配置
+</span><span id="__span-10-91"><a id="__codelineno-10-91" name="__codelineno-10-91" href="#__codelineno-10-91"></a><span class="m">10</span>.增加删除GRE隧道
+</span><span id="__span-10-92"><a id="__codelineno-10-92" name="__codelineno-10-92" href="#__codelineno-10-92"></a><span class="w">    </span>ip<span class="w"> </span>tunnel<span class="w"> </span>add<span class="w"> </span>gre01<span class="w"> </span>mode<span class="w"> </span>gre<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">10</span>.1.1.1<span class="w"> </span>remote<span class="w"> </span><span class="m">20</span>.2.2.1<span class="w"> </span>ttl<span class="w"> </span><span class="m">255</span>
+</span><span id="__span-10-93"><a id="__codelineno-10-93" name="__codelineno-10-93" href="#__codelineno-10-93"></a><span class="w">    </span>ip<span class="w"> </span>tunnel<span class="w"> </span>del<span class="w"> </span>gre01
+</span><span id="__span-10-94"><a id="__codelineno-10-94" name="__codelineno-10-94" href="#__codelineno-10-94"></a><span class="m">11</span>.IPIP隧道
+</span><span id="__span-10-95"><a id="__codelineno-10-95" name="__codelineno-10-95" href="#__codelineno-10-95"></a><span class="w">    </span>ip<span class="w"> </span>tunl<span class="w"> </span>a<span class="w"> </span>ipip01<span class="w"> </span>mode<span class="w"> </span>ipip<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">10</span>.1.1.1<span class="w"> </span>remote<span class="w"> </span><span class="m">20</span>.2.2.1<span class="w"> </span>ttl<span class="w"> </span><span class="m">255</span>
+</span><span id="__span-10-96"><a id="__codelineno-10-96" name="__codelineno-10-96" href="#__codelineno-10-96"></a><span class="m">12</span>.显示隧道
+</span><span id="__span-10-97"><a id="__codelineno-10-97" name="__codelineno-10-97" href="#__codelineno-10-97"></a><span class="w">    </span>ip<span class="w"> </span>tunnel<span class="w"> </span>show
+</span><span id="__span-10-98"><a id="__codelineno-10-98" name="__codelineno-10-98" href="#__codelineno-10-98"></a><span class="m">13</span>.显示隧道统计
+</span><span id="__span-10-99"><a id="__codelineno-10-99" name="__codelineno-10-99" href="#__codelineno-10-99"></a><span class="w">    </span>ip<span class="w"> </span>-s<span class="w"> </span>tunl<span class="w"> </span>ls<span class="w"> </span>gre01
+</span><span id="__span-10-100"><a id="__codelineno-10-100" name="__codelineno-10-100" href="#__codelineno-10-100"></a>邻居和arp表管理
+</span><span id="__span-10-101"><a id="__codelineno-10-101" name="__codelineno-10-101" href="#__codelineno-10-101"></a><span class="m">13</span>.查看arp表
+</span><span id="__span-10-102"><a id="__codelineno-10-102" name="__codelineno-10-102" href="#__codelineno-10-102"></a><span class="w">    </span>ip<span class="w"> </span>neigh<span class="w"> </span>show
+</span><span id="__span-10-103"><a id="__codelineno-10-103" name="__codelineno-10-103" href="#__codelineno-10-103"></a><span class="m">14</span>.手工增加删除arp项
+</span><span id="__span-10-104"><a id="__codelineno-10-104" name="__codelineno-10-104" href="#__codelineno-10-104"></a><span class="w">    </span>ip<span class="w"> </span>neighbor<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.2.2.2<span class="w"> </span>dev<span class="w"> </span>eth0
+</span><span id="__span-10-105"><a id="__codelineno-10-105" name="__codelineno-10-105" href="#__codelineno-10-105"></a><span class="w">    </span>ip<span class="w"> </span>neigh<span class="w"> </span>del<span class="w"> </span><span class="m">10</span>.2.2.1<span class="w"> </span>dev<span class="w"> </span>eth0
+</span><span id="__span-10-106"><a id="__codelineno-10-106" name="__codelineno-10-106" href="#__codelineno-10-106"></a>
+</span><span id="__span-10-107"><a id="__codelineno-10-107" name="__codelineno-10-107" href="#__codelineno-10-107"></a>socket统计
+</span><span id="__span-10-108"><a id="__codelineno-10-108" name="__codelineno-10-108" href="#__codelineno-10-108"></a><span class="m">15</span>.显示当前监听
+</span><span id="__span-10-109"><a id="__codelineno-10-109" name="__codelineno-10-109" href="#__codelineno-10-109"></a><span class="w">    </span>ss<span class="w"> </span>-l
+</span><span id="__span-10-110"><a id="__codelineno-10-110" name="__codelineno-10-110" href="#__codelineno-10-110"></a><span class="m">16</span>.显示当前监听的进程
+</span><span id="__span-10-111"><a id="__codelineno-10-111" name="__codelineno-10-111" href="#__codelineno-10-111"></a><span class="w">    </span>ss<span class="w"> </span>-p
+</span></code></pre></div></p>
+<p>地址管理
+在本节中，$ {address}值应该是点分十进制格式的主机地址，$ {mask}可以是点分十进制子网掩码或前缀长度。也就是说，192.0.2.10/24和192.0.2.10/255.255.255.0同样可以接受</p>
+<p>如果您不确定某些东西是否为正确的主机地址，请使用ipcalc或类似程序进行检查</p>
+<p>显示所有地址
+ip地址显示
+所有show命令都可以与-4或-6选项一起使用，以仅显示IPv4或IPv6地址
+显示单个界面的地址
+IP地址显示$ {接口名称}
+例子：
+ip地址显示eth0
+仅显示正在运行的接口的地址
+IP地址显示
+仅显示静态或动态IPv6地址
+仅显示静态配置的地址：
+ip address show [dev $ {interface}]永久
+仅显示通过自动配置学习的地址：
+ip address show [dev $ {interface}] dynamic
+向接口添加地址
+ip address add $ {address} / $ {mask} dev $ {interface name}
+例子：
+ip address add 192.0.2.10/27 dev eth0
+ip address add 2001：db8：1 :: / 48 dev tun10
+您可以根据需要添加任意数量的地址</p>
+<p>如果您添加多个地址，则您的机器将接受所有数据包。默认情况下，您添加的第一个地址将用作传出流量的源地址，它被称为主地址</p>
+<p>您设置的所有其他地址都将成为次要地址</p>
+<p>添加具有人类可读描述的地址
+ip address add $ {address} / $ {mask} dev $ {interface name} label $ {interface name}：$ {description}
+例子：
+ip address add 192.0.2.1/24 dev eth0 label eth0：WANaddress
+由于一些向后兼容性问题，标签必须以接口名称开头，后跟冒号，否则会出错。 保持标签短于十六个字符，否则你会得到这个错误：
+RTNETLINK回答：数字结果超出范围
+笔记
+对于IPv6地址，此命令不起作用（将添加地址，但没有标签）</p>
+<p>删除地址
+ip address delete $ {address} / $ {prefix} dev $ {interface name}
+例子：
+ip地址删除192.0.2.1/24 dev eth0
+ip address delete 2001：db8 :: 1/64 dev tun1
+接口名称是必需的。Linux确实允许在多个接口上配置相同的地址，并且它具有有效的用例
+从接口中删除所有地址
+IP地址刷新开发$ {接口名称}
+例子：
+ip地址刷新dev eth1
+默认情况下，该命令删除IPv4和IPv6地址。如果您只想移除IPv4或IPv6地址，请使用“ip-4地址刷新”或“ip-6地址刷新”</p>
+<p>笔记
+无法交换主地址和辅助地址，也无法显式设置新的主地址。尝试始终首先设置主地址</p>
+<p>但是，如果sysctl变量net.ipv4.conf。$ {interface} .promote_secondaries设置为1，那么当您删除主地址时，第一个辅助地址将成为新的主地址</p>
+<p>请注意，net.ipv4.conf.default.promote_secondaries = 1 不是所有Linux发行版中的通用默认设置，因此请在尝试之前检查您的设置。如果它设置为0，那么当你删除主地址时，所有的地址都将从接口中删除</p>
+<p>如果主地址被删除，则辅助IPv6地址总是被提升为主地址，因此您不必担心sysctl设置</p>
+<p>邻居（ARP和NDP）表管理
+对于喜欢英国拼写的女士们，先生们，这个指挥家庭也支持“邻居”拼写</p>
+<p>查看邻居表
+IP邻居秀
+所有“show”命令都支持-4和-6选项，以仅查看IPv4（ARP）或IPv6（NDP）邻居。默认显示所有的邻居</p>
+<p>查看单个界面的邻居
+ip neighbor show dev $ {interface name}
+例子：
+ip neighbor show dev eth0
+刷新接口的表格
+ip neighbor flush dev $ {interface name}
+例子：
+IP邻居刷新开发eth1
+添加一个邻居表项
+ip neighbor add $ {网络地址} lladdr $ {link layer address} dev $ {interface name}
+例子：
+ip neighbor add 192.0.2.1 lladdr 22：ce：e0：99：63：6f dev eth0
+其中一个用例是为具有禁用ARP的接口添加静态条目，以限制具有特定MAC地址的主机的接口使用情况</p>
+<p>删除一个邻居表项
+ip邻居删除$ {网络地址} lladdr $ {链接层地址}开发$ {接口名称}
+例子：
+ip neighbor delete 192.0.2.1 lladdr 22：ce：e0：99：63：6f dev eth0
+允许删除静态条目，或者在不刷新表格的情况下摆脱自动学习的条目</p>
+<p>链接管理
+链接是网络界面的另一个术语。来自“ip link”系列的命令执行所有接口类型通用的操作，例如查看链接信息或更改MTU</p>
+<p>从历史上看，“ip link”命令可以创建除隧道（IPIP，GRE等），L2TPv3和VXLAN接口（它们各自具有命令）之外的所有类型的接口。在较新的iproute2版本中（至少3.16），它们可以创建除L2TPv3以外的所有类型的接口，尽管使用特殊命令系列对其中的一些更加方便</p>
+<p>请注意，使用“ip link add”和“ip link set”命令的“name $ {name}”参数设置的接口名称可能是任意的，甚至可能包含unicode字符。但是，最好坚持使用ASCII，因为其他程序可能无法正确处理unicode</p>
+<p>另请注意，其他程序（如iptables）可能有自己的链接名称格式和长度限制，所以最好使用短的字母数字名称，并在链接别名中提供其他信息</p>
+<p>显示有关所有链接的信息
+IP链接显示
+IP链接列表
+这些命令是等价的，可以用于相同的参数
+显示有关特定链接的信息
+ip link show dev $ {interface name}
+例子：
+ip link show dev eth0
+ip link show dev tun10
+单词“dev”可以省略
+上下链接
+ip link set dev $ {interface name} up
+ip link set dev $ {interface name} down
+例子：
+ip link set dev eth0 down
+ip链路设置dev br0 up
+注意：下面描述的虚拟链路，如VLAN和网桥在创建后立即处于关闭状态。你需要提醒他们开始使用它们</p>
+<p>设置人类可读的链接描述
+ip link set dev $ {interface name}别名“$ {description}”
+例子：
+ip link set dev eth0别名“LAN接口”
+链接别名显示在“ip link show”输出中，如：
+2：eth0：<BROADCAST，MULTICAST，UP，LOWER_UP> mtu 1500 qdisc mq状态UP模式DEFAULT qlen 1000
+    link / ether 22：ce：e0：99：63：6f brd ff：ff：ff：ff：ff：ff
+    别名LAN接口</p>
+<p>重命名一个接口
+ip link set dev $ {old interface name} name $ {new interface name}
+例子：
+ip link set dev eth0 name lan
+请注意，您不能重命名活动界面。在做之前你需要把它放下</p>
+<p>更改链路层地址（通常是MAC地址）
+ip link set dev $ {interface name} address $ {address}
+链路层地址是一个相当广泛的概念。最着名的例子是以太网设备的MAC地址。要改变MAC地址，你需要这样的东西：</p>
+<p>ip link set dev eth0 address 22：ce：e0：99：63：6f
+更改链接MTU
+ip link set dev $ {interface name} mtu $ {MTU value}
+例子：
+ip link set dev tun0 mtu 1480
+MTU代表“最大传输单位”，即接口一次可以传输的最大帧数</p>
+<p>除了像上面例子那样减少隧道中的分段之外，这也用于提高支持所谓的“巨型帧”（最多9000个字节的帧）的千兆以太网链路的性能。如果你所有的设备都支持千兆以太网，你可能想要做类似的事情</p>
+<p>ip link set dev eth0 mtu 9000
+请注意，您可能还需要在L2交换机上配置它，其中一些默认情况下已将其禁用</p>
+<p>删除链接
+ip link delete dev $ {interface name}
+显然，只能删除像VLAN或网桥这样的虚拟链路</p>
+<p>在接口上启用或禁用多播
+ip link设置$ {interface name}多播
+ip link设置$ {interface name}组播关闭
+除非你真的明白你在做什么，最好不要碰这个</p>
+<p>在接口上启用或禁用ARP
+ip link设置$ {interface name} arp
+ip link设置$ {interface name} arp off
+人们可能希望禁用ARP来强制执行安全策略，并只允许特定的MAC与接口进行通信。在这种情况下，白名单MAC的邻居表条目应手动创建（请参见邻居表管理 部分），否则什么都不能与该接口通信</p>
+<p>在大多数情况下，最好在接入层交换机上配置MAC策略。除非你确定你要做什么以及为什么，否则不要改变这个标志</p>
+<p>创建一个VLAN接口
+IP链接添加名称$ {VLAN接口名称}链接$ {父接口名称}键入vlan id $ {tag}
+例子：
+ip link add name eth0.110 link eth0 type vlan id 110
+Linux支持的唯一VLAN类型是IEEE 802.1q VLAN，不支持ISL等传统实现</p>
+<p>一旦创建了一个VLAN接口，所有由$ {parent interface}接收的id选项中指定的$ {tag}标记的帧将由该VLAN接口处理</p>
+<p>eth0.100名称格式是传统的，但不是必需的，您可以根据需要命名该接口，就像使用其他接口类型一样</p>
+<p>VLAN可以通过网桥，绑定和其他能够处理以太网帧的接口来创建</p>
+<p>创建QinQ接口（VLAN堆叠）
+ip link add name $ {service interface} link $ {physical interface} type vlan proto 802.1ad id $ {service tag}
+ip link add name $ {client interface} link $ {service interface}输入vlan proto 802.1q id $ {client tag}
+例：
+ip link add name eth0.100 link eth0 type vlan proto 802.1ad id 100＃创建服务标签接口
+ip link add name eth0.100.200 link eth0.100 type vlan proto 802.1q id 200＃创建客户端标签接口
+VLAN堆叠（又名802.1ad QinQ）是一种在另一个VLAN上传输带VLAN标记的流量的方法。常见的用例如下所示：假设您是服务提供商，并且您有一位客户想要使用您的网络基础架构将其网络的部分连接到彼此。他们在网络中使用多个VLAN，因此普通的租用VLAN不是一种选择。通过使用QinQ，您可以在客户流量进入网络时添加第二个标签，并在退出时删除该标签，因此不存在冲突，您不需要浪费VLAN编号</p>
+<p>服务标签是提供商用来通过网络承载客户端流量的VLAN标签。客户标签是客户设定的标签</p>
+<p>请注意，客户端VLAN接口的链路MTU不会自动调整，您需要亲自处理，并将客户端接口MTU减少至少4个字节，或相应地增加父母MTU</p>
+<p>符合标准的QinQ自Linux 3.10起可用</p>
+<p>创建伪以太网（aka macvlan）接口
+ip link add name $ {macvlan interface name} link $ {parent interface}键入macvlan
+例子：
+ip链接添加名称peth0链接eth0类型macvlan
+您可以将macvlan接口视为父接口上的附加虚拟MAC地址。从用户的角度来看，它们看起来像普通的以太网接口，并处理所有通信的MAC地址，这些MAC地址是通过其父接口分配的</p>
+<p>这通常用于测试，或者当只有一个物理接口可用时，使用由MAC标识的多个服务实例</p>
+<p>它们也可以用于IP地址分隔，而不是将多个地址分配给相同的物理接口，特别是如果某些服务无法正确操作辅助地址</p>
+<p>创建一个虚拟接口
+ip link add name $ {dummy interface name} type dummy
+例子：
+IP链接添加名称dummy0类型虚拟
+Dummy接口的工作方式与Loopback接口非常相似，只需要尽可能多的接口即可</p>
+<p>它们的第一个目的是在主机内部进行程序的通信</p>
+<p>第二个目的是利用他们总是起来的事实（除非在行政上被剥夺）。这通常用于在具有多个物理接口的路由器上为它们分配服务地址。只要分配给回送或伪接口的地址的流量路由到拥有它的机器，就可以通过它的任何接口访问它</p>
+<p>创建一个桥接接口
+IP链接添加名称$ {桥名称}类型桥
+例子：
+IP链接添加名称br0类型桥
+网桥接口是虚拟以太网交换机。它们可以用于在以太网接口之间透明地中继流量，并且越来越普遍地用作运行在管理程序内部的虚拟机的以太网交换机</p>
+<p>您可以将一个IP地址分配给一个网桥，并且它将从所有网桥端口可见</p>
+<p>如果此命令失败，请检查是否加载了“网桥”模块</p>
+<p>添加一个桥接接口
+ip link set dev $ {interface name} master $ {bridge name}
+例子：
+ip link set dev eth0 master br0
+您添加到网桥的接口将成为虚拟交换机端口。它仅在数据链路层上运行并停止所有网络层的操作</p>
+<p>从桥上删除接口
+ip link set dev $ {interface name} nomaster
+例子：
+ip link set dev eth0 nomaster
+创建一个绑定界面
+IP链接添加名称$ {名称}键入债券
+例子：
+IP链接添加名称bond1类型的债券
+注意：这不足以以任何有意义的方式配置绑定（链接聚合）。您需要根据您的情况设置粘合参数。这远远超出了备忘单范围，因此请查阅文档</p>
+<p>接口以与桥接组相同的方式添加到绑定组，请注意，除非您将其关闭，否则无法添加它</p>
+<p>创建一个中间功能块接口
+ip link add $ {interface name}键入ifb
+例：
+ip链接添加ifb10类型ifb
+中间功能块设备与tc一起用于流量重定向和镜像。这也超出了本文档的范围，请参阅tc文档</p>
+<p>创建一对虚拟以太网设备
+虚拟以太网（veth）设备总是成对出现，并且作为双向管道工作，不管进入其中的哪一个，都会从另一个管道出来。它们与系统分区功能（如网络命名空间和容器（OpenVZ和LXC））结合使用，以将一个分区连接到另一个分区</p>
+<p>IP链接添加名称$ {第一个设备名称}类型veth peer name $ {第二个设备名称}
+例子：
+IP链接添加名称veth-host类型veth对等名称veth-guest
+注意：虚拟以太网设备是在UP状态下创建的，不需要在创建后手动启动它们</p>
+<p>链接组管理
+链接组与管理型交换机中的端口范围类似。您可以将网络接口添加到编号组，并立即在该组的所有接口上执行操作</p>
+<p>未分配给任何组的链接属于组0，也称为“默认”</p>
+<p>将界面添加到组
+ip link set dev $ {interface name} group $ {group number}
+例子：
+ip link set dev eth0 group 42
+ip link set dev eth1 group 42
+从组中删除一个接口
+这可以通过将其分配给默认组来完成</p>
+<p>ip link set dev $ {interface name} group 0
+ip link set dev $ {interface}组默认值
+例子：
+ip link set dev tun10 group 0
+为组分配一个符号名称
+组名存储在/ etc / iproute2 / group文件中。组0的符号名称“default”恰好来自那里。您可以按照相同的“$ {number} $ {name}”格式添加您自己的，每行一个。您最多可以有255个命名组</p>
+<p>一旦配置了组名，在ip命令中可以交换使用数字和名称</p>
+<p>例：
+echo“10 customer-vlans”&gt;&gt; / etc / iproute2 / group
+之后，您可以在所有操作中使用该名称，例如
+ip link set dev eth0.100 group customer-vlans
+对组执行操作
+ip link set group $ {group number} $ {operation and arguments}
+例子：
+IP链路设置组42向下
+ip链路设置组上行链路mtu 1200
+查看来自特定组的链接的信息
+使用通常的信息查看命令和“group $ {group}”修饰符</p>
+<p>例子：
+IP链路列表组42
+IP地址显示组客户
+Tun和Tap设备
+Tun和tap设备允许用户空间程序模拟网络设备。当用户空间程序打开它们时，它们会得到一个文件描述符。从内核网络堆栈路由到设备的数据包从文件描述符中读取，用户空间程序写入文件描述符的数据将作为本地传出数据包注入到网络堆栈中。两者的区别在于：</p>
+<p>点击发送并接收原始以太网帧
+tun发送并接收原始IP数据包
+有两种类型的tun / tap设备：persistent和transient。用户空间程序在打开特殊设备时创建瞬时tun / tap设备，并在关联的文件描述符关闭时自动销毁。这里列出的命令操纵持久性设备</p>
+<p>查看tun / tap设备
+ip tuntap显示
+注意：这个命令可以缩写为“ip tuntap”</p>
+<p>该命令是查明某个设备是处于tun还是tap模式的唯一方法</p>
+<p>添加可供root用户使用的tun / tap设备
+ip tuntap add dev $ {interface name} mode $ {mode}
+例子：
+ip tuntap add dev tun0模式
+ip tuntap add dev tap9模式点击
+添加普通用户可使用的tun / tap设备
+ip tuntap add dev $ {interface name} mode $ {mode} user $ {user} group $ {group}
+例：
+ip tuntap add dev tun1模式tun用户我组mygroup
+ip tuntap add dev tun2 mode tun user 1000 group 1001
+使用备用数据包格式添加tun / tap设备
+将元信息添加到通过文件描述符接收的每个数据包。很少有程序期望这些信息，包括它在不期望的情况下会破坏事情</p>
+<p>ip tuntap add dev $ {interface name} mode $ {mode} pi
+例：
+ip tuntap add dev tun1 mode tun pi
+添加忽略流量控制的tun / tap
+通常，发送到tun / tap设备的数据包以与发送到任何其他设备的数据包相同的方式传播：它们被置于由流量控制引擎（由tc命令配置）处理的队列中。这可以被绕过，从而禁用该tun / tap设备的流量控制引擎</p>
+<p>ip tuntap add dev $ {interface name} mode $ {mode} one_queue
+例：
+ip tuntap add dev tun1 mode tun one_queue
+删除tun / tap设备
+ip tuntap del dev $ {接口名称}模式$ {mode}
+例子：
+ip tuntap删除dev tun0模式tun
+ip tuntap删除dev tap1模式点击
+注意：您必须指定模式。该模式不会显示在“ip link show”中，因此如果您不知道它是TUN还是TAP，请参阅“ip tuntap show”的输出</p>
+<p>隧道管理
+隧道是看起来像普通接口的“网络虫洞”，但通过它们发送的数据包被封装到另一个协议中，并通过多个主机发送到隧道的另一端，然后按照通常的方式进行解封装和处理，这样就可以假装两台机器有直接的连通性，而他们实际上没有</p>
+<p>这通常用于虚拟专用网络（与IPsec之类的加密传输协议结合使用），或通过不使用它的中间网络连接使用某种协议的网络（例如，通过仅支持IPv4的网段分隔的IPv6网络）</p>
+<p>注意：隧道自己提供零安全性。它们与其底层网络一样安全。因此，如果您需要安全性，请通过加密传输（例如IPsec）使用它们</p>
+<p>Linux目前支持IPIP（IPv4中的IPv4），SIT（IPv4中的IPv6），IP6IP6（IPv6中的IPv6），IPIP6（IPv4中的IPv6），GRE（几乎任何东西）以及最近的版本中的VTI IPsec）的</p>
+<p>请注意，隧道是在DOWN状态下创建的，您需要将它们提起</p>
+<p>在本节中，$ {本地端点地址}和$ {远程端点地址}是指分配给端点物理接口的地址。$ {address}是指分配给tunnel接口的地址</p>
+<p>创建一个IPIP隧道
+ip tunnel add $ {interface name}模式ipip local $ {本地端点地址} remote $ {远程端点地址}
+例子：
+ip tunnel add tun0 mode ipip local 192.0.2.1 remote 198.51.100.3
+ip link set dev tun0 up
+ip address add 10.0.0.1/30 dev tun0
+创建一个SIT隧道
+sudo ip tunnel add $ {interface name}模式坐本地$ {本地端点地址} remote $ {远程端点地址}
+例子：
+ip tunnel add tun9模式坐本地192.0.2.1远程198.51.100.3
+ip link set dev tun9 up
+ip address add 2001：db8：1 :: 1/64 dev tun9
+这种类型的隧道通常用于为IPv4连接的网络提供IPv6连接。有所谓的“隧道经纪人”提供给所有感兴趣的人，如Hurricane Electric tunnelbroker.net</p>
+<p>创建一个IPIP6隧道
+ ip -6 tunnel add $ {interface name}模式ipip6 local $ {本地端点地址}远程$ {远程端点地址}
+例子：
+ip -6 tunnel add tun8 mode ipip6 local 2001：db8：1 :: 1 remote 2001：db8：1 :: 2
+这种类型的隧道将在中转运营商分阶段IPv4（即不会很快）时广泛使用</p>
+<p>创建一个IP6IP6隧道
+ip -6 tunnel add $ {interface name}模式ip6ip6 local $ {本地端点地址} remote $ {远程端点地址}
+例子：
+ip -6 tunnel add tun3 mode ip6ip6 local 2001：db8：1 :: 1 remote 2001：db8：1 :: 2
+ip链接设置dev tun3 up
+ip address add 2001：db8：2：2 :: 1/64 dev tun3
+就像IPIP6一样，这些不会很快有用</p>
+<p>创建一个gretap（以太网over GRE）设备
+IP链接添加$ {接口名称}类型gretap本地$ {本地端点地址}远程$ {远程端点地址}
+例子：
+ip link add gretap0 type gretap local 192.0.2.1 remote 203.0.113.3
+这种类型的隧道将以太网帧封装为IPv4数据包</p>
+<p>最近的内核和iproute2版本也支持IPv6上的gretap，你需要用“ip6gretap”替换模式来创建一个基于IPv6的链接</p>
+<p>这可能应该是在“链接管理”部分，但由于它涉及封装，它在这里。以这种方式创建的隧道接口看起来像一个L2链路，并且可以将其添加到桥组。这用于通过路由网络连接L2段</p>
+<p>创建一个GRE隧道
+ip tunnel add $ {接口名称}模式gre本地$ {本地端点地址}远程$ {远程端点地址}
+例子：
+ip tunnel add tun6 mode gre local 192.0.2.1 remote 203.0.113.3
+ip链接设置dev tun6 up
+ip address add 192.168.0.1/30 dev tun6
+ip address add 2001：db8：1 :: 1/64 dev tun6
+GRE可以同时封装IPv4和IPv6。但是，默认情况下，它使用IPv4进行传输，对于基于IPv6的GRE，存在单独的隧道模式“ip6gre”</p>
+<p>创建多个GRE隧道到同一个端点
+ip tunnel add $ {接口名称}模式gre本地$ {本地端点地址}远程$ {远程端点地址}键$ {键值}
+例子：
+ip tunnel add tun4 mode gre local 192.0.2.1 remote 203.0.113.6 key 123
+ip tunnel add tun5 mode gre local 192.0.2.1 remote 203.0.113.6 key 124
+键控隧道也可以同时使用来解除密码。密钥可能采用点分十进制IPv4类格式</p>
+<p>请注意，密钥不会为隧道添加任何安全性。这只是一个用来区分一条隧道和另一条隧道的标识符</p>
+<p>创建一个点对多点的GRE隧道
+ip tunnel add $ {接口名称}模式gre本地$ {本地端点地址}密钥$ {密钥值}
+例子：
+ip tunnel add tun8 mode gre local 192.0.2.1 key 1234
+ip链接设置dev tun8 up
+ip address add 10.0.0.1/27 dev tun8
+请注意缺少$ {远程端点地址}。这与Cisco IOS中所谓的“mode gre multipoint”相同</p>
+<p>在没有远程端点地址的情况下，密钥是识别隧道流量的唯一方法，因此需要$ {key value}</p>
+<p>这种类型的隧道允许您通过使用相同的隧道接口与多个端点进行通信。它通常用于具有多个端点的复杂VPN设置（在思科术语中称为“动态多点VPN”）</p>
+<p>由于没有明确的远程端点地址，显然仅仅创建隧道是不够的。你的系统需要知道其他端点在哪里</p>
+<p>在现实生活中，使用NHRP（下一跳解析协议）。对于测试，您可以手动添加对等端（给定远程端点在其物理接口上使用203.0.113.6地址，在隧道上使用10.0.0.2）：</p>
+<p>ip neighbor add 10.0.0.2 lladdr 203.0.113.6 dev tun8
+您也必须在远程端点上执行此操作，例如：</p>
+<p>ip neighbor add 10.0.0.1 lladdr 192.0.2.1 dev tun8
+请注意，链路层地址和邻居地址都是IP地址，因此它们位于同一个OSI层。链路层地址概念变得有趣的情况之一</p>
+<p>通过IPv6创建GRE隧道
+最近的内核和iproute2版本支持GRE over IPv6。没有密钥的点对点：</p>
+<p>ip-6隧道添加名称$ {接口名称}模式ip6gre本地$ {本地端点}远程$ {远程端点}
+它应该支持上述IPv4 GRE支持的所有选项和功能</p>
+<p>删除隧道
+ip tunnel del $ {interface name}
+例子：
+ip tunnel del gre1
+请注意，在较旧的iproute2版本中，此命令不支持完整的“删除”字，只有“del”。最近的版本允许全部和缩写形式（在iproute2-ss131122中测试）</p>
+<p>修改隧道
+IP隧道更改$ {接口名称} $ {选项}
+例子：
+ip tunnel change tun0 remote 203.0.113.89
+ip隧道更改tun10密钥23456
+注意：显然，您无法将密钥添加到之前未加密的隧道。不知道这是一个错误还是一个功能。此外，由于显而易见的原因，您无法即时更改隧道模式</p>
+<p>查看隧道信息
+IP隧道表演
+ip tunnel show $ {interface name}
+例子：
+$ ip tun show tun99
+tun99：gre / ip remote 10.46.1.20 local 10.91.19.110 ttl inherit</p>
+<p>L2TPv3伪线管理
+L2TPv3是L2伪线通常使用的隧道协议</p>
+<p>在许多发行版中，L2TPv3被编译为模块，并且可能不会默认加载。如果你得到一个“RTNETLINK答案：没有这样的文件或目录”和“错误的对内核”消息给任何“ip l2tp”命令，情况可能如此。加载l2tp_netlink和 l2tp_eth模块。如果你想通过IP而不是UDP使用L2TPv3，还需要加载 l2tp_ip</p>
+<p>与Linux中的其他隧道协议实现相比，L2TPv3术语有所逆转。您创建一个隧道，然后绑定会话吧。您可以将具有不同标识符的多个会话绑定到相同的隧道。虚拟网络接口（默认名称为l2tpethX）与会话相关联</p>
+<p>注意： Linux内核仅实现数据帧的处理，因此您只能创建带有iproute2的非托管隧道，并且双方都手动配置所有设置。如果您想要使用L2TP进行远程访问VPN或其他非固定伪线，则需要用户空间守护程序来处理它。这超出了本文档范围</p>
+<p>通过UDP创建L2TPv3隧道
+ip l2tp添加隧道\
+tunnel_id $ {本地隧道数字标识符} \
+peer_tunnel_id $ {远程隧道数字标识符} \
+udp_sport $ {源端口} \
+udp_dport $ {目标端口} \
+encap udp \
+本地$ {本地端点地址} \
+远程$ {远程端点地址}
+例子：
+ip l2tp添加隧道\
+tunnel_id 1 \
+peer_tunnel_id 1 \
+udp_sport 5000 \
+udp_dport 5000 \
+encap udp \
+本地192.0.2.1 \
+远程203.0.113.2
+注意：两个端点上的隧道标识符和其他设置必须匹配</p>
+<p>通过IP创建L2TPv3隧道
+ip l2tp添加隧道\
+tunnel_id $ {本地隧道数字标识符} \
+peer_tunnel_id {远程隧道数字标识符} \
+encap ip \
+本地192.0.2.1 \
+远程203.0.113.2</p>
+<p>直接封装成IP的L2TPv3提供较少的开销，一般无法通过NAT</p>
+<p>创建一个L2TPv3会话
+ip l2tp add session tunnel_id $ {local tunnel identifier} \
+session_id $ {本地会话数字标识符} \
+peer_session_id $ {远程会话数字标识符}</p>
+<p>例子：
+ip l2tp add session tunnel_id 1 \
+session_id 10 \
+peer_session_id 10</p>
+<p>注意： tunnel_id值必须匹配先前创建的隧道的值。两个端点上的会话标识符必须匹配</p>
+<p>一旦你创建了一个隧道和一个会话，l2tpethX界面就会出现，处于关闭状态。将状态更改为启动并将其与另一个界面桥接或分配地址</p>
+<p>删除一个L2TPv3会话
+ip l2tp del session tunnel_id $ {tunnel identifier} \
+session_id $ {会话标识符}</p>
+<p>例子
+ip l2tp del session tunnel_id 1 session_id 1
+删除L2TPv3隧道
+ip l2tp del tunnel tunnel_id $ {tunnel identifier}
+例子
+ip l2tp del tunnel tunnel_id 1
+注意：删除之前，您需要删除与隧道相关的所有会话</p>
+<p>查看L2TPv3隧道信息
+ip l2tp显示隧道
+ip l2tp show tunnel tunnel_id $ {tunnel identifier}
+例子：
+ip l2tp show tunnel tunnel_id 12
+查看L2TPv3会话信息
+ip l2tp显示会话
+ip l2tp show session session_id $ {session identifier} \
+tunnel_id $ {隧道标识符}</p>
+<p>例子：
+ip l2tp show session session_id 1 tunnel_id 12
+VXLAN管理
+VXLAN是第2层隧道协议，通常与虚拟化系统（如KVM）结合使用，以将运行在不同虚拟机管理程序节点上的虚拟机彼此连接并连接到外部世界</p>
+<p>与点对点的GRE或L2TPv3不同，VXLAN通过使用IP多播来复制多路访问交换网络的一些属性。此外，它还通过与帧一起发送网络标识符来支持虚拟网络分离</p>
+<p>缺点是您需要使用多播路由协议（通常是PIM-SM）才能使其通过路由网络工作</p>
+<p>VXLAN的底层封装协议是UDP</p>
+<p>创建单播VXLAN链路
+ip link add name $ {interface name}键入vxlan \
+   id &lt;0-16777215&gt; \
+   dev $ {source interface} \
+   远程$ {远程端点地址} \
+   本地$ {本地端点地址} \
+   dstport $ {VXLAN目标端口}
+例：
+ip link add name vxlan0 type vxlan \
+   ID 42 dev eth0远程203.0.113.6本地192.0.2.1 dstport 4789
+注意： id选项表示VXLAN网络标识符（VNI）</p>
+<p>创建组播VXLAN链路
+ip link add name $ {interface name}键入vxlan \
+   id &lt;0-16777215&gt; \
+   dev $ {source interface} \
+   组$ {多播地址} \
+   dstport $ {VXLAN目标端口}
+例：
+ip link add name vxlan0 type vxlan \
+   id 42 dev eth0组239.0.0.1 dstport 4789
+之后，您需要将链接与其他接口桥接或分配地址</p>
+<p>路由管理
+对于IPv4路由，您可以使用前缀长度或点分十进制子网掩码。也就是说，192.0.2.0/24和192.0.2.0/255.255.255.0都可以接受</p>
+<p>注意：根据下面的部分，如果您设置了静态路由，并且由于链接关闭而无法访问，它将被删除，并且 永远不会自行恢复。您可能没有注意到这种行为，因为在许多情况下，附加软件（例如NetworkManager或rp-pppoe）负责在链接上下时恢复路由</p>
+<p>如果您打算将您的Linux机器用作路由器，请考虑安装诸如Quagga 或BIRD之类的路由协议套件。它们跟踪接口状态并在路由器断开后恢复路由时恢复路由。当然，他们也允许你使用动态路由协议，如OSPF和BGP</p>
+<p>连接的路线
+某些路线在系统中显示，没有明确的配置（违背您的意愿）</p>
+<p>一旦为接口分配地址，系统将计算其网络地址并为其创建路由（这就是为什么需要子网掩码）。这些路由被称为连接路由</p>
+<p>例如，如果将203.0.113.25/24分配给eth0，则会创建到203.0.113.0/24网络的已连接路由，并且系统将知道可以直接到达该网络中的主机</p>
+<p>当接口出现故障时，与其关联的连接路由将被删除。这用于不可访问的网关检测，因此通过不可访问的网关的路由被删除。相同的机制阻止您通过无法访问的网关创建路由</p>
+<p>查看所有路线
+ip路由
+ip路由显示
+您可以使用-4和-6选项仅查看IPv4或IPv6路由。如果没有给出选项，则显示IPv4路由。要查看IPv6路由，请使用：
+ip-6路由
+查看到网络及其所有子网的路由
+ip route show to root $ {address} / $ {mask}
+例如，如果在网络中使用192.168.0.0/24子网，并且该子网分为192.168.0.0/25和192.168.0.128/25，则可以看到所有这些路由：
+ip route显示为根192.168.0.0/24
+注意：这个和其他show命令中的“to”是可选的
+查看到网络和所有超网的路由
+ip route show to match $ {address} / $ {mask}
+如果要查看路由到192.168.0.0/24和所有更大的子网，请使用：
+IP路由显示匹配192.168.0.0/24
+由于路由器更偏向于更具体的路由，因此通常用于调试特定子网的流量发送错误的情况，因为缺少路由但存在到较大子网的路由
+查看路由到确切的子网
+ip route显示精确$ {address} / $ {mask}
+如果您想查看192.168.0.0/24的路由，但不想查看路由192.168.0.0/25和192.168.0.0/16，则可以使用：
+IP路由显示确切的192.168.0.0/24
+仅查看内核实际使用的路线
+ip route get $ {address} / $ {mask}
+例：
+ip route获得192.168.0.0/24
+请注意，在复杂路由场景（如多路径路由）中，结果可能“正确但不完整”，因为它总是显示首先使用的一条路由。在大多数情况下，这不是问题，但不要忘记查看相应的“show”命令输出
+查看路由缓存（仅限于3.6内核之前）
+IP路由显示缓存
+在版本3.6之前，Linux使用路由缓存。在较早的内核中，此命令显示路由缓存的内容。它可以与上述的修饰符一起使用。在较新的内核中，它什么都不做
+通过网关添加路由
+ip route通过$ {next hop}添加$ {address} / $ {mask}
+例子：
+ip route通过192.0.2.1添加192.0.2.128/25
+ip route add 2001：db8：1 :: / 48 via 2001：db8：1 :: 1
+通过界面添加路线
+ip route add $ {address} / $ {mask} dev $ {interface name}
+例：
+ip route add 192.0.2.0/25 dev ppp0
+接口路由通常用于点对点接口，如PPP隧道，其中不需要下一跳地址
+更改或替换路线
+您可以使用“更改”命令来更改现有路线的参数。“替换”命令可用于添加新路由或修改现有路由（如果不存在）。例子：</p>
+<p>IP路由通过10.0.0.1更改192.168.2.0/24
+ip route替换192.0.2.1/27 dev tun0
+删除路线
+ip route delete $ {路由语句的其余部分}
+例子：
+IP路由通过10.0.0.1删除10.0.1.0/25
+ip route删除默认dev ppp0
+默认路由</p>
+<p>有一个添加默认路由的快捷方式
+ip route通过$ {address} / $ {mask}添加默认值
+ip route add default dev $ {interface name}
+这些相当于：
+ip route通过$ {address} / $ {mask}添加0.0.0.0/0
+ip route add 0.0.0.0/0 dev $ {interface name}
+对于IPv6路由，它也可以工作，相当于:: / 0
+ip-6路由通过2001：db8 :: 1添加默认值
+黑洞路线
+ip route add blackhole $ {address} / $ {mask}
+例子：
+ip route add blackhole 192.0.2.1/32
+与黑洞路线相匹配的目的地的交通流被无声地丢弃</p>
+<p>黑洞路线有双重目的。首先很简单，就是丢弃发送到不想要的目的地的流量，例如已知的恶意主机</p>
+<p>第二个不太明显，按照RFC1812使用“最长匹配规则”。在某些情况下，您可能希望路由器认为它具有通往更大子网的路由，而不是整体使用它，例如，通过动态路由协议通告整个子网时。大型子网通常会分成较小的部分，因此如果您的子网是192.0.2.0/24，并且您已将192.0.2.1/25和192.0.2.129/25分配给您的接口，则系统会创建连接到/ 25的连接路由，但不是整个/ 24，并且路由守护进程可能不想通告/ 24，因为您没有路由到该确切的子网。解决方案是将黑洞路由设置为192.0.2.0/24</p>
+<p>其他特殊路线
+ip route add unreachable $ {address} / $ {mask}
+ip route add prohibit $ {address} / $ {mask}
+ip route add throw $ {address} / $ {mask}
+这些路由使系统丢弃数据包，并向发件人回复ICMP错误消息
+无法访问
+发送ICMP“主机不可达”
+禁止
+发送ICMP“管理禁止”
+扔
+发送“网络不可达”
+与黑洞路由不同，这些不能用于阻止不需要的流量（例如DDoS），因为它们会为每个丢弃的数据包生成一个回复数据包，从而创建更大的流量。它们可以很好地实施内部访问策略，但首先考虑用于此目的的防火墙</p>
+<p>“抛出”路由可用于实施基于策略的路由，在非默认表中它们会停止当前表查找，但不发送ICMP错误消息</p>
+<p>具有不同度量的路由
+ip route通过$ {gateway}公制$ {number}添加$ {address} / $ {mask}
+例子：
+ip route通过10.0.1.1 metric添加192.168.2.0/24
+ip route add 192.168.2.0 dev ppp0 metric 10
+如果有多条路由通向具有不同度量值的同一个网络，则具有最低度量值的路由将是首选</p>
+<p>这个概念的重要组成部分是，当一个接口关闭时，这个事件无用的路由从路由表中消失（参见连接路由部分），系统将回退到更高的度量路由</p>
+<p>此功能通常用于实现到重要目的地的备份连接</p>
+<p>多路径路由
+ip route通过$ {gateway}添加$ {addresss} / $ {mask} nexthop通过$ {number} nexthop通过$ {gateway 2}加权$ {number}
+多路径路由使得系统根据权重在多个链路上平衡数据包（较高的权重是首选，所以权重为2的网关/接口将比另一个权重为1的网关/接口大约多两倍）。您可以根据需要配置尽可能多的网关，并混合网关和接口路由，如：</p>
+<p>ip route添加默认nexthop通过192.168.1.1权重1 nexthop dev ppp0权重10
+警告：这种平衡的缺点是数据包不能保证通过它们进入的相同链路发回。这称为“不对称路由”。对于简单地转发数据包而不做任何本地流量处理（如NAT）的路由器，这通常是正常的，并且在某些情况下甚至是不可避免的</p>
+<p>如果您的系统除了在接口之间转发数据包之外什么都做，这可能会导致传入连接出现问题，应采取一些措施来防止它们</p>
+<p>基于策略的路由
+Linux中基于策略的路由（PBR）的设计方式如下：首先创建自定义路由表，然后创建规则以告知内核应该使用这些表而不是默认表进行特定流量</p>
+<p>一些表格是预定义的：</p>
+<p>本地（表255）
+包含控制路由本地和广播地址
+主要（表254）
+包含所有非PBR路由。如果您在添加路线时未指定表格，则会显示在此处
+默认（表253）
+保留用于后期处理，通常未使用
+用户定义的表格会在您向其添加第一条路线时自动创建</p>
+<p>创建一个策略路由
+ip route add $ {route options} table $ {table id or name}
+例子：
+ip route通过203.0.113.1表10添加192.0.2.0/27
+ip route通过192.168.0.1表ISP2添加0.0.0.0/0
+ip route add 2001：db8 :: / 48 dev eth1 table 100
+注意：您也可以使用策略路由中的“路由管理”部分中描述的任何路由选项，唯一的区别是最后的“表$ {表id /名称}”部分</p>
+<p>数字表格标识符和名称可以互换使用。要创建您自己的符号名称，请编辑/ etc / iproute2 / rt_tables配置文件</p>
+<p>“删除”，“更改”，“替换”或任何其他路由操作也可以与任何表一起使用</p>
+<p>“ip route ... table main”或“ip route ... table 254”对没有表格部分的命令具有完全相同的效果</p>
+<p>查看策略路由
+ip route show table $ {表ID或名称}
+例子：
+ip route show table 100
+ip route show table test
+注意：在这种情况下，您需要“显示”字，像“ip route table 120”这样的简写不起作用，因为该命令不明确</p>
+<p>一般规则语法
+ip rule add $ {options} <lookup $ {table id or name} | blackhole | prohibit | unreachable>
+如果使用“查找”操作，匹配$ {options}（如下所述）的流量将根据具有指定名称/ id的表进行路由，而不是“主”/ 254表</p>
+<p>“黑洞”，“禁止”和“无法访问”的动作，其工作方式与使用相同名称的类型相同。在大多数例子中，我们将使用“查找”操作作为最常见的操作</p>
+<p>对于IPv6规则，使用“ip -6”，其余语法是相同的</p>
+<p>“table $ {table id or name}”可以用作“查找$ {表id或名称}”的别名</p>
+<p>创建一个规则以匹配源网络
+ip规则添加从$ {源网络} $ {动作}
+例子：
+ip规则添加从192.0.2.0/24查找10
+从2001年ip-6规则添加：db8 :: / 32禁止
+注意： “all”可以用作0.0.0.0/0或者:: / 0的简写</p>
+<p>创建一个规则以匹配目标网络
+ip规则添加到$ {目标网络} $ {action}
+例子：
+ip规则添加到192.0.2.0/24黑洞
+ip -6规则添加到2001：db8 :: / 32查找100
+创建一个规则以匹配ToS字段值
+ip rule add tos $ {ToS value} $ {action}
+例子：
+ip规则添加tos 0x10查找110
+创建一个匹配防火墙标记值的规则
+ip规则添加fwmark $ {mark} $ {action}
+例子：
+ip规则添加fwmark 0x11查找100
+注意：请参阅iptables文档以了解如何设置标记</p>
+<p>创建一个匹配入站接口的规则
+ip规则添加IIF $ {接口名称} $ {动作}
+例子：
+ip规则添加iif eth0查找10
+ip规则添加iif查找20
+“iif lo”（回送）规则将匹配本地生成的流量</p>
+<p>创建一个匹配出站接口的规则
+ip rule add oif $ {interface name} $ {action}
+例子：
+ip规则添加oif eth0查找10
+注意：这仅适用于本地生成的流量</p>
+<p>设置规则优先级
+ip规则添加$ {options} $ {action}优先级$ {value}
+例子：
+ip规则添加从192.0.2.0/25查找10优先级10
+ip规则添加从192.0.2.0/24查找20优先级20
+注意：由于规则从最低优先级到最高优先级进行遍历，并且处理在第一次匹配时停止，所以您需要在不太具体的情况下放置更具体的规则。以上示例演示了192.0.2.0/24及其子网192.0.2.0/25的规则。如果优先顺序被颠倒过来，而且/ 25的规则被置于24的规则之后，那永远不会达到</p>
+<p>显示所有规则
+ip规则显示
+ip-6规则显示
+删除规则
+ip rule del $ {options} $ {action}
+例子：
+ip rule del 192.0.2.0/24查找10
+注意：您可以从“ip rule show”/“ip -6 rule show”的输出复制/粘贴</p>
+<p>删除所有规则
+ip规则刷新
+ip-6规则刷新
+注：此操作具有高度破坏性。即使您没有配置任何规则，默认情况下也会初始化“从所有主查找”规则。在未配置的机器上，您可以看到：</p>
+<p>$ ip规则显示
+0：从所有查找本地
+32766：从所有查找主要
+32767：从所有查找默认</p>
+<p>$ ip -6规则显示
+0：从所有查找本地
+32766：从所有查找主要
+“从所有查找本地”规则是特殊的，不能被删除。“从所有查找主要”不是，可能有没有它的正当理由，例如，如果你只想路由你创建显式规则的流量。作为一个副作用，如果你做“ip rule flush”，这个规则将被删除，这将使系统停止路由任何流量，直到你恢复你的规则</p>
+<p>网络命名空间管理
+网络名称空间是单个机器中隔离的网络堆栈实例。它们可用于安全域分离，管理虚拟机之间的流量等</p>
+<p>每个命名空间都是具有自己的接口，地址，路由等的网络堆栈的完整副本。您可以在命名空间中运行进程，并将命名空间桥接到物理接口</p>
+<p>创建一个名称空间
+ip netns添加$ {命名空间名称}
+例子：
+ip netns添加foo
+列出现有的命名空间
+ip netns列表
+删除一个名字空间
+ip netns删除$ {namespace name}
+例子：
+ip netns删除foo
+在命名空间内运行一个进程
+ip netns exec $ {namespace name} $ {command}
+例子：
+ip netns exec foo / bin / sh
+注意：将进程分配给非默认名称空间需要root权限</p>
+<p>你可以在命名空间内运行任何进程，特别是你可以运行“ip”本身，本节中的命令“ip netns exec foo ip link list”不是一种特殊的语法，而是简单地执行另一个“ip”副本一个名字空间。您也可以在名称空间内运行交互式shell</p>
+<p>列出分配给名称空间的所有进程
+ip netns pids $ {namespace name}
+输出将是一个PID列表</p>
+<p>确定进程的主名称空间
+ip netns标识$ {pid}
+例子：
+ip netns识别9000
+将网络接口分配给名称空间
+ip link set dev $ {interface name} netns $ {namespace name}
+ip link set dev $ {interface name} netns $ {pid}
+例子：
+ip link set dev eth0.100 netns foo
+注意：一旦你给一个命名空间分配了一个接口，它将从默认的命名空间中消失，你将不得不通过“ip netns exec $ {netspace name}”执行所有的操作，如“ip netns exec $ {netspace name} ip link set dev dummy0 down“</p>
+<p>而且，当您将接口移动到另一个名称空间时，它会丢失所有已配置的配置，例如配置的IP地址并进入DOWN状态。您需要将其恢复并重新配置</p>
+<p>如果您指定一个PID而不是命名空间名称，则该接口将被分配到具有该PID的进程的主名称空间。通过这种方式，您可以使用例如“ip netns exec $ {namespace name} ip link set dev $ {intf} netns 1”将接口重新分配回默认名称空间（因为初始化或其他PID 1的进程几乎可以保证处于默认状态命名空间）</p>
+<p>将一个命名空间连接到另一个
+这可以通过创建两个veth链接并为它们分配两个不同的名称空间来完成。假设你想将命名空间“foo”连接到默认的命名空间</p>
+<p>创建一对veth设备：
+ip链接添加名称veth1类型veth peer name veth2
+将veth2移动到名称空间foo：
+ip link set dev veth2 netns foo
+带上veth2并在“foo”命名空间中添加一个地址：
+ip netns exec foo ip link set dev veth2 up
+ip netns exec foo ip address add 10.1.1.1/24 dev veth2
+向veth1添加一个地址，该地址保留在默认名称空间中：
+ip address add 10.1.1.2/24 dev veth1
+现在，您可以ping 10.1.1.1，如果在foo命名空间中，并且设置路由到在该命名空间的其他接口中配置的子网的路由</p>
+<p>如果您想要切换而不是路由，则可以将这些veth接口与相应名称空间中的其他接口进行桥接。可以使用相同的技术将名称空间连接到物理网络</p>
+<p>监视网络名称空间子系统事件
+ip netns监视器
+显示事件，例如创建和删除名称空间</p>
+<p>多播管理
+多播主要由应用程序和路由守护进程处理，所以你可以做的并不多，而且应该在这里手动完成。多播相关的ip命令主要用于调试</p>
+<p>查看多播组
+ip maddress节目
+ip maddress show $ {interface name}
+例：
+$ ip maddress show dev lo
+1：lo
+    inet 224.0.0.1
+    inet6 ff02 :: 1
+    inet6 ff01 :: 1
+添加链路层多播地址
+您不能手动加入IP多播组，但可以添加多播MAC地址（尽管很少需要）</p>
+<p>ip maddress add $ {MAC地址} dev $ {接口名称}
+例：
+ip maddress添加01：00：5e：00：00：ab dev eth0
+查看组播路由
+组播路由无法手动添加，因此此命令只能显示由路由守护程序安装的组播路由。它支持相同的修饰符来单播路由查看命令（iif，table，from等）</p>
+<p>ip mroute显示
+网络事件监控
+您可以使用iproute2监视某些网络事件，例如网络配置，路由表和ARP / NDP表中的更改</p>
+<p>监控所有事件
+您可以不带参数地调用该命令，或者明确指定“全部”</p>
+<p>IP监视器
+ip监视所有
+监视特定事件
+ip monitor $ {event type}
+事件类型可以是：</p>
+<p>链接
+链路状态：接口上下，虚拟接口被创建或销毁等
+地址
+链接地址更改
+路线
+路由表更改
+mroute
+组播路由更改
+嘶
+邻居（ARP和NDP）表中的更改
+当存在不同的IPv4和IPv6子系统时，通常的“-4”和“-6”选项允许您仅显示指定协议的事件。如：</p>
+<p>ip -4监控路由
+ip-6监视器邻居
+ip -4监视器地址
+阅读rtmon生成的日志文件
+iproute2包含一个名为“rtmon”的程序，其功能基本相同，但将事件写入二进制日志文件而不是显示它们。“ip monitor”命令允许您读取由程序创建的文件“</p>
+<p>ip monitor $ {event type}文件$ {日志文件的路径}
+rtmon语法与“ip monitor”类似，除了事件类型仅限于链接，地址，路由和全部; 和地址族在“-family”选项中指定</p>
+<p>rtmon [-family <inet | inet6>] [&lt;路由|链接|地址|所有&gt;]文件$ {日志文件路径}
+netconf（sysctl配置查看）
+查看所有接口的sysctl配置
+ip netconf显示
+查看特定接口的sysctl配置
+ip netconf show dev $ {interface}
+例子：
+ip netconf show dev eth0</p>
+<h2 id="net-tools">Net-tools<a class="headerlink" href="#net-tools" title="Permanent link">&para;</a></h2>
+<h3 id="netstat">netstat<a class="headerlink" href="#netstat" title="Permanent link">&para;</a></h3>
+<div class="language-markdown highlight"><span class="filename">Markdown</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>netstat [-vWeenNcCF] [&lt;Af&gt;] -r
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>netstat [-vWnNcaeol] [&lt;Socket&gt; ...]
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>netstat { [-vWeenNac] -i | [-cnNe] -M | -s [-6tuw] }
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>&lt;Socket&gt;={-t|--tcp} {-u|--udp} {-U|--udplite} {-S|--sctp} {-w|--raw}
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>         {-x|--unix} --ax25 --ipx --netrom
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>&lt;AF&gt;=Use &#39;-6|-4&#39; or &#39;-A &lt;af&gt;&#39; or &#39;--&lt;af&gt;&#39;；默认： inet
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>列出所有支持的协议：
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>  inet (DARPA Internet) inet6 (IPv6) ax25 (AMPR AX.25)
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  netrom (AMPR NET/ROM) ipx (Novell IPX) ddp (Appletalk DDP)
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>  x25 (CCITT X.25)
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>-r,--route              显示路由表
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>-i,--interfaces         显示网络接口表
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>-g,--groups             显示组播组成员关系
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>-s,--statistics         display networking statistics (like SNMP)
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>-t,--tcp                显示TCP传输协议的连线状况
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>-u,--udp                显示UDP传输协议的连线状况
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>-M,--masquerade         显示伪装的网络连接
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>-v,--verbose            显示详细信息
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>-w,--raw                显示RAW传输协议的连线状况
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>-W,--wide               don&#39;t truncate IP addresses
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>-n,--numeric            不解析名称,直接使用IP
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>   --numeric-hosts      不解析主机名
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>   --numeric-ports      忽略端口名称
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>   --numeric-users      忽略用户名
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>-A,--protocol=family    列出对应协议类型连线中的相关地址(family：inet，inet6，unix，ipx，ax25，netrom，econet，ddp和bluetooth)
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>-x,--unix               此参数的效果和指定&quot;-A unix&quot;参数相同
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>--ip,--inet             此参数的效果和指定&quot;-A inet&quot;参数相同
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>-N,--symbolic           解析硬件、外围设备的符号连接名称
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>-e,--extend             显示网络中其他更多信息
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>-p,--programs           显示正在使用Socket的进程PID和程序名称
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>-o,--timers             display timers(显示计时器)
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>-c,--continuous         持续列出网络状态(默认1s)
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>-l,--listening          显示侦听服务器sockets
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>-a,--all                显示所有连线中的Socket(default: connected)
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>-F,--fib                从FIB(forwarding information base)打印路由信息(default)
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>-C,--cache              从路由缓存中打印路由信息
+</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>-Z,--context            显示sockets的SELinux security context
+</span></code></pre></div>
+<h3 id="netstat_1">netstat实例<a class="headerlink" href="#netstat_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 列出所有端口 (包括监听和未监听的)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>netstat<span class="w"> </span>-a<span class="w">     </span><span class="c1">#列出所有端口</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>netstat<span class="w"> </span>-at<span class="w">    </span><span class="c1">#列出所有tcp端口</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>netstat<span class="w"> </span>-au<span class="w">    </span><span class="c1">#列出所有udp端口</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>netstat<span class="w"> </span>-ng<span class="w">    </span><span class="c1">#查看组播情况</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># 列出所有处于监听状态的 Sockets</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>netstat<span class="w"> </span>-l<span class="w">        </span><span class="c1">#只显示监听端口</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>netstat<span class="w"> </span>-lt<span class="w">       </span><span class="c1">#只列出所有监听 tcp 端口</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>netstat<span class="w"> </span>-lu<span class="w">       </span><span class="c1">#只列出所有监听 udp 端口</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>netstat<span class="w"> </span>-lx<span class="w">       </span><span class="c1">#只列出所有监听 UNIX 端口</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1"># 显示每个协议的统计信息</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>netstat<span class="w"> </span>-s<span class="w">   </span>显示所有端口的统计信息
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>netstat<span class="w"> </span>-st<span class="w">   </span>显示TCP端口的统计信息
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>netstat<span class="w"> </span>-su<span class="w">   </span>显示UDP端口的统计信息
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>netstat<span class="w"> </span>-pt<span class="w">     </span><span class="c1"># 在netstat输出中显示 PID 和进程名称</span>
+</span></code></pre></div>
+<p><code>netstat -p</code>可以与其它开关一起使用，就可以添加“PID/进程名称”到netstat输出中，这样debugging的时候可以很方便的发现特定端口运行的程序</p>
+<h2 id="netstathost-port-or-user">在netstat输出中不显示主机，端口和用户名(host, port or user)<a class="headerlink" href="#netstathost-port-or-user" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 当你不想让主机，端口和用户名显示，使用`netstat -n`。将会使用数字代替那些名称。同样可以加速输出，因为不用进行比对查询</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>netstat<span class="w"> </span>-an
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># 如果只是不想让这三个名称中的一个被显示，使用以下命令:</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>netsat<span class="w"> </span>-a<span class="w"> </span>--numeric-ports
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>netsat<span class="w"> </span>-a<span class="w"> </span>--numeric-hosts
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>netsat<span class="w"> </span>-a<span class="w"> </span>--numeric-users
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># 找出程序运行的端口,并不是所有的进程都能找到，没有权限的会不显示，使用 root 权限查看所有的信息</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>netstat<span class="w"> </span>-ap<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ssh
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1"># 找出运行在指定端口的进程</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>netstat<span class="w"> </span>-an<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;:80&#39;</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>命令拆分</th>
+<th>详解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/^tcp/</td>
+<td>过滤出以tcp开头的行，“^”为正则表达式用法，以...开头，这里是过滤出以tcp开头的行。</td>
+</tr>
+<tr>
+<td>S[]</td>
+<td>定义了一个名叫S的数组，在awk中，数组下标通常从 1 开始，而不是 0。</td>
+</tr>
+<tr>
+<td>NF</td>
+<td>当前记录里域个数，默认以空格分隔，如上所示的记录，NF域个数等于6</td>
+</tr>
+<tr>
+<td>$NF</td>
+<td>表示一行的最后一个域的值，如上所示的记录，<span class="arithmatex">\(NF也就是\)</span>6，表示第6个字段的值，也就是SYN_RECV或TIME_WAIT等。</td>
+</tr>
+<tr>
+<td>S[$NF]</td>
+<td>表示数组元素的值，如上所示的记录，就是S[TIME_WAIT]状态的连接数</td>
+</tr>
+<tr>
+<td>++S[$NF]</td>
+<td>表示把某个数加一，如上所示的记录，就是把S[TIME_WAIT]状态的连接数加一</td>
+</tr>
+<tr>
+<td>END</td>
+<td>结束</td>
+</tr>
+<tr>
+<td>forkey in S</td>
+<td>遍历S[]数组</td>
+</tr>
+<tr>
+<td>print key,”\t”,S[key]</td>
+<td>打印数组的键和值，中间用\t制表符分割，显示好一些。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="iptcp">IP和TCP分析<a class="headerlink" href="#iptcp" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">#查看连接某服务端口前20个IP地址及连接数：</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>netstat<span class="w"> </span>-ntu<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>:80<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $5}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d:<span class="w"> </span>-f1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{++ip[$1]} END {for(i in ip) print ip[i],&quot;\t&quot;,i}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>netstat<span class="w"> </span>-anlp<span class="p">|</span>grep<span class="w"> </span><span class="m">80</span><span class="p">|</span>grep<span class="w"> </span>tcp<span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $5}&#39;</span><span class="p">|</span>awk<span class="w"> </span>-F:<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="p">|</span>sort<span class="p">|</span>uniq<span class="w"> </span>-c<span class="p">|</span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>netstat<span class="w"> </span>-nat<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;/:80/{split($5,ip,&quot;:&quot;);++A[ip[1]]}END{for(i in A) print A[i],i}&#39;</span><span class="w"> </span><span class="p">|</span>sort<span class="w"> </span>-rn<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>netstat<span class="w"> </span>-nat<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;:80&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ESTABLISHED<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{printf &quot;%s %s\n&quot;,$5,$6}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># 根据端口列出进程</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>netstat<span class="w"> </span>-ntlp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $7}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d:<span class="w"> </span>-f1
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1"># 用tcpdump嗅探80端口前的访问量</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-tnn<span class="w"> </span>dst<span class="w"> </span>port<span class="w"> </span><span class="m">80</span><span class="w"> </span>-c<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s2">&quot;.&quot;</span><span class="w"> </span><span class="s1">&#39;{print $1&quot;.&quot;$2&quot;.&quot;$3&quot;.&quot;$4}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="c1"># 查看phpcgi进程数，如果接近预设值，说明不够用，需要增加</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>netstat<span class="w"> </span>-anpo<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;php-cgi&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="c1"># 查看TCP连接状态、并发及连接数的命令</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>netstat<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&#39;</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>netstat<span class="w"> </span>-nat<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;[a-z]&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>netstat<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^tcp/ {++state[$NF]}; END {for(key in state) print key,&quot;\t&quot;,state[key]}&#39;</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>netstat<span class="w"> </span>-n<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^tcp/ {++arr[$NF]};END {for(k in arr) print k,&quot;\t&quot;,arr[k]}&#39;</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>netstat<span class="w"> </span>-nt<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-e<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>-e<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>-e<span class="w"> </span>:::<span class="w"> </span>-v<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/^tcp/ {++state[$NF]} END {for(i in state) print i,&quot;\t&quot;,state[i]}&#39;</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="c1"># 查找前20的time_wait连接</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>netstat<span class="w"> </span>-n<span class="p">|</span>grep<span class="w"> </span>TIME_WAIT<span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $5}&#39;</span><span class="p">|</span>sort<span class="p">|</span>uniq<span class="w"> </span>-c<span class="p">|</span>sort<span class="w"> </span>-rn<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="c1"># 查找查前20的SYN连接</span>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>netstat<span class="w"> </span>-an<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SYN<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $5}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F:<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nr<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="c1"># 统计服务器当前单IP连接数最大的IP地址前十</span>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>netstat<span class="w"> </span>-an<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>EST<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;[ :]+&#39;</span><span class="w"> </span><span class="s1">&#39;{++S[$6]} END {for (key in S) print &quot;ip:&quot;key&quot;-----&gt;&quot;,S[key]}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn<span class="w"> </span>-k2
+</span></code></pre></div>
+<h3 id="tcp">TCP状态说明<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">状态</th>
+<th style="text-align: center;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">CLOSED</td>
+<td style="text-align: center;">无连接是活动的或正在进行</td>
+</tr>
+<tr>
+<td style="text-align: center;">LISTEN</td>
+<td style="text-align: center;">服务器在等待进入呼叫</td>
+</tr>
+<tr>
+<td style="text-align: center;">SYN_RECV</td>
+<td style="text-align: center;">一个连接请求已经到达</td>
+</tr>
+<tr>
+<td style="text-align: center;">SYN_SENT</td>
+<td style="text-align: center;">应用已经开始</td>
+</tr>
+<tr>
+<td style="text-align: center;">ESTABLISHED</td>
+<td style="text-align: center;">正常数据传输状态</td>
+</tr>
+<tr>
+<td style="text-align: center;">FIN_WAIT1</td>
+<td style="text-align: center;">应用说它已经完成</td>
+</tr>
+<tr>
+<td style="text-align: center;">FIN_WAIT2</td>
+<td style="text-align: center;">另一边已同意释放</td>
+</tr>
+<tr>
+<td style="text-align: center;">ITMED_WAIT</td>
+<td style="text-align: center;">等待所有分组死掉</td>
+</tr>
+<tr>
+<td style="text-align: center;">CLOSING</td>
+<td style="text-align: center;">两边同时尝试关闭</td>
+</tr>
+<tr>
+<td style="text-align: center;">TIME_WAIT</td>
+<td style="text-align: center;">另一边已初始化一个释放</td>
+</tr>
+<tr>
+<td style="text-align: center;">LAST_ACK</td>
+<td style="text-align: center;">等待所有分组死掉</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tcpnetstat">tcp连接状态的描述说明(netstat输出)<a class="headerlink" href="#tcpnetstat" title="Permanent link">&para;</a></h3>
+<p>Active Internet connections (w/o servers)</p>
+<p>Proto Recv-Q Send-Q Local AddressForeign AddressState</p>
+<p>Proto</p>
+<p>The protocol (tcp, udp, raw) used by the socket.</p>
+<p>第一列为socket使用的协议</p>
+<p>Recv-Q</p>
+<p>The count of bytes not copied by the user program connected to this socket.</p>
+<p>第二列为接到的但是还没处理的字节数</p>
+<p>Send-Q</p>
+<p>The count of bytes not acknowledged by the remote host.</p>
+<p>第三列为已经发送的但是没有被远程主机确认收到的字节数</p>
+<p>Local Address</p>
+<p>Address and port number of the local end of the socket.Unless the --numeric(-n)</p>
+<p>optionisspecified,thesocketaddress is resolved to its canonical host name</p>
+<p>(FQDN), and the port number is translated into the corresponding service name.</p>
+<p>第四列为 本地的地址及端口</p>
+<p>Foreign Address</p>
+<p>Address and port number of the remote endofthesocket.Analogousto"Local Address."</p>
+<p>第五列为外部的地址及端口</p>
+<p>State</p>
+<p>Thestateofthesocket.Sincethere are no states in raw mode and usually no</p>
+<p>states used in UDP, this column may be left blank. Normally this can be one of sev-</p>
+<p>eral values:</p>
+<p>第六列为socket的状态，通常仅仅有tcp的状态，状态值可能有ESTABLISHED，SYN_SENT，SYN_RECV FIN_WAIT1，FIN_WAIT2，TIME_WAIT等，详见下文。其中，最重要的是第六列</p>
+<p>netstat第六列State的状态信息</p>
+<p>State</p>
+<p>Thestateofthesocket.Sincethere are no states in raw mode and usually no</p>
+<p>states used in UDP, this column may be left blank. Normally this can be one of sev-</p>
+<p>eral values:</p>
+<p>第六列为socket的状态，通常仅仅有tcp的状态，状态值可能有ESTABLISHED，SYN_SENT，SYN_RECV FIN_WAIT1，FIN_WAIT2，TIME_WAIT等，详见下文。其中，最重要的是第六列</p>
+<p>ESTABLISHED</p>
+<p>The socket has an established connection.</p>
+<p>socket已经建立连接，表示处于连接的状态，一般认为有一个ESTABLISHED认为是一个服务的并发连接。这个连接状态在生产场景很重要，要重点关注</p>
+<p>SYN_SENT</p>
+<p>The socket is actively attempting to establish a connection.</p>
+<p>socket正在积极尝试建立一个连接，即处于发送后连接前的一个等待但未匹配进入连接的状态</p>
+<p>SYN_RECV</p>
+<p>A connection request has been received from the network.</p>
+<p>已经从网络上收到一个连接请求</p>
+<p>FIN_WAIT1</p>
+<p>The socket is closed, and the connection is shutting down.</p>
+<p>socket已关闭，连接正在或正要关闭</p>
+<p>FIN_WAIT2</p>
+<p>Connectionisclosed,andthesocket is waiting for a shutdown from the remote end.</p>
+<p>连接已关闭，并且socket正在等待远端结束</p>
+<p>TIME_WAIT</p>
+<p>The socket is waiting after close to handle packets still in the network.</p>
+<p>socket正在等待关闭处理仍在网络上的数据包，这个连接状态在生产场景很重要，要重点关注</p>
+<p>CLOSED The socket is not being used.| socket不在被占用了</p>
+<p>CLOSE_WAIT</p>
+<p>The remote end has shutdown, waiting for the socket to close.</p>
+<p>远端已经结束，等待socket关闭</p>
+<p>LAST_ACK</p>
+<p>The remote end has shut down, and the socket is closed. Waiting for acknowl-edgement.|</p>
+<p>远端已经结束，并且socket也已关闭，等待acknowl-edgement</p>
+<p>LISTEN Thesocketislisteningforincoming connections.Such sockets are not</p>
+<p>included in the output unless you specify the --listening (-l) or --all (-a)</p>
+<p>option.</p>
+<p>socket正在监听连接请求</p>
+<p>CLOSING</p>
+<p>Both sockets are shut down but we still don’t have all our data sent.</p>
+<p>sockets关闭，但是我们仍旧没有发送数据</p>
+<p>UNKNOWN</p>
+<p>The state of the socket is unknown</p>
+<p>未知的状态</p>
+<div class="language-bash highlight"><span class="filename">Bash</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># 日志分析篇(Apache)：</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># 得访问前10位的ip地址</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>cat<span class="w"> </span>access.log<span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="p">|</span>sort<span class="p">|</span>uniq<span class="w"> </span>-c<span class="p">|</span>sort<span class="w"> </span>-nr<span class="p">|</span>head<span class="w"> </span>-10
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>cat<span class="w"> </span>access.log<span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{counts[$(11)]+=1}; END {for(url in counts) print counts[url], url}&#39;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1"># 问次数最多的文件或页面,取前20</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>cat<span class="w"> </span>access.log<span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $11}&#39;</span><span class="p">|</span>sort<span class="p">|</span>uniq<span class="w"> </span>-c<span class="p">|</span>sort<span class="w"> </span>-nr<span class="p">|</span>head<span class="w"> </span>-20
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="c1"># 出传输最大的几个exe文件（分析下载站的时候常用）</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;($7~/\.exe/){print $10 &quot; &quot; $1 &quot; &quot; $4 &quot; &quot; $7}&#39;</span><span class="p">|</span>sort<span class="w"> </span>-nr<span class="p">|</span>head<span class="w"> </span>-20
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1"># 出输出大于200000byte(约200kb)的exe文件以及对应文件发生次数</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;($10 &gt; 200000 &amp;&amp; $7~/\.exe/){print $7}&#39;</span><span class="p">|</span>sort<span class="w"> </span>-n<span class="p">|</span>uniq<span class="w"> </span>-c<span class="p">|</span>sort<span class="w"> </span>-nr<span class="p">|</span>head<span class="w"> </span>-100
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1"># 果日志最后一列记录的是页面文件传输时间，则有列出到客户端最耗时的页面</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span>awk<span class="w">  </span><span class="s1">&#39;($7~/\.php/){print $NF &quot; &quot; $1 &quot; &quot; $4 &quot; &quot; $7}&#39;</span><span class="p">|</span>sort<span class="w"> </span>-nr<span class="p">|</span>head<span class="w"> </span>-100
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1"># 出最最耗时的页面(超过60秒的)的以及对应页面发生次数</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;($NF &gt; 60 &amp;&amp; $7~/\.php/){print $7}&#39;</span><span class="p">|</span>sort<span class="w"> </span>-n<span class="p">|</span>uniq<span class="w"> </span>-c<span class="p">|</span>sort<span class="w"> </span>-nr<span class="p">|</span>head<span class="w"> </span>-100
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="c1"># 出传输时间超过 30 秒的文件</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;($NF &gt; 30){print $7}&#39;</span><span class="p">|</span>sort<span class="w"> </span>-n<span class="p">|</span>uniq<span class="w"> </span>-c<span class="p">|</span>sort<span class="w"> </span>-nr<span class="p">|</span>head<span class="w"> </span>-20
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="c1"># 计网站流量（G)</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{sum+=$10} END {print sum/1024/1024/1024}&#39;</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="c1"># 计404的连接</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>awk<span class="w"> </span><span class="s1">&#39;($9 ~/404/)&#39;</span><span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $9,$7}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="c1"># 计http status.</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{counts[$(9)]+=1}; END {for(code in counts) print code, counts[code]}&#39;</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $9}&#39;</span><span class="p">|</span>sort<span class="p">|</span>uniq<span class="w"> </span>-c<span class="p">|</span>sort<span class="w"> </span>-rn
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="c1"># 蛛分析--查看是哪些蜘蛛在抓取内容</span>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>/usr/sbin/tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-l<span class="w"> </span>-s<span class="w"> </span><span class="m">0</span><span class="w"> </span>-w<span class="w"> </span>-<span class="w"> </span>dst<span class="w"> </span>port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>strings<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>user-agent<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;bot|crawler|slurp|spider&#39;</span>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a><span class="c1"># 日志分析篇(Squid)</span>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="c1"># 按域统计流量</span>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a>zcat<span class="w"> </span>squid_access.log.tar.gz<span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $10,$7}&#39;</span><span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;BEGIN{FS=&quot;[ /]&quot;}{trfc[$4]+=$1}END{for(domain in trfc){printf &quot;%s\t%d\n&quot;,domain,trfc[domain]}}&#39;</span>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="c1"># 数据库篇</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a><span class="c1"># 查看数据库执行的sql</span>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a>/usr/sbin/tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-s<span class="w"> </span><span class="m">0</span><span class="w"> </span>-l<span class="w"> </span>-w<span class="w"> </span>-<span class="w"> </span>dst<span class="w"> </span>port<span class="w"> </span><span class="m">3306</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>strings<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;SELECT|UPDATE|DELETE|INSERT|SET|COMMIT|ROLLBACK|CREATE|DROP|ALTER|CALL&#39;</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        此页面是否有帮助?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="有帮助" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="没帮助" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              感谢您的点赞!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              感谢您真诚的反馈! Help me improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.25 6a3.25 3.25 0 0 1 3.25-3.25A3.25 3.25 0 0 1 17.75 6c0 .42.33.75.75.75s.75-.33.75-.75v-.75h1.5V6a2.25 2.25 0 0 1-2.25 2.25A2.25 2.25 0 0 1 16.25 6a1.75 1.75 0 0 0-1.75-1.75A1.75 1.75 0 0 0 12.75 6H14v1.29c2.89.86 5 3.54 5 6.71a7 7 0 0 1-7 7 7 7 0 0 1-7-7c0-3.17 2.11-5.85 5-6.71V6h1.25M22 6h2v1h-2V6m-3-2V2h1v2h-1m1.91.38 1.42-1.42.71.71-1.42 1.42-.71-.71Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../linux/Ubuntu/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Ubuntu">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Ubuntu
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Firewall/" class="md-footer__link md-footer__link--next" aria-label="下一页: Firewall">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Firewall
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Black-Gold" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/black0gold/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "navigation.prune", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.select", "content.code.annotate", "content.tabs.link", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
