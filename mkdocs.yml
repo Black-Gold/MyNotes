@@ -1,6 +1,6 @@
 site_name: Material Design for MyNotes
 site_description: 'A Material Design theme for MyNotes'
-site_author: 'Anonymous'
+site_author: 'Black-Gold'
 site_url: https://19950128.com/
 
 # Repository
@@ -24,6 +24,7 @@ theme:
     top: material/bomb
     previous: fontawesome/solid/angle-left
     next: fontawesome/solid/angle-right
+    annotation: material/comment-eye
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -59,16 +60,35 @@ theme:
     - search.highlight
     - search.suggest
     - search.share
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - content.tabs.link
+    - content.footnote.tooltips
 
 plugins:
   - search:
       lang:
         - en
         - zh
-  - git-authors
-  - git-committers:
-      repository: Black-Gold/MyNotes
-      branch: gh-pages
+  - blog:
+      post_date_format: yyyy-MM-dd
+      post_readtime: true
+      post_readtime_words_per_minute: 217
+      draft: false # 构建时不渲染草稿
+  # 需要使用GitHub API，需要配置token，构建时再启用，方便预览
+  # - git-authors
+  # - git-committers:
+  #     repository: Black-Gold/MyNotes
+  #     branch: gh-pages
+  # 构建时启用: CI=true mkdocs build,实验性功能暂不能用
+  # - group:
+  #     enabled: !ENV CI
+  #     plugins:
+  #       - git-authors
+  #       - git-committers:
+  #           repository: Black-Gold/MyNotes
+  #           branch: gh-pages
 
 # Extensions
 markdown_extensions:
@@ -77,6 +97,7 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
+  - tables
   - toc:
       permalink: true
   - pymdownx.arithmatex:
@@ -93,10 +114,17 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
       auto_title: true
-      linenums: true
-  - pymdownx.superfences
+      # linenums: true # 启用则将所有代码块默认都加上行号
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
@@ -139,69 +167,63 @@ extra:
 # Page tree
 nav:
   - Home: index.md
-  - Coding:
-    - WindowsSetting: Windows.md
-    - Vim: Vim.md
-    - Regex: Regex.md
-    - Shell: Shell.md
-    - Python3: Python3.md
-    - Go: Go.md
-    - Others: Others.md
-  - Linux:
-    - linux/index.md
-    - Centos: linux/Centos.md
+  - md语法中文参考: reference-example.md
+  - Blog:
+    - blog/index.md
+  - System:
+    - system/index.md
+    - Centos: system/linux/Centos.md
     - DebianDistros:
-      - Debian: linux/Debian.md
-      - Ubuntu: linux/Ubuntu.md
-    - Iproute2&Net-tools: linux/Utilities.md
-    - Iptables: linux/Iptables.md
-    - Firewalld: linux/Firewalld.md
-  - Web:
-    - web/index.md
-    - Nginx: web/Nginx.md
-    - Caddy: web/Caddy.md
-    - Apache: web/Apache.md
-    - LVS: web/LVS.md
-    - HAProxy: web/Haproxy.md
-  - Database:
-    - database/index.md
-    - MySQL: database/MySQL.md
-    - MariaDB: database/MariaDB.md
-    - Redis: database/Redis.md
-    - MongoDB: database/MongoDB.md
-  - CloudNative:
-    - cloud-native/index.md
-    - IAM: cloud-native/IAM.md
-    - Ansible: cloud-native/Ansible.md
-    - Docker: cloud-native/Docker.md
-    - Kubernetes: cloud-native/Kubernetes.md
-    - Knative: cloud-native/Knative.md
-    - Serverless: cloud-native/Serverless.md
-  - CI/CD:
-    - pipeline/index.md
-    - Git&GitLab: pipeline/Git.md
-    - Jenkins: pipeline/Jenkins.md
-  - Monitor:
-    - monitor/index.md
-    - Prometheus: monitor/Prometheus.md
-    - Grafana: monitor/Grafana.md
-    - ELKStack: monitor/Elk.md
-    - Zabbix: monitor/Zabbix.md
-    - Monitors: monitor/Monitors.md
-  - Cache:
-    - cache/index.md
-    - Varnish: cache/Varnish.md
-    - Squid: cache/Squid.md
-    - Stunnel: cache/Stunnel.md
-    - ApacheTraffic: cache/TrafficServer.md
-  - Stream:
-    - stream/index.md
-    - Kafka: stream/Kafka.md
-    - RocketMQ: stream/RocketMQ.md
-  - Storage:
-    - storage/index.md
-    - Ceph: storage/Ceph.md
-    - GlusterFS: storage/GlusterFS.md
-  - Network:
-    - network/index.md
-    - Cisco: network/Cisco.md
+      - Debian: system/linux/Debian.md
+      - Ubuntu: system/linux/Ubuntu.md
+    - Networking: system/Networking.md
+    - Firewall: system/Firewall.md
+    - Windows: system/Windows.md
+  - Programming:
+    - coding/index.md
+    - Git: coding/Git.md
+    - Regex: coding/Regex.md
+    - Shell: coding/Shell.md
+    - Python3: coding/Python3.md
+    - Vim: coding/Vim.md
+  - Document:
+    - document/index.md
+    - WebServer:
+      - Nginx: web/Nginx.md
+      - Apache: web/Apache.md
+    - 负载均衡与高可用:
+      - LVS-Keepalived: lbha/LVS.md
+      - HAProxy-Keepalived: lbha/Haproxy.md
+    - 云原生:
+      - Docker: cloud-native/Docker.md
+      - Kubernetes: cloud-native/Kubernetes.md
+      - Knative: cloud-native/Knative.md
+      - Serverless: cloud-native/Serverless.md
+    - CI/CD:
+      - Jenkins: cicd/Jenkins.md
+    - 自动化:
+      - Ansible: automation/Ansible.md
+    - 监控:
+      - Prometheus: monitor/Prometheus.md
+      - Grafana: monitor/Grafana.md
+      - ELKStack: monitor/Elk.md
+      - Zabbix: monitor/Zabbix.md
+      - Monitors: monitor/Monitors.md
+    - 数据库:
+      - MySQL: database/MySQL.md
+      - MariaDB: database/MariaDB.md
+      - Redis: database/Redis.md
+      - MongoDB: database/MongoDB.md
+    - 缓存:
+      - Varnish: cache/Varnish.md
+      - Squid: cache/Squid.md
+    - 存储:
+      - Ceph: storage/Ceph.md
+      - GlusterFS: storage/GlusterFS.md
+    - 安全:
+      - IAM: security/IAM.md
+    - 中间件:
+      - Kafka: middleware/Kafka.md
+      - RocketMQ: middleware/RocketMQ.md
+    - hardware:
+      - Cisco: hardware/Cisco.md

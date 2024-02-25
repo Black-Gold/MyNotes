@@ -1,3 +1,8 @@
+---
+title: python3手册
+description: python3
+icon: material/language-python
+---
 # python3手册
 
 ## Python相关说明
