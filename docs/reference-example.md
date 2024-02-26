@@ -6,12 +6,13 @@ icon: simple/materialformkdocs
 
 # mkdocs-material语法中文示例参考
 
-[英文原文参考链接](https://squidfunk.github.io/mkdocs-material/reference/)
-此页面目的是直接显示具体效果，具体如何使用需要打开源文件参考。
+[英文原文参考链接 :octicons-link-16: ](https://squidfunk.github.io/mkdocs-material/reference/){ .md-button }
+
+{++此页面目的是翻译成中文并直接显示具体效果示例，具体如何使用需要打开源文件参考++}
 
 ## Icons, Emojis
 
-[搜索icons, emojis链接 :material-heart-search:](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search){ .md-button }
+[在线搜索icons, emojis链接 :octicons-link-16: ](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search){ .md-button }
 
 ## 警告note
 
@@ -91,16 +92,16 @@ icon: simple/materialformkdocs
     1.  :woman_raising_hand: 我是第二个注释!
 
 
-==注释示例3==: 内容选型卡中添加注释
-=== "内容选型卡 1"
-    内容选型卡1中内容的注释 (1)
+==注释示例3==: 内容标签中添加注释
+=== "内容标签 1"
+    内容标签1中内容的注释 (1)
     { .annotate }
 
     1.  :man_raising_hand: 选项卡1内容注释!
 
-=== "内容选型卡 2"
+=== "内容标签 2"
 
-    内容选型卡2中内容的注释 (1)
+    内容标签2中内容的注释 (1)
     { .annotate }
 
     1.  :woman_raising_hand: 选项卡2内容注释!
@@ -252,7 +253,7 @@ done
     3. 金牛座
 
 
-==内容标签示例3==: 当启用SuperFences时，内容选项卡可以包含任意嵌套内容，包括更多的内容选项卡，也可以嵌套在其他块中，如警告或block quote
+==内容标签示例3==: 当启用SuperFences时，内容标签可以包含任意嵌套内容，包括更多的内容标签，也可以嵌套在其他块中，如警告或block quote
 !!! 内容标签示例3
 
     === "无序列表1"

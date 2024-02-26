@@ -1,134 +1,100 @@
+---
+title: Windows
+description: Windows系统常用设置和软件等
+icon: fontawesome/brands/windows
+---
+
 # Windows
 
-# Powershell
+## Windows常用快捷键参考
 
-```txt
-oh-my-posh --init --shell pwsh --config D:/paradox.omp.json | Invoke-Expression
-oh-my-posh --init --shell pwsh --config D:/ohmyposhv3-2.json | Invoke-Expression
-. $PROFILE
-notpad $PROFILE
-code $PROFILE
-Get-PoshThemes
-Set-PoshPrompt -Theme nu4a
-Export-PoshTheme -FilePath ~/.mytheme.omp.json -Format json
-C:\Users\Administrator\AppData\Local\oh-my-posh\themes
-C:\Users\Administrator\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+| 快捷键                            | 快捷键作用                                  |
+| :------------------------------- | :----------------------------------------- |
+| ==++windows+e++==                | :open_file_folder: 打开文件资源管理器        |
+| ++windows+num0+tilde+num9++      | win键+数字1至9到0依次从左往右打开任务栏应用     |
+| ==++windows+r++==                | :simple-windowsterminal: 打开Run对话框      |
+| ==++windows+i++==                | :gear: 打开系统设置                          |
+| ==++windows+l++==                | :material-monitor-account: 锁屏或切换账号    |
+| ==++ctrl+windows+d++==           | :material-monitor-multiple: 创建新的虚拟桌面 |
+| ==++ctrl+windows+arrow-left++==  | :material-eye-arrow-left: 向左切换虚拟桌面   |
+| ==++ctrl+windows+arrow-right++== | :material-eye-arrow-right: 向右切换虚拟桌面  |
+| ==++windows+shift+slash++==      | :material-help: 打开windows快捷显示帮助      |
 
-Get-Command -list
-Get-Command -Module PowerShellGet
-Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-Get-Module -Name PowerShellGet -ListAvailable
 
-```
+=== "WSL"
 
-## docker-desktop
+    [下载WSL Linux发行版官方链接 :octicons-link-16: ](https://learn.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions){ .md-button }
 
-```markdown
-start /w "" "Docker Desktop Installer.exe" install --no-windows-containers --backend=wsl-2 --installation-dir=D:\Docker
+    ```powershell title="自定义WSL发行版安装"
+    Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux # (1)!
 
-自定义docker-desktop和docker-desktop-data数据目录
-wsl --shutdown
-wsl --export docker-desktop "E:\dockerwsl\distro\docker-desktop.tar"
-wsl --export docker-desktop-data "E:\dockerwsl\data\docker-desktop-data.tar"
-wsl --unregister docker-desktop
-wsl --unregister docker-desktop-data
-wsl --import docker-desktop "E:\dockerwsl\distro" "E:\dockerwsl\distro\docker-desktop.tar" --version 2
-wsl --import docker-desktop-data "E:\dockerwsl\data" "E:\dockerwsl\data\docker-desktop-data.tar" --version 2
-```
+    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart # (2)!
+    Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
+    move .\Ubuntu.appx .\Ubuntu.zip
+    Expand-Archive .\Ubuntu.zip # (3)!
+    ```
 
-## wsl
+    1. 查看`适用于Linux的Windows子系统`功能是否已经启用
+    2. 启用`适用于Linux的Windows子系统`功能
+    3. 需要注意的是部分发行版需要多次解压，解压后进入解压后的目录，执行对应版本的exe进行初始化！初始化完毕后，将exe对应的路径添加到Path中。
 
-```markdown
-官方教程链接：https://learn.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions
-Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-手动下载发行包
-https://learn.microsoft.com/zh-cn/windows/wsl/install-manual
-将WSL发行版安装到自定义位置
-1. dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-2. Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
-3. move .\Ubuntu.appx .\Ubuntu.zip
-4. Expand-Archive .\Ubuntu.zip
-5. 进入解压后的目录，执行对应版本的exe进行初始化
-6. wsl.exe --import Debian D:\Debian .\install.tar.gz
-7. 将"D:\Debian"路径添加到Path中以从任何地方调用它
 
-一般出错处理执行命令：netsh winsock reset
-```
+=== "docker-desktop"
 
-## 自动关机
+    ```powershell title="自定义docker-desktop安装"
+    # (1)!
+    ./'Docker Desktop Installer.exe' install --installation-dir=D:\Docker --wsl-default-data-root=E:\dockerwsl --no-windows-containers --backend=wsl-2
+    wsl -l -v # (2)!
+    ```
 
-```bat
+    1. :fontawesome-brands-docker: 自定义docker-desktop安装和数据目录
+    2. 查看当前wsl发行版状态
+
+??? tip "更改远程桌面RDP端口"
+    ==regedit打开注册表，分别更改其下的PortNumber键值==
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp
+
+
+## 脚本相关
+
+```batch title="windows自动关闭脚本"
 sleep 3600; shutdown -s
-或
+rem or
 at 00:00:00PM shutdown -s
-或
+rem or
 schtasks /create /sc once /tn "auto shutdown my computer" /tr "shutdown -s" /st 15:30
 
-* Schedule daily shutdown *
-
+rem Schedule daily shutdown
 At 11:00:00PM /every:M,T,W,TH,F,SA,SU shutdown -s
 
-* Schedule automatic resart *
-
+rem Schedule automatic resart
 at 11:00:00PM shutdown -r
 
-* For Sleep *
-
+rem For Sleep
 sleep number_of_seconds_to_wait; shutdown -r
-
 ```
 
-serial number for RAM, motherboard, hard disk,Changing Computer Name
+```batch title="RDP.bat"
+rem bat脚本远程连接脚本
+rem 使用示例：rdp.bat "my.host.name.de" "port" "username" "password"
 
-```bat
-wmic memorychip get serialnumber
-wmic diskdrive get serialnumber
-wmic baseboard get serialnumber
-wmic cdrom where drive='d:' get SerialNumber
+:: RDP connection without password prompt ------------
+:: %1 = hostname
+:: %2 = port
+:: %3 = username
+:: %4 = password
+:: ---------------------------------------------------
+cmdkey /add:"%~1" /user:"%~3" /pass:"%~4"
+start /wait mstsc /v:"%~1:%~2"
+cmdkey /delete:"%~1"
 
-WMIC computersystem where caption='currentname' rename newname
+rem 刷新组策略
+gpupdate/force
+gpupdate /target:computer
 ```
 
-Disable WiFi connection
-
-```bat
-netsh interface set interface name="Wireless Network Connection" admin=DISABLED
-```
-
-Enable/Disable Firewall
-
-```bat
-* For XP/Server 2003 *
-
-netsh firewall set opmode mode=ENABLE
-netsh firewall set opmode mode=DISABLE
-
-* For later versions *
-
-netsh advfirewall set currentprofile state on
-netsh advfirewall set  currentprofile state off
-
-netsh advfirewall set domainprofile state on
-netsh advfirewall set domainprofile state off
-
-netsh advfirewall set privateprofile state on
-netsh advfirewall set privateprofile state off
-
-netsh advfirewall set publicprofile state on
-netsh advfirewall set publicprofile state off
-
-netsh advfirewall set  allprofiles state on
-netsh advfirewall set  allprofiles state off
-```
-
-Join or remove a Computer to Domain
-
-```bat
-netdom.exe join %computername% /domain:DomainName /UserD:DomainName\UserName /PasswordD:Password
-
-netdom.exe remove %computername% /domain:Domainname /UserD:DomainName\UserName /PasswordD:Password
-```
-
+```batch title="DailyCleanup.bat" hl_lines="15-16 25-26"
 @echo off&setlocal enabledelayedexpansion
 rem 根据当前日期获取，年月日串
 set yyyy=%date:~0,4%
@@ -144,7 +110,7 @@ rem 获取n天前的日期
 for /f "tokens=1-3 delims=-:/ " %%a in ("%date%") do (set Y=%%a&set M=%%b&set D=%%c&if "!M:~0,1!"=="0" set M=!M:~1!
 if "!D:~0,1!"=="0" set D=!D:~1!)
 rem 想获取n天前，就修改set/a D-=n天数就行
-set/a D-=1&if !D! leq 0 (set/a M-=1&if !M!==0 set/a Y-=1,M=12
+set/a D-=1 & if !D! leq 0 (set/a M-=1 & if !M!==0 set/a Y-=1,M=12
 set/a "T=^!(M-2)","R=(^!(Y%%4)&^!^!(Y%%100))|^!(Y%%400)","C=^!(M-4)|^!(M-6)|^!(M-9)|^!(M-11)","D=T*(28+R)+C*30+(^!T&^!C)*31"+D)
 set M=0%M%&set D=0%D%
 set previousdate=%Y%-%M:~-2%-%D:~-2%
@@ -153,89 +119,11 @@ echo %previousdate%
 rem 删除前一天的压缩文件
 del E:\compresed\%previousdate%.7z /q
 
-rem 压缩今天的日志文件
+rem 批处理命令延迟方法,此处延迟5秒
+choice /t 5 /d y /n >nul
+
+rem 压缩今天的csv文件
 cd /d D:
 cd D:\7-Zip
 7z.exe a -r E:\compresed\%Ymd%.7z E:\log_%Ymd%.csv -m0=LZMA2 -mx=9 -aoa -y
-
-java 环境
-
-变量名：Path
-变量值：%java_home%\bin
-新建变量名：JAVA_HOME
-变量值：D:\jdk1.8.0_111（这里是jdk的安装目录）
-
-```txt
-VMware Workstation 15.x
-FU512-2DG1H-M85QZ-U7Z5T-PY8ZD
-CU3MA-2LG1N-48EGQ-9GNGZ-QG0UD
-GV7N2-DQZ00-4897Y-27ZNX-NV0TD
-YZ718-4REEQ-08DHQ-JNYQC-ZQRD0
-GZ3N0-6CX0L-H80UP-FPM59-NKAD4
-YY31H-6EYEJ-480VZ-VXXZC-QF2E0
-ZG51K-25FE1-H81ZP-95XGT-WV2C0
-VG30H-2AX11-H88FQ-CQXGZ-M6AY4
-CU7J2-4KG8J-489TY-X6XGX-MAUX2
-FY780-64E90-0845Z-1DWQ9-XPRC0
-UF312-07W82-H89XZ-7FPGE-XUH80
-AA3DH-0PYD1-0803P-X4Z7V-PGHR4
-
-visio密钥
-W9WC2-JN9W2-H4CBV-24QR7-M4HB8
-
 ```
-
-## windows更改远程桌面端口
-
-```bat
-regedit打开注册表，分别更改其下的PortNumber键值
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp
-
-bat脚本远程连接；脚本如下。使用示例：rdp.bat "my.host.name.de" "port" "username" "password"
-
-:: RDP connection without password prompt ------------
-:: %1 = hostname
-:: %2 = port
-:: %3 = username
-:: %4 = password
-:: ---------------------------------------------------
-cmdkey /add:"%~1" /user:"%~3" /pass:"%~4"
-start /wait mstsc /v:"%~1:%~2"
-cmdkey /delete:"%~1"
-
-rem 刷新组策略
-gpupdate/force
-gpupdate /target:computer
-
-```
-
-windows服务绑定IP问题
-netsh-->>http-->>show iplisten
-delete iplisten ipaddress=x.x.x.x
-
-choice /t 5 /d y /n >nul    # 批处理命令延迟方法
-
-## Windows Commands详解大全
-
-远程桌面服务有2种工作模式，Administration Mode和Application Mode。这两种工作模式分别适应不同的场景需求
-
-Administration Mode
-默认的Windows Server安装后就处于该模式，服务器不要求客户端提供License，但是仅仅允许2个远程桌面连接
-
-Application Mode
-微软的Windows Server为了满足用户复杂的远程连接的场景需要，提供了类似于Citrix基于远程桌面的解决方案，用户在安装远程桌面会话服务(Remote Desktop  Session Host)后，服务器转换为application mode，才可以不限制用户数进行连接
-
-此时，服务器默认有120天的Grace Period，允许不限制用户数的远程连接。在120天后，您必须指定一台已经安装Remote Desktop License的远程桌面授权服务器才可以多用户继续连接，否则会提示“由于没有远程桌面授权服务器可以提供许可证，远程会话被中断“的报错。但是此时您还可以通过mstsc /admin命令连接到远程桌面
-
-1.纯cmdlet命令
-Get-Process -Name notepad | Stop-Process
-
-2.cmdlet+遍历
-Get-Process -Name notepad | foreach-object{$_.Kill()}
-
-3.WMI 对象 + 遍历 + 对象方法
-Get-WmiObject Win32_Process -Filter "name = 'notepad.exe'" | ForEach-Object{$_.Terminate()  | Out-Null }
-
-4.WMI 对象 + 遍历 + cmdlet方法
-Get-WmiObject Win32_Process -Filter "name = 'notepad.exe'" | Invoke-WmiMethod -Name Terminate | Out-Null
