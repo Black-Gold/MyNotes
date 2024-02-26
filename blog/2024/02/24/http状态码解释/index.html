@@ -18,6 +18,8 @@
         <link rel="prev" href="../general/">
       
       
+        <link rel="next" href="../../26/%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%8F%96%E5%85%AC%E7%BD%91ip%E7%9A%84%E7%BD%91%E7%AB%99/">
+      
       
       <link rel="icon" href="../../../../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
@@ -966,7 +968,7 @@
                       <li class="md-nav__item">
                         <div class="md-nav__link">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69V13m4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67V8M5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2H5m11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85Z"/></svg>
-                          <time datetime="2024-02-25 00:00:00" class="md-ellipsis">2024-02-25</time>
+                          <time datetime="2024-02-26 00:00:00" class="md-ellipsis">2024-02-26</time>
                         </div>
                       </li>
                     
@@ -1012,69 +1014,79 @@
 
 
 <h1 id="http">HTTP状态码解释<a class="headerlink" href="#http" title="Permanent link">&para;</a></h1>
-<p><a href="https://tools.ietf.org/html/rfc7231">官方rfc7231文档参考</a></p>
+<p><a class="md-button" href="https://tools.ietf.org/html/rfc7231">官方rfc7231文档参考 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span> </a></p>
 <h2 id="http_1">HTTP状态码<a class="headerlink" href="#http_1" title="Permanent link">&para;</a></h2>
-<div class="language-markdown highlight"><span class="filename">Markdown</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1xx（临时响应）:
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  100 Continue（继续）：服务器已收到请求的初始部分，客户端应继续请求。
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  101 Switching Protocols（切换协议）：服务器正在更改协议。
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  102 Processing（处理中）：服务器已接受请求，但尚未完成处理。
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>2xx（成功）
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    200 OK（成功）：请求已成功。
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    201 Created（已创建）：请求已经被实现，而且有一个新的资源被创建。
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    202 Accepted（已接受）：已接受请求，但尚未处理。
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    203 Non-Authoritative Information（非权威信息）：服务器已成功处理了请求，但返回的信息可能来自另一来源。
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    204 No Content（无内容）：服务器成功处理，但没有返回内容。
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    205 Reset Content（重置内容）：服务器成功处理，用户代理应重置文档视图。
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    206 Partial Content（部分内容）：服务器成功处理了部分GET请求。
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>3xx（重定向）
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    300 Multiple Choices（多种选择）：对请求URI有多个可用资源。
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    301 Moved Permanently（永久重定向）：请求的资源已被永久移动到新位置。
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    302 Found（找到）：请求的资源临时从不同的URI响应。
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    303 See Other（查看其他）：对于完成请求，客户端应该寻找另一个URI。
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    304 Not Modified（未修改）：资源未被修改。
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    305 Use Proxy（使用代理）：请求应使用代理访问请求的URI。
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    307 Temporary Redirect（临时重定向）：对请求的资源临时从不同的URI响应。
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>4xx（请求错误）
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    400 Bad Request（错误请求）：请求无效。
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    401 Unauthorized（未授权）：需要身份验证。
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    402 Payment Required（要求付款）：保留供将来使用。
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    403 Forbidden（禁止）：服务器拒绝请求。
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    404 Not Found（未找到）：服务器找不到请求的资源。
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    405 Method Not Allowed（方法不允许）：请求中指定的方法不允许。
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    406 Not Acceptable（不接受）：服务器生成的响应无法让客户端接受。
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    407 Proxy Authentication Required（需要代理身份验证）：客户端必须先通过代理授权。
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    408 Request Timeout（请求超时）：服务器等待请求时发生超时。
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    409 Conflict（冲突）：请求导致冲突。
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>    410 Gone（消失）：请求的资源不再可用。
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    411 Length Required（需要长度）：缺少必需的Content-Length头字段。
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>    412 Precondition Failed（前提条件失败）：请求中指定的前提条件失败。
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    413 Payload Too Large（负载过大）：请求正文太大。
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>    414 URI Too Long（URI过长）：URI太长。
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>    415 Unsupported Media Type（不支持的媒体类型）：不支持请求中使用的媒体类型。
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    416 Range Not Satisfiable（范围不可满足）：无法满足请求的Range头字段。
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    417 Expectation Failed（期望失败）：服务器无法满足Expect头字段的期望值。
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    426 Upgrade Required（需要升级）：客户端需要切换到TLS/1.0。
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
-</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>5xx（服务器错误）
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    500 Internal Server Error（服务器内部错误）：服务器遇到了无法处理的错误。
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>    501 Not Implemented（未实现）：服务器不具备完成请求所需的功能。
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    502 Bad Gateway（错误网关）：服务器作为网关或代理，从上游服务器接收到无效响应。
-</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>    503 Service Unavailable（服务不可用）：服务器暂时无法处理请求。
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    504 Gateway Timeout（网关超时）：服务器作为网关或代理，未能及时从上游服务器接收到请求。
-</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>    505 HTTP Version Not Supported（HTTP版本不支持）：服务器不支持请求中所使用的HTTP协议版本。
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>[<span class="nt">参考RFC 6585 - Additional HTTP Status Codes</span>](<span class="na">https://tools.ietf.org/html/rfc6585</span>)
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>RFC 6585 新增状态码
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>    418 I&#39;m a teapot（我是一个茶壶）：服务器拒绝尝试用于冲泡咖啡的请求，因为它是一个茶壶。
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    421 Misdirected Request（请求错误）：服务器无法生成对当前目标资源的响应，但可能对其他目标资源有效。
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>    428 Precondition Required（要求先决条件）：服务器要求请求包含前提条件。
-</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>    429 Too Many Requests（请求数过多）：用户在给定的时间内发送了太多请求。
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>    431 Request Header Fields Too Large（请求头字段太大）：服务器不愿意处理请求，因为请求头字段太大。
-</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>    451 Unavailable For Legal Reasons（因法律原因不可用）：请求的资源因法律原因不可用。
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">1xx</label><label for="__tabbed_1_2">2xx</label><label for="__tabbed_1_3">3xx</label><label for="__tabbed_1_4">4xx</label><label for="__tabbed_1_5">5xx</label><label for="__tabbed_1_6">RFC6585</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-markdown highlight"><span class="filename">临时响应</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>100 Continue(继续): 服务器已收到请求的初始部分，客户端应继续请求。
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>101 Switching Protocols(切换协议): 服务器正在更改协议。
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>102 Processing(处理中): 服务器已接受请求，但尚未完成处理。
 </span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-markdown highlight"><span class="filename">成功</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="hll">200 OK(成功): 请求已成功。
+</span></span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>201 Created(已创建): 请求已经被实现，而且有一个新的资源被创建。
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>202 Accepted(已接受): 已接受请求，但尚未处理。
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>203 Non-Authoritative Information(非权威信息): 服务器已成功处理了请求，但返回的信息可能来自另一来源。
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>204 No Content(无内容): 服务器成功处理，但没有返回内容。
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>205 Reset Content(重置内容): 服务器成功处理，用户代理应重置文档视图。
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>206 Partial Content(部分内容): 服务器成功处理了部分GET请求。
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-markdown highlight"><span class="filename">重定向</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>300 Multiple Choices(多种选择): 对请求URI有多个可用资源。
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="hll">301 Moved Permanently(永久重定向): 请求的资源已被永久移动到新位置。
+</span></span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="hll">302 Found(找到): 请求的资源临时从不同的URI响应。
+</span></span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>303 See Other(查看其他): 对于完成请求，客户端应该寻找另一个URI。
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="hll">304 Not Modified(未修改): 资源未被修改。
+</span></span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>305 Use Proxy(使用代理): 请求应使用代理访问请求的URI。
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>307 Temporary Redirect(临时重定向): 对请求的资源临时从不同的URI响应。
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-markdown highlight"><span class="filename">请求错误</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>400 Bad Request(错误请求): 请求无效。
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>401 Unauthorized(未授权): 需要身份验证。
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>402 Payment Required(要求付款): 保留供将来使用。
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="hll">403 Forbidden(禁止): 服务器拒绝请求。
+</span></span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="hll">404 Not Found(未找到): 服务器找不到请求的资源。
+</span></span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="hll">405 Method Not Allowed(方法不允许): 请求中指定的方法不允许。
+</span></span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>406 Not Acceptable(不接受): 服务器生成的响应无法让客户端接受。
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>407 Proxy Authentication Required(需要代理身份验证): 客户端必须先通过代理授权。
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>408 Request Timeout(请求超时): 服务器等待请求时发生超时。
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="hll">409 Conflict(冲突): 请求导致冲突。
+</span></span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>410 Gone(消失): 请求的资源不再可用。
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>411 Length Required(需要长度): 缺少必需的Content-Length头字段。
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>412 Precondition Failed(前提条件失败): 请求中指定的前提条件失败。
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>413 Payload Too Large(负载过大): 请求正文太大。
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>414 URI Too Long(URI过长): URI太长。
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>415 Unsupported Media Type(不支持的媒体类型): 不支持请求中使用的媒体类型。
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>416 Range Not Satisfiable(范围不可满足): 无法满足请求的Range头字段。
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>417 Expectation Failed(期望失败): 服务器无法满足Expect头字段的期望值。
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>426 Upgrade Required(需要升级): 客户端需要切换到TLS/1.0。
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-markdown highlight"><span class="filename">服务器错误</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="hll">500 Internal Server Error(服务器内部错误): 服务器遇到了无法处理的错误。
+</span></span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>501 Not Implemented(未实现): 服务器不具备完成请求所需的功能。
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="hll">502 Bad Gateway(错误网关): 服务器作为网关或代理，从上游服务器接收到无效响应。
+</span></span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="hll">503 Service Unavailable(服务不可用): 服务器暂时无法处理请求。
+</span></span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="hll">504 Gateway Timeout(网关超时): 服务器作为网关或代理，未能及时从上游服务器接收到请求。
+</span></span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>505 HTTP Version Not Supported(HTTP版本不支持): 服务器不支持请求中所使用的HTTP协议版本。
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><a href="https://tools.ietf.org/html/rfc6585">参考RFC 6585 - Additional HTTP Status Codes</a></p>
+<div class="language-markdown highlight"><span class="filename">其他HTTP状态代码</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>418 I&#39;m a teapot(我是一个茶壶): 服务器拒绝尝试用于冲泡咖啡的请求，因为它是一个茶壶。
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>421 Misdirected Request(请求错误): 服务器无法生成对当前目标资源的响应，但可能对其他目标资源有效。
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>428 Precondition Required(要求先决条件): 服务器要求请求包含前提条件。
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>429 Too Many Requests(请求数过多): 用户在给定的时间内发送了太多请求。
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>431 Request Header Fields Too Large(请求头字段太大): 服务器不愿意处理请求，因为请求头字段太大。
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>451 Unavailable For Legal Reasons(因法律原因不可用): 请求的资源因法律原因不可用。
+</span></code></pre></div>
+</div>
+</div>
+</div>
 
 
 
@@ -1176,6 +1188,22 @@
             </div>
           </a>
         
+        
+          
+          <a href="../../26/%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%8F%96%E5%85%AC%E7%BD%91ip%E7%9A%84%E7%BD%91%E7%AB%99/" class="md-footer__link md-footer__link--next" aria-label="下一页: 可以获取公网IP的网站">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                可以获取公网IP的网站
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

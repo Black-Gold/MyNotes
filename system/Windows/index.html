@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A Material Design theme for MyNotes">
+        <meta name="description" content="Windows系统常用设置和软件等">
       
       
         <meta name="author" content="Black-Gold">
@@ -739,8 +739,23 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m0 93.7 183.6-25.3v177.4H0V93.7zm0 324.6 183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+  
+  <span class="md-ellipsis">
+    Windows
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m0 93.7 183.6-25.3v177.4H0V93.7zm0 324.6 183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
   
   <span class="md-ellipsis">
     Windows
@@ -748,6 +763,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows常用快捷键参考
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      脚本相关
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -915,6 +967,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows常用快捷键参考
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      脚本相关
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -932,201 +1010,162 @@
 
 
 <h1 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h1>
-<h1 id="powershell">Powershell<a class="headerlink" href="#powershell" title="Permanent link">&para;</a></h1>
-<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>oh-my-posh --init --shell pwsh --config D:/paradox.omp.json | Invoke-Expression
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>oh-my-posh --init --shell pwsh --config D:/ohmyposhv3-2.json | Invoke-Expression
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>. $PROFILE
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>notpad $PROFILE
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>code $PROFILE
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Get-PoshThemes
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Set-PoshPrompt -Theme nu4a
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Export-PoshTheme -FilePath ~/.mytheme.omp.json -Format json
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>C:\Users\Administrator\AppData\Local\oh-my-posh\themes
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>C:\Users\Administrator\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Get-Command -list
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>Get-Command -Module PowerShellGet
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>Get-Module -Name PowerShellGet -ListAvailable
+<h2 id="windows_1">Windows常用快捷键参考<a class="headerlink" href="#windows_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">快捷键作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><mark><span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-e">E</kbd></span></mark></td>
+<td style="text-align: left;"><img alt="📂" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f4c2.svg" title=":open_file_folder:" /> 打开文件资源管理器</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-num0">Num 0</kbd><span>+</span><kbd class="key-tilde">~</kbd><span>+</span><kbd class="key-num9">Num 9</kbd></span></td>
+<td style="text-align: left;">win键+数字1至9到0依次从左往右打开任务栏应用</td>
+</tr>
+<tr>
+<td style="text-align: left;"><mark><span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-r">R</kbd></span></mark></td>
+<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.165 6V3h7.665v3H8.165zm-.5-3H1c-.55 0-1 .45-1 1v2h7.665V3zM23 3h-6.67v3H24V4c0-.55-.45-1-1-1zM0 6.5h24V20c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V6.5zM11.5 18c0 .3.2.5.5.5h8c.3 0 .5-.2.5-.5v-1.5c0-.3-.2-.5-.5-.5h-8c-.3 0-.5.2-.5.5V18zm-5.2-4.55-3.1 3.1c-.25.25-.25.6 0 .8l.9.9c.25.25.6.25.8 0l4.4-4.4a.52.52 0 0 0 0-.8l-4.4-4.4c-.2-.2-.6-.2-.8 0l-.9.9c-.25.2-.25.55 0 .8l3.1 3.1z"/></svg></span> 打开Run对话框</td>
+</tr>
+<tr>
+<td style="text-align: left;"><mark><span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-i">I</kbd></span></mark></td>
+<td style="text-align: left;"><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2699.svg" title=":gear:" /> 打开系统设置</td>
+</tr>
+<tr>
+<td style="text-align: left;"><mark><span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-l">L</kbd></span></mark></td>
+<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 2c1.05 0 1.92.81 2 1.85V16c0 1.05-.82 1.92-1.85 2H14v2h2v2H8v-2h2v-2H3c-1.05 0-1.92-.82-2-1.85V4a2 2 0 0 1 1.85-2H21m0 2H3v12h18V4m-9 7c2.21 0 4 .9 4 2v1H8v-1c0-1.1 1.79-2 4-2m0-5a2 2 0 1 1 0 4c-1.11 0-2-.89-2-2s.9-2 2-2Z"/></svg></span> 锁屏或切换账号</td>
+</tr>
+<tr>
+<td style="text-align: left;"><mark><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-d">D</kbd></span></mark></td>
+<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 17V7H6v10h16m0-12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6v2h2v2h-8v-2h2v-2H6c-1.11 0-2-.89-2-2V7a2 2 0 0 1 2-2h16M2 3v12H0V3a2 2 0 0 1 2-2h18v2H2Z"/></svg></span> 创建新的虚拟桌面</td>
+</tr>
+<tr>
+<td style="text-align: left;"><mark><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-arrow-left">Left</kbd></span></mark></td>
+<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5.36 0 .72 0 1.08-.05a6.09 6.09 0 0 1-.08-.95c0-.56.08-1.12.24-1.66-.41.1-.82.16-1.24.16-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 .29-.03.59-.08.88.66-.25 1.37-.38 2.08-.38 1.17 0 2.31.34 3.29 1 .27-.5.51-1 .71-1.5-1.73-4.39-6-7.5-11-7.5M12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3m6 6v2h4v2h-4v2l-3-3 3-3"/></svg></span> 向左切换虚拟桌面</td>
+</tr>
+<tr>
+<td style="text-align: left;"><mark><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-arrow-right">Right</kbd></span></mark></td>
+<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5h1.1c-.1-.3-.1-.6-.1-1 0-.6.1-1.1.2-1.7-.4.1-.8.2-1.2.2-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5c0 .3 0 .6-.1.9.7-.2 1.4-.4 2.1-.4 1.2 0 2.3.3 3.3 1 .3-.5.5-1 .7-1.5-1.7-4.4-6-7.5-11-7.5M12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3m7 12v-2h-4v-2h4v-2l3 3-3 3"/></svg></span> 向右切换虚拟桌面</td>
+</tr>
+<tr>
+<td style="text-align: left;"><mark><span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-slash">/</kbd></span></mark></td>
+<td style="text-align: left;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 19h3v3h-3v-3m2-17c5.35.22 7.68 5.62 4.5 9.67-.83 1-2.17 1.66-2.83 2.5C13 15 13 16 13 17h-3c0-1.67 0-3.08.67-4.08.66-1 2-1.59 2.83-2.25C15.92 8.43 15.32 5.26 12 5a3 3 0 0 0-3 3H6a6 6 0 0 1 6-6Z"/></svg></span> 打开windows快捷显示帮助</td>
+</tr>
+</tbody>
+</table>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">WSL</label><label for="__tabbed_1_2">docker-desktop</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="md-button" href="https://learn.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions">下载WSL Linux发行版官方链接 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg></span> </a></p>
+<div class="language-powershell highlight"><span class="filename">自定义WSL发行版安装</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Get-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="n">Microsoft-Windows-Subsystem-Linux</span> <span class="c"># (1)!</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">Microsoft-Windows-Subsystem-Linux</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span> <span class="c"># (2)!</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="n">https</span><span class="p">://</span><span class="n">aka</span><span class="p">.</span><span class="n">ms</span><span class="p">/</span><span class="n">wslubuntu2004</span> <span class="n">-OutFile</span> <span class="n">Ubuntu</span><span class="p">.</span><span class="n">appx</span> <span class="n">-UseBasicParsing</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">move </span><span class="p">.\</span><span class="n">Ubuntu</span><span class="p">.</span><span class="n">appx</span> <span class="p">.\</span><span class="n">Ubuntu</span><span class="p">.</span><span class="n">zip</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">Expand-Archive</span> <span class="p">.\</span><span class="n">Ubuntu</span><span class="p">.</span><span class="n">zip</span> <span class="c"># (3)!</span>
 </span></code></pre></div>
-<h2 id="docker-desktop">docker-desktop<a class="headerlink" href="#docker-desktop" title="Permanent link">&para;</a></h2>
-<div class="language-markdown highlight"><span class="filename">Markdown</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>start /w &quot;&quot; &quot;Docker Desktop Installer.exe&quot; install --no-windows-containers --backend=wsl-2 --installation-dir=D:\Docker
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>自定义docker-desktop和docker-desktop-data数据目录
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>wsl --shutdown
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>wsl --export docker-desktop &quot;E:\dockerwsl\distro\docker-desktop.tar&quot;
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>wsl --export docker-desktop-data &quot;E:\dockerwsl\data\docker-desktop-data.tar&quot;
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>wsl --unregister docker-desktop
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>wsl --unregister docker-desktop-data
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>wsl --import docker-desktop &quot;E:\dockerwsl\distro&quot; &quot;E:\dockerwsl\distro\docker-desktop.tar&quot; --version 2
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>wsl --import docker-desktop-data &quot;E:\dockerwsl\data&quot; &quot;E:\dockerwsl\data\docker-desktop-data.tar&quot; --version 2
+<ol>
+<li>查看<code>适用于Linux的Windows子系统</code>功能是否已经启用</li>
+<li>启用<code>适用于Linux的Windows子系统</code>功能</li>
+<li>需要注意的是部分发行版需要多次解压，解压后进入解压后的目录，执行对应版本的exe进行初始化！初始化完毕后，将exe对应的路径添加到Path中。</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="language-powershell highlight"><span class="filename">自定义docker-desktop安装</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c"># (1)!</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">./</span><span class="s1">&#39;Docker Desktop Installer.exe&#39;</span> <span class="n">install</span> <span class="p">-</span><span class="n">-installation-dir</span><span class="p">=</span><span class="n">D</span><span class="p">:\</span><span class="n">Docker</span> <span class="p">-</span><span class="n">-wsl-default-data-root</span><span class="p">=</span><span class="n">E</span><span class="p">:\</span><span class="n">dockerwsl</span> <span class="p">-</span><span class="n">-no-windows-containers</span> <span class="p">-</span><span class="n">-backend</span><span class="p">=</span><span class="n">wsl</span><span class="p">-</span><span class="n">2</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">wsl</span> <span class="n">-l</span> <span class="n">-v</span> <span class="c"># (2)!</span>
 </span></code></pre></div>
-<h2 id="wsl">wsl<a class="headerlink" href="#wsl" title="Permanent link">&para;</a></h2>
-<div class="language-markdown highlight"><span class="filename">Markdown</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>官方教程链接：https://learn.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>手动下载发行包
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>https://learn.microsoft.com/zh-cn/windows/wsl/install-manual
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>将WSL发行版安装到自定义位置
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">1.</span> dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">2.</span> Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">3.</span> move .\Ubuntu.appx .\Ubuntu.zip
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">4.</span> Expand-Archive .\Ubuntu.zip
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">5.</span> 进入解压后的目录，执行对应版本的exe进行初始化
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">6.</span> wsl.exe --import Debian D:\Debian .\install.tar.gz
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">7.</span> 将&quot;D:\Debian&quot;路径添加到Path中以从任何地方调用它
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>一般出错处理执行命令：netsh winsock reset
+<ol>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg></span> 自定义docker-desktop安装和数据目录</li>
+<li>查看当前wsl发行版状态</li>
+</ol>
+</div>
+</div>
+</div>
+<details class="tip">
+<summary>更改远程桌面RDP端口</summary>
+<p><mark>regedit打开注册表，分别更改其下的PortNumber键值</mark>
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp</p>
+</details>
+<h2 id="_1">脚本相关<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="language-batch highlight"><span class="filename">windows自动关闭脚本</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sleep 3600; shutdown -s
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">rem or</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>at 00:00:00PM shutdown -s
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">rem or</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>schtasks /create /sc once /tn <span class="s2">&quot;auto shutdown my computer&quot;</span> /tr <span class="s2">&quot;shutdown -s&quot;</span> /st 15:30
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">rem Schedule daily shutdown</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>At 11:00:00PM /every:M,T,W,TH,F,SA,SU shutdown -s
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">rem Schedule automatic resart</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>at 11:00:00PM shutdown -r
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1">rem For Sleep</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>sleep number_of_seconds_to_wait; shutdown -r
 </span></code></pre></div>
-<h2 id="_1">自动关机<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="language-bat highlight"><span class="filename">Batchfile</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sleep 3600; shutdown -s
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>或
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>at 00:00:00PM shutdown -s
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>或
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>schtasks /create /sc once /tn <span class="s2">&quot;auto shutdown my computer&quot;</span> /tr <span class="s2">&quot;shutdown -s&quot;</span> /st 15:30
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>* Schedule daily shutdown *
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>At 11:00:00PM /every:M,T,W,TH,F,SA,SU shutdown -s
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>* Schedule automatic resart *
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>at 11:00:00PM shutdown -r
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>* For Sleep *
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>sleep number_of_seconds_to_wait; shutdown -r
+<div class="language-batch highlight"><span class="filename">RDP.bat</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">rem bat脚本远程连接脚本</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">rem 使用示例：rdp.bat &quot;my.host.name.de&quot; &quot;port&quot; &quot;username&quot; &quot;password&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">:</span><span class="c1">: RDP connection without password prompt ------------</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">:</span><span class="c1">: %1 = hostname</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">:</span><span class="c1">: %2 = port</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">:</span><span class="c1">: %3 = username</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">:</span><span class="c1">: %4 = password</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">:</span><span class="c1">: ---------------------------------------------------</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>cmdkey /add:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">&quot;</span> /user:<span class="s2">&quot;</span><span class="nv">%~3</span><span class="s2">&quot;</span> /pass:<span class="s2">&quot;</span><span class="nv">%~4</span><span class="s2">&quot;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">start</span> /wait mstsc /v:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">:</span><span class="nv">%~2</span><span class="s2">&quot;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>cmdkey /delete:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">&quot;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1">rem 刷新组策略</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>gpupdate/force
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>gpupdate /target:computer
 </span></code></pre></div>
-<p>serial number for RAM, motherboard, hard disk,Changing Computer Name</p>
-<div class="language-bat highlight"><span class="filename">Batchfile</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>wmic memorychip get serialnumber
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>wmic diskdrive get serialnumber
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>wmic baseboard get serialnumber
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>wmic cdrom where drive=&#39;d:&#39; get SerialNumber
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>WMIC computersystem where caption=&#39;currentname&#39; rename newname
+<div class="language-batch highlight"><span class="filename">DailyCleanup.bat</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">@</span><span class="k">echo</span> off<span class="p">&amp;</span><span class="k">setlocal</span> enabledelayedexpansion
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">rem 根据当前日期获取，年月日串</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">set</span> <span class="nv">yyyy</span><span class="p">=</span><span class="nv">%date:~0,4%</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">set</span> <span class="nv">mm</span><span class="p">=</span><span class="nv">%date:~5,2%</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">set</span> <span class="nv">day</span><span class="p">=</span><span class="nv">%date:~8,2%</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">set</span> <span class="s2">&quot;Ymd=</span><span class="nv">%yyyy%</span><span class="s2">-</span><span class="nv">%mm%</span><span class="s2">-</span><span class="nv">%day%</span><span class="s2">&quot;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">rem 把年月日串中末尾空格替换掉</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">set</span> <span class="s2">&quot;Ymd=</span><span class="nv">%Ymd: =%</span><span class="s2">&quot;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">echo</span> <span class="nv">%Ymd%</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1">rem 获取n天前的日期</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">for</span> <span class="k">/f</span> <span class="s2">&quot;tokens=1-3 delims=-:/ &quot;</span> <span class="se">%%</span>a <span class="k">in</span> <span class="p">(</span><span class="s2">&quot;</span><span class="nv">%date%</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="p">(</span><span class="k">set</span> <span class="nv">Y</span><span class="p">=</span><span class="se">%%</span>a<span class="p">&amp;</span><span class="k">set</span> <span class="nv">M</span><span class="p">=</span><span class="se">%%</span>b<span class="p">&amp;</span><span class="k">set</span> <span class="nv">D</span><span class="p">=</span><span class="se">%%</span>c<span class="p">&amp;</span><span class="k">if</span> <span class="s2">&quot;</span><span class="nv">!M:~0,1!</span><span class="s2">&quot;</span><span class="o">==</span><span class="s2">&quot;0&quot;</span> <span class="k">set</span> <span class="nv">M</span><span class="p">=</span><span class="nv">!M:~1!</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">if</span> <span class="s2">&quot;</span><span class="nv">!D:~0,1!</span><span class="s2">&quot;</span><span class="o">==</span><span class="s2">&quot;0&quot;</span> <span class="k">set</span> <span class="nv">D</span><span class="p">=</span><span class="nv">!D:~1!</span><span class="p">)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="hll"><span class="c1">rem 想获取n天前，就修改set/a D-=n天数就行</span>
+</span></span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="hll"><span class="k">set/a</span> <span class="nv">D</span><span class="o">-=</span><span class="mi">1</span> <span class="p">&amp;</span> <span class="k">if</span> <span class="nv">!D!</span> <span class="ow">leq</span> 0 <span class="p">(</span><span class="k">set/a</span> <span class="nv">M</span><span class="o">-=</span><span class="mi">1</span> <span class="p">&amp;</span> <span class="k">if</span> <span class="nv">!M!</span><span class="o">==</span>0 <span class="k">set/a</span> <span class="nv">Y</span><span class="o">-=</span><span class="mi">1</span><span class="p">,</span><span class="nv">M</span><span class="o">=</span><span class="mi">12</span>
+</span></span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">set/a</span> <span class="s2">&quot;T=</span><span class="se">^!</span><span class="s2">(M-2)&quot;</span><span class="p">,</span><span class="s2">&quot;R=(</span><span class="nv">^!(Y%%4)&amp;^!^!(Y%%100))|^!</span><span class="s2">(Y</span><span class="se">%%</span><span class="s2">400)&quot;</span><span class="p">,</span><span class="s2">&quot;C=</span><span class="nv">^!(M-4)|^!</span><span class="s2">(M-6)|</span><span class="nv">^!(M-9)|^!</span><span class="s2">(M-11)&quot;</span><span class="p">,</span><span class="s2">&quot;D=T*(28+R)+C*30+(</span><span class="nv">^!T&amp;^!</span><span class="s2">C)*31&quot;</span><span class="o">+</span><span class="nv">D</span><span class="p">)</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">set</span> <span class="nv">M</span><span class="p">=</span>0<span class="nv">%M%</span><span class="p">&amp;</span><span class="k">set</span> <span class="nv">D</span><span class="p">=</span>0<span class="nv">%D%</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="k">set</span> <span class="nv">previousdate</span><span class="p">=</span><span class="nv">%Y%</span>-<span class="nv">%M:~-2%</span>-<span class="nv">%D:~-2%</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="k">echo</span> <span class="nv">%previousdate%</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="c1">rem 删除前一天的压缩文件</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="k">del</span> E:\compresed\<span class="nv">%previousdate%</span>.7z /q
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="hll"><span class="c1">rem 批处理命令延迟方法,此处延迟5秒</span>
+</span></span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="hll">choice /t 5 /d y /n <span class="p">&gt;</span>nul
+</span></span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="c1">rem 压缩今天的csv文件</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="k">cd</span> /d D:
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="k">cd</span> D:\7-Zip
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>7z.exe a -r E:\compresed\<span class="nv">%Ymd%</span>.7z E:\log_<span class="nv">%Ymd%</span>.csv -m0=LZMA2 -mx=9 -aoa -y
 </span></code></pre></div>
-<p>Disable WiFi connection</p>
-<div class="language-bat highlight"><span class="filename">Batchfile</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>netsh interface set interface name=<span class="s2">&quot;Wireless Network Connection&quot;</span> admin=DISABLED
-</span></code></pre></div>
-<p>Enable/Disable Firewall</p>
-<div class="language-bat highlight"><span class="filename">Batchfile</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>* For XP/Server 2003 *
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>netsh firewall set opmode mode=ENABLE
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>netsh firewall set opmode mode=DISABLE
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>* For later versions *
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>netsh advfirewall set currentprofile state on
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>netsh advfirewall set  currentprofile state off
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>netsh advfirewall set domainprofile state on
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>netsh advfirewall set domainprofile state off
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>netsh advfirewall set privateprofile state on
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>netsh advfirewall set privateprofile state off
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>netsh advfirewall set publicprofile state on
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>netsh advfirewall set publicprofile state off
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>netsh advfirewall set  allprofiles state on
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>netsh advfirewall set  allprofiles state off
-</span></code></pre></div>
-<p>Join or remove a Computer to Domain</p>
-<div class="language-bat highlight"><span class="filename">Batchfile</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>netdom.exe join <span class="nv">%computername%</span> /domain:DomainName /UserD:DomainName\UserName /PasswordD:Password
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>netdom.exe remove <span class="nv">%computername%</span> /domain:Domainname /UserD:DomainName\UserName /PasswordD:Password
-</span></code></pre></div>
-<p>@echo off&amp;setlocal enabledelayedexpansion
-rem 根据当前日期获取，年月日串
-set yyyy=%date:~0,4%
-set mm=%date:~5,2%
-set day=%date:~8,2%
-set "Ymd=%yyyy%-%mm%-%day%"</p>
-<p>rem 把年月日串中末尾空格替换掉
-set "Ymd=%Ymd: =%"
-echo %Ymd%</p>
-<p>rem 获取n天前的日期
-for /f "tokens=1-3 delims=-:/ " %%a in ("%date%") do (set Y=%%a&amp;set M=%%b&amp;set D=%%c&amp;if "!M:~0,1!"<mark>"0" set M=!M:~1!
-if "!D:~0,1!"</mark>"0" set D=!D:~1!)
-rem 想获取n天前，就修改set/a D-=n天数就行
-set/a D-=1&amp;if !D! leq 0 (set/a M-=1&amp;if !M!==0 set/a Y-=1,M=12
-set/a "T=<sup>!(M-2)","R=(</sup>!(Y%%4)&amp;<sup>!</sup>!(Y%%100))|<sup>!(Y%%400)","C=</sup>!(M-4)|<sup>!(M-6)|</sup>!(M-9)|<sup>!(M-11)","D=T*(28+R)+C*30+(</sup>!T&amp;^!C)*31"+D)
-set M=0%M%&amp;set D=0%D%
-set previousdate=%Y%-%M:<sub>-2%-%D:</sub>-2%
-echo %previousdate%</p>
-<p>rem 删除前一天的压缩文件
-del E:\compresed\%previousdate%.7z /q</p>
-<p>rem 压缩今天的日志文件
-cd /d D:
-cd D:\7-Zip
-7z.exe a -r E:\compresed\%Ymd%.7z E:\log_%Ymd%.csv -m0=LZMA2 -mx=9 -aoa -y</p>
-<p>java 环境</p>
-<p>变量名：Path
-变量值：%java_home%\bin
-新建变量名：JAVA_HOME
-变量值：D:\jdk1.8.0_111（这里是jdk的安装目录）</p>
-<div class="language-text highlight"><span class="filename">Text Only</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>VMware Workstation 15.x
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>FU512-2DG1H-M85QZ-U7Z5T-PY8ZD
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>CU3MA-2LG1N-48EGQ-9GNGZ-QG0UD
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>GV7N2-DQZ00-4897Y-27ZNX-NV0TD
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>YZ718-4REEQ-08DHQ-JNYQC-ZQRD0
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>GZ3N0-6CX0L-H80UP-FPM59-NKAD4
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>YY31H-6EYEJ-480VZ-VXXZC-QF2E0
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>ZG51K-25FE1-H81ZP-95XGT-WV2C0
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>VG30H-2AX11-H88FQ-CQXGZ-M6AY4
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>CU7J2-4KG8J-489TY-X6XGX-MAUX2
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>FY780-64E90-0845Z-1DWQ9-XPRC0
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>UF312-07W82-H89XZ-7FPGE-XUH80
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>AA3DH-0PYD1-0803P-X4Z7V-PGHR4
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>visio密钥
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>W9WC2-JN9W2-H4CBV-24QR7-M4HB8
-</span></code></pre></div>
-<h2 id="windows_1">windows更改远程桌面端口<a class="headerlink" href="#windows_1" title="Permanent link">&para;</a></h2>
-<div class="language-bat highlight"><span class="filename">Batchfile</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>regedit打开注册表，分别更改其下的PortNumber键值
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>bat脚本远程连接；脚本如下。使用示例：rdp.bat <span class="s2">&quot;my.host.name.de&quot;</span> <span class="s2">&quot;port&quot;</span> <span class="s2">&quot;username&quot;</span> <span class="s2">&quot;password&quot;</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">:</span><span class="c1">: RDP connection without password prompt ------------</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">:</span><span class="c1">: %1 = hostname</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">:</span><span class="c1">: %2 = port</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">:</span><span class="c1">: %3 = username</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">:</span><span class="c1">: %4 = password</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="p">:</span><span class="c1">: ---------------------------------------------------</span>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>cmdkey /add:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">&quot;</span> /user:<span class="s2">&quot;</span><span class="nv">%~3</span><span class="s2">&quot;</span> /pass:<span class="s2">&quot;</span><span class="nv">%~4</span><span class="s2">&quot;</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="k">start</span> /wait mstsc /v:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">:</span><span class="nv">%~2</span><span class="s2">&quot;</span>
-</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>cmdkey /delete:<span class="s2">&quot;</span><span class="nv">%~1</span><span class="s2">&quot;</span>
-</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
-</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="c1">rem 刷新组策略</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>gpupdate/force
-</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>gpupdate /target:computer
-</span></code></pre></div>
-<p>windows服务绑定IP问题
-netsh&rarr;&gt;http&rarr;&gt;show iplisten
-delete iplisten ipaddress=x.x.x.x</p>
-<p>choice /t 5 /d y /n &gt;nul    # 批处理命令延迟方法</p>
-<h2 id="windows-commands">Windows Commands详解大全<a class="headerlink" href="#windows-commands" title="Permanent link">&para;</a></h2>
-<p>远程桌面服务有2种工作模式，Administration Mode和Application Mode。这两种工作模式分别适应不同的场景需求</p>
-<p>Administration Mode
-默认的Windows Server安装后就处于该模式，服务器不要求客户端提供License，但是仅仅允许2个远程桌面连接</p>
-<p>Application Mode
-微软的Windows Server为了满足用户复杂的远程连接的场景需要，提供了类似于Citrix基于远程桌面的解决方案，用户在安装远程桌面会话服务(Remote Desktop  Session Host)后，服务器转换为application mode，才可以不限制用户数进行连接</p>
-<p>此时，服务器默认有120天的Grace Period，允许不限制用户数的远程连接。在120天后，您必须指定一台已经安装Remote Desktop License的远程桌面授权服务器才可以多用户继续连接，否则会提示“由于没有远程桌面授权服务器可以提供许可证，远程会话被中断“的报错。但是此时您还可以通过mstsc /admin命令连接到远程桌面</p>
-<p>1.纯cmdlet命令
-Get-Process -Name notepad | Stop-Process</p>
-<p>2.cmdlet+遍历
-Get-Process -Name notepad | foreach-object{$_.Kill()}</p>
-<p>3.WMI 对象 + 遍历 + 对象方法
-Get-WmiObject Win32_Process -Filter "name = 'notepad.exe'" | ForEach-Object{$_.Terminate()  | Out-Null }</p>
-<p>4.WMI 对象 + 遍历 + cmdlet方法
-Get-WmiObject Win32_Process -Filter "name = 'notepad.exe'" | Invoke-WmiMethod -Name Terminate | Out-Null</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

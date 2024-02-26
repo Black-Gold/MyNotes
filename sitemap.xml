@@ -2,252 +2,257 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://19950128.com/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/reference-example/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/automation/Ansible/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/blog/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/blog/2024/02/24/http%E7%8A%B6%E6%80%81%E7%A0%81%E8%A7%A3%E9%87%8A/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://19950128.com/blog/2024/02/26/%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%8F%96%E5%85%AC%E7%BD%91ip%E7%9A%84%E7%BD%91%E7%AB%99/</loc>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/blog/2024/02/24/general/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/cache/Squid/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/cache/Varnish/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/cicd/Jenkins/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/cloud-native/Docker/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/cloud-native/Knative/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/cloud-native/Kubernetes/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/cloud-native/Serverless/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/coding/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/coding/Git/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/coding/Python3/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/coding/Regex/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/coding/Shell/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/coding/Vim/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/database/MariaDB/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/database/MongoDB/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/database/MySQL/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/database/Redis/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/document/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/hardware/Cisco/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/lbha/Haproxy/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/lbha/LVS/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/middleware/Kafka/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/middleware/RocketMQ/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/monitor/Elk/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/monitor/Grafana/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/monitor/Monitors/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/monitor/Prometheus/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/monitor/Zabbix/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/security/IAM/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/storage/Ceph/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/storage/GlusterFS/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/system/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/system/Firewall/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/system/Iptables/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/system/Networking/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/system/Windows/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/system/linux/Centos/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/system/linux/Debian/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/system/linux/Ubuntu/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/web/Apache/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/web/Nginx/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/blog/archive/2024/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/blog/category/web/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://19950128.com/blog/category/general/</loc>
-         <lastmod>2024-02-25</lastmod>
+         <lastmod>2024-02-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
